@@ -1,0 +1,19 @@
+dist: xenial
+language: minimal
+sudo: required
+before_install:
+  - curl -L https://git.io/n-install | sudo bash -s -- -y
+  - . $HOME/.bashrc
+  - sudo apt-get update
+  - sudo apt-get install -y python3-pip python3-setuptools
+install:
+  - node --version
+  - npm --version
+  - python3 --version
+  - python3 -m pip --version
+  - npm install markdownlint-cli
+  - git clone git@github.ibm.com:devAccelerate/yaml-headers-validator.git
+  - python3 -m pip install --user -r yaml-headers-validator/requirements.txt
+script:
+  - cd yaml-headers-validator
+  - ls ../*/index.md ../*/nl/*/index.md | PATH=$PATH:../node_modules/.bin/ python3 validate.py --no-markdown
