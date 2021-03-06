@@ -1,4 +1,3 @@
-![header](./header.jpg)
 # Watson Natural Language Understanding を利用して非構造化データを視覚化する
 ### 強力なアナリティクス・エンジンによってデータにコグニティブ・エンリッチを適用し、洞察を引き出す
 
