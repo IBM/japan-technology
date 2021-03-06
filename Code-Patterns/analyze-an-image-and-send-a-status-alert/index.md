@@ -8,6 +8,7 @@
 authors: Hovig Ohannessian
 
 last_updated: 2019-05-21
+
 retired_date: 2021-01-08
 
 [YouTube動画](https://www.youtube.com/watch?v=BarTh-A2r1A) 
