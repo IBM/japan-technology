@@ -33,7 +33,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/document-correlation-arch.png)
+![フロー](./images/document-correlation-arch.png)
 
 1. 対象のドキュメントを IBM Cloud Object Storage に保管します。
 2. ドキュメントのコンテンツはテキスト形式で保管されていて、Jupyter Notebook によって取得されて処理されます。

@@ -27,7 +27,7 @@ last_updated: 2018-07-13
 
 ## フロー
 
-![フロー](../../images/arch-train-audio-classifier.png)
+![フロー](./images/arch-train-audio-classifier.png)
 
 1. トレーニング用ファイルを Object Storage にアップロードします。
 1. Watson Machine Learning 上でトレーニングを実行します。

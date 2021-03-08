@@ -25,7 +25,7 @@ IBM Cloud 上の Node.js ランタイムには、[NPM モジュールの組み�
 
 ## フロー
 
-![フロー](../../images/Build-serverless-API-handlers.png)
+![フロー](./images/Build-serverless-API-handlers.png)
 
 1. API クライアントが REST API に HTTP POST リクエストを送信します。
 1. API ゲートウェイがリクエストを受け取り、それを OpenWhisk アクションに転送します。

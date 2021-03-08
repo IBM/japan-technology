@@ -30,7 +30,7 @@ last_updated: '2017-11-16'
 
 ## フロー
 
-![フロー](../../images/industrial-visual-analysis-arch.png)
+![フロー](./images/industrial-visual-analysis-arch.png)
 
 1. ユーザーが Web UI を使用して画像をアップロードします。
 2. アップロードされた画像データが Cloudant データベースに送信されます。

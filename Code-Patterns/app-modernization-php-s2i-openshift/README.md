@@ -34,11 +34,11 @@ OpenShift に移行した後、Example Health はシステムを拡大して新�
 * ぜんそく有病率
 
 管理者がログインすると以下のようなページが表示されます。
-![サンプル健康記録アプリのスクリーンショット](../../images/example-health-records-admin-app.png)
+![サンプル健康記録アプリのスクリーンショット](./images/example-health-records-admin-app.png)
 
 ## フロー
 
-![マイクロサービスと OpenShift S2I アーキテクチャーによる健康記録管理者用アプリのモダナイゼーション・フロー図](../../images/app-modernization-openshift-php-s2i-architecture-diagram.png)
+![マイクロサービスと OpenShift S2I アーキテクチャーによる健康記録管理者用アプリのモダナイゼーション・フロー図](./images/app-modernization-openshift-php-s2i-architecture-diagram.png)
 
 1. ユーザー (健康記録管理者) が PHP アプリを開きます。
 1. 次のいずれかの方法でデータが取り込まれます。

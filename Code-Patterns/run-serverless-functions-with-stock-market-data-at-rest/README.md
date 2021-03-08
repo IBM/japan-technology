@@ -34,7 +34,7 @@ last_updated: 2018-11-06
 
 ## フロー
 
-![フロー](../../images/stock-market-data_arch.png)
+![フロー](./images/stock-market-data_arch.png)
 
 1. ユーザーが追跡対象の証券コードを入力します。
 2. cron ユーティリティーを使用して、時間ベースのスケジュールにアラーム・トリガーが設定されます。このアラーム・トリガーは、設定された時間に get-stocks-data アクションをトリガーします。

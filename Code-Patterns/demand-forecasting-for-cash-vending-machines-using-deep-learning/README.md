@@ -30,7 +30,7 @@ ATM の需要の増減を予測するには多大な努力を要します。そ�
 
 ## フロー
 
-![需要を予測する際のフロー図](../../images/forecast-demand-vending-machines-flow.png)
+![需要を予測する際のフロー図](./images/forecast-demand-vending-machines-flow.png)
 
 1. 最初の入力 .csv ファイルをオブジェクト・ストレージにアップロードします。
 1. 深層学習モデルを作成して予測を生成する Notebook を実行します。

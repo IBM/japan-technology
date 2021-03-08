@@ -25,7 +25,7 @@ Akka のライブラリーを利用してスケーラブルで回復力のある
 
 ## フロー
 
-![フロー](../../images/arch-akka-kubernetes.png)
+![フロー](./images/arch-akka-kubernetes.png)
 
 1. Docker ベース・イメージにツールを追加します。
 1. sbt ビルド・ツールを使用して、Docker イメージ内にサンプル・アプリをビルドします。

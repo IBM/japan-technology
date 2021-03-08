@@ -29,7 +29,7 @@ last_updated: 2019-04-11
 
 ## フロー
 
-![フロー](../../images/flow-v2.png)
+![フロー](./images/flow-v2.png)
 
 1. IBM Watson Studio にログインします。
 1. 用意されているノートブックを Watson Studio にロードします。

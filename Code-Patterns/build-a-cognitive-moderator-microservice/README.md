@@ -28,7 +28,7 @@ last_updated: 2018-10-03
 
 ## フロー
 
-![フロー](../../images/flow-cognitive-moderator.png)
+![フロー](./images/flow-cognitive-moderator.png)
 
 1. ユーザーが Slack アプリを操作して、テキストを送信するか、画像をアップロードします。
 1. ボットが Slack 内で使用されているテキストまたは画像を IBM Cloud Functions API に渡します。IBM Function に対して API 呼び出しが行われます。すると、IBM Function が Watson Visual Recognition または Watson Natural Language Processing から返されたレスポンスに応じてテキストまたは画像を分類します。

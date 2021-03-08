@@ -19,7 +19,7 @@ Twelve-Factor App (アプリ開発に必要な 12 要素) では、障害を前�
 
 ## フロー
 
-![フロー](../../images/make-java-microservices-resilient-with-istio-arch-flow.png)
+![フロー](./images/make-java-microservices-resilient-with-istio-arch-flow.png)
 
 1. Kubernetes クラスター内で稼動するように構成された Java アプリケーションをデプロイします。
 1. アプリケーション上で Istio Envoy を注入します。

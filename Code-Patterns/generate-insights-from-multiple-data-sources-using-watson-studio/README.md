@@ -26,7 +26,7 @@ last_updated: '2019-02-19'
 
 ## フロー
 
-![フロー](../../images/generate_insights.png)
+![フロー](./images/generate_insights.png)
 
 1. ローカル・ファイル (csv ファイル) からデータを抽出します。
 1. Db2 on Cloud からデータを抽出します。

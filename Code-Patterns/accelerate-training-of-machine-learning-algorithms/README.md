@@ -27,7 +27,7 @@ last_updated: 2017-05-16
 
 ## フロー
 
-![フロー](../../images/tensorflow-arch.png)
+![フロー](./images/tensorflow-arch.png)
 
 1. 開発者が、用意されているノートブックをロードします。このノートブックは PowerAI システム上で稼働します。
 2. 実行中のノートブックは *The New York Times* からのデータと市場データを使用します。

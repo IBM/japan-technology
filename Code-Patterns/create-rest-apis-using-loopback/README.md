@@ -21,7 +21,7 @@ Web サービス用の REST API を作成するとしたら、真っ先に頭に
 
 ## フロー
 
-![フロー](../../images/rest-apis-loopback-diagram.png)
+![フロー](./images/rest-apis-loopback-diagram.png)
 
 1. ユーザーが LoopBack CLI を使用して API の雛形 (scaffold) を生成します。
 1. ユーザーが Compose for MongoDB データ・ソースにリンクします。

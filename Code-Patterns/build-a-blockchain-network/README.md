@@ -29,7 +29,7 @@ last_updated: 2018-05-28
 
 ## フロー
 
-![フロー](../../images/arch-blockchain-network1.png)
+![フロー](./images/arch-blockchain-network1.png)
 
 1. Hyperledger Composer 開発ツールをインストールします。
 2. Hyperledger Fabric を起動します。

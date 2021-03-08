@@ -32,7 +32,7 @@ last_updated: 2018-06-01
 
 ## フロー
 
-![フロー](../../images/xgboost-architecture-1.png)
+![フロー](./images/xgboost-architecture-1.png)
 
 1. IBM Watson Studio にログインします。
 1. データをデータ・アセットとして Watson Studio にアップロードします。

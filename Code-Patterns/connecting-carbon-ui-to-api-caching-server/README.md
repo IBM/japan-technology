@@ -26,7 +26,7 @@ last_updated: 2019-11-25
 
 ## フロー
 
-![このパターンのアーキテクチャー図](../../images/arch-flow.png)
+![このパターンのアーキテクチャー図](./images/arch-flow.png)
 
 1.  ユーザーが、Carbon Design System を使用して作成されたフロントエンドを介し、API サーバーに対して認証を行います。
 2.  フロントエンドが REST API に対し、視覚化するデータをリクエストします。.

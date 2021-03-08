@@ -28,7 +28,7 @@ IBM StoredIQ プラットフォームは強力かつ極めてスケーラブル�
 
 ## フロー
 
-![フロー](../../images/flow-storediq-1.png)
+![フロー](./images/flow-storediq-1.png)
 
 1. Connector SDK を使用して、データ・ソースのコネクターを開発します。
 1. コネクターを、StoredIQ データ・サーバーおよびゲートウェイ・サーバーに統合して登録します。

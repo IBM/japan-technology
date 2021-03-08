@@ -27,7 +27,7 @@ Watson Discovery News は、Watson が自動的にニュース記事をドキュ
 
 ## フロー
 
-![フロー](../../images/flow-use-watson-studio-bitcoin.png)
+![フロー](./images/flow-use-watson-studio-bitcoin.png)
 
 1. IBM Cloud に登録します。
 1. Watson Discovery サービス・インスタンスを作成します。

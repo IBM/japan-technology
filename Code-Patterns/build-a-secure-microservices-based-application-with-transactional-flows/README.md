@@ -26,7 +26,7 @@ last_updated: 2020-08-25
 
 ## フロー
 
-![API Connect と App Connect を利用したセキュアなマイクロサービス・ベースのバンキング・アプリ・アーキテクチャーのフロー](../../images/api-connect-app-connect-arch.png)
+![API Connect と App Connect を利用したセキュアなマイクロサービス・ベースのバンキング・アプリ・アーキテクチャーのフロー](./images/api-connect-app-connect-arch.png)
 
 1. ユーザーがクライアント・アプリケーションにログインします。
 1. ログイン・リクエストが API Connect に送信されます。

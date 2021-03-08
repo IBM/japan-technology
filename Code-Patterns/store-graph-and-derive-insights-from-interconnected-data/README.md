@@ -32,7 +32,7 @@ last_updated: 2017-11-23
 
 ## フロー
 
-![フロー](../../images/Insights-from-OrientDB-database-arch-flow.png)
+![フロー](./images/Insights-from-OrientDB-database-arch-flow.png)
 
 1. ユーザーが IBM Cloud 上の Kubernetes サービスを利用して Kubernetes クラスターをセットアップします。
 1. ユーザーがステップ 1 で作成した Kubernetes クラスターに、永続ボリュームと併せて OrientDB インスタンスをデプロイし、IBM Cloud 上の OrientDB が使用するポート (2424、2480) を公開します。

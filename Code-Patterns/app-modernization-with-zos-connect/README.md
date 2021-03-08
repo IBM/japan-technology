@@ -25,7 +25,7 @@ z/OS&reg; Connect を利用して Db2&reg; データベースと CICS&reg; ア�
 
 ## フロー
 
-![フロー](../../images/flow.png)
+![フロー](./images/flow.png)
 
 1. z/OS Connect が REST API を介して Db2 のデータを公開します。
 1. z/OS Connect が REST API を介して CICS プログラム/データを公開します。

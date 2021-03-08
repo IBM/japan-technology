@@ -27,7 +27,7 @@ last_updated: 2019-03-28
 
 ## フロー
 
-![フロー](../../images/tensorflow-keras-arch.png)
+![フロー](./images/tensorflow-keras-arch.png)
 
 1. 前提条件、Keras、TensorFlow をインストールした後、ノートブックを実行します。
 1. トレーニング・データを使用して言語モデルをトレーニングします。

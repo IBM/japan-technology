@@ -27,7 +27,7 @@ last_updated: 2018-10-18
 
 ## フロー
 
-![フロー](../../images/arch-hybridcloud-journey.png)
+![フロー](./images/arch-hybridcloud-journey.png)
 
 ## 手順
 

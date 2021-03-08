@@ -30,7 +30,7 @@ last_updated: 2018-11-05
 
 ## フロー
 
-![フロー](../../images/watson_studio_local.png)
+![フロー](./images/watson_studio_local.png)
 
 1. Spark DataFrame の処理によってデータセットをクリーンアップし、Spark MLlib を使用して PCA 分類モデルをトレーニングします。
 1. トレーニングしたモデルを IBM Watson Studio Local に保存します。

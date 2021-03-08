@@ -26,7 +26,7 @@ last_updated: 2018-06-16
 
 ## フロー
 
-![フロー](../../images/arch-analyze-product-reviews.png)
+![フロー](./images/arch-analyze-product-reviews.png)
 
 1. ユーザーがアプリを IBM Cloud 内にデプロイします。ユーザーがアプリの UI を操作します。
 1. ユーザーが商品の URL を入力します。これにより、アプリが商品レビューの取得を開始します。

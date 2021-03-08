@@ -26,7 +26,7 @@ last_updated: 2018-04-05
 
 ## フロー
 
-![フロー](../../images/waste-architecture_diagram.png)
+![フロー](./images/waste-architecture_diagram.png)
 
 1. モバイル・アプリを使って画像をキャプチャーします。
 1. アプリから、クラウド内で稼働中のサーバー・アプリケーションに画像を渡します。

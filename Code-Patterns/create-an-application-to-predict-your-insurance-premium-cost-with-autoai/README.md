@@ -29,7 +29,7 @@ last_updated: 2020-06-04
 
 ## フロー
 
-![保険料の予測フローを示す図](../../images/create-an-application-to-predict-your-insurance-premium-cost-with-autoai.png)
+![保険料の予測フローを示す図](./images/create-an-application-to-predict-your-insurance-premium-cost-with-autoai.png)
 
 1. ユーザーが IBM Cloud 上で IBM Watson Studio サービスのインスタンスを作成します。
 1. ユーザーが IBM Cloud Object Storage サービスのインスタンスを作成し、そのインスタンスを Watson Studio に追加します。

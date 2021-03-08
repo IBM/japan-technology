@@ -29,7 +29,7 @@ last_updated: 2018-06-27
 
 ## フロー
 
-![フロー](../../images/multilingual-arch.png)
+![フロー](./images/multilingual-arch.png)
 
 1. クライアントからメッセージを受信します。クライアントは Web ブラウザー、CLI、OpenWhisk アクション、SMS テキストなどです。
 1. メッセージのペイロードに音声ファイルが含まれている場合は、音声がテキストに変換されます。

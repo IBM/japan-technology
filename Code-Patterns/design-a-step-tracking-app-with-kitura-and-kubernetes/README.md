@@ -26,7 +26,7 @@ last_updated: 2018-08-08
 
 ## フロー
 
-![フロー](../../images/step-tracker-app_arch-diagram.png)
+![フロー](./images/step-tracker-app_arch-diagram.png)
 
 1. iOS アプリが初めて開かれたときに、「Users」マイクロサービスを介してユーザーの登録を試みます。
 1. 「Users」マイクロサービスが、ユーザーにアバターを割り当てるために外部サービスと通信します。

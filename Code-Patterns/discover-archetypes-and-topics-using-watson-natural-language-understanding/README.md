@@ -33,7 +33,7 @@ last_updated: 2020-01-13
 
 ## フロー
 
-![フロー](../../images/discover-archetypes-flow.png)
+![フロー](./images/discover-archetypes-flow.png)
 
 1. カスタム医療ディクテーション・データ・セットを ezDI からダウンロードし、処理対象のテキスト・データを用意します。
 1. 提供されているアプリケーション・ユーザー・インターフェースまたは Jupyter Notebook を使用して Watson Natural Language Understanding サービスを操作します。

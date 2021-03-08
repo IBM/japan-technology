@@ -28,7 +28,7 @@ Watson Speech to Text は業界トップ・レベルの音声テキスト変換�
 
 ## フロー
 
-![独自の音声テキスト変換モデルをカスタマイズしてトレーニングするフローを示す図](../../images/flow-customize-and-continuously-train-your-own-watson-speech-service.png)
+![独自の音声テキスト変換モデルをカスタマイズしてトレーニングするフローを示す図](./images/flow-customize-and-continuously-train-your-own-watson-speech-service.png)
 
 1. ユーザーがカスタム・データ・セットをダウンロードして、トレーニング用の音声データとテキスト・データを準備します。
 1. ユーザーが資格情報を構成して、Watson Speech to Text サービスへのアクセスをセットアップします。

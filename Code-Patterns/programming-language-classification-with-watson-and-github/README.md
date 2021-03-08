@@ -25,7 +25,7 @@ IBM Watson Natural Language Classifier を使用すると、データ・サイ�
 
 ## フロー
 
-![フロー](../../images/arch-programming-language-classification-with-watson-and-github.png)
+![フロー](./images/arch-programming-language-classification-with-watson-and-github.png)
 
 1. IBM Watson Studio ワークスペースを作成します。
 2. Watson Studio を使用して、Jupyter Notebook と Watson Natural Language Classifier インスタンスを作成します。

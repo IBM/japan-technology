@@ -40,7 +40,7 @@ Apex コードベースを使って Watson を統合しようとしたことが�
 
 ## フロー
 
-![フロー](../../images/integrating-watson-with-salesforce-apex-arch-flow-1.png)
+![フロー](./images/integrating-watson-with-salesforce-apex-arch-flow-1.png)
 
 1. Salesforce プラットフォームにログインして、Developer Console を表示します。
 1. Watson Salesforce SDK を使用して、Developer Console に Apex コードを書き込みます。

@@ -20,7 +20,7 @@ last_updated: 2019-03-27
 
 ## フロー
 
-![フロー](../../images/arch.png)
+![フロー](./images/arch.png)
 
 1. 開発者がクエリー・インデックスを作成します。
 

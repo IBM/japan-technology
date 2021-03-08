@@ -25,7 +25,7 @@ last_updated: 2018-09-05
 
 ## フロー
 
-![フロー](../../images/istio-hybrid-arch-diagram.png)
+![フロー](./images/istio-hybrid-arch-diagram.png)
 
 1.  `guestbook` アプリのユーザーがブラウザーを使用して、`guestbook` サービスが提供する Guestbook Web ページにパブリック・クラウドからアクセスします。
 1.  ゲストがコメントを送信した場合、`guestbook` サービスは送信されたテキストのトーンに基づく感情アイコンで、そのコメントをエンリッチする必要があります。したがって、`guestbook` サービスはトーンを分析するために  `analyzer` サービスを呼び出し、送信されたテキストを渡します。`guestbook` サービスは、それがローカル・サービスであるかのように `analyzer` サービスを呼び出します (サービス/アプリはリモート・サービスをサポートするように変更されていません)。

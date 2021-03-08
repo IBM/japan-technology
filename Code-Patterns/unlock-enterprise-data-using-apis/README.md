@@ -23,7 +23,7 @@ LoopBack を使用すると、簡単に CRUD API を作成して既存のデー�
 
 ## フロー
 
-![フロー](../../images/Unlock-enterprise-data-using-APIs.png)
+![フロー](./images/Unlock-enterprise-data-using-APIs.png)
 
 1. Web ユーザーが配送の進捗と気象条件をモニターします。
 1. フロントエンドのアプリケーションが Web ユーザー・インターフェースを提供します。

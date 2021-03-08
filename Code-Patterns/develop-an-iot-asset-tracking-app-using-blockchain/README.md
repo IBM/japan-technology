@@ -21,7 +21,7 @@ _**Note:** This code pattern is currently being updated to focus on IBM Blockcha
 
 ## フロー
 
-![フロー](../../images/asset-tracking-archdiagram.png)
+![フロー](./images/asset-tracking-archdiagram.png)
 
 1. Node-RED コントロール・パネル・ダッシュボード内で、資産追跡デバイスを選択し、ジオロケーション報告機能を有効にして Particle.io を呼び出します。
 1. Particle.io がセルラー・ネットワークを介して資産追跡デバイスを呼び出し、アクティブ化します。

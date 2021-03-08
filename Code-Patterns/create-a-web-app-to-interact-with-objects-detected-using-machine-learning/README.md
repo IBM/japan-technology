@@ -26,7 +26,7 @@ Model Asset eXchange (MAX) では、開発者がオープンソースの深層�
 
 ## フロー
 
-![フロー](../../images/architecture-max-object-detector.png)
+![フロー](./images/architecture-max-object-detector.png)
 
 1. ユーザーが Web UI を使用して画像をモデル API に送信します。
 1. モデル API が検出したオブジェクトのデータを返し、Web UI にそれらのｆオブジェクトが表示されます。

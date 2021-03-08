@@ -28,7 +28,7 @@ last_updated: 2018-06-28
 
 ## フロー
 
-![フロー](../../images/architecture-predict-fraud.png)
+![フロー](./images/architecture-predict-fraud.png)
 
 1. Watson Studio にログインして、オブジェクト・ストレージを組み込んだインスタンスを作成します。
 1. CSV ファイルをオブジェクト・ストレージにアップロードします。

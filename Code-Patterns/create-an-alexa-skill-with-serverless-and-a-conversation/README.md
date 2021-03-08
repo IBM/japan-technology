@@ -32,7 +32,7 @@ last_updated: 2019-07-16
 
 ## フロー
 
-![フロー](../../images/Create-an-Alexa-skill-with-serverless-and-a-conversation.png)
+![フロー](./images/Create-an-Alexa-skill-with-serverless-and-a-conversation.png)
 
 1. ユーザーが「Alexa、Watson に ... を聞いて」と話しかけます。
 2. Alexa が入力テキストを使用して IBM Cloud Functions を呼び出します。

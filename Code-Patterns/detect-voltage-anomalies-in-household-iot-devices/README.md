@@ -35,7 +35,7 @@ IoT 開発者は接続された非常に多くのデバイスに加え、コグ�
 
 ## フロー
 
-![フロー](../../images/arch-detect-voltage.png)
+![フロー](./images/arch-detect-voltage.png)
 
 1. 洗濯機に取り付けられているセンサーは、水温センサー、水の硬度センサー、モーター速度センサーの 3 つです。
 1. Node-RED エッジ・デバイス・シミュレーターがデバイス・データをシミュレーションします。この例で Node-RED エッジ・デバイスに該当するのは、シミュレーションされた Raspberry Pi です。Raspberry Pi は洗濯機に取り付けられていて、センサーからのデータが常時 Raspberry Pi に送られます。シミュレーションされた Raspberry Pi (つまり、Node-RED エッジ・デバイス) はイーサネットを介してインターネットに接続され、Watson IoT Platform にデータをストリーム配信します。

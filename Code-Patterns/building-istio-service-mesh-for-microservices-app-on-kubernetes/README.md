@@ -30,7 +30,7 @@ last_updated: 2020-09-29
 
 ## フロー
 
-![Bee Travels Istio サービス・メッシュのアーキテクチャー・フローを示す図](../../images/bee-travels-istio-architecture-flow-diagram.png)
+![Bee Travels Istio サービス・メッシュのアーキテクチャー・フローを示す図](./images/bee-travels-istio-architecture-flow-diagram.png)
 
 1. ユーザーが Istio Ingress Gateway (Envoy プロキシーのインスタンス) を介してフロントエンドの UI サービスにアクセスします。
 

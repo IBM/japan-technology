@@ -29,7 +29,7 @@ last_updated: 2018-06-26
 
 ## フロー
 
-![フロー](../../images/arch-flow-securitization.png)
+![フロー](./images/arch-flow-securitization.png)
 
 1. 住宅購入者が原資産所有者のサービスを利用して、住宅ローンの融資を証券化します。
 2. 原資産所有者がアプリケーションをロードして、ブロックチェーン・レジャーを新しい資産で更新するためのリクエストを送信します。

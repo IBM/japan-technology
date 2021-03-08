@@ -22,7 +22,7 @@ last_updated: 2018-09-07
 
 ## フロー
 
-![フロー](../../images/arch-image-classification-keras-cnn.png)
+![フロー](./images/arch-image-classification-keras-cnn.png)
 
 1. ユーザーがテスト画像を IBM Cloud Object Storage にアップロードします。
 2. ユーザーが Jupyter Notebook 内で、アップロードしたテスト画像を処理する IBM Cloud Object Storage の資格情報を追加します。その上で、Jupyter Notebook を実行します。

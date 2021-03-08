@@ -25,8 +25,8 @@ last_updated: 2019-05-09
 
 ## フロー
 
-![フロー 1](../../images/flow1-v1.png)
-![フロー 2](../../images/flow2-v3.png)
+![フロー 1](./images/flow1-v1.png)
+![フロー 2](./images/flow2-v3.png)
 
 ### フロー 1: コントリビューターの場合
 

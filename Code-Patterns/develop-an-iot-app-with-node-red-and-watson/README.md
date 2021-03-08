@@ -25,7 +25,7 @@ Node-Red Web ページ・アプリケーションを使用すると、任意の�
 
 ## フロー
 
-![フロー](../../images/conveyor-arch-iot-1.png)
+![フロー](./images/conveyor-arch-iot-1.png)
 
 1. IBM Cloud 上で Node-RED インスタンスを作成してデプロイした後、Cloud Foundry CLI を使用して、そのインスタンスを Watson IoT Platform に接続します。
 1. simulate-iot サンプル・アプリをビルドしてデプロイします ([JSON フロー](https://raw.githubusercontent.com/IBM/manage-control-device-node-red/master/flow/flow.json)をアプリ・エディターにコピー・アンド・ペーストします)。

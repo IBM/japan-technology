@@ -23,7 +23,7 @@ Akka は複数のアクターによって構成されます。アクターが、
 
 ## フロー
 
-![フロー](../../images/Soccer-Dashboard-with-Akka-and-ReactJS-flow-arch.png)
+![フロー](./images/Soccer-Dashboard-with-Akka-and-ReactJS-flow-arch.png)
 
 1. Akka を構成するアクターを作成します。
 2. Akka REST API を公開します。

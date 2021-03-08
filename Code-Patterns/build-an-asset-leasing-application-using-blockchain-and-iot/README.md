@@ -23,7 +23,7 @@ IoT 統合には IBM Watson IoT Platform を利用して、移動される資産
 
 ## フロー
 
-![フロー](../../images/flow-v4.png)
+![フロー](./images/flow-v4.png)
 
 1. IBM Blockchain Platform の VS Code 拡張機能を使用して、スマート・コントラクトをローカル Hyperledger Fabric ネットワークにデプロイします。
 1. 資産がある場所から別の場所に移動されると、IoT デバイスが RFID またはバーコードによってその資産をスキャンします。このパターンでは、シミュレーションされたデバイスを使用します。

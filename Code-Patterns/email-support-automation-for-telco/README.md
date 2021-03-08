@@ -27,7 +27,7 @@ last_updated: 2018-10-03
 
 ## フロー
 
-![フロー](../../images/flow-smart-email-support.png)
+![フロー](./images/flow-smart-email-support.png)
 
 1. Watson Knowledge Studio を使用して電気通信の使用ケースを対象に作成されたモデルを Watson Natural Language Understanding にデプロイします。
 1. Node-RED フローで顧客の e-メールをポーリングし、送信された e-メールを取得します。

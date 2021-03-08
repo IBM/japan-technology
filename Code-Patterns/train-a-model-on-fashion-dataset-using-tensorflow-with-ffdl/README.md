@@ -22,7 +22,7 @@ Web アプリは、アップロードされた画像を Web ページ上に表�
 
 ## フロー
 
-![フロー](../../images/arch-train-model-fashion-dataset.png)
+![フロー](./images/arch-train-model-fashion-dataset.png)
 
 1. ユーザーが FfDL インスタンスに対する Fashion MNIST モデル・トレーニング・ジョブを送信します。FfDL は Fashion MNIST モデルをトレーニングし、ジョブが完了するとモデル・ファイルを Object Storage に格納します。これにより、Object Storage は S3 に対応できるようになります。
 1. モデルのトレーニングが完了したら、そのモデルに対応する Seldon をデプロイします。ユーザーは、トレーニング済みモデルを Object Storage から取得して、Seldon 上で Ambassador の動的 Ingress とともにモデルを処理する Seldon デプロイを作成します。

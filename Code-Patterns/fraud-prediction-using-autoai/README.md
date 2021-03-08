@@ -27,7 +27,7 @@ last_updated: 2019-10-17
 
 ## フロー
 
-![不正予測 AutoAI](../../images/fraud-prediction-autoai.png)
+![不正予測 AutoAI](./images/fraud-prediction-autoai.png)
 
 1. Watson Studio にログインしてプロジェクトを作成し、AutoAI と Cloud Object Storage のインスタンスを起動します。
 1. Object Storage に .csv データ・ファイルをアップロードします。

@@ -26,7 +26,7 @@ Google の副社長兼チーフ・インターネット・エヴァンジェリ�
  
 ## フロー
 
-![フロー](../../images/conveyor-arch.png)
+![フロー](./images/conveyor-arch.png)
 
 1. IBM Cloud Cloud Foundry CLI を使用して、Watson IoT Platform 組織を作成し、デプロイします。
 1. サンプルのコンベヤー・ベルト・デバイスを作成してデプロイします。

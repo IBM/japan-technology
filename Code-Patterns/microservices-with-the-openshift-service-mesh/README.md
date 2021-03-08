@@ -23,7 +23,7 @@ OpenShift Service Mesh は、[Maistra Istio Operator](https://github.com/Maistra
 
 以下の図は、Example Bank モバイル・アプリケーションでのサービス・メッシュのアーキテクチャー・フローを示しています。図中には、[ユーザー認証](https://developer.ibm.com/jp/patterns/privacy-backend-loyalty-app-openshift-4/)とトランザクションを処理する複数のマイクロサービスが示されています。
 
-![サービス・メッシュのアーキテクチャー・フローを示す図](../../images/example-bank-service-mesh-architecture-flow-diagram-2.png)
+![サービス・メッシュのアーキテクチャー・フローを示す図](./images/example-bank-service-mesh-architecture-flow-diagram-2.png)
 
 1. ユーザーが HTTPS を介して OpenShift ルーターに接続します。このルーターにより、リクエストは Istio Ingress Gateway という Envoy インスタンスにルーティングされます。
 1. Envoy がゲートウェイと仮想サービス・ルールを使用して、リクエストを Node.js サービスに転送します。この Node.js サービスでは、アプリ ID を基準にユーザー・アカウントを検証します。

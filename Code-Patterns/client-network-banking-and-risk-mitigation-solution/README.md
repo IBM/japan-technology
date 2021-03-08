@@ -27,7 +27,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/flow-client-network-banking-and-risk-mitigation-solution.png)
+![フロー](./images/flow-client-network-banking-and-risk-mitigation-solution.png)
 
 1. ユーザーがアプリの UI を操作して、特定のイベントまたは顧客に関連する情報を要求します。
 1. Web アプリの UI が Python-Flask サーバーとやり取りして、要求された情報を、該当する API から受け取ります。

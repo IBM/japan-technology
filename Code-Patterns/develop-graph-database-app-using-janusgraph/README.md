@@ -25,7 +25,7 @@ Gremlin のクエリーと REST API がどのように連動して OLTP タス�
 
 ## フロー
 
-![フロー](../../images/graph-database-janusgraph.png)
+![フロー](./images/graph-database-janusgraph.png)
 
 1. ユーザーが JanusGraph ユーティリティーを使用して、Twitter のサンプル・スキーマとデータを生成します。
 1. ユーザーが JanusGraph ユーティリティーを使用して、バックエンド・サーバーにスキーマをロードし、データをインポートします。

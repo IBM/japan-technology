@@ -17,7 +17,7 @@ last_updated: 2019-07-22
 
 このコード・パターンがベースとしている、IBM Developer モバイル・アプリケーションで使用されているチャットボットは、モバイル・アプリ・ストアから入手できます。  
 
-[![Google Play からアプリを入手する](../../images/googleplay.png)](https://play.google.com/store/apps/details?id=com.ibm.digital.developer)    [![Apple からアプリを入手する](../../images/applestore.png)](https://itunes.apple.com/us/app/ibm-developer/id1450996651?ls=1&mt=8)
+[![Google Play からアプリを入手する](./images/googleplay.png)](https://play.google.com/store/apps/details?id=com.ibm.digital.developer)    [![Apple からアプリを入手する](./images/applestore.png)](https://itunes.apple.com/us/app/ibm-developer/id1450996651?ls=1&mt=8)
 
 このコード・パターンに従って作成するチャットボットは、[TV Maze](https://www.tvmaze.com/api) からテレビ番組のデータを取得し、ユーザーにお勧めのテレビ番組を提示して番組情報を提供します。
 
@@ -30,7 +30,7 @@ last_updated: 2019-07-22
 
 ### Cloud Foundry にデプロイする場合のフロー
 
-![Cloud Foundry 内で実行するチャットボットを作成する場合のアーキテクチャーを示す図](../../images/chatbot_cloudfoundry_architecture.png)
+![Cloud Foundry 内で実行するチャットボットを作成する場合のアーキテクチャーを示す図](./images/chatbot_cloudfoundry_architecture.png)
 
 1. ユーザーがモバイル・アプリケーションの React UI を使用して質問をテキストで入力することによって、チャットボットと対話します。
 1. React UI がユーザーのメッセージを Cloud Foundry 上の Node.js バックエンドに送信します。
@@ -40,7 +40,7 @@ last_updated: 2019-07-22
 
 ### Kubernetes にデプロイする場合のフロー
 
-![Kubernetes 内で実行するチャットボットを作成する場合のアーキテクチャーを示す図](../../images/chatbot_kube_architecture.png)
+![Kubernetes 内で実行するチャットボットを作成する場合のアーキテクチャーを示す図](./images/chatbot_kube_architecture.png)
 
 1. ユーザーがモバイル・アプリケーションの React UI を使用して質問をテキストで入力することによって、チャットボットと対話します。
 1. React UI がユーザーのメッセージを Kubernetes 上の Node.js バックエンドに送信します。

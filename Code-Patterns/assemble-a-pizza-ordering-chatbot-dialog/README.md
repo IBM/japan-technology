@@ -27,7 +27,7 @@ Watson Assistant を利用した経験があるとしたらわかると思いま
 
 ## フロー
 
-![フロー](../../images/pizza-architecture.png)
+![フロー](./images/pizza-architecture.png)
 
 1. ユーザーがクラウド・べースの Node.js アプリケーションに対話を送信します。
 1. アプリケーションが Watson Assistant と対話して、スロットを埋めていきます。

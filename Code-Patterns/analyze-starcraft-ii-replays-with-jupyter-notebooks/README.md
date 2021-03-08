@@ -30,7 +30,7 @@ Starcraft II は、世界中で 240,000 人の熱烈なファンがプレイし�
 
 ## フロー
 
-![フロー](../../images/Starcraft-Journey.png)
+![フロー](./images/Starcraft-Journey.png)
 
 1. 用意されているノートブックを IBM Watson Studio プラットフォームにロードします。
 2. Starcraft II のリプレイが IBM Cloud Object Storage にロードされます。

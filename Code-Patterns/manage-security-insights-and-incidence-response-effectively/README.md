@@ -30,7 +30,7 @@ _**注: 本コード・パターンは、複合パターンの一部となって
 
 ## フロー
 
-![フロー](../../images/arch.png)
+![フロー](./images/arch.png)
 
 1. QRadar からすべてのオフェンスを取得します。
 1. 取得したオフェンスを IBM Resilient Incident Response Platform のインシデント形式に変換します。

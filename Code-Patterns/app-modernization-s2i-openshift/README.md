@@ -28,7 +28,7 @@ OpenShift に移行した後、Example Health はシステムを拡大して新�
 このサンプル・プロジェクトは、概念上の健康記録システムで使用する患者記録アプリケーションのユーザー・インターフェースです。このアプリケーションのプログラミングには、オープン・スタンダードの JavaScript と最新の Universal CSS を使用しています。レイアウトには HTML5 Canvas を使用し、単純な Node.js Express Server によってデータを提供します。システムのビジネス・ルールは COBOL または Java のいずれかで作成されています。システム内にコーディングされているビジネス・ルールには、資格付与ルール、処方ルール、補償範囲ルールが含まれます。
 
 クライアントが患者記録アプリにログインすると以下のようなページが表示されます。
-![サンプル健康記録アプリのスクリーンショット](../../images/example-health-records-app.png)
+![サンプル健康記録アプリのスクリーンショット](./images/example-health-records-app.png)
 
 このコード・パターンでは、以下のスキルを学ぶことができます。
 
@@ -40,7 +40,7 @@ OpenShift に移行した後、Example Health はシステムを拡大して新�
 
 ## フロー
 
-![マイクロサービスと OpenShift S2I アーキテクチャーによる健康記録アプリのモダナイゼーション・フロー図](../../images/app-modernization-openshift-s2i-architecture-diagram.png)
+![マイクロサービスと OpenShift S2I アーキテクチャーによる健康記録アプリのモダナイゼーション・フロー図](./images/app-modernization-openshift-s2i-architecture-diagram.png)
 
 1. JavaScript コントローラー (REST エンドポイント) 内で患者データの取得アクションが開始されます。
 1. REST エンドポイントが 3 つのリソース (テスト・レスポンス、メインフレーム・バックエンド、Liberty バックエンド) のいずれかからデータを取得します。

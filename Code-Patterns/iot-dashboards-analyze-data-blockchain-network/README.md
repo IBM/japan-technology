@@ -19,7 +19,7 @@ Hyperledger ネットワークにアクセスせずにブロックチェーン�
 
 ## フロー
 
-![フロー](../../images/blockchain-iot-analytics-arch-diagram.png)
+![フロー](./images/blockchain-iot-analytics-arch-diagram.png)
 
 1. Hyperledger ブロックチェーン・ネットワークから、ブロックが JSON オブジェクトとして送信されます。送信されるブロックは、ユーザーとそのデータです。
 1. ブロックチェーンのトランザクション (新規ユーザーの作成、ユーザーの検証、ステップに基づく fitcoin の生成) とユーザー・データが IBM Cloud 内の IBM Cloud データベースに格納されます。Watson IoT Platform 内では、ユーザーがデバイスとして登録されます。

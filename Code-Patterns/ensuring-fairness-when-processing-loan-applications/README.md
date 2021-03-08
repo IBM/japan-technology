@@ -29,7 +29,7 @@ AI Fairness 360 は、公正さ (フェアネス) の指標とバイアス軽減
 
 ## フロー
 
-![フロー](../../images/flow-ai-fairness-toolkit.png)
+![フロー](./images/flow-ai-fairness-toolkit.png)
 
 1. ユーザーが Watson Studio を操作して Jupyter Notebook を作成します。
 1. Jupyter Notebook が AI Fairness 360 ツールキットをインポートします。

@@ -35,4 +35,4 @@ last_updated: 2018-07-31
 8. iOS アプリが、REST API から返された映画とスコアを表示します。
 9. ユーザーがリストアップされている映画を観て評価すると、ステップ 6 からのフローが繰り返されます。ユーザーが映画を観て評価するごとに、ますます的確なレコメンデーションになっていきます。
 
-![フロー](../../images/tcmr_pattern_arch_diagram.png)
+![フロー](./images/tcmr_pattern_arch_diagram.png)

@@ -36,7 +36,7 @@ last_updated: 2019-07-31
 
 ## フロー
 
-![フロー](../../images/flow-revised2.png)
+![フロー](./images/flow-revised2.png)
 
 1. ブロックチェーン・オペレーターが GitHub リポジトリーのクローンを作成して、Global Finance on Blockchain スマート・コントラクトを入手します。
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform VS Code 拡張機能を使用して、スマート・コントラクトをパッケージ化します。

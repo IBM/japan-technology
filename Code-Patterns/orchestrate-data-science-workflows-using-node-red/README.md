@@ -34,7 +34,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/Orchestrate-DSX-workflows-using-Node-RED-arch-flow.png)
+![フロー](./images/Orchestrate-DSX-workflows-using-Node-RED-arch-flow.png)
 
 1. Object Storage システムがデータ・ドキュメントを保管します。
 2. Python コードが Object Storage システムからドキュメントのコンテンツを取得します。

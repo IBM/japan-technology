@@ -28,7 +28,7 @@ last_updated: 2019-10-17
 
 ## フロー
 
-![災害後視覚認識アーキテクチャーのフロー図](../../images/post-disaster-visual-recognition-3.png)
+![災害後視覚認識アーキテクチャーのフロー図](./images/post-disaster-visual-recognition-3.png)
 
 1. ユーザーが Lens Studio を使用してサンプル画像を生成します。
 2. ユーザーが画像を Cloud Annotations にアップロードします。Cloud Annotations はそれらの画像を使用してモデルをトレーニングし、TensorFlow.js モデルをエクスポートします。

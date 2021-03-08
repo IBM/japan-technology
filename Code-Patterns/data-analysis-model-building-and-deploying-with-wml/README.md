@@ -31,7 +31,7 @@ last_updated: 2019-10-04
 
 ## フロー
 
-![フロー](../../images/datanalarch.png)
+![フロー](./images/datanalarch.png)
 
 1. ユーザーが Jupyter Notebook を IBM Cloud Pak for Data platform にロードします。
 1. [Telco Customer Churn データセット](https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv)を GitHub から直接 Jupyter Notebook にロードします。または、[ラーニング・パス「IBM Cloud Pak for Data 入門」](https://developer.ibm.com/jp/series/cloud-pak-for-data-learning-path/)の[データ仮想化チュートリアル](https://developer.ibm.com/jp/tutorials/virtualizing-db2-warehouse-data-with-data-virtualization/)の手順に従った後、仮想化されたデータとしてロードすることもできます。

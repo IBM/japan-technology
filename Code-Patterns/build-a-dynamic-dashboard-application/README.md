@@ -28,7 +28,7 @@ IBM Cognos Dashboard Embedded では、データをユーザーに表示する�
 
 ## フロー
 
-![angular dynamic dashboard フローチャート](../../images/1650-arch.png)
+![angular dynamic dashboard フローチャート](./images/1650-arch.png)
 
 1. ユーザーがアプリケーションを作成します。
 2. アプリケーションがデータ・ソースに接続されます。

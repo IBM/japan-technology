@@ -27,7 +27,7 @@ last_updated: 2017-08-02
 
 ## フロー
 
-![フロー](../../images/Build-a-cognitive-recommendation-app-with-Swift.png)
+![フロー](./images/Build-a-cognitive-recommendation-app-with-Swift.png)
 
 1. サーバー・アプリケーションを IBM Cloud にデプロイします。
 2. ユーザーが Watson サービスを介して iOS アプリケーションを操作します。

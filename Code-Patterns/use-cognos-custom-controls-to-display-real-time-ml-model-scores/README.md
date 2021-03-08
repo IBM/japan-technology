@@ -28,7 +28,7 @@ Cognos ダッシュボードから機械学習モデルの出力をリアルタ�
 
 ## フロー
 
-![フロー](../../images/flow-invoke-wml-cognos.png)
+![フロー](./images/flow-invoke-wml-cognos.png)
 
 1. JavaScript を使用してカスタム・コントロール・ウィジェットを作成し、Cognos の webcontent フォルダーに格納します。
 1. Watson Machine Learning モデルを作成し、Web サービスとしてデプロイします。

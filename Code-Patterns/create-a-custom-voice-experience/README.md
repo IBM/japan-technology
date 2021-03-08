@@ -18,7 +18,7 @@ last_updated: '2018-09-21'
 
 ## フロー
 
-![フロー](../../images/custom-voice-arch2.png)
+![フロー](./images/custom-voice-arch2.png)
 
 1. Node-RED アプリがマイクロフォンからの音声リクエストを記録します。
 1. Watson Speech to Text サービスが音声をテキストに変換します。

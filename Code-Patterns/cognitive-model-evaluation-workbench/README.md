@@ -19,7 +19,7 @@ Watson サービスのようなコグニティブ・サービスでは、多数�
 
 ## フロー
 
-![フロー](../../images/flow-cognitive-model-evaluation-workbench.png)
+![フロー](./images/flow-cognitive-model-evaluation-workbench.png)
 
 1. ユーザーがアプリケーションを起動します。
 1. クラウドがリクエストの認証を行い、アプリケーションにリクエストをリダイレクトします。

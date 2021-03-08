@@ -25,7 +25,7 @@ last_updated: 2017-10-20
 
 ## フロー
 
-![フロー](../../images/calorie-counter-arch.png)
+![フロー](./images/calorie-counter-arch.png)
 
 1. ユーザーがモバイル・アプリを操作して画像をキャプチャーします。
 2. 画像がサーバー・アプリケーションに渡されます。サーバー・アプリケーションは Watson Visual Recognition サービスを利用して画像を分析し、Nutritionix API を使用して栄養に関する情報を取得します。

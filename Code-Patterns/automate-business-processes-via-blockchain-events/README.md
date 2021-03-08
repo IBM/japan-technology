@@ -28,7 +28,7 @@ Hyperledger Fabric V1.1 および Hyperledger Composer V0.19 に対応するた�
 
 ## フロー
 
-![フロー](../../images/arch-blockchain-events.png)
+![フロー](./images/arch-blockchain-events.png)
 
 1. Hyperledger Fabric ネットワークを起動します。
 2. ビジネス・ネットワーク・アーカイブを生成してデプロイします。

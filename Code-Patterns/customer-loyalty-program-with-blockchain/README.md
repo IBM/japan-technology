@@ -29,7 +29,7 @@ _**Note:** This pattern focuses on older technology (e.g. Hyperledger Fabric API
 
 ## フロー
 
-![フロー](../../images/arch-customer-loyalty.png)
+![フロー](./images/arch-customer-loyalty.png)
 
 1. メンバーがネットワークに登録します。
 2. メンバーはアプリケーションにサインインして、ポイントの獲得や交換のためのトランザクションを行ったり、トランザクションを確認したりできます。

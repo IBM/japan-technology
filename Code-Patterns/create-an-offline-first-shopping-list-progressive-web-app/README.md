@@ -24,7 +24,7 @@ Vanilla JS (プレーン JavaScript)、React、Preact、Polymer、Ember.js、Vue
 
 ## フロー
 
-![フロー](../../images/shopping-list-arch2.png)
+![フロー](./images/shopping-list-arch2.png)
 
 1. ユーザーがオフライン・ファースト・プログレッシブ Web アプリを使用してショッピング・リストを管理します。
 1. Vanilla JS (プレーン JavaScript)、React、Preact、Polymer、Ember.js、または Vue.js を使用してプログレッシブ Web アプリを作成し、Service Worker を利用してオフラインでもアプリが機能するようにします。

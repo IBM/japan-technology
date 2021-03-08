@@ -29,7 +29,7 @@ last_updated: '2018-11-27'
 
 ## フロー
 
-![フロー](../../images/flow-support-ticket-classification.png)
+![フロー](./images/flow-support-ticket-classification.png)
 
 1. Natural Language Classifier インターフェースとやり取りしてモデルをトレーニングします。
 2. [消費者からのクレームに対応するためのサポート・チケット・データセット](https://github.ibm.com/riyamaro/support-ticket-classification/tree/master/docs/training_data)をトレーニング・データとして Natural Language Classifier にロードします。

@@ -27,7 +27,7 @@ last_updated: 2019-01-10
 
 ## フロー
 
-![フロー](../../images/text.summarization.png)
+![フロー](./images/text.summarization.png)
 
 1. Watson Studio にログインして、オブジェクト・ストレージを組み込んだインスタンスを作成します。
 1. データ・ファイルをオブジェクト・ストレージにアップロードします。

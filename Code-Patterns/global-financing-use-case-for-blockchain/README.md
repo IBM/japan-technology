@@ -32,7 +32,7 @@ last_updated: 2018-12-19
 
 ## フロー
 
-![フロー](../../images/flow-final-2.png)
+![フロー](./images/flow-final-2.png)
 
 開発者が IBM Blockchain Platform の VS Code 拡張機能を使用して、次の作業を行います。
 

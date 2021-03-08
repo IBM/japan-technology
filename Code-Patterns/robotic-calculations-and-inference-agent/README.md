@@ -35,7 +35,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/Build-a-robotic-calculations-and-inference-agent.png)
+![フロー](./images/Build-a-robotic-calculations-and-inference-agent.png)
 
 1. Object Storage システムがデータ・ドキュメントを保管します。
 1. Python コードが Object Storage システムからドキュメントのコンテンツを取得します。

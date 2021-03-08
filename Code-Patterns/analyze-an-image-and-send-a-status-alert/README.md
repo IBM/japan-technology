@@ -47,7 +47,7 @@ last_updated: 2018-05-21
 
 ## フロー
 
-![フロー](../../images/iot-alert-arch.png)
+![フロー](./images/iot-alert-arch.png)
 
 1. viz-send-image-app フォルダーは、ローカルで実行することも、クラウドにプッシュすることもできます。このフォルダーに含まれているアプリ UI を使用して、画像を Cloudant データベースにアップロードできます。
 1. Cloudant サービスを含む Node-RED パッケージを作成します。

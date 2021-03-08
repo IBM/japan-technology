@@ -27,7 +27,7 @@ Fashion MNIST は、10 クラスのラベルが関連付けられたデータセ
 
 ## フロー
 
-![Supplement NWN Watson Studio](../../images/supplement-nnm-watson-studio-flow.png)
+![Supplement NWN Watson Studio](./images/supplement-nnm-watson-studio-flow.png)
 
 1. ユーザーが、トレーニング対象の GAN モデルのアーキテクチャーを定義する JSON 構成ファイルを作成します。
 1. ユーザーが REST API 呼び出しによって、JSON 構成ファイルを IBM Cloud 内の Python-Flask サーバーに送信します。

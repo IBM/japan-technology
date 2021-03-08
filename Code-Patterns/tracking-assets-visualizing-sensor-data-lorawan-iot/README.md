@@ -27,7 +27,7 @@ last_updated: 2018-11-02
 
 ## フロー
 
-![フロー](../../images/track-vis-assets-arch-diagram2.png)
+![フロー](./images/track-vis-assets-arch-diagram2.png)
 
 1. ユーザーがマッピング UI または MQTT メッセージを使用してエンドノード (IoT デバイス) を登録します。ここでのエンドノードは、位置データとセンサー・データをパブリッシュできる、追跡可能な資産です。
 1. Express バックエンドが、1 つ以上のエンドノードに対応する Watson IoT Platform チャネルにサブスクライブします。

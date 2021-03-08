@@ -31,7 +31,7 @@ IBM Watson OpenScale は、組織が AI を自動化して運用可能にする�
 
 ## フロー
 
-![機械学習エンジンのフロー図](../../images/flow-monitor-custom-machine-learning.png)
+![機械学習エンジンのフロー図](./images/flow-monitor-custom-machine-learning.png)
 
 1. ユーザーが Kubernetes と Docker を使用して、アプリケーション・サーバーを IBM Cloud 上にデプロイします。
 1. ユーザーが Watson&trade; Studio 上で Jupyter Notebook を作成し、Watson OpenScale と Compose PostgreSQL を構成します。

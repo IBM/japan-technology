@@ -26,7 +26,7 @@ last_updated: 2017-12-13
 
 ## フロー
 
-![フロー](../../images/arch-fingerprinting-personal-data.png)
+![フロー](./images/arch-fingerprinting-personal-data.png)
 
 1. 閲覧者が入力テキストを個人データ・エクストラクターに渡します。
 2. 個人データ・エクストラクターがテキストを NLU に渡します。

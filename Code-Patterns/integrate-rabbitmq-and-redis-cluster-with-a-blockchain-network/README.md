@@ -24,7 +24,7 @@ Hyperledger Fabric Node SDK を使用したブロックチェーン・アプリ�
 
 ## フロー
 
-![フロー](../../images/blockchain-rabbit-arch.png)
+![フロー](./images/blockchain-rabbit-arch.png)
 
 1. ブロックチェーン・ネットワークを作成して起動します。
 1. ブロックチェーン・ネットワーク上でトランザクションを実行します。

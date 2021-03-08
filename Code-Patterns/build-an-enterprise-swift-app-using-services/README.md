@@ -26,7 +26,7 @@ Swift は、Apple のプラットフォームと Linux 向けの汎用プログ�
 
 ## フロー
 
-![フロー](../../images/arch-ent-swift.png)
+![フロー](./images/arch-ent-swift.png)
 
 1. アプリケーションを IBM Cloud にデプロイする前に、(任意の IDE を使用して) アプリケーション・コード内で Circuit Breaker ライブラリーの設定を構成します。
 2. アプリケーションをデプロイした後、IBM Cloud 上でポリシーを作成して Auto-Scaling サービスと Alert Notification サービスをセットアップします。

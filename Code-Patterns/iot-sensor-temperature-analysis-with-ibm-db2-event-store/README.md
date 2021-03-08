@@ -30,7 +30,7 @@ Db2 Event Store は、膨大な量の構造化データとリアルタイムの�
 
 ## フロー
 
-![フロー](../../images/iot_sensor.png)
+![フロー](./images/iot_sensor.png)
 
 1. サンプル IoT データセットをプロジェクト・アセットとして追加します。
 1. Db2 Event Store データベースおよびテーブルを作成します。

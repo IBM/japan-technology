@@ -26,7 +26,7 @@ MERN スタックとそのバリアント (MEAN および MEVN) が Web 開発�
 
 ## フロー
 
-![フロー](../../images/mern-architecture.png)
+![フロー](./images/mern-architecture.png)
 
 1. ユーザーがブラウザーで React Web アプリを表示します。
 1. React フロントエンドと Express バックエンドはどちらも Node.js で作成されています。この 2 つのコンポーネントが RESTful API を介して通信します。

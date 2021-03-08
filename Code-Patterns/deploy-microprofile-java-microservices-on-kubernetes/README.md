@@ -22,7 +22,7 @@ Java 開発者としての皆さんは、Java 言語の力を利用すると同�
 
 ## フロー
 
-![フロー](../../images/architecture-microprofile-on-kube.png)
+![フロー](./images/architecture-microprofile-on-kube.png)
 
 1.  Conference マイクロサービス・アプリケーションのユーザーが講演者のリストを表示するために Web アプリケーションにアクセスします。
 1.  Web アプリケーション・マイクロサービスは、講演者マイクロサービスに接続して、講演者のリストを取得します。

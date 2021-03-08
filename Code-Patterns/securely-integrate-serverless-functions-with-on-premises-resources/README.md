@@ -41,7 +41,7 @@ CouchDB を対象としたサーバーレス関数では、既存の OpenWhisk C
 
 ## フロー
 
-![サーバーレス、ゲートウェイ、オンプレミス・リソースのフロー](../../images/integrate-serverless-on-premises-flow-diagram.png)
+![サーバーレス、ゲートウェイ、オンプレミス・リソースのフロー](./images/integrate-serverless-on-premises-flow-diagram.png)
 
 1. アプリケーションのユーザーがオンプレミス・データベースにドキュメントを追加します。
 1. ドキュメントがデータベースに追加されると、トリガーが起動されます。

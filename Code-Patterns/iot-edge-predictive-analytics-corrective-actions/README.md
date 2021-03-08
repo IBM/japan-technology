@@ -41,7 +41,7 @@ IoT 機器の主要な動作パラメーターにおける変化点を検出し�
 
 ## フロー
 
-![フロー](../../images/edge-pred-analytics_arch_flow2.png)
+![フロー](./images/edge-pred-analytics_arch_flow2.png)
 
 1. ユーザーが IBM Watson Studio にサインアップします。
 1. ユーザーがサンプル IoT センサーの時系列データをデータベースにロードします。

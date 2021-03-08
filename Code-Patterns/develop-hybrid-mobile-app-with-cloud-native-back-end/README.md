@@ -39,7 +39,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/ionic-mfp-flow.png)
+![フロー](./images/ionic-mfp-flow.png)
 
 1. ユーザーがモバイル・アプリを起動して、ログイン画面に自分の資格情報を入力し、*「Login (ログイン)」*をクリックします。
 1. モバイル・アプリから Mobile Foundation サーバーにユーザー資格情報が送信されて、検証されます。

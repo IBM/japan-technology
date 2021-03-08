@@ -38,7 +38,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/Change-Point-Detection-on-IoT-Time-series-data-arch-flow.png)
+![フロー](./images/Change-Point-Detection-on-IoT-Time-series-data-arch-flow.png)
 
 1. IBM Watson Studio にサインアップします。
 2. IBM Cloud サービスを作成します。

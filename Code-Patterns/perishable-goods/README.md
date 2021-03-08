@@ -29,7 +29,7 @@ last_updated: 2018-10-02
 
 ## フロー
 
-![フロー](../../images/arch-perishable-goods.png)
+![フロー](./images/arch-perishable-goods.png)
 
 1. アプリケーションが出荷リクエストを受け取ります。
 1. トランザクションが IBM Blockchain Platform に送信されます。

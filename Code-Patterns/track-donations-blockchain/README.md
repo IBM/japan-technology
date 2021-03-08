@@ -31,7 +31,7 @@ IBM Code のこの開発者パターンでは、シンプルな 3 人のメン�
 
 ## フロー
 
-![フロー](../../images/arch-blockchain-global-citizen.png)
+![フロー](./images/arch-blockchain-global-citizen.png)
 
 1. 寄付案を作成し、レビュー対象として Global Citizen 組織に送信します。
 1. 資金を募るために寄付案を政府機関に送信します。

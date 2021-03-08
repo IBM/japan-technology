@@ -26,7 +26,7 @@ last_updated: 2019-03-28
 
 ## フロー
 
-![フロー](../../images/recommender-spark.png)
+![フロー](./images/recommender-spark.png)
 
 1. 映画に関するデータ・セットを Spark にロードします。
 1. Spark DataFrame のデータ処理を使用して、データ・セットをクリーンアップしてから Elasticsearch にロードします。

@@ -25,7 +25,7 @@ last_updated: 2018-07-23
 
 ## フロー
 
-![フロー](../../images/arch-identify-cities-space.png)
+![フロー](./images/arch-identify-cities-space.png)
 
 1. ユーザーが Web UI を操作して、宇宙から見た夜の都市の画像を選択します。
 1. 選択した画像が、クラウド内で稼働中のサーバー・アプリケーションに渡されます。

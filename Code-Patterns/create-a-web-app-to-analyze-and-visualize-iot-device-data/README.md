@@ -29,7 +29,7 @@ IoT デバイスは短期間で大量のデータを生成することがよく�
  
 ## フロー
 
-![フロー](../../images/arch-diagram.png)
+![フロー](./images/arch-diagram.png)
 
 1. IoT データは日次バケットとして Cloudant データベース内に保管されます。
 1. Cloudant データベース内に保管されたデータと plotly.js を使用して視覚化を作成します。

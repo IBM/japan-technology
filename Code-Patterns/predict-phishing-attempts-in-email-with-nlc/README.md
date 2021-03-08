@@ -27,7 +27,7 @@ last_updated: 2018-09-19
 
 ## フロー
 
-![フロー](../../images/flow-predict-phishing-attempts.png)
+![フロー](./images/flow-predict-phishing-attempts.png)
 
 1. ユーザーが Natural Language Classifier GUI を操作してモデルをトレーニングします。
 1. Natural Language Classifier に EDRM データをロードして、トレーニング用のサンプル e-メールを提供します。

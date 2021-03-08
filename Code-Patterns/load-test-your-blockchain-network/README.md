@@ -21,7 +21,7 @@ last_updated: 2018-04-23
 
 ## フロー
 
-![フロー](../../images/arch-blockchain-mongodb.png)
+![フロー](./images/arch-blockchain-mongodb.png)
 
 1. ブロックチェーン・ネットワークを作成して起動します。
 2. ExecutionApp を起動します。

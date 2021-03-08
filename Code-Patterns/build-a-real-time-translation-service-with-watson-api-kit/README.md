@@ -33,7 +33,7 @@ React コンポーネントと Node.js サーバーで構成された、この�
 
 ## フロー
 
-![リアルタイムの翻訳サービスを作成するフロー図](../../images/flow-diagram-build-a-real-time-translation-service.png)
+![リアルタイムの翻訳サービスを作成するフロー図](./images/flow-diagram-build-a-real-time-translation-service.png)
 
 1. ユーザーがマイクのボタンを押して、入力音声をキャプチャーします。
 1. WebSocket を使用して音声が Speech to Text サービスにストリーミングされます。

@@ -34,7 +34,7 @@ e-コマース Web サイトの増加により、顧客満足度が e-コマー�
 
 ## フロー
 
-![フロー](../../images/arch_diagram_1.png)
+![フロー](./images/arch_diagram_1.png)
 
 1. Db2 内の精製されたデータをロードできるよう、IBM Cloud Pak for Data または IBM Cloud 内の IBM Watson Studio プロジェクトへの接続を作成します。
 1. IBM Db2 接続によってデータセットを読み取るように Jupyter Notebook をセットアップします。

@@ -27,7 +27,7 @@ FDA コンプライアンスの使用ケースに注目したシナリオを考�
 
 ## フロー
 
-![フロー](../../images/food-regulation-arch.png)
+![フロー](./images/food-regulation-arch.png)
 
 1. Hyperledger Composer 開発ツールをインストールします。
 1. Hyperledger Fabric ネットワークを構成して起動します。

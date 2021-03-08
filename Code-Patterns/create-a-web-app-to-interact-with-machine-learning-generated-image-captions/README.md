@@ -26,7 +26,7 @@ IBM の調査 によると、1 日あたり 250 京バイトのデータが毎�
 
 ## フロー
 
-![フロー](../../images/architecture-generated-captions.png)
+![フロー](./images/architecture-generated-captions.png)
 
 1. サーバーがデフォルトの画像を Model API に送信します。これにより、API から画像のキャプション・データが返されます。
 1. ユーザーがデフォルトのコンテンツを含む Web UI を操作して画像をアップロードします。

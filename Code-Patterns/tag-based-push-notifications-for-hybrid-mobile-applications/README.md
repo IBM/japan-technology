@@ -37,7 +37,7 @@ IBM Mobile Foundation には、プッシュ通知または SMS 通知を iOS、A
 
 ## フロー
 
-![タグ・ベースのプッシュ通知のアーキテクチャーを説明する図](../../images/push-notifications-arch-diagram.png)
+![タグ・ベースのプッシュ通知のアーキテクチャーを説明する図](./images/push-notifications-arch-diagram.png)
 
 1. ユーザーがモバイル・アプリを起動して、ログイン画面上で自分の資格情報を入力するか、ソーシャル・ログインを選択します。アプリのホーム・ページに、ユーザーの現在地から半径 1000 メートル内で報告された苦情が表示されます。ユーザーが「Watch Area (地域の監視)」ページを開き、地図内の場所を選択してから「*Receive notifications (通知を受け取る)*」をクリックします。
 2. ユーザーが選択した地域名と同じタグ名を使用して Push Notification Subscription API が呼び出されます。IBM Mobile Foundation サーバー上でタグが作成されて (既存のものがない場合)、そのタグに対するアプリケーション・サブスクリプションが完了します。

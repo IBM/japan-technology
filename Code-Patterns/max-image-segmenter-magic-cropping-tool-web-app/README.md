@@ -30,7 +30,7 @@ last_updated: 2019-03-28
 
 ## フロー
 
-![フロー](../../images/flow-max-image-segmenter.png)
+![フロー](./images/flow-max-image-segmenter.png)
 
 1. ユーザーが Web アプリケーション・インターフェースを使用して画像を送信します。
 1. MAX Deep Learning マイクロサービスにより、画像内のオブジェクト・セグメントが識別されて JSON レスポンスとして返されます。

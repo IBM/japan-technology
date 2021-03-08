@@ -28,7 +28,7 @@ Node-RED と TensorFlow.js を結合すれば、より簡単に機械学習の�
 
 ## フロー
 
-![Node-RED および TensorFlow.js アーキテクチャーのフロー図](../../images/node-red-tensorflowjs-architecture-flow-diagram.png)
+![Node-RED および TensorFlow.js アーキテクチャーのフロー図](./images/node-red-tensorflowjs-architecture-flow-diagram.png)
 
 1. TensorFlow.js 形式の機械学習モデルを使用 (またはダウンロード) します。
 1. TensorFlow.js モデル用の Node-RED ノードを作成し、TensorFlow.js ノードを Node-RED アプリケーションに接続します。

@@ -28,7 +28,7 @@ last_updated: 2018-04-17
 
 ## フロー
 
-![フロー](../../images/IoTWatsonTrainingAndPredictionApp-ArchDiagram.png)
+![フロー](./images/IoTWatsonTrainingAndPredictionApp-ArchDiagram.png)
 
 1. ユーザーがトレーニング・アプリ内で、分類子の名前を入力します。
 1. ユーザーがトレーニング・アプリ内で、ネガティブ画像が含まれる zip ファイルのパスを入力します。

@@ -20,7 +20,7 @@ last_updated: 2018-11-07
 
 ## フロー
 
-![フロー](../../images/mean-architecture.png)
+![フロー](./images/mean-architecture.png)
 
 1. ユーザーがブラウザーで AngularJS Web アプリを表示します。
 1. AngularJS フロントエンドと Express バックエンドはどちらも Node.js で作成されています。この 2 つのコンポーネントが RESTful API を介して通信します。

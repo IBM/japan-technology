@@ -28,7 +28,7 @@ IoT が最も革新的で有用な形のテクノロジーの 1 つとなって�
 * IBM Watson™ IoT Platform を統合し、MQTT または HTTP を使用して登録済み IoT デバイスから資産の更新を直接受信する
 
 ## フロー
-![フロー](../../images/arch-interacting-blockchain-network.png)
+![フロー](./images/arch-interacting-blockchain-network.png)
 
 1. ブロックチェーン・レジャー内の資産を作成、読み取り、更新、または削除するリクエストが送信されます。このリクエストは、ユーザーがモニタリング UI ブラウザーを使用して手作業で送信することも、MQTT メッセージを Watson IoT Platform にパブリッシュする IoT デバイス (NFC/バーコード・スキャナーなど) から送信することもできます。
 

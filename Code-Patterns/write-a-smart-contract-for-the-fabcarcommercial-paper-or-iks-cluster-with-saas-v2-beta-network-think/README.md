@@ -27,7 +27,7 @@ IBM Blockchain Platform 2.0 では、ダッシュボード・コンソールを�
 
 ## フロー
 
-![フロー](../../images/flow.png)
+![フロー](./images/flow.png)
 
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform 2.0 サービスをセットアップします。
 1. IBM Blockchain Platform 2.0 を使用して Hyperledger Fabric ネットワークを作成し、IBM Kubernetes サービスにデプロイします。これにより、Fabcar スマート・コントラクトをネットワークにインストールしてインスタンス化できるようにします。

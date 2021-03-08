@@ -27,7 +27,7 @@ last_updated: 2019-08-01
 
 ## フロー
 
-![レコメンデーション・エンジンのフロー図](../../images/flow.png)
+![レコメンデーション・エンジンのフロー図](./images/flow.png)
 
 1. ユーザーがモバイル・アプリを通じて年齢と性別を入力します。
 1. IBM MobileFirst Platform Foundation にユーザーの入力が渡されます。

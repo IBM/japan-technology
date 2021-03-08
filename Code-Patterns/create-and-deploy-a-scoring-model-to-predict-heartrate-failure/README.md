@@ -35,7 +35,7 @@ last_updated: 2018-05-18
 
 ## フロー
 
-![フロー](../../images/create-and-deploy-a-scoring-model-to-predict-heartrate-failure.png)
+![フロー](./images/create-and-deploy-a-scoring-model-to-predict-heartrate-failure.png)
 
 1. 開発者が IBM Watson Studio ワークスペースを作成します。
 1. IBM Watson Studio は Apache Spark サービスに依存します。

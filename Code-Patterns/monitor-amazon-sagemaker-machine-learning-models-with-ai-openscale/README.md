@@ -36,7 +36,7 @@ AI の作成を自動化: 現在ベータ版として利用可能な Neural Netw
 
 ## フロー
 
-![フロー](../../images/flow-monitor-amazon-openscale.png)
+![フロー](./images/flow-monitor-amazon-openscale.png)
 
 1. 開発者が [UCI 機械学習データベース](https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data)内に保管されているデータを使用して Jupyter Notebook を作成します。
 1. Watson OpenScale データを保管する PostgreSQL データベースに Jupyter Notebook を接続します。

@@ -21,7 +21,7 @@ last_updated: 2017-04-13
 
 ## フロー
 
-![フロー](../../images/arch-twitter-jupyter.png)
+![フロー](./images/arch-twitter-jupyter.png)
 
 1. 開発者がこのアプリケーションに必要な IBM Cloud サービスとして、dashDB for Analytics と Insights for Twitter を追加します。
 1. 開発者が IBM Cloud 内で、Watson™ Studio Spark Service を使用してノートブックを作成します。

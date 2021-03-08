@@ -33,7 +33,7 @@ last_updated: 2018-05-03
 
 ## フロー
 
-![フロー](../../images/arch-deploy-blockchain-kubernetes-1.png)
+![フロー](./images/arch-deploy-blockchain-kubernetes-1.png)
 
 1. IBM Cloud Developer Tools の CLI にログインし、IBM Cloud Container Service プラグインを初期化します。
 1. CLI を使用して Kubernetes クラスターのコンテキストを設定します。その後、Kubernetes 構成ファイルをダウンロードして、そのファイル内で KUBECONFIG 環境変数を設定します。

@@ -22,7 +22,7 @@ IBM Cloud Investment Portfolio サービスを利用すると、投資ポート�
 
 ## フロー
 
-![フロー](../../images/integrate-a-financial-investment-portfolio.png)
+![フロー](./images/integrate-a-financial-investment-portfolio.png)
 
 1. ユーザーが IBM Data Science Experience にログインします。
 2. ユーザーがプロジェクトを作成して、ノートブックを開きます。

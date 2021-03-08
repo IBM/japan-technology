@@ -33,7 +33,7 @@ Watson Knowledge Studio と Watson Discovery をベースとした、このイ�
 
 ## フロー
 
-![フロー](../../images/arch-smarter-procurement.png)
+![フロー](./images/arch-smarter-procurement.png)
 
 1. 型システムとコーパス・ファイルを Watson Knowledge Studio にロードします。
 1. トレーニング用データと評価用データによってモデルを生成します。

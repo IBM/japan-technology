@@ -34,7 +34,7 @@ Watson Discovery と Watson Natural Language Understanding (NLU) は、自然言
 
 ## フロー
 
-![生徒用セルフサービス・チャットボットのフロー図](../../images/chatbot-for-student-self-service-flow.png)
+![生徒用セルフサービス・チャットボットのフロー図](./images/chatbot-for-student-self-service-flow.png)
 
 1. Python プログラムを実行して、Watson Natural Language Understanding によってデータセットを処理し、メタデータ (コースの名前と説明など) を抽出するとともに、CSV ファイルをエンリッチします。
 1. Node プログラムを実行して CSV ファイルを JSON ファイルに変換します (Watson Discovery コレクションで使用するために必要な処理です)。

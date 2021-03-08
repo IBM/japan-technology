@@ -28,7 +28,7 @@ OpenShift に移行した後、Example Health はシステムを拡大して新�
 
 ## フロー
 
-![OpenShift アーキテクチャーによる Java EE アプリのモダナーゼーション・フロー図](../../images/jee-app-modernization-with-OpenShift-architecture.png)
+![OpenShift アーキテクチャーによる Java EE アプリのモダナーゼーション・フロー図](./images/jee-app-modernization-with-OpenShift-architecture.png)
 
 1. ユーザーが、Java EE アプリケーションのいずれかの API を呼び出します。このアプリケーションは OpenShift アプリケーション・ロード・バランサーの背後に配置されています。
 1. ロード・バランサーはユーザーからの呼び出しを、Kubernetes ポッド内で稼働する Open Liberty コンテナーにルーティングします。

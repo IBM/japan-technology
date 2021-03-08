@@ -27,7 +27,7 @@ last_updated: 2018-11-28
 
 ## フロー
 
-![Architecture diagram for analyzing large data sets](../../images/lora-analyze-arch-diagram4.png)
+![Architecture diagram for analyzing large data sets](./images/lora-analyze-arch-diagram4.png)
 
 1. エンド・ノード・デバイスが現地のセンサー・データを収集します。
 1. 収集されたデータがワイヤレス・プロトコルを介してゲートウェイに送信されます。

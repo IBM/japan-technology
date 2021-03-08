@@ -26,7 +26,7 @@ last_updated: 2018-12-14
 
 ## フロー
 
-![フロー](../../images/iot-device-sensor.png)
+![フロー](./images/iot-device-sensor.png)
 
 1. 動き検出スクリプトをRTSP ストリームまたは動画ファイルに接続します。
 1. 動きが検出された場合、スクリーンショットをキャプチャーして、そのスクリーンショットをローカルでホストされている Node.js サーバーまたは IBM Cloud コンテナー・サービス内の Node.js サーバーに転送します。

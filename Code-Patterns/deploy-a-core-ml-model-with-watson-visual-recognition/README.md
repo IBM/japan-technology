@@ -31,7 +31,7 @@ Core ML を使用すると、開発者はトレーニング済みの機械学習
 
 ## フロー
 
-![フロー](../../images/coreml_pattern_arch.png)
+![フロー](./images/coreml_pattern_arch.png)
 
 1. 画像をインポートしてタグを付けます。
 1. Core ML 対応の Watson Visual Recognition モデルをトレーニング、テスト、デプロイします。

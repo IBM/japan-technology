@@ -54,7 +54,7 @@ last_updated: 2017-12-11
 
 ## フロー
 
-![blockchain insurance app フロー](../../images/arch-blockchain-insurance2.png)
+![blockchain insurance app フロー](./images/arch-blockchain-insurance2.png)
 
 1. ピアの証明書を生成します。
 1. ネットワークの Docker イメージをビルドします。

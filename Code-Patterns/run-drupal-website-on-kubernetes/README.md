@@ -24,7 +24,7 @@ Drupal は人気の高い無料のオープンソース CMS (コンテンツ管�
 
 ## フロー
 
-![フロー](../../images/arch-diagram-deploying-drupal-iks.png)
+![フロー](./images/arch-diagram-deploying-drupal-iks.png)
 
 1. ユーザーが Drupal Web インターフェースを操作します。
 1. Drupal コンテナーは独自の永続ボリュームを使用して Web サイト・データを保管します (コンテンツは保管しません)。

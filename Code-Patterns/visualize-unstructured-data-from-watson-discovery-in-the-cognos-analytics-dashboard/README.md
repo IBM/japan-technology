@@ -29,7 +29,7 @@ last_updated: 2020-06-04
 
 ## フロー
 
-![フロー図](../../images/flow.png)
+![フロー図](./images/flow.png)
 
 1. 製品レビューのデータを Watson Discovery にロードして増補します。増補されたデータには、感情分析とキーワード・ディスカバリーの結果が含まれます。
 1. ユーザーが Cognos Analytics を実行します。

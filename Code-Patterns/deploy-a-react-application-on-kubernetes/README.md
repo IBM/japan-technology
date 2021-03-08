@@ -29,7 +29,7 @@ Kubernetes 上にデプロイするアプリケーションは、コンテナー
 
 ## フロー
 
-![フロー](../../images/deploy-react-application-kubernetes-architecture.png)
+![フロー](./images/deploy-react-application-kubernetes-architecture.png)
 
 1. ユーザーが Web インターフェースを使用して React アプリケーションにアクセスし、映画のタイトルを入力します。
 1. アクセス中のユーザーに React アプリケーションがレンダリングされます。

@@ -21,7 +21,7 @@ last_updated:     2018-06-18
 
 ## フロー
 
-![フロー](../../images/hackernews-arch-1.png)
+![フロー](./images/hackernews-arch-1.png)
 
 1. アプリケーションを IBM Cloud&reg; にデプロイします。
 1. アプリケーションが Hacker News API からデータをロードします。

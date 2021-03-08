@@ -28,7 +28,7 @@ ICD-10 は、「International Statistical Classification of Diseases and Related
 
 ## フロー
 
-![フロー](../../images/arch-watson-nlc-ICD10.png)
+![フロー](./images/arch-watson-nlc-ICD10.png)
 
 1. モデルのトレーニングに使用する CSV ファイルを Natural Language Classifier サービスに送信します。
 1. ユーザーが、ローカルまたはクラウド内で実行されているアプリの UI を操作します。

@@ -27,7 +27,7 @@ last_updated: 2017-07-18
 
 ## フロー
 
-![フロー](../../images/voice-controls-serverless-home-automation-arch.png)
+![フロー](./images/voice-controls-serverless-home-automation-arch.png)
 
 1. ユーザーがマイクに向かって声で命令するか、Twilio SMS の電話番号にテキストを送信します。
 1. 入力がキャプチャーされて、OpenWhisk シーケンスをトリガーするための HTTP POST リクエストに、その入力が組み込まれます。

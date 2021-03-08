@@ -45,7 +45,7 @@ IBM Cloud アカウントをまだ登録していない場合は、アカウン�
 
 ## フロー
 
-![フロー](../../images/serverless-cloud-functions-api-gateway-arch.png)
+![フロー](./images/serverless-cloud-functions-api-gateway-arch.png)
 
 1. アプリのユーザーがログインして、IBM App ID 認証サーバーからトークンを取得します。App ID サービスにより、ユーザーの資格情報がクラウド・ディレクトリーに照合されます。App ID サービスで他の[認証プロバイダー](https://cloud.ibm.com/docs/services/appid/manageidp.html#managing)を使用するように構成することもできます。
 1. App ID 認証サービスからユーザーに JWS トークンが返されます。

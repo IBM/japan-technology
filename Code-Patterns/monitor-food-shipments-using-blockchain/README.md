@@ -21,7 +21,7 @@ last_updated: 2019-04-02
 
 ## フロー
 
-![フロー](../../images/food-shipments-flow-v2.png)
+![フロー](./images/food-shipments-flow-v2.png)
 
 1. Hyperledger ネットワークを Docker コンテナーのグループとして (ホストする場合は Kubernetes に) デプロイします。
 2. デプロイした Hyperledger コンテナー上にスマート・コントラクトをインストールします。

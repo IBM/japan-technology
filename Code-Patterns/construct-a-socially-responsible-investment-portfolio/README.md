@@ -26,7 +26,7 @@ IBM Cloud Portfolio Optimization サービスでは、線形最適化フレー�
 
 ## フロー
 
-![フロー](../../images/portfolio-optimization-arch.png)
+![フロー](./images/portfolio-optimization-arch.png)
 
 1. ユーザーまたは会社が Investment Portfolio サービスを実行する前に、適格投資、ベンチマーク、ユーザー・ポートフォリオなどのシード情報をサービスに提供します。これらの情報が UI に選択肢として取り込まれます。
 1. ユーザーが Web インターフェースにアクセスして、目標、要件、制約を入力します。

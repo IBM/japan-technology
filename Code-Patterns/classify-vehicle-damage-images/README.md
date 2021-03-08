@@ -30,7 +30,7 @@ Visual Recognition サービスでは、サンプル画像をアップロード�
 
 ## フロー
 
-![フロー](../../images/arch-vehicle-damage-analyzer.png)
+![フロー](./images/arch-vehicle-damage-analyzer.png)
 
 1. ユーザーがモバイル・アプリケーションで画像をキャプチャーします。
 1. ユーザーがモバイル・アプリケーション上の写真を、クラウド内で稼働中のサーバー・アプリケーションに送信します。

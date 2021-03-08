@@ -26,7 +26,7 @@ last_updated: '2020-02-18'
 
 ## フロー
 
-![フロー](../../images/flow-product-recommendation-with-watson-ml.png)
+![フロー](./images/flow-product-recommendation-with-watson-ml.png)
 
 1. IBM Watson Studio にログインします。
 1. 用意されているノートブックを Watson Studio にロードします。

@@ -27,7 +27,7 @@ Cloud Object Storage 内の Web Gallery は、IBM Cloud 上で稼働する単純
 
 ## フロー
 
-![フロー](../../images/arch-image-gallery-object-storage-cloud.png)
+![フロー](./images/arch-image-gallery-object-storage-cloud.png)
 
 1. 画像ギャラリー・アプリのユーザーが、画像アップロード・フォームを使用してアップロードするイメージを選択し、*「Upload (アップロード)」*をクリックします。
 2. フォームがアプリに対して POST リクエストを実行します。すると、アプリが S3 SDK を使用して IBM Cloud Object Storage サーバーに対する PUT リクエストを生成します。

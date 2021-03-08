@@ -29,7 +29,7 @@ last_updated: 2018-08-06
 
 ## フロー
 
-![フロー](../../images/sms-architecture-watson.png)
+![フロー](./images/sms-architecture-watson.png)
 
 1. 型システムとコーパス・ファイルを Watson Knowledge Studio にロードします。.
 1. トレーニング用データと評価用データによってモデルを生成します。

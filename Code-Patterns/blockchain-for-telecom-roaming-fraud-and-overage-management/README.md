@@ -36,13 +36,13 @@ _**Note:** This code pattern is currently being updated to focus on IBM Blockcha
 
 以下の図は、このソリューションを背後で支えるエコシステムを説明しています。
 
-![エコシステム](../../images/bc_roaming_archi.png)
+![エコシステム](./images/bc_roaming_archi.png)
 
 ビジネス・ネットワーク定義は、モデル (.cto)、トランザクション関数 (.js)、アクセス制御リスト (.acl) のファイルを 1 つにパッケージ化したチェーンコード・アーカイブ・ファイル (.bna) からなります。ビジネス・ネットワーク定義は、Hyperledger 開発ツールに含まれる Hyperledger Composer Playground を使用して開発、テストしてから、そのチェーンコード・アーカイブ・ファイルを Hyperledger Fabric ネットワークにインポートしてデプロイできます。その後、Hyperledger Composer REST サーバーをデプロイして、ブロックチェーン・ネットワークとやり取りするために使用する REST API を生成し、トランザクションを呼び出してクエリーします。
 
 ## フロー
 
-![フロー](../../images/archi.png)
+![フロー](./images/archi.png)
 
 以下のフローで、このソリューションのブロックチェーン・コンポーネントを作成する際に従う手順を説明します。独立した UI と追加のバックエンド・コンポーネントが必要になりますが、この 2 つについてはフローで明かにしていないことに注意してください。
 

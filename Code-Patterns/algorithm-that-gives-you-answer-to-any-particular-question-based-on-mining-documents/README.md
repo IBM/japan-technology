@@ -26,7 +26,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/flow-algorithm-that-gives-you-answer-to-any-particular-question-based-on-mining-documents.png)
+![フロー](./images/flow-algorithm-that-gives-you-answer-to-any-particular-question-based-on-mining-documents.png)
 
 1. 非構造化データを、エンティティー、関係、エンティティーからなる 3 タプルに取り込みます。
 1. 取得したエンティティーと関係を基に、ナレッジ・グラフが作成されます。

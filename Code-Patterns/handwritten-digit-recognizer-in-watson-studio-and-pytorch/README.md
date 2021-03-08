@@ -26,7 +26,7 @@ last_updated: '2018-11-19'
 
 ## フロー
 
-![フロー](../../images/handwritten-digit.png)
+![フロー](./images/handwritten-digit.png)
 
 1. IBM Watson Studio にログインします。
 1. Watson Studio 内で Jupyter ノートブックを実行します。

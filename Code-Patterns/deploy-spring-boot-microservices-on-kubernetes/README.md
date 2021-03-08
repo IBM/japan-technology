@@ -23,7 +23,7 @@ Spring Boot は Spring アプリケーションの構築をこだわりのある
 
 ## フロー
 
-![フロー](../../images/Deploy-Spring-Boot-microservices-on-Kubernetes.png)
+![フロー](./images/Deploy-Spring-Boot-microservices-on-Kubernetes.png)
 
 1. Python で作成された Transaction Generator サービスがトランザクションをシミュレーションし、それらのトランザクションを Compute Interest マイクロサービスにプッシュします。
 2. Compute Interest マイクロサービスが利益を計算し、そのほんのわずかな金額を MySQL データベースに移して保管します。このデータベースは、同じデプロイメント内のコンテナー内部で実行することも、IBM Cloud のようなパブリック・クラウド上で実行することもできます。

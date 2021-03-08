@@ -27,7 +27,7 @@ last_updated: 2017-10-04
 
 ## フロー
 
-![フロー](../../images/Automatically-scale-to-handle-peaks-in-banking-transaction-demand-.png)
+![フロー](./images/Automatically-scale-to-handle-peaks-in-banking-transaction-demand-.png)
 
 1. モバイル・アプリのユーザーまたは銀行支店の出納係が、小切手の画像をスキャンして Object Storage サービス (着信コンテナー) にアップロードします。画像ファイルの名前には、顧客の e-メール、受取人名義の口座番号、小切手の金額、タイムスタンプがエンコードされて含められます。
 1. 新しい小切手画像の有無を調べるために、「ポーリング・アラーム」によって「小切手検索」アクションが 20 秒間隔でトリガーされ、Object Storage サービスがポーリングされます (別の実装として、ポーリングするのではなく、このイベントをプッシュすることもできます)。

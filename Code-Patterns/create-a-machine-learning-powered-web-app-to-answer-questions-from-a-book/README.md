@@ -27,7 +27,7 @@ last_updated: 2019-11-05
 
 ## フロー
 
-![機械学習アプリケーションのフロー図](../../images/flow-machine-learning-powered-app.png)
+![機械学習アプリケーションのフロー図](./images/flow-machine-learning-powered-app.png)
 
 ## 手順
 

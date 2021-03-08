@@ -27,7 +27,7 @@ Fitcoin を使用すれば、コミュニティーの構築という新しい特
 
 ## フロー
 
-![フロー](../../images/Flow-fitcoin-architecture-2.png)
+![フロー](./images/Flow-fitcoin-architecture-2.png)
 
 1. Hyperledger Fabric と Hyperledger Composer をインストールします。
 1. Fitcoin ブロックチェーン・ネットワークを作成してデプロイします。

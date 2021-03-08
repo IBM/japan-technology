@@ -33,7 +33,7 @@ last_updated: 2019-02-08
 
 ## フロー
 
-![フロー](../../images/infuse_ai.png)
+![フロー](./images/infuse_ai.png)
 
 1. データを Db2 Warehouse にロードします。
 1. Jupyter Notebook がデータにアクセスします。

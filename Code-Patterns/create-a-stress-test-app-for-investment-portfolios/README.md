@@ -26,7 +26,7 @@ last_updated: 2018-05-22
 
 ## フロー
 
-![フロー](../../images/arch-stress-test.png)
+![フロー](./images/arch-stress-test.png)
 
 1. アプリケーションを実行する前に、ユーザーが Investment Portfolio サービスにポートフォリオ固有の情報をシードします。
 1. ユーザーが Web インターフェースを使用して、ポートフォリオの内容、リスク要因、市場下落幅などの情報を入力します。

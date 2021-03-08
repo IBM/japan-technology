@@ -25,7 +25,7 @@ last_updated: '2019-04-09'
 
 ## サンプル・アプリの図
 
-![Watson ML を使用して構築されたコンピューター・ビジョン・アプリを示す図](../../images/flow-build-computer-vision-app-watson-ml.png)
+![Watson ML を使用して構築されたコンピューター・ビジョン・アプリを示す図](./images/flow-build-computer-vision-app-watson-ml.png)
 
 1. トレーニング・データを IBM Cloud Object Storage にアップロードします。
 1. Watson Machine Learning が IBM Cloud Object Storage からトレーニング・データをプルし、TensorFlow を使用してモデルをトレーニングします。トレーニング後のモデルが再び IBM Cloud Object Storage に保管されます。

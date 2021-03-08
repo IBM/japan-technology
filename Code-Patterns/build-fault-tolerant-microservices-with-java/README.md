@@ -32,7 +32,7 @@ MicroProfile は、Enterprise Java をマイクロサービス・アーキテク
 
 ## フロー
 
-![フロー](../../images/flow.png)
+![フロー](./images/flow.png)
 
 1. [IBM Cloud](https://cloud.ibm.com?cm_sp=ibmdev-_-developer-patterns-_-cloudreg) 内で Kubernetes サービスを作成します。
 1. すべてのマイクロサービスを Kubernetes クラスター内にデプロイします。

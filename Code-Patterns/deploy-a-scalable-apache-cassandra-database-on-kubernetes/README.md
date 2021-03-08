@@ -21,7 +21,7 @@ Apache Cassandra の分散型システムでは、複数のデータ・センタ
 
 ## フロー
 
-![フロー](../../images/architecture-cassandra-on-kube.png)
+![フロー](./images/architecture-cassandra-on-kube.png)
 
 1. 開発者がヘッドレス・サービスを作成します。Kubernetes サービスとは、論理的なポッドのセットと、それにアクセスするポリシーを定義する抽象的なものです。Cassandra クラスターの生成と「シード」のディスカバリーには、ヘッドレス Cassandra サービスを利用します。
 1. 開発者が Kubernetes ReplicationController を作成します。このコントローラーが、Cassandra クラスターの非永続型ポッド・ノードを作成し、スケーリングに対応します。最初の Cassandra ノードが作成されたことを確認した後、開発者は ReplicationControlle 内にさらにノードを追加して Cassandra クラスターをスケーリングできます。

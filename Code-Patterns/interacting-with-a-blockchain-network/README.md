@@ -23,7 +23,7 @@ last_updated: 2018-06-14
 
 ## フロー
 
-![フロー](../../images/arch-interacting-with-blockchain.png)
+![フロー](./images/arch-interacting-with-blockchain.png)
 
 1. ビルド・スクリプトを実行します。これにより、3 つのステップでネットワークが起動されます。
 1. クリーンなシステムからネットワークを構築できるよう、古い Docker イメージをすべて削除します。

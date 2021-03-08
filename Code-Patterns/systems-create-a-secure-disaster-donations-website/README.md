@@ -28,7 +28,7 @@ last_updated: 2019-11-15
 
 ## フロー
 
-![フロー](../../images/flow.png)
+![フロー](./images/flow.png)
 
 1. ユーザーが Web サイトにリクエストを送信します。
 1. Nginx がリクエストを Node.js フロントエンドにルーティングします。

@@ -26,7 +26,7 @@ last_updated: 2019-03-21
 
 ## フロー
 
-![フロー](../../images/app-architecture-3.png)
+![フロー](./images/app-architecture-3.png)
 
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform サービスをセットアップします。
 1. IBM Blockchain Platform により、IBM Kubernetes Service 上に Hyperledger Fabric ネットワークが作成されます。このネットワークに、オペレーターがスマート・コントラクトをインストールしてインスタンス化します。

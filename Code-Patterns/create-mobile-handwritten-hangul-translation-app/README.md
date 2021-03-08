@@ -20,7 +20,7 @@ last_updated: '2017-11-03'
 
 ## フロー
 
-![フロー](../../images/Create-a-Mobile-Handwritten-Hangul-Translation-App-flow-arch.png)
+![フロー](./images/Create-a-Mobile-Handwritten-Hangul-Translation-App-flow-arch.png)
 
 1. データを生成するために使用する韓国語のフォントをいくつかダウンロードします。
 1. フォントから生成された画像が、トレーニング対象の TensorFlow モデルに取り込まれます。

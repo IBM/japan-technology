@@ -29,7 +29,7 @@ last_updated: 2019-06-07
 
 ## フロー
 
-![Python を使用したデータ視覚化](../../images/architecture.png)
+![Python を使用したデータ視覚化](./images/architecture.png)
 
 1. Jupyter Notebook を Watson Studio プラットフォーム上にロードします。
 1. 2017 年のヒューストン大洪水に関する USGS データを Notebook にロードします。

@@ -33,7 +33,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](../../images/flow-build-a-domain-specific-knowledge-graph.png)
+![フロー](./images/flow-build-a-domain-specific-knowledge-graph.png)
 
 1. カスタム Python コードを使用して、分析して相互に関連付ける必要がある複数の .docx ファイルから非構造化テキスト・データを抽出します。
 1. コード・パターン「[Watson のテキスト分類を拡張する](https://github.com/IBM/watson-document-classifier)」に従って、NLU を使用してテキストを分類し、分類したテキストにタグを付けます。

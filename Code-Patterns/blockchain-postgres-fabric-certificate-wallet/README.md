@@ -22,7 +22,7 @@ Hyperledger Fabric は、Hyperledger に含まれるブロックチェーン・�
 
 ## フロー
 
-![フロー](../../images/flow.png)
+![フロー](./images/flow.png)
 
 1. IBM Blockchain Platform を利用して Hyperledger Fabric ネットワークをセットアップします。
 1. Kubernetes を使用してコンテナー化された PostgreSQL データベースを構成し、デプロイします。

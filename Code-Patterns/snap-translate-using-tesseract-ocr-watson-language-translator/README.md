@@ -29,7 +29,7 @@ last_updated: 2018-09-17
 
 ## フロー
 
-![フロー](../../images/flow-snap-and-translate.png)
+![フロー](./images/flow-snap-and-translate.png)
 
 1. ユーザーがモバイル・アプリを操作して、画像を取り込むか、フォト・アルバムから画像を選択します。
 1. IBM Cloud Kubernetes サービス上で稼働する Node.js サーバー・アプリケーションに画像が渡されると、このアプリが Tesseract OCR を使用して画像内のテキストを認識します。

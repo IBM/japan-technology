@@ -25,7 +25,7 @@ last_updated: 2019-08-06
 
 ## フロー
 
-![フロー](../../images/Create-a-banking-chatbot.png)
+![フロー](./images/Create-a-banking-chatbot.png)
 
 1. 一連の FAQ ドキュメントを Watson Discovery コレクションに追加します。
 1. ユーザーがアプリの UI を介してチャットボットとやり取りします。

@@ -29,7 +29,7 @@ MongoDB を使用する場合、Mongoose は簡単にデータをモデル化す
 
 ## フロー
 
-![フロー](../../images/arch-map-server-mongoose.png)
+![フロー](./images/arch-map-server-mongoose.png)
 
 1. ユーザーが MongoDB データベースをセットアップします。このパターンでは Compose for MongoDB を利用します。
 2. ユーザーが、アプリケーション内に設定されたモデルのスキーマと一致するモック・データを追加します。

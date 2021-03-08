@@ -41,7 +41,7 @@ last_updated: 2018-09-12
 
 ## フロー
 
-![フロー](../../images/securing-art-flow-2.png)
+![フロー](./images/securing-art-flow-2.png)
 
 1. 既存のすべてのネットワークを破棄して、散らばっているコンテナーや画像のすべてを削除します。
 1. Hyperledger Fabric ネットワークを起動します。

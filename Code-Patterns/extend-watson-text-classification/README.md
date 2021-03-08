@@ -29,7 +29,7 @@ Watson Natural Language Understanding (NLU) サービスでトレーニングに
 
 ## フロー
 
-![フロー](../../images/Watson-Text-Classifier-arch-flow-1.png)
+![フロー](./images/Watson-Text-Classifier-arch-flow-1.png)
 
 1. 分析を必要とするドキュメントを IBM Cloud Object Storage に保管します。
 1. Python コードにより、Object Storage からドキュメントの内容と構成 JSON を取得します。

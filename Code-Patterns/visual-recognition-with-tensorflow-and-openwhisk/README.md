@@ -35,7 +35,7 @@ last_updated: 2018-09-19
 
 ## フロー
 
-![フロー](../../images/arch-visual-recognition-toys.png)
+![フロー](./images/arch-visual-recognition-toys.png)
 
 1. 開発者が写真を撮ります (おそらく Anzi Cozmo ロボットを使用して撮りますが、必ずしもそうとは限りません)。撮った写真を IBM Cloud Object Storage にアップロードします。
 2. 開発者が TensorFlow を含めた Docker イメージをビルドし、Kubernetes をトリガーして「トレーニング用」コンテナーを実行します。

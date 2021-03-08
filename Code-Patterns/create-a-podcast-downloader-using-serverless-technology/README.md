@@ -29,7 +29,7 @@ Apache OpenWhisk は、どんな規模でもイベントに応答して関数を
 
 ## フロー
 
-![フロー](../../images/podcast-downloader.png)
+![フロー](./images/podcast-downloader.png)
 
 1. ローカル Python アプリに MySQL バックエンドをセットアップします。
 1. Python アクションと仮想環境を ZIP ファイルにパッケージ化して、IBM Cloud Functions にアップロードします。

@@ -28,7 +28,7 @@ last_updated: 2018-04-22
 
 ## フロー
 
-![フロー](../../images/taxi2-arch.png)
+![フロー](./images/taxi2-arch.png)
 
 1. Jupyter Notebook を実行します。
 1. Jupyter Notebook を、ライブ・イベント・ストリームを分析する Db2 Event Store に接続します。

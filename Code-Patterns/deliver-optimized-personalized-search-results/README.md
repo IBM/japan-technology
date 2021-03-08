@@ -20,7 +20,7 @@ last_updated: 2018-05-22
 
 ## フロー
 
-![フロー](../../images/arch-intent-and-context.png)
+![フロー](./images/arch-intent-and-context.png)
 
 1. ユーザーが WebSphere Commerce ストアフロント内で検索を開始します。
 1. WebSphere Commerce からファイル・リポジトリーにユーザー・プロファイル・データがエクスポートされます。

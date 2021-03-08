@@ -25,7 +25,7 @@ Watson Assistant を利用して、投資に関する照会と有価証券の分
 
 ## フロー
 
-![フロー](../../images/Create-an-investment-management-chatbot.png)
+![フロー](./images/Create-an-investment-management-chatbot.png)
 
 1. 開発者が複数の通信チャネル (例えば、WebUI や Twilio など) をセットアップします。アプリケーションはどちらのチャネルからのメッセージも listen します。
 1. Assistant API が自然言語の入力を取り込んで分割し、あらかじめ行われたトレーニングに基づいて、分割後の入力をインテントとエンティティーにマッピングします。アプリは分類されたインテントに基づいて該当する財務サービスを呼び出します。

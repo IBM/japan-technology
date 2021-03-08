@@ -24,7 +24,7 @@ Eclipse MicroProfile は、マイクロサービス・アーキテクチャー�
 
 ## フロー
 
-![フロー](../../images/Configure-your-application-with-Eclipse-MicroProfile-Config-arch-flow.png)
+![フロー](./images/Configure-your-application-with-Eclipse-MicroProfile-Config-arch-flow.png)
 
 1. ユーザーが Open Liberty サーバーに対して REST リクエストを実行します。
 2. JAX-RS がリクエストをアプリケーションに転送します。

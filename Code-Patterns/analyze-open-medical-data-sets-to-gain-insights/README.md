@@ -31,7 +31,7 @@ last_updated: 2019-03-28
 
 ## フロー
 
-![フロー](../../images/analyze-open-medical-datasets-to-gain-insights.png)
+![フロー](./images/analyze-open-medical-datasets-to-gain-insights.png)
 
 1. IBM Watson Studio サービスにログインします。
 1. Watson Studio 内でデータをデータ・アセットとしてアップロードします。

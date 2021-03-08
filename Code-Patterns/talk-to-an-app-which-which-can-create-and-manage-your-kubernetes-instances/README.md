@@ -35,7 +35,7 @@ IBM Cloud 上の Watson&trade; Assistant と Kubernetes Service を利用して�
 
 ## フロー
 
-![Kubernetes 対応音声アシスタントのアーキテクチャーを説明するフロー図](../../images/kubernetes-speech-assistant-architecture-diagram.png)
+![Kubernetes 対応音声アシスタントのアーキテクチャーを説明するフロー図](./images/kubernetes-speech-assistant-architecture-diagram.png)
 
 1. ユーザーが Android アプリ上で IBM Cloud アカウントにログインします。
 1. IBM Identity and Access Management の OpenID Connect プロトコルを使用して、スマートフォンのブラウザー上でユーザーが IBM Cloud ログイン画面にリダイレクトされます。

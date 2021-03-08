@@ -32,7 +32,7 @@ Watson Discovery サービスを使用すると、開発者は、コグニティ
 
 ## フロー
 
-![フロー](../../images/cognitive-news-search-arch-1.png)
+![フロー](./images/cognitive-news-search-arch-1.png)
 
 1. ユーザーが API の UI を操作して関連するニュース・コンテンツをリクエストします。
 1. アプリがユーザー・リクエストを Watson Discovery News に送信します。

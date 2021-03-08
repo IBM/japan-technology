@@ -31,7 +31,7 @@ Watson Natural Understanding サービスを利用する最大の利点は、コ
 
 ## フロー
 
-![フロー](../../images/flow.png)
+![フロー](./images/flow.png)
 
 1. ユーザーが Watson Natural Language Understanding サービスの資格情報を構成して、アプリを起動します。
 1. ユーザーが処理対象のデータ・ファイルを選択してロードします。
