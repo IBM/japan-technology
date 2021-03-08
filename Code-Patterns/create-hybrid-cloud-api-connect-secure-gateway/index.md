@@ -1,15 +1,77 @@
-# API Connect と Secure Gateway を使用してハイブリッド・クラウドを作成する
+---
+# REQUIRED: Make sure to update this file's folder name if the item's name or url changes.
+draft: false
+type: default
+title: "API Connect と Secure Gateway を使用してハイブリッド・クラウドを作成する"
+meta_title: "API Connect と Secure Gateway を使用してハイブリッド・クラウドを作成する"
+subtitle: "オンプレミスのアプリケーションとサービスをハイブリッド・クラウドまで拡張する"
+excerpt: "次世代のアプリケーションには、プライベート・クラウドとパブリック・クラウドの両方にまたがるマルチクラウドおよびハイブリッドのデプロイメントが必要になります。"
+meta_description: "次世代のアプリケーションには、プライベート・クラウドとパブリック・クラウドの両方にまたがるマルチクラウドおよびハイブリッドのデプロイメントが必要になります。"
+meta_keywords: "hybrid, cloud, api, connect"
+authors:
+  - name: "Animesh Singh"
+    email: "singhan@us.ibm.com"
+  - name: "Tommy Li"
+    email: "tommy.chaoping.li@ibm.com"
+  - name: "Arthur De Magalhaes"
+    email: "arthurdm@ca.ibm.com"
+  - name: "Yan Koyfman"
+    email: "koyfman@us.ibm.com"
 
-### オンプレミスのアプリケーションとサービスをハイブリッド・クラウドまで拡張する
+completed_date: "2017-05-26"
+last_updated: "2018-10-18"
+pwg:
+  - "api management"
+pta:
+  - "cloud, container, and infrastructure"
+github:
+  - url: "https://github.com/IBM/Hybrid-Cloud-Applications-and-Services"
+    button_title: "コードを入手する"
 
-English version: https://developer.ibm.com/patterns/create-hybrid-cloud-api-connect-secure-gateway
-  
-ソースコード: https://github.com/IBM/Hybrid-Cloud-Applications-and-Services
+related_links:
+  - title: "Hybrid architecture"
+    url: "https://www.ibm.com/cloud/garage/architectures/hybridArchitecture"
+    description: "Learn how this pattern fits into the Hybrid Reference Architecture."
+  - title: "Adopt a hybrid cloud model using IBM Cloud"
+    url: "https://developer.ibm.com/jp/depmodels/cloud/"
+    description: "See how an IBM team implemented hybrid cloud for their sales Quote-to-Cash application."    
+  - title: "What is Hybrid Cloud?"
+    url: "https://developer.ibm.com/blogs/what-is-hybrid-cloud/"    
 
-###### 最新の英語版コンテンツは上記URLを参照してください。
-last_updated: 2018-10-18
+related_content:
+  - type: patterns
+    slug: unlock-enterprise-data-using-apis
+#social-media-meta:
+#  - type: twitter
+#    title:
+#    abstract:
+#    img:
+#    - height:
+#      width:
+#      src:
+primary_tag: "hybrid"
+tags:
+  - "api"
+  - "cloud"
+  - "paas"
+  - "containers"
+  - "data-stores"
+  - "java"
+  - "hybrid"
 
- ## 概要
+#service-id:
+services:
+  - "api-connect"
+  - "secure-gateway"
+  - "weather-company-data"
+
+components:
+  - "cloud-foundry"
+  - "jakarta"
+runtimes:
+  - "liberty-for-java"
+---
+## 概要
 
 ハイブリッド・クラウドは、プライベート・クラウドとパブリック・クラウドの要素を融合させて、両方のクラウドにまたがってアプリとサービスを実行する選択肢と柔軟性を提供します。簡単に言えば、ハイブリッド・モデルは主としてプライベート・クラウドであり、必要に応じてパブリック・クラウドを利用できるというモデルです。このコード・パターンでは、オンプレミスとパブリック・クラウドの間でアプリケーションとサービスを公開し合う方法を説明します。
 
@@ -28,7 +90,7 @@ last_updated: 2018-10-18
 
 ## フロー
 
-![フロー](./images/arch-hybridcloud-journey.png)
+![フロー](../../images/arch-hybridcloud-journey.png)
 
 ## 手順
 
