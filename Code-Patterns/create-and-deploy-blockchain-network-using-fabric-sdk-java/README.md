@@ -2,7 +2,7 @@
 
 ### チャネルのセットアップと初期化、チェーンコードのインストールとインスタンス化を行って、ブロックチェーン・ネットワークに対して呼び出しとクエリーを実行する
 
-English version: https://developer.ibm.com/patterns/./create-and-deploy-blockchain-network-using-fabric-sdk-java
+English version: https://developer.ibm.com/patterns/create-and-deploy-blockchain-network-using-fabric-sdk-java
   ソースコード: https://github.com/IBM/blockchain-application-using-fabric-java-sdk
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ Hyperledger Fabric Java ブロックチェーン・アプリを構築しよう�
 
 ## フロー
 
-![フリー](./images/arch-create-deploy-blockchain.png)
+![フリー](../../images/arch-create-deploy-blockchain.png)
 
 1. cryptogen と configtx を使用して、ネットワーク内のピアとチャネル用の成果物を生成します。これらの成果物はすでに生成されてコード・リポジトリー内に用意されているので、そのまま使えます。
 1. Docker Compose と生成した成果物を使用してネットワークを構築します。

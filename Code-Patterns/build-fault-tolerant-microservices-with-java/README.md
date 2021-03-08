@@ -2,7 +2,7 @@
 
 ### Eclipse MicroProfile を使用した Open Liberty アプリケーションを Kubernetes 上にデプロイする
 
-English version: https://developer.ibm.com/patterns/./build-fault-tolerant-microservices-with-java
+English version: https://developer.ibm.com/patterns/build-fault-tolerant-microservices-with-java
   ソースコード: https://github.com/IBM/java-microprofile-fault-monitoring
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -32,7 +32,7 @@ MicroProfile は、Enterprise Java をマイクロサービス・アーキテク
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. [IBM Cloud](https://cloud.ibm.com?cm_sp=ibmdev-_-developer-patterns-_-cloudreg) 内で Kubernetes サービスを作成します。
 1. すべてのマイクロサービスを Kubernetes クラスター内にデプロイします。

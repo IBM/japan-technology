@@ -2,7 +2,7 @@
 
 ### IBM Cloud、Watson サービス、Watson Studio、そしてオープンソース・テクノロジーを利用して、各種のビジネス領域で生成された非構造化テキスト・コンテンツから洞察を引き出す
 
-English version: https://developer.ibm.com/patterns/./build-a-domain-specific-knowledge-graph-from-given-set-of-documents
+English version: https://developer.ibm.com/patterns/build-a-domain-specific-knowledge-graph-from-given-set-of-documents
   ソースコード: https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -11,10 +11,10 @@ last_updated: 2018-09-14
  
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
-* [Watson のテキスト分類を拡張する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/extend-watson-text-classification/)
-* [さまざまなソースからのドキュメントを互いに関連付ける](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/watson-document-correlation/)
+* [Watson のテキスト分類を拡張する](https://developer.ibm.com/jp/patterns/extend-watson-text-classification/)
+* [さまざまなソースからのドキュメントを互いに関連付ける](https://developer.ibm.com/jp/patterns/watson-document-correlation/)
 * ドキュメントを基にナレッジ・グラフを作成する (このパターン)
-* [ナレッジ・ベースでドキュメントをクエリーする](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/algorithm-that-gives-you-answer-to-any-particular-question-based-on-mining-documents/)
+* [ナレッジ・ベースでドキュメントをクエリーする](https://developer.ibm.com/jp/patterns/algorithm-that-gives-you-answer-to-any-particular-question-based-on-mining-documents/)
 
 ## 概要
 
@@ -33,7 +33,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/flow-build-a-domain-specific-knowledge-graph.png)
+![フロー](../../images/flow-build-a-domain-specific-knowledge-graph.png)
 
 1. カスタム Python コードを使用して、分析して相互に関連付ける必要がある複数の .docx ファイルから非構造化テキスト・データを抽出します。
 1. コード・パターン「[Watson のテキスト分類を拡張する](https://github.com/IBM/watson-document-classifier)」に従って、NLU を使用してテキストを分類し、分類したテキストにタグを付けます。

@@ -2,7 +2,7 @@
 
 ### Embedded Business Assistant を IBM Sterling Call Center for Commerce に統合する
 
-English version: https://developer.ibm.com/patterns/./integration-of-scba-to-call-center-oms
+English version: https://developer.ibm.com/patterns/integration-of-scba-to-call-center-oms
   ソースコード: https://github.com/IBM/Call-center-EBA
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -20,7 +20,7 @@ Embedded Business Assistant を IBM Sterling Call Center for Commerce に統合�
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. ユーザーが IBM ID を使用して Embedded Business AI フレームワークにログインし、プログラムでアクセスするために使用する公開鍵と秘密鍵を生成します。
 1. ユーザーが、生成された秘密鍵と GitHub リポジトリーから入手できる GetAccessKey.js スクリプトを使用してアクセス・キーを生成し、同じく GitHub リポジトリーに用意されている customer_overrides.properties ファイル内のアクセス・キーを更新します。

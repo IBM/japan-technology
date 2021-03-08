@@ -2,7 +2,7 @@
 
 ### Hyperledger Composer Playground と Hyperledger Composer REST サーバーを使用して、IBM Blockchain Platform 上でブロックチェーン・ネットワークを作成、構成、操作する
 
-English version: https://developer.ibm.com/patterns/./track-donations-blockchain
+English version: https://developer.ibm.com/patterns/track-donations-blockchain
   ソースコード: https://github.com/IBM/global-citizen
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ IBM Code のこの開発者パターンでは、シンプルな 3 人のメン�
 
 ## フロー
 
-![フロー](./images/arch-blockchain-global-citizen.png)
+![フロー](../../images/arch-blockchain-global-citizen.png)
 
 1. 寄付案を作成し、レビュー対象として Global Citizen 組織に送信します。
 1. 資金を募るために寄付案を政府機関に送信します。

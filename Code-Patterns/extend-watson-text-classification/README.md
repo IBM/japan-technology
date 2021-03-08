@@ -2,7 +2,7 @@
 
 ### Python NLTK ツールキットと IBM DSX を使って、望ましいテキスト分類結果を得る
 
-English version: https://developer.ibm.com/patterns/./extend-watson-text-classification
+English version: https://developer.ibm.com/patterns/extend-watson-text-classification
   ソースコード: https://github.com/IBM/watson-document-classifier
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ Watson Natural Language Understanding (NLU) サービスでトレーニングに
 
 ## フロー
 
-![フロー](./images/Watson-Text-Classifier-arch-flow-1.png)
+![フロー](../../images/Watson-Text-Classifier-arch-flow-1.png)
 
 1. 分析を必要とするドキュメントを IBM Cloud Object Storage に保管します。
 1. Python コードにより、Object Storage からドキュメントの内容と構成 JSON を取得します。

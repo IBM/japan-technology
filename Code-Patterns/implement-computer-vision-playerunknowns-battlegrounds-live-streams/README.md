@@ -2,7 +2,7 @@
 
 ### 動画のライブ・ストリーミング配信プラットフォーム Twitch 上で OCR を使用する Web アプリを構築する
 
-English version: https://developer.ibm.com/patterns/./implement-computer-vision-playerunknowns-battlegrounds-live-streams
+English version: https://developer.ibm.com/patterns/implement-computer-vision-playerunknowns-battlegrounds-live-streams
   ソースコード: https://github.com/IBM/rotisserie
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ PUBG Rotisserie は、Twitch 上で配信されているすべてのストリー
 
 ## フロー
 
-![フロー](./images/Implement-computer-vision-for-PlayerUnkowns-Battlegrounds-Live-Streams-flow-arch.png)
+![フロー](../../images/Implement-computer-vision-for-PlayerUnkowns-Battlegrounds-Live-Streams-flow-arch.png)
 
 1. メイン・アプリケーションでは、Twitch API を使用して PUBG ストリームのリストをフェッチします。Livestreamer というオープンソース・プロジェクトを使用して、リストに含まれる各ストリームを短時間録画します。
 2. FFmpeg を使用して、短時間の録画から単一のフレームを抽出します。

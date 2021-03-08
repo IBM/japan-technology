@@ -2,7 +2,7 @@
 
 ### Node.js と Watson Discovery サービスを利用して、ニュースを検索してトレンディング・トピックを分析するコグニティブ Web アプリを構築する
 
-English version: https://developer.ibm.com/patterns/./create-a-cognitive-news-search-app
+English version: https://developer.ibm.com/patterns/create-a-cognitive-news-search-app
 ソースコード: https://github.com/IBM/watson-discovery-news/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -32,7 +32,7 @@ Watson Discovery サービスを使用すると、開発者は、コグニティ
 
 ## フロー
 
-![フロー](./images/cognitive-news-search-arch-1.png)
+![フロー](../../images/cognitive-news-search-arch-1.png)
 
 1. ユーザーが API の UI を操作して関連するニュース・コンテンツをリクエストします。
 1. アプリがユーザー・リクエストを Watson Discovery News に送信します。

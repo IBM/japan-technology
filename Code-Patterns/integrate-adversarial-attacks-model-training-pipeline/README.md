@@ -2,7 +2,7 @@
 
 ### モデルの脆弱性を見つけるために、Jupyter Notebook を使用してニューラル・ネットワーク・モデルのトレーニング・パイプラインに Adversarial Robustness Toolbox を統合する
 
-English version: https://developer.ibm.com/patterns/./integrate-adversarial-attacks-model-training-pipeline
+English version: https://developer.ibm.com/patterns/integrate-adversarial-attacks-model-training-pipeline
 ソースコード: https://github.com/IBM/FfDL/tree/master/demos/fashion-mnist-adversarial
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,7 +23,7 @@ Fabric for Deep Learning (FfDL。「フィドル」と発音します) は、分
 
 ## フロー
 
-![フロー](./images/art-architecture.png)
+![フロー](../../images/art-architecture.png)
 
 1. FfDL クラスターをデプロイした後、必要となる Python ライブラリーを仮想環境内にインストールし、ローカル Jupyter Notebook サーバーを起動します。
 2. Jupyter Notebook 内で Fashion-MNIST データ・セットをダウンロードし、それをクラウド・オブジェクト・ストレージにアップロードします。次に、畳み込みニューラル・ネットワーク (CNN) をトレーニングするための Keras スクリプトと、FfDL モデル・マニフェスト・ファイルを作成します。このマニフェスト・ファイルに含まれるさまざまなフィールドに、FfDL 内のモデル、オブジェクト・ストア情報、リソース要件の他、モデルのトレーニングとテストの実行中に必要な一連の引数 (ハイパーパラメーターを含む) を記述します。

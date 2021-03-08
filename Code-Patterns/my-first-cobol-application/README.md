@@ -2,7 +2,7 @@
 
 ### シンプルな COBOL アプリで 3 つのテキスト・ファイルを読み取り、内容をマージして 1 つのソートされたリストを含む出力を書き込む
 
-English version: https://developer.ibm.com/patterns/./my-first-cobol-application
+English version: https://developer.ibm.com/patterns/my-first-cobol-application
   ソースコード: https://github.com/IBM/cobol-is-fun/tree/master/my-first-program
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ last_updated: 2020-06-09
 コード・パターンに付属の JCL を使用して、この COBOL アプリケーションをコンパイル、ビルド、実行できます。
 
 ## フロー
-![フロー](./images/flow2.png)
+![フロー](../../images/flow2.png)
 
 1. プログラムをコンパイルします。
 1. オブジェクトをリンク・エディットします。

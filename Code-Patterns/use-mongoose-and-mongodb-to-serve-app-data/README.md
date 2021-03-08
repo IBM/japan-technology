@@ -2,7 +2,7 @@
 
 ### Mongoose で MongoDB に接続し、Express で API を作成した Node.js 地図サーバー・アプリを構築する
 
-English version: https://developer.ibm.com/patterns/./use-mongoose-and-mongodb-to-serve-app-data
+English version: https://developer.ibm.com/patterns/use-mongoose-and-mongodb-to-serve-app-data
   ソースコード: https://github.com/IBM/kubernetes-mongoose
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ MongoDB を使用する場合、Mongoose は簡単にデータをモデル化す
 
 ## フロー
 
-![フロー](./images/arch-map-server-mongoose.png)
+![フロー](../../images/arch-map-server-mongoose.png)
 
 1. ユーザーが MongoDB データベースをセットアップします。このパターンでは Compose for MongoDB を利用します。
 2. ユーザーが、アプリケーション内に設定されたモデルのスキーマと一致するモック・データを追加します。

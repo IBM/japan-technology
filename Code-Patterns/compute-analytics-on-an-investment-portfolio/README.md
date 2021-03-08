@@ -2,7 +2,7 @@
 
 ### 証券投資を対象に、Instrument Analytics サービスを利用して株価、感度、プロパティーを分析する Web アプリを構成する
 
-English version: https://developer.ibm.com/patterns/./compute-analytics-on-an-investment-portfolio
+English version: https://developer.ibm.com/patterns/compute-analytics-on-an-investment-portfolio
   ソースコード: https://github.com/IBM/Portfolio-compute
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ Investment Portfolio サービスは、適格投資、ベンチマーク、ユ�
 
 ## フロー
 
-![フロー](./images/Computing-Analytics-on-an-Investment-Portfolio-arch-flow.png)
+![フロー](../../images/Computing-Analytics-on-an-Investment-Portfolio-arch-flow.png)
 
 1. ユーザーが分析対象のポートフォリオをアップロードします。
 2. ユーザーが特定の有価証券と、その有価証券に対して算出するアナリティクスを選択します。

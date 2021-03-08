@@ -2,7 +2,7 @@
 
 ### Kubernetes の能力を最大限に活用して、IBM Cloud Kubernetes Service から WordPress をホストする
 
-English version: https://developer.ibm.com/patterns/./scalable-wordpress-on-kubernetes
+English version: https://developer.ibm.com/patterns/scalable-wordpress-on-kubernetes
   ソースコード: https://github.com/IBM/scalable-wordpress-deployment-on-kubernetes?cm_sp=IBMCode-_-scalable-wordpress-on-kubernetes-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,7 +23,7 @@ WordPress は典型的な多層アプリを象徴し、コンポーネントご�
 
 ## フロー
 
-![Wordpress と Kubernetes の統合例](./images/arch-wordpress-kube.jpg)
+![Wordpress と Kubernetes の統合例](../../images/arch-wordpress-kube.jpg)
 
 1. ユーザーが Web インターフェースを使用して WordPress を操作します。WordPress の各コンテナーはユーザーに対し、HTTP/HTTPS を使用して応答します。
 2. ユーザーがいずれかの WordPress コンテナーに POST リクエストを送信すると、通常は、WordPress がその変更リクエストを MySQL データベースに送信します。MySQL データベースはセキュリティーを確保するために、POST リクエストのデータを永続ディスクに保管します。MySQL コンテナーに加え、IBM Cloud の Compose MySQL サービスを利用することもできます。認証と認可が完了すると、パスワード (MD5 で暗号化) や e-メール・アドレスなどの WordPress ユーザー情報が作成されて MySQL 内に保管されます。Web サイト、ブログ、タグ、カテゴリーやその他のデータも MySQL 内に保管されます。

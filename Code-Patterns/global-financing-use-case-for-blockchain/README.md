@@ -2,7 +2,7 @@
 
 ### ブロックチェーンの使用ケースで、国際金融対応の Node.js スマート・コントラクトと Web アプリをデプロイする
 
-English version: https://developer.ibm.com/patterns/./global-financing-use-case-for-blockchain
+English version: https://developer.ibm.com/patterns/global-financing-use-case-for-blockchain
   ソースコード: https://github.com/IBM/global-financing-blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -32,7 +32,7 @@ last_updated: 2018-12-19
 
 ## フロー
 
-![フロー](./images/flow-final-2.png)
+![フロー](../../images/flow-final-2.png)
 
 開発者が IBM Blockchain Platform の VS Code 拡張機能を使用して、次の作業を行います。
 

@@ -2,7 +2,7 @@
 
 ### 音声をテキストに書き起こす、多言語対応の Web アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./transcribe-audio-in-real-time-or-from-an-audio-file
+English version: https://developer.ibm.com/patterns/transcribe-audio-in-real-time-or-from-an-audio-file
   ソースコード: https://github.com/IBM/speech-to-text-code-pattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -30,7 +30,7 @@ Watson Speech to Text は IBM Cloud 上で利用することも、IBM Cloud Pak 
 
 ## フロー
 
-![音声からのテキスト書き起こしのフローを説明する図](./images/transcribe-audio-in-real-time-or-from-an-audio-file-flow.png)
+![音声からのテキスト書き起こしのフローを説明する図](../../images/transcribe-audio-in-real-time-or-from-an-audio-file-flow.png)
 
 1. ローカル、IBM Cloud、または IBM Cloud Pak for Data で実行されているアプリケーションに、ユーザーが音声入力を渡します。
 1. アプリケーションが WebSocket 接続を介して音声データを Watson Speech to Text サービスに送信します。

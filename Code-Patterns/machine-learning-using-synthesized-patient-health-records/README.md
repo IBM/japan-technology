@@ -2,7 +2,7 @@
 
 ### 実在する患者の診療記録に関するプライバシーの問題を懸念せずにデータ・モデルを作成する
 
-English version: https://developer.ibm.com/patterns/./machine-learning-using-synthesized-patient-health-records
+English version: https://developer.ibm.com/patterns/machine-learning-using-synthesized-patient-health-records
   ソースコード: https://github.com/IBM/summit-health-machine-learning
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -15,7 +15,7 @@ last_updated: 2019-04-11
 
 ## 説明
 
-このプロジェクトは、z/OS サーバー上のデータベース内に電子診療記録を保管している Summit Health という架空のヘルスケア会社に焦点を当てた[コード・パターン・シリーズ](https://developer.ibm.com/series/systems-example-health-series/)の一部です。ノートブックを実行する前に、合成された診療記録を作成して、このデータベースにロードする必要があります。そのための手順は、コード・パターン [ビッグデータの CSV ファイルを変換してデータベースにロードする](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/transform-load-big-data-csv-files-db2-zos-database/)
+このプロジェクトは、z/OS サーバー上のデータベース内に電子診療記録を保管している Summit Health という架空のヘルスケア会社に焦点を当てた[コード・パターン・シリーズ](https://developer.ibm.com/series/systems-example-health-series/)の一部です。ノートブックを実行する前に、合成された診療記録を作成して、このデータベースにロードする必要があります。そのための手順は、コード・パターン [ビッグデータの CSV ファイルを変換してデータベースにロードする](https://developer.ibm.com/jp/patterns/transform-load-big-data-csv-files-db2-zos-database/)
  で説明しています。その手順に従って、Synthea ツールを使用して診療記録を作成し、変換してからデータベースにロードしてください。
 
 このコード・パターンでは、ヘルスケア分野で考えられる機械学習の使用ケースをデモするために、IBM Watson Studio 上で Jupyter Notebook を使用して予測モデルを作成します。Jupyter Notebooks は、多くのデータ・サイエンティストがデータのクレンジング、変換、視覚化や、機械学習モデルの作成とテストに使用しているツールです。このコード・パターンはデモを目的としたものですが、合成されたヘルスケア・メトリックから構成されたデータ・セットに対して Watson Machine Learning を適用し、糖尿病のリスクを予測するモデルを作成する方法を説明します。このモデルを作成した後は、入力したデータにスコアを付けて、個々のケースに対して糖尿病のリスクを予測することができます (注意する点として、このサンプル・アプリケーションはデモと説明だけを目的としているため、法規制関連のレビューは行われていません)。
@@ -29,7 +29,7 @@ last_updated: 2019-04-11
 
 ## フロー
 
-![フロー](./images/flow-v2.png)
+![フロー](../../images/flow-v2.png)
 
 1. IBM Watson Studio にログインします。
 1. 用意されているノートブックを Watson Studio にロードします。

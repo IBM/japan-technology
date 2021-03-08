@@ -2,7 +2,7 @@
 
 ### 深層学習アルゴリズムを使用して動きを検出し、動画フィード内のオブジェクトを特定する
 
-English version: https://developer.ibm.com/patterns/./iot-devicesensor-damage-detection-with-edge-analytics
+English version: https://developer.ibm.com/patterns/iot-devicesensor-damage-detection-with-edge-analytics
   ソースコード: https://github.com/IBM/dnn-object-detection
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2018-12-14
 
 ## フロー
 
-![フロー](./images/iot-device-sensor.png)
+![フロー](../../images/iot-device-sensor.png)
 
 1. 動き検出スクリプトをRTSP ストリームまたは動画ファイルに接続します。
 1. 動きが検出された場合、スクリーンショットをキャプチャーして、そのスクリーンショットをローカルでホストされている Node.js サーバーまたは IBM Cloud コンテナー・サービス内の Node.js サーバーに転送します。

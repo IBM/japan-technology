@@ -2,7 +2,7 @@
 
 ### Clause を呼び出してスマート・リーガル・コントラクトを履行する Hyperledger Composer ビジネス・ネットワークをデプロイする
 
-English version: https://developer.ibm.com/patterns/./perishable-goods
+English version: https://developer.ibm.com/patterns/perishable-goods
 ソースコード: https://github.com/clauseHQ/demo-clause-ibm-perishable-goods
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2018-10-02
 
 ## フロー
 
-![フロー](./images/arch-perishable-goods.png)
+![フロー](../../images/arch-perishable-goods.png)
 
 1. アプリケーションが出荷リクエストを受け取ります。
 1. トランザクションが IBM Blockchain Platform に送信されます。

@@ -2,7 +2,7 @@
 
 ### React アプリケーションを、Docker を使用して構築し、Kubernetes を使用してデプロイする
 
-English version: https://developer.ibm.com/patterns/./deploy-a-react-application-on-kubernetes
+English version: https://developer.ibm.com/patterns/deploy-a-react-application-on-kubernetes
   ソースコード: https://github.com/IBM/deploy-react-kubernetes/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ Kubernetes 上にデプロイするアプリケーションは、コンテナー
 
 ## フロー
 
-![フロー](./images/deploy-react-application-kubernetes-architecture.png)
+![フロー](../../images/deploy-react-application-kubernetes-architecture.png)
 
 1. ユーザーが Web インターフェースを使用して React アプリケーションにアクセスし、映画のタイトルを入力します。
 1. アクセス中のユーザーに React アプリケーションがレンダリングされます。

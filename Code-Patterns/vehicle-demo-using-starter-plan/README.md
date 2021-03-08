@@ -2,7 +2,7 @@
 
 ### Hyperledger Composer API を使用して自動車製造プログラムと Node.js Web アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./vehicle-demo-using-starter-plan
+English version: https://developer.ibm.com/patterns/vehicle-demo-using-starter-plan
 ソースコード: https://github.com/IBM-Blockchain/vehicle-manufacture
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -33,7 +33,7 @@ Node.js Web アプリケーションには 3 つのダッシュボードがあ�
 
 ## フロー
 
-![フロー](./images/vehicle-demo-flow.png)
+![フロー](../../images/vehicle-demo-flow.png)
 
 1. 自動車購入者がダッシュボード上で自動車のカタログを表示します。
 1. 自動車を選択した後、モデル、外装、内装や、その自動車に利用できる他のパッケージ/アドオンを選択してカスタマイズします。

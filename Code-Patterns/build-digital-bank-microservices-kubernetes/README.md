@@ -2,7 +2,7 @@
 
 ### ユーザー・アカウント、トランザクション、送金、請求を管理できるデジタル・バンクを構築してデプロイする
 
-English version: https://developer.ibm.com/patterns/./build-digital-bank-microservices-kubernetes
+English version: https://developer.ibm.com/patterns/build-digital-bank-microservices-kubernetes
   ソースコード: https://github.com/IBM/innovate-digital-bank
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -35,7 +35,7 @@ last_updated: 2018-10-19
 1. 請求書: 請求書の作成、支払、請求書の検索を行います。
 1. サポート: [Watson Conversation](https://cloud.ibm.com/catalog/services/watson-assistant-formerly-conversation?cm_sp=ibmdev-_-developer-patterns-_-cloudreg) と通信してチャット機能をサポートします。
 
-![フロー](./images/arch-diagram.png)
+![フロー](../../images/arch-diagram.png)
 
 ## 手順
 

@@ -2,7 +2,7 @@
 
 ### OrientDB と IBM Watson Studio を利用して、相互に関連するデータを保管し、グラフを作成して分析する
 
-English version: https://developer.ibm.com/patterns/./store-graph-and-derive-insights-from-interconnected-data
+English version: https://developer.ibm.com/patterns/store-graph-and-derive-insights-from-interconnected-data
   ソースコード: https://github.com/IBM/graph-db-insights
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -32,7 +32,7 @@ last_updated: 2017-11-23
 
 ## フロー
 
-![フロー](./images/Insights-from-OrientDB-database-arch-flow.png)
+![フロー](../../images/Insights-from-OrientDB-database-arch-flow.png)
 
 1. ユーザーが IBM Cloud 上の Kubernetes サービスを利用して Kubernetes クラスターをセットアップします。
 1. ユーザーがステップ 1 で作成した Kubernetes クラスターに、永続ボリュームと併せて OrientDB インスタンスをデプロイし、IBM Cloud 上の OrientDB が使用するポート (2424、2480) を公開します。

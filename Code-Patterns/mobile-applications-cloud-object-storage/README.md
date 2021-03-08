@@ -2,7 +2,7 @@
 
 ### 画像をダウンロードするサンプル Swift アプリ内で Cloud Object Storage を利用する
 
-English version: https://developer.ibm.com/patterns/./mobile-applications-cloud-object-storage
+English version: https://developer.ibm.com/patterns/mobile-applications-cloud-object-storage
 ソースコード: https://github.com/IBM/swift-cloud-object-storage-example
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ last_updated: 2019-01-15
 
 ## フロー
 
-![Cloud Object Storage アーキテクチャーでのフロー図](./images/cloud-object-storage.png)
+![Cloud Object Storage アーキテクチャーでのフロー図](../../images/cloud-object-storage.png)
 
 1. ユーザーがアプリを操作して、Cloud Object Storage からのオブジェクト (画像) のダウンロードを開始します。
 2. アプリは Cloud Object Storage に対し、アクセス・トークンとバケット・オブジェクトのリストを取得するため、そしてオブジェクト (画像) をダウンロードするために必要な一連の呼び出しを行います。

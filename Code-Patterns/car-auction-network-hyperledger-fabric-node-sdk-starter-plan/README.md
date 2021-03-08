@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric を使用してチェーンコードを呼び出すと同時に、スターター・プラン内に結果とデータを保管する
 
-English version: https://developer.ibm.com/patterns/./car-auction-network-hyperledger-fabric-node-sdk-starter-plan
+English version: https://developer.ibm.com/patterns/car-auction-network-hyperledger-fabric-node-sdk-starter-plan
   ソースコード: https://github.com/IBM/car-auction-network-fabric-node-sdk
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -48,7 +48,7 @@ IBM Blockchain クラウド・サービスの内部では、チェーンコー�
 
 ## フロー
 
-![フロー](./images/flowB.png)
+![フロー](../../images/flowB.png)
 
 1. ユーザーが IBM Blockchain スターター・プランの接続プロファイルをダウンロードし、Node アプリ内に CA の URL/シークレットを追加します。
 1. ユーザーが管理者として登録し、他のユーザーを CA に登録します。

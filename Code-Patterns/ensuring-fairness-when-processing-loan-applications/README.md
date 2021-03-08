@@ -2,7 +2,7 @@
 
 ### バイアスの指標、説明、是正に対応する AI Fairness 360 ツールキットのデモンストレーション
 
-English version: https://developer.ibm.com/patterns/./ensuring-fairness-when-processing-loan-applications
+English version: https://developer.ibm.com/patterns/ensuring-fairness-when-processing-loan-applications
   ソースコード: https://github.com/IBM/ensure-loan-fairness-aif360
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ AI Fairness 360 は、公正さ (フェアネス) の指標とバイアス軽減
 
 ## フロー
 
-![フロー](./images/flow-ai-fairness-toolkit.png)
+![フロー](../../images/flow-ai-fairness-toolkit.png)
 
 1. ユーザーが Watson Studio を操作して Jupyter Notebook を作成します。
 1. Jupyter Notebook が AI Fairness 360 ツールキットをインポートします。

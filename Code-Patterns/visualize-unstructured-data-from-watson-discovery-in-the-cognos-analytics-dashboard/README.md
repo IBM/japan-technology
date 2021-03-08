@@ -2,7 +2,7 @@
 
 ### Watson Discovery で非構造化データから引き出した洞察を Cognos Analytics ダッシュボード内で視覚化する
 
-English version: https://developer.ibm.com/patterns/./visualize-unstructured-data-from-watson-discovery-in-the-cognos-analytics-dashboard
+English version: https://developer.ibm.com/patterns/visualize-unstructured-data-from-watson-discovery-in-the-cognos-analytics-dashboard
   ソースコード: https://github.com/IBM/cognos-analytics-using-unstructured-data
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2020-06-04
 
 ## フロー
 
-![フロー図](./images/flow.png)
+![フロー図](../../images/flow.png)
 
 1. 製品レビューのデータを Watson Discovery にロードして増補します。増補されたデータには、感情分析とキーワード・ディスカバリーの結果が含まれます。
 1. ユーザーが Cognos Analytics を実行します。
@@ -50,4 +50,4 @@ last_updated: 2020-06-04
 1. データ・モジュールを更新します。
 1. 製品レビューが売上に与える影響を視覚化します。
 
-このパターンを「[売上高データと在庫レベルを視覚化する Cognos Analytics ダッシュボードを作成する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/visualize-customer-insights-with-business-data-for-product-performance-analysis)」パターンと併せて使用して、[AI で非構造化データを分析して製品のパフォーマンスを把握する](https://developer.ibm.com/articles/leverage-the-voice-of-the-customer-using-watson-discovery-to-show-business-results-in-cognos-analytics)ためのソリューションを完成させてください。
+このパターンを「[売上高データと在庫レベルを視覚化する Cognos Analytics ダッシュボードを作成する](https://developer.ibm.com/jp/patterns/visualize-customer-insights-with-business-data-for-product-performance-analysis)」パターンと併せて使用して、[AI で非構造化データを分析して製品のパフォーマンスを把握する](https://developer.ibm.com/articles/leverage-the-voice-of-the-customer-using-watson-discovery-to-show-business-results-in-cognos-analytics)ためのソリューションを完成させてください。

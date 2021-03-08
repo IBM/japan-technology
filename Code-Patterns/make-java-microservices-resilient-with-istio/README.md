@@ -2,7 +2,7 @@
 
 ### Istio を利用して、高度なレジリエンシーとフォールト・トレランス機能を備えた Java マイクロサービスを実現する
 
-English version: https://developer.ibm.com/patterns/./make-java-microservices-resilient-with-istio
+English version: https://developer.ibm.com/patterns/make-java-microservices-resilient-with-istio
   ソースコード: https://github.com/IBM/resilient-java-microservices-with-istio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -19,7 +19,7 @@ Twelve-Factor App (アプリ開発に必要な 12 要素) では、障害を前�
 
 ## フロー
 
-![フロー](./images/make-java-microservices-resilient-with-istio-arch-flow.png)
+![フロー](../../images/make-java-microservices-resilient-with-istio-arch-flow.png)
 
 1. Kubernetes クラスター内で稼動するように構成された Java アプリケーションをデプロイします。
 1. アプリケーション上で Istio Envoy を注入します。

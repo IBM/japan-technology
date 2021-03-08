@@ -2,7 +2,7 @@
 
 ### 多変数 IoT データを使用してセンサーから値を収集し、アルゴリズムを実行する予測手法の紹介
 
-English version: https://developer.ibm.com/patterns/./predict-equipment-failure-using-iot-sensor-data
+English version: https://developer.ibm.com/patterns/predict-equipment-failure-using-iot-sensor-data
   ソースコード: https://github.com/IBM/iot-predictive-analytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -11,8 +11,8 @@ last_updated: 2018-02-07
  
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
-* [IoT センサー・データの予測アナリティクスに基づいてエッジで是正アクションをとる](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/iot-edge-predictive-analytics-corrective-actions/)
-* [IoT センサー・データから変化点を検出する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/detect-change-points-in-iot-sensor-data/)
+* [IoT センサー・データの予測アナリティクスに基づいてエッジで是正アクションをとる](https://developer.ibm.com/jp/patterns/iot-edge-predictive-analytics-corrective-actions/)
+* [IoT センサー・データから変化点を検出する](https://developer.ibm.com/jp/patterns/detect-change-points-in-iot-sensor-data/)
 * IoT センサー・データを使用して機器故障を予測する (このパターン)
 
 ## 概要
@@ -25,7 +25,7 @@ IoT 機器で発生しそうな故障を予測するには、センサー値を�
 
 先進的な予測手法をとれば、予防保守から予測保守に切り換えることが可能になります。この開発者向けパターンで対象としているのは、IoT デバイス、自動製造ロボット・アーム、プロセス監視制御設備に搭載されたセンサーを使用して継続的に収集して送信される IoT センサー・データを使用して、機器の故障を予測するための新しい手法の実験、学習、強化、実装を目指す開発者です。
 
-最初のステップは、単一の IoT センサーによって生成される時系列データを使用して、システム・パフォーマンスにおける大幅な変化をすべて識別することです。このトピックに関する詳細なフローについては、開発者向けパターン「[IoT センサー・データから変化点を検出する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/detect-change-points-in-iot-sensor-data/)」を参照してください。
+最初のステップは、単一の IoT センサーによって生成される時系列データを使用して、システム・パフォーマンスにおける大幅な変化をすべて識別することです。このトピックに関する詳細なフローについては、開発者向けパターン「[IoT センサー・データから変化点を検出する](https://developer.ibm.com/jp/patterns/detect-change-points-in-iot-sensor-data/)」を参照してください。
 
 IoT 機器の主要な動作パラメーターにおける変化点を検出したら、当然のことながら、その最近の変化が機器の故障につながるかどうかを予測するテストを使用して変化を追跡します。このパターンは、多変数 IoT データを使用して機器故障を予測する手法の全容を解説するためのものです。この手法では、ロジスティック回帰を使用する 2 項式予測アルゴリズムを実装します。また、Python 2.0 の予測パッケージを使用し、サンプル・センサー・データを IBM Watson Studio クラウドにロードします。中間ステップはモジュール化されていて、すべてのコードはオープンソースとして使用できるようになっています。また、アプリケーションに応じてモジュールやサブモジュールに変更を加えることも可能です。
 
@@ -41,7 +41,7 @@ IoT 機器の主要な動作パラメーターにおける変化点を検出し�
 
 ## フロー
 
-![フロー](./images/predict-equipment-failure-iot.png)
+![フロー](../../images/predict-equipment-failure-iot.png)
 
 1. ユーザーが IBM Watson Studio にサインアップします。
 2. ユーザーがサンプル IoT センサーの時系列データをデータベースにロードします。

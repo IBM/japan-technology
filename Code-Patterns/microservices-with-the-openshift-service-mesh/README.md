@@ -2,7 +2,7 @@
 
 ### TLS と Istio ベースのサービス・メッシュを使用して、マイクロサービス間の相互作用をセキュリティーで保護する
 
-English version: https://developer.ibm.com/patterns/./microservices-with-the-openshift-service-mesh
+English version: https://developer.ibm.com/patterns/microservices-with-the-openshift-service-mesh
   ソースコード: https://github.com/IBM/example-bank/blob/service-mesh/mesh-pattern.md
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,9 +21,9 @@ OpenShift Service Mesh は、[Maistra Istio Operator](https://github.com/Maistra
 
 ## フロー
 
-以下の図は、Example Bank モバイル・アプリケーションでのサービス・メッシュのアーキテクチャー・フローを示しています。図中には、[ユーザー認証](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/privacy-backend-loyalty-app-openshift-4/)とトランザクションを処理する複数のマイクロサービスが示されています。
+以下の図は、Example Bank モバイル・アプリケーションでのサービス・メッシュのアーキテクチャー・フローを示しています。図中には、[ユーザー認証](https://developer.ibm.com/jp/patterns/privacy-backend-loyalty-app-openshift-4/)とトランザクションを処理する複数のマイクロサービスが示されています。
 
-![サービス・メッシュのアーキテクチャー・フローを示す図](./images/example-bank-service-mesh-architecture-flow-diagram-2.png)
+![サービス・メッシュのアーキテクチャー・フローを示す図](../../images/example-bank-service-mesh-architecture-flow-diagram-2.png)
 
 1. ユーザーが HTTPS を介して OpenShift ルーターに接続します。このルーターにより、リクエストは Istio Ingress Gateway という Envoy インスタンスにルーティングされます。
 1. Envoy がゲートウェイと仮想サービス・ルールを使用して、リクエストを Node.js サービスに転送します。この Node.js サービスでは、アプリ ID を基準にユーザー・アカウントを検証します。
@@ -49,6 +49,6 @@ OpenShift Service Mesh は、[Maistra Istio Operator](https://github.com/Maistra
 * **記事**: [An introduction to OpenShift 4](https://developer.ibm.com/articles/intro-to-openshift-4/)
 * **記事**: [Threat modeling in the context of microservice architectures](https://developer.ibm.com/articles/threat-modeling-microservices-openshift-4/)
 * **チュートリアル**: [OperatorHub を楽しむ](https://developer.ibm.com/jp/tutorials/operator-hub-openshift-4-operators-ibm-cloud/)
-* **コード・パターン**: [データ・プライバシーを重視した、顧客ロイヤルティー向けモバイル・アプリのバックエンド](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/privacy-backend-loyalty-app-openshift-4/)
+* **コード・パターン**: [データ・プライバシーを重視した、顧客ロイヤルティー向けモバイル・アプリのバックエンド](https://developer.ibm.com/jp/patterns/privacy-backend-loyalty-app-openshift-4/)
 * **チュートリアル**: [Build serverless Node.js applications with the OpenShift Serverless Operator](https://developer.ibm.com/tutorials/build-serverless-nodejs-applications-with-the-openshift-serverless-operator/)
 * **チュートリアル**: [モバイル・アプリのバックエンドを OpenShift 4 にデプロイする Tekton パイプラインを構築する](https://developer.ibm.com/jp/tutorials/tekton-pipeline-deploy-a-mobile-app-backend-openshift-4/)

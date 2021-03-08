@@ -2,7 +2,7 @@
 
 ### Watson Visual Recognition を利用して、キャプチャーした画像から食品を識別し、その栄養を分析するモバイル・アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./create-an-android-calorie-counter-app
+English version: https://developer.ibm.com/patterns/create-an-android-calorie-counter-app
   ソースコード: https://github.com/IBM/watson-calorie-counter
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ last_updated: 2017-10-20
 
 ## フロー
 
-![フロー](./images/calorie-counter-arch.png)
+![フロー](../../images/calorie-counter-arch.png)
 
 1. ユーザーがモバイル・アプリを操作して画像をキャプチャーします。
 2. 画像がサーバー・アプリケーションに渡されます。サーバー・アプリケーションは Watson Visual Recognition サービスを利用して画像を分析し、Nutritionix API を使用して栄養に関する情報を取得します。

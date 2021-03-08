@@ -2,7 +2,7 @@
 
 ### Jupyter Notebook を使用して Client Insight for Wealth Management サービスについて探り、このサービスを利用する Web アプリケーションを作成する
 
-English version: https://developer.ibm.com/patterns/./retrieve-client-insights-for-wealth-management-companies
+English version: https://developer.ibm.com/patterns/retrieve-client-insights-for-wealth-management-companies
   ソースコード: https://github.com/IBM/client-insight-wealth-management
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -30,7 +30,7 @@ Client Insight for Wealth Management は、顧客満足度を向上させて顧�
 
 ## フロー
 
-![フロー](./images/wealth-management-architecture.png)
+![フロー](../../images/wealth-management-architecture.png)
 
 1. ユーザーが Web インターフェースからアプリケーションにアクセスし、顧客のプロファイルを表示します。
 1. アプリケーションが Client Insight for Wealth Management サービスから顧客の情報とアナリティクスを取得します。

@@ -2,7 +2,7 @@
 
 ### z/OS で稼働するメインフレームに接続する Node.js アナリティクス Web アプリケーションを作成する
 
-English version: https://developer.ibm.com/patterns/./creating-a-health-data-analytics-app-with-legacy-mainframe-code-and-cloud
+English version: https://developer.ibm.com/patterns/creating-a-health-data-analytics-app-with-legacy-mainframe-code-and-cloud
   ソースコード: https://github.com/IBM/example-health-analytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -22,11 +22,11 @@ last_updated:	2019-04-27
 
 ### Kubernetes を使用したフロー
 
-![Kubernetes のフロー](./images/k8s-arch-diagram.png)
+![Kubernetes のフロー](../../images/k8s-arch-diagram.png)
 
 ### Cloud Foundry を使用したフロー
 
-![Cloud Foundry のフロー](./images/cf-arch-diagram.png)
+![Cloud Foundry のフロー](../../images/cf-arch-diagram.png)
 
 1. z/OS メインフレームに関連付けられた API Connect API の呼び出しによって、Data Service API がトリガーされます。これにより、データ・パイプラインとして機能する Data Service API が更新後の健康記録をデータレイクに反映させます。
 1. API Connect の API が、z/OS メインフレームのデータウェアハウスに保管されている関連する健康記録のデータを処理し、データ・パイプラインを介して処理後のデータを送信します。

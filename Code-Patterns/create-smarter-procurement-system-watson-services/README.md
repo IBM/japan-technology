@@ -2,7 +2,7 @@
 
 ### Watson Discovery を使用して処理およびエンリッチする調達関係のデータをより適切に分類し、構造化するカスタム・モデルを作成する
 
-English version: https://developer.ibm.com/patterns/./create-smarter-procurement-system-watson-services
+English version: https://developer.ibm.com/patterns/create-smarter-procurement-system-watson-services
   ソースコード: https://github.com/IBM/procurement-analysis-with-wks/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -33,7 +33,7 @@ Watson Knowledge Studio と Watson Discovery をベースとした、このイ�
 
 ## フロー
 
-![フロー](./images/arch-smarter-procurement.png)
+![フロー](../../images/arch-smarter-procurement.png)
 
 1. 型システムとコーパス・ファイルを Watson Knowledge Studio にロードします。
 1. トレーニング用データと評価用データによってモデルを生成します。

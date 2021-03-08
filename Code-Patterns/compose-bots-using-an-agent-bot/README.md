@@ -2,7 +2,7 @@
 
 ### それぞれに異なるドメインに対応する複数のボットを作成し、それらのボットを 1 つのエージェント・ボットで調整する
 
-English version: https://developer.ibm.com/patterns/./compose-bots-using-an-agent-bot
+English version: https://developer.ibm.com/patterns/compose-bots-using-an-agent-bot
   ソースコード: https://github.com/IBM/watson-assistant-multi-bot-agent
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -58,7 +58,7 @@ What is the flight duration between Bengaluru and Mumbai?
 
 ## フロー
 
-![ボットの構成フロー図](./images/arch.png)
+![ボットの構成フロー図](../../images/arch.png)
 
 1. ユーザーが Web アプリケーションにアクセスしてメッセージを入力します。オーケストレーション層としての Node.js アプリケーションがユーザーのメッセージをエージェント・ボットに送信します。
 1. エージェント・ボットがメッセージのインテントを判断し、メッセージのリダイレクト先とすべきドメイン固有のボットの詳細を返して応答します。

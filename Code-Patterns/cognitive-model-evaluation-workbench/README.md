@@ -2,7 +2,7 @@
 
 ### Watson コグニティブ・サービスのさまざまなモデルを比較して、各種のパフォーマンス指標を入手する
 
-English version: https://developer.ibm.com/patterns/./cognitive-model-evaluation-workbench
+English version: https://developer.ibm.com/patterns/cognitive-model-evaluation-workbench
   ソースコード: https://github.com/IBM/model-evaluation-workbench
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -19,7 +19,7 @@ Watson サービスのようなコグニティブ・サービスでは、多数�
 
 ## フロー
 
-![フロー](./images/flow-cognitive-model-evaluation-workbench.png)
+![フロー](../../images/flow-cognitive-model-evaluation-workbench.png)
 
 1. ユーザーがアプリケーションを起動します。
 1. クラウドがリクエストの認証を行い、アプリケーションにリクエストをリダイレクトします。

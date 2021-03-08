@@ -2,7 +2,7 @@
 
 ### Watson Natural Language Classification サービスを利用して、消費者からのクレームに対応するためのさまざまなサポート・チケットを分類するアプリを構築する
 
-English version: https://developer.ibm.com/patterns/./watson-studio-nlc-technical-support-ticket-categorization
+English version: https://developer.ibm.com/patterns/watson-studio-nlc-technical-support-ticket-categorization
   ソースコード: 'https://github.com/IBM/support-ticket-classification'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: '2018-11-27'
 
 ## フロー
 
-![フロー](./images/flow-support-ticket-classification.png)
+![フロー](../../images/flow-support-ticket-classification.png)
 
 1. Natural Language Classifier インターフェースとやり取りしてモデルをトレーニングします。
 2. [消費者からのクレームに対応するためのサポート・チケット・データセット](https://github.ibm.com/riyamaro/support-ticket-classification/tree/master/docs/training_data)をトレーニング・データとして Natural Language Classifier にロードします。

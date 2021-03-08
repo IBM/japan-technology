@@ -2,7 +2,7 @@
 
 ### Node.js ベースのオークション・アプリケーションで美術市場の民主化を促進する
 
-English version: https://developer.ibm.com/patterns/./securing-art-using-blockchain-digital-certificates
+English version: https://developer.ibm.com/patterns/securing-art-using-blockchain-digital-certificates
 ソースコード: https://github.com/IBM/SecuringArt-using-Blockchain-DigitalCertificates
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -41,7 +41,7 @@ last_updated: 2018-09-12
 
 ## フロー
 
-![フロー](./images/securing-art-flow-2.png)
+![フロー](../../images/securing-art-flow-2.png)
 
 1. 既存のすべてのネットワークを破棄して、散らばっているコンテナーや画像のすべてを削除します。
 1. Hyperledger Fabric ネットワークを起動します。

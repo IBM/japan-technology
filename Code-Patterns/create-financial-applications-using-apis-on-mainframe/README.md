@@ -2,7 +2,7 @@
 
 ### リテール・バンキング API を利用して、メインフレーム・ハイブリッド・クラウド・アーキテクチャーに従って迅速でアジャイルなイノベーションを推進する
 
-English version: https://developer.ibm.com/patterns/./create-financial-applications-using-apis-on-mainframe
+English version: https://developer.ibm.com/patterns/create-financial-applications-using-apis-on-mainframe
   ソースコード: https://github.com/IBM/banking-digitalization-using-hybrid-cloud-with-mainframes
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2017-08-11
 
 ## フロー
 
-![フロー](./images/banking-digitization-1.png)
+![フロー](../../images/banking-digitization-1.png)
 
 1. ユーザーがバンキング・アプリケーションを使用して、公開されているバンキング API のいずれかを呼び出します。API の呼び出しに使用される HTTPS リクエストは、URI、アクセスするメソッド、データ、ヘッダーからなります。ヘッダーには認証キーが格納されていて、このキーにより、ユーザーのアプリケーションがバンキング API を使用することが許可されます。これらのバンキング API は、パブリック・クラウド (IBM Cloud) 内でホストされているセキュアな API Connect サーバー内で公開されています。
 2. バンキング API が IBM Secure Gateway サービスを介して、プロバイダー・クラウド (メインフレーム) を構成するいずれかのサブシステムを呼び出します。つまり、Secure Gateway サーバーはパブリック・クラウド内にセットアップされていて、Secure Gateway クライアントは、仮想 IBM DataPower® Gateway 内のメインフレームの前に位置するプロバイダー・クラウド内にセットアップされていることを意味します。DataPower Gateway は構成済みのアクセス制御リスト (ACL) ファイルに従って、着信リクエストを承認または拒否します。

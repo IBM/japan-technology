@@ -2,7 +2,7 @@
 
 ### 十分な情報に基づいた意思決定を支援するために、非構造化データを分析して洞察力を生み出す網羅的なアナリティクス・ソリューションを構築する
 
-English version: https://developer.ibm.com/patterns/./mine-insights-from-software-development-artifacts
+English version: https://developer.ibm.com/patterns/mine-insights-from-software-development-artifacts
   ソースコード: https://github.com/IBM/engineering-insights-composite-pattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -12,10 +12,10 @@ last_updated: 2018-01-17
 <!--
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
-* [Watson のテキスト分類を拡張する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/extend-watson-text-classification)
-* [さまざまなソースからのドキュメントを互いに関連付ける](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/watson-document-correlation)
-* [相互に関連するデータを保管し、グラフを生成して洞察を引き出す](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/store-graph-and-derive-insights-from-interconnected-data)
-* [データ・サイエンスのワークフローを、Node-RED を使用して編成する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/orchestrate-data-science-workflows-using-node-red)
+* [Watson のテキスト分類を拡張する](https://developer.ibm.com/jp/patterns/extend-watson-text-classification)
+* [さまざまなソースからのドキュメントを互いに関連付ける](https://developer.ibm.com/jp/patterns/watson-document-correlation)
+* [相互に関連するデータを保管し、グラフを生成して洞察を引き出す](https://developer.ibm.com/jp/patterns/store-graph-and-derive-insights-from-interconnected-data)
+* [データ・サイエンスのワークフローを、Node-RED を使用して編成する](https://developer.ibm.com/jp/patterns/orchestrate-data-science-workflows-using-node-red)
 * ソフトウェア開発成果物から洞察をマイニングする (このパターン)
 -->
 
@@ -29,15 +29,15 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 パターン・シリーズのそれぞれのコード・パターンで、IBM Cloud、Watson サービス、Python NLTK、OrientDB、IBM Watson Studio を利用して洞察を引き出す方法を説明します。
 
-* [Watson のテキスト分類を拡張する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/extend-watson-text-classification)
-* [さまざまなソースからのドキュメントを互いに関連付ける](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/watson-document-correlation)
-* [相互に関連するデータを保管し、グラフを生成して洞察を引き出す](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/store-graph-and-derive-insights-from-interconnected-data)
-* [データ・サイエンスのワークフローを、Node-RED を使用して編成する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/orchestrate-data-science-workflows-using-node-red)
+* [Watson のテキスト分類を拡張する](https://developer.ibm.com/jp/patterns/extend-watson-text-classification)
+* [さまざまなソースからのドキュメントを互いに関連付ける](https://developer.ibm.com/jp/patterns/watson-document-correlation)
+* [相互に関連するデータを保管し、グラフを生成して洞察を引き出す](https://developer.ibm.com/jp/patterns/store-graph-and-derive-insights-from-interconnected-data)
+* [データ・サイエンスのワークフローを、Node-RED を使用して編成する](https://developer.ibm.com/jp/patterns/orchestrate-data-science-workflows-using-node-red)
 * ソフトウェア開発成果物から洞察をマイニングする (このパターン)
 
 ## フロー
 
-![フロー](./images/engineering-insights-composite-pattern-arch-flow.png)
+![フロー](../../images/engineering-insights-composite-pattern-arch-flow.png)
 
 1. カスタム Python コードを使用して、複数のドキュメントから、分析して相互に関連付ける対象となる非構造化テキスト・データを抽出します。
 2. コード・パターン「[Watson のテキスト分類を拡張する](https://github.com/IBM/watson-document-classifier)」に従って、テキストを分類し、タグを付けます。

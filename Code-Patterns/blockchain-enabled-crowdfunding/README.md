@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric を使用してクラウドファンディング用のコラボレーション・プラットフォームを構築する
 
-English version: https://developer.ibm.com/patterns/./blockchain-enabled-crowdfunding
+English version: https://developer.ibm.com/patterns/blockchain-enabled-crowdfunding
   ソースコード: https://github.com/IBM/blockchain-enabled-crowdfunding
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -22,7 +22,7 @@ last_updated: 2019-09-09
 
 ## フロー
 
-![ブロックチェーン対応クラウドファンディングを示す図](./images/flow-v2.png)
+![ブロックチェーン対応クラウドファンディングを示す図](../../images/flow-v2.png)
 
 このコード・パターンの手順では、以下の方法を説明します。
 

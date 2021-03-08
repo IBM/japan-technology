@@ -2,7 +2,7 @@
 
 ### Java、Watson IoT Platform、Node-RED、Watson Visual Recognition サービスを利用して、トレーニング・アプリと予測アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./optimize-visual-recognition-classification
+English version: https://developer.ibm.com/patterns/optimize-visual-recognition-classification
   ソースコード: https://github.com/IBM/IoTWatsonTrainingandPredictionApp
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ last_updated: 2018-04-17
 
 ## フロー
 
-![フロー](./images/IoTWatsonTrainingAndPredictionApp-ArchDiagram.png)
+![フロー](../../images/IoTWatsonTrainingAndPredictionApp-ArchDiagram.png)
 
 1. ユーザーがトレーニング・アプリ内で、分類子の名前を入力します。
 1. ユーザーがトレーニング・アプリ内で、ネガティブ画像が含まれる zip ファイルのパスを入力します。

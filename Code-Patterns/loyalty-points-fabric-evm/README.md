@@ -2,7 +2,7 @@
 
 ### EVM を使用して Fabric をローカルにデプロイし、Node.js Web アプリを介してスマート・コントラクトとやり取りするプロキシーを作成する
 
-English version: https://developer.ibm.com/patterns/./loyalty-points-fabric-evm
+English version: https://developer.ibm.com/patterns/loyalty-points-fabric-evm
   ソースコード: https://github.com/IBM/loyalty-points-evm-fabric
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ Hyperledger Fabric では、モジュール式アーキテクチャーとコン�
 
 ## フロー
 
-![フロー](./images/flow-1153-v3.png)
+![フロー](../../images/flow-1153-v3.png)
 
 1. ロイヤルティー・ポイント・プログラムのパートナーが自分のアカウント用の fab プロキシーを使用してブロックチェーン・ネットワークにアクセスします。最初のパートナーがスマート・コントラクトをブロックチェーン・ネットワークにデプロイします。
 1. パートナーがプロキシーを介して Web アプリケーションにアクセスし、ネットワークに登録します。登録後は、すべてのトランザクションを表示できるようになります。

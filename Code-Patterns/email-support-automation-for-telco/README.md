@@ -2,7 +2,7 @@
 
 ### Watson の自然言語処理機能を使用して、インテリジェントなカスタマー・サポート・システムを開発する
 
-English version: https://developer.ibm.com/patterns/./email-support-automation-for-telco
+English version: https://developer.ibm.com/patterns/email-support-automation-for-telco
   ソースコード: https://github.com/IBM/smart-email-support
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2018-10-03
 
 ## フロー
 
-![フロー](./images/flow-smart-email-support.png)
+![フロー](../../images/flow-smart-email-support.png)
 
 1. Watson Knowledge Studio を使用して電気通信の使用ケースを対象に作成されたモデルを Watson Natural Language Understanding にデプロイします。
 1. Node-RED フローで顧客の e-メールをポーリングし、送信された e-メールを取得します。

@@ -2,7 +2,7 @@
 
 ### 異なる複数の予測モデルを作成して評価し、予測モデルの精度に対するサンプリング手法の影響を確認する
 
-English version: https://developer.ibm.com/patterns/./predicting-fraud-using-skewed-data
+English version: https://developer.ibm.com/patterns/predicting-fraud-using-skewed-data
   ソースコード: https://github.com/IBM/xgboost-smote-detect-fraud
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ last_updated: 2018-06-28
 
 ## フロー
 
-![フロー](./images/architecture-predict-fraud.png)
+![フロー](../../images/architecture-predict-fraud.png)
 
 1. Watson Studio にログインして、オブジェクト・ストレージを組み込んだインスタンスを作成します。
 1. CSV ファイルをオブジェクト・ストレージにアップロードします。

@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric ネットワークを使用して、食品供給業者に対する規制要件を分散ビジネス・ネットワーク向けにモデル化する
 
-English version: https://developer.ibm.com/patterns/./monitor-food-shipments-using-blockchain
+English version: https://developer.ibm.com/patterns/monitor-food-shipments-using-blockchain
   ソースコード: https://github.com/IBM/PublicRegulationFabric-Food-IBPV20
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ last_updated: 2019-04-02
 
 ## フロー
 
-![フロー](./images/food-shipments-flow-v2.png)
+![フロー](../../images/food-shipments-flow-v2.png)
 
 1. Hyperledger ネットワークを Docker コンテナーのグループとして (ホストする場合は Kubernetes に) デプロイします。
 2. デプロイした Hyperledger コンテナー上にスマート・コントラクトをインストールします。

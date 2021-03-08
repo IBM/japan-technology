@@ -2,7 +2,7 @@
 
 ### Kubernetes の力を利用して Drupal デプロイメントを管理する
 
-English version: https://developer.ibm.com/patterns/./run-drupal-website-on-kubernetes
+English version: https://developer.ibm.com/patterns/run-drupal-website-on-kubernetes
   ソースコード: https://github.com/IBM/drupal-on-kubernetes-sample
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ Drupal は人気の高い無料のオープンソース CMS (コンテンツ管�
 
 ## フロー
 
-![フロー](./images/arch-diagram-deploying-drupal-iks.png)
+![フロー](../../images/arch-diagram-deploying-drupal-iks.png)
 
 1. ユーザーが Drupal Web インターフェースを操作します。
 1. Drupal コンテナーは独自の永続ボリュームを使用して Web サイト・データを保管します (コンテンツは保管しません)。

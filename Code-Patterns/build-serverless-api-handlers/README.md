@@ -2,7 +2,7 @@
 
 ### API 呼び出しに応答してオートスケーリングするアクションを作成する
 
-English version: https://developer.ibm.com/patterns/./build-serverless-api-handlers
+English version: https://developer.ibm.com/patterns/build-serverless-api-handlers
   ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-apis
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ IBM Cloud 上の Node.js ランタイムには、[NPM モジュールの組み�
 
 ## フロー
 
-![フロー](./images/Build-serverless-API-handlers.png)
+![フロー](../../images/Build-serverless-API-handlers.png)
 
 1. API クライアントが REST API に HTTP POST リクエストを送信します。
 1. API ゲートウェイがリクエストを受け取り、それを OpenWhisk アクションに転送します。

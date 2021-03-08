@@ -2,7 +2,7 @@
 
 ### 音声認識、言語翻訳、音声合成を使用して、多言語トランスレーターとして利用できる Web アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-real-time-translation-service-with-watson-api-kit
+English version: https://developer.ibm.com/patterns/build-a-real-time-translation-service-with-watson-api-kit
   ソースコード: https://github.com/ibm/watson-speech-translator
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -33,7 +33,7 @@ React コンポーネントと Node.js サーバーで構成された、この�
 
 ## フロー
 
-![リアルタイムの翻訳サービスを作成するフロー図](./images/flow-diagram-build-a-real-time-translation-service.png)
+![リアルタイムの翻訳サービスを作成するフロー図](../../images/flow-diagram-build-a-real-time-translation-service.png)
 
 1. ユーザーがマイクのボタンを押して、入力音声をキャプチャーします。
 1. WebSocket を使用して音声が Speech to Text サービスにストリーミングされます。

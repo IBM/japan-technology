@@ -2,7 +2,7 @@
 
 ### Apache Spark と Elasticsearch によるレコメンデーション・モデルのトレーニングおよび運用方法をデモンストレーションする Jupyter Notebook を実地検証する
 
-English version: https://developer.ibm.com/patterns/./build-a-recommender-with-apache-spark-and-elasticsearch
+English version: https://developer.ibm.com/patterns/build-a-recommender-with-apache-spark-and-elasticsearch
   ソースコード: https://github.com/IBM/elasticsearch-spark-recommender
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2019-03-28
 
 ## フロー
 
-![フロー](./images/recommender-spark.png)
+![フロー](../../images/recommender-spark.png)
 
 1. 映画に関するデータ・セットを Spark にロードします。
 1. Spark DataFrame のデータ処理を使用して、データ・セットをクリーンアップしてから Elasticsearch にロードします。

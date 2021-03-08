@@ -2,7 +2,7 @@
 
 ### Apache OpenWhisk を使用して、ポッドキャストをダウンロードするためのマイクロサービスを構築する
 
-English version: https://developer.ibm.com/patterns/./create-a-podcast-downloader-using-serverless-technology
+English version: https://developer.ibm.com/patterns/create-a-podcast-downloader-using-serverless-technology
  ソースコード: https://github.com/IBM/PodcastDownloader
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ Apache OpenWhisk は、どんな規模でもイベントに応答して関数を
 
 ## フロー
 
-![フロー](./images/podcast-downloader.png)
+![フロー](../../images/podcast-downloader.png)
 
 1. ローカル Python アプリに MySQL バックエンドをセットアップします。
 1. Python アクションと仮想環境を ZIP ファイルにパッケージ化して、IBM Cloud Functions にアップロードします。

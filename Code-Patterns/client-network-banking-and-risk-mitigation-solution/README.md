@@ -2,7 +2,7 @@
 
 ### 'IBM Cloud、Watson サービス、オープンソース・テクノロジーを利用して顧客情報を分析し、顧客に投資する前に早期警告を受けられるようにする'
 
-English version: https://developer.ibm.com/patterns/./client-network-banking-and-risk-mitigation-solution
+English version: https://developer.ibm.com/patterns/client-network-banking-and-risk-mitigation-solution
   ソースコード: 'https://github.com/IBM/banking-risk-mitigation-nlu-studio'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -11,8 +11,8 @@ last_updated: 2018-09-18
  
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
-* [Watson のテキスト分類を拡張する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/extend-watson-text-classification/)
-* [さまざまなソースからのドキュメントを互いに関連付ける](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/watson-document-correlation/)
+* [Watson のテキスト分類を拡張する](https://developer.ibm.com/jp/patterns/extend-watson-text-classification/)
+* [さまざまなソースからのドキュメントを互いに関連付ける](https://developer.ibm.com/jp/patterns/watson-document-correlation/)
 * Client network banking (このパターン)
 
 ## 概要
@@ -27,7 +27,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/flow-client-network-banking-and-risk-mitigation-solution.png)
+![フロー](../../images/flow-client-network-banking-and-risk-mitigation-solution.png)
 
 1. ユーザーがアプリの UI を操作して、特定のイベントまたは顧客に関連する情報を要求します。
 1. Web アプリの UI が Python-Flask サーバーとやり取りして、要求された情報を、該当する API から受け取ります。

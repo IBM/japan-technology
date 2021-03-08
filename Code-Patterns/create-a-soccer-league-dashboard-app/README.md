@@ -2,7 +2,7 @@
 
 ### Akka、React、IBM Cloudant を利用して、リアルタイムのスコア、実況解説、リーグ順位、試合結果をアプリ内に取り込む
 
-English version: https://developer.ibm.com/patterns/./create-a-soccer-league-dashboard-app
+English version: https://developer.ibm.com/patterns/create-a-soccer-league-dashboard-app
   ソースコード: https://github.com/IBM/akka-react-cloudant
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,7 +23,7 @@ Akka は複数のアクターによって構成されます。アクターが、
 
 ## フロー
 
-![フロー](./images/Soccer-Dashboard-with-Akka-and-ReactJS-flow-arch.png)
+![フロー](../../images/Soccer-Dashboard-with-Akka-and-ReactJS-flow-arch.png)
 
 1. Akka を構成するアクターを作成します。
 2. Akka REST API を公開します。

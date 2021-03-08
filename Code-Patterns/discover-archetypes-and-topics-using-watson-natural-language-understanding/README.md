@@ -2,7 +2,7 @@
 
 ### Watson サービスと Jupyter Notebook を利用してレコードから有意のアーキタイプを発見し、発見された一連のアーキタイプに新しいレコードを分類する
 
-English version: https://developer.ibm.com/patterns/./discover-archetypes-and-topics-using-watson-natural-language-understanding
+English version: https://developer.ibm.com/patterns/discover-archetypes-and-topics-using-watson-natural-language-understanding
   ソースコード: https://github.com/IBM/discover-archetype
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -33,7 +33,7 @@ last_updated: 2020-01-13
 
 ## フロー
 
-![フロー](./images/discover-archetypes-flow.png)
+![フロー](../../images/discover-archetypes-flow.png)
 
 1. カスタム医療ディクテーション・データ・セットを ezDI からダウンロードし、処理対象のテキスト・データを用意します。
 1. 提供されているアプリケーション・ユーザー・インターフェースまたは Jupyter Notebook を使用して Watson Natural Language Understanding サービスを操作します。

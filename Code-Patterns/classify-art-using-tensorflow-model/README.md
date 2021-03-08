@@ -2,7 +2,7 @@
 
 ### メトロポリタン美術館のデータとラベルをプルして画像分類システムをトレーニングする
 
-English version: https://developer.ibm.com/patterns/./classify-art-using-tensorflow-model
+English version: https://developer.ibm.com/patterns/classify-art-using-tensorflow-model
 ソースコード: https://github.com/IBM/tensorflow-kubernetes-art-classification
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2017-10-06
 
 ## フロー
 
-![フロー](./images/Classify-Art-using-TensorFlow-model-on-Kubernetes-arch-flow.png)
+![フロー](../../images/Classify-Art-using-TensorFlow-model-on-Kubernetes-arch-flow.png)
 
 1. Google BigQuery データベース内でメトリポリタン美術館アート・コレクションに有効な属性を調べます。
 1. 選択した属性を使用してラベル付けしたデータ・セットを作成します。

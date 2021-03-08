@@ -2,7 +2,7 @@
 
 ### Web アプリの利便性とネイティブ・アプリのパフォーマンスを兼ね備えたプログレッシブ Web アプリを構築する
 
-English version: https://developer.ibm.com/patterns/./create-an-offline-first-shopping-list-progressive-web-app
+English version: https://developer.ibm.com/patterns/create-an-offline-first-shopping-list-progressive-web-app
 ソースコード: https://github.com/ibm-watson-data-lab/shopping-list-vanillajs-pouchdb
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ Vanilla JS (プレーン JavaScript)、React、Preact、Polymer、Ember.js、Vue
 
 ## フロー
 
-![フロー](./images/shopping-list-arch2.png)
+![フロー](../../images/shopping-list-arch2.png)
 
 1. ユーザーがオフライン・ファースト・プログレッシブ Web アプリを使用してショッピング・リストを管理します。
 1. Vanilla JS (プレーン JavaScript)、React、Preact、Polymer、Ember.js、または Vue.js を使用してプログレッシブ Web アプリを作成し、Service Worker を利用してオフラインでもアプリが機能するようにします。

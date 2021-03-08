@@ -2,7 +2,7 @@
 
 ### IoT センサー・データに対する予測アナリティクスを実行して是正アクションを決定し、Watson IoT Platform を使用してエッジ上の IoT アクチュエーターにアクションのコマンドを送信する
 
-English version: https://developer.ibm.com/patterns/./iot-edge-predictive-analytics-corrective-actions
+English version: https://developer.ibm.com/patterns/iot-edge-predictive-analytics-corrective-actions
   ソースコード: https://github.com/IBM/iot-edge-predictive-models-dsx
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -12,8 +12,8 @@ last_updated: 2018-05-30
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
 * IoT センサー・データを使用して機器故障を予測する (このパターン)
-* [IoT センサー・データから変化点を検出する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/detect-change-points-in-iot-sensor-data/)
-* [IoT センサー・データを使用して機器故障を予測する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/predict-equipment-failure-using-iot-sensor-data/)
+* [IoT センサー・データから変化点を検出する](https://developer.ibm.com/jp/patterns/detect-change-points-in-iot-sensor-data/)
+* [IoT センサー・データを使用して機器故障を予測する](https://developer.ibm.com/jp/patterns/predict-equipment-failure-using-iot-sensor-data/)
 
 ## 概要
 
@@ -41,7 +41,7 @@ IoT 機器の主要な動作パラメーターにおける変化点を検出し�
 
 ## フロー
 
-![フロー](./images/edge-pred-analytics_arch_flow2.png)
+![フロー](../../images/edge-pred-analytics_arch_flow2.png)
 
 1. ユーザーが IBM Watson Studio にサインアップします。
 1. ユーザーがサンプル IoT センサーの時系列データをデータベースにロードします。

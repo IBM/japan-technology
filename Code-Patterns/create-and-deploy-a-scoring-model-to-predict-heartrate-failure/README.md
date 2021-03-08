@@ -2,7 +2,7 @@
 
 ### Watson Machine Learning を利用した予測モデルを IBM Watson Studio で作成する
 
-English version: https://developer.ibm.com/patterns/./create-and-deploy-a-scoring-model-to-predict-heartrate-failure
+English version: https://developer.ibm.com/patterns/create-and-deploy-a-scoring-model-to-predict-heartrate-failure
   ソースコード: https://github.com/IBM/predictive-model-on-watson-ml/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -35,7 +35,7 @@ last_updated: 2018-05-18
 
 ## フロー
 
-![フロー](./images/create-and-deploy-a-scoring-model-to-predict-heartrate-failure.png)
+![フロー](../../images/create-and-deploy-a-scoring-model-to-predict-heartrate-failure.png)
 
 1. 開発者が IBM Watson Studio ワークスペースを作成します。
 1. IBM Watson Studio は Apache Spark サービスに依存します。

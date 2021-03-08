@@ -2,7 +2,7 @@
 
 ### Akka を使用して WebSocket エンドポイントを実装し、データをストリーミングして IBM Db2 Event Store 内に取り込む
 
-English version: https://developer.ibm.com/patterns/./store-retail-order-events-with-akka-streams-and-db2-event-store
+English version: https://developer.ibm.com/patterns/store-retail-order-events-with-akka-streams-and-db2-event-store
   ソースコード: https://github.com/IBM/db2-event-store-akka-streams
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

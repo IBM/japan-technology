@@ -2,7 +2,7 @@
 
 ### 鍵管理ソリューションをデータベース・バックエンドにリンクする
 
-English version: https://developer.ibm.com/patterns/./create-a-secured-microservices-and-deploy-it-to-a-consolidated-database
+English version: https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database
   ソースコード: https://github.com/IBM/secured-microservices-writing-to-a-consolidated-database
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2020-02-10
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. ユーザーが Web アプリを表示して顧客情報を入力します。
 1. アプリが Key Protect REST API を使用して鍵を生成します。

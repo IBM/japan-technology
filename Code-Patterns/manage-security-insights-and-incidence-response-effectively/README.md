@@ -2,7 +2,7 @@
 
 ### REST API を使用して IBM Resilient Incident Response Platform に IBM QRadar によるセキュリティー情報・イベント管理を統合する
 
-English version: https://developer.ibm.com/patterns/./manage-security-insights-and-incidence-response-effectively
+English version: https://developer.ibm.com/patterns/manage-security-insights-and-incidence-response-effectively
   ソースコード: https://github.com/IBM/managing-security-incidents
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -11,7 +11,7 @@ last_updated: 2019-01-18
  
 _**注: 本コード・パターンは、複合パターンの一部となっているものです。** この複合パターンを構成するコード・パターンは、スタンドアロン・アプリケーションにすることも、別のコード・パターンの続きとして使用することもできます。この複合パターンは、次のコード・パターンからなります。_
 
-* [QRadar を使用してデバイス・イベントをモニタリングする](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/detect-security-offenses-for-iot-devices-using-qradar)
+* [QRadar を使用してデバイス・イベントをモニタリングする](https://developer.ibm.com/jp/patterns/detect-security-offenses-for-iot-devices-using-qradar)
 * セキュリティーの分析情報とインシデントの対応を効率的に管理する (本パターン)
 
 ## 概要
@@ -30,7 +30,7 @@ _**注: 本コード・パターンは、複合パターンの一部となって
 
 ## フロー
 
-![フロー](./images/arch.png)
+![フロー](../../images/arch.png)
 
 1. QRadar からすべてのオフェンスを取得します。
 1. 取得したオフェンスを IBM Resilient Incident Response Platform のインシデント形式に変換します。

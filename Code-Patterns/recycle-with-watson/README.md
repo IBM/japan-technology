@@ -2,7 +2,7 @@
 
 ### Watson Visual Recognition カスタム分類子を使用してゴミを分別する、iOS スマートフォン対応アプリケーションを作成する
 
-English version: https://developer.ibm.com/patterns/./recycle-with-watson
+English version: https://developer.ibm.com/patterns/recycle-with-watson
   ソースコード: https://github.com/IBM/watson-waste-sorter
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2018-04-05
 
 ## フロー
 
-![フロー](./images/waste-architecture_diagram.png)
+![フロー](../../images/waste-architecture_diagram.png)
 
 1. モバイル・アプリを使って画像をキャプチャーします。
 1. アプリから、クラウド内で稼働中のサーバー・アプリケーションに画像を渡します。

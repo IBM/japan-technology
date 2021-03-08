@@ -2,7 +2,7 @@
 
 ### 追加のトレーニング詳細を提供して、検索結果を改善する
 
-English version: https://developer.ibm.com/patterns/./improve-discovery-results-using-programmatic-relevancy-training
+English version: https://developer.ibm.com/patterns/improve-discovery-results-using-programmatic-relevancy-training
   ソースコード: https://github.com/IBM/improve-discovery-results-using-api-based-relevancy-training
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -32,7 +32,7 @@ Watson Discovery インスタンスのかなりの数の質問に対して関連
 
 ## フロー
 
-![Discovery の関連性トレーニングで検索結果を改善するフロー図](./images/improve-discovery-relevancy-training.png)
+![Discovery の関連性トレーニングで検索結果を改善するフロー図](../../images/improve-discovery-relevancy-training.png)
 
 1. クライアント・アプリケーションが、関連性トレーニングを必要とするクエリーのそれぞれに対して、自然言語のクエリーを送信します。
 1. Watson Discovery が、送信された自然言語のクエリーのそれぞれに対応する一連のドキュメントを返します。

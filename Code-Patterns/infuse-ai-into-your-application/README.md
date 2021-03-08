@@ -2,7 +2,7 @@
 
 ### IBM Cloud Pak for Data、Spark MLlib、Jupyter Notebook を利用してカスタマー・チャーン予測モデルを作成、デプロイする
 
-English version: https://developer.ibm.com/patterns/./infuse-ai-into-your-application
+English version: https://developer.ibm.com/patterns/infuse-ai-into-your-application
   ソースコード: https://github.com/IBM/icp4d-customer-churn-classifier
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -33,7 +33,7 @@ last_updated: 2019-02-08
 
 ## フロー
 
-![フロー](./images/infuse_ai.png)
+![フロー](../../images/infuse_ai.png)
 
 1. データを Db2 Warehouse にロードします。
 1. Jupyter Notebook がデータにアクセスします。

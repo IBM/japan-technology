@@ -2,7 +2,7 @@
 
 ### システム・プロパティーや環境変数などを使用して容易にアプリケーションを構成する
 
-English version: https://developer.ibm.com/patterns/./configure-your-app-using-eclipse-microprofile-config
+English version: https://developer.ibm.com/patterns/configure-your-app-using-eclipse-microprofile-config
   ソースコード: https://github.com/IBM/java-microprofile-config
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ Eclipse MicroProfile は、マイクロサービス・アーキテクチャー�
 
 ## フロー
 
-![フロー](./images/Configure-your-application-with-Eclipse-MicroProfile-Config-arch-flow.png)
+![フロー](../../images/Configure-your-application-with-Eclipse-MicroProfile-Config-arch-flow.png)
 
 1. ユーザーが Open Liberty サーバーに対して REST リクエストを実行します。
 2. JAX-RS がリクエストをアプリケーションに転送します。

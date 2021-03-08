@@ -2,7 +2,7 @@
 
 ### Docker と Kubernetes を使用してカスタム機械学習エンジンをデプロイし、Watson OpenScale を利用してペイロードのロギングとモデルの公正さをモニタリングする
 
-English version: https://developer.ibm.com/patterns/./monitor-custom-machine-learning-engine-with-ai-openscale
+English version: https://developer.ibm.com/patterns/monitor-custom-machine-learning-engine-with-ai-openscale
   ソースコード: https://github.com/IBM/monitor-custom-ml-engine-with-watson-openscale
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ IBM Watson OpenScale は、組織が AI を自動化して運用可能にする�
 
 ## フロー
 
-![機械学習エンジンのフロー図](./images/flow-monitor-custom-machine-learning.png)
+![機械学習エンジンのフロー図](../../images/flow-monitor-custom-machine-learning.png)
 
 1. ユーザーが Kubernetes と Docker を使用して、アプリケーション・サーバーを IBM Cloud 上にデプロイします。
 1. ユーザーが Watson&trade; Studio 上で Jupyter Notebook を作成し、Watson OpenScale と Compose PostgreSQL を構成します。

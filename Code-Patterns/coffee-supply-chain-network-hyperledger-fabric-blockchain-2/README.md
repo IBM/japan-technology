@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric と IBM Blockchain Platform を利用してコーヒー小売業者のサプライチェーンを効率化する
 
-English version: https://developer.ibm.com/patterns/./coffee-supply-chain-network-hyperledger-fabric-blockchain-2
+English version: https://developer.ibm.com/patterns/coffee-supply-chain-network-hyperledger-fabric-blockchain-2
   ソースコード: https://github.com/IBM/blockchainbean2
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2019-03-21
 
 ## フロー
 
-![フロー](./images/app-architecture-3.png)
+![フロー](../../images/app-architecture-3.png)
 
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform サービスをセットアップします。
 1. IBM Blockchain Platform により、IBM Kubernetes Service 上に Hyperledger Fabric ネットワークが作成されます。このネットワークに、オペレーターがスマート・コントラクトをインストールしてインスタンス化します。

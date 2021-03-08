@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric と IBM Blockchain Platform Extension の VS Code 拡張機能を使用する
 
-English version: https://developer.ibm.com/patterns/./create-and-execute-a-blockchain-smart-contract-ibp-v20
+English version: https://developer.ibm.com/patterns/create-and-execute-a-blockchain-smart-contract-ibp-v20
   ソースコード: https://github.com/IBM/SmartContractTrading-wFabric1-4-VSCodeExt
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ _**注:** この開発者向けパターンは、ブロックチェーン入門�
 
 ## フロー
 
-![フロー](./images/arch.png)
+![フロー](../../images/arch.png)
 
 1. VS Code プラットフォームをセットアップして起動します。
 1. Node.js を使用してスマート・コントラクトを開発します。

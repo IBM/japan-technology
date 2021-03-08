@@ -2,7 +2,7 @@
 
 ### 構成可能な小売業向けチャットボットを作成する
 
-English version: https://developer.ibm.com/patterns/./create-cognitive-retail-chatbot
+English version: https://developer.ibm.com/patterns/create-cognitive-retail-chatbot
   ソースコード: https://github.com/IBM/watson-online-store/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -19,7 +19,7 @@ last_updated: 2017-04-13
 
 ## フロー
 
-![フロー]](./images/wos-architecture.png)
+![フロー]](../../images/wos-architecture.png)
 
 1. ユーザーが Slackbot にメッセージを書き込みます。
 2. Watson Assistant サービスを利用する Slackbot では、ユーザーが商品を検索して買い物かごに追加したり、買い物かごから商品を削除したりできるようになっています。

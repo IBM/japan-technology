@@ -2,7 +2,7 @@
 
 ### サーバーレス・プラットフォーム内にモバイル・プッシュ通知を統合する方法を学ぶ
 
-English version: https://developer.ibm.com/patterns/./serverless-functions-push-notifications
+English version: https://developer.ibm.com/patterns/serverless-functions-push-notifications
 ソースコード: https://github.com/IBM/ibm-cloud-functions-mobile-push-notifications
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -43,7 +43,7 @@ last_updated: 2019-04-12
 
 ## フロー
 
-![サーバーレス関数によるプッシュ通知のフロー](./images/serverless-functions-push-flow-diagram.png)
+![サーバーレス関数によるプッシュ通知のフロー](../../images/serverless-functions-push-flow-diagram.png)
 
 1. ユーザーが特定の都市にサブスクライブし、サブスクライブ対象の気象タイプと通知を受信する時刻を選択します。
 1. モバイル・アプリが REST API を介して Cloud Functions のアクション・シーケンスを呼び出します。最初のアクションで、プッシュ通知タグが作成されます。

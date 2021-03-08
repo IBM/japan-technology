@@ -2,7 +2,7 @@
 
 ### Java プログラムを使用してネットワークの負荷テストを行って、MongoDB に格納されたテスト結果を確認する
 
-English version: https://developer.ibm.com/patterns/./load-test-your-blockchain-network
+English version: https://developer.ibm.com/patterns/load-test-your-blockchain-network
   ソースコード: https://github.com/IBM/loadtesting-the-Blockchain-Network
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ last_updated: 2018-04-23
 
 ## フロー
 
-![フロー](./images/arch-blockchain-mongodb.png)
+![フロー](../../images/arch-blockchain-mongodb.png)
 
 1. ブロックチェーン・ネットワークを作成して起動します。
 2. ExecutionApp を起動します。

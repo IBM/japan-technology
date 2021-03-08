@@ -2,7 +2,7 @@
 
 ### Tesseract OCR で画像を取り込んでテキストを抽出し、Watson Language Translator を利用して翻訳する
 
-English version: https://developer.ibm.com/patterns/./snap-translate-using-tesseract-ocr-watson-language-translator
+English version: https://developer.ibm.com/patterns/snap-translate-using-tesseract-ocr-watson-language-translator
   ソースコード: https://github.com/IBM/snap-and-translate
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2018-09-17
 
 ## フロー
 
-![フロー](./images/flow-snap-and-translate.png)
+![フロー](../../images/flow-snap-and-translate.png)
 
 1. ユーザーがモバイル・アプリを操作して、画像を取り込むか、フォト・アルバムから画像を選択します。
 1. IBM Cloud Kubernetes サービス上で稼働する Node.js サーバー・アプリケーションに画像が渡されると、このアプリが Tesseract OCR を使用して画像内のテキストを認識します。

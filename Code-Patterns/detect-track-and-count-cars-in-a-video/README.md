@@ -2,7 +2,7 @@
 
 ### 自動ラベリングを使用して動画からモデルを作成し、そのモデルを使用して動画に注釈を付ける
 
-English version: https://developer.ibm.com/patterns/./detect-track-and-count-cars-in-a-video
+English version: https://developer.ibm.com/patterns/detect-track-and-count-cars-in-a-video
   ソースコード: https://github.com/IBM/powerai-counting-cars
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

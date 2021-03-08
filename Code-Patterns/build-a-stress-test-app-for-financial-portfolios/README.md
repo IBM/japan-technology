@@ -2,7 +2,7 @@
 
 ### さまざまなクラウド・サービスと Arria NLG を利用して、投資ポートフォリオのストレス・テスト・アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-stress-test-app-for-financial-portfolios
+English version: https://developer.ibm.com/patterns/build-a-stress-test-app-for-financial-portfolios
 ソースコード: https://github.com/IBM/predictive-market-using-arria
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ Investment Portfolio サービスは、適格投資、ベンチマーク、ユ�
 
 ## フロー
 
-![フロー](./images/arch-stress-test-nlg.png)
+![フロー](../../images/arch-stress-test-nlg.png)
 
 1. アプリケーションを実行する前に、ユーザーが Investment Portfolio サービスにポートフォリオ固有の情報をシードします。
 2. ユーザーが Web インターフェースにポートフォリオの内容、リスク要因、ショックの規模などの情報を入力します。

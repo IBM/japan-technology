@@ -2,7 +2,7 @@
 
 ### IBM Watson Studio Local を利用して、ワインを分類する機械学習モデルの作成とトレーニングを自動化する
 
-English version: https://developer.ibm.com/patterns/./model-mgmt-on-watson-studio-local
+English version: https://developer.ibm.com/patterns/model-mgmt-on-watson-studio-local
   ソースコード: https://github.com/IBM/model-mgmt-on-watson-studio-local
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -30,7 +30,7 @@ last_updated: 2018-11-05
 
 ## フロー
 
-![フロー](./images/watson_studio_local.png)
+![フロー](../../images/watson_studio_local.png)
 
 1. Spark DataFrame の処理によってデータセットをクリーンアップし、Spark MLlib を使用して PCA 分類モデルをトレーニングします。
 1. トレーニングしたモデルを IBM Watson Studio Local に保存します。

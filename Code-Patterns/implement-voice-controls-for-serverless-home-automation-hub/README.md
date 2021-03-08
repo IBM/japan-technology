@@ -2,7 +2,7 @@
 
 ### 自然言語サービスと OpenWhisk を利用して、音声作動式のサーバーレス・ホーム・オートメーション・ハブを構築する
 
-English version: https://developer.ibm.com/patterns/./implement-voice-controls-for-serverless-home-automation-hub
+English version: https://developer.ibm.com/patterns/implement-voice-controls-for-serverless-home-automation-hub
  ソースコード: https://github.com/IBM/serverless-home-automation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2017-07-18
 
 ## フロー
 
-![フロー](./images/voice-controls-serverless-home-automation-arch.png)
+![フロー](../../images/voice-controls-serverless-home-automation-arch.png)
 
 1. ユーザーがマイクに向かって声で命令するか、Twilio SMS の電話番号にテキストを送信します。
 1. 入力がキャプチャーされて、OpenWhisk シーケンスをトリガーするための HTTP POST リクエストに、その入力が組み込まれます。

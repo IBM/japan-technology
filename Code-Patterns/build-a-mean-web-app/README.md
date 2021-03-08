@@ -2,7 +2,7 @@
 
 ### MongoDB、Express、AngularJS、Node.js スタックを使用してクラウド・ネイティブの Web アプリケーションを作成、デプロイする
 
-English version: https://developer.ibm.com/patterns/./build-a-mean-web-app
+English version: https://developer.ibm.com/patterns/build-a-mean-web-app
   ソースコード: https://github.com/IBM/MEAN-app
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -20,7 +20,7 @@ last_updated: 2018-11-07
 
 ## フロー
 
-![フロー](./images/mean-architecture.png)
+![フロー](../../images/mean-architecture.png)
 
 1. ユーザーがブラウザーで AngularJS Web アプリを表示します。
 1. AngularJS フロントエンドと Express バックエンドはどちらも Node.js で作成されています。この 2 つのコンポーネントが RESTful API を介して通信します。

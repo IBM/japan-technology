@@ -2,7 +2,7 @@
 
 ### Node.js と Watson を使用して感情を検出し、エンティティーを識別し、回答を見つける
 
-English version: https://developer.ibm.com/patterns/./create-cognitive-banking-chatbot
+English version: https://developer.ibm.com/patterns/create-cognitive-banking-chatbot
 ソースコード: https://github.com/IBM/watson-banking-chatbot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ last_updated: 2019-08-06
 
 ## フロー
 
-![フロー](./images/Create-a-banking-chatbot.png)
+![フロー](../../images/Create-a-banking-chatbot.png)
 
 1. 一連の FAQ ドキュメントを Watson Discovery コレクションに追加します。
 1. ユーザーがアプリの UI を介してチャットボットとやり取りします。

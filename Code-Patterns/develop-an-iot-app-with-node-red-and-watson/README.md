@@ -2,7 +2,7 @@
 
 ### ビジュアル・プログラミング・ツール、PaaS サービス、Watson を利用して、IoT 製品を完全に機能するビジネス・アプリケーションに変換する
 
-English version: https://developer.ibm.com/patterns/./develop-an-iot-app-with-node-red-and-watson
+English version: https://developer.ibm.com/patterns/develop-an-iot-app-with-node-red-and-watson
   ソースコード: https://github.com/IBM/manage-control-device-node-red
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ Node-Red Web ページ・アプリケーションを使用すると、任意の�
 
 ## フロー
 
-![フロー](./images/conveyor-arch-iot-1.png)
+![フロー](../../images/conveyor-arch-iot-1.png)
 
 1. IBM Cloud 上で Node-RED インスタンスを作成してデプロイした後、Cloud Foundry CLI を使用して、そのインスタンスを Watson IoT Platform に接続します。
 1. simulate-iot サンプル・アプリをビルドしてデプロイします ([JSON フロー](https://raw.githubusercontent.com/IBM/manage-control-device-node-red/master/flow/flow.json)をアプリ・エディターにコピー・アンド・ペーストします)。

@@ -2,7 +2,7 @@
 
 ### Node-RED を使用して、IBM Watson Studio 分析ワークフローをトリガーする Web インターフェースを作成する
 
-English version: https://developer.ibm.com/patterns/./orchestrate-data-science-workflows-using-node-red
+English version: https://developer.ibm.com/patterns/orchestrate-data-science-workflows-using-node-red
   ソースコード: https://github.com/IBM/node-red-dsx-workflow
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -12,7 +12,7 @@ last_updated: 2018-02-07
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
 * データ・サイエンスのワークフローを、Node-RED を使用して編成する (このパターン)
-* [ロボット型計算・推測エージェントを作成する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/robotic-calculations-and-inference-agent/)
+* [ロボット型計算・推測エージェントを作成する](https://developer.ibm.com/jp/patterns/robotic-calculations-and-inference-agent/)
 
 ## 概要
 
@@ -34,7 +34,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/Orchestrate-DSX-workflows-using-Node-RED-arch-flow.png)
+![フロー](../../images/Orchestrate-DSX-workflows-using-Node-RED-arch-flow.png)
 
 1. Object Storage システムがデータ・ドキュメントを保管します。
 2. Python コードが Object Storage システムからドキュメントのコンテンツを取得します。

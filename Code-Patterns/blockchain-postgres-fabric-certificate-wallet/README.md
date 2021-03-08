@@ -2,7 +2,7 @@
 
 ### Kubernetes を使用してコンテナー化された PostgreSQL データベースをセットアップし、そのデータベースを Hyperledger Fabric ウォレットとして構成する
 
-English version: https://developer.ibm.com/patterns/./blockchain-postgres-fabric-certificate-wallet
+English version: https://developer.ibm.com/patterns/blockchain-postgres-fabric-certificate-wallet
   ソースコード: https://github.com/IBM/fabric-postgres-wallet
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -22,7 +22,7 @@ Hyperledger Fabric は、Hyperledger に含まれるブロックチェーン・�
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. IBM Blockchain Platform を利用して Hyperledger Fabric ネットワークをセットアップします。
 1. Kubernetes を使用してコンテナー化された PostgreSQL データベースを構成し、デプロイします。

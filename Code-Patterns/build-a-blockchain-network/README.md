@@ -2,7 +2,7 @@
 
 ### Hyperledger Composer を使用して、初めてのブロックチェーン・ネットワークを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-blockchain-network
+English version: https://developer.ibm.com/patterns/build-a-blockchain-network
   ソースコード: https://github.com/IBM/Create-BlockchainNetwork-IBPV20
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2018-05-28
 
 ## フロー
 
-![フロー](./images/arch-blockchain-network1.png)
+![フロー](../../images/arch-blockchain-network1.png)
 
 1. Hyperledger Composer 開発ツールをインストールします。
 2. Hyperledger Fabric を起動します。

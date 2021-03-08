@@ -2,7 +2,7 @@
 
 ### 機械学習モデルを動的に作成して、リアルタイムのダッシュボードを作成する
 
-English version: https://developer.ibm.com/patterns/./use-cognos-custom-controls-to-display-real-time-ml-model-scores
+English version: https://developer.ibm.com/patterns/use-cognos-custom-controls-to-display-real-time-ml-model-scores
   ソースコード: https://github.com/IBM/invoke-wml-using-cognos-custom-control/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ Cognos ダッシュボードから機械学習モデルの出力をリアルタ�
 
 ## フロー
 
-![フロー](./images/flow-invoke-wml-cognos.png)
+![フロー](../../images/flow-invoke-wml-cognos.png)
 
 1. JavaScript を使用してカスタム・コントロール・ウィジェットを作成し、Cognos の webcontent フォルダーに格納します。
 1. Watson Machine Learning モデルを作成し、Web サービスとしてデプロイします。

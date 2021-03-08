@@ -2,7 +2,7 @@
 
 ### テキストを読む時間を短縮し、選択プロセスを容易にするとともに、インデックスの効果を高めるために、抽出型要約を利用する
 
-English version: https://developer.ibm.com/patterns/./text-summarization-topic-modelling-using-watson-studio-watson-nlu
+English version: https://developer.ibm.com/patterns/text-summarization-topic-modelling-using-watson-studio-watson-nlu
   ソースコード: https://github.com/IBM/text-summarization-and-visualization-using-watson-studio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2019-01-10
 
 ## フロー
 
-![フロー](./images/text.summarization.png)
+![フロー](../../images/text.summarization.png)
 
 1. Watson Studio にログインして、オブジェクト・ストレージを組み込んだインスタンスを作成します。
 1. データ・ファイルをオブジェクト・ストレージにアップロードします。

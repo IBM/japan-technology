@@ -2,7 +2,7 @@
 
 ### 保管中のデータをサーバーレス cron ジョブを使用して処理する方法を学ぶ
 
-English version: https://developer.ibm.com/patterns/./run-serverless-functions-with-stock-market-data-at-rest
+English version: https://developer.ibm.com/patterns/run-serverless-functions-with-stock-market-data-at-rest
 ソースコード: https://github.com/IBM/ibm-cloud-functions-data-at-rest-processing
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -34,7 +34,7 @@ last_updated: 2018-11-06
 
 ## フロー
 
-![フロー](./images/stock-market-data_arch.png)
+![フロー](../../images/stock-market-data_arch.png)
 
 1. ユーザーが追跡対象の証券コードを入力します。
 2. cron ユーティリティーを使用して、時間ベースのスケジュールにアラーム・トリガーが設定されます。このアラーム・トリガーは、設定された時間に get-stocks-data アクションをトリガーします。

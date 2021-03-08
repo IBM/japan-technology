@@ -2,7 +2,7 @@
 
 ### Raspberry Pi、センサー、マイクロコントローラー、Watson IoT Platform を構成して、長距離対応 IoT システムを構築する
 
-English version: https://developer.ibm.com/patterns/./set-up-lorawan-iot-gateway-hardware
+English version: https://developer.ibm.com/patterns/set-up-lorawan-iot-gateway-hardware
   ソースコード: 'https://github.com/IBM/smart-city-gateway/'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ LoRaWAN は、モノのインターネットを対象に設計された、長距
 
 ## フロー
 
-![フロー](./images/lorawan-arch-diagram.png)
+![フロー](../../images/lorawan-arch-diagram.png)
 
 1. LoRaWAN のエンド・ノードに電源が入り、センサーから値がサンプリングされます。そのデータがゲートウェイに送信されます。このプロセスは、ユーザーが設定する間隔で繰り返されます。
 2. ゲートウェイが LoRa パケットを受信して「The Things Network」(TTN) に転送します。

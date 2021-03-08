@@ -2,7 +2,7 @@
 
 ### IBM Blockchain Platform の VS Code 拡張機能を使用してローカル Hyperledger Fabric ネットワークを作成する
 
-English version: https://developer.ibm.com/patterns/./build-an-asset-leasing-application-using-blockchain-and-iot
+English version: https://developer.ibm.com/patterns/build-an-asset-leasing-application-using-blockchain-and-iot
   ソースコード: https://github.com/IBM/assetTracking
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,7 +23,7 @@ IoT 統合には IBM Watson IoT Platform を利用して、移動される資産
 
 ## フロー
 
-![フロー](./images/flow-v4.png)
+![フロー](../../images/flow-v4.png)
 
 1. IBM Blockchain Platform の VS Code 拡張機能を使用して、スマート・コントラクトをローカル Hyperledger Fabric ネットワークにデプロイします。
 1. 資産がある場所から別の場所に移動されると、IoT デバイスが RFID またはバーコードによってその資産をスキャンします。このパターンでは、シミュレーションされたデバイスを使用します。

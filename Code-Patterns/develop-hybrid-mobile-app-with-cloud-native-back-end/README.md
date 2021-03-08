@@ -2,7 +2,7 @@
 
 ### IBM Mobile Foundation を介して Cloudant および IBM Cloud Object Storage に接続する、エンタープライズ対応のセキュアな Ionic/Cordova アプリを開発する
 
-English version: https://developer.ibm.com/patterns/./develop-hybrid-mobile-app-with-cloud-native-back-end
+English version: https://developer.ibm.com/patterns/develop-hybrid-mobile-app-with-cloud-native-back-end
   ソースコード: https://github.com/IBM/Ionic-MFP-App/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -39,7 +39,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/ionic-mfp-flow.png)
+![フロー](../../images/ionic-mfp-flow.png)
 
 1. ユーザーがモバイル・アプリを起動して、ログイン画面に自分の資格情報を入力し、*「Login (ログイン)」*をクリックします。
 1. モバイル・アプリから Mobile Foundation サーバーにユーザー資格情報が送信されて、検証されます。

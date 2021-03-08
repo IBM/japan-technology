@@ -2,7 +2,7 @@
 
 ### 多大な計算能力と時間を費やさずに独自のカスタム・モデルをトレーニングする
 
-English version: https://developer.ibm.com/patterns/./create-a-real-time-object-detection-app-using-watson-machine-learning
+English version: https://developer.ibm.com/patterns/create-a-real-time-object-detection-app-using-watson-machine-learning
   ソースコード: 'https://github.com/cloud-annotations/object-detection-ios'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ last_updated: '2019-04-09'
 
 ## サンプル・アプリの図
 
-![Watson ML を使用して構築されたコンピューター・ビジョン・アプリを示す図](./images/flow-build-computer-vision-app-watson-ml.png)
+![Watson ML を使用して構築されたコンピューター・ビジョン・アプリを示す図](../../images/flow-build-computer-vision-app-watson-ml.png)
 
 1. トレーニング・データを IBM Cloud Object Storage にアップロードします。
 1. Watson Machine Learning が IBM Cloud Object Storage からトレーニング・データをプルし、TensorFlow を使用してモデルをトレーニングします。トレーニング後のモデルが再び IBM Cloud Object Storage に保管されます。

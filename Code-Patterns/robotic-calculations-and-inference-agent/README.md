@@ -2,7 +2,7 @@
 
 ### NAO ロボット、Watson Assistant API、Watson Studio を使用して、対話式インターフェースを作成する
 
-English version: https://developer.ibm.com/patterns/./robotic-calculations-and-inference-agent
+English version: https://developer.ibm.com/patterns/robotic-calculations-and-inference-agent
   ソースコード: https://github.com/IBM/watson-nao-robot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -11,7 +11,7 @@ last_updated: 2017-10-27
  
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
-* [データ・サイエンスのワークフローを、Node-RED を使用して編成する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/orchestrate-data-science-workflows-using-node-red/)
+* [データ・サイエンスのワークフローを、Node-RED を使用して編成する](https://developer.ibm.com/jp/patterns/orchestrate-data-science-workflows-using-node-red/)
 * Build a robotic calculations and inference agent (このパターン)
 
 ## 概要
@@ -35,7 +35,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/Build-a-robotic-calculations-and-inference-agent.png)
+![フロー](../../images/Build-a-robotic-calculations-and-inference-agent.png)
 
 1. Object Storage システムがデータ・ドキュメントを保管します。
 1. Python コードが Object Storage システムからドキュメントのコンテンツを取得します。

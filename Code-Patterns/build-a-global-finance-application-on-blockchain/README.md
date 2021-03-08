@@ -2,7 +2,7 @@
 
 ### IBM Blockchain Platform と IBM Kubernetes Service を利用して国際金融向け Node.js アプリを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-global-finance-application-on-blockchain
+English version: https://developer.ibm.com/patterns/build-a-global-finance-application-on-blockchain
   ソースコード: https://github.com/IBM/Global-Finance-on-Blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -36,7 +36,7 @@ last_updated: 2019-07-31
 
 ## フロー
 
-![フロー](./images/flow-revised2.png)
+![フロー](../../images/flow-revised2.png)
 
 1. ブロックチェーン・オペレーターが GitHub リポジトリーのクローンを作成して、Global Finance on Blockchain スマート・コントラクトを入手します。
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform VS Code 拡張機能を使用して、スマート・コントラクトをパッケージ化します。

@@ -2,7 +2,7 @@
 
 ### 多言語エコシステム内の Kubernetes 上に Java マイクロサービスをデプロイする
 
-English version: https://developer.ibm.com/patterns/./deploy-java-microservices-on-kubernetes-with-polyglot-support
+English version: https://developer.ibm.com/patterns/deploy-java-microservices-on-kubernetes-with-polyglot-support
   ソースコード: https://github.com/IBM/GameOn-Java-Microservices-on-Kubernetes?cm_sp=IBMCode-_-deploy-java-microservices-on-kubernetes-with-polyglot-support-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ last_updated: 2018-09-03
 
 ## フロー
 
-![Kubernetes 上にマイクロサービスをデプロイする場合のフロー図](./images/arch-adventure-game.png)
+![Kubernetes 上にマイクロサービスをデプロイする場合のフロー図](../../images/arch-adventure-game.png)
 
 1. ユーザーがプロキシーを介して、Kubernetes 上にデプロイされた GameOn! アプリにアクセスします。この HAProxy ベースのプロキシーは、API の集合をアプリケーション全体の単一の API であるかのように見せ掛けます。WebApp は、Web フロントエンドをクライアント・デバイスに提供する単純な NGINX プロセスです。
 2. ユーザーが Player マイクロサービスを操作してゲームをプレイします。このマイクロサービスーは CRUD 操作および API トークンの管理を行うためのパブリック API を提供します。

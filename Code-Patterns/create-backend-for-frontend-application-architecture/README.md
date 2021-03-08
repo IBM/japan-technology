@@ -2,7 +2,7 @@
 
 ### フロントエンドのコードをバックエンドのコードに動的に結び付ける Node.js、Swift、または Java アプリケーションを構築する
 
-English version: https://developer.ibm.com/patterns/./create-backend-for-frontend-application-architecture
+English version: https://developer.ibm.com/patterns/create-backend-for-frontend-application-architecture
   ソースコード: https://github.com/IBM/nodejs-backend-for-frontend
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -30,7 +30,7 @@ BFF (Backend for Frontend) というアーキテクチャーを使用すると�
 
 ## フロー
 
-![BFF アプリケーションのアーキテクチャー図](./images/backend-for-frontend-arch-diagram2.png)
+![BFF アプリケーションのアーキテクチャー図](../../images/backend-for-frontend-arch-diagram2.png)
 
 1. Node.js、Java、または Swift などの言語に対応可能なユーザー・エクスペリエンス・プラットフォーム (Mobile and Web Apps など) がそれぞれに固有のバックエンドと通信し、必要とされる適切な API やサービス・リクエストを収集します。
 2. 各 Backend for Frontend がフロントエンドからのリクエストに必要なサービスを呼び出します。

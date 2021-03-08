@@ -2,7 +2,7 @@
 
 ### おすすめ、予約、イベント計画に対応する Swift ベースのモバイル・チャットボットを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-cognitive-recommendation-app-with-swift
+English version: https://developer.ibm.com/patterns/build-a-cognitive-recommendation-app-with-swift
   ソースコード: https://github.com/IBM/CognitiveConcierge
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2017-08-02
 
 ## フロー
 
-![フロー](./images/Build-a-cognitive-recommendation-app-with-Swift.png)
+![フロー](../../images/Build-a-cognitive-recommendation-app-with-Swift.png)
 
 1. サーバー・アプリケーションを IBM Cloud にデプロイします。
 2. ユーザーが Watson サービスを介して iOS アプリケーションを操作します。

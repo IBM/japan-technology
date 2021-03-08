@@ -2,7 +2,7 @@
 
 ### クラウド上のオブジェクト・ストレージとやり取りする単純な Web アプリケーションのサンプル・コード
 
-English version: https://developer.ibm.com/patterns/./build-a-web-gallery-app-in-the-cloud
+English version: https://developer.ibm.com/patterns/build-a-web-gallery-app-in-the-cloud
 ソースコード: https://github.com/IBM/cos-web-gallery
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ Cloud Object Storage 内の Web Gallery は、IBM Cloud 上で稼働する単純
 
 ## フロー
 
-![フロー](./images/arch-image-gallery-object-storage-cloud.png)
+![フロー](../../images/arch-image-gallery-object-storage-cloud.png)
 
 1. 画像ギャラリー・アプリのユーザーが、画像アップロード・フォームを使用してアップロードするイメージを選択し、*「Upload (アップロード)」*をクリックします。
 2. フォームがアプリに対して POST リクエストを実行します。すると、アプリが S3 SDK を使用して IBM Cloud Object Storage サーバーに対する PUT リクエストを生成します。

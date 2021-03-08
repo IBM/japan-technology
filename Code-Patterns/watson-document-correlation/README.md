@@ -2,7 +2,7 @@
 
 ### Python NLTK と IBM Data Science Experience を利用して、複数のドキュメント全体にわたってコンテンツを相互に関連付ける
 
-English version: https://developer.ibm.com/patterns/./watson-document-correlation
+English version: https://developer.ibm.com/patterns/watson-document-correlation
   ソースコード: https://github.com/IBM/watson-document-co-relation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -11,7 +11,7 @@ last_updated: 2017-10-20
  
 _**Note: This pattern is part of a composite pattern.** These are code patterns that can be stand-alone applications or might be a continuation of another code pattern. This composite pattern consists of:_
 
-* [Watson のテキスト分類を拡張する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/extend-watson-text-classification/)
+* [Watson のテキスト分類を拡張する](https://developer.ibm.com/jp/patterns/extend-watson-text-classification/)
 * さまざまなソースからのドキュメントを互いに関連付ける (このパターン)
 
 ## 概要
@@ -33,7 +33,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/document-correlation-arch.png)
+![フロー](../../images/document-correlation-arch.png)
 
 1. 対象のドキュメントを IBM Cloud Object Storage に保管します。
 2. ドキュメントのコンテンツはテキスト形式で保管されていて、Jupyter Notebook によって取得されて処理されます。

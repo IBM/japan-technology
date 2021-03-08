@@ -2,7 +2,7 @@
 
 ### コードを 1 行も作成せずに、GAN モデルを定義し、ファッション画像を生成する DCGAN モデルを実装する
 
-English version: https://developer.ibm.com/patterns/./supplement-nnm-in-watson-studio-for-gan-model-with-configuration-no-code
+English version: https://developer.ibm.com/patterns/supplement-nnm-in-watson-studio-for-gan-model-with-configuration-no-code
   ソースコード: https://github.com/IBM/gan-toolkit-pattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -17,7 +17,7 @@ last_updated: 2019-12-04
 
 分類タスクで使用する深層学習モデルのパフォーマンスは、トレーニング・データ内でどれだけたくさんの画像を使用できるかによって限りがあります。このことから、データを増やすために元のデータと同じように見えるデータを合成的に生成する、データ増補の手法が使用されることがよくあります。敵対的生成ネットワークは、このような合成した現実的画像を生成するために使用されている、最先端のモデルです。
 
-Fashion MNIST は、10 クラスのラベルが関連付けられたデータセットであり、MNIST 数字分類用データセットの代わりとして簡単に使用できます。分類の精度を高めるために、多くの深層学習モデルが [Fashion MNIST データセット](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/train-a-model-on-fashion-dataset-using-tensorflow-with-ffdl/)を使用してトレーニングされています。トレーニング・データセットをさらに多くの画像で増補できれば、こうした分類子のパフォーマンスの向上につながります。深層畳み込み敵対的生成ネットワーク (DCGAN) モデルは、高品質の Fashion MNIST 画像を生成するための敵対的生成ネットワーク (GAN) です。
+Fashion MNIST は、10 クラスのラベルが関連付けられたデータセットであり、MNIST 数字分類用データセットの代わりとして簡単に使用できます。分類の精度を高めるために、多くの深層学習モデルが [Fashion MNIST データセット](https://developer.ibm.com/jp/patterns/train-a-model-on-fashion-dataset-using-tensorflow-with-ffdl/)を使用してトレーニングされています。トレーニング・データセットをさらに多くの画像で増補できれば、こうした分類子のパフォーマンスの向上につながります。深層畳み込み敵対的生成ネットワーク (DCGAN) モデルは、高品質の Fashion MNIST 画像を生成するための敵対的生成ネットワーク (GAN) です。
 
 このオープンソース・プロジェクトには、カスタム GAN モデルを設計して実装するために使用できる以下のツールがバンドルされています。
 
@@ -27,7 +27,7 @@ Fashion MNIST は、10 クラスのラベルが関連付けられたデータセ
 
 ## フロー
 
-![Supplement NWN Watson Studio](./images/supplement-nnm-watson-studio-flow.png)
+![Supplement NWN Watson Studio](../../images/supplement-nnm-watson-studio-flow.png)
 
 1. ユーザーが、トレーニング対象の GAN モデルのアーキテクチャーを定義する JSON 構成ファイルを作成します。
 1. ユーザーが REST API 呼び出しによって、JSON 構成ファイルを IBM Cloud 内の Python-Flask サーバーに送信します。

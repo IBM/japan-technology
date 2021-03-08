@@ -2,7 +2,7 @@
 
 ### ノートブック、Keras、TensorFlow を使用して、テキスト生成用の言語モデルを作成する
 
-English version: https://developer.ibm.com/patterns/./generate-restaurant-reviews-with-deep-learning
+English version: https://developer.ibm.com/patterns/generate-restaurant-reviews-with-deep-learning
   ソースコード: https://github.com/IBM/deep-learning-language-model
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2019-03-28
 
 ## フロー
 
-![フロー](./images/tensorflow-keras-arch.png)
+![フロー](../../images/tensorflow-keras-arch.png)
 
 1. 前提条件、Keras、TensorFlow をインストールした後、ノートブックを実行します。
 1. トレーニング・データを使用して言語モデルをトレーニングします。

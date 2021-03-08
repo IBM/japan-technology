@@ -2,7 +2,7 @@
 
 ### Fabcar 使用ケースを拡張してイベントを処理するデモ・アプリケーション
 
-English version: https://developer.ibm.com/patterns/./implementing-blockchain-events-using-ibp-vscode-extension
+English version: https://developer.ibm.com/patterns/implementing-blockchain-events-using-ibp-vscode-extension
   ソースコード: https://github.com/IBM/auction-events
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ IBM Blockchain Platform サービスを利用してネットワークとスマ�
 
 ## フロー
 
-![フロー](./images/arch.png)
+![フロー](../../images/arch.png)
 
 1. 開発者が Node.js を使用してスマート・コントラクトを開発します。
 1. IBM Blockchain Platform の VS Code 拡張機能を使用して、分散型エネルギー・スマート・コントラクトをパッケージ化します。

@@ -2,7 +2,7 @@
 
 ### 膨大な数のリクエストを処理できるようにアプリケーションを最適化してスケーリングする
 
-English version: https://developer.ibm.com/patterns/./integrate-rabbitmq-and-redis-cluster-with-a-blockchain-network
+English version: https://developer.ibm.com/patterns/integrate-rabbitmq-and-redis-cluster-with-a-blockchain-network
   ソースコード: https://github.com/IBM/Leveraging-cache-and-MessagingQueue-to-scale-BlockchainNetwork
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ Hyperledger Fabric Node SDK を使用したブロックチェーン・アプリ�
 
 ## フロー
 
-![フロー](./images/blockchain-rabbit-arch.png)
+![フロー](../../images/blockchain-rabbit-arch.png)
 
 1. ブロックチェーン・ネットワークを作成して起動します。
 1. ブロックチェーン・ネットワーク上でトランザクションを実行します。

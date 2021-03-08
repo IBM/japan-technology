@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric を使用して、必要とする人々に配布する物品の需要と供給を管理する
 
-English version: https://developer.ibm.com/patterns/./ngos-collaboration-using-blockchain
+English version: https://developer.ibm.com/patterns/ngos-collaboration-using-blockchain
   ソースコード: https://github.com/IBM/ngo-collaboration-using-blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,12 +23,12 @@ NGO とは、政府から独立して活動する非営利団体であり、社�
 
 この複合パターンは、他の 2 つのコード・パターンに基づくソリューションを説明しています。
 
-* [Hyperledger Fabric ネットワークを IBM Cloud 上にデプロイする](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/deploy-hyperledger-fabric-network-on-ibm-cloud/)
-* [Hyperledger Fabric SDK for Java を使用してブロックチェーン・ネットワークを作成し、デプロイする](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/create-and-deploy-blockchain-network-using-fabric-sdk-java/)
+* [Hyperledger Fabric ネットワークを IBM Cloud 上にデプロイする](https://developer.ibm.com/jp/patterns/deploy-hyperledger-fabric-network-on-ibm-cloud/)
+* [Hyperledger Fabric SDK for Java を使用してブロックチェーン・ネットワークを作成し、デプロイする](https://developer.ibm.com/jp/patterns/create-and-deploy-blockchain-network-using-fabric-sdk-java/)
 
 ## フロー
 
-![フロー](./images/flow-v3.png)
+![フロー](../../images/flow-v3.png)
 
 1. Kubernetes 構成ファイルを使用して、IBM Cloud 上にブロックチェーン・ネットワークをセットアップします。
 1. Fabric Java SDK を使用したクライアント・アプリケーションをデプロイします。このアプリケーションは中間層として機能し、REST API を公開します。

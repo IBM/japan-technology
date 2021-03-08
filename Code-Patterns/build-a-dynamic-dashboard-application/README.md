@@ -2,7 +2,7 @@
 
 ### AngularJS と Node.js のデモ・アプリを通して Cognos Dashboard Embedded サービスを理解する
 
-English version: https://developer.ibm.com/patterns/./build-a-dynamic-dashboard-application
+English version: https://developer.ibm.com/patterns/build-a-dynamic-dashboard-application
   ソースコード: https://github.com/IBM/cognos-dashboard-demo
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ IBM Cognos Dashboard Embedded では、データをユーザーに表示する�
 
 ## フロー
 
-![angular dynamic dashboard フローチャート](./images/1650-arch.png)
+![angular dynamic dashboard フローチャート](../../images/1650-arch.png)
 
 1. ユーザーがアプリケーションを作成します。
 2. アプリケーションがデータ・ソースに接続されます。

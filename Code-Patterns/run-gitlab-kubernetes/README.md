@@ -2,7 +2,7 @@
 
 ### Kubernetes と Docker を利用して分散型 GitLab をデプロイする
 
-English version: https://developer.ibm.com/patterns/./run-gitlab-kubernetes
+English version: https://developer.ibm.com/patterns/run-gitlab-kubernetes
   ソースコード: https://github.com/IBM/kubernetes-container-service-gitlab-sample
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ GitLab は典型的な多層アプリを象徴し、コンポーネントごと�
 
 ## フロー
 
-![フロー](./images/arch-cloud-based-atc.png)
+![フロー](../../images/arch-cloud-based-atc.png)
 
 1. ユーザーは Web インターフェースを介して GitLab を操作するか、コードを GitHub リポジトリーにプッシュして GitLab を操作します。GitLab コンテナーは NGINX と gitlab-workhorse の背後にあるメインの Ruby on Rails アプリケーションを実行します。gitlab-workhorse は、ファイルのダウンロードや GitHub のプッシュ/プルといった大量の HTTP リクエストに対応するリバース・プロキシーです。GitLab は HTTP/HTTPS を介してリポジトリーに対応する一方で、GitLab API を利用して認証とアクセス権を決定し、Git オブジェクトを提供します。
 2. 認証と許可が完了した後は、GitLab Rails アプリケーションは非永続データベースとして機能する Redis ジョブ・キューに、着信ジョブ、ジョブ情報、メタデータを入れます。

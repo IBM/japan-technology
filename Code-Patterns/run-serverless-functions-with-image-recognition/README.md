@@ -2,7 +2,7 @@
 
 ### 画像をデータベースにアップロードすると同時にサーバーレス関数で分類する
 
-English version: https://developer.ibm.com/patterns/./run-serverless-functions-with-image-recognition
+English version: https://developer.ibm.com/patterns/run-serverless-functions-with-image-recognition
 ソースコード: https://github.com/IBM/ibm-cloud-functions-refarch-serverless-image-recognition
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -35,7 +35,7 @@ Cloudant データベース内の変更 (この使用ケースでは、ドキュ
 
 ## フロー
 
-![フロー](./images/serverless-image-recognition-arch.png)
+![フロー](../../images/serverless-image-recognition-arch.png)
 
 1. ユーザーがギャラリーから写真を選択します。
 2. 画像が Cloudant データベース内に保管されます。

@@ -2,7 +2,7 @@
 
 ### IBM Cloud Functions および Cloudant と併せて Watson Visual Recognition を利用して、産業機器を分析して欠陥を探る
 
-English version: https://developer.ibm.com/patterns/./analyze-industrial-equipment-defects
+English version: https://developer.ibm.com/patterns/analyze-industrial-equipment-defects
   ソースコード: 'https://github.com/IBM/Predictive-Industrial-Visual-Analysis'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -30,7 +30,7 @@ last_updated: '2017-11-16'
 
 ## フロー
 
-![フロー](./images/industrial-visual-analysis-arch.png)
+![フロー](../../images/industrial-visual-analysis-arch.png)
 
 1. ユーザーが Web UI を使用して画像をアップロードします。
 2. アップロードされた画像データが Cloudant データベースに送信されます。

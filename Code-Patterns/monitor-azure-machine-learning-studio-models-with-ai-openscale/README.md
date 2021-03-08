@@ -2,7 +2,7 @@
 
 ### Azure で機械学習モデルを作成し、Watson OpenScale を利用してペイロードのロギングとモデルの公正さをモニタリングする
 
-English version: https://developer.ibm.com/patterns/./monitor-azure-machine-learning-studio-models-with-ai-openscale
+English version: https://developer.ibm.com/patterns/monitor-azure-machine-learning-studio-models-with-ai-openscale
   ソースコード: https://github.com/IBM/monitor-azure-ml-with-watson-openscale
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -37,7 +37,7 @@ AI の作成を自動化: 現在ベータ版として利用可能な Neural Netw
 
 ## フロー
 
-![Azure 機械学習のフロー図](./images/flow-monitor-azure-ml-ai-openscale.png)
+![Azure 機械学習のフロー図](../../images/flow-monitor-azure-ml-ai-openscale.png)
 
 1. 開発者が [GoSales_Tx](https://github.com/IBM/monitor-azure-ml-with-watson-openscale/tree/master/data) のデータを使用して Jupyter Notebook を作成します。
 1. Watson OpenScale データを保管する PostgreSQL データベースに Jupyter Notebook を接続します。

@@ -2,7 +2,7 @@
 
 ### Kubernetes をベースに稼働する Akka Cluster アプリケーションをデプロイして構成する
 
-English version: https://developer.ibm.com/patterns/./deploy-akka-clusters-on-kubernetes
+English version: https://developer.ibm.com/patterns/deploy-akka-clusters-on-kubernetes
   ソースコード: https://github.com/IBM/Akka-cluster-deploy-kubernetes
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ Akka のライブラリーを利用してスケーラブルで回復力のある
 
 ## フロー
 
-![フロー](./images/arch-akka-kubernetes.png)
+![フロー](../../images/arch-akka-kubernetes.png)
 
 1. Docker ベース・イメージにツールを追加します。
 1. sbt ビルド・ツールを使用して、Docker イメージ内にサンプル・アプリをビルドします。

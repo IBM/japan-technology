@@ -2,7 +2,7 @@
 
 ### レガシー Hello World アプリケーションを使用して Docker コンテナーを作成する
 
-English version: https://developer.ibm.com/patterns/./running-cobol-in-a-cloud-native-way
+English version: https://developer.ibm.com/patterns/running-cobol-in-a-cloud-native-way
   ソースコード: https://github.com/IBM/kubernetes-cobol
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ last_updated: 2019-05-14
 
 ## フロー
 
-![アーキテクチャー図](./images/arch-diagram.png)
+![アーキテクチャー図](../../images/arch-diagram.png)
 
 1. ローカルのワークステーションに Docker CE をインストールします。
 1. IBM Cloud Container Registry 内に `namespace` を作成します。

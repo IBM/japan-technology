@@ -2,7 +2,7 @@
 
 ### イベント・ストリームのレコードを OpenWhisk で分析する
 
-English version: https://developer.ibm.com/patterns/./serverless-event-stream-processing
+English version: https://developer.ibm.com/patterns/serverless-event-stream-processing
 ソースコード: https://github.com/IBM/ibm-cloud-functions-refarch-data-processing-message-hub
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -41,7 +41,7 @@ IBM Cloud アカウントをまだ登録していない場合は、アカウン�
 
 ## フロー
 
-![フロー](./images/serverless-event-stream-architecture.png)
+![フロー](../../images/serverless-event-stream-architecture.png)
 
 1. 開発者がアプリケーションを公開するクライアントをシミュレートして、新しい JSON オブジェクトの配列を Apache Kafka のトピックに追加します。
 1. このトピックに送信されるメッセージを listen するトリガーが、メッセージの送信に対応してイベントを起動します。

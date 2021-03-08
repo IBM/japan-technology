@@ -2,7 +2,7 @@
 
 ### IBM Watson Studio で Jupyter Notebook を使用してレコメンデーション・エンジンを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-product-recommendation-engine-with-watson-machine-learning
+English version: https://developer.ibm.com/patterns/build-a-product-recommendation-engine-with-watson-machine-learning
   ソースコード: 'https://github.com/IBM/product-recommendation-with-watson-ml'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: '2020-02-18'
 
 ## フロー
 
-![フロー](./images/flow-product-recommendation-with-watson-ml.png)
+![フロー](../../images/flow-product-recommendation-with-watson-ml.png)
 
 1. IBM Watson Studio にログインします。
 1. 用意されているノートブックを Watson Studio にロードします。

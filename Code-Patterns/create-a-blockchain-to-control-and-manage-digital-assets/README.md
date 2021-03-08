@@ -2,7 +2,7 @@
 
 ### システム内に維持されたデジタル資産に対してシステムの登録ユーザーが行うトランザクションを管理する
 
-English version: https://developer.ibm.com/patterns/./create-a-blockchain-to-control-and-manage-digital-assets
+English version: https://developer.ibm.com/patterns/create-a-blockchain-to-control-and-manage-digital-assets
   ソースコード: https://github.com/bmos299/Blockchain-for-maintaining-Digital-Assets
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -36,7 +36,7 @@ last_updated: 2020-01-20
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform サービスをセットアップします。
 1. IBM Blockchain Platform サービスにより、IBM Kubernetes Service 上に Hyperledger Fabric ネットワークが作成されます。ブロックチェーン・オペレーターはこのネットワーク上にスマート・コントラクトをインストールしてインスタンス化します。

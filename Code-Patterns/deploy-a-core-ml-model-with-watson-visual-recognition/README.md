@@ -2,7 +2,7 @@
 
 ### Watson Visual Recognition と Core ML を利用して、画像をオフラインで分類する
 
-English version: https://developer.ibm.com/patterns/./deploy-a-core-ml-model-with-watson-visual-recognition
+English version: https://developer.ibm.com/patterns/deploy-a-core-ml-model-with-watson-visual-recognition
   ソースコード: https://github.com/watson-developer-cloud/visual-recognition-coreml/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ Core ML を使用すると、開発者はトレーニング済みの機械学習
 
 ## フロー
 
-![フロー](./images/coreml_pattern_arch.png)
+![フロー](../../images/coreml_pattern_arch.png)
 
 1. 画像をインポートしてタグを付けます。
 1. Core ML 対応の Watson Visual Recognition モデルをトレーニング、テスト、デプロイします。

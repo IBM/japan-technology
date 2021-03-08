@@ -2,7 +2,7 @@
 
 ### オープンソースの画像キャプション・ジェネレーター深層学習モデルを使用して、Web アプリケーション内でコンテンツに応じて画像をフィルタリングする
 
-English version: https://developer.ibm.com/patterns/./create-a-web-app-to-interact-with-machine-learning-generated-image-captions
+English version: https://developer.ibm.com/patterns/create-a-web-app-to-interact-with-machine-learning-generated-image-captions
   ソースコード: https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ IBM の調査 によると、1 日あたり 250 京バイトのデータが毎�
 
 ## フロー
 
-![フロー](./images/architecture-generated-captions.png)
+![フロー](../../images/architecture-generated-captions.png)
 
 1. サーバーがデフォルトの画像を Model API に送信します。これにより、API から画像のキャプション・データが返されます。
 1. ユーザーがデフォルトのコンテンツを含む Web UI を操作して画像をアップロードします。

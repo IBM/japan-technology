@@ -2,7 +2,7 @@
 
 ### Loopback.io と IBM Cloudant を利用して、Watson IoT Platform からの IoT デバイス・データをキャッシュに保存する API キャッシング Node.js サーバーを作成する
 
-English version: https://developer.ibm.com/patterns/./connecting-carbon-ui-to-api-caching-server
+English version: https://developer.ibm.com/patterns/connecting-carbon-ui-to-api-caching-server
   ソースコード: https://github.com/IBM/API-caching-server-for-Carbon-UI
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2019-11-25
 
 ## フロー
 
-![このパターンのアーキテクチャー図](./images/arch-flow.png)
+![このパターンのアーキテクチャー図](../../images/arch-flow.png)
 
 1.  ユーザーが、Carbon Design System を使用して作成されたフロントエンドを介し、API サーバーに対して認証を行います。
 2.  フロントエンドが REST API に対し、視覚化するデータをリクエストします。.

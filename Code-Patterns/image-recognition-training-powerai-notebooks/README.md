@@ -2,7 +2,7 @@
 
 ### Jupyter Notebook で、転移学習を使用して独自の画像分類子を作成する
 
-English version: https://developer.ibm.com/patterns/./image-recognition-training-powerai-notebooks
+English version: https://developer.ibm.com/patterns/image-recognition-training-powerai-notebooks
   ソースコード: https://github.com/IBM/powerai-transfer-learning?cm_sp=IBMCode-_-image-recognition-training-powerai-notebooks-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2017-03-15
 
 ## フロー
 
-![フロー](./images/image-recognition-arch.png)
+![フロー](../../images/image-recognition-arch.png)
 
 1. 開発者が、用意されているノートブックをロードし、このノートブックを PowerAI システム上で実行します。
 2. 用意されているサンプル・データ・セットは、プール付きの家の画像とプール付きではない家の画像を認識するという使用ケースを説明するためのものです。

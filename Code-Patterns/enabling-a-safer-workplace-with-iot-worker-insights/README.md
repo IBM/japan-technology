@@ -2,7 +2,7 @@
 
 ### Maximo Worker Insights を利用して、環境条件と従業員の生体条件をモニタリングする
 
-English version: https://developer.ibm.com/patterns/./enabling-a-safer-workplace-with-iot-worker-insights
+English version: https://developer.ibm.com/patterns/enabling-a-safer-workplace-with-iot-worker-insights
   ソースコード: https://github.com/IBM/worker-insights
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -22,7 +22,7 @@ last_updated: 2019-02-05
 
 ## フロー
 
-![Maximo Worker Insights を利用して環境条件と従業員の生体条件をモニタリングするアーキテクチャーを示す図](./images/arch.png)
+![Maximo Worker Insights を利用して環境条件と従業員の生体条件をモニタリングするアーキテクチャーを示す図](../../images/arch.png)
 
 1. 従業員がウェアラブル・デバイスを装着します。Bluetooth を介してウェアラブル・デバイスをクラウド対応ゲートウェイに接続します。
 1. ウェアラブル・センサーのデータを Watson IoT Platform と Event Streams サービスに転送します。

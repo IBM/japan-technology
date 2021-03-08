@@ -2,13 +2,13 @@
 
 ### Hyperledger Composer を使用してトランザクション・イベントに対応する
 
-English version: https://developer.ibm.com/patterns/./automate-business-processes-via-blockchain-events
+English version: https://developer.ibm.com/patterns/automate-business-processes-via-blockchain-events
   ソースコード: https://github.com/IBM/BlockchainEvents-CompositeJourney
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-02
 
- _**注:** このパターンは、過去の技術（Fabric 1.4 以前の Hyperledger Fabric API など）に焦点を当てています。そのため、このパターンについてのサポートはありません。更新されたリリース「[Blockchain Platform からイベントを発行する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/implementing-blockchain-events-using-ibp-vscode-extension/)」から作業を開始することをお勧めします。_
+ _**注:** このパターンは、過去の技術（Fabric 1.4 以前の Hyperledger Fabric API など）に焦点を当てています。そのため、このパターンについてのサポートはありません。更新されたリリース「[Blockchain Platform からイベントを発行する](https://developer.ibm.com/jp/patterns/implementing-blockchain-events-using-ibp-vscode-extension/)」から作業を開始することをお勧めします。_
 
 ## 概要
 
@@ -28,7 +28,7 @@ Hyperledger Fabric V1.1 および Hyperledger Composer V0.19 に対応するた�
 
 ## フロー
 
-![フロー](./images/arch-blockchain-events.png)
+![フロー](../../images/arch-blockchain-events.png)
 
 1. Hyperledger Fabric ネットワークを起動します。
 2. ビジネス・ネットワーク・アーカイブを生成してデプロイします。

@@ -2,7 +2,7 @@
 
 ### Kubernetes を使用して、OrientDB をコンテナーとして迅速、簡単にデプロイする
 
-English version: https://developer.ibm.com/patterns/./cloud-host-graph-database-using-kubernetes
+English version: https://developer.ibm.com/patterns/cloud-host-graph-database-using-kubernetes
   ソースコード: https://github.com/IBM/deploy-graph-db-container
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ IBM Cloud Container Service では [Docker](https://docs.docker.com/get-started/
 
 ## フロー
 
-![フロー](./images/Quickly-and-easily-deploy-OrientDB-as-a-container-using-Kubernetes-arch-flow.png)
+![フロー](../../images/Quickly-and-easily-deploy-OrientDB-as-a-container-using-Kubernetes-arch-flow.png)
 
 1. IBM Cloud の CLI にログインし、IBM Cloud Container Service プラグインを初期化します。
 2. Kubernetes CLI にコンテキストを設定するために、IBM Cloud Kubernetes 構成ファイルをダウンロードして KUBECONFIG 環境変数を設定します。

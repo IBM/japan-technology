@@ -2,7 +2,7 @@
 
 ### IBM Cloud Container 上の Kubernetes API サービスを利用してビジネス・ネットワークをセットアップする
 
-English version: https://developer.ibm.com/patterns/./deploy-hyperledger-fabric-network-on-ibm-cloud
+English version: https://developer.ibm.com/patterns/deploy-hyperledger-fabric-network-on-ibm-cloud
   ソースコード: https://github.com/IBM/blockchain-network-on-kubernetes/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -33,7 +33,7 @@ last_updated: 2018-05-03
 
 ## フロー
 
-![フロー](./images/arch-deploy-blockchain-kubernetes-1.png)
+![フロー](../../images/arch-deploy-blockchain-kubernetes-1.png)
 
 1. IBM Cloud Developer Tools の CLI にログインし、IBM Cloud Container Service プラグインを初期化します。
 1. CLI を使用して Kubernetes クラスターのコンテキストを設定します。その後、Kubernetes 構成ファイルをダウンロードして、そのファイル内で KUBECONFIG 環境変数を設定します。

@@ -2,7 +2,7 @@
 
 ### Watson Studio を使用して Watson Discovery News から返されたクエリー結果を視覚化し、ビットコインに対する感情を把握するプロセス全体を紹介します
 
-English version: https://developer.ibm.com/patterns/./using-sentiment-analysis-to-understand-bitcoin-market
+English version: https://developer.ibm.com/patterns/using-sentiment-analysis-to-understand-bitcoin-market
   ソースコード: 'https://github.com/IBM/crypto-discovery-news-sentiment-analysis'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ Watson Discovery News は、Watson が自動的にニュース記事をドキュ
 
 ## フロー
 
-![フロー](./images/flow-use-watson-studio-bitcoin.png)
+![フロー](../../images/flow-use-watson-studio-bitcoin.png)
 
 1. IBM Cloud に登録します。
 1. Watson Discovery サービス・インスタンスを作成します。

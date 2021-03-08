@@ -2,7 +2,7 @@
 
 ### Python アプリを IBM Cloud 上の Red Hat OpenShift にデプロイし、セキュリティー、応答性、復元力を強化するためのサンプル・コード
 
-English version: https://developer.ibm.com/patterns/./deploy-to-openshift-4-redhat-universal-base-image
+English version: https://developer.ibm.com/patterns/deploy-to-openshift-4-redhat-universal-base-image
 ソースコード: https://github.com/IBM/python-ubi-openshift
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -36,7 +36,7 @@ Universal Base Image を使用すると、使い慣れた yum コマンドを使
 
 ## フロー
 
-![為替マイクロサービス・アーキテクチャーのフロー図](./images/currency-conversion-openshift-ubi-architecture-diagram.png)
+![為替マイクロサービス・アーキテクチャーのフロー図](../../images/currency-conversion-openshift-ubi-architecture-diagram.png)
 
 1. サンプルの為替マイクロサービス内で、クライアント API のコンシューマーがインターネットを介してマイクロサービスを呼び出します (http/s リクエスト)。
 1. Python Flask プロセスが Web サーバーとして機能し、REST リクエスト (例えば、`GET /convertCurrency/ZAR/USD/600.66`) を受け入れます。

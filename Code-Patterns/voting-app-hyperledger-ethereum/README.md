@@ -2,7 +2,7 @@
 
 ### Ethereum の Web3 および Solidity スマート・コントラクトに、Hyperledger でホストされた Fabric およびチェーンコード EVM を統合する分散型アプリを構築する
 
-English version: https://developer.ibm.com/patterns/./voting-app-hyperledger-ethereum
+English version: https://developer.ibm.com/patterns/voting-app-hyperledger-ethereum
   ソースコード: https://github.com/IBM/vote-hyperledger-ethereum
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,7 +23,7 @@ Ethereum のツールのコーディングをよく理解している開発者�
 
 ## フロー
 
-![フロー](./images/843-flow.png)
+![フロー](../../images/843-flow.png)
 
 このアプリは、Ethereum 標準を使用して構築されています。つまり、アプリは「ガス」実行料金に従ってトランザクションの支払いを行うということです。Hyperledger Fabric とそのネットワークはこの分散型アプリをホストするだけです。したがって、Solidity スマート・コントラクトを簡単にデプロイして処理できます。Hyperledger Fabric で Ethereum のガスの代わりとなるのは、一般に、チェーンコード付きで作成されたデジタル・トークンです。
 

@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric を使用して一連の非流動資産を取引可能な証券に統合する
 
-English version: https://developer.ibm.com/patterns/./implement-asset-securitization-on-a-blockchain-ledger
+English version: https://developer.ibm.com/patterns/implement-asset-securitization-on-a-blockchain-ledger
   ソースコード: https://github.com/IBM/securitization_blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2018-06-26
 
 ## フロー
 
-![フロー](./images/arch-flow-securitization.png)
+![フロー](../../images/arch-flow-securitization.png)
 
 1. 住宅購入者が原資産所有者のサービスを利用して、住宅ローンの融資を証券化します。
 2. 原資産所有者がアプリケーションをロードして、ブロックチェーン・レジャーを新しい資産で更新するためのリクエストを送信します。

@@ -2,7 +2,7 @@
 
 ### LoopBack を使用してエンタープライズ・データ用の API を作成して公開する
 
-English version: https://developer.ibm.com/patterns/./unlock-enterprise-data-using-apis
+English version: https://developer.ibm.com/patterns/unlock-enterprise-data-using-apis
  ソースコード: https://github.com/ibm/acme-freight
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -23,7 +23,7 @@ LoopBack を使用すると、簡単に CRUD API を作成して既存のデー�
 
 ## フロー
 
-![フロー](./images/Unlock-enterprise-data-using-APIs.png)
+![フロー](../../images/Unlock-enterprise-data-using-APIs.png)
 
 1. Web ユーザーが配送の進捗と気象条件をモニターします。
 1. フロントエンドのアプリケーションが Web ユーザー・インターフェースを提供します。

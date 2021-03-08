@@ -2,7 +2,7 @@
 
 ###  小学生と中学生から学習のリクエストを聞いて、該当する学習内容のリソースに学生をつなげる、Watson Assistant を活用したチャットボットを作成する
 
-English version: https://developer.ibm.com/patterns/./chatbot-for-student-self-service-in-education
+English version: https://developer.ibm.com/patterns/chatbot-for-student-self-service-in-education
   ソースコード: https://github.com/IBM/Education-SelfService-AI-Chatbot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -34,7 +34,7 @@ Watson Discovery と Watson Natural Language Understanding (NLU) は、自然言
 
 ## フロー
 
-![生徒用セルフサービス・チャットボットのフロー図](./images/chatbot-for-student-self-service-flow.png)
+![生徒用セルフサービス・チャットボットのフロー図](../../images/chatbot-for-student-self-service-flow.png)
 
 1. Python プログラムを実行して、Watson Natural Language Understanding によってデータセットを処理し、メタデータ (コースの名前と説明など) を抽出するとともに、CSV ファイルをエンリッチします。
 1. Node プログラムを実行して CSV ファイルを JSON ファイルに変換します (Watson Discovery コレクションで使用するために必要な処理です)。

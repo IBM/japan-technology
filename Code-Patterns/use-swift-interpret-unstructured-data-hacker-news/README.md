@@ -2,7 +2,7 @@
 
 ### ひとひねり利かせたコグニティブ API を使用して、Hacker News 上の技術動向について洞察を得る
 
-English version: https://developer.ibm.com/patterns/./use-swift-interpret-unstructured-data-hacker-news
+English version: https://developer.ibm.com/patterns/use-swift-interpret-unstructured-data-hacker-news
   ソースコード: https://github.com/IBM/Hackernews-NLU
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ last_updated:     2018-06-18
 
 ## フロー
 
-![フロー](./images/hackernews-arch-1.png)
+![フロー](../../images/hackernews-arch-1.png)
 
 1. アプリケーションを IBM Cloud&reg; にデプロイします。
 1. アプリケーションが Hacker News API からデータをロードします。

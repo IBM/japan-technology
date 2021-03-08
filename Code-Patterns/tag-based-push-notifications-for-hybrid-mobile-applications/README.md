@@ -2,7 +2,7 @@
 
 ### IBM Mobile Foundation の統合通知システムを利用し、ベンダーのインフラストラクチャーを使って iOS、Android、Windows、Ionic、または Cordova アプリにプッシュ通知や SMS 通知を送信する
 
-English version: https://developer.ibm.com/patterns/./tag-based-push-notifications-for-hybrid-mobile-applications
+English version: https://developer.ibm.com/patterns/tag-based-push-notifications-for-hybrid-mobile-applications
   ソースコード: https://github.com/IBM/tag-based-push-notifications/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -13,7 +13,7 @@ _**注: 本コード・パターンは、複合パターンの一部となって
 
 * クラウド・ネイティブ・バックエンドを使用したハイブリッド・モバイル・アプリを開発する
 * [モバイル・ユーザー認証を実装する](https://developer.ibm.com/patterns/implementing-mobile-user-authentication)
-* [モバイル・オフライン同期をセキュリティーで保護する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/secure-offline-synchronization-ibm-mobile-foundation/)
+* [モバイル・オフライン同期をセキュリティーで保護する](https://developer.ibm.com/jp/patterns/secure-offline-synchronization-ibm-mobile-foundation/)
 * ハイブリッド・モバイル・アプリにプッシュ通知機能を追加する] (本パターン)
 
 ## 概要
@@ -37,7 +37,7 @@ IBM Mobile Foundation には、プッシュ通知または SMS 通知を iOS、A
 
 ## フロー
 
-![タグ・ベースのプッシュ通知のアーキテクチャーを説明する図](./images/push-notifications-arch-diagram.png)
+![タグ・ベースのプッシュ通知のアーキテクチャーを説明する図](../../images/push-notifications-arch-diagram.png)
 
 1. ユーザーがモバイル・アプリを起動して、ログイン画面上で自分の資格情報を入力するか、ソーシャル・ログインを選択します。アプリのホーム・ページに、ユーザーの現在地から半径 1000 メートル内で報告された苦情が表示されます。ユーザーが「Watch Area (地域の監視)」ページを開き、地図内の場所を選択してから「*Receive notifications (通知を受け取る)*」をクリックします。
 2. ユーザーが選択した地域名と同じタグ名を使用して Push Notification Subscription API が呼び出されます。IBM Mobile Foundation サーバー上でタグが作成されて (既存のものがない場合)、そのタグに対するアプリケーション・サブスクリプションが完了します。

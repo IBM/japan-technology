@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric V1.4、IBM Blockchain、Node.js を使用して Web アプリとネットワークを作成する
 
-English version: https://developer.ibm.com/patterns/./customer-loyalty-program-with-iks-saas-v2-fabric
+English version: https://developer.ibm.com/patterns/customer-loyalty-program-with-iks-saas-v2-fabric
   ソースコード: https://github.com/IBM/customer-loyalty-program-hyperledger-fabric-VSCode
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2019-04-05
 
 ## フロー
 
-![カスタマー・ロイヤルティー・プログラムの図](./images/arch.png)
+![カスタマー・ロイヤルティー・プログラムの図](../../images/arch.png)
 
 _**注:** ブロックチェーン・ネットワークには複数のメンバーとパートナーが参加します。_
 

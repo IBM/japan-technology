@@ -2,7 +2,7 @@
 
 ### Web フロントエンドを備えたデジタル・ウォレット・アプリケーションと Electrum ビットコイン・クライアントを IBM Cloud Hyper Protect Virtual Server 内にデプロイする
 
-English version: https://developer.ibm.com/patterns/./secure-bitcoin-wallet-with-ibm-cloud-hyper-protect-virtual-servers
+English version: https://developer.ibm.com/patterns/secure-bitcoin-wallet-with-ibm-cloud-hyper-protect-virtual-servers
   ソースコード: https://github.com/IBM/secure-bitcoin-wallet/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2020-01-28
 
 ## フロー
 
-![フロー図](./images/flow.png)
+![フロー図](../../images/flow.png)
 
 1. ユーザーがブラウザーから、Electrum フロントエンドに接続されたビットコイン・ウォレット・アプリケーションにアクセスします。
 1. リクエスト (送信/受信) は、Electrum ビットコイン・クライアント・サーバーにルーティングされます。これは JSON RPC サーバーとして稼働し、ビットコイン・ネットワークとやりとりしてウォレットを管理します。

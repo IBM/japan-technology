@@ -2,7 +2,7 @@
 
 ### 最新のニュース記事をマイニングして、製品、ブランド、または価格変動に関するカスタム・アラートを送信する
 
-English version: https://developer.ibm.com/patterns/./create-cognitive-news-alerting-app
+English version: https://developer.ibm.com/patterns/create-cognitive-news-alerting-app
 ソースコード: https://github.com/IBM/watson-discovery-news-alerting
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ last_updated: 2018-06-22
 
 ## フロー
 
-![フロー](./images/news-architecture.png)
+![フロー](../../images/news-architecture.png)
 
 1. ユーザーがアプリの UI を使用してバックエンド・サーバーとやり取りします。フロントエンドのアプリ UI が検索結果をレンダリングします。この UI は、バックエンドで使用するすべてのビューを再利用してサーバー・サイドのレンダリングを行います。フロントエンドは watson-react-components を使用していて、レスポンシブなものとなっています。
 1. ユーザー入力が処理されて、バックエンド・サーバーにルーティングされます。バックエンド・サーバーの役目は、ブラウザー上に表示するビューをレンダリングすることです。Express Node.js Web アプリケーション・フレームワークを使用して作成されたバックエンド・サーバーは、React JavaScript コンポーネント・エンジンを使用して作成されたビューをレンダリングするために、express-react-views エンジンを使用します。

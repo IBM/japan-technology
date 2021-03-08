@@ -2,7 +2,7 @@
 
 ### わずかなコードで簡単に AI 機能をデバイスに統合する方法を学んでください
 
-English version: https://developer.ibm.com/patterns/./develop-a-machine-learning-iot-app-with-node-red-and-tensorflowjs
+English version: https://developer.ibm.com/patterns/develop-a-machine-learning-iot-app-with-node-red-and-tensorflowjs
   ソースコード: https://github.com/IBM/node-red-tensorflowjs
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ Node-RED と TensorFlow.js を結合すれば、より簡単に機械学習の�
 
 ## フロー
 
-![Node-RED および TensorFlow.js アーキテクチャーのフロー図](./images/node-red-tensorflowjs-architecture-flow-diagram.png)
+![Node-RED および TensorFlow.js アーキテクチャーのフロー図](../../images/node-red-tensorflowjs-architecture-flow-diagram.png)
 
 1. TensorFlow.js 形式の機械学習モデルを使用 (またはダウンロード) します。
 1. TensorFlow.js モデル用の Node-RED ノードを作成し、TensorFlow.js ノードを Node-RED アプリケーションに接続します。

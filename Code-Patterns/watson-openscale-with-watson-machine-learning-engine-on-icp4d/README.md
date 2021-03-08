@@ -2,7 +2,7 @@
 
 ### IBM Cloud Pak for Data 上の IBM Watson Machine Learning を利用して機械学習モデルをトレーニング、作成、デプロイする
 
-English version: https://developer.ibm.com/patterns/./watson-openscale-with-watson-machine-learning-engine-on-icp4d
+English version: https://developer.ibm.com/patterns/watson-openscale-with-watson-machine-learning-engine-on-icp4d
   ソースコード: https://github.com/IBM/monitor-ibm-cloud-pak-with-watson-openscale
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

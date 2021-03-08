@@ -2,7 +2,7 @@
 
 ### 特化されたドメイン・データを使用してカスタムの Watson Speech to Text モデルを作成する
 
-English version: https://developer.ibm.com/patterns/./customize-and-continuously-train-your-own-watson-speech-service
+English version: https://developer.ibm.com/patterns/customize-and-continuously-train-your-own-watson-speech-service
   ソースコード: https://github.com/IBM/Train-Custom-Speech-Model
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ Watson Speech to Text は業界トップ・レベルの音声テキスト変換�
 
 ## フロー
 
-![独自の音声テキスト変換モデルをカスタマイズしてトレーニングするフローを示す図](./images/flow-customize-and-continuously-train-your-own-watson-speech-service.png)
+![独自の音声テキスト変換モデルをカスタマイズしてトレーニングするフローを示す図](../../images/flow-customize-and-continuously-train-your-own-watson-speech-service.png)
 
 1. ユーザーがカスタム・データ・セットをダウンロードして、トレーニング用の音声データとテキスト・データを準備します。
 1. ユーザーが資格情報を構成して、Watson Speech to Text サービスへのアクセスをセットアップします。

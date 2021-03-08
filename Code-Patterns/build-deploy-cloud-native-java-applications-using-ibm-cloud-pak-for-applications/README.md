@@ -2,7 +2,7 @@
 
 ### Codewind を使用してクラウド・ネイティブの気象情報アプリケーションを Java で開発し、CI/CD Tekton パイプラインを使用してデプロイする
 
-English version: https://developer.ibm.com/patterns/./build-deploy-cloud-native-java-applications-using-ibm-cloud-pak-for-applications
+English version: https://developer.ibm.com/patterns/build-deploy-cloud-native-java-applications-using-ibm-cloud-pak-for-applications
   ソースコード: https://github.com/IBM/build-deploy-cloud-native-application-using-cp4a
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -30,7 +30,7 @@ IBM Cloud Pak for Applications を利用すれば、既存のアプリケーシ�
 
 ## フロー
 
-![IBM Cloud Pak for Applications を利用してクラウド・ネイティブ Java アプリを構築するためのアーキテクチャー図](./images/arch2.png)
+![IBM Cloud Pak for Applications を利用してクラウド・ネイティブ Java アプリを構築するためのアーキテクチャー図](../../images/arch2.png)
 
 1. ユーザーが Codewind をインストールし、IBM によって管理される OpenShift クラスター上の IBM Cloud Pak for Applications が提供するスタック・ハブを追加します。
 2. ユーザーが、プロジェクト・テンプレートを使用してアプリケーションを開発します。このテンプレートは、追加したスタック・ハブ内に用意されています。

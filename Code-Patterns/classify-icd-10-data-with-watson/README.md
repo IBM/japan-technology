@@ -2,7 +2,7 @@
 
 ### Watson Natural Language Classifier を利用して医学的分類コードにタグを付ける
 
-English version: https://developer.ibm.com/patterns/./classify-icd-10-data-with-watson
+English version: https://developer.ibm.com/patterns/classify-icd-10-data-with-watson
   ソースコード: https://github.com/IBM/nlc-icd10-classifier
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ ICD-10 は、「International Statistical Classification of Diseases and Related
 
 ## フロー
 
-![フロー](./images/arch-watson-nlc-ICD10.png)
+![フロー](../../images/arch-watson-nlc-ICD10.png)
 
 1. モデルのトレーニングに使用する CSV ファイルを Natural Language Classifier サービスに送信します。
 1. ユーザーが、ローカルまたはクラウド内で実行されているアプリの UI を操作します。

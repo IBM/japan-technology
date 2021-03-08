@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric V1.0 を使用して、Web ベースの To-Do リスト・アプリケーションを作成する
 
-English version: https://developer.ibm.com/patterns/./create-a-to-do-list-app-using-blockchain
+English version: https://developer.ibm.com/patterns/create-a-to-do-list-app-using-blockchain
   ソースコード: https://github.com/IBM/todo-list-fabricV1
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ Hyperledger Fabric に到着したリクエストは、Go で作成された特�
 
 ## フロー
 
-![フロー](./images/a-to-list-app-using-blockchain.png)
+![フロー](../../images/a-to-list-app-using-blockchain.png)
 
 1. ユーザーがブラウザー内で To-Do クライアント・アプリケーションを操作します。
 1. ユーザーが何らかのアクションを実行すると、アプリケーションがサーバー・アプリケーション API を呼び出します。この API を通じて、登録済み管理者が Hyperledger ブロックチェーン・ネットワークとやり取りします。

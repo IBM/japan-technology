@@ -2,14 +2,14 @@
 
 ### ビジネス・ネットワーク上にデプロイされたスマート・コントラクトを自動化する規制コンプライアンス・アプリケーションを構築する
 
-English version: https://developer.ibm.com/patterns/./implement-fda-food-supplier-verification-program-on-hyperledger-composer
+English version: https://developer.ibm.com/patterns/implement-fda-food-supplier-verification-program-on-hyperledger-composer
   ソースコード: https://github.com/IBM/BlockchainPublicRegulationFabric-Food
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-10
 
  
-_**Note:** This pattern focuses on older technology (e.g. Hyperledger Fabric APIs prior to Fabric 1.4). Therefore, there is no support for this pattern and it will be archived on May 1, 2019. You are welcome to use up to that date, but we recommend that you begin working with the updated release found at [https://github.com/IBM/japan-technology/blob/main/Code-Patterns/monitor-food-shipments-using-blockchain/](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/monitor-food-shipments-using-blockchain/)._
+_**Note:** This pattern focuses on older technology (e.g. Hyperledger Fabric APIs prior to Fabric 1.4). Therefore, there is no support for this pattern and it will be archived on May 1, 2019. You are welcome to use up to that date, but we recommend that you begin working with the updated release found at [https://developer.ibm.com/jp/patterns/monitor-food-shipments-using-blockchain/](https://developer.ibm.com/jp/patterns/monitor-food-shipments-using-blockchain/)._
 
 ## 概要
 
@@ -27,7 +27,7 @@ FDA コンプライアンスの使用ケースに注目したシナリオを考�
 
 ## フロー
 
-![フロー](./images/food-regulation-arch.png)
+![フロー](../../images/food-regulation-arch.png)
 
 1. Hyperledger Composer 開発ツールをインストールします。
 1. Hyperledger Fabric ネットワークを構成して起動します。

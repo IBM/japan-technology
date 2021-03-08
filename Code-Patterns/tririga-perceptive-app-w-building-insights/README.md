@@ -2,7 +2,7 @@
 
 ### TRIRIGA インスタンス内で Building Insights データを視覚化するカスタム・アプリケーションを作成する
 
-English version: https://developer.ibm.com/patterns/./tririga-perceptive-app-w-building-insights
+English version: https://developer.ibm.com/patterns/tririga-perceptive-app-w-building-insights
   ソースコード: https://github.com/IBM/tririga-occupancy
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -12,7 +12,7 @@ last_updated: 2019-02-15
 _**注: このパターンは複合パターンの一部を構成するものです。** 複合パターンに含まれる 2 つのパターンは、それぞれスタンドアロン・アプリケーションとして使用できます。また、もう一方のコード・パターンの続きとして取り組むこともできます。複合パターンの構成要素は次のとおりです。_
 
 * TRIRIGA 認知アプリに Building Insights API を統合する (このパターン)
-* [TRIRIGA を使用して屋内測位システムを統合する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/indoor-positioning-mobile-app-iot-platform-tririga-building-insights)
+* [TRIRIGA を使用して屋内測位システムを統合する](https://developer.ibm.com/jp/patterns/indoor-positioning-mobile-app-iot-platform-tririga-building-insights)
 
 ## 概要
 
@@ -34,7 +34,7 @@ Building Insights サービスには、リアルタイムの占有状態/エネ�
 
 ## フロー
 
-![フロー](./images/arch.png)
+![フロー](../../images/arch.png)
 
 1. Node.js バックエンドが 1 時間ごとに Building Insights API リクエストを行って更新データセットを取得し、特定の値を Cloudant データベース内に維持します。こうして構築されていく 1 時間ごとの時系列データセットを使用して、カスタム・アナリティクス・モデル/グラフを作成することができます。
 2. カスタム TRIRIGA アプリが Node.js バックエンドからフォーマット化されたセンサー・データをプルし、グラフと表をレンダリングします。

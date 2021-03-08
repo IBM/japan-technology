@@ -2,7 +2,7 @@
 
 ### IoT センサー・データを分析し、R 統計計算プロジェクトを使用して時系列データから変更点を検出する
 
-English version: https://developer.ibm.com/patterns/./detect-change-points-in-iot-sensor-data
+English version: https://developer.ibm.com/patterns/detect-change-points-in-iot-sensor-data
   ソースコード: https://github.com/IBM/detect-timeseriesdata-change
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -38,7 +38,7 @@ _**Note: This pattern is part of a composite pattern.** These are code patterns 
 
 ## フロー
 
-![フロー](./images/Change-Point-Detection-on-IoT-Time-series-data-arch-flow.png)
+![フロー](../../images/Change-Point-Detection-on-IoT-Time-series-data-arch-flow.png)
 
 1. IBM Watson Studio にサインアップします。
 2. IBM Cloud サービスを作成します。

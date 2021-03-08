@@ -2,7 +2,7 @@
 
 ### 勤務日と勤務形態をログに記録する
 
-English version: https://developer.ibm.com/patterns/./build-a-python-web-application-to-log-days-worked
+English version: https://developer.ibm.com/patterns/build-a-python-web-application-to-log-days-worked
   ソースコード: https://github.com/IBM/worklog
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ last_updated: 2018-11-06
 
 ## フロー
 
-![フロー](./images/architecture.png)
+![フロー](../../images/architecture.png)
 
 1. ユーザーが App UI を操作して、最初にアカウントを作成します。ユーザーはそのアカウントにログインするか、アカウントのパスワードをリセットします。ログインした後、ユーザーは自分の仕事のログ・データを表示、追加、編集できます。
 1. ユーザーが操作する App UI の機能は、React によって処理されます。API 呼び出しは、React から開始されます。

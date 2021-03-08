@@ -2,7 +2,7 @@
 
 ### Watson IoT Platform、Cloudant、plotly.js を使用して、数日間にわたる IoT デバイス・データやその他の統計グラフを表示して分析するための Web アプリを構築する
 
-English version: https://developer.ibm.com/patterns/./create-a-web-app-to-analyze-and-visualize-iot-device-data
+English version: https://developer.ibm.com/patterns/create-a-web-app-to-analyze-and-visualize-iot-device-data
   ソースコード: https://github.com/IBM/iot-device-trend-analysis
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ IoT デバイスは短期間で大量のデータを生成することがよく�
  
 ## フロー
 
-![フロー](./images/arch-diagram.png)
+![フロー](../../images/arch-diagram.png)
 
 1. IoT データは日次バケットとして Cloudant データベース内に保管されます。
 1. Cloudant データベース内に保管されたデータと plotly.js を使用して視覚化を作成します。

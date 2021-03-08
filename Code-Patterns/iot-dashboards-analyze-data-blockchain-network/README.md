@@ -2,7 +2,7 @@
 
 ### Watson IoT Platform と Node-RED を使用して、ブロックチェーン・ネットワークから送信された IoT データを分析する IoT アプリケーションと IoT ダッシュボードを作成する
 
-English version: https://developer.ibm.com/patterns/./iot-dashboards-analyze-data-blockchain-network
+English version: https://developer.ibm.com/patterns/iot-dashboards-analyze-data-blockchain-network
   ソースコード: https://github.com/IBM/Using-IOT-toProcess-BlockchainAnalytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -19,7 +19,7 @@ Hyperledger ネットワークにアクセスせずにブロックチェーン�
 
 ## フロー
 
-![フロー](./images/blockchain-iot-analytics-arch-diagram.png)
+![フロー](../../images/blockchain-iot-analytics-arch-diagram.png)
 
 1. Hyperledger ブロックチェーン・ネットワークから、ブロックが JSON オブジェクトとして送信されます。送信されるブロックは、ユーザーとそのデータです。
 1. ブロックチェーンのトランザクション (新規ユーザーの作成、ユーザーの検証、ステップに基づく fitcoin の生成) とユーザー・データが IBM Cloud 内の IBM Cloud データベースに格納されます。Watson IoT Platform 内では、ユーザーがデバイスとして登録されます。

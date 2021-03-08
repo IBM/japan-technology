@@ -2,7 +2,7 @@
 
 ### IBM Watson の複数のサービスを利用して、音声と画像のファイルをエンリッチするアプリを構築する
 
-English version: https://developer.ibm.com/patterns/./score-streaming-data-with-a-machine-learning-model/enrich-multi-media-files-using-ibm-watson
+English version: https://developer.ibm.com/patterns/score-streaming-data-with-a-machine-learning-model/enrich-multi-media-files-using-ibm-watson
   ソースコード: https://github.com/IBM/watson-multimedia-analyzer
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -35,7 +35,7 @@ Web を使っているとしたらご存知だと思いますが (つまり、�
 
 ## フロー
 
-![フロー](./images/arch-enrich-multimedia.png)
+![フロー](../../images/arch-enrich-multimedia.png)
 
 1. マルチメディア・プロセッサーのプロセスにマルチメディア・ファイルが渡されます。
 1. Watson Speech to Text サービスが音声をテキストに変換します。変換されたテキストは、タイマー、話者の変更、または音声の顕著な中断に基づいて、複数のシーンに分割されます。

@@ -2,7 +2,7 @@
 
 ### ネットワークに接続されたスマート冷蔵庫が自身の修理サービスと交換用パーツをリクエストできるようにする
 
-English version: https://developer.ibm.com/patterns/./power-smart-fridge
+English version: https://developer.ibm.com/patterns/power-smart-fridge
   ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-iot-openfridge?cm_sp=IBMCode-_-power-smart-fridge-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ last_updated: 2017-07-25
 
 ## フロー
 
-![フロー](./images/Power-your-smart-fridge-to-request-replacement-parts.png)
+![フロー](../../images/Power-your-smart-fridge-to-request-replacement-parts.png)
 
 1. 冷蔵庫から IBM Cloud 上のWatson IoT Platform サービスに、JSON ペイロードが含まれる MQTT メッセージが定期的に送信されます。
 2. メッセージにより、action という名前のビジネス・ロジックがトリガーされます。JavaScript で作成されているこのロジックは、OpenWhisk プラットフォーム上で実行されます。

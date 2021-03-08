@@ -2,7 +2,7 @@
 
 ### LoopBack を使用して、5 分で REST API を作成して公開する
 
-English version: https://developer.ibm.com/patterns/./create-rest-apis-using-loopback
+English version: https://developer.ibm.com/patterns/create-rest-apis-using-loopback
   ソースコード: https://github.com/IBM/loopback-in-five
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -21,7 +21,7 @@ Web サービス用の REST API を作成するとしたら、真っ先に頭に
 
 ## フロー
 
-![フロー](./images/rest-apis-loopback-diagram.png)
+![フロー](../../images/rest-apis-loopback-diagram.png)
 
 1. ユーザーが LoopBack CLI を使用して API の雛形 (scaffold) を生成します。
 1. ユーザーが Compose for MongoDB データ・ソースにリンクします。

@@ -2,14 +2,14 @@
 
 ### Hyperledger Composer API、Hyperledger Composer フレームワーク、Node.js を使用してブロックチェーン対応の Web アプリとネットワークを作成する
 
-English version: https://developer.ibm.com/patterns/./customer-loyalty-program-with-blockchain
+English version: https://developer.ibm.com/patterns/customer-loyalty-program-with-blockchain
   ソースコード: https://github.com/IBM/customer-loyalty-program?cm_sp=Developer-_-customer-loyalty-program-with-blockchain-_-Get-the-code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-26
 
  
-_**Note:** This pattern focuses on older technology (e.g. Hyperledger Fabric APIs prior to Fabric 1.4). Therefore, there is no support for this pattern and it will be archived on May 1, 2019. You are welcome to use up to that date, but we recommend that you begin working with the updated release found at https://github.com/IBM/japan-technology/blob/main/Code-Patterns/customer-loyalty-program-with-iks-saas-v2-fabric/._
+_**Note:** This pattern focuses on older technology (e.g. Hyperledger Fabric APIs prior to Fabric 1.4). Therefore, there is no support for this pattern and it will be archived on May 1, 2019. You are welcome to use up to that date, but we recommend that you begin working with the updated release found at https://developer.ibm.com/jp/patterns/customer-loyalty-program-with-iks-saas-v2-fabric/._
 
 ## 概要
 
@@ -29,7 +29,7 @@ _**Note:** This pattern focuses on older technology (e.g. Hyperledger Fabric API
 
 ## フロー
 
-![フロー](./images/arch-customer-loyalty.png)
+![フロー](../../images/arch-customer-loyalty.png)
 
 1. メンバーがネットワークに登録します。
 2. メンバーはアプリケーションにサインインして、ポイントの獲得や交換のためのトランザクションを行ったり、トランザクションを確認したりできます。

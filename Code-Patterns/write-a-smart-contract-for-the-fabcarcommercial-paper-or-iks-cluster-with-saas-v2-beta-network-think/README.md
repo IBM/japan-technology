@@ -2,7 +2,7 @@
 
 ### Vue.js クライアントで Node.js API を使用してネットワークとやり取りする
 
-English version: https://developer.ibm.com/patterns/./write-a-smart-contract-for-the-fabcarcommercial-paper-or-iks-cluster-with-saas-v2-beta-network-think
+English version: https://developer.ibm.com/patterns/write-a-smart-contract-for-the-fabcarcommercial-paper-or-iks-cluster-with-saas-v2-beta-network-think
   ソースコード: https://github.com/IBM/fabcar-blockchain-sample
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ IBM Blockchain Platform 2.0 では、ダッシュボード・コンソールを�
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. ブロックチェーン・オペレーターが IBM Blockchain Platform 2.0 サービスをセットアップします。
 1. IBM Blockchain Platform 2.0 を使用して Hyperledger Fabric ネットワークを作成し、IBM Kubernetes サービスにデプロイします。これにより、Fabcar スマート・コントラクトをネットワークにインストールしてインスタンス化できるようにします。

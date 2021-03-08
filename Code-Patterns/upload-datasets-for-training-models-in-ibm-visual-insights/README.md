@@ -2,7 +2,7 @@
 
 ### 自動化スクリプトを使用して、IBM Maximo Visual Inspector 上でのデータのアップロードとモデルのトレーニングを単純化する
 
-English version: https://developer.ibm.com/patterns/./upload-datasets-for-training-models-in-ibm-visual-insights
+English version: https://developer.ibm.com/patterns/upload-datasets-for-training-models-in-ibm-visual-insights
   ソースコード: https://github.com/IBM/visual-insights-data-sync
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

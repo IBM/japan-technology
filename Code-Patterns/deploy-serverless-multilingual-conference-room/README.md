@@ -2,7 +2,7 @@
 
 ### 異なる国の言葉を話すクライアントが互いに途切れなく意思疎通できる通信チャネルを作成する
 
-English version: https://developer.ibm.com/patterns/./deploy-serverless-multilingual-conference-room
+English version: https://developer.ibm.com/patterns/deploy-serverless-multilingual-conference-room
  ソースコード: https://github.com/IBM/serverless-language-translation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2018-06-27
 
 ## フロー
 
-![フロー](./images/multilingual-arch.png)
+![フロー](../../images/multilingual-arch.png)
 
 1. クライアントからメッセージを受信します。クライアントは Web ブラウザー、CLI、OpenWhisk アクション、SMS テキストなどです。
 1. メッセージのペイロードに音声ファイルが含まれている場合は、音声がテキストに変換されます。

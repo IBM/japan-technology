@@ -2,7 +2,7 @@
 
 ### OAuth 機能としての API Connect、App Connect の API オーケストレーション、Node.js を利用してバンキング・アプリケーションを開発する
 
-English version: https://developer.ibm.com/patterns/./build-a-secure-microservices-based-application-with-transactional-flows
+English version: https://developer.ibm.com/patterns/build-a-secure-microservices-based-application-with-transactional-flows
   ソースコード: https://github.com/IBM/microservices-using-apiconnect-and-appconnect
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2020-08-25
 
 ## フロー
 
-![API Connect と App Connect を利用したセキュアなマイクロサービス・ベースのバンキング・アプリ・アーキテクチャーのフロー](./images/api-connect-app-connect-arch.png)
+![API Connect と App Connect を利用したセキュアなマイクロサービス・ベースのバンキング・アプリ・アーキテクチャーのフロー](../../images/api-connect-app-connect-arch.png)
 
 1. ユーザーがクライアント・アプリケーションにログインします。
 1. ログイン・リクエストが API Connect に送信されます。

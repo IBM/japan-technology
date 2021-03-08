@@ -2,7 +2,7 @@
 
 ### モニタリング・データを IBM Cloud 上の Watson IoT Platform に送信するデバイスを搭載した基本的なコンベヤー・ベルトを作成する
 
-English version: https://developer.ibm.com/patterns/./build-monitor-iot-driven-conveyor-belt
+English version: https://developer.ibm.com/patterns/build-monitor-iot-driven-conveyor-belt
   ソースコード: https://github.com/IBM/guide-conveyor-simulator
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ Google の副社長兼チーフ・インターネット・エヴァンジェリ�
  
 ## フロー
 
-![フロー](./images/conveyor-arch.png)
+![フロー](../../images/conveyor-arch.png)
 
 1. IBM Cloud Cloud Foundry CLI を使用して、Watson IoT Platform 組織を作成し、デプロイします。
 1. サンプルのコンベヤー・ベルト・デバイスを作成してデプロイします。

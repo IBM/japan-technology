@@ -2,7 +2,7 @@
 
 ### 一般公開されている洪水データセットを使用して、チャート、グラフ、地図を作成する
 
-English version: https://developer.ibm.com/patterns/./visualize-data-with-python
+English version: https://developer.ibm.com/patterns/visualize-data-with-python
 ソースコード: https://github.com/IBM/visualize-data-with-python
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -29,7 +29,7 @@ last_updated: 2019-06-07
 
 ## フロー
 
-![Python を使用したデータ視覚化](./images/architecture.png)
+![Python を使用したデータ視覚化](../../images/architecture.png)
 
 1. Jupyter Notebook を Watson Studio プラットフォーム上にロードします。
 1. 2017 年のヒューストン大洪水に関する USGS データを Notebook にロードします。

@@ -2,7 +2,7 @@
 
 ### Publish IoT asset data from external sources into Maximo Asset Monitor
 
-English version: https://developer.ibm.com/patterns/./visualizing-iot-data-in-dashboards-using-python
+English version: https://developer.ibm.com/patterns/visualizing-iot-data-in-dashboards-using-python
   ソースコード: https://github.com/IBM/watson-analytics-dashboard
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

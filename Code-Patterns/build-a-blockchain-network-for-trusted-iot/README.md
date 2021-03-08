@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric と Node-RED を使用して、IoT データのセキュリティーを確保するブロックチェーン・ネットワークを作成する
 
-English version: https://developer.ibm.com/patterns/./build-a-blockchain-network-for-trusted-iot
+English version: https://developer.ibm.com/patterns/build-a-blockchain-network-for-trusted-iot
   ソースコード: https://github.com/IBM/Hyperledger-Fabric-for-Trusted-IoT
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -24,7 +24,7 @@ last_updated: 2019-08-01
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. Node-RED に組み込まれた Watson IoT Platform 入力ノードが、デバイスから送信されたイベント (このパターンの例では温度) を受信します。
 1. レジャーを呼び出してクエリー (データの書き込みと読み取り) を実行するために、Node-RED 内のノードが HTTP リクエストを送信し、そのリクエストに対するレスポンスを API に返します。

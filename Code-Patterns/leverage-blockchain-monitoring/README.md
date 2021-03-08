@@ -2,7 +2,7 @@
 
 ### React および Node.js を使用してブロックチェーン・モニタリング・アプリを作成し、Hyperledger Fabric SDK を使用してサプライ・チェーンの資産を追跡するする
 
-English version: https://developer.ibm.com/patterns/./leverage-blockchain-monitoring
+English version: https://developer.ibm.com/patterns/leverage-blockchain-monitoring
   ソースコード: https://github.com/IBM/monitoring_ui
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ IoT が最も革新的で有用な形のテクノロジーの 1 つとなって�
 * IBM Watson™ IoT Platform を統合し、MQTT または HTTP を使用して登録済み IoT デバイスから資産の更新を直接受信する
 
 ## フロー
-![フロー](./images/arch-interacting-blockchain-network.png)
+![フロー](../../images/arch-interacting-blockchain-network.png)
 
 1. ブロックチェーン・レジャー内の資産を作成、読み取り、更新、または削除するリクエストが送信されます。このリクエストは、ユーザーがモニタリング UI ブラウザーを使用して手作業で送信することも、MQTT メッセージを Watson IoT Platform にパブリッシュする IoT デバイス (NFC/バーコード・スキャナーなど) から送信することもできます。
 

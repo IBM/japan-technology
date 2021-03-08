@@ -2,7 +2,7 @@
 
 ### Hyperledger Fabric を使用して、Web ベースのブロックチェーン対応の保険アプリケーションを構築する
 
-English version: https://developer.ibm.com/patterns/./build-a-blockchain-insurance-app
+English version: https://developer.ibm.com/patterns/build-a-blockchain-insurance-app
   ソースコード: https://github.com/IBM/build-blockchain-insurance-app
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -54,7 +54,7 @@ last_updated: 2017-12-11
 
 ## フロー
 
-![blockchain insurance app フロー](./images/arch-blockchain-insurance2.png)
+![blockchain insurance app フロー](../../images/arch-blockchain-insurance2.png)
 
 1. ピアの証明書を生成します。
 1. ネットワークの Docker イメージをビルドします。

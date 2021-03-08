@@ -2,7 +2,7 @@
 
 ### サーバーレス関数とオンプレミス・リソース間のやりとりを可能にする Secure Gateway トンネルを作成する
 
-English version: https://developer.ibm.com/patterns/./securely-integrate-serverless-functions-with-on-premises-resources
+English version: https://developer.ibm.com/patterns/securely-integrate-serverless-functions-with-on-premises-resources
 ソースコード: https://github.com/IBM/ibm-cloud-functions-with-on-prem-resources
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -41,7 +41,7 @@ CouchDB を対象としたサーバーレス関数では、既存の OpenWhisk C
 
 ## フロー
 
-![サーバーレス、ゲートウェイ、オンプレミス・リソースのフロー](./images/integrate-serverless-on-premises-flow-diagram.png)
+![サーバーレス、ゲートウェイ、オンプレミス・リソースのフロー](../../images/integrate-serverless-on-premises-flow-diagram.png)
 
 1. アプリケーションのユーザーがオンプレミス・データベースにドキュメントを追加します。
 1. ドキュメントがデータベースに追加されると、トリガーが起動されます。

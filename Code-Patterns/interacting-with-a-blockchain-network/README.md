@@ -2,7 +2,7 @@
 
 ### ブロックチェーン・ネットワークとそのルールをテストするアプリを作成して、ネットワークに対してトランザクションとリクエストを実行する
 
-English version: https://developer.ibm.com/patterns/./interacting-with-a-blockchain-network
+English version: https://developer.ibm.com/patterns/interacting-with-a-blockchain-network
   ソースコード: https://github.com/IBM/InteractingWithABlockchainNetwork
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -19,11 +19,11 @@ last_updated: 2018-06-14
 
 ネットワークを立ちあげて、参加者とトランザクションを定義した後は、次のステップとして、ネットワークが正しくセットアップされていて期待通りに動作することをテストするアプリケーションを作成します。このテストを、コードの機能を繰り返し演習する単体テストと呼ぶ人もいるでしょう。コードのロジックを確認するには例外なく、テスト・ケースを作成しなければなりません。この場合、各参加者が実行できるトランザクションがその参加者に対して定義されているトランザクションだけであることを確認する必要があります。さらに、すべてのトランザクションが期待通りに機能することを検証する必要もあります。この取り組みが、開発ライフサイクル・プロセスの基礎となります。
 
-この開発者コード・パターンでは、この複合パターンの最初のステップで構築したネットワークを使用して、トランザクションをテストします。ステップ 1 で構築したネットワークをまだデプロイしていない場合は、このリンク先のコード・パターン「[API 一式を通して Hyperledger Fabric を探索する](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/explore-hyperledger-fabric-through-a-complete-set-of-apis/)」に従って今すぐネットワークをセットアップしてください。その後は、このパターンに従ってアプリケーションを作成してデプロイし、トランザクションを発行できます。
+この開発者コード・パターンでは、この複合パターンの最初のステップで構築したネットワークを使用して、トランザクションをテストします。ステップ 1 で構築したネットワークをまだデプロイしていない場合は、このリンク先のコード・パターン「[API 一式を通して Hyperledger Fabric を探索する](https://developer.ibm.com/jp/patterns/explore-hyperledger-fabric-through-a-complete-set-of-apis/)」に従って今すぐネットワークをセットアップしてください。その後は、このパターンに従ってアプリケーションを作成してデプロイし、トランザクションを発行できます。
 
 ## フロー
 
-![フロー](./images/arch-interacting-with-blockchain.png)
+![フロー](../../images/arch-interacting-with-blockchain.png)
 
 1. ビルド・スクリプトを実行します。これにより、3 つのステップでネットワークが起動されます。
 1. クリーンなシステムからネットワークを構築できるよう、古い Docker イメージをすべて削除します。

@@ -2,7 +2,7 @@
 
 ### Node.js フロントエンドと Python バックエンドを使用し、MongoDB データベースにデータを保管する
 
-English version: https://developer.ibm.com/patterns/./systems-create-a-secure-disaster-donations-website
+English version: https://developer.ibm.com/patterns/systems-create-a-secure-disaster-donations-website
   ソースコード: https://github.com/IBM/disaster-donations-website
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -28,7 +28,7 @@ last_updated: 2019-11-15
 
 ## フロー
 
-![フロー](./images/flow.png)
+![フロー](../../images/flow.png)
 
 1. ユーザーが Web サイトにリクエストを送信します。
 1. Nginx がリクエストを Node.js フロントエンドにルーティングします。

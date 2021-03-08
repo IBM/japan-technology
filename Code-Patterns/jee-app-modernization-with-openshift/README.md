@@ -2,7 +2,7 @@
 
 ### Java EE と Open Liberty を使用した架空の医療アプリ内に Kubernetes ベースのマイクロサービスをデプロイする
 
-English version: https://developer.ibm.com/patterns/./jee-app-modernization-with-openshift
+English version: https://developer.ibm.com/patterns/jee-app-modernization-with-openshift
 ソースコード: https://github.com/IBM/example-health-jee-openshift
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -20,15 +20,15 @@ last_updated: 2019-08-01
 
 当初、Example Health はモノリシックなアプリケーション構造で健康記録アプリケーションを作成しました。つまり、フルスタックの Java アプリケーションを WebSphere Application Server 上で実行し、System z 上の DB2 データベースに接続するという構造です。
 
-最近になって、Example Health はこのモノリシックな健康記録アプリケーションをモダナイズして、マイクロサービスに分割することを決めました。これを受けて開発チームが決定したのは、SQL データベースに移行して、[Java EE アプリケーション](https://github.com/IBM/example-health-jee-openshift)と [Node.js アプリケーション](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/app-modernization-s2i-openshift/)に接続することです。前者 (このコード・パターンで説明するアプリケーション) は Open Liberty 上で稼働して、ビジネス・ロジックを実行します。後者は患者記録アプリケーションのユーザー・インターフェースとして使用します。さらに、Example Health はこの 2 つのアプリケーションを IBM Cloud 上の Red Hat OpenShift にデプロイすることにしました。
+最近になって、Example Health はこのモノリシックな健康記録アプリケーションをモダナイズして、マイクロサービスに分割することを決めました。これを受けて開発チームが決定したのは、SQL データベースに移行して、[Java EE アプリケーション](https://github.com/IBM/example-health-jee-openshift)と [Node.js アプリケーション](https://developer.ibm.com/jp/patterns/app-modernization-s2i-openshift/)に接続することです。前者 (このコード・パターンで説明するアプリケーション) は Open Liberty 上で稼働して、ビジネス・ロジックを実行します。後者は患者記録アプリケーションのユーザー・インターフェースとして使用します。さらに、Example Health はこの 2 つのアプリケーションを IBM Cloud 上の Red Hat OpenShift にデプロイすることにしました。
 
-OpenShift に移行した後、Example Health はシステムを拡大して新しいマイクロサービスを追加しました。追加されたマイクロサービスには、健康記録管理者用の [PHP アプリケーション](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/app-modernization-php-s2i-openshift/)と [Node.js アナリティクス・アプリケーション](https://developer.ibm.com/patterns/creating-a-health-data-analytics-app-with-legacy-mainframe-code-and-cloud/)が含まれます。
+OpenShift に移行した後、Example Health はシステムを拡大して新しいマイクロサービスを追加しました。追加されたマイクロサービスには、健康記録管理者用の [PHP アプリケーション](https://developer.ibm.com/jp/patterns/app-modernization-php-s2i-openshift/)と [Node.js アナリティクス・アプリケーション](https://developer.ibm.com/patterns/creating-a-health-data-analytics-app-with-legacy-mainframe-code-and-cloud/)が含まれます。
 
 このコード・パターンに従って、従来型の Java アプリケーションをマイクロサービスに変換してクラウド上にデプロイする方法を理解してください。
 
 ## フロー
 
-![OpenShift アーキテクチャーによる Java EE アプリのモダナーゼーション・フロー図](./images/jee-app-modernization-with-OpenShift-architecture.png)
+![OpenShift アーキテクチャーによる Java EE アプリのモダナーゼーション・フロー図](../../images/jee-app-modernization-with-OpenShift-architecture.png)
 
 1. ユーザーが、Java EE アプリケーションのいずれかの API を呼び出します。このアプリケーションは OpenShift アプリケーション・ロード・バランサーの背後に配置されています。
 1. ロード・バランサーはユーザーからの呼び出しを、Kubernetes ポッド内で稼働する Open Liberty コンテナーにルーティングします。

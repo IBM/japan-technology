@@ -2,7 +2,7 @@
 
 ### Watson Visual Recognition、Watson Discovery、Watson Tone Analyzer の API を呼び出す
 
-English version: https://developer.ibm.com/patterns/./integrate-watson-ai-into-salesforce-apps
+English version: https://developer.ibm.com/patterns/integrate-watson-ai-into-salesforce-apps
   ソースコード: https://github.com/IBM/watson-and-salesforce
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -40,7 +40,7 @@ Apex コードベースを使って Watson を統合しようとしたことが�
 
 ## フロー
 
-![フロー](./images/integrating-watson-with-salesforce-apex-arch-flow-1.png)
+![フロー](../../images/integrating-watson-with-salesforce-apex-arch-flow-1.png)
 
 1. Salesforce プラットフォームにログインして、Developer Console を表示します。
 1. Watson Salesforce SDK を使用して、Developer Console に Apex コードを書き込みます。

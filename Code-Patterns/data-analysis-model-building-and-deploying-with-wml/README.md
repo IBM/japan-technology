@@ -2,7 +2,7 @@
 
 ### IBM Cloud Pak for Data 上で Watson Machine Learning と Jupyter Notebook を利用してカスタマー・チャーンを予測する
 
-English version: https://developer.ibm.com/patterns/./data-analysis-model-building-and-deploying-with-wml
+English version: https://developer.ibm.com/patterns/data-analysis-model-building-and-deploying-with-wml
   ソースコード: https://github.com/IBM/telco-customer-churn-on-icp4d
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -31,7 +31,7 @@ last_updated: 2019-10-04
 
 ## フロー
 
-![フロー](./images/datanalarch.png)
+![フロー](../../images/datanalarch.png)
 
 1. ユーザーが Jupyter Notebook を IBM Cloud Pak for Data platform にロードします。
 1. [Telco Customer Churn データセット](https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv)を GitHub から直接 Jupyter Notebook にロードします。または、[ラーニング・パス「IBM Cloud Pak for Data 入門」](https://developer.ibm.com/jp/series/cloud-pak-for-data-learning-path/)の[データ仮想化チュートリアル](https://developer.ibm.com/jp/tutorials/virtualizing-db2-warehouse-data-with-data-virtualization/)の手順に従った後、仮想化されたデータとしてロードすることもできます。
@@ -45,4 +45,4 @@ last_updated: 2019-10-04
 
 ## まとめ
 
-このコード・パターンでは IBM Cloud Pak for Data を使用して、Telco Customer Churn データセットに基づいてビジネス問題を解決し、カスタマー・チャーンを予測するデータ・サイエンス・パイプライン全体を詳しく調べる方法を説明しました。このコード・パターンは[ラーニング・パス「IBM Cloud Pak for Data 入門」](https://developer.ibm.com/jp/series/cloud-pak-for-data-learning-path/)の一部です。  このシリーズで引き続き IBM Cloud Pak for Data の詳細を学ぶには、次のコード・パターン [Watson OpenScale でモデルをモニタリングする](https://github.com/IBM/japan-technology/blob/main/Code-Patterns/watson-openscale-with-watson-machine-learning-engine-on-icp4d) をご覧ください。
+このコード・パターンでは IBM Cloud Pak for Data を使用して、Telco Customer Churn データセットに基づいてビジネス問題を解決し、カスタマー・チャーンを予測するデータ・サイエンス・パイプライン全体を詳しく調べる方法を説明しました。このコード・パターンは[ラーニング・パス「IBM Cloud Pak for Data 入門」](https://developer.ibm.com/jp/series/cloud-pak-for-data-learning-path/)の一部です。  このシリーズで引き続き IBM Cloud Pak for Data の詳細を学ぶには、次のコード・パターン [Watson OpenScale でモデルをモニタリングする](https://developer.ibm.com/jp/patterns/watson-openscale-with-watson-machine-learning-engine-on-icp4d) をご覧ください。

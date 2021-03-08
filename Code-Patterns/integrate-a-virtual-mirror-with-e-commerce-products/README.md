@@ -2,7 +2,7 @@
 
 ### Mobile First Foundation を使用して、レコメンデーション・システムを統合したハイブリッド・モバイル・アプリケーションを開発する
 
-English version: https://developer.ibm.com/patterns/./integrate-a-virtual-mirror-with-e-commerce-products
+English version: https://developer.ibm.com/patterns/integrate-a-virtual-mirror-with-e-commerce-products
   ソースコード: https://github.com/IBM/virtual-mirror-for-ecommerce
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -27,7 +27,7 @@ last_updated: 2019-08-01
 
 ## フロー
 
-![レコメンデーション・エンジンのフロー図](./images/flow.png)
+![レコメンデーション・エンジンのフロー図](../../images/flow.png)
 
 1. ユーザーがモバイル・アプリを通じて年齢と性別を入力します。
 1. IBM MobileFirst Platform Foundation にユーザーの入力が渡されます。

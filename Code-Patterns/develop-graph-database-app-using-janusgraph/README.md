@@ -2,7 +2,7 @@
 
 ### Twitter 風アプリケーションを作成する手順を通して、カスタム・グラフ・アプリケーションを作成して操作する方法を理解する
 
-English version: https://developer.ibm.com/patterns/./develop-graph-database-app-using-janusgraph
+English version: https://developer.ibm.com/patterns/develop-graph-database-app-using-janusgraph
   ソースコード: https://github.com/IBM/janusgraph-utils
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +25,7 @@ Gremlin のクエリーと REST API がどのように連動して OLTP タス�
 
 ## フロー
 
-![フロー](./images/graph-database-janusgraph.png)
+![フロー](../../images/graph-database-janusgraph.png)
 
 1. ユーザーが JanusGraph ユーティリティーを使用して、Twitter のサンプル・スキーマとデータを生成します。
 1. ユーザーが JanusGraph ユーティリティーを使用して、バックエンド・サーバーにスキーマをロードし、データをインポートします。

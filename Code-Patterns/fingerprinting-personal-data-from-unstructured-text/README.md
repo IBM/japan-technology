@@ -2,7 +2,7 @@
 
 ### Watson Natural Language Understanding と Watson Knowledge Studio を利用してカスタム・モデルを作成する
 
-English version: https://developer.ibm.com/patterns/./fingerprinting-personal-data-from-unstructured-text
+English version: https://developer.ibm.com/patterns/fingerprinting-personal-data-from-unstructured-text
   ソースコード: https://github.com/IBM/gdpr-fingerprint-pii
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -26,7 +26,7 @@ last_updated: 2017-12-13
 
 ## フロー
 
-![フロー](./images/arch-fingerprinting-personal-data.png)
+![フロー](../../images/arch-fingerprinting-personal-data.png)
 
 1. 閲覧者が入力テキストを個人データ・エクストラクターに渡します。
 2. 個人データ・エクストラクターがテキストを NLU に渡します。

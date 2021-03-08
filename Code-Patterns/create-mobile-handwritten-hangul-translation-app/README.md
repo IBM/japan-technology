@@ -2,7 +2,7 @@
 
 ### TensorFlow を利用して手書きの韓国語の文字を認識して翻訳するモバイル・アプリケーションを作成する
 
-English version: https://developer.ibm.com/patterns/./create-mobile-handwritten-hangul-translation-app
+English version: https://developer.ibm.com/patterns/create-mobile-handwritten-hangul-translation-app
   ソースコード: 'https://github.com/IBM/tensorflow-hangul-recognition'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -20,7 +20,7 @@ last_updated: '2017-11-03'
 
 ## フロー
 
-![フロー](./images/Create-a-Mobile-Handwritten-Hangul-Translation-App-flow-arch.png)
+![フロー](../../images/Create-a-Mobile-Handwritten-Hangul-Translation-App-flow-arch.png)
 
 1. データを生成するために使用する韓国語のフォントをいくつかダウンロードします。
 1. フォントから生成された画像が、トレーニング対象の TensorFlow モデルに取り込まれます。

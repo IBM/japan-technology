@@ -2,7 +2,7 @@
 
 ### Node-RED と Watson IoT を使用して、センサー・データから異常を検出するアプリを構築する
 
-English version: https://developer.ibm.com/patterns/./detect-voltage-anomalies-in-household-iot-devices
+English version: https://developer.ibm.com/patterns/detect-voltage-anomalies-in-household-iot-devices
   ソースコード: https://github.com/IBM/CognitiveIoT
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -35,7 +35,7 @@ IoT 開発者は接続された非常に多くのデバイスに加え、コグ�
 
 ## フロー
 
-![フロー](./images/arch-detect-voltage.png)
+![フロー](../../images/arch-detect-voltage.png)
 
 1. 洗濯機に取り付けられているセンサーは、水温センサー、水の硬度センサー、モーター速度センサーの 3 つです。
 1. Node-RED エッジ・デバイス・シミュレーターがデバイス・データをシミュレーションします。この例で Node-RED エッジ・デバイスに該当するのは、シミュレーションされた Raspberry Pi です。Raspberry Pi は洗濯機に取り付けられていて、センサーからのデータが常時 Raspberry Pi に送られます。シミュレーションされた Raspberry Pi (つまり、Node-RED エッジ・デバイス) はイーサネットを介してインターネットに接続され、Watson IoT Platform にデータをストリーム配信します。
