@@ -3,7 +3,8 @@
 ### Watson Natural Language Understanding と Watson Knowledge Studio を利用してカスタム・モデルを作成する
 
 English version: https://developer.ibm.com/patterns/fingerprinting-personal-data-from-unstructured-text
-  ソースコード: https://github.com/IBM/gdpr-fingerprint-pii
+  
+ソースコード: https://github.com/IBM/gdpr-fingerprint-pii
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-12-13

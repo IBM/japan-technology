@@ -3,7 +3,8 @@
 ### Hyperledger Fabric V1.0 を使用して、Web ベースの To-Do リスト・アプリケーションを作成する
 
 English version: https://developer.ibm.com/patterns/create-a-to-do-list-app-using-blockchain
-  ソースコード: https://github.com/IBM/todo-list-fabricV1
+  
+ソースコード: https://github.com/IBM/todo-list-fabricV1
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-08-06

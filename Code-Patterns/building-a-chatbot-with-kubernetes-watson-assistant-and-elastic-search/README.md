@@ -3,7 +3,8 @@
 ### Watson Assistant と Elasticsearch を利用するチャットボットを作成する
 
 English version: https://developer.ibm.com/patterns/building-a-chatbot-with-kubernetes-watson-assistant-and-elastic-search
-  ソースコード: https://github.com/IBM/elasticsearch-chatbot
+  
+ソースコード: https://github.com/IBM/elasticsearch-chatbot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-07-22

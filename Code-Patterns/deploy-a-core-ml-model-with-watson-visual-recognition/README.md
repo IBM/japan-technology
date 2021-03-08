@@ -3,7 +3,8 @@
 ### Watson Visual Recognition と Core ML を利用して、画像をオフラインで分類する
 
 English version: https://developer.ibm.com/patterns/deploy-a-core-ml-model-with-watson-visual-recognition
-  ソースコード: https://github.com/watson-developer-cloud/visual-recognition-coreml/
+  
+ソースコード: https://github.com/watson-developer-cloud/visual-recognition-coreml/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:    2018-03-13       # REQUIRED - Note: date format is YYYY-MM-DD

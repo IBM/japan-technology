@@ -3,7 +3,8 @@
 ### 複数の金融サービスを利用して、投資ポートフォリオのストレス・テストを実行する Web アプリを作成する
 
 English version: https://developer.ibm.com/patterns/create-a-stress-test-app-for-investment-portfolios
-  ソースコード: https://github.com/IBM/Predictive-Market-Stress-Testing
+  
+ソースコード: https://github.com/IBM/Predictive-Market-Stress-Testing
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-22

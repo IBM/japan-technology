@@ -3,7 +3,8 @@
 ### Kubernetes と Docker を利用して分散型 GitLab をデプロイする
 
 English version: https://developer.ibm.com/patterns/run-gitlab-kubernetes
-  ソースコード: https://github.com/IBM/kubernetes-container-service-gitlab-sample
+  
+ソースコード: https://github.com/IBM/kubernetes-container-service-gitlab-sample
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-03-24

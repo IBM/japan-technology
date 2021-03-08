@@ -3,6 +3,7 @@
 ### Java EE と Open Liberty を使用した架空の医療アプリ内に Kubernetes ベースのマイクロサービスをデプロイする
 
 English version: https://developer.ibm.com/patterns/jee-app-modernization-with-openshift
+
 ソースコード: https://github.com/IBM/example-health-jee-openshift
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

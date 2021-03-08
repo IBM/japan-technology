@@ -3,7 +3,8 @@
 ### IBM Data Science Experience (DSX) 上で Apache SystemML を使用して機械学習エクササイズを実行する
 
 English version: https://developer.ibm.com/patterns/perform-a-machine-learning-exercise
-  ソースコード: https://github.com/IBM/SystemML_Usage
+  
+ソースコード: https://github.com/IBM/SystemML_Usage
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:  2019-03-28

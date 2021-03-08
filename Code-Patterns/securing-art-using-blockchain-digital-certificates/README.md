@@ -3,6 +3,7 @@
 ### Node.js ベースのオークション・アプリケーションで美術市場の民主化を促進する
 
 English version: https://developer.ibm.com/patterns/securing-art-using-blockchain-digital-certificates
+
 ソースコード: https://github.com/IBM/SecuringArt-using-Blockchain-DigitalCertificates
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

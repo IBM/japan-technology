@@ -3,7 +3,8 @@
 ### オープンソースの機械学習モデルをモニタリングしてデプロイするアプリを構築する
 
 English version: https://developer.ibm.com/patterns/monitor-and-deploy-open-source-ml-models-with-wml-and-watson-openscale-on-icp4d
-  ソースコード: https://github.com/IBM/icp4d-telco-monitor-models-with-wml-openscale
+  
+ソースコード: https://github.com/IBM/icp4d-telco-monitor-models-with-wml-openscale
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-10-15

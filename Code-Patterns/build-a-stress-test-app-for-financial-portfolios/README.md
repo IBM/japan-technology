@@ -3,6 +3,7 @@
 ### さまざまなクラウド・サービスと Arria NLG を利用して、投資ポートフォリオのストレス・テスト・アプリを作成する
 
 English version: https://developer.ibm.com/patterns/build-a-stress-test-app-for-financial-portfolios
+
 ソースコード: https://github.com/IBM/predictive-market-using-arria
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

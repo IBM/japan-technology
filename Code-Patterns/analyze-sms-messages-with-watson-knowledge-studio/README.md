@@ -3,7 +3,8 @@
 ### Watson Knowledge Studio と Watson Natural Language Understanding を利用して、SMS メッセージの内容を効果的に分類するカスタム・モデルを作成する
 
 English version: https://developer.ibm.com/patterns/analyze-sms-messages-with-watson-knowledge-studio
-  ソースコード: https://github.com/IBM/sms-analysis-with-wks
+  
+ソースコード: https://github.com/IBM/sms-analysis-with-wks
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-06

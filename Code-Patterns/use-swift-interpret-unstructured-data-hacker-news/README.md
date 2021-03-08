@@ -3,7 +3,8 @@
 ### ひとひねり利かせたコグニティブ API を使用して、Hacker News 上の技術動向について洞察を得る
 
 English version: https://developer.ibm.com/patterns/use-swift-interpret-unstructured-data-hacker-news
-  ソースコード: https://github.com/IBM/Hackernews-NLU
+  
+ソースコード: https://github.com/IBM/Hackernews-NLU
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:     2018-06-18

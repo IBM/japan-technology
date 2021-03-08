@@ -3,6 +3,7 @@
 ### Python アプリを IBM Cloud 上の Red Hat OpenShift にデプロイし、セキュリティー、応答性、復元力を強化するためのサンプル・コード
 
 English version: https://developer.ibm.com/patterns/deploy-to-openshift-4-redhat-universal-base-image
+
 ソースコード: https://github.com/IBM/python-ubi-openshift
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

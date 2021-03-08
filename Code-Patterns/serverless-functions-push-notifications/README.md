@@ -3,6 +3,7 @@
 ### サーバーレス・プラットフォーム内にモバイル・プッシュ通知を統合する方法を学ぶ
 
 English version: https://developer.ibm.com/patterns/serverless-functions-push-notifications
+
 ソースコード: https://github.com/IBM/ibm-cloud-functions-mobile-push-notifications
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

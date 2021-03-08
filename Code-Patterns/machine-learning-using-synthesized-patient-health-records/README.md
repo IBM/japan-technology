@@ -3,7 +3,8 @@
 ### 実在する患者の診療記録に関するプライバシーの問題を懸念せずにデータ・モデルを作成する
 
 English version: https://developer.ibm.com/patterns/machine-learning-using-synthesized-patient-health-records
-  ソースコード: https://github.com/IBM/summit-health-machine-learning
+  
+ソースコード: https://github.com/IBM/summit-health-machine-learning
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-04-11

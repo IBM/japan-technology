@@ -3,7 +3,8 @@
 ### TensorFlow、Caffe、PyTorch その他多くのフレームワークからなる深層学習プラットフォームを Kubernetes にインストールして使用する     
 
 English version: https://developer.ibm.com/patterns/deploy-and-use-a-multi-framework-deep-learning-platform-on-kubernetes
-  ソースコード: https://github.com/IBM/FfDL
+  
+ソースコード: https://github.com/IBM/FfDL
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

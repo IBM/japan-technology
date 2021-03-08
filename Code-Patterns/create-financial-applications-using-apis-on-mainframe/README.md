@@ -3,7 +3,8 @@
 ### リテール・バンキング API を利用して、メインフレーム・ハイブリッド・クラウド・アーキテクチャーに従って迅速でアジャイルなイノベーションを推進する
 
 English version: https://developer.ibm.com/patterns/create-financial-applications-using-apis-on-mainframe
-  ソースコード: https://github.com/IBM/banking-digitalization-using-hybrid-cloud-with-mainframes
+  
+ソースコード: https://github.com/IBM/banking-digitalization-using-hybrid-cloud-with-mainframes
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-08-11

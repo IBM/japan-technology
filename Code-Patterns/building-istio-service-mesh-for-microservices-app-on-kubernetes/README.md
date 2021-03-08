@@ -3,7 +3,8 @@
 ### サンプルの旅行予約アプリケーションをコンテナー化して、コンテナー内に格納されたマイクロサービスを互いに接続して管理し、マイクロサービス間のやり取りをモニタリングするサービス・メッシュを作成する
 
 English version: https://developer.ibm.com/patterns/building-istio-service-mesh-for-microservices-app-on-kubernetes
-  ソースコード: https://github.com/IBM/bee-travels-istio
+  
+ソースコード: https://github.com/IBM/bee-travels-istio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-09-29

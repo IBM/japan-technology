@@ -3,7 +3,8 @@
 ### API 呼び出しに応答してオートスケーリングするアクションを作成する
 
 English version: https://developer.ibm.com/patterns/build-serverless-api-handlers
-  ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-apis
+  
+ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-apis
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-07-18

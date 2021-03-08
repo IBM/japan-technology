@@ -3,7 +3,8 @@
 ### Hyperledger Composer API、Hyperledger Composer フレームワーク、Node.js を使用してブロックチェーン対応の Web アプリとネットワークを作成する
 
 English version: https://developer.ibm.com/patterns/customer-loyalty-program-with-blockchain
-  ソースコード: https://github.com/IBM/customer-loyalty-program?cm_sp=Developer-_-customer-loyalty-program-with-blockchain-_-Get-the-code
+  
+ソースコード: https://github.com/IBM/customer-loyalty-program?cm_sp=Developer-_-customer-loyalty-program-with-blockchain-_-Get-the-code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-26

@@ -3,7 +3,8 @@
 ### Db2 Warehouse on Cloud を利用して、Node.js で CRUD アプリを作成する
 
 English version: https://developer.ibm.com/patterns/create-crud-application-using-nodejs-and-ibm-db2-database-on-cloud
-  ソースコード: https://github.com/IBM/crud-using-nodejs-and-db2
+  
+ソースコード: https://github.com/IBM/crud-using-nodejs-and-db2
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-06

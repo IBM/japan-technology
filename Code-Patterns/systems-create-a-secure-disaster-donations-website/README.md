@@ -3,7 +3,8 @@
 ### Node.js フロントエンドと Python バックエンドを使用し、MongoDB データベースにデータを保管する
 
 English version: https://developer.ibm.com/patterns/systems-create-a-secure-disaster-donations-website
-  ソースコード: https://github.com/IBM/disaster-donations-website
+  
+ソースコード: https://github.com/IBM/disaster-donations-website
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-11-15

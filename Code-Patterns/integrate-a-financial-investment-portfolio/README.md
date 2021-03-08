@@ -3,7 +3,8 @@
 ### Quovo Aggregation API、IBM Watson Studio、IBM Cloud Investment Portfolio サービスを利用して、安定株を集約して表示する
 
 English version: https://developer.ibm.com/patterns/integrate-a-financial-investment-portfolio
-  ソースコード: https://github.com/IBM/Integrate-Investment-Portfolio
+  
+ソースコード: https://github.com/IBM/Integrate-Investment-Portfolio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-27

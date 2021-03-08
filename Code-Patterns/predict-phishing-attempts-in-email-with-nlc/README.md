@@ -3,7 +3,8 @@
 ### e-メール・フィッシングの試みを検出するように Watson Natural Language Classifier をトレーニングする
 
 English version: https://developer.ibm.com/patterns/predict-phishing-attempts-in-email-with-nlc
-  ソースコード: https://github.com/IBM/nlc-email-phishing
+  
+ソースコード: https://github.com/IBM/nlc-email-phishing
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-19

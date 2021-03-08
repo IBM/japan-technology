@@ -3,7 +3,8 @@
 ### IBM Cloud Container 上の Kubernetes API サービスを利用してビジネス・ネットワークをセットアップする
 
 English version: https://developer.ibm.com/patterns/deploy-hyperledger-fabric-network-on-ibm-cloud
-  ソースコード: https://github.com/IBM/blockchain-network-on-kubernetes/
+  
+ソースコード: https://github.com/IBM/blockchain-network-on-kubernetes/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-03

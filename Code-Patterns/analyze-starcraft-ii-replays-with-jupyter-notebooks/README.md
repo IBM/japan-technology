@@ -3,6 +3,7 @@
 ### Data Science Experience を利用して Starcraft II リプレイのデータ視覚化を作成する
 
 English version: https://developer.ibm.com/patterns/analyze-starcraft-ii-replays-with-jupyter-notebooks
+
 ソースコード: https://github.com/IBM/starcraft2-replay-analysis/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

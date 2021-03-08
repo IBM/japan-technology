@@ -3,7 +3,8 @@
 ### 多変数 IoT データを使用してセンサーから値を収集し、アルゴリズムを実行する予測手法の紹介
 
 English version: https://developer.ibm.com/patterns/predict-equipment-failure-using-iot-sensor-data
-  ソースコード: https://github.com/IBM/iot-predictive-analytics
+  
+ソースコード: https://github.com/IBM/iot-predictive-analytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-07

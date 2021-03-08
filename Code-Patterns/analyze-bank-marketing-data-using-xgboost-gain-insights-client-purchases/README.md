@@ -3,6 +3,7 @@
 ### XGBoost と scikit-learn による機械学習を使用して、銀行の顧客が CD を購入するかどうかを予測する
 
 English version: https://developer.ibm.com/patterns/analyze-bank-marketing-data-using-xgboost-gain-insights-client-purchases
+
 ソースコード: https://github.com/IBM/xgboost-financial-predictions
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

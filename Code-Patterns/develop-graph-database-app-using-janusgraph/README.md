@@ -3,7 +3,8 @@
 ### Twitter 風アプリケーションを作成する手順を通して、カスタム・グラフ・アプリケーションを作成して操作する方法を理解する
 
 English version: https://developer.ibm.com/patterns/develop-graph-database-app-using-janusgraph
-  ソースコード: https://github.com/IBM/janusgraph-utils
+  
+ソースコード: https://github.com/IBM/janusgraph-utils
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-26

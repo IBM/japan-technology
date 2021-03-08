@@ -3,7 +3,8 @@
 ### Akka、React、IBM Cloudant を利用して、リアルタイムのスコア、実況解説、リーグ順位、試合結果をアプリ内に取り込む
 
 English version: https://developer.ibm.com/patterns/create-a-soccer-league-dashboard-app
-  ソースコード: https://github.com/IBM/akka-react-cloudant
+  
+ソースコード: https://github.com/IBM/akka-react-cloudant
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-19

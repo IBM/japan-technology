@@ -3,7 +3,8 @@
 ### MongoDB、Express、AngularJS、Node.js スタックを使用してクラウド・ネイティブの Web アプリケーションを作成、デプロイする
 
 English version: https://developer.ibm.com/patterns/build-a-mean-web-app
-  ソースコード: https://github.com/IBM/MEAN-app
+  
+ソースコード: https://github.com/IBM/MEAN-app
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-11-07

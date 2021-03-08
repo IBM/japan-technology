@@ -3,7 +3,8 @@
 ### Hyperledger Fabric ネットワークを使用して、食品供給業者に対する規制要件を分散ビジネス・ネットワーク向けにモデル化する
 
 English version: https://developer.ibm.com/patterns/monitor-food-shipments-using-blockchain
-  ソースコード: https://github.com/IBM/PublicRegulationFabric-Food-IBPV20
+  
+ソースコード: https://github.com/IBM/PublicRegulationFabric-Food-IBPV20
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-04-02

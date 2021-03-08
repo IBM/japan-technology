@@ -3,7 +3,8 @@
 ### Watson Visual Recognition を利用して、キャプチャーした画像から食品を識別し、その栄養を分析するモバイル・アプリを作成する
 
 English version: https://developer.ibm.com/patterns/create-an-android-calorie-counter-app
-  ソースコード: https://github.com/IBM/watson-calorie-counter
+  
+ソースコード: https://github.com/IBM/watson-calorie-counter
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-20

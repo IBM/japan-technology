@@ -3,7 +3,8 @@
 ### チャネルのセットアップと初期化、チェーンコードのインストールとインスタンス化を行って、ブロックチェーン・ネットワークに対して呼び出しとクエリーを実行する
 
 English version: https://developer.ibm.com/patterns/create-and-deploy-blockchain-network-using-fabric-sdk-java
-  ソースコード: https://github.com/IBM/blockchain-application-using-fabric-java-sdk
+  
+ソースコード: https://github.com/IBM/blockchain-application-using-fabric-java-sdk
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-16

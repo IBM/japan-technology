@@ -3,7 +3,8 @@
 ### バイアスの指標、説明、是正に対応する AI Fairness 360 ツールキットのデモンストレーション
 
 English version: https://developer.ibm.com/patterns/ensuring-fairness-when-processing-loan-applications
-  ソースコード: https://github.com/IBM/ensure-loan-fairness-aif360
+  
+ソースコード: https://github.com/IBM/ensure-loan-fairness-aif360
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-19

@@ -3,7 +3,8 @@
 ### 異なる国の言葉を話すクライアントが互いに途切れなく意思疎通できる通信チャネルを作成する
 
 English version: https://developer.ibm.com/patterns/deploy-serverless-multilingual-conference-room
- ソースコード: https://github.com/IBM/serverless-language-translation
+ 
+ソースコード: https://github.com/IBM/serverless-language-translation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-06-27

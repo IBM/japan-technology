@@ -3,7 +3,8 @@
 ### Watson の自然言語処理機能を使用して、インテリジェントなカスタマー・サポート・システムを開発する
 
 English version: https://developer.ibm.com/patterns/email-support-automation-for-telco
-  ソースコード: https://github.com/IBM/smart-email-support
+  
+ソースコード: https://github.com/IBM/smart-email-support
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-03

@@ -3,7 +3,8 @@
 ### Create and deploy a blockchain network using Hyperledger Fabric SDK for Node.js
 
 English version: https://developer.ibm.com/patterns/explore-hyperledger-fabric-through-a-complete-set-of-apis
-  ソースコード: https://github.com/IBM/FabricNodeSDK-Starter
+  
+ソースコード: https://github.com/IBM/FabricNodeSDK-Starter
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-03

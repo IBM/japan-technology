@@ -3,7 +3,8 @@
 ### Java、Watson IoT Platform、Node-RED、Watson Visual Recognition サービスを利用して、トレーニング・アプリと予測アプリを作成する
 
 English version: https://developer.ibm.com/patterns/optimize-visual-recognition-classification
-  ソースコード: https://github.com/IBM/IoTWatsonTrainingandPredictionApp
+  
+ソースコード: https://github.com/IBM/IoTWatsonTrainingandPredictionApp
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-17

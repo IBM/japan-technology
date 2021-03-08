@@ -3,7 +3,8 @@
 ### 需要に応じて自動的にスケーリングするモバイル小切手預金処理システムを実現する
 
 English version: https://developer.ibm.com/patterns/automatically-scale-to-handle-peaks-in-banking-transaction-demand
- ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-ocr-openchecks
+ 
+ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-ocr-openchecks
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-04

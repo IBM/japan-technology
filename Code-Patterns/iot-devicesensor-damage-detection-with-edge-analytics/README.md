@@ -3,7 +3,8 @@
 ### 深層学習アルゴリズムを使用して動きを検出し、動画フィード内のオブジェクトを特定する
 
 English version: https://developer.ibm.com/patterns/iot-devicesensor-damage-detection-with-edge-analytics
-  ソースコード: https://github.com/IBM/dnn-object-detection
+  
+ソースコード: https://github.com/IBM/dnn-object-detection
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-12-14

@@ -3,7 +3,8 @@
 ### 証券投資を対象に、Instrument Analytics サービスを利用して株価、感度、プロパティーを分析する Web アプリを構成する
 
 English version: https://developer.ibm.com/patterns/compute-analytics-on-an-investment-portfolio
-  ソースコード: https://github.com/IBM/Portfolio-compute
+  
+ソースコード: https://github.com/IBM/Portfolio-compute
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-02

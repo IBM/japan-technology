@@ -3,6 +3,7 @@
 ### マイクロサービス・ベースのバックエンドを作成して Red Hat OpenShift on IBM Cloud 上にデプロイする
 
 English version: https://developer.ibm.com/patterns/privacy-backend-loyalty-app-openshift-4
+
 ソースコード: https://github.com/IBM/loyalty
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

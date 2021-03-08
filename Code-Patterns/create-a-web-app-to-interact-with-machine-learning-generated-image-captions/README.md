@@ -3,7 +3,8 @@
 ### オープンソースの画像キャプション・ジェネレーター深層学習モデルを使用して、Web アプリケーション内でコンテンツに応じて画像をフィルタリングする
 
 English version: https://developer.ibm.com/patterns/create-a-web-app-to-interact-with-machine-learning-generated-image-captions
-  ソースコード: https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
+  
+ソースコード: https://github.com/IBM/MAX-Image-Caption-Generator-Web-App/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

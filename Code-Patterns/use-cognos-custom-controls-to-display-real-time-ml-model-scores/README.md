@@ -3,7 +3,8 @@
 ### 機械学習モデルを動的に作成して、リアルタイムのダッシュボードを作成する
 
 English version: https://developer.ibm.com/patterns/use-cognos-custom-controls-to-display-real-time-ml-model-scores
-  ソースコード: https://github.com/IBM/invoke-wml-using-cognos-custom-control/
+  
+ソースコード: https://github.com/IBM/invoke-wml-using-cognos-custom-control/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-04

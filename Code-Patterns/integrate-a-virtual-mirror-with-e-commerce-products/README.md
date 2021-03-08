@@ -3,7 +3,8 @@
 ### Mobile First Foundation を使用して、レコメンデーション・システムを統合したハイブリッド・モバイル・アプリケーションを開発する
 
 English version: https://developer.ibm.com/patterns/integrate-a-virtual-mirror-with-e-commerce-products
-  ソースコード: https://github.com/IBM/virtual-mirror-for-ecommerce
+  
+ソースコード: https://github.com/IBM/virtual-mirror-for-ecommerce
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-01

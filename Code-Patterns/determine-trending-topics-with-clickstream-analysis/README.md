@@ -3,7 +3,8 @@
 ### Apache Spark と Kafka を使って Web サイトの閲覧者に関するデータを収集、分析、レポートする
 
 English version: https://developer.ibm.com/patterns/determine-trending-topics-with-clickstream-analysis
-  ソースコード: https://github.com/IBM/kafka-streaming-click-analysis
+  
+ソースコード: https://github.com/IBM/kafka-streaming-click-analysis
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

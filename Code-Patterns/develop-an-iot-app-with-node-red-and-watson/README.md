@@ -3,7 +3,8 @@
 ### ビジュアル・プログラミング・ツール、PaaS サービス、Watson を利用して、IoT 製品を完全に機能するビジネス・アプリケーションに変換する
 
 English version: https://developer.ibm.com/patterns/develop-an-iot-app-with-node-red-and-watson
-  ソースコード: https://github.com/IBM/manage-control-device-node-red
+  
+ソースコード: https://github.com/IBM/manage-control-device-node-red
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-27

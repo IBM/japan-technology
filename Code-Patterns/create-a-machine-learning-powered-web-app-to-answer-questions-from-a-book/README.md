@@ -3,7 +3,8 @@
 ### Model Asset eXchange の Question Answering モデルを使用して、入力された質問に回答する
 
 English version: https://developer.ibm.com/patterns/create-a-machine-learning-powered-web-app-to-answer-questions-from-a-book
-  ソースコード: https://github.com/IBM/MAX-Question-Answering-Web-App
+  
+ソースコード: https://github.com/IBM/MAX-Question-Answering-Web-App
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-11-05

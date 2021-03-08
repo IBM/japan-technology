@@ -3,7 +3,8 @@
 ### REST API を使用して IBM Resilient Incident Response Platform に IBM QRadar によるセキュリティー情報・イベント管理を統合する
 
 English version: https://developer.ibm.com/patterns/manage-security-insights-and-incidence-response-effectively
-  ソースコード: https://github.com/IBM/managing-security-incidents
+  
+ソースコード: https://github.com/IBM/managing-security-incidents
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-01-18

@@ -3,7 +3,8 @@
 ### OCR を使用してテキストを抽出し、Jupyter Notebook を使用してドキュメントからエンティティーを抽出する
 
 English version: https://developer.ibm.com/patterns/image-recognition-and-information-extraction-from-image-documents-using-keras-and-watson-nlu
-  ソースコード: https://github.com/IBM/image-recognition-and-information-extraction-from-image-documents
+  
+ソースコード: https://github.com/IBM/image-recognition-and-information-extraction-from-image-documents
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-13

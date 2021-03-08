@@ -3,6 +3,7 @@
 ### API ゲートウェイを Cloud Functions に接続する
 
 English version: https://developer.ibm.com/patterns/serverless-microservices-api-gateway
+
 ソースコード: https://github.com/IBM/ibm-cloud-functions-refarch-serverless-apis/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

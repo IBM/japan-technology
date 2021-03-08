@@ -3,7 +3,8 @@
 ### ビジネス・ネットワーク上にデプロイされたスマート・コントラクトを自動化する規制コンプライアンス・アプリケーションを構築する
 
 English version: https://developer.ibm.com/patterns/implement-fda-food-supplier-verification-program-on-hyperledger-composer
-  ソースコード: https://github.com/IBM/BlockchainPublicRegulationFabric-Food
+  
+ソースコード: https://github.com/IBM/BlockchainPublicRegulationFabric-Food
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-10

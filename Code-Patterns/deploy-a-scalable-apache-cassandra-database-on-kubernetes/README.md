@@ -3,7 +3,8 @@
 ### 既存のアプリケーションをシームレスにクラウドに移行する
 
 English version: https://developer.ibm.com/patterns/deploy-a-scalable-apache-cassandra-database-on-kubernetes
-  ソースコード: https://github.com/IBM/scalable-cassandra-deployment-on-kubernetes
+  
+ソースコード: https://github.com/IBM/scalable-cassandra-deployment-on-kubernetes
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-28

@@ -3,7 +3,8 @@
 ### React アプリケーションを、Docker を使用して構築し、Kubernetes を使用してデプロイする
 
 English version: https://developer.ibm.com/patterns/deploy-a-react-application-on-kubernetes
-  ソースコード: https://github.com/IBM/deploy-react-kubernetes/
+  
+ソースコード: https://github.com/IBM/deploy-react-kubernetes/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-10

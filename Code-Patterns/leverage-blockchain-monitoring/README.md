@@ -3,7 +3,8 @@
 ### React および Node.js を使用してブロックチェーン・モニタリング・アプリを作成し、Hyperledger Fabric SDK を使用してサプライ・チェーンの資産を追跡するする
 
 English version: https://developer.ibm.com/patterns/leverage-blockchain-monitoring
-  ソースコード: https://github.com/IBM/monitoring_ui
+  
+ソースコード: https://github.com/IBM/monitoring_ui
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-05

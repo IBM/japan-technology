@@ -3,7 +3,8 @@
 ### IBM Streams を利用してストリーミング・アプリを構築し、データをエンリッチする
 
 English version: https://developer.ibm.com/patterns/score-streaming-data-with-a-machine-learning-model
-  ソースコード: https://github.com/IBM/ibm-streams-with-ml-model
+  
+ソースコード: https://github.com/IBM/ibm-streams-with-ml-model
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 # last_updated: '2020-06-22'

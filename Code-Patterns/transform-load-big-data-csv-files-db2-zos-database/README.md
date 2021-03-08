@@ -3,7 +3,8 @@
 ### ファイルを生成して SQLite というツールで変換し、zload という JDBC 関数を使用して Db2 for z/OS データベースにロードする
 
 English version: https://developer.ibm.com/patterns/transform-load-big-data-csv-files-db2-zos-database
-  ソースコード: https://github.com/IBM/summit-health-synthea/
+  
+ソースコード: https://github.com/IBM/summit-health-synthea/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:	2019-03-21

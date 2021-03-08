@@ -3,7 +3,8 @@
 ### 包括的なストレージ・ソリューションで、データ損失、重複、改ざんをはじめとするさまざまな問題に対処する
 
 English version: https://developer.ibm.com/patterns/build-first-private-blockchain-network-interplanetary-file-system
-  ソースコード: https://github.com/IBM/IPFSfB
+  
+ソースコード: https://github.com/IBM/IPFSfB
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-05-09

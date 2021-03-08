@@ -3,7 +3,8 @@
 ### Hyperledger Fabric を使用してチェーンコードを呼び出すと同時に、スターター・プラン内に結果とデータを保管する
 
 English version: https://developer.ibm.com/patterns/car-auction-network-hyperledger-fabric-node-sdk-starter-plan
-  ソースコード: https://github.com/IBM/car-auction-network-fabric-node-sdk
+  
+ソースコード: https://github.com/IBM/car-auction-network-fabric-node-sdk
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-19

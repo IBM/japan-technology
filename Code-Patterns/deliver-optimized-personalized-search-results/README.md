@@ -3,7 +3,8 @@
 ### WebSphere Commerce を使用して検索パーソナライズ機能を開発し、顧客の嗜好に応じて検索結果を最適化する
 
 English version: https://developer.ibm.com/patterns/deliver-optimized-personalized-search-results
-  ソースコード: https://github.com/IBM/context-driven-personalization-websphere
+  
+ソースコード: https://github.com/IBM/context-driven-personalization-websphere
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-22

@@ -3,7 +3,8 @@
 ### Apache OpenWhisk を使用して、ポッドキャストをダウンロードするためのマイクロサービスを構築する
 
 English version: https://developer.ibm.com/patterns/create-a-podcast-downloader-using-serverless-technology
- ソースコード: https://github.com/IBM/PodcastDownloader
+ 
+ソースコード: https://github.com/IBM/PodcastDownloader
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-21

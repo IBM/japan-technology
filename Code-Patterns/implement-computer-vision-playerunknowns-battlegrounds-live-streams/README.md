@@ -3,7 +3,8 @@
 ### 動画のライブ・ストリーミング配信プラットフォーム Twitch 上で OCR を使用する Web アプリを構築する
 
 English version: https://developer.ibm.com/patterns/implement-computer-vision-playerunknowns-battlegrounds-live-streams
-  ソースコード: https://github.com/IBM/rotisserie
+  
+ソースコード: https://github.com/IBM/rotisserie
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-24

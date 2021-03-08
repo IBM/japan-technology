@@ -3,7 +3,8 @@
 ### Kubernetes の力を利用して Drupal デプロイメントを管理する
 
 English version: https://developer.ibm.com/patterns/run-drupal-website-on-kubernetes
-  ソースコード: https://github.com/IBM/drupal-on-kubernetes-sample
+  
+ソースコード: https://github.com/IBM/drupal-on-kubernetes-sample
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-01

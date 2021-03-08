@@ -3,7 +3,8 @@
 ### ユーザー・アカウント、トランザクション、送金、請求を管理できるデジタル・バンクを構築してデプロイする
 
 English version: https://developer.ibm.com/patterns/build-digital-bank-microservices-kubernetes
-  ソースコード: https://github.com/IBM/innovate-digital-bank
+  
+ソースコード: https://github.com/IBM/innovate-digital-bank
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-19

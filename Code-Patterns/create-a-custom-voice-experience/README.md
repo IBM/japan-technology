@@ -3,7 +3,8 @@
 ### Watson サービスを利用し、IFTTT と Slack を使って IoT アプリのカスタム音声エクスペリエンスを開発する
 
 English version: https://developer.ibm.com/patterns/create-a-custom-voice-experience
-  ソースコード: 'https://github.com/IBM/iot-mic-sts-ifttt-slack'
+  
+ソースコード: 'https://github.com/IBM/iot-mic-sts-ifttt-slack'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-09-21'

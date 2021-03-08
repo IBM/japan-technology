@@ -3,7 +3,8 @@
 ### Embedded Business Assistant を IBM Sterling Call Center for Commerce に統合する
 
 English version: https://developer.ibm.com/patterns/integration-of-scba-to-call-center-oms
-  ソースコード: https://github.com/IBM/Call-center-EBA
+  
+ソースコード: https://github.com/IBM/Call-center-EBA
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-03-09

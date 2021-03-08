@@ -3,7 +3,8 @@
 ### Codewind を使用してクラウド・ネイティブの気象情報アプリケーションを Java で開発し、CI/CD Tekton パイプラインを使用してデプロイする
 
 English version: https://developer.ibm.com/patterns/build-deploy-cloud-native-java-applications-using-ibm-cloud-pak-for-applications
-  ソースコード: https://github.com/IBM/build-deploy-cloud-native-application-using-cp4a
+  
+ソースコード: https://github.com/IBM/build-deploy-cloud-native-application-using-cp4a
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 # last_updated:

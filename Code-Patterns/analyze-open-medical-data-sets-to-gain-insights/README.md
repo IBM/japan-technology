@@ -3,6 +3,7 @@
 ### Watson Studio と scikit-learn による機械学習を利用して、米国のオピオイド処方医師について予測する
 
 English version: https://developer.ibm.com/patterns/analyze-open-medical-data-sets-to-gain-insights
+
 ソースコード: https://github.com/IBM/predict-opioid-prescribers/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

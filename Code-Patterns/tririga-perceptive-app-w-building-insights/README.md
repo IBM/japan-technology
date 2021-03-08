@@ -3,7 +3,8 @@
 ### TRIRIGA インスタンス内で Building Insights データを視覚化するカスタム・アプリケーションを作成する
 
 English version: https://developer.ibm.com/patterns/tririga-perceptive-app-w-building-insights
-  ソースコード: https://github.com/IBM/tririga-occupancy
+  
+ソースコード: https://github.com/IBM/tririga-occupancy
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-02-15

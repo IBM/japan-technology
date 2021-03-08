@@ -3,7 +3,8 @@
 ### オンプレミスのアプリケーションとサービスをハイブリッド・クラウドまで拡張する
 
 English version: https://developer.ibm.com/patterns/create-hybrid-cloud-api-connect-secure-gateway
-  ソースコード: https://github.com/IBM/Hybrid-Cloud-Applications-and-Services
+  
+ソースコード: https://github.com/IBM/Hybrid-Cloud-Applications-and-Services
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-18

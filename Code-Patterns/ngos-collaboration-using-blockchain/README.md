@@ -3,7 +3,8 @@
 ### Hyperledger Fabric を使用して、必要とする人々に配布する物品の需要と供給を管理する
 
 English version: https://developer.ibm.com/patterns/ngos-collaboration-using-blockchain
-  ソースコード: https://github.com/IBM/ngo-collaboration-using-blockchain
+  
+ソースコード: https://github.com/IBM/ngo-collaboration-using-blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-04-16

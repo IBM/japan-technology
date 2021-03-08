@@ -3,7 +3,8 @@
 ### Node-RED と Watson IoT を使用して、センサー・データから異常を検出するアプリを構築する
 
 English version: https://developer.ibm.com/patterns/detect-voltage-anomalies-in-household-iot-devices
-  ソースコード: https://github.com/IBM/CognitiveIoT
+  
+ソースコード: https://github.com/IBM/CognitiveIoT
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-08-29

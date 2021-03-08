@@ -3,6 +3,7 @@
 ### クラウド上のオブジェクト・ストレージとやり取りする単純な Web アプリケーションのサンプル・コード
 
 English version: https://developer.ibm.com/patterns/build-a-web-gallery-app-in-the-cloud
+
 ソースコード: https://github.com/IBM/cos-web-gallery
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

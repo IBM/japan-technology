@@ -3,7 +3,8 @@
 ### Kubernetes ベースのマイクロサービスで従来型の患者記録アプリを変換する
 
 English version: https://developer.ibm.com/patterns/app-modernization-s2i-openshift
-  ソースコード: https://github.com/IBM/summit-health-patient-records/
+  
+ソースコード: https://github.com/IBM/summit-health-patient-records/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-01

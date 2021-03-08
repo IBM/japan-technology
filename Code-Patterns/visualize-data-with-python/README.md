@@ -3,6 +3,7 @@
 ### 一般公開されている洪水データセットを使用して、チャート、グラフ、地図を作成する
 
 English version: https://developer.ibm.com/patterns/visualize-data-with-python
+
 ソースコード: https://github.com/IBM/visualize-data-with-python
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

@@ -3,7 +3,8 @@
 ### 追加のトレーニング詳細を提供して、検索結果を改善する
 
 English version: https://developer.ibm.com/patterns/improve-discovery-results-using-programmatic-relevancy-training
-  ソースコード: https://github.com/IBM/improve-discovery-results-using-api-based-relevancy-training
+  
+ソースコード: https://github.com/IBM/improve-discovery-results-using-api-based-relevancy-training
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-04-28

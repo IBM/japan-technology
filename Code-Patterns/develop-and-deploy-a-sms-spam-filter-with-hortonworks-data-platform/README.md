@@ -3,7 +3,8 @@
 ###  自然言語処理と機械学習を使用してスパムを識別する
 
 English version: https://developer.ibm.com/patterns/develop-and-deploy-a-sms-spam-filter-with-hortonworks-data-platform
-  ソースコード: 'https://github.com/IBM/sms-spam-filter-using-hortonworks'
+  
+ソースコード: 'https://github.com/IBM/sms-spam-filter-using-hortonworks'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-10-30'

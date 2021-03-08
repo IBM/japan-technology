@@ -3,7 +3,8 @@
 ### LoopBack を使用して、5 分で REST API を作成して公開する
 
 English version: https://developer.ibm.com/patterns/create-rest-apis-using-loopback
-  ソースコード: https://github.com/IBM/loopback-in-five
+  
+ソースコード: https://github.com/IBM/loopback-in-five
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-07

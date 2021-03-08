@@ -3,6 +3,7 @@
 ### イベント・ストリームのレコードを OpenWhisk で分析する
 
 English version: https://developer.ibm.com/patterns/serverless-event-stream-processing
+
 ソースコード: https://github.com/IBM/ibm-cloud-functions-refarch-data-processing-message-hub
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

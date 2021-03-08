@@ -3,6 +3,7 @@
 ### Node.js と Watson Discovery サービスを利用して、ニュースを検索してトレンディング・トピックを分析するコグニティブ Web アプリを構築する
 
 English version: https://developer.ibm.com/patterns/create-a-cognitive-news-search-app
+
 ソースコード: https://github.com/IBM/watson-discovery-news/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

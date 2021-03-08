@@ -3,7 +3,8 @@
 ### AngularJS と Node.js のデモ・アプリを通して Cognos Dashboard Embedded サービスを理解する
 
 English version: https://developer.ibm.com/patterns/build-a-dynamic-dashboard-application
-  ソースコード: https://github.com/IBM/cognos-dashboard-demo
+  
+ソースコード: https://github.com/IBM/cognos-dashboard-demo
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-28

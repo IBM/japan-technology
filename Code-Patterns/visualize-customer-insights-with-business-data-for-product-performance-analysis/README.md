@@ -3,7 +3,8 @@
 ### ビジネス・データで製品のパフォーマンスを分析し、顧客に関する洞察を視覚化する
 
 English version: https://developer.ibm.com/patterns/visualize-customer-insights-with-business-data-for-product-performance-analysis
-  ソースコード: https://github.com/IBM/cognos-analytics-to-visualize-business-data
+  
+ソースコード: https://github.com/IBM/cognos-analytics-to-visualize-business-data
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-06-04

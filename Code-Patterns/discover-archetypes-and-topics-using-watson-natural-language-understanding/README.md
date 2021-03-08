@@ -3,7 +3,8 @@
 ### Watson サービスと Jupyter Notebook を利用してレコードから有意のアーキタイプを発見し、発見された一連のアーキタイプに新しいレコードを分類する
 
 English version: https://developer.ibm.com/patterns/discover-archetypes-and-topics-using-watson-natural-language-understanding
-  ソースコード: https://github.com/IBM/discover-archetype
+  
+ソースコード: https://github.com/IBM/discover-archetype
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-01-13

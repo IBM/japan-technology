@@ -3,7 +3,8 @@
 ### ディスカッションを管理するために、Watson のサービスを利用してチャット・チャネル内で交換されるメッセージと画像を処理する
 
 English version: https://developer.ibm.com/patterns/build-a-cognitive-moderator-microservice
-  ソースコード: https://github.com/IBM/cognitive-moderator-service
+  
+ソースコード: https://github.com/IBM/cognitive-moderator-service
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-03

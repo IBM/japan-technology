@@ -3,7 +3,8 @@
 ### Mongoose で MongoDB に接続し、Express で API を作成した Node.js 地図サーバー・アプリを構築する
 
 English version: https://developer.ibm.com/patterns/use-mongoose-and-mongodb-to-serve-app-data
-  ソースコード: https://github.com/IBM/kubernetes-mongoose
+  
+ソースコード: https://github.com/IBM/kubernetes-mongoose
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-08

@@ -3,7 +3,8 @@
 ### Istio を利用して、高度なレジリエンシーとフォールト・トレランス機能を備えた Java マイクロサービスを実現する
 
 English version: https://developer.ibm.com/patterns/make-java-microservices-resilient-with-istio
-  ソースコード: https://github.com/IBM/resilient-java-microservices-with-istio
+  
+ソースコード: https://github.com/IBM/resilient-java-microservices-with-istio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-08-21

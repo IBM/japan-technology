@@ -3,7 +3,8 @@
 ### Watson Assistant スロット、Node.js、IBM Container Service を利用して、複雑な対話の作成を簡易化する
 
 English version: https://developer.ibm.com/patterns/assemble-a-pizza-ordering-chatbot-dialog
-  ソースコード: https://github.com/IBM/watson-conversation-slots-intro/
+  
+ソースコード: https://github.com/IBM/watson-conversation-slots-intro/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-19

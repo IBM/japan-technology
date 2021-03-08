@@ -3,7 +3,8 @@
 ### Home Assistant オープンソース・プロジェクトと Watson IoT Platform を使用して、複数のデバイスを接続し、接続したデバイスからのデータを集約して分析する
 
 English version: https://developer.ibm.com/patterns/connect-your-home-automation-system-to-watson-iot-platform
-  ソースコード: 'https://github.com/IBM/home-assistant'
+  
+ソースコード: 'https://github.com/IBM/home-assistant'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-09-25'

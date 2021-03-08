@@ -3,7 +3,8 @@
 ### OrientDB と IBM Watson Studio を利用して、相互に関連するデータを保管し、グラフを作成して分析する
 
 English version: https://developer.ibm.com/patterns/store-graph-and-derive-insights-from-interconnected-data
-  ソースコード: https://github.com/IBM/graph-db-insights
+  
+ソースコード: https://github.com/IBM/graph-db-insights
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-11-23

@@ -3,7 +3,8 @@
 ### IoT センサー・データに対する予測アナリティクスを実行して是正アクションを決定し、Watson IoT Platform を使用してエッジ上の IoT アクチュエーターにアクションのコマンドを送信する
 
 English version: https://developer.ibm.com/patterns/iot-edge-predictive-analytics-corrective-actions
-  ソースコード: https://github.com/IBM/iot-edge-predictive-models-dsx
+  
+ソースコード: https://github.com/IBM/iot-edge-predictive-models-dsx
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-30

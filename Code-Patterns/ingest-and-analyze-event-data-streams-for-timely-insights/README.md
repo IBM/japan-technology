@@ -3,7 +3,8 @@
 ### 外部プログラムからのイベント・データのストリーム配信と並行して、タクシー乗車に関する統計を視覚化する
 
 English version: https://developer.ibm.com/patterns/ingest-and-analyze-event-data-streams-for-timely-insights
-  ソースコード: https://github.com/IBM/db2-event-store-taxi-trips
+  
+ソースコード: https://github.com/IBM/db2-event-store-taxi-trips
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-22

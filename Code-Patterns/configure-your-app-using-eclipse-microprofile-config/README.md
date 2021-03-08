@@ -3,7 +3,8 @@
 ### システム・プロパティーや環境変数などを使用して容易にアプリケーションを構成する
 
 English version: https://developer.ibm.com/patterns/configure-your-app-using-eclipse-microprofile-config
-  ソースコード: https://github.com/IBM/java-microprofile-config
+  
+ソースコード: https://github.com/IBM/java-microprofile-config
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-30

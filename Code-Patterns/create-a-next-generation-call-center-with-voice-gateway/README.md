@@ -3,6 +3,7 @@
 ### IBM Cloud Private 上の Voice Gateway オファリングを利用して、Watson サービスと Twillio をオーケストレーションする
 
 English version: https://developer.ibm.com/patterns/create-a-next-generation-call-center-with-voice-gateway
+
 ソースコード: https://github.com/IBM/voice-gateway-on-icp
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

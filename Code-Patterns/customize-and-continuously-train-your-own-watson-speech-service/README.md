@@ -3,7 +3,8 @@
 ### 特化されたドメイン・データを使用してカスタムの Watson Speech to Text モデルを作成する
 
 English version: https://developer.ibm.com/patterns/customize-and-continuously-train-your-own-watson-speech-service
-  ソースコード: https://github.com/IBM/Train-Custom-Speech-Model
+  
+ソースコード: https://github.com/IBM/Train-Custom-Speech-Model
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2019-03-12'

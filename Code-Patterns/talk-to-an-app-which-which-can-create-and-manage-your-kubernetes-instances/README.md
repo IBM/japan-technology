@@ -3,7 +3,8 @@
 ### Kubernetes インスタンスを作成、管理できるアプリに話しかける
 
 English version: https://developer.ibm.com/patterns/talk-to-an-app-which-which-can-create-and-manage-your-kubernetes-instances
-  ソースコード: https://github.com/IBM/kubernetes-speech-assistant
+  
+ソースコード: https://github.com/IBM/kubernetes-speech-assistant
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-06-12

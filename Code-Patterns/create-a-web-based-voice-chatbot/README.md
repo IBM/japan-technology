@@ -3,7 +3,8 @@
 ### IBM Watson Speech to Text、Watson Text to Speech、および Watson Assistant を利用して、音声を入力および出力として使用する Web ベースのチャットボットを作成する
 
 English version: https://developer.ibm.com/patterns/create-a-web-based-voice-chatbot
-  ソースコード: https://github.com/IBM/watson-voice-bot
+  
+ソースコード: https://github.com/IBM/watson-voice-bot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-17

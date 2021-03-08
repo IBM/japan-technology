@@ -3,7 +3,8 @@
 ###  小学生と中学生から学習のリクエストを聞いて、該当する学習内容のリソースに学生をつなげる、Watson Assistant を活用したチャットボットを作成する
 
 English version: https://developer.ibm.com/patterns/chatbot-for-student-self-service-in-education
-  ソースコード: https://github.com/IBM/Education-SelfService-AI-Chatbot
+  
+ソースコード: https://github.com/IBM/Education-SelfService-AI-Chatbot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-05-26

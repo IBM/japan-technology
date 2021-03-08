@@ -3,7 +3,8 @@
 ### IBM Cloud を使用して MERN (Mongo、Express、React、Node) Web アプリケーションを生成、構築、デプロイする
 
 English version: https://developer.ibm.com/patterns/build-a-mern-web-app
-  ソースコード: https://github.com/IBM/mern-app
+  
+ソースコード: https://github.com/IBM/mern-app
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-11-08

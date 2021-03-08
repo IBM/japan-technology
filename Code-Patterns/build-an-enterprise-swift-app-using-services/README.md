@@ -3,7 +3,8 @@
 ### 複数のサービスとライブラリーを利用するエンタープライズ Swift アプリケーションを構築してデプロイする
 
 English version: https://developer.ibm.com/patterns/build-an-enterprise-swift-app-using-services
-  ソースコード: https://github.com/IBM/swift-enterprise-demo
+  
+ソースコード: https://github.com/IBM/swift-enterprise-demo
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:    2018-02-02

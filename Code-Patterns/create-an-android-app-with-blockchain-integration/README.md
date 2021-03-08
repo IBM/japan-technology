@@ -3,7 +3,8 @@
 ### Android と Kubernetes を使用して、ブロックチェーン対応の健康・フィットネス・アプリを作成する
 
 English version: https://developer.ibm.com/patterns/create-an-android-app-with-blockchain-integration
-  ソースコード: https://github.com/IBM/android-kubernetes-blockchain
+  
+ソースコード: https://github.com/IBM/android-kubernetes-blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-25

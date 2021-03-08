@@ -3,7 +3,8 @@
 ### 事前設定されたブロックチェーン・ネットワーク上で、CI/CD パイプラインを使用してチェーンコードを作成、開発、テストする
 
 English version: https://developer.ibm.com/patterns/use-cicd-to-deploy-chaincode-to-blockchain-on-private-cloud-on-linuxone
-  ソースコード: https://github.com/IBM/IBP4-IBMCloudPrivate
+  
+ソースコード: https://github.com/IBM/IBP4-IBMCloudPrivate
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:	2019-07-16

@@ -3,7 +3,8 @@
 ### Watson Discovery を利用してデータをインポート、エンリッチ、探索するコグニティブ Node.js Web アプリを作成する
 
 English version: https://developer.ibm.com/patterns/import-enrich-and-gain-insight-from-data
-  ソースコード: https://github.com/IBM/watson-discovery-analyze-data-breaches
+  
+ソースコード: https://github.com/IBM/watson-discovery-analyze-data-breaches
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-10

@@ -3,7 +3,8 @@
 ### AutoAI を利用して優れたモデルを大量かつ迅速に作成し、時間の節約、作業の軽減、医師決定プロセスの迅速化を実現する
 
 English version: https://developer.ibm.com/patterns/fraud-prediction-using-autoai
-  ソースコード: https://github.com/IBM/predict-fraud-using-auto-ai
+  
+ソースコード: https://github.com/IBM/predict-fraud-using-auto-ai
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-10-17

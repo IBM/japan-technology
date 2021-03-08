@@ -3,7 +3,8 @@
 ### Web フロントエンドを備えたデジタル・ウォレット・アプリケーションと Electrum ビットコイン・クライアントを IBM Cloud Hyper Protect Virtual Server 内にデプロイする
 
 English version: https://developer.ibm.com/patterns/secure-bitcoin-wallet-with-ibm-cloud-hyper-protect-virtual-servers
-  ソースコード: https://github.com/IBM/secure-bitcoin-wallet/
+  
+ソースコード: https://github.com/IBM/secure-bitcoin-wallet/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-01-28

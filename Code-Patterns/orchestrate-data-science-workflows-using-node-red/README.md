@@ -3,7 +3,8 @@
 ### Node-RED を使用して、IBM Watson Studio 分析ワークフローをトリガーする Web インターフェースを作成する
 
 English version: https://developer.ibm.com/patterns/orchestrate-data-science-workflows-using-node-red
-  ソースコード: https://github.com/IBM/node-red-dsx-workflow
+  
+ソースコード: https://github.com/IBM/node-red-dsx-workflow
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-07

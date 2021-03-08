@@ -3,7 +3,8 @@
 ### LoopBack を使用してエンタープライズ・データ用の API を作成して公開する
 
 English version: https://developer.ibm.com/patterns/unlock-enterprise-data-using-apis
- ソースコード: https://github.com/ibm/acme-freight
+ 
+ソースコード: https://github.com/ibm/acme-freight
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-01

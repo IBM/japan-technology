@@ -3,7 +3,8 @@
 ### Hyperledger Composer を使用してトランザクション・イベントに対応する
 
 English version: https://developer.ibm.com/patterns/automate-business-processes-via-blockchain-events
-  ソースコード: https://github.com/IBM/BlockchainEvents-CompositeJourney
+  
+ソースコード: https://github.com/IBM/BlockchainEvents-CompositeJourney
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-02

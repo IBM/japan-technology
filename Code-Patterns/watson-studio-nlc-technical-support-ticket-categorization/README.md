@@ -3,7 +3,8 @@
 ### Watson Natural Language Classification サービスを利用して、消費者からのクレームに対応するためのさまざまなサポート・チケットを分類するアプリを構築する
 
 English version: https://developer.ibm.com/patterns/watson-studio-nlc-technical-support-ticket-categorization
-  ソースコード: 'https://github.com/IBM/support-ticket-classification'
+  
+ソースコード: 'https://github.com/IBM/support-ticket-classification'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-11-27'

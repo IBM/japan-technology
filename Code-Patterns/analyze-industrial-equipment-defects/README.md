@@ -3,7 +3,8 @@
 ### IBM Cloud Functions および Cloudant と併せて Watson Visual Recognition を利用して、産業機器を分析して欠陥を探る
 
 English version: https://developer.ibm.com/patterns/analyze-industrial-equipment-defects
-  ソースコード: 'https://github.com/IBM/Predictive-Industrial-Visual-Analysis'
+  
+ソースコード: 'https://github.com/IBM/Predictive-Industrial-Visual-Analysis'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2017-11-16'

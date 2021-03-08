@@ -3,7 +3,8 @@
 ### データベースとアプリのデータを公開し、そのデータにアクセスするための API を作成する
 
 English version: https://developer.ibm.com/patterns/app-modernization-with-zos-connect
-  ソースコード: https://github.com/IBM/example-health-apis
+  
+ソースコード: https://github.com/IBM/example-health-apis
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-07-29

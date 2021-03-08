@@ -3,7 +3,8 @@
 ### 多大な計算能力と時間を費やさずに独自のカスタム・モデルをトレーニングする
 
 English version: https://developer.ibm.com/patterns/create-a-real-time-object-detection-app-using-watson-machine-learning
-  ソースコード: 'https://github.com/cloud-annotations/object-detection-ios'
+  
+ソースコード: 'https://github.com/cloud-annotations/object-detection-ios'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2019-04-09'

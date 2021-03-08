@@ -3,7 +3,8 @@
 ### Hyperledger Fabric と IBM Blockchain Platform を利用してコーヒー小売業者のサプライチェーンを効率化する
 
 English version: https://developer.ibm.com/patterns/coffee-supply-chain-network-hyperledger-fabric-blockchain-2
-  ソースコード: https://github.com/IBM/blockchainbean2
+  
+ソースコード: https://github.com/IBM/blockchainbean2
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-21

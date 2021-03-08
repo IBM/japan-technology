@@ -3,7 +3,8 @@
 ### Apache Cordova、Node.js、Watson Visual Recognition を利用して、カスタム視覚認識分類子を作成する
 
 English version: https://developer.ibm.com/patterns/classify-vehicle-damage-images
-  ソースコード: https://github.com/IBM/watson-vehicle-damage-analyzer
+  
+ソースコード: https://github.com/IBM/watson-vehicle-damage-analyzer
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-07

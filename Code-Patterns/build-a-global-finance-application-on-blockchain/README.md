@@ -3,7 +3,8 @@
 ### IBM Blockchain Platform と IBM Kubernetes Service を利用して国際金融向け Node.js アプリを作成する
 
 English version: https://developer.ibm.com/patterns/build-a-global-finance-application-on-blockchain
-  ソースコード: https://github.com/IBM/Global-Finance-on-Blockchain
+  
+ソースコード: https://github.com/IBM/Global-Finance-on-Blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-07-31

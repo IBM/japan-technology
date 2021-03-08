@@ -3,7 +3,8 @@
 ### IBM Mobile Foundation の統合通知システムを利用し、ベンダーのインフラストラクチャーを使って iOS、Android、Windows、Ionic、または Cordova アプリにプッシュ通知や SMS 通知を送信する
 
 English version: https://developer.ibm.com/patterns/tag-based-push-notifications-for-hybrid-mobile-applications
-  ソースコード: https://github.com/IBM/tag-based-push-notifications/
+  
+ソースコード: https://github.com/IBM/tag-based-push-notifications/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-01-09

@@ -3,7 +3,8 @@
 ### 'IBM Cloud、Watson サービス、オープンソース・テクノロジーを利用して顧客情報を分析し、顧客に投資する前に早期警告を受けられるようにする'
 
 English version: https://developer.ibm.com/patterns/client-network-banking-and-risk-mitigation-solution
-  ソースコード: 'https://github.com/IBM/banking-risk-mitigation-nlu-studio'
+  
+ソースコード: 'https://github.com/IBM/banking-risk-mitigation-nlu-studio'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-18

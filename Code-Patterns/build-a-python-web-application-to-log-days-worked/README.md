@@ -3,7 +3,8 @@
 ### 勤務日と勤務形態をログに記録する
 
 English version: https://developer.ibm.com/patterns/build-a-python-web-application-to-log-days-worked
-  ソースコード: https://github.com/IBM/worklog
+  
+ソースコード: https://github.com/IBM/worklog
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-11-06

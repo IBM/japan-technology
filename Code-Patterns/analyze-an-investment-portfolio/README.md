@@ -3,6 +3,7 @@
 ### 投資する根拠を裏付けるデータに、投資家がアクセスできるようにする
 
 English version: https://developer.ibm.com/patterns/analyze-an-investment-portfolio
+
 ソースコード: https://github.com/IBM/Analyze-Investment-Portfolio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

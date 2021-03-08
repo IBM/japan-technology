@@ -3,6 +3,7 @@
 ### Web アプリの利便性とネイティブ・アプリのパフォーマンスを兼ね備えたプログレッシブ Web アプリを構築する
 
 English version: https://developer.ibm.com/patterns/create-an-offline-first-shopping-list-progressive-web-app
+
 ソースコード: https://github.com/ibm-watson-data-lab/shopping-list-vanillajs-pouchdb
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

@@ -3,7 +3,8 @@
 ### IBM Watson Studio と AutoAI を利用し、線形回帰を使用して保険料の支払い額を予測する Web アプリケーションを作成する
 
 English version: https://developer.ibm.com/patterns/create-an-application-to-predict-your-insurance-premium-cost-with-autoai
-  ソースコード: https://github.com/IBM/predict-insurance-charges-with-ai
+  
+ソースコード: https://github.com/IBM/predict-insurance-charges-with-ai
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-06-04

@@ -3,7 +3,8 @@
 ### Watson Studio と Watson Campaign Automation を統合して、ターゲット・オーディエンスを調整した効果的なキャンペーンを繰り広げる
 
 English version: https://developer.ibm.com/patterns/determine-target-audience-and-run-marketing-campaigns
-  ソースコード: https://github.com/IBM/run-campaigns-target-customers
+  
+ソースコード: https://github.com/IBM/run-campaigns-target-customers
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-06-26

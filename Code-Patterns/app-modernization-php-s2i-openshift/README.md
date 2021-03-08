@@ -3,7 +3,8 @@
 ### Kubernetes ベースのマイクロサービスで健康記録管理者用アプリを変換する
 
 English version: https://developer.ibm.com/patterns/app-modernization-php-s2i-openshift
-  ソースコード: https://github.com/IBM/php-s2i-openshift
+  
+ソースコード: https://github.com/IBM/php-s2i-openshift
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-21

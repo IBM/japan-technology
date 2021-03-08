@@ -3,7 +3,8 @@
 ### わずかなコードで簡単に AI 機能をデバイスに統合する方法を学んでください
 
 English version: https://developer.ibm.com/patterns/develop-a-machine-learning-iot-app-with-node-red-and-tensorflowjs
-  ソースコード: https://github.com/IBM/node-red-tensorflowjs
+  
+ソースコード: https://github.com/IBM/node-red-tensorflowjs
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-01-10

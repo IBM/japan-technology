@@ -3,7 +3,8 @@
 ### Hyperledger Composer を使用して、初めてのブロックチェーン・ネットワークを作成する
 
 English version: https://developer.ibm.com/patterns/build-a-blockchain-network
-  ソースコード: https://github.com/IBM/Create-BlockchainNetwork-IBPV20
+  
+ソースコード: https://github.com/IBM/Create-BlockchainNetwork-IBPV20
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-28

@@ -3,7 +3,8 @@
 ### それぞれに異なるドメインに対応する複数のボットを作成し、それらのボットを 1 つのエージェント・ボットで調整する
 
 English version: https://developer.ibm.com/patterns/compose-bots-using-an-agent-bot
-  ソースコード: https://github.com/IBM/watson-assistant-multi-bot-agent
+  
+ソースコード: https://github.com/IBM/watson-assistant-multi-bot-agent
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-01-18

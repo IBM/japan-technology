@@ -3,7 +3,8 @@
 ### OSLC と Watson IoT ルールによる Maximo イベントのトリガー
 
 English version: https://developer.ibm.com/patterns/create-predictive-maintenance-models-detect-equipment-breakdown-risks
-  ソースコード: https://github.com/IBM/iotp-oslc
+  
+ソースコード: https://github.com/IBM/iotp-oslc
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-10-18

@@ -3,7 +3,8 @@
 ### 音声認識、言語翻訳、音声合成を使用して、多言語トランスレーターとして利用できる Web アプリを作成する
 
 English version: https://developer.ibm.com/patterns/build-a-real-time-translation-service-with-watson-api-kit
-  ソースコード: https://github.com/ibm/watson-speech-translator
+  
+ソースコード: https://github.com/ibm/watson-speech-translator
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-02-08

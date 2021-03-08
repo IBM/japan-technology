@@ -3,7 +3,8 @@
 ### 深層学習モデルをトレーニングして、Watson Machine Learning 上で埋め込み音声を分類する
 
 English version: https://developer.ibm.com/patterns/train-and-evaluate-an-audio-classifier-using-keras-and-jupyter-notebook
-  ソースコード: https://github.com/IBM/audioset-classification
+  
+ソースコード: https://github.com/IBM/audioset-classification
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-13

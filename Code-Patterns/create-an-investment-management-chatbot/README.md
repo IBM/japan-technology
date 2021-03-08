@@ -3,7 +3,8 @@
 ### 個人投資ポートフォリオを管理するためのサービス・ベースのチャットボットを作成する
 
 English version: https://developer.ibm.com/patterns/create-an-investment-management-chatbot
-  ソースコード: https://github.com/IBM/personal-wealth-portfolio-mgt-bot/
+  
+ソースコード: https://github.com/IBM/personal-wealth-portfolio-mgt-bot/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-06-06

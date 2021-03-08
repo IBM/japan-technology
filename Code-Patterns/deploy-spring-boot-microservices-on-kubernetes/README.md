@@ -3,7 +3,8 @@
 ### Java Spring Boot マイクロサービスを作成して Kubernetes クラスターにデプロイする
 
 English version: https://developer.ibm.com/patterns/deploy-spring-boot-microservices-on-kubernetes
-  ソースコード: https://github.com/IBM/spring-boot-microservices-on-kubernetes
+  
+ソースコード: https://github.com/IBM/spring-boot-microservices-on-kubernetes
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-14

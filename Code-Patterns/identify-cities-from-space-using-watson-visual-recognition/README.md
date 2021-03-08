@@ -3,7 +3,8 @@
 ### Watson Visual Recognition を利用して、ISS から撮影された世界の都市の画像を識別するカスタム分類子を作成する
 
 English version: https://developer.ibm.com/patterns/identify-cities-from-space-using-watson-visual-recognition
-  ソースコード: https://github.com/IBM/cities-from-space
+  
+ソースコード: https://github.com/IBM/cities-from-space
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-23

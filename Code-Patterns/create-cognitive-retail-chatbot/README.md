@@ -3,7 +3,8 @@
 ### 構成可能な小売業向けチャットボットを作成する
 
 English version: https://developer.ibm.com/patterns/create-cognitive-retail-chatbot
-  ソースコード: https://github.com/IBM/watson-online-store/
+  
+ソースコード: https://github.com/IBM/watson-online-store/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-04-13

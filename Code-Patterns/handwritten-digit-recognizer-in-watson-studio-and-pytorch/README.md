@@ -3,7 +3,8 @@
 ### トレーニング済み PyTorch モデルを使用して、画像から手書きの数字を予測する
 
 English version: https://developer.ibm.com/patterns/handwritten-digit-recognizer-in-watson-studio-and-pytorch
-  ソースコード: 'https://github.com/IBM/pytorch-on-watson-studio'
+  
+ソースコード: 'https://github.com/IBM/pytorch-on-watson-studio'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-11-19'

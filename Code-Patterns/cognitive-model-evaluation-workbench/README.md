@@ -3,7 +3,8 @@
 ### Watson コグニティブ・サービスのさまざまなモデルを比較して、各種のパフォーマンス指標を入手する
 
 English version: https://developer.ibm.com/patterns/cognitive-model-evaluation-workbench
-  ソースコード: https://github.com/IBM/model-evaluation-workbench
+  
+ソースコード: https://github.com/IBM/model-evaluation-workbench
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-17

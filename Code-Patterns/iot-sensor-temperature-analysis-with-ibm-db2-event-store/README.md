@@ -3,7 +3,8 @@
 ### Spark MLlib、IBM Db2 Event Store、Jupyter ノートブックを使用して、温度予測モデルを作成する
 
 English version: https://developer.ibm.com/patterns/iot-sensor-temperature-analysis-with-ibm-db2-event-store
-  ソースコード: 'https://github.com/IBM/db2-event-store-iot-analytics'
+  
+ソースコード: 'https://github.com/IBM/db2-event-store-iot-analytics'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2019-01-30'

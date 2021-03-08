@@ -3,7 +3,8 @@
 ### Kubernetes 上のネイティブ iOS アプリと Kitura を使用した、フルスタックの Swift アプリケーションを開発する
 
 English version: https://developer.ibm.com/patterns/design-a-step-tracking-app-with-kitura-and-kubernetes
-  ソースコード: https://github.com/IBM/kitura-on-kubernetes/
+  
+ソースコード: https://github.com/IBM/kitura-on-kubernetes/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-08

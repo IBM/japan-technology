@@ -3,7 +3,8 @@
 ### IBM Mobile Foundation を介して Cloudant および IBM Cloud Object Storage に接続する、エンタープライズ対応のセキュアな Ionic/Cordova アプリを開発する
 
 English version: https://developer.ibm.com/patterns/develop-hybrid-mobile-app-with-cloud-native-back-end
-  ソースコード: https://github.com/IBM/Ionic-MFP-App/
+  
+ソースコード: https://github.com/IBM/Ionic-MFP-App/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-08

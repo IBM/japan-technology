@@ -3,7 +3,8 @@
 ### Jupyter Notebook でデータを分析して視覚化する
 
 English version: https://developer.ibm.com/patterns/analyze-twitter-jupyter-notebooks
-  ソースコード: https://github.com/IBM/dsx-twitter-auto-analysis/
+  
+ソースコード: https://github.com/IBM/dsx-twitter-auto-analysis/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-04-13

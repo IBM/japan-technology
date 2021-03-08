@@ -3,7 +3,8 @@
 ### フロントエンドのコードをバックエンドのコードに動的に結び付ける Node.js、Swift、または Java アプリケーションを構築する
 
 English version: https://developer.ibm.com/patterns/create-backend-for-frontend-application-architecture
-  ソースコード: https://github.com/IBM/nodejs-backend-for-frontend
+  
+ソースコード: https://github.com/IBM/nodejs-backend-for-frontend
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-12-13  

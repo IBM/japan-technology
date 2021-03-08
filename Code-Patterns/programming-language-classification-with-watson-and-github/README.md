@@ -3,7 +3,8 @@
 ### コードのテキストに基づいて、そのコードで使用しているプログラミング言語を予測するモデルを作成する
 
 English version: https://developer.ibm.com/patterns/programming-language-classification-with-watson-and-github
-  ソースコード: https://github.com/IBM/programming-language-classifier
+  
+ソースコード: https://github.com/IBM/programming-language-classifier
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-14

@@ -3,7 +3,8 @@
 ### Python NLTK と IBM Data Science Experience を利用して、複数のドキュメント全体にわたってコンテンツを相互に関連付ける
 
 English version: https://developer.ibm.com/patterns/watson-document-correlation
-  ソースコード: https://github.com/IBM/watson-document-co-relation
+  
+ソースコード: https://github.com/IBM/watson-document-co-relation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-20

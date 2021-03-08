@@ -3,6 +3,7 @@
 ### サーバーレスと視覚認識を使用して画像を分析し、アラート通知を送信する IoT アプリを構築する
 
 English version: https://developer.ibm.com/patterns/analyze-an-image-and-send-a-status-alert
+
 ソースコード: https://github.com/IBM/image-analysis-iot-alert
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

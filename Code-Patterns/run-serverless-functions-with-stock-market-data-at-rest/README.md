@@ -3,6 +3,7 @@
 ### 保管中のデータをサーバーレス cron ジョブを使用して処理する方法を学ぶ
 
 English version: https://developer.ibm.com/patterns/run-serverless-functions-with-stock-market-data-at-rest
+
 ソースコード: https://github.com/IBM/ibm-cloud-functions-data-at-rest-processing
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

@@ -3,7 +3,8 @@
 ### 通信サービス・プロバイダーがブロックチェーンを使用してバリュー・チェーンを強化する方法
 
 English version: https://developer.ibm.com/patterns/blockchain-for-telecom-roaming-fraud-and-overage-management
-  ソースコード: https://github.com/IBM/Blockchain_for_TelcoRoaming
+  
+ソースコード: https://github.com/IBM/Blockchain_for_TelcoRoaming
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-18

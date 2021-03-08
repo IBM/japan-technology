@@ -3,7 +3,8 @@
 ### 企業のパフォーマンスに関する新たな洞察を発見する
 
 English version: https://developer.ibm.com/patterns/generate-insights-from-multiple-data-sources-using-watson-studio
-  ソースコード: https://github.com/IBM/generate-insights-from-multiple-data-sources
+  
+ソースコード: https://github.com/IBM/generate-insights-from-multiple-data-sources
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2019-02-19'

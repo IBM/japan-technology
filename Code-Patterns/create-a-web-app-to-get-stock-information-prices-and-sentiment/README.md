@@ -3,7 +3,8 @@
 ### Watson Discovery、Cloudant NoSQL DB、Node.js を利用して、個々の上場株に関するセンチメント、株価、ニュースをモニターする Web アプリを作成する
 
 English version: https://developer.ibm.com/patterns/create-a-web-app-to-get-stock-information-prices-and-sentiment
-  ソースコード: https://github.com/IBM/watson-stock-advisor
+  
+ソースコード: https://github.com/IBM/watson-stock-advisor
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-01

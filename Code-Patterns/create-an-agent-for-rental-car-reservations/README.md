@@ -3,7 +3,8 @@
 ### 「こんにちは、Google」と話しかけて、会話 AI を使用して作成した予約エージェントと話す
 
 English version: https://developer.ibm.com/patterns/create-an-agent-for-rental-car-reservations
-  ソースコード: https://github.com/IBM/watson-google-assistant
+  
+ソースコード: https://github.com/IBM/watson-google-assistant
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-03

@@ -3,7 +3,8 @@
 ### Watson IoT Platform と Node-RED を使用して、ブロックチェーン・ネットワークから送信された IoT データを分析する IoT アプリケーションと IoT ダッシュボードを作成する
 
 English version: https://developer.ibm.com/patterns/iot-dashboards-analyze-data-blockchain-network
-  ソースコード: https://github.com/IBM/Using-IOT-toProcess-BlockchainAnalytics
+  
+ソースコード: https://github.com/IBM/Using-IOT-toProcess-BlockchainAnalytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-05-01

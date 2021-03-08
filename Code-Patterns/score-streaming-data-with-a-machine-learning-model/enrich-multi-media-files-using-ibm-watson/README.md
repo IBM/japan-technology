@@ -3,7 +3,8 @@
 ### IBM Watson の複数のサービスを利用して、音声と画像のファイルをエンリッチするアプリを構築する
 
 English version: https://developer.ibm.com/patterns/score-streaming-data-with-a-machine-learning-model/enrich-multi-media-files-using-ibm-watson
-  ソースコード: https://github.com/IBM/watson-multimedia-analyzer
+  
+ソースコード: https://github.com/IBM/watson-multimedia-analyzer
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-06-20

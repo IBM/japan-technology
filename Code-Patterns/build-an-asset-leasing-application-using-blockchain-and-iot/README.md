@@ -3,7 +3,8 @@
 ### IBM Blockchain Platform の VS Code 拡張機能を使用してローカル Hyperledger Fabric ネットワークを作成する
 
 English version: https://developer.ibm.com/patterns/build-an-asset-leasing-application-using-blockchain-and-iot
-  ソースコード: https://github.com/IBM/assetTracking
+  
+ソースコード: https://github.com/IBM/assetTracking
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-05-20

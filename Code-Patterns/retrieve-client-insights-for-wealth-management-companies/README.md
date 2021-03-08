@@ -3,7 +3,8 @@
 ### Jupyter Notebook を使用して Client Insight for Wealth Management サービスについて探り、このサービスを利用する Web アプリケーションを作成する
 
 English version: https://developer.ibm.com/patterns/retrieve-client-insights-for-wealth-management-companies
-  ソースコード: https://github.com/IBM/client-insight-wealth-management
+  
+ソースコード: https://github.com/IBM/client-insight-wealth-management
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

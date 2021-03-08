@@ -3,7 +3,8 @@
 ### Ethereum の Web3 および Solidity スマート・コントラクトに、Hyperledger でホストされた Fabric およびチェーンコード EVM を統合する分散型アプリを構築する
 
 English version: https://developer.ibm.com/patterns/voting-app-hyperledger-ethereum
-  ソースコード: https://github.com/IBM/vote-hyperledger-ethereum
+  
+ソースコード: https://github.com/IBM/vote-hyperledger-ethereum
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-11-14

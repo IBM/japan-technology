@@ -3,7 +3,8 @@
 ### ブロックチェーン、IoT デバイス、Node-RED と、IoT 資産追跡デバイスを使用してサプライ・チェーンを改善する
 
 English version: https://developer.ibm.com/patterns/develop-an-iot-asset-tracking-app-using-blockchain
-  ソースコード: https://github.com/IBM/IoT-AssetTracking-Perishable-Network-Blockchain
+  
+ソースコード: https://github.com/IBM/IoT-AssetTracking-Perishable-Network-Blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-22

@@ -3,6 +3,7 @@
 ### モデルの脆弱性を見つけるために、Jupyter Notebook を使用してニューラル・ネットワーク・モデルのトレーニング・パイプラインに Adversarial Robustness Toolbox を統合する
 
 English version: https://developer.ibm.com/patterns/integrate-adversarial-attacks-model-training-pipeline
+
 ソースコード: https://github.com/IBM/FfDL/tree/master/demos/fashion-mnist-adversarial
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

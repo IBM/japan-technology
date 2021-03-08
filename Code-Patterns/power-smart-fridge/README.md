@@ -3,7 +3,8 @@
 ### ネットワークに接続されたスマート冷蔵庫が自身の修理サービスと交換用パーツをリクエストできるようにする
 
 English version: https://developer.ibm.com/patterns/power-smart-fridge
-  ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-iot-openfridge?cm_sp=IBMCode-_-power-smart-fridge-_-Get-the-Code
+  
+ソースコード: https://github.com/IBM/ibm-cloud-functions-serverless-iot-openfridge?cm_sp=IBMCode-_-power-smart-fridge-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-07-25

@@ -3,7 +3,8 @@
 ### IBM Cloud Pak for Data 上で Watson Machine Learning と Jupyter Notebook を利用してカスタマー・チャーンを予測する
 
 English version: https://developer.ibm.com/patterns/data-analysis-model-building-and-deploying-with-wml
-  ソースコード: https://github.com/IBM/telco-customer-churn-on-icp4d
+  
+ソースコード: https://github.com/IBM/telco-customer-churn-on-icp4d
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-10-04

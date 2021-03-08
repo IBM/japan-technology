@@ -3,7 +3,8 @@
 ### Eclipse MicroProfile を使用した Open Liberty アプリケーションを Kubernetes 上にデプロイする
 
 English version: https://developer.ibm.com/patterns/build-fault-tolerant-microservices-with-java
-  ソースコード: https://github.com/IBM/java-microprofile-fault-monitoring
+  
+ソースコード: https://github.com/IBM/java-microprofile-fault-monitoring
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-06-27

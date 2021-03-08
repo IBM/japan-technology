@@ -3,7 +3,8 @@
 ### 労働力の減少を分析する学習モデルを作成する
 
 English version: https://developer.ibm.com/patterns/data-science-life-cycle-in-action-to-solve-employee-attrition-problem
-  ソースコード: 'https://github.com/IBM/employee-attrition-aif360'
+  
+ソースコード: 'https://github.com/IBM/employee-attrition-aif360'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2020-03-28'

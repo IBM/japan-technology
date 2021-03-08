@@ -3,7 +3,8 @@
 ### IBM Blockchain Platform と IBM Kubernetes Service を利用して、Web ベースのブロックチェーン対応投票アプリを作成する
 
 English version: https://developer.ibm.com/patterns/how-to-create-a-secure-e-voting-application-on-hyperledger-fabric
-  ソースコード: https://github.com/IBM/evote
+  
+ソースコード: https://github.com/IBM/evote
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-07-10

@@ -3,6 +3,7 @@
 ### 画像をダウンロードするサンプル Swift アプリ内で Cloud Object Storage を利用する
 
 English version: https://developer.ibm.com/patterns/mobile-applications-cloud-object-storage
+
 ソースコード: https://github.com/IBM/swift-cloud-object-storage-example
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

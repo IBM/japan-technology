@@ -3,6 +3,7 @@
 ### 最新のニュース記事をマイニングして、製品、ブランド、または価格変動に関するカスタム・アラートを送信する
 
 English version: https://developer.ibm.com/patterns/create-cognitive-news-alerting-app
+
 ソースコード: https://github.com/IBM/watson-discovery-news-alerting
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

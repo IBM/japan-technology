@@ -3,7 +3,8 @@
 ### Kubernetes の能力を最大限に活用して、IBM Cloud Kubernetes Service から WordPress をホストする
 
 English version: https://developer.ibm.com/patterns/scalable-wordpress-on-kubernetes
-  ソースコード: https://github.com/IBM/scalable-wordpress-deployment-on-kubernetes?cm_sp=IBMCode-_-scalable-wordpress-on-kubernetes-_-Get-the-Code
+  
+ソースコード: https://github.com/IBM/scalable-wordpress-deployment-on-kubernetes?cm_sp=IBMCode-_-scalable-wordpress-on-kubernetes-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-07-09

@@ -3,7 +3,8 @@
 ### MicroProfile を使用してJava マイクロサービスを作成し、Kubernetes 上にデプロイする
 
 English version: https://developer.ibm.com/patterns/deploy-microprofile-java-microservices-on-kubernetes
-  ソースコード: https://github.com/IBM/Java-MicroProfile-on-Kubernetes
+  
+ソースコード: https://github.com/IBM/Java-MicroProfile-on-Kubernetes
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-27

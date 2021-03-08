@@ -3,7 +3,8 @@
 ### モニタリング・データを IBM Cloud 上の Watson IoT Platform に送信するデバイスを搭載した基本的なコンベヤー・ベルトを作成する
 
 English version: https://developer.ibm.com/patterns/build-monitor-iot-driven-conveyor-belt
-  ソースコード: https://github.com/IBM/guide-conveyor-simulator
+  
+ソースコード: https://github.com/IBM/guide-conveyor-simulator
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-03

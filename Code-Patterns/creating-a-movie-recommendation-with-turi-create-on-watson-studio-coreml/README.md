@@ -3,7 +3,8 @@
 ### Apple の Turi Create を使用して、マシン上で迅速にレコメンデーション・システムを作成する
 
 English version: https://developer.ibm.com/patterns/creating-a-movie-recommendation-with-turi-create-on-watson-studio-coreml
-  ソースコード: https://github.com/IBM/turi-create-movie-recommender
+  
+ソースコード: https://github.com/IBM/turi-create-movie-recommender
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-07-31

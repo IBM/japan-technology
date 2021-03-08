@@ -3,7 +3,8 @@
 ### Tesseract OCR で画像を取り込んでテキストを抽出し、Watson Language Translator を利用して翻訳する
 
 English version: https://developer.ibm.com/patterns/snap-translate-using-tesseract-ocr-watson-language-translator
-  ソースコード: https://github.com/IBM/snap-and-translate
+  
+ソースコード: https://github.com/IBM/snap-and-translate
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-17

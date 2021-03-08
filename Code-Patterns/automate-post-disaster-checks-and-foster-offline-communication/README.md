@@ -3,6 +3,7 @@
 ### 視覚認識によって航空画像から S.O.S. メッセージを検出する
 
 English version: https://developer.ibm.com/patterns/automate-post-disaster-checks-and-foster-offline-communication
+
 ソースコード: https://github.com/code-and-response/droneaid
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

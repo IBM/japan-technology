@@ -3,7 +3,8 @@
 ### IBM Transformation Advisor を使用したアプリのモダナイゼーション
 
 English version: https://developer.ibm.com/patterns/modernize-apps-with-ibm-transformation-advisor
-  ソースコード: https://github.com/IBM/migrate-app-to-openshift-using-cp4a
+  
+ソースコード: https://github.com/IBM/migrate-app-to-openshift-using-cp4a
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-08-25

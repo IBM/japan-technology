@@ -3,6 +3,7 @@
 ### Transformation Advisor ツールと Microclimate 開発環境を使用してアプリを現代化する
 
 English version: https://developer.ibm.com/patterns/app-modernization-transformation-advisor-cloud-private
+
 ソースコード: https://github.com/IBM/appmod-resorts
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

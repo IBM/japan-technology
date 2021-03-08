@@ -3,7 +3,8 @@
 ### TLS と Istio ベースのサービス・メッシュを使用して、マイクロサービス間の相互作用をセキュリティーで保護する
 
 English version: https://developer.ibm.com/patterns/microservices-with-the-openshift-service-mesh
-  ソースコード: https://github.com/IBM/example-bank/blob/service-mesh/mesh-pattern.md
+  
+ソースコード: https://github.com/IBM/example-bank/blob/service-mesh/mesh-pattern.md
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-09-17

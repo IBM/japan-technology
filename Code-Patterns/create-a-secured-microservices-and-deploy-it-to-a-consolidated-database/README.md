@@ -3,7 +3,8 @@
 ### 鍵管理ソリューションをデータベース・バックエンドにリンクする
 
 English version: https://developer.ibm.com/patterns/create-a-secured-microservices-and-deploy-it-to-a-consolidated-database
-  ソースコード: https://github.com/IBM/secured-microservices-writing-to-a-consolidated-database
+  
+ソースコード: https://github.com/IBM/secured-microservices-writing-to-a-consolidated-database
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-02-10

@@ -3,7 +3,8 @@
 ### Kubernetes を使用してコンテナー化された PostgreSQL データベースをセットアップし、そのデータベースを Hyperledger Fabric ウォレットとして構成する
 
 English version: https://developer.ibm.com/patterns/blockchain-postgres-fabric-certificate-wallet
-  ソースコード: https://github.com/IBM/fabric-postgres-wallet
+  
+ソースコード: https://github.com/IBM/fabric-postgres-wallet
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-09-17

@@ -3,7 +3,8 @@
 ### AWS SageMaker で機械学習モデルを作成し、Watson OpenScale を利用してペイロードのロギングとモデルの公正さをモニタリングする
 
 English version: https://developer.ibm.com/patterns/monitor-amazon-sagemaker-machine-learning-models-with-ai-openscale
-  ソースコード: 'https://github.com/IBM/monitor-sagemaker-ml-with-watson-openscale'
+  
+ソースコード: 'https://github.com/IBM/monitor-sagemaker-ml-with-watson-openscale'
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2019-01-29'

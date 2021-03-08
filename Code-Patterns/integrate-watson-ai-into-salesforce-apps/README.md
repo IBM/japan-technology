@@ -3,7 +3,8 @@
 ### Watson Visual Recognition、Watson Discovery、Watson Tone Analyzer の API を呼び出す
 
 English version: https://developer.ibm.com/patterns/integrate-watson-ai-into-salesforce-apps
-  ソースコード: https://github.com/IBM/watson-and-salesforce
+  
+ソースコード: https://github.com/IBM/watson-and-salesforce
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-02-20

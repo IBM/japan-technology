@@ -3,7 +3,8 @@
 ### IoT センサー、Raspberry Pi ゲートウェイ、MQTT、Watslon IoT Platform を使用して資産とデバイス・データを追跡し、Leaflet と ArcGIS でデータを視覚化して地図上に表示する
 
 English version: https://developer.ibm.com/patterns/tracking-assets-visualizing-sensor-data-lorawan-iot
-  ソースコード: https://github.com/IBM/iot-mapping
+  
+ソースコード: https://github.com/IBM/iot-mapping
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-11-02

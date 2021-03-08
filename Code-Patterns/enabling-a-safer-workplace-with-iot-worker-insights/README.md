@@ -3,7 +3,8 @@
 ### Maximo Worker Insights を利用して、環境条件と従業員の生体条件をモニタリングする
 
 English version: https://developer.ibm.com/patterns/enabling-a-safer-workplace-with-iot-worker-insights
-  ソースコード: https://github.com/IBM/worker-insights
+  
+ソースコード: https://github.com/IBM/worker-insights
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-02-05

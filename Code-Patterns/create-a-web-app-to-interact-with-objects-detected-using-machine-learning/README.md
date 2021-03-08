@@ -3,7 +3,8 @@
 ### Web アプリケーション内でオープンソースのオブジェクト検出器深層学習モデルを使用し、画像から認識されたオブジェクトをフィルタリングする
 
 English version: https://developer.ibm.com/patterns/create-a-web-app-to-interact-with-objects-detected-using-machine-learning
-  ソースコード: https://github.com/IBM/MAX-Object-Detector-Web-App
+  
+ソースコード: https://github.com/IBM/MAX-Object-Detector-Web-App
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

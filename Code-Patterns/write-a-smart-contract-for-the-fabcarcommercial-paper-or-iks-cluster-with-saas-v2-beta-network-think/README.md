@@ -3,7 +3,8 @@
 ### Vue.js クライアントで Node.js API を使用してネットワークとやり取りする
 
 English version: https://developer.ibm.com/patterns/write-a-smart-contract-for-the-fabcarcommercial-paper-or-iks-cluster-with-saas-v2-beta-network-think
-  ソースコード: https://github.com/IBM/fabcar-blockchain-sample
+  
+ソースコード: https://github.com/IBM/fabcar-blockchain-sample
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-06-17

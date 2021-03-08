@@ -3,7 +3,8 @@
 ### コードを 1 行も作成せずに、GAN モデルを定義し、ファッション画像を生成する DCGAN モデルを実装する
 
 English version: https://developer.ibm.com/patterns/supplement-nnm-in-watson-studio-for-gan-model-with-configuration-no-code
-  ソースコード: https://github.com/IBM/gan-toolkit-pattern
+  
+ソースコード: https://github.com/IBM/gan-toolkit-pattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-12-04

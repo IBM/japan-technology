@@ -3,7 +3,8 @@
 ### Keras を使用して、ユーザーが送信した申請書の画像を分析する
 
 English version: https://developer.ibm.com/patterns/image-classification-using-cnn-in-keras
-  ソースコード: https://github.com/IBM/image-classification-using-cnn-and-keras
+  
+ソースコード: https://github.com/IBM/image-classification-using-cnn-and-keras
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-07

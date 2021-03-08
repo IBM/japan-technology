@@ -3,7 +3,8 @@
 ### IBM StoredIQ で Connector API SDK を使用して、新しいデータ・ソースのカスタム・コネクターを作成する
 
 English version: https://developer.ibm.com/patterns/add-new-data-sources-to-ibm-storediq-using-the-connector-api-sdk
-  ソースコード: https://github.com/IBM/connector-for-storediq/
+  
+ソースコード: https://github.com/IBM/connector-for-storediq/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-07

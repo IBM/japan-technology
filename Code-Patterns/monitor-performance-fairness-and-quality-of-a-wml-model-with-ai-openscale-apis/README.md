@@ -3,7 +3,8 @@
 ### Watson Machine Learning デプロイメント用のデータマートを作成する
 
 English version: https://developer.ibm.com/patterns/monitor-performance-fairness-and-quality-of-a-wml-model-with-ai-openscale-apis
-  ソースコード: https://github.com/IBM/monitor-wml-model-with-watson-openscale
+  
+ソースコード: https://github.com/IBM/monitor-wml-model-with-watson-openscale
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-15

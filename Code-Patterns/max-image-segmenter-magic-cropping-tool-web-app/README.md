@@ -3,7 +3,8 @@
 ### 事前にトレーニングされたオープンソースのモデルを使用して、深層学習駆動型の「マジック・トリミング・ツール」をデプロイする
 
 English version: https://developer.ibm.com/patterns/max-image-segmenter-magic-cropping-tool-web-app
-  ソースコード: https://github.com/IBM/MAX-Image-Segmenter-Web-App
+  
+ソースコード: https://github.com/IBM/MAX-Image-Segmenter-Web-App
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

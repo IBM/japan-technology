@@ -3,7 +3,8 @@
 ### Watson Studio と Python データ・サイエンス・パッケージを使用して傾向の特定と予測を行う
 
 English version: https://developer.ibm.com/patterns/analyze-large-data-sets-iot-lorawan
-  ソースコード: https://github.com/IBM/smart-city-analytics
+  
+ソースコード: https://github.com/IBM/smart-city-analytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-11-28

@@ -3,7 +3,8 @@
 ### Alexa と Watson を使用して天気について話し合い、会話を組み立てるか、ライブラリーから会話を選択する
 
 English version: https://developer.ibm.com/patterns/create-an-alexa-skill-with-serverless-and-a-conversation
-  ソースコード: https://github.com/IBM/alexa-skill-watson-conversation
+  
+ソースコード: https://github.com/IBM/alexa-skill-watson-conversation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-07-16

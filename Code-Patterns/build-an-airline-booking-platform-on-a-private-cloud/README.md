@@ -3,6 +3,7 @@
 ### Node.js をベースに、マイクロサービス・アーキテクチャーを使用したサンプル・フライト予約アプリケーションを作成し、作成したアプリケーションを IBM Cloud Private 上にデプロイする
 
 English version: https://developer.ibm.com/patterns/build-an-airline-booking-platform-on-a-private-cloud
+
 ソースコード: https://github.com/IBM/icp-airways
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

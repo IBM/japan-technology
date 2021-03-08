@@ -3,7 +3,8 @@
 ### おすすめ、予約、イベント計画に対応する Swift ベースのモバイル・チャットボットを作成する
 
 English version: https://developer.ibm.com/patterns/build-a-cognitive-recommendation-app-with-swift
-  ソースコード: https://github.com/IBM/CognitiveConcierge
+  
+ソースコード: https://github.com/IBM/CognitiveConcierge
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-08-02

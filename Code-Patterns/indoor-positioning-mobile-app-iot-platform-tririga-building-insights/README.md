@@ -3,7 +3,8 @@
 ### TRIRIGA、Kubernetes、Weather Company API を使用してカスタム認知アプリケーションを構築し、デプロイする
 
 English version: https://developer.ibm.com/patterns/indoor-positioning-mobile-app-iot-platform-tririga-building-insights
-  ソースコード: https://github.com/IBM/tririga-indoor-positioning
+  
+ソースコード: https://github.com/IBM/tririga-indoor-positioning
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-22

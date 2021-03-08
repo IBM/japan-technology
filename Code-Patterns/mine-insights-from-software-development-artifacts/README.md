@@ -3,7 +3,8 @@
 ### 十分な情報に基づいた意思決定を支援するために、非構造化データを分析して洞察力を生み出す網羅的なアナリティクス・ソリューションを構築する
 
 English version: https://developer.ibm.com/patterns/mine-insights-from-software-development-artifacts
-  ソースコード: https://github.com/IBM/engineering-insights-composite-pattern
+  
+ソースコード: https://github.com/IBM/engineering-insights-composite-pattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-01-17

@@ -3,6 +3,7 @@
 ### OpenWhisk 関数内で稼働する TensorFlow を使用して、トイ・ロボットに視覚認識スキルを備える
 
 English version: https://developer.ibm.com/patterns/visual-recognition-with-tensorflow-and-openwhisk
+
 ソースコード: https://github.com/IBM/visual-recognition-for-cozmo-with-tensorflow
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

@@ -3,7 +3,8 @@
 ### 自然言語サービスと OpenWhisk を利用して、音声作動式のサーバーレス・ホーム・オートメーション・ハブを構築する
 
 English version: https://developer.ibm.com/patterns/implement-voice-controls-for-serverless-home-automation-hub
- ソースコード: https://github.com/IBM/serverless-home-automation
+ 
+ソースコード: https://github.com/IBM/serverless-home-automation
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-07-18

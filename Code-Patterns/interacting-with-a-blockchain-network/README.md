@@ -3,7 +3,8 @@
 ### ブロックチェーン・ネットワークとそのルールをテストするアプリを作成して、ネットワークに対してトランザクションとリクエストを実行する
 
 English version: https://developer.ibm.com/patterns/interacting-with-a-blockchain-network
-  ソースコード: https://github.com/IBM/InteractingWithABlockchainNetwork
+  
+ソースコード: https://github.com/IBM/InteractingWithABlockchainNetwork
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-06-14

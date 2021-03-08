@@ -3,7 +3,8 @@
 ### プライベート・クラスターとパブリック Kubernetes クラスター間でサービスを接続してハイブリッド・クラウドを構成する
 
 English version: https://developer.ibm.com/patterns/istio-for-multi-clusters-across-iks-and-icp
-  ソースコード: https://github.com/IBM/istio-hybrid/
+  
+ソースコード: https://github.com/IBM/istio-hybrid/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-05

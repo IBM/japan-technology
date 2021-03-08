@@ -3,7 +3,8 @@
 ### 音声をテキストに書き起こす、多言語対応の Web アプリを作成する
 
 English version: https://developer.ibm.com/patterns/transcribe-audio-in-real-time-or-from-an-audio-file
-  ソースコード: https://github.com/IBM/speech-to-text-code-pattern
+  
+ソースコード: https://github.com/IBM/speech-to-text-code-pattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-07-09

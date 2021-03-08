@@ -3,7 +3,8 @@
 ### 商品のレビューを Watson Natural Language Understanding によって評価し、その結果に基づいてコグニティブによる決定を下す Node.js アプリを作成する
 
 English version: https://developer.ibm.com/patterns/analyze-product-reviews-and-generate-a-shopping-guide
-  ソースコード: https://github.com/IBM/watson-second-opinion
+  
+ソースコード: https://github.com/IBM/watson-second-opinion
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-06-16

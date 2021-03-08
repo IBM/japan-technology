@@ -3,7 +3,8 @@
 ### IBM Cloud、Watson サービス、Watson Studio、そしてオープンソース・テクノロジーを利用して、各種のビジネス領域で生成された非構造化テキスト・コンテンツから洞察を引き出す
 
 English version: https://developer.ibm.com/patterns/build-a-domain-specific-knowledge-graph-from-given-set-of-documents
-  ソースコード: https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/
+  
+ソースコード: https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-14

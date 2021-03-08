@@ -3,6 +3,7 @@
 ### IBM PowerAI 上で Google TensorFlow を使用して、機械学習アルゴリズムを迅速にトレーニングする
 
 English version: https://developer.ibm.com/patterns/accelerate-training-of-machine-learning-algorithms
+
 ソースコード: https://github.com/IBM/powerai-market-sentiment
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

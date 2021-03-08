@@ -3,7 +3,8 @@
 ### ブロックチェーンの使用ケースで、国際金融対応の Node.js スマート・コントラクトと Web アプリをデプロイする
 
 English version: https://developer.ibm.com/patterns/global-financing-use-case-for-blockchain
-  ソースコード: https://github.com/IBM/global-financing-blockchain
+  
+ソースコード: https://github.com/IBM/global-financing-blockchain
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-12-19

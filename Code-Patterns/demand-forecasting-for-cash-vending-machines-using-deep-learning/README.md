@@ -3,7 +3,8 @@
 ### IBM Watson を利用して ATM の需要を予測する
 
 English version: https://developer.ibm.com/patterns/demand-forecasting-for-cash-vending-machines-using-deep-learning
-  ソースコード: https://github.com/IBM/forecast-demand-for-vending-machines
+  
+ソースコード: https://github.com/IBM/forecast-demand-for-vending-machines
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-02-11

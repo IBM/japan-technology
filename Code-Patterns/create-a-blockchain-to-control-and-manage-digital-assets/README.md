@@ -3,7 +3,8 @@
 ### システム内に維持されたデジタル資産に対してシステムの登録ユーザーが行うトランザクションを管理する
 
 English version: https://developer.ibm.com/patterns/create-a-blockchain-to-control-and-manage-digital-assets
-  ソースコード: https://github.com/bmos299/Blockchain-for-maintaining-Digital-Assets
+  
+ソースコード: https://github.com/bmos299/Blockchain-for-maintaining-Digital-Assets
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-01-20

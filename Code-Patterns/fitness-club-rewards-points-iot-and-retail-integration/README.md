@@ -3,7 +3,8 @@
 ### Hyperledger Fabric を使用してメンバー・リワードを追跡、記録する Web アプリを構築する
 
 English version: https://developer.ibm.com/patterns/fitness-club-rewards-points-iot-and-retail-integration
-  ソースコード: https://github.com/IBM/Using-Blockchain-to-Track-fitness-Rewards
+  
+ソースコード: https://github.com/IBM/Using-Blockchain-to-Track-fitness-Rewards
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:	2018-10-27

@@ -3,6 +3,7 @@
 ### サーバーレス関数とオンプレミス・リソース間のやりとりを可能にする Secure Gateway トンネルを作成する
 
 English version: https://developer.ibm.com/patterns/securely-integrate-serverless-functions-with-on-premises-resources
+
 ソースコード: https://github.com/IBM/ibm-cloud-functions-with-on-prem-resources
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

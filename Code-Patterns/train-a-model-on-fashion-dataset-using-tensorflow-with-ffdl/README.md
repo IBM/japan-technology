@@ -3,7 +3,8 @@
 ### TensorFlow と Fabric for Deep Learning を利用し、Fashion MNIST モデルをトレーニングして Kubernetes 上にデプロイする
 
 English version: https://developer.ibm.com/patterns/train-a-model-on-fashion-dataset-using-tensorflow-with-ffdl
-  ソースコード: https://github.com/IBM/FfDL/tree/master/demos/fashion-mnist-training
+  
+ソースコード: https://github.com/IBM/FfDL/tree/master/demos/fashion-mnist-training
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-28

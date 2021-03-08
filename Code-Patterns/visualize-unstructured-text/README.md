@@ -3,7 +3,8 @@
 ### 強力なアナリティクス・エンジンによってデータにコグニティブ・エンリッチを適用し、洞察を引き出す
 
 English version: https://developer.ibm.com/patterns/visualize-unstructured-text
-  ソースコード: https://github.com/IBM/visualize-unstructured-data-with-watson
+  
+ソースコード: https://github.com/IBM/visualize-unstructured-data-with-watson
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-12-28

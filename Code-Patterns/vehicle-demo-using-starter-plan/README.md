@@ -3,6 +3,7 @@
 ### Hyperledger Composer API を使用して自動車製造プログラムと Node.js Web アプリを作成する
 
 English version: https://developer.ibm.com/patterns/vehicle-demo-using-starter-plan
+
 ソースコード: https://github.com/IBM-Blockchain/vehicle-manufacture
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

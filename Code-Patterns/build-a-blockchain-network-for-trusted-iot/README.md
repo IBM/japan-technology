@@ -3,7 +3,8 @@
 ### Hyperledger Fabric と Node-RED を使用して、IoT データのセキュリティーを確保するブロックチェーン・ネットワークを作成する
 
 English version: https://developer.ibm.com/patterns/build-a-blockchain-network-for-trusted-iot
-  ソースコード: https://github.com/IBM/Hyperledger-Fabric-for-Trusted-IoT
+  
+ソースコード: https://github.com/IBM/Hyperledger-Fabric-for-Trusted-IoT
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-08-01

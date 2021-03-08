@@ -3,7 +3,8 @@
 ### Python NLTK ツールキットと IBM DSX を使って、望ましいテキスト分類結果を得る
 
 English version: https://developer.ibm.com/patterns/extend-watson-text-classification
-  ソースコード: https://github.com/IBM/watson-document-classifier
+  
+ソースコード: https://github.com/IBM/watson-document-classifier
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-06-28

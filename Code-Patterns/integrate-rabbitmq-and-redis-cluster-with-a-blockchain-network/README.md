@@ -3,7 +3,8 @@
 ### 膨大な数のリクエストを処理できるようにアプリケーションを最適化してスケーリングする
 
 English version: https://developer.ibm.com/patterns/integrate-rabbitmq-and-redis-cluster-with-a-blockchain-network
-  ソースコード: https://github.com/IBM/Leveraging-cache-and-MessagingQueue-to-scale-BlockchainNetwork
+  
+ソースコード: https://github.com/IBM/Leveraging-cache-and-MessagingQueue-to-scale-BlockchainNetwork
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-18

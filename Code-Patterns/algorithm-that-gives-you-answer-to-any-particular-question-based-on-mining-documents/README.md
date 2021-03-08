@@ -3,7 +3,8 @@
 ### 'Watson NLU、Python NLTK、IBM Watson Studio を利用して、ビジネス領域に固有のドキュメントに関する質問をナレッジ・ベースでクエリーし、必要な答えを得る'
 
 English version: https://developer.ibm.com/patterns/algorithm-that-gives-you-answer-to-any-particular-question-based-on-mining-documents
-  ソースコード: https://github.com/IBM/query-knowledge-base-with-domain-specific-documents/
+  
+ソースコード: https://github.com/IBM/query-knowledge-base-with-domain-specific-documents/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-09-17'

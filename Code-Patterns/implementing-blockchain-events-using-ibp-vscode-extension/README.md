@@ -3,7 +3,8 @@
 ### Fabcar 使用ケースを拡張してイベントを処理するデモ・アプリケーション
 
 English version: https://developer.ibm.com/patterns/implementing-blockchain-events-using-ibp-vscode-extension
-  ソースコード: https://github.com/IBM/auction-events
+  
+ソースコード: https://github.com/IBM/auction-events
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-08

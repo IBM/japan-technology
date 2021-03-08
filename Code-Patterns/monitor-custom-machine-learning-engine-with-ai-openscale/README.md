@@ -3,7 +3,8 @@
 ### Docker と Kubernetes を使用してカスタム機械学習エンジンをデプロイし、Watson OpenScale を利用してペイロードのロギングとモデルの公正さをモニタリングする
 
 English version: https://developer.ibm.com/patterns/monitor-custom-machine-learning-engine-with-ai-openscale
-  ソースコード: https://github.com/IBM/monitor-custom-ml-engine-with-watson-openscale
+  
+ソースコード: https://github.com/IBM/monitor-custom-ml-engine-with-watson-openscale
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-01-24

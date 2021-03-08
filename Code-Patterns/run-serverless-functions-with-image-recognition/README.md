@@ -3,6 +3,7 @@
 ### 画像をデータベースにアップロードすると同時にサーバーレス関数で分類する
 
 English version: https://developer.ibm.com/patterns/run-serverless-functions-with-image-recognition
+
 ソースコード: https://github.com/IBM/ibm-cloud-functions-refarch-serverless-image-recognition
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。

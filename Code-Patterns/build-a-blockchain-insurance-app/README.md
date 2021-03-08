@@ -3,7 +3,8 @@
 ### Hyperledger Fabric を使用して、Web ベースのブロックチェーン対応の保険アプリケーションを構築する
 
 English version: https://developer.ibm.com/patterns/build-a-blockchain-insurance-app
-  ソースコード: https://github.com/IBM/build-blockchain-insurance-app
+  
+ソースコード: https://github.com/IBM/build-blockchain-insurance-app
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-12-11

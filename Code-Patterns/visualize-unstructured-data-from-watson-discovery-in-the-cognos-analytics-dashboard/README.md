@@ -3,7 +3,8 @@
 ### Watson Discovery で非構造化データから引き出した洞察を Cognos Analytics ダッシュボード内で視覚化する
 
 English version: https://developer.ibm.com/patterns/visualize-unstructured-data-from-watson-discovery-in-the-cognos-analytics-dashboard
-  ソースコード: https://github.com/IBM/cognos-analytics-using-unstructured-data
+  
+ソースコード: https://github.com/IBM/cognos-analytics-using-unstructured-data
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-06-04

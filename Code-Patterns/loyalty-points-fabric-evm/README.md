@@ -3,7 +3,8 @@
 ### EVM を使用して Fabric をローカルにデプロイし、Node.js Web アプリを介してスマート・コントラクトとやり取りするプロキシーを作成する
 
 English version: https://developer.ibm.com/patterns/loyalty-points-fabric-evm
-  ソースコード: https://github.com/IBM/loyalty-points-evm-fabric
+  
+ソースコード: https://github.com/IBM/loyalty-points-evm-fabric
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:	2018-11-14

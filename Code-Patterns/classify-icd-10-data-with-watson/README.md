@@ -3,7 +3,8 @@
 ### Watson Natural Language Classifier を利用して医学的分類コードにタグを付ける
 
 English version: https://developer.ibm.com/patterns/classify-icd-10-data-with-watson
-  ソースコード: https://github.com/IBM/nlc-icd10-classifier
+  
+ソースコード: https://github.com/IBM/nlc-icd10-classifier
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-08-02

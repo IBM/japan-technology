@@ -3,7 +3,8 @@
 ### Hyperledger Composer Playground と Hyperledger Composer REST サーバーを使用して、IBM Blockchain Platform 上でブロックチェーン・ネットワークを作成、構成、操作する
 
 English version: https://developer.ibm.com/patterns/track-donations-blockchain
-  ソースコード: https://github.com/IBM/global-citizen
+  
+ソースコード: https://github.com/IBM/global-citizen
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-04-18

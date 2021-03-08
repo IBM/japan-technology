@@ -3,7 +3,8 @@
 ### Kubernetes を使用して、OrientDB をコンテナーとして迅速、簡単にデプロイする
 
 English version: https://developer.ibm.com/patterns/cloud-host-graph-database-using-kubernetes
-  ソースコード: https://github.com/IBM/deploy-graph-db-container
+  
+ソースコード: https://github.com/IBM/deploy-graph-db-container
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-11-09

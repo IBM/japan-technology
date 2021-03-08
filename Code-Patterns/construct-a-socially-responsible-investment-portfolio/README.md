@@ -3,7 +3,8 @@
 ### Portfolio Optimization サービスと、Investment Portfolio サービスからのデータを利用して、投資ポートフォリオを作成してリバランスを行う
 
 English version: https://developer.ibm.com/patterns/construct-a-socially-responsible-investment-portfolio
-  ソースコード: https://github.com/IBM/Portfolio-Optimize
+  
+ソースコード: https://github.com/IBM/Portfolio-Optimize
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:    2017-10-26

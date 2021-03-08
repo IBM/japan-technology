@@ -3,7 +3,8 @@
 ### z/OS で稼働するメインフレームに接続する Node.js アナリティクス Web アプリケーションを作成する
 
 English version: https://developer.ibm.com/patterns/creating-a-health-data-analytics-app-with-legacy-mainframe-code-and-cloud
-  ソースコード: https://github.com/IBM/example-health-analytics
+  
+ソースコード: https://github.com/IBM/example-health-analytics
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated:	2019-04-27

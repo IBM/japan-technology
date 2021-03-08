@@ -3,7 +3,8 @@
 ### Watson Natural Language Understanding を利用してカスタマー・レビューに込められた感情を分析する方法を学ぶ
 
 English version: https://developer.ibm.com/patterns/use-advanced-nlp-to-analyze-customers-reviews
-  ソースコード: https://github.com/IBM/customer-sentiment-on-seller-quality-nlu-cp4d
+  
+ソースコード: https://github.com/IBM/customer-sentiment-on-seller-quality-nlu-cp4d
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2020-03-25

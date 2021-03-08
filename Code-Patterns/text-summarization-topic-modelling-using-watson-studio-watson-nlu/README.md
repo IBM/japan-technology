@@ -3,7 +3,8 @@
 ### テキストを読む時間を短縮し、選択プロセスを容易にするとともに、インデックスの効果を高めるために、抽出型要約を利用する
 
 English version: https://developer.ibm.com/patterns/text-summarization-topic-modelling-using-watson-studio-watson-nlu
-  ソースコード: https://github.com/IBM/text-summarization-and-visualization-using-watson-studio
+  
+ソースコード: https://github.com/IBM/text-summarization-and-visualization-using-watson-studio
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-01-10

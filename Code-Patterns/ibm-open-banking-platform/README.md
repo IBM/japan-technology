@@ -3,7 +3,8 @@
 ### IBM Open Banking Platform を利用して、セキュアな決済処理に対応するファッション・リテール・サイトを作成する
 
 English version: https://developer.ibm.com/patterns/ibm-open-banking-platform
-  ソースコード: https://github.com/IBM/fashion-store
+  
+ソースコード: https://github.com/IBM/fashion-store
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-10-18

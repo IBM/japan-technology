@@ -3,7 +3,8 @@
 ### NAO ロボット、Watson Assistant API、Watson Studio を使用して、対話式インターフェースを作成する
 
 English version: https://developer.ibm.com/patterns/robotic-calculations-and-inference-agent
-  ソースコード: https://github.com/IBM/watson-nao-robot
+  
+ソースコード: https://github.com/IBM/watson-nao-robot
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2017-10-27

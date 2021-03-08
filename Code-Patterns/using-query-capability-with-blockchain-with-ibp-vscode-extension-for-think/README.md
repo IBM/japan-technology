@@ -3,7 +3,8 @@
 ### 特定のフィールドのすべての値とそれぞれの値が含まれているドキュメントを格納するリファレンスを作成する
 
 English version: https://developer.ibm.com/patterns/using-query-capability-with-blockchain-with-ibp-vscode-extension-for-think
-  ソースコード: https://github.com/IBM/queryPattern
+  
+ソースコード: https://github.com/IBM/queryPattern
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-03-27

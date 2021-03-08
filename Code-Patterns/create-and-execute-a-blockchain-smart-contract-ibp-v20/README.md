@@ -3,7 +3,8 @@
 ### Hyperledger Fabric と IBM Blockchain Platform Extension の VS Code 拡張機能を使用する
 
 English version: https://developer.ibm.com/patterns/create-and-execute-a-blockchain-smart-contract-ibp-v20
-  ソースコード: https://github.com/IBM/SmartContractTrading-wFabric1-4-VSCodeExt
+  
+ソースコード: https://github.com/IBM/SmartContractTrading-wFabric1-4-VSCodeExt
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2019-04-16

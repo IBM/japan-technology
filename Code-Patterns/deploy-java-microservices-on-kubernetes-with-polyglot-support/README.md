@@ -3,7 +3,8 @@
 ### 多言語エコシステム内の Kubernetes 上に Java マイクロサービスをデプロイする
 
 English version: https://developer.ibm.com/patterns/deploy-java-microservices-on-kubernetes-with-polyglot-support
-  ソースコード: https://github.com/IBM/GameOn-Java-Microservices-on-Kubernetes?cm_sp=IBMCode-_-deploy-java-microservices-on-kubernetes-with-polyglot-support-_-Get-the-Code
+  
+ソースコード: https://github.com/IBM/GameOn-Java-Microservices-on-Kubernetes?cm_sp=IBMCode-_-deploy-java-microservices-on-kubernetes-with-polyglot-support-_-Get-the-Code
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: 2018-09-03

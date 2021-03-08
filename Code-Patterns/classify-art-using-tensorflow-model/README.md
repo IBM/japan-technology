@@ -3,6 +3,7 @@
 ### メトロポリタン美術館のデータとラベルをプルして画像分類システムをトレーニングする
 
 English version: https://developer.ibm.com/patterns/classify-art-using-tensorflow-model
+
 ソースコード: https://github.com/IBM/tensorflow-kubernetes-art-classification
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
