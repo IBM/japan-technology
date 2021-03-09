@@ -3,6 +3,7 @@
 ### ローカルで選択した画像、または携帯端末のカメラで撮った画像を分類できる、クロスプラットフォームのアプリケーションを作成する
 
 English Version: https://developer.ibm.com/patterns/create-a-progressive-web-application-for-offline-image-classification/
+
 ソースコード: https://github.com/IBM/tfjs-web-app
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
