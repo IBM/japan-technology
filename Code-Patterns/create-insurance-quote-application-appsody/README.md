@@ -5,7 +5,6 @@ English version: https://developer.ibm.com/patterns/create-insurance-quote-appli
 
 ソースコード: https://github.com/IBM/appsody-sample-quote-app
 
-completed_date:	"2019-10-15"
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: "2019-10-15"
 
