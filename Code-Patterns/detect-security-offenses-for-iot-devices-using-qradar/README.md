@@ -3,6 +3,7 @@
 ### イベントをセキュアに登録、送信するために QRadar と Watson IoT Platform を統合する
 
 English version: https://developer.ibm.com/patterns/detect-security-offenses-for-iot-devices-using-qradar/
+
 ソースコード: "https://github.com/IBM/qradar-monitor-device-events/"
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
@@ -25,7 +26,7 @@ last_updated: '2018-10-01'
 
 ## フロー
 
-![フロー](../../images/arch-diagram.png)
+![フロー](./images/arch-diagram.png)
 
 1. Watson IoT Platform でのデバイス・イベントにサブスクライブします。
 1. Syslog クライアントを使用して RFC_3164 または RFC_5424 形式のメッセージを作成します。
