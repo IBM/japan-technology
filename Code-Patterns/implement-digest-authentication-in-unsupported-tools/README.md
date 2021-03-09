@@ -27,7 +27,7 @@ Digest 認証は、Web サーバーがユーザーを Web ブラウザーに対�
 
 ## フロー
 
-![フロー](../../images/architecture-flow.png)
+![フロー](./images/architecture-flow.png)
 
 1. ユーザーがクラウド上の IBM Integration Bus アプリケーションにリクエストを送信します。
 1. アプリケーションがユーザーから送信されたリクエストを、認証を要件とするサーバーに送信します。
