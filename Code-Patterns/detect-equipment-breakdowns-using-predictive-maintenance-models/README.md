@@ -2,6 +2,7 @@
 ### カスタム機械学習モデルを IBM Maximo に統合する
 
 Englilsh version: https://developer.ibm.com/patterns/detect-equipment-breakdowns-using-predictive-maintenance-models/
+
 ソースコード: https://github.com/IBM/maximo-predictive-maintenance
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
