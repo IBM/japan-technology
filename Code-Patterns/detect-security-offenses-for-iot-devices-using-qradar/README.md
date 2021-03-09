@@ -4,7 +4,7 @@
 
 English version: https://developer.ibm.com/patterns/detect-security-offenses-for-iot-devices-using-qradar/
 
-ソースコード: "https://github.com/IBM/qradar-monitor-device-events/"
+ソースコード: https://github.com/IBM/qradar-monitor-device-events/
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 last_updated: '2018-10-01'
