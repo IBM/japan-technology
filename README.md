@@ -10,3 +10,7 @@ IBM Developerの最新情報は https://developer.ibm.com/ にアクセスし、
 
 コンテンツの検索は、画面左上の Search or jump to... と書かれたテキストボックスをご利用できます。またパターンのURLをご存知であれば、URLに含まれるキーワードを Go to fileで検索できます。
 
+旧developerWorks Japanで公開されていたWebSphere Application Server関連の日本語資料については、以下のIBM Communityサイトで公開されています
+https://ibm.biz/JapanWebSphereUG (Japan WebSphere User Group)
+
+
