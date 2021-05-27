@@ -3,7 +3,7 @@
 IBM SPSS Modeler30日間無料トライアルの期間中に、需要予測を体感いただけます。
 通常のハンズオンガイドに加えて、ご利用ください。販売実績・地域イベント・気象データから飲料製品の販売数量を予測します。
 
-[SPSSトライアルダウンロード](https://www.ibm.com/account/reg/signup?formid=urx-19947)
+[SPSS Modelerトライアルダウンロード](https://www.ibm.com/account/reg/signup?formid=urx-19947)
 
  [『トライアルキット』ダウンロード](https://github.com/IBM/japan-technology/blob/main/webinars/SPSS/spss_modeler%20demand_analytics_trial_kit.zip)
  
