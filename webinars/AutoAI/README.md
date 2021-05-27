@@ -17,4 +17,4 @@ AIモデル開発がいかに効率化されるのか、ぜひお確かめくだ
 
 [ワークファイル 2 json](https://raw.githubusercontent.com/IBM/japan-technology/main/webinars/AutoAI/bank-market-test_96031096JPJA.json)
 
-※「AutoAI」についてもっと知りたい方は、[オンデマンド](https://event.on24.com/wcc/r/2047086/6C2AC7AA5B635A406CA1EC9A19E2D2D9?partnerref=github)で受講いただけます。
+※「AutoAI」についてもっと知りたい方は、[AIのためのAI - AIモデル構築を自動化するAutoAI / NeuNetS](https://event.on24.com/wcc/r/2047086/6C2AC7AA5B635A406CA1EC9A19E2D2D9?partnerref=github)で受講いただけます。
