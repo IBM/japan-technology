@@ -7,4 +7,4 @@ IBM SPSS Modeler30日間無料トライアルの期間中に、需要予測を�
 過去の実績データから将来の需要を推測し、迅速に最善のアクションを取ることで収益を最大化します。
 国内シェアNo.1の予測分析ソフトIBM SPSS Modelerは、 GUIを使った操作で分析専任者の方はもちろん、現場よく知る業務担当者の方にも簡単にご利用いただけます。
 
-(./images/jp-ja-spss-modeler-info-image-2_0.png)
+![ステップ例](./images/jp-ja-spss-modeler-info-image-2_0.png)
