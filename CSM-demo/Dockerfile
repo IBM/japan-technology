@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Change directory to site/
-WORKDIR site/
+WORKDIR CSM-demo/
 
 # Install dependencies
 RUN npm install
