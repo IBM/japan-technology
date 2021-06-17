@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Example Health</title>
+  <meta name="description" content="Example Health Site">
+  <meta name="Anton McConville" content="Example Health">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="style/styles.css?v=1.0">
+  <link rel="stylesheet" href="style/settings.css?v=1.0">
+  <link rel="icon" type="image/png" href="images/Fictionallogo@2x.png">
+</head>
+
+<body onload="checkurl()">
+  <div class="container">
+    <div class="banner">
+      <div class="control">
+        <div class="brand">
+          <img class="logo" src="/images/fictional.svg" alt="Example Health logo">
+          <div class="Fictional">Example Health</div>
+        </div>
+        <menu class="menu">
+          <a class="dimmed" href="./index.html">
+            <menuitem>information</menuitem></a>
+          <a class="dimmed" href="./measurements.html">
+            <menuitem>measurements</menuitem></a>
+          <a class="dimmed" href="./jee.html">
+            <menuitem class="dimmed">architecture</menuitem></a>
+          <a class="lit" href="./settings.html">
+            <menuitem class="lit">settings</menuitem></a>
+        </menu>
+        <div class="account" id="logout"></div>
+      </div>
+    </div>
+
+    <div class="boxes">
+
+      <div class="settingsdetails">
+        <div class="settingstext">
+          This Example Health patient UI runs as a microservice on Kubernetes. The app was designed to be able to integrate with different kinds of back ends to demonstrate how flexible and versatile microservices can be in a few real world
+          situations.
+        </div>
+        <div class="settingstext">
+          By default the app just displays preformatted canned data responses in test mode. You can choose to integrate with either a cobol on Z deployment, or a Java Liberty on OpenShift deployment. These integrations are described in related code
+          patterns.
+        </div>
+
+        <div class="buttons">
+          <div id="localbutton" class="settingsbutton settingsbuttonselected" onclick="chooseLocal()">
+            <div class="settingslabel">node.js</div>
+            <div><img class="settingsicon" src="./images/testlogo.svg" alt=""></div>
+          </div>
+          <div id="cobolbutton" class="settingsbutton" onclick="chooseCobol()">
+            <div class="settingslabel">cobol</div>
+            <div><img class="settingsicon" src="./images/zlogo.svg" alt=""></div>
+          </div>
+          <div id="javabutton" class="settingsbutton" onclick="chooseJava()">
+            <div class="settingslabel">java</div>
+            <div><img class="settingsicon" src="./images/openshiftlogo.svg" alt=""></div>
+          </div>
+        </div>
+        <input type="text" id="url" name="url" placeholder="enter backend url here" class="urlfield" oninput="checkurl()"/>
+        <div id="runmode" class="runmode">currently running in test mode, with node js</div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</body>
+
+<script src="src/settings.js"></script>
+
+</html>

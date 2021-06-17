@@ -1,0 +1,254 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Example Health</title>
+  <meta name="description" content="Example Health Site">
+  <meta name="Anton McConville" content="Example Health">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="style/styles.css?v=1.0">
+  <link rel="stylesheet" href="style/admin.css?v=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+
+  <link rel="icon" type="image/png" href="images/Examplelogo@2x.png">
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js'></script>
+
+</head>
+
+<body onload="retrievePatientInformation()">
+  <div class="container">
+    <div class="banner">
+      <div class="control">
+        <div class="brand">
+          <img class="logo" src="/images/fictional.svg" alt="Example health logo">
+          <div class="Fictional">Example Health</div>
+        </div>
+        <menu class="menu">
+          <menuitem class="lit">Patient Database</menuitem>
+          <a class="dimmed" href="./measurements.html">
+            <menuitem class="dimmed">measurements</menuitem></a>
+          <!-- <a class="dimmed" href="./labs.html"><menuitem class="dimmed">lab results</menuitem></a> -->
+          <a class="dimmed" href="./jee.html">
+            <menuitem class="dimmed">architecture</menuitem></a>
+          <a class="dimmed" href="./settings.html">
+            <menuitem class="dimmed">settings</menuitem></a>
+        </menu>
+        <a href="#" onclick="logout()">
+          <div class="account" id="logout"></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+
+
+      <div class="manage">
+        <div class="hospital"></div>
+        <div class="summary">
+          <div class="numbers">
+
+            <div class="totalblock">
+              <div class="totallabel">Total Patients
+              </div>
+              <div class="totalcount">5000</div>
+            </div>
+
+            <div class="numberblock">
+              <div class="numberlabel">0 - 18 yrs: 25%</div>
+              <div class="percentage">
+                <div class="percentageused" style="width:25%;"></div>
+                <div class="percentagefree" style="width:75%;"></div>
+              </div>
+            </div>
+
+            <div class="numberblock">
+              <div class="numberlabel">18 - 30 yrs: 36%</div>
+              <div class="percentage">
+                <div class="percentageused" style="width:36%;"></div>
+                <div class="percentagefree" style="width:64%;"></div>
+              </div>
+            </div>
+
+            <div class="numberblock">
+              <div class="numberlabel">30 - 50 yrs: 24%</div>
+              <div class="percentage">
+                <div class="percentageused" style="width:24%;"></div>
+                <div class="percentagefree" style="width:76%;"></div>
+              </div>
+            </div>
+
+            <div class="numberblock">
+              <div class="numberlabel">50 - 75 yrs: 15%</div>
+              <div class="percentage">
+                <div class="percentageused" style="width:15%;"></div>
+                <div class="percentagefree" style="width:85%;"></div>
+              </div>
+            </div>
+
+            <div class="totalblock">
+              <div class="totallabel">Diabetes
+              </div>
+              <div class="totalcount">5.6%</div>
+            </div>
+
+            <div class="totalblock">
+              <div class="totallabel">Heart Disease
+              </div>
+              <div class="totalcount">9%</div>
+            </div>
+
+          </div>
+          <div class="charts">
+            <canvas class="canvasbuffer" id="genderChart" width="180" height="180"></canvas>
+            <canvas class="canvasbuffer" id="medicineChart" width="180" height="180"></canvas>
+          </div>
+
+
+        </div>
+        <div class="patients"></div>
+        <div class="box boxmod">
+          <div class="boxheader">
+            <div class="boxlabel">Patient List</div>
+            <div class="boxlabel">5000</div>
+          </div>
+          <div class="listbox">
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">Jane Doe - Female - Age 45</div>
+            </div>
+            <div class="boxitem"><img class="beaker" src="/images/patient.svg">
+              <div class="boxitemlabel">John Smith - Male - Age 23</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</body>
+
+<script>
+  var ctx = document.getElementById('genderChart').getContext('2d');
+
+  data = {
+    datasets: [{
+      data: [45, 55],
+      backgroundColor: ["#ff6494", "#ffa18b", "#ffd0c5"]
+    }],
+    labels: [
+      'Male',
+      'Female'
+    ]
+  };
+
+  var myDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: data
+  });
+
+  var ctx = document.getElementById('medicineChart').getContext('2d');
+
+  data = {
+    datasets: [{
+      data: [40, 30, 10],
+      backgroundColor: ["#ff6494", "#ffa18b", "#ffd0c5"]
+    }],
+    labels: [
+      'Advil',
+      'Tylanol',
+      'Claratin'
+    ]
+  };
+
+  var myDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: data
+  });
+</script>
+
+
+</html>

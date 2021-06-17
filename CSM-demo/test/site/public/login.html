@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Example Health</title>
+  <meta name="description" content="Example Health Site">
+  <meta name="Anton McConville" content="Example Health">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link href='./style/login.css' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" href="images/Fictionallogo@2x.png">
+</head>
+
+<body onload="getMode()">
+  <div class="logincontainer">
+
+    <div class="pillar">
+      <div class="loginlogo"><img class="Fictionallogo" src="images/fictional.svg"></div>
+      <div class="Fictionalname">Demo Health</div>
+      <div class="disclaimer">Demo Heatlh is a simulated health data and software demonstration. <b>All data within the system is simulated</b>. Any resemblance to a real person is entirely coincidental.</div>
+      <div class="loginform">
+        <form method="post" action="index.html">
+          <div class="box">
+            <h1>Login</h1>
+            <input type="email" id="username" name="email" value="" placeholder="name" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+            <input type="password" id="password" name="email" value="" placeholder="password" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
+            <a href="#" onclick="login()">
+              <div id="btn2">Sign In</div>
+            </a> <!-- End Btn2 -->
+          </div> <!-- End Box -->
+        </form>
+      </div>
+      <a class="examplehealthlink" href="./jee.html">software architecture</a>
+      <a class="examplehealthlink" href="./settings.html">settings</a>
+    </div>
+</body>
+<script src="src/loginController.js"></script>
+
+</html>

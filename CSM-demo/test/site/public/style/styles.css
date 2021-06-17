@@ -1,0 +1,576 @@
+body, html {
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.control {
+  max-width: 900px;
+  min-width: 900px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+
+.guide {
+  display: flex;
+  flex-direction: row;
+  width: 860px;
+  align-items: center;
+}
+
+.hero {
+  height: 60px;
+  width: 160px;
+  font-size: 14px;
+  color: #444444;
+  padding: 10px;
+  background: #F6F9FC;
+}
+
+.herotitle {
+  font-size: 13px;
+  font-weight: bold;
+  color: #444444;
+}
+
+.heroinstruction {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #444444;
+}
+
+.disclaimer {
+  margin: 10px;
+  color: #888;
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+.banner {
+  height: 60px;
+  width: 100%;
+  background: #FFF4F2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.Fictional {
+  font-weight: medium;
+  font-size: 18px;
+  color: #444;
+}
+
+.menu {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.account {
+  font-weight: bold;
+  font-size: 14px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #444;
+}
+
+menuitem {
+  margin: 10px;
+}
+
+.dimmed {
+  opacity: .6;
+  font-weight: normal;
+  text-decoration: none;
+  color: #444;
+}
+
+.dimmed:hover {
+  opacity: 1;
+}
+
+.lit {
+  opacity: 1;
+  font-weight: bold;
+  text-decoration: none;
+  color: #444;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: row;
+  width: 684px;
+  flex-wrap: wrap;
+}
+
+.bpbox {
+  width: 300px;
+  height: 300px;
+  /* border: 1px solid #eaf8f9; */
+  margin: 20px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  /* border: 1px solid #99DDE5; */
+  margin: 20px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
+  transform: translate3d(0px, 0px, 0px);
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  /* padding: 20px; */
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  transition: all 150ms ease-out 0s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.boxheader {
+  background: #F6F9FC;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px min-height: 50px;
+  justify-content: space-between;
+}
+
+.listbox {
+  width: 300px;
+  margin-bottom: 0px;
+  overflow: scroll;
+}
+
+.boxicon {
+  margin: 10px;
+  height: 30px;
+}
+
+.boxlabel {
+  color: #444;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.boxitem {
+  height: 42px;
+  border-bottom: 1px solid #F6F9FC;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.stethascope {
+  margin: 10px;
+  height: 24px;
+}
+
+.beaker {
+  margin: 10px;
+  height: 24px;
+}
+
+.boxitemlabel {
+  color: #444;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  color: #444;
+  font-size: 14px;
+}
+
+.personal {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.name {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.street {
+  margin-left: 10px;
+}
+
+.details {
+  margin: 10px;
+}
+
+.city {
+  margin-left: 10px;
+}
+
+.zipcode {
+  margin-left: 10px;
+}
+
+.links {
+  width: 50%;
+}
+
+.creditcard {
+  width: 50px;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+  float: right;
+  margin: 20px;
+  margin-top: 10px;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.measurements {
+  display: flex;
+  flex-direction: row;
+}
+
+.heart {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  width: 300px;
+  height: 640px;
+  border: 1px dotted #eaf8f9;
+  margin: 20px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bodyimage {
+  height: 100%;
+}
+
+.ruler {
+  width: 50px;
+  height: 100% display:flex;
+  flex-direction: column;
+}
+
+.figure {
+  display: flex;
+  flex-direction: row;
+  height: 600px;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  height: 224px;
+}
+
+.rulea {
+  width: 50%;
+  border-right: 1px solid #444444;
+}
+
+.height {
+  font-size: 14px;
+  color: #444444;
+  align-self: center;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.weight {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  align-items: center;
+}
+
+.ruleb {
+  width: 50%;
+}
+
+.padding {
+  height: 30px;
+}
+
+.scales {
+  height: 42px;
+  padding: 20px;
+  display: flex;
+}
+
+.weightindex {
+  display: flex;
+  flex-direction: column;
+}
+
+.weightitem {
+  color: #444444;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.health {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.healthitem {
+  color: #444444;
+}
+
+.smoker {
+  color: #444444;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.smokerlabel {
+  font-weight: normal;
+}
+
+.smokerstatus {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.architecture {
+  width: 860px;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  border-top: 1px dashed #eeeeee;
+}
+
+.canvas {
+  height: 600px;
+  width: 600px;
+}
+
+.archdetails {
+  height: 500px;
+  width: 230px;
+  margin-left: 20px;
+  background: white;
+  border: 1px solid #F6F9FC;
+  display: flex;
+  flex-direction: column;
+}
+
+.archtitle {
+  font-size: 13px;
+  font-weight: bold;
+  /* margin: 10px; */
+  color: #444444;
+  padding: 10px;
+  background: #F6F9FC;
+  min-height: 40px;
+}
+
+.archsubtitle {
+  font-size: 11px;
+  font-weight: normal;
+  margin: 10px;
+  color: #444444;
+}
+
+.archtechlisttile {
+  font-size: 12px;
+  font-weight: bold;
+  /* margin: 10px; */
+  color: #444444;
+  border-top: 1px solid #F6F9FC;
+  padding: 5px;
+  padding-left: 10px;
+  background: #F6F9FC;
+  line-height: 18px;
+  /* padding-left: 10px; */
+}
+
+.archtechlist {
+  font-size: 11px;
+  font-weight: normal;
+  /* margin-left: -10px; */
+  color: #444444;
+  line-height: 18px;
+  border-bottom: 1px solid #F6F9FC;
+  border-top: 1px solid #F6F9FC;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-height: 100px;
+}
+
+.archtechlink {
+  font-size: 11px;
+  font-weight: normal;
+  margin: 10px;
+  color: #444444;
+}
+
+.archtechdetails {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 10px;
+  color: #444444;
+  line-height: 18px;
+  min-height: 180px;
+}
+
+.archlink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.archbutton {
+  background: #00ABC0;
+  border: none;
+  height: 30px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+}
+
+.index {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.item:hover {
+  border: 1px dashed #F88F58;
+}
+
+.itemstep {
+  height: 40px;
+  text-align: center;
+  width: 40px;
+  background: #F6F9FC;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  color: #444444;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.stepbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+.itemtitle {
+  height: 30px;
+  text-align: center;
+  width: 100px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  font-size: 12px;
+  color: #444444;
+}
