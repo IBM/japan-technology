@@ -13,4 +13,6 @@ IBM Developerの最新情報は https://developer.ibm.com/ にアクセスし、
 旧developerWorks Japanで公開されていたWebSphere Application Server関連の日本語資料については、以下のIBM Communityサイトで公開されています
 https://ibm.biz/JapanWebSphereUG (Japan WebSphere User Group)
 
+カスタマーサクセスチームにより、OpenShiftのプロジェクト公開も進めています。
+
 
