@@ -1,3 +1,4 @@
+※ 2021/7/21 移行作業中につき、不完全な状態です。ご注意ください。
 --
 このチュートリアルは「[ラーニング・パス: IBM Cloud Pak for Data 入門](/jp/series/cloud-pak-for-data-learning-path/)」の一部です。
 
