@@ -1,0 +1,673 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Introduction to Watson Discovery - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction to Watson Discovery
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terms-and-concepts" class="md-nav__link">
+    Terms and concepts
+  </a>
+  
+    <nav class="md-nav" aria-label="Terms and concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#watson-discovery-service-terms" class="md-nav__link">
+    Watson Discovery service terms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrichments" class="md-nav__link">
+    Enrichments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    Data flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-discovery" class="md-nav__link">
+    Accessing Discovery
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tooling" class="md-nav__link">
+    Tooling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdks" class="md-nav__link">
+    SDKs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-sample" class="md-nav__link">
+    Code sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Introduction to Watson Discovery</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>With IBM Watson Discovery, you can ingest, normalize, enrich, and search your unstructured data (JSON, HTML, PDF, Word, and more) with speed and accuracy. It packages core Watson APIs such as Natural Language Understanding and Document Conversion along with UI tools that enable you to easily upload, enrich, and index large collections of private or public data.</p>
+<p>The following image shows a high-level view of all of the components that make up the Discovery pipeline.</p>
+<p><img alt="pipeline" src="../images/disco-pipeline-new.png" /></p>
+<p><strong>Note:</strong> Watson Discovery V2 was released in August 2021. For existing V1 users, you can <a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-version-choose#version-choose-comparison&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">compare the features</a> of V1 and V2.</p>
+<h2 id="terms-and-concepts">Terms and concepts<a class="headerlink" href="#terms-and-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="watson-discovery-service-terms">Watson Discovery service terms<a class="headerlink" href="#watson-discovery-service-terms" title="Permanent link">&para;</a></h3>
+<p>This section covers the terms and concepts that are specific to Discovery.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-projects&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Project</a></td>
+<td>A project is a convenient way to collect and manage the resources. You can assign a project type and connect your data to the project by creating a collection.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-collections&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Collection</a></td>
+<td>A collection is a logical division of your data in an environment and can be queried independently.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Enrichments</a></td>
+<td>Discovery contains a powerful analytics engine that provides cognitive enrichments and insights into your data. These enrichments include entities, keywords, parts of speech, and sentiment.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-facets&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Facets</a></td>
+<td>Facets are used by Discovery to organize and classify documents that share similar patterns or content.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-reference#aggregations&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Aggregations</a></td>
+<td>This refers to Discovery returning a set of data values, such as the top values for selected enrichments. For example, it can return the top 10 concepts that appear in a data collection.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-parameters#passages&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Passages</a></td>
+<td>When working with large documents, you can use the passage search feature to return short and relevant excerpts related to the best matches.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-configuring-fields&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Smart Document Understanding</a></td>
+<td>Use Smart Document Understanding to break your documents into smaller, more consumable chunks of information. When you help Discovery index the correct set of information in your documents, you improve the answers that your application can find and return.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-train&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Relevancy training</a></td>
+<td>Relevancy training provides the ability to train and improve Discovery query results.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-reference&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Discovery Query Language</a></td>
+<td>The syntax of the queries that you would use to search for results using field names, operators, and keywords.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-parameters#nlq&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Natural Language Query</a></td>
+<td>As an alternative to strict query language, you can also query the language with simple phrases such as "How do I save a file?"</td>
+</tr>
+<tr>
+<td><a href="#tooling">Watson Discovery tooling</a></td>
+<td>The extensive set of UI tools available from the IBM Cloud console that you can use to create and populate your collection, apply enrichments, and query and test your data.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enrichments">Enrichments<a class="headerlink" href="#enrichments" title="Permanent link">&para;</a></h3>
+<p>Discovery has a powerful analytics engine that provides cognitive enrichments and insights into your data. With built-in natural language processing (NLP) capabilities, it can extract enrichments from a wide range of document types, such as JSON, HTML, PDF, and Microsoft&trade; Word. The following table shows the key enrichments.</p>
+<table>
+<thead>
+<tr>
+<th>Enrichment</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-entities&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Entities</a></td>
+<td>People, companies, organizations, cities, and geographic features.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-sentiment&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Sentiment</a></td>
+<td>Identifies the overall positive or negative sentiment.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-keywords&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Keywords</a></td>
+<td>Determines important keywords, ranks them, and, optionally, detects the sentiment.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-pos&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Parts of speech</a></td>
+<td>Identifies the parts of speech (for example, nouns and verbs) in the content.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-contracts-schema&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Contracts</a></td>
+<td>For specific types of documents, Discovery can identify contract terms and details.</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-understanding_tables&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Table understanding</a></td>
+<td>For specific types of documents, Discovery can provide detailed information about tables and table-related data.</td>
+</tr>
+</tbody>
+</table>
+<p>The ability to make natural language queries on these enrichments provides an advantage over typical keyword search engines.</p>
+<h2 id="data-flow">Data flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
+<p>In Watson Discovery, data flows through one of three stages: Acquire, Enrich, and Analyze and Search.</p>
+<p><strong>Acquire</strong>: Data is ingested from one or more data sources, stripped of unnecessary content (such as graphics and formatting), and then passed to the Enrich stage.</p>
+<p><strong>Enrich</strong>: The data (typically, a mix of structured and unstructured text) is processed using techniques such as natural language processing and machine learning to provide meaning and context to the raw text. This enriched data is stored in collections.</p>
+<p><strong>Analyze and Search</strong>: Uses the enriched data from one or more collections to conduct discovery and exploration or to enable expert assistance through search-based applications.</p>
+<p><img alt="data-flow" src="../images/data-flow.png" /></p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p><img alt="architecture" src="../images/architecture.png" /></p>
+<p>A common way to use Discovery is by accessing the Discovery APIs from your application. The Watson team releases <a href="#sdks">SDKs</a> that support many programming languages so that you can use Discovery easily in a web or mobile application.</p>
+<p>All of the data content is stored and enriched within Watson Discovery collections. The data does not require any specific structure and can come from multiple public and private data sources. Every Discovery project comes with a pre-enriched data collection named Sample Collection (comprised of software installation manuals).</p>
+<p>Optionally, with Watson Knowledge Studio, you can use domain experts to help customize Discovery to better understand the unique entities and relationships in your specific industry or organizational data.</p>
+<p>Some typical use cases for Discovery include:</p>
+<ul>
+<li><em>The need to search thousands of product reviews at once</em>: Create a Discovery collection and build a UI to query the collection and graph the sentiment over time.</li>
+<li><em>The need to programmatically find text within a document</em>: Use the passage retrieval feature of Discovery to create an FAQ chatbot.</li>
+<li><em>There are thousands of documents in different formats and you need to organize them logically</em>: Use Discovery to pull out keywords, concepts, and relationships to sort them.</li>
+</ul>
+<h2 id="accessing-discovery">Accessing Discovery<a class="headerlink" href="#accessing-discovery" title="Permanent link">&para;</a></h2>
+<h3 id="tooling">Tooling<a class="headerlink" href="#tooling" title="Permanent link">&para;</a></h3>
+<p>As mentioned previously, Discovery has its own set of tooling that is available through IBM Cloud or IBM Cloud Pak for Data and which provides a UI to manually manage your Discovery projects and collections.</p>
+<p>The following video shows how you can use the tool to create a new project and data collection, and then ingest data files for enrichment.</p>
+<p><img alt="disco-v2-upload" src="../images/disco-v2-upload.gif" /></p>
+<p>The <a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-getting-started&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Getting started with the Watson Discovery Sample Project</a> tutorial provides another great resource for learning how to navigate the Discovery UI tooling.</p>
+<h3 id="sdks">SDKs<a class="headerlink" href="#sdks" title="Permanent link">&para;</a></h3>
+<p>For programmatic access, Discovery comes with support for a large number of languages. The following list shows the current developer SDKs.</p>
+<ul>
+<li><a href="https://github.com/watson-developer-cloud/node-sdk">Node SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/python-sdk">Python SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/swift-sdk">Swift SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/java-sdk">Java&trade; SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/go-sdk">Go SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/ruby-sdk">Ruby SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/dotnet-standard-sdk">.NET SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/salesforce-sdk">Salesforce SDK</a></li>
+</ul>
+<h3 id="apis">APIs<a class="headerlink" href="#apis" title="Permanent link">&para;</a></h3>
+<p>For more information on the APIs, see the <a href="https://cloud.ibm.com/apidocs/discovery-data?cm_sp=ibmdev-_-developer-articles-_-cloudreg">Discovery API documentation</a>.</p>
+<h3 id="code-sample">Code sample<a class="headerlink" href="#code-sample" title="Permanent link">&para;</a></h3>
+<p>The following Node.js code sample shows how to authorize and query your Discovery project on IBM Cloud. If you need more information on query concepts, look at the Discovery <a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-defaults&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">documentation</a>.</p>
+<pre><code class="language-javascript">const DiscoveryV2 = require('ibm-watson/discovery/v2');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
+const discovery = new DiscoveryV2({
+  version: '{version}',
+  authenticator: new IamAuthenticator({
+    apikey: '{apikey}',
+  }),
+  serviceUrl: '{url}',
+});
+
+const params = {
+  projectId: '{projectId}',
+  query: '{field}:{value}',
+};
+
+discovery.query(params)
+  .then(response =&gt; {
+    console.log(JSON.stringify(response.result, null, 2));
+  })
+  .catch(err =&gt; {
+    console.log('error:', err);
+  });
+
+</code></pre>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This article gave you an introduction to Watson Discovery, where you can ingest, normalize, enrich, and search your unstructured data (JSON, HTML, PDF, Word, and more) with speed and accuracy. It packages core Watson APIs such as Natural Language Understanding and Document Conversion along with UI tools that enable you to easily upload, enrich, and index large collections of private or public data.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

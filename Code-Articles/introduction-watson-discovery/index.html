@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Watson Discoveryの紹介 - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Watson Discoveryの紹介
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Watson Discoveryの紹介
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Watson Discoveryの紹介
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    用語と概念
+  </a>
+  
+    <nav class="md-nav" aria-label="用語と概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#watson-discovery" class="md-nav__link">
+    Watson Discovery のサービス用語
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    エンリッチメント
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    データフロー
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    アーキテクチャ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ディスカバリーへのアクセス
+  </a>
+  
+    <nav class="md-nav" aria-label="ディスカバリーへのアクセス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ツール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdk" class="md-nav__link">
+    SDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    コードサンプル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    用語と概念
+  </a>
+  
+    <nav class="md-nav" aria-label="用語と概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#watson-discovery" class="md-nav__link">
+    Watson Discovery のサービス用語
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    エンリッチメント
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    データフロー
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    アーキテクチャ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ディスカバリーへのアクセス
+  </a>
+  
+    <nav class="md-nav" aria-label="ディスカバリーへのアクセス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ツール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdk" class="md-nav__link">
+    SDK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    コードサンプル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Watson Discoveryの紹介</h1>
+                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>IBM Watson Discovery を使用すると、非構造化データ (JSON、HTML、PDF、Word など) の取り込み、正規化、エンリッチ、検索を迅速かつ正確に行うことができます。自然言語理解や文書変換などのコア Watson API と、プライベートまたはパブリックデータの大規模なコレクションを簡単にアップロード、エンリッチ化、インデックス化できる UI ツールがパッケージされています。</p>
+<p>次の図は、Discovery パイプラインを構成するすべてのコンポーネントのハイレベルビューです。</p>
+<p><img alt="pipeline" src="images/disco-pipeline-new.png" /></p>
+<p><strong>Note:</strong> Watson Discovery V2は2021年8月にリリースされました。既存のV1ユーザーの方は、V1とV2の<a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-version-choose#version-choose-comparison&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">機能の比較</a>ができます。</p>
+<h2 id="_1">用語と概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="watson-discovery">Watson Discovery のサービス用語<a class="headerlink" href="#watson-discovery" title="Permanent link">&para;</a></h3>
+<p>ここでは、Discovery に固有の用語や概念について説明します。</p>
+<table>
+<thead>
+<tr>
+<th>用語</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-projects&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">プロジェクト</a></td>
+<td>プロジェクトは、リソースを収集して管理するための便利な方法です。コレクションを作成することで、プロジェクトタイプを割り当て、データをプロジェクトに接続することができます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-collections&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">コレクション</a></td>
+<td>コレクションは、環境内のデータを論理的に分割したもので、独立してクエリを実行できます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Enrichments</a></td>
+<td>Discovery には、データに対する認知的なエンリッチメントとインサイトを提供する強力な分析エンジンが含まれています。これらのエンリッチメントには、エンティティ、キーワード、品詞、センチメントが含まれます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-facets&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">ファセット</a></td>
+<td>ファセットは、類似したパターンやコンテンツを共有するドキュメントを整理および分類するために Discovery で使用されます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-reference#aggregations&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">アグリゲーション</a></td>
+<td>これは、選択したエンリッチメントの上位値など、一連のデータ値を返すディスカバリーを指します。たとえば、データコレクションに出現する上位 10 個の概念を返すことができます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-parameters#passages&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">パサージュ</a></td>
+<td><a href="">パッセージ</a> 大規模なドキュメントを扱う際に、パッセージ検索機能を使用して、ベストマッチに関連する短くて関連性の高い抜粋を返すことができます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-configuring-fields&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Smart Document Understanding</a></td>
+<td>[スマートドキュメント理解]を使用して、ドキュメントをより小さく、より消費しやすい情報の塊に分割します。ドキュメント内の正しい情報にインデックスを付けることで、アプリケーションが検索して返すことのできる答えを改善することができます。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-train&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">関連性のトレーニング</a></td>
+<td>関連性のトレーニングは、Discovery のクエリ結果をトレーニングして改善する機能を提供します。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-reference&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Discovery Query Language</a></td>
+<td><a href="">Discovery Query Language</a> フィールド名、演算子、およびキーワードを使用して結果を検索するために使用するクエリの構文です。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-parameters#nlq&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">自然言語クエリ</a></td>
+<td>厳密なクエリ言語の代わりに、"How do I save a file? "のような簡単なフレーズで言語をクエリすることもできます。</td>
+</tr>
+<tr>
+<td><a href="#tooling">Watson Discovery tooling</a></td>
+<td>コレクションの作成と投入、エンリッチメントの適用、データのクエリとテストに使用できる、IBM Cloud コンソールから利用可能な UI ツールの広範なセットを指します。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">エンリッチメント<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Discovery には、データに対する認知的なエンリッチメントやインサイトを提供する強力な分析エンジンがあります。自然言語処理 (NLP) 機能を内蔵しており、JSON、HTML、PDF、Microsoft&trade; Word など、さまざまな種類のドキュメントからエンリッチメントを抽出することができます。次の表は、主なエンリッチメントを示しています。</p>
+<table>
+<thead>
+<tr>
+<th>エンリッチメント</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-entities&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Entities</a></td>
+<td>人、会社、組織、都市、地理的特徴。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-sentiment&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Sentiment</a></td>
+<td>全体的な肯定的または否定的なセンチメントを識別します。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-keywords&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Keywords</a></td>
+<td><a href="">Keywords</a> 重要なキーワードを決定し、それらをランク付けし、オプションとして、センチメントを検出します。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-nlu#nlu-pos&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Parts of speech</a></td>
+<td>コンテンツ内の品詞（例えば、名詞や動詞）を識別します。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-contracts-schema&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Contracts</a></td>
+<td><a href="">契約書</a> 特定の種類のドキュメントについて、契約用語や詳細を識別します。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-understanding_tables&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">表の理解</a></td>
+<td>特定の種類のドキュメントについて、ディスカバリーは、テーブルおよびテーブル関連データの詳細情報を提供します。</td>
+</tr>
+</tbody>
+</table>
+<p>これらのエンリッチメントに対して自然言語によるクエリを行うことができるため、一般的なキーワード検索エンジンよりも優位性があります。</p>
+<h2 id="_3">データフロー<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Watson Discoveryでは、データは3つのステージのいずれかを経由して流れます。取得」、「エンリッチ」、「分析・検索」の3つの段階を経てデータが流れます。</p>
+<p><strong>取得</strong>。データは 1 つまたは複数のデータソースから取り込まれ、不要なコンテンツ (グラフィックやフォーマットなど) が取り除かれた後、Enrich ステージに渡されます。</p>
+<p><strong>Enrich</strong>:データ（通常、構造化テキストと非構造化テキストの混合）は、自然言語処理や機械学習などの技術を用いて処理され、生のテキストに意味や文脈を与えます。このエンリッチされたデータは、コレクションに保存されます。</p>
+<p><strong>分析と検索</strong>。1つまたは複数のコレクションからの強化されたデータを使用して、発見や探索を行ったり、検索ベースのアプリケーションを通じて専門家の支援を可能にします。</p>
+<p><img alt="データフロー" src="images/data-flow.png" /></p>
+<h2 id="_4">アーキテクチャ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><img alt="アーキテクチャ" src="images/architecture.png" /></p>
+<p>Discovery を使用する一般的な方法は、アプリケーションから Discovery API にアクセスすることです。Watson チームは、多くのプログラミング言語をサポートする <a href="#sdks">SDK</a> をリリースしており、Web アプリケーションやモバイル アプリケーションで Discovery を簡単に使用できるようになっています。</p>
+<p>すべてのデータコンテンツは、Watson Discovery コレクション内に保存され、強化されています。データは特定の構造を必要とせず、複数の公共および民間のデータソースから取得することができます。すべての Discovery プロジェクトには、Sample Collection という名前の事前にエンリッチされたデータコレクションが付属しています (ソフトウェアのインストールマニュアルで構成されています)。</p>
+<p>オプションとして、Watson Knowledge Studio を使用すると、特定の業界や組織のデータに含まれる固有のエンティティや関係性の理解を深めるために、ドメインエキスパートを使用して Discovery のカスタマイズを支援することができます。</p>
+<p>Discoveryの典型的な使用例としては、以下のようなものがあります。</p>
+<ul>
+<li><em>何千もの製品レビューを一度に検索する必要がある</em>。ディスカバリーコレクションを作成し、そのコレクションを照会したり、時系列でセンチメントをグラフ化したりするUIを構築します。</li>
+<li>ドキュメント内のテキストをプログラムで検索する必要がある場合*。Discoveryの通路検索機能を使用して、FAQチャットボットを作成します。</li>
+<li><em>異なるフォーマットの何千ものドキュメントがあり、それらを論理的に整理する必要がある</em>。Discoveryを使って、キーワード、コンセプト、関係性を引き出し、ソートします。</li>
+</ul>
+<h2 id="_5">ディスカバリーへのアクセス<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">ツール<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>前述したように、Discovery には、IBM Cloud または IBM Cloud Pak for Data から利用できる独自のツールセットがあり、Discovery のプロジェクトやコレクションを手動で管理するための UI が提供されています。</p>
+<p>以下の動画では、このツールを使って新しいプロジェクトとデータ・コレクションを作成し、エンリッチメントのためにデータ・ファイルをインジェストする方法を紹介しています。</p>
+<p><img alt="disco-v2-upload" src="images/disco-v2-upload.gif" /></p>
+<p>チュートリアルの <a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-getting-started&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">Getting started with the Watson Discovery Sample Project</a> は、Discovery UI ツールの操作方法を学ぶためのもう 1 つの素晴らしいリソースです。</p>
+<h3 id="sdk">SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
+<p>プログラムによるアクセスのために、Discovery には多数の言語がサポートされています。以下のリストは、現在の開発者向けSDKを示しています。</p>
+<ul>
+<li><a href="https://github.com/watson-developer-cloud/node-sdk">Node SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/python-sdk">Python SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/swift-sdk">Swift SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/java-sdk">Java&trade; SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/go-sdk">Go SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/ruby-sdk">Ruby SDK</a></li>
+<li>【.NET SDK】(https://github.com/watson-developer-cloud/dotnet-standard-sdk)</li>
+<li><a href="https://github.com/watson-developer-cloud/salesforce-sdk">Salesforce SDK</a></li>
+</ul>
+<h3 id="apis">APIs<a class="headerlink" href="#apis" title="Permanent link">&para;</a></h3>
+<p>API の詳細については、<a href="https://cloud.ibm.com/apidocs/discovery-data?cm_sp=ibmdev-_-developer-articles-_-cloudreg">Discovery API documentation</a>をご参照ください。</p>
+<h3 id="_7">コードサンプル<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>以下の Node.js コード・サンプルは、IBM Cloud 上の Discovery プロジェクトを認証してクエリする方法を示しています。クエリの概念について詳しく知りたい場合は、Discovery <a href="https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-query-defaults&amp;cm_sp=ibmdev-_-developer-articles-_-cloudreg">documentation</a>をご覧ください。</p>
+<p>``javascript
+const DiscoveryV2 = require('ibm-watson/discovery/v2');
+const { IamAuthenticator } = require('ibm-watson/auth');</p>
+<p>const discovery = new DiscoveryV2({
+  version: '{version}',
+  authenticator: new IamAuthenticator({
+    apikey: '{apikey}',
+  }),
+  serviceUrl: '{url}',
+});</p>
+<p>const params = {
+  projectId:'{projectId}' です。
+  クエリ'{field}:{value}' です。
+};</p>
+<p>discovery.query(params)
+  .then(response =&gt; {)
+    console.log(JSON.stringify(response.result, null, 2));
+  })
+  .catch(err =&gt; {
+    console.log('error:', err);
+  });</p>
+<p>```</p>
+<h2 id="_8">まとめ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>この記事では、非構造化データ（JSON、HTML、PDF、Word など）を高速かつ正確に取り込み、正規化し、エンリッチし、検索することができる Watson Discovery についてご紹介しました。自然言語理解や文書変換などのコア Watson API と、プライベートデータやパブリックデータの大規模なコレクションを簡単にアップロード、エンリッチ、インデックス化できる UI ツールをパッケージ化しています。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-footer__link md-footer__link--prev" aria-label="Previous: インデックス" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              インデックス
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-footer__link md-footer__link--next" aria-label="Next: データに対してインテリジェントな検索を実行するアプリを作成する" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              データに対してインテリジェントな検索を実行するアプリを作成する
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

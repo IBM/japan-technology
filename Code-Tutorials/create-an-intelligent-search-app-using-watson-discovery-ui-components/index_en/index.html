@@ -1,0 +1,775 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Create an intelligent search app using Watson Discovery UI components - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-objectives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Create an intelligent search app using Watson Discovery UI components
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch-watson-discovery" class="md-nav__link">
+    Launch Watson Discovery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-project" class="md-nav__link">
+    Create a new project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-data-files-into-collection" class="md-nav__link">
+    Upload data files into collection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrich-the-data" class="md-nav__link">
+    Enrich the data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-enrichments-to-search-panel" class="md-nav__link">
+    Add enrichments to search panel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-your-ui-app" class="md-nav__link">
+    Create your UI app
+  </a>
+  
+    <nav class="md-nav" aria-label="Create your UI app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-repo" class="md-nav__link">
+    Clone the repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gather-your-credentials" class="md-nav__link">
+    Gather your credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-credentials-to-environment-files" class="md-nav__link">
+    Add credentials to environment files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-and-run-the-app" class="md-nav__link">
+    Build and run the app
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files-and-concepts" class="md-nav__link">
+    Key files and concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Create an intelligent search app using Watson Discovery UI components</h1>
+                
+                <p>IBM Watson Discovery has a powerful analytics engine that provides cognitive enrichments and insights into your data. This tutorial showcases a new feature of the Discovery service -- Watson Discovery UI components. These components are tied directly to your Discovery projects and can easily be plugged into your search application. The components are self-contained and don't require any additional API calls to the Discovery service to retrieve data.</p>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, learn how to navigate the Watson Discovery service to load and manage your data. This includes enhancing the enrichments that are applied to your data and building a custom panel to query and visualize your data. Then, learn how to replicate the search panel in your own application, which is built using <a href="https://reactjs.org/">React</a>, <a href="https://expressjs.com/">Express</a>, and the Watson Discovery UI components.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>To follow along with this tutorial, you must have an <a href="https://cloud.ibm.com/login?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud account</a> where you can provision an instance of Watson Discovery.</p>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>It should take you approximately 60 minutes to complete the tutorial.</p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#launch-watson-discovery">Launch Watson Discovery</a></li>
+<li><a href="#create-a-new-project">Create a new project</a></li>
+<li><a href="#upload-data-files-into-collection">Upload data files into collection</a></li>
+<li><a href="#enrich-the-data">Enrich the data</a></li>
+<li><a href="#add-enrichments-to-search-panel">Add enrichments to search panel</a></li>
+<li><a href="#create-your-ui-app">Create your UI app</a></li>
+<li><a href="#key-files-and-concepts">Key files and concepts</a></li>
+</ol>
+<h3 id="launch-watson-discovery">Launch Watson Discovery<a class="headerlink" href="#launch-watson-discovery" title="Permanent link">&para;</a></h3>
+<p>If you do not have an IBM Cloud account, register for a <a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">free trial account</a>.</p>
+<ol>
+<li>
+<p>Using your IBM Cloud account, create a Watson Discovery instance from the <a href="https://cloud.ibm.com/catalog/services/discovery?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">resource catalog</a>, and select the <strong>Plus</strong> plan.</p>
+<p><strong>Note:</strong> The first instance of the Plus plan for IBM Watson Discovery comes with a free 30-day trial. If you no longer require your Plus instance for Watson Discovery after going through this exercise, you can delete it.</p>
+<p><img alt="launch-disco" src="../images/launch-disco.png" /></p>
+</li>
+<li>
+<p>From the Discovery instance page, click <strong>Launch Watson Discovery</strong>.</p>
+</li>
+</ol>
+<h3 id="create-a-new-project">Create a new project<a class="headerlink" href="#create-a-new-project" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>The landing page for the Discovery service shows you a list of current projects. Click <strong>New project</strong>.</p>
+<p><img alt="project-page" src="../images/project-page.png" /></p>
+</li>
+<li>
+<p>For this tutorial, you are creating a <em>Document Retrival</em> type of project. Select that Project type, give the project a unique name, then click <strong>Next</strong>.</p>
+<p><img alt="project-create" src="../images/project-create.png" /></p>
+</li>
+</ol>
+<h3 id="upload-data-files-into-collection">Upload data files into collection<a class="headerlink" href="#upload-data-files-into-collection" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>The next step is telling Discovery where your data will come from. In this example, you upload the data from JSON data files, so click <strong>Upload data</strong>, and then click <strong>Next</strong>.</p>
+<p><img alt="project-data-source" src="../images/project-data-source.png" /></p>
+</li>
+<li>
+<p>Enter a <strong>Collection name</strong>, then click <strong>Next</strong>.</p>
+<p><img alt="collection-name" src="../images/collection-name.png" /></p>
+<p><strong>Note:</strong> Projects can contain multiple collections. When Discovery performs a search, it is at the project level, and by default, includes all of the collections within that project. </p>
+</li>
+<li>
+<p>From the upload panel, click the <strong>Drag and drop files here or upload</strong> text. This opens a file window where you can select what files to upload.</p>
+<p>For this tutorial, you use 999 reviews that were submitted by AirBnB customers in Austin, TX. Each review has a title, the AirBnB location and host name, the reviewers name, a rating score, and the text of the review.</p>
+</li>
+<li>
+<p>Download the <a href="../static/AirBnb.zip">AirBnB reviews file</a> to your system, unzip it, then select the 999 JSON files to upload.</p>
+<p><img alt="collection-load-data" src="../images/collection-load-data.png" /></p>
+</li>
+<li>
+<p>When you complete the action, click <strong>Finish</strong>.</p>
+</li>
+</ol>
+<p>Your data starts to upload. Discovery provides alerts to tell you when the upload is complete.</p>
+<h3 id="enrich-the-data">Enrich the data<a class="headerlink" href="#enrich-the-data" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Manage collections</strong> on the left to show all of the collections associated with your project. </p>
+<p><strong>Note:</strong> To change which project you are currently working on, you can click My projects at the top of the page.</p>
+<p><img alt="project-collections-page" src="../images/project-collections-page.png" /></p>
+<p>When you click the collection that you just created, you see that all 999 reviews have been loaded.</p>
+<p><img alt="collection-panel" src="../images/collection-panel.png" /></p>
+</li>
+<li>
+<p>Click <strong>Enrichments</strong>. As you can see, the default enrichments are <em>Part of speech</em> and <em>Entities v2</em>. For this review data, you are also going to include <em>Keywords</em> and <em>Sentiment of Document</em>.</p>
+<p><img alt="collection-enrichments" src="../images/collection-enrichments.png" /></p>
+</li>
+<li>
+<p>For each of these new enrichments, click <strong>Fields to enrich</strong>, and select the <strong>text</strong> field.</p>
+</li>
+</ol>
+<h3 id="add-enrichments-to-search-panel">Add enrichments to search panel<a class="headerlink" href="#add-enrichments-to-search-panel" title="Permanent link">&para;</a></h3>
+<p>Now that you have some new enrichments, add them to your default search panel.</p>
+<ol>
+<li>
+<p>Click <strong>Improve and customize</strong> on the left to display the search panel associated with your collection.</p>
+<p><img alt="project-custom-display" src="../images/project-custom-display.png" /></p>
+</li>
+<li>
+<p>To customize the display, you add all of the facets. To start, click the drop-down menu for <strong>Customize display</strong> located on the right side of the panel.</p>
+</li>
+<li>
+<p>Click <strong>Facets</strong>, <strong>New facet</strong>, then <strong>From existing fields in collection</strong>.</p>
+</li>
+<li>
+<p>For your <strong>Keyword</strong> facet, select the field <strong>enriched_text.keywords.mentions.text</strong>. This provides the most common keywords that are found in the data.</p>
+<p><img alt="facet-keyword-mentions" src="../images/facet-keyword-mentions.png" /></p>
+</li>
+<li>
+<p>Provide a meaningful label for the UI component, then click <strong>Apply</strong>.</p>
+<p><img alt="facet-top-keywords" src="../images/facet-top-keywords.png" /></p>
+</li>
+<li>
+<p>Repeat the process for the <strong>Sentiment</strong> facet, but use the field <strong>enriched_text.sentiment.score</strong>.</p>
+<p><img alt="facet-sentiment-score" src="../images/facet-sentiment-score.png" /></p>
+</li>
+<li>
+<p>When complete, you see how the facets are now a part of the search panel.</p>
+<p><img alt="facet-final" src="../images/facet-final.png" /></p>
+</li>
+</ol>
+<p>If you enter a search string, you see the results displayed as well as new facet values that reflect the subset of reviews that match the search.</p>
+<p><img alt="facet-search" src="../images/facet-search.png" /></p>
+<p>If you click <strong>View passage in document</strong> for any of the reviews, you drill down into the review data. If you click the <strong>JSON</strong> tab, you can see the actual result that is returned by Discovery.</p>
+<p><img alt="facet-passage-json" src="../images/facet-passage-json.png" /></p>
+<p>Notice that in this case, the search found a match with the <code>title</code> of the review. The actual review is shown in the <code>text</code> field.</p>
+<h3 id="create-your-ui-app">Create your UI app<a class="headerlink" href="#create-your-ui-app" title="Permanent link">&para;</a></h3>
+<p>Now that your search panel has been enhanced to show all of the interesting facets of the data, you can build an application that displays that same panel. For this task, you use the <a href="https://github.com/watson-developer-cloud/discovery-components">starter kit</a> provided by Watson Discovery.</p>
+<p>The starter kit provides multiple ways to develop your app, but in this tutorial, you'll choose the manual method to integrate your Discovery collection with their example app.</p>
+<h4 id="clone-the-repo">Clone the repo<a class="headerlink" href="#clone-the-repo" title="Permanent link">&para;</a></h4>
+<ol>
+<li>To get started, you first need to clone the GitHub repo to your local system.</li>
+</ol>
+<pre><code class="language-bash">$ git clone https://github.com/watson-developer-cloud/discovery-components.git
+$ cd journeys/discovery-components
+</code></pre>
+<h4 id="gather-your-credentials">Gather your credentials<a class="headerlink" href="#gather-your-credentials" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Return to IBM Cloud and your Watson Discovery launch panel to get your API key and service URL.</p>
+<p><img alt="launch-disco" src="../images/launch-disco.png" /></p>
+</li>
+<li>
+<p>You also need your project ID, which you can get from the Watson Discovery Integrate and deploy panel for your project.</p>
+<p><img alt="project-id" src="../images/project-id.png" /></p>
+</li>
+</ol>
+<h4 id="add-credentials-to-environment-files">Add credentials to environment files<a class="headerlink" href="#add-credentials-to-environment-files" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>From the root directory of your local repo, run the following commands to create the environment files. Note that the files must be created in the examples/discovery-search-app directory.</p>
+<p><code>bash
+$ cd examples/discovery-search-app
+$ cp .env .env.local
+$ echo "DISCOVERY_AUTH_TYPE=iam
+DISCOVERY_URL=&lt;replace with discovery URL&gt;
+DISCOVERY_APIKEY=&lt;replace with API key&gt;" &gt; ibm-credentials.env</code></p>
+</li>
+<li>
+<p>Update the ibm-credentials.env file with your Discovery credentials, and update the .env.local file with your project ID.</p>
+</li>
+</ol>
+<h4 id="build-and-run-the-app">Build and run the app<a class="headerlink" href="#build-and-run-the-app" title="Permanent link">&para;</a></h4>
+<p>Now, you can return to your project root directory to build and start your app.</p>
+<p>The following commands require that the <a href="https://yarnpkg.com/">Yarn</a> package manager be installed on your local system.</p>
+<pre><code class="language-bash">$ cd ../..
+$ yarn workspace @ibm-watson/discovery-react-components run build
+$ yarn workspace discovery-search-app run start
+</code></pre>
+<p>After it starts, a browser opens with the base search panel displayed. Enter a search string to view the list of matching reviews.</p>
+<p><img alt="ui-app-screen" src="../images/ui-app-screen.png" /></p>
+<p>Notice that all of the facets that you added in the Discovery tool show up here.</p>
+<h2 id="key-files-and-concepts">Key files and concepts<a class="headerlink" href="#key-files-and-concepts" title="Permanent link">&para;</a></h2>
+<p>The Discovery UI app consists of a React client and Express server. To explore the code, navigate to the examples/discovery-search-app subdirectory. There, you find the React code in the src directory and the Express code in the server.js file.</p>
+<p>The following code shows the Discovery UI React components being imported.</p>
+<pre><code class="language-js">// examples/disovery-search-app/src/App.js
+
+import {
+  DiscoverySearch,
+  SearchContext,
+  SearchApi,
+  SearchInput,
+  SearchResults,
+  SearchFacets,
+  ResultsPagination,
+  DocumentPreview,
+  CIDocument,
+  canRenderCIDocument
+} from '@ibm-watson/discovery-react-components';
+
+...
+
+    &lt;DiscoverySearch searchClient={searchClient} projectId={projectId}&gt;
+      &lt;AppView /&gt;
+    &lt;/DiscoverySearch&gt;
+
+</code></pre>
+<p>In the previous list, the main component is <code>DiscoverySearch</code>. It requires that the Discovery client and project ID be passed in as parameters. This allows all of the details of each component to be self-contained, which means no additional programming is required to use them.</p>
+<p><strong>Note:</strong> Before these UI components were developed, you needed to create your own UI components and tie them to your Discovery data using the Watson Discovery API. While the provided components give you a good starting point to handle the most common UI components found in a typical Discovery search application, you must still use the old approach for any advanced custom components (for example, a line graph chart to show sentiment score trends over time).</p>
+<p>For the client to have access to the Discovery service instance, you either must fetch that from the server or instantiate your Discovery service on the client side. In the example app, this is done using a proxy, which is initiated by the client making a call to instantiate a Discovery instance.</p>
+<pre><code class="language-js">// examples/disovery-search-app/src/App.js
+
+const authenticator = new NoAuthAuthenticator();
+const searchClient = new DiscoveryV2({
+  url: `${window.location.href}api`,
+  version: '2019-01-01',
+  authenticator
+});
+</code></pre>
+<p>However, the URL in this case is a route to the server (note that <code>api</code> is appended to the route). The server code uses a proxy to handle this route.</p>
+<pre><code class="language-js">// examples/disovery-search-app/server.js
+
+const express = require('express');
+const app = express();
+const proxy = require('./src/setupProxy.js');
+
+...
+proxy(app);
+</code></pre>
+<p>When the proxy is called with this route, it does the work of using the credentials file to get and return an authorization token from the Discovery service.</p>
+<pre><code class="language-js">// examples/disovery-search-app/src/setupProxy.js
+
+const addAuthorization = async (req, _res, next) =&gt; {
+  const authenticator = getAuthenticatorFromEnvironment('discovery');
+  try {
+    const accessToken = await authenticator.tokenManager.getToken();
+    req.headers.authorization = `Bearer ${accessToken}`;
+  } catch (e) {
+    console.error(e);
+  }
+  return next();
+};
+
+...
+
+app.use(
+  '/api',
+  addAuthorization,
+  proxy({
+    ...
+  })
+);
+</code></pre>
+<p>From the client-side perspective, the call to instantiate a Discovery service instance works because the authenticator is substituted with an actual token. This also means that the client doesn't have to worry about embedding the credentials in the client code or making them visible in the browser console.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, you learned how to navigate the Watson Discovery tool to create a project and upload data into a collection. You then learned how to enrich the data and build a custom search panel to query and visualize the data.</p>
+<p><img alt="final-disco-panel" src="../images/final-disco-panel.png" /></p>
+<p>Finally, you replicated the same search panel in a custom application by using the Watson Discovery UI Components.</p>
+<p><img alt="final-app-panel" src="../images/final-app-panel.png" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
