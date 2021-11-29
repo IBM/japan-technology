@@ -1,0 +1,662 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>IBM Watson OpenScaleを使い始める（自動セットアップ） - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IBM Watson OpenScaleを使い始める（自動セットアップ）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    公平なユースケース
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    自動セットアップ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    見積もり時間
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    手順
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-openscale" class="md-nav__link">
+    Watson OpenScale サービスをプロビジョニングする
+  </a>
+  
+    <nav class="md-nav" aria-label="Watson OpenScale サービスをプロビジョニングする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-pak-for-data" class="md-nav__link">
+    IBM Cloud Pak for Data プラットフォーム上で
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-ibm-cloud" class="md-nav__link">
+    On IBM Cloud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insights" class="md-nav__link">
+    Insights ダッシュボードを使う
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    アナリティクスツールの使用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>IBM Watson OpenScaleを使い始める（自動セットアップ）</h1>
+                
+                <p>このチュートリアルでは、IBM Watson OpenScale を使用して、人工知能 (AI) モデルの公平性と正確性を監視する方法を学びます。Watson OpenScale が公平性の問題を軽減するために <em>デバイアス</em> モデル・エンドポイントを自動的に生成し、モデルがどのように予測を行うかを理解するのに役立つ <em>説明可能性</em> ビューを提供する方法を実際に見ます。さらに、Watson OpenScale がどのように <em>drift detection</em> を使用するかを確認します。ドリフト検出は、ランタイムデータがトレーニングデータと矛盾している場合や、ドリフトが増加している場合には、精度の低下につながる可能性の高いデータであることを教えてくれます。</p>
+<p>このチュートリアルは、IBM Cloud Pak for Data または IBM Cloud 上で動作します。自動化されたセットアップは、サンプル・モデルを使ってすぐに始められるように使用されます。</p>
+<h2 id="_1">公平なユースケース<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルで使用するモデルは、クレジット・リスクの予測モデルです。データセットにはローン申請者のデータが含まれており、"リスク "または "リスクなし "を予測するために使用されます。このデータにはセンシティブとされる 2 つの属性、<code>sex</code>（性別）と<code>age</code>が含まれています。このモデルに Watson OpenScale を使用することで、クレジット・リスク予測器における性別差別を検出し、説明し、修正することができます。</p>
+<h2 id="_2">自動セットアップ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>自動セットアップでは、バックグラウンドでタスクを実行することで、プロセスをガイドします。自動化されたセットアップ・ツアーは、可能な限りユーザーとのインタラクションを少なくして動作するように設計されています。以下のような判断を自動的に行ってくれます。</p>
+<ul>
+<li>
+<p>複数の IBM Watson Machine Learning インスタンスがセットアップされている場合、インストールプロセスは API 呼び出しを実行してインスタンスをリストアップし、結果としてリストの最初に表示される Watson Machine Learning インスタンスを選択します。</p>
+</li>
+<li>
+<p>Watson Machine Learning インスタンスの新しい lite バージョンを作成するために、Watson OpenScale インストーラは IBM Cloud アカウントのデフォルトのリソースグループを使用します。</p>
+</li>
+</ul>
+<p>自動セットアップの最後にはガイドツアーが表示され、<strong>Next</strong> をクリックしてシナリオを進めると、Watson OpenScale の主要な機能がハイライトされます。ツアーを終了すると（どの時点でも終了できます）、自分で UI を探索することができます。クレジット・リスク・モデルが自動的にデプロイされているので、何かを探索することができます。このチュートリアルでは、信用リスクモデルを使用して、Watson OpenScale の機能を探索するのに役立ちます。</p>
+<h2 id="_3">見積もり時間<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルを完了するには、約 45 分かかります。</p>
+<h2 id="_4">手順<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルでは、以下の方法を学びます。</p>
+<p>1.<a href="#provision-a-watson-openscal-service">Watson OpenScale サービスをプロビジョニングする</a>
+1.<a href="#use-the-insights-dashboard">Insights ダッシュボードを使用する</a>
+1.<a href="#using the analytics-tools">アナリティクスツールの使用</a></p>
+<h2 id="watson-openscale">Watson OpenScale サービスをプロビジョニングする<a class="headerlink" href="#watson-openscale" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>注：Watson OpenScale では、サービスの複数のインスタンスをプロビジョニングできるようになりました。以下の手順では、デフォルトのサービスインスタンス（インストール後に自動的にプロビジョニングされる）を構成することを想定しています。</p>
+</blockquote>
+<h4 id="ibm-cloud-pak-for-data">IBM Cloud Pak for Data プラットフォーム上で<a class="headerlink" href="#ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h4>
+<p>このセクションでは、IBM Cloud Pak for Data プラットフォーム上で Watson OpenScale をプロビジョニングする方法を説明します。IBM Cloud を使用している場合は、<a href="#on-ibm-cloud">On IBM Cloud</a> のセクションにスキップしてください。</p>
+<p>1.Cloud Pak for Data インスタンスで、(☰)メニューを開き、「<strong>Services</strong>」で「<strong>Instances</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![サービス](images/services.png)
+</code></pre>
+
+<p>1.InstancesのテーブルからOpenScale-defaultインスタンスを探し、3つの縦のドットをクリックしてアクションメニューを開きます。次に、「<strong>Open</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-instance.png)
+</code></pre>
+
+<p>1.OpenScale を初めて起動するため、自動セットアッププロセスを開始するためのウェルカムメッセージが表示されます。Auto setup**」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Openscale自動セットアップ起動](images/openscale-autosetup-start.png)
+</code></pre>
+
+<p>1.Connect to Watson Machine Learning] パネルで、同じクラスターにデプロイされた Watson Machine Learning インスタンスを使用しているため、デフォルトのままにします。<strong>Next</strong> をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Openscale Auto Setup WML](images/openscalee-autosetup-wml.png)
+</code></pre>
+
+<p>1.Connect to your database]パネルで、ローカルDb2データベース（管理者ガイドの前のセクションでプロビジョニングしたデータベース）の接続詳細を入力し、[<strong>Next</strong>]をクリックします。</p>
+<p><img alt="Openscale Auto Setup DB" src="images/openscalee-autosetup-db.png" /></p>
+<pre class="codehilite"><code class="linenums">**Note:** Db2 Warehouse on Cloudを使用した場合、Use SSLのチェックボックスを選択する必要があります。ただし、証明書を用意する必要はありません。
+
+モデルの自動セットアップは、実行に時間がかかります。
+
+![Openscale Auto Setup Running](images/openscalee-autosetup-running.png)
+
+完了した後、成功した場合はメッセージが表示されます。
+
+![Openscale Auto Setup Completed](images/openscale-autosetup-complete.png)
+</code></pre>
+
+<p>1.デプロイしたモデルの Insights ダッシュボードをクリックして、ページが読み込まれることを確認します。</p>
+<p>1.他のユーザーに OpenScale インスタンスへのアクセスを許可する必要がある場合は、(☰)メニューの「<strong>サービス</strong>」で「<strong>インスタンス</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![サービス](images/services.png)
+</code></pre>
+
+<p>1.InstancesテーブルからOpenScale-defaultインスタンスを探し、3つの縦のドットをクリックしてアクションメニューを開きます。次に、「<strong>アクセスの管理</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-manageaccess.png)
+</code></pre>
+
+<p>1.サービスインスタンスにユーザーを追加するには、「<strong>ユーザーの追加</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-addusers.png)をクリックします。
+</code></pre>
+
+<p>1.すべてのユーザーアカウントについて、各ユーザーの役割として<strong>Editor</strong>を選択し、<strong>Add</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-userrole.png)を参照してください。
+</code></pre>
+
+<h4 id="on-ibm-cloud">On IBM Cloud<a class="headerlink" href="#on-ibm-cloud" title="Permanent link">&para;</a></h4>
+<p>1.IBM Cloud のアカウントを持っていない場合は、<a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">アカウント</a>に登録します。</p>
+<p>1.<a href="https://cloud.ibm.com/catalog/services/watson-openscale?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">カタログ</a>からWatson OpenScaleインスタンスを作成します。</p>
+<p>1.Lite プランを選択し、サービス名を入力して、「<strong>Create</strong>」をクリックします。</p>
+<p>1.Launch Application** をクリックして、Watson OpenScale を起動します。</p>
+<p>1.Auto setup**をクリックして、サンプルデータを使ってWatson OpenScaleインスタンスを自動的にセットアップします。</p>
+<pre class="codehilite"><code class="linenums">![デモ歓迎](images/cloud-auto-setup.png)
+</code></pre>
+
+<p>1.Start tour** をクリックして、Watson OpenScale ダッシュボードを見学します。</p>
+<h2 id="insights">Insights ダッシュボードを使う<a class="headerlink" href="#insights" title="Permanent link">&para;</a></h2>
+<p>OpenScale サービスを起動する。</p>
+<p>1.(☰)ナビゲーションメニューに移動し、<strong>Services -&gt; Instances</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Services Instances](images/services.png)
+</code></pre>
+
+<p>1.管理者がプロビジョニングしたOpenScaleインスタンスの横にある3つの縦のドットをクリックして、<strong>Open</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScaleインスタンス](images/openscale-instance-open.png)
+</code></pre>
+
+<p>それでは、ツールを使ってみましょう。</p>
+<p>1.OpenScaleはInsights Dashboardをロードし、監視しているすべてのモデルのタイルを含みます。GermanCreditRiskModelICP」タイルが、このチュートリアルで使用するタイルです。このタイルはAuto setupスクリプトを使って設定しました。</p>
+<p>1.左側の［洞察］アイコンをクリックし、［モデルモニター］タブにいることを確認してから、GermanCreditRiskModelICPモデルタイルを開きます。3ドットメニューをクリックして、「<strong>詳細を見る</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Insight Dashboard Tile Open](images/openscale-model-view-details.png)
+</code></pre>
+
+<p>1.各種モニター（Fairness、Quality、Drift）に表示されている赤色の警告インジケータに注目します。Fairness」の下に赤いインジケータが表示されているはずです。Fairness score**をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![モデル概要](images/openscale-fairness-score.png)
+</code></pre>
+
+<p>1.公正さ」→「性別」の下にある「！」の付いた三角形をクリックします。これは、Fairnessモニターでこの属性に対するアラートが発生したことを示します。アラートは、フェアネスの結果のしきい値に基づいて設定可能で、必要に応じて設定・変更できます。</p>
+<pre class="codehilite"><code class="linenums">トレンドチャートの上にマウスポインタを移動させると、値が変化するのがわかります。グラフが赤いしきい値ラインを下回っているタイムスライスを見つけてクリックしてください。これは、公平性のレベルが所定の最小値を下回っており、その時間帯の取引の一部に偏りがあることを示しています。
+
+![OpenScale Fairness Monitor](images/openscale-fairness-details.png)
+</code></pre>
+
+<p>1.期間のいずれかをクリックすると、「ノーリスク」の結果を得た女性の数と男性の数を示す棒グラフなど、フェアネスモニターの詳細が表示されます。計算を見る<strong>をクリックすると、フェアネススコアの計算方法が表示されます。View payload transactions</strong>（ペイロードトランザクションの表示）をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Fairness Monitor chart](images/openscale-fairness-chart.png)
+
+トランザクションのリストが表示されます。Group Bias」にチェックマークが付いていて、「Risk」という予測が付いている「Group - Female」という監視対象グループの1つを探します。Explain prediction**をクリックします。公平性監視のグラフの期間にこの要素が含まれていない場合、見つかるまで戻って別の期間を選択します。これにより、説明がより面白くなります。
+
+![OpenScale Fairness Detail](images/openscale-fairness-detail-page.png)
+
+**Note:** 個々のトランザクションは、その詳細を見るために調べることができます。これを行うと、後で見るようにそのトランザクションがキャッシュされます。Explainability機能では、わずかに乱れたデータのバリエーションを使用してエンドポイントに何千回ものRESTコールを行う必要があることに注意してください。この処理には数秒かかることがあります。
+</code></pre>
+
+<p>1.個々のトランザクションの「説明」タブで、この予測にとって最も重要な機能の相対的な重みを確認します。データを調べて、「<strong>Inspect</strong>」タブをクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale View Transaction](images/openscale-explain-relative-weight.png)
+</code></pre>
+
+<p>1.このトランザクションのInspectビューでは、この予測を導いた元の機能に加えて、各機能を変更する機能を提供する一連のドロップダウンメニューと入力ボックスが表示されています。どの機能が結果（この場合は「リスク」から「ノーリスク」）を変えるかは、「<strong>ラン分析</strong>」をクリックして確認できます。これには、データにわずかな摂動を加えたエンドポイントへの何千回ものRESTコールが必要なため、実行には数分かかることに注意してください。分析の実行」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Inspect Transaction](images/openscale-inspect-transaction.png)
+
+この特定の取引では、ローンの保証人の存在が、結果を「リスク」から「ノーリスク」に変えるために必要な唯一の要素であることがわかります。他の取引では、異なる分析結果が得られる可能性があります。この例では、「Others on Loan」のドロップダウンメニューをクリックし、guarantorに変更することができます。
+
+![OpenScale choose new value](images/openscale-different-outcome.png)
+</code></pre>
+
+<p>1.保証人にこの新しい値を選択すると、新しい値をスコアするためのボタンが表示されます。このボタンをクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Scoreの新しい値](images/openscale-score-new-values.png)
+
+この例では、結果が &quot;Risk &quot;から &quot;No Risk &quot;に変わっていることがわかります。
+
+![OpenScale flip outcome](images/openscale-outcome-flipped.png)
+</code></pre>
+
+<p>1.Insights」メニューのアイコンをクリックして、「Insights Dashboard」ページに戻ります。モデルモニター」タブにいることを確認します。ここで、タイル上の3点メニューをクリックして、GermanCreditRiskModelICPモデルのモニター設定を開き、「<strong>モニターの設定</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Insight Dashboard Tile Open](images/openscale-configure-monitors.png)
+</code></pre>
+
+<p>1.エンドポイント」メニューをクリックし、「エンドポイント」タブをクリックします。Endpoints」ドロップダウンメニューを使用して、「<strong>Debiased transactions</strong>」を選択します。これは、設定された機能（つまり、SexとAge）に基づいて、信用リスク機械学習モデルのデバイアスされたバージョンを提供するRESTエンドポイントです。検出されたバイアスを除去しようとする推論を提示します。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Monitors Endpoints](images/openscale-endpoints.png)
+</code></pre>
+
+<p>cURL、Java言語、Pythonを使用したコードスニペットを見ることができ、スクリプトやアプリケーションで使用することができます。</p>
+<p>同様に、フィードバックロギングのエンドポイントを選択すると、フィードバックロギング用のコードを入手できます。これは、継続的な品質評価のための新鮮なテストデータを送信するためのエンドポイントを提供します。ここにフィードバックデータをアップロードするか、開発者と協力して提供されたコードスニペットを統合し、Watson OpenScale データベースにフィードバックデータを公開することができます。</p>
+<h2 id="_5">アナリティクスツールの使用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Analytics ツールを使用するには、以下の手順に従います。</p>
+<p>1.左側の「インサイト」アイコンをクリックし、「モデルモニター」タブにいることを確認してから、GermanCreditRiskModelICPモデルタイルを開きます。3ドットメニューをクリックして、「<strong>詳細を見る</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![OpenScale Insight Dashboard Tile Open](images/openscale-model-view-details.png)
+</code></pre>
+
+<p>1.各種モニター（Fairness、Quality、Drift）に表示されている赤色の警告インジケータに注目します。Fairness」の下に赤いインジケータが表示されているはずです。Fairness score**をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![モデル概要](images/openscale-fairness-score.png)
+</code></pre>
+
+<p>1.Analytics -&gt; Predictions by Confidence**をクリックします。チャートの作成には少し時間がかかります。ここでは、信頼度と "Risk "と "No Risk "の予測を示す棒グラフが表示されています。</p>
+<pre class="codehilite"><code class="linenums">![Analytics Predictions by Confidence](images/openscale-prediction-by-confidence.png)
+</code></pre>
+
+<p>1.このダッシュボードから、<strong>Analytics -&gt; Chart Builder</strong>をクリックします。ここでは、機械学習モデルのさまざまな測定値、特徴、およびディメンションを使用してチャートを作成することができます。ここでは、信頼度別に予測値を分類したチャートをご覧いただけます。</p>
+<pre class="codehilite"><code class="linenums">**注意：**データを読み込むために、「Past Week」や「Yesterday」の日付範囲をクリックする必要があるかもしれません。
+</code></pre>
+
+<p>1.値を変更して、作成されたチャートを試してみてください。</p>
+<pre class="codehilite"><code class="linenums">![Analytics Chart builder](images/openscale-chart-builder.png)
+</code></pre>
+
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルでは、Watson OpenScale ツールを使用して、多くの GUI 機能のウォークスルーを行います。自動セットアップのデプロイメントでは、機械学習モデルを作成してデプロイし、過去のデータを挿入して、本番で長期間使用されているモデルをシミュレートします。OpenScale モニターが構成され、その後、様々なメトリクスやデータを探索することができます。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

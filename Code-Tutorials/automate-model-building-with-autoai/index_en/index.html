@@ -1,0 +1,675 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Automate model building with AutoAI - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-objectives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automate model building with AutoAI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-project-and-autoai-instance" class="md-nav__link">
+    1. Create a project and AutoAI instance
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create a project and AutoAI instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-ibm-cloud-pak-for-data-project" class="md-nav__link">
+    Create an IBM Cloud Pak for Data project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-the-dataset-for-this-experiment-and-load-it-into-you-project" class="md-nav__link">
+    Download the dataset for this experiment and load it into you project.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-run-autoai-experiment" class="md-nav__link">
+    2. Run AutoAI Experiment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-save-autoai-model" class="md-nav__link">
+    3. Save AutoAI Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-save-autoai-notebook" class="md-nav__link">
+    4. Save AutoAI notebook
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-promote-the-model" class="md-nav__link">
+    5. Promote the model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Automate model building with AutoAI</h1>
+                
+                <p>With the aim of creating AI for AI, IBM introduced a service on Watson&trade; Studio called <a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.0?topic=models-autoai">AutoAI</a>.</p>
+<p>AutoAI is a capability that automates machine learning tasks to ease the tasks of data scientists. It automatically prepares your data for modeling, chooses the best algorithm for your problem, and creates pipelines for the trained models, and it can be run in public clouds and in private clouds, including IBM Cloud Pak for Data.</p>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>This tutorial explains the benefits of the AutoAI service on a use case. This will give you a better understanding of how regression and classification problems can be handled without any code -- and how the tasks (feature engineering, model selection, hyperparameter tuning, etc.) are done with this service. This tutorial also includes details for choosing the best model among the pipelines and how to deploy and use these models via IBM Cloud Pak for Data platform.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.ibm.com/analytics/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+</ul>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>This tutorial should take approximately 20 minutes to complete (including the training in AutoAI) and is broken up into the following steps:</p>
+<p>This section is broken up into the following steps:</p>
+<ol>
+<li><a href="#1-create-a-project-and-autoai-instance">Create a project and AutoAI instance</a></li>
+<li><a href="#2-run-autoai-experiment">Run AutoAI Experiment</a></li>
+<li><a href="#3-save-autoai-model">Save AutoAI Model</a></li>
+<li><a href="#4-save-autoai-notebook">Save AutoAI Notebook</a></li>
+<li><a href="#5-promote-the-model">Promote the Model</a></li>
+</ol>
+<h2 id="1-create-a-project-and-autoai-instance">1. Create a project and AutoAI instance<a class="headerlink" href="#1-create-a-project-and-autoai-instance" title="Permanent link">&para;</a></h2>
+<p>If you have not already created a project for this learning path, follow the instructions below to create one. Otherwise, you can skip to <a href="#1-run-autoai-experiment">Run AutoAI Experiment</a>.</p>
+<h3 id="create-an-ibm-cloud-pak-for-data-project">Create an IBM Cloud Pak for Data project<a class="headerlink" href="#create-an-ibm-cloud-pak-for-data-project" title="Permanent link">&para;</a></h3>
+<p>In Cloud Pak for Data, we use the concept of a project to collect / organize the resources used to achieve a particular goal (resources to build a solution to a problem). Your project resources can include data, collaborators, and analytic assets like notebooks and models, etc.</p>
+<ul>
+<li>Go the (☰) navigation menu and under the <em>Projects</em> section click on <em><code>All Projects</code></em>.</li>
+</ul>
+<p><img alt="(☰) Menu -&gt; Projects" src="../images/menu-projects.png" /></p>
+<ul>
+<li>Click on the <strong><code>New project</code></strong> button on the top right.</li>
+</ul>
+<p><img alt="Start a new project" src="../images/new-project.png" /></p>
+<ul>
+<li>Select the <code>Analytics project</code> radio button and click the <strong><code>Next</code></strong> button.</li>
+</ul>
+<p><img alt="New analytics project" src="../images/new-project-type.png" /></p>
+<ul>
+<li>Select <strong><code>Create an empty project</code></strong>.</li>
+</ul>
+<p><img alt="Create empty project" src="../images/cpd-create-empty-project.png" /></p>
+<ul>
+<li>Provide a name and optional description for the project and click <strong><code>Create</code></strong>.</li>
+</ul>
+<p><img alt="Pick a name" src="../images/project-name.png" /></p>
+<h3 id="download-the-dataset-for-this-experiment-and-load-it-into-you-project">Download the dataset for this experiment and load it into you project.<a class="headerlink" href="#download-the-dataset-for-this-experiment-and-load-it-into-you-project" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Download the <a href="../static/german_credit_data.csv">german_credit_data.csv</a> dataset.</p>
+</li>
+<li>
+<p>Upload the dataset to the analytics project by clicking on <strong>Browse</strong> and selecting the downloaded file.</p>
+</li>
+</ul>
+<h2 id="2-run-autoai-experiment">2. Run AutoAI Experiment<a class="headerlink" href="#2-run-autoai-experiment" title="Permanent link">&para;</a></h2>
+<ul>
+<li>To start the AutoAI experiment, click the <em><code>Add to Project</code></em> button from the top of the page and select the <code>AutoAI experiment</code> option.</li>
+</ul>
+<p><img alt="Adding a project" src="../images/autoai-add-project.png" /></p>
+<ul>
+<li>Name your AutoAI experiment asset and leave the default compute configuration option listed in the drop-down menu. Then click the <code>Create</code> button.</li>
+</ul>
+<p><img alt="Naming your services" src="../images/autoai-name-experiment.png" /></p>
+<ul>
+<li>To configure the experiment, we must first give it the dataset that will be used to train the machine learning model. We will be using one of the CSV file datasets we have preloaded into the project. Click on the <code>Select from project</code> option.</li>
+</ul>
+<p><img alt="Select data" src="../images/autoai-select-dataset-project.png" /></p>
+<ul>
+<li>In the dialog, select the <code>german_credit_data.csv</code> file and click the <code>Select asset</code> button.</li>
+</ul>
+<p><img alt="Select data" src="../images/autoai-select-dataset.png" /></p>
+<ul>
+<li>
+<p>Once the dataset is read in, we will need to indicate what we want the model to predict. Under <em>Select prediction column</em> panel, find and click on the <code>Risk</code> row.</p>
+</li>
+<li>
+<p>AutoAI will set up defaults values for the experiment based on the dataset and the column selected for the prediction. This includes the type of model to build, the metrics to optimize against, the test/train split, etc. To view/change these values, click the <em><code>Experiment settings</code></em> button.</p>
+</li>
+</ul>
+<p><img alt="Choose Churn column and run" src="../images/autoai-choose-prediction-and-configure.png" /></p>
+<ul>
+<li>On the <code>Data source settings</code> panel, in the <code>Select columns to include</code> section, deselect the checkbox for the <code>CustomerID</code> column name. This will remove the customer ID column from being used as a feature for the model. Although we could change other aspects of the experiment, we will accept the remaining default values and click the <code>Save settings</code> button.</li>
+</ul>
+<p><img alt="Choose features and save" src="../images/autoai-exp-settings-columns.png" /></p>
+<ul>
+<li>To start the experiment, click on the <code>Run experiment</code> button.</li>
+</ul>
+<p><img alt="Run experiment" src="../images/autoai-exp-run.png" /></p>
+<ul>
+<li>
+<p>The AutoAI experiment will now run. AutoAI will run through steps to prepare the dataset, split the dataset into training / evaluation groups and then find the best performing algorithms / estimators for the type of model. It will then build the following series of candidate pipelines for each of the top N performing algorithms (where N is a number chosen in the configuration which defaults to 2):</p>
+<ul>
+<li>Baseline model (Pipeline 1)</li>
+<li>Hyperparameter optimization (Pipeline 2)</li>
+<li>Automated feature engineering (Pipeline 3)</li>
+<li>Hyperparameter optimization on top of engineered features(Pipeline 4)</li>
+</ul>
+</li>
+<li>
+<p>The UI will show progress as different algorithms/evaluators are selected and as different pipelines are created &amp; evaluated. You can view the performance of the pipelines that have completed by expanding each pipeline section in the leaderboard.</p>
+</li>
+</ul>
+<p><img alt="autoai progress" src="../images/autoai-pipeline-progress.png" /></p>
+<ul>
+<li>The experiment can take several minutes to run. Upon completion you will see a message that the pipelines have been created. Do not proceed to the next section until the experiment completes.</li>
+</ul>
+<h2 id="3-save-autoai-model">3. Save AutoAI Model<a class="headerlink" href="#3-save-autoai-model" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Once the experiment completes, you can explore the various pipelines and options in the UI. Some of the options available are to see a comparison of the pipelines, to change the ranking based on a different performance metric, to see a log of the experiment, or to see the ranked listing of the pipelines (ranking based on the optimization metric in your experiment, in this case accuracy.)</li>
+</ul>
+<p><img alt="autoai pipelines created" src="../images/autoai-pipelines-complete.png" /></p>
+<ul>
+<li>
+<p>Scroll down to see the <em>Pipeline leaderboard</em>. The top performing pipeline is in the first rank.</p>
+</li>
+<li>
+<p>The next step is to select the model that gives the best result and view its performance. In this case, Pipeline 4 gave the best result for our experiment. You can view the detailed results by clicking the corresponding pipeline name from the leaderboard:</p>
+</li>
+</ul>
+<p><img alt="pipeline leaderboard" src="../images/autoai-pipeline-leaderboard-topranked.png" /></p>
+<ul>
+<li>The model evaluation page will show metrics for the experiment, confusion matrix, feature transformations that were performed (if any), which features contribute to the model, and more details of the pipeline. Optionally, feel free to click through these views of the pipeline details.</li>
+</ul>
+<p><img alt="Model evaluation" src="../images/autoai-toppipeline-details.png" /></p>
+<ul>
+<li>In order to deploy this model, click on the <em><code>Save as</code></em> button. On the next scren, select the <code>Model</code> option. Keep the default name or change it, add an optional description and tags, and click <code>Create</code> to save it.</li>
+</ul>
+<p><img alt="Save model" src="../images/autoai-pipeline-save-model.png" /></p>
+<ul>
+<li>You receive a notification to indicate that your model is saved to your project. You can return to your project using the notification by clicking <code>View in project</code>, or go back to your project main page by clicking on the project name on the navigator on the top left.</li>
+</ul>
+<p><img alt="Select Project" src="../images/autoai-project-navigator.png" /></p>
+<ul>
+<li>You will see the new model under <em>Models</em> section of the <em>Assets</em> page:</li>
+</ul>
+<h2 id="4-save-autoai-notebook">4. Save AutoAI notebook<a class="headerlink" href="#4-save-autoai-notebook" title="Permanent link">&para;</a></h2>
+<ul>
+<li>To save the AutoAI experiment as a notebook, go back to the window for the pipeline you have chosen, and click <code>Save as</code>.</li>
+</ul>
+<blockquote>
+<p><em>Note: You can get back to the pipeline window by going to your project overview page, clicking on the AutoAI experiment and clicking the pipeline from the leaderboard</em></p>
+</blockquote>
+<p><img alt="Save notebook" src="../images/autoai-toppipeline-details.png" /></p>
+<ul>
+<li>Choose the <code>Notebook</code> tile, accept the default name or change it if you like. Add optional description or tags, and click <code>Create</code>.</li>
+</ul>
+<p><img alt="Name and create notebook" src="../images/autoai-save-as-notebook.png" /></p>
+<ul>
+<li>You will receive a notification to indicate that your notebook is saved to your project. Close the pipeline details window to expose the path back to the project at the top of the screen. Click on your project name to navigate to the project overview page.</li>
+</ul>
+<p><img alt="Navigate to Project" src="../images/autoai-navigate-to-project.png" /></p>
+<ul>
+<li>The notebook will be saved to your project, and can be examined in detail, changed and modified, and used to create a new model. See the documentations for <a href="../static/running-autoai-notebook/">Modifying and running an AutoAI generated notebook</a> for details.</li>
+</ul>
+<h2 id="5-promote-the-model">5. Promote the model<a class="headerlink" href="#5-promote-the-model" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Now that we have saved our model, we will next need to make the model available in our deployment space so it can be deployed. Under the <em>Models</em> section of the <em>Assets</em> page, click the name of your saved model.</li>
+</ul>
+<p><img alt="choose AI model" src="../images/autoai-choose-asset-ai-model.png" /></p>
+<ul>
+<li>To make the model available to be deployed, we need to make it available in the deployment space we previously set up. Click on the <code>Promote to deployment space</code>:</li>
+</ul>
+<p><img alt="Deploying the model" src="../images/autoai-promote-to-space.png" /></p>
+<blockquote>
+<p>*<em><em>Note: This is assuming you have already created a deployment space in the </em>pre-work</em> section of the workshop.</p>
+</blockquote>
+<ul>
+<li>Add an optional description or tags if you'd like. Click on the <em><code>Promote</code></em> button.</li>
+</ul>
+<p><img alt="Promote model" src="../images/autoai-promote-to-space-confirm.png" /></p>
+<ul>
+<li>You will see a notification that the model was promoted to the deployment space succesfully.</li>
+</ul>
+<p><img alt="Create Deployment Space" src="../images/autoai-promotion-success.png" /></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>In this section we covered one approach to building machine learning models on Cloud Pak for Data. We have seen how AutoAI helps find an optimal model by automating tasks such as:</p>
+<ul>
+<li>Data Wrangling</li>
+<li>Model Algorithm Evaluation &amp; Selection</li>
+<li>Feature Engineering</li>
+<li>Hyperparameter Optimization.</li>
+</ul>
+<p>Want to find out more about AutoAI? Then, take a look at <a href="https://developer.ibm.com/technologies/artificial-intelligence/learningpaths/explore-autoai/">Use AutoML to find and deploy the best models in minutes</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

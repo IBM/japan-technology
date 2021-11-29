@@ -1,0 +1,702 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Data visualization with Data Refinery - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-objectives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data visualization with Data Refinery
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-load-data" class="md-nav__link">
+    1. Load Data
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Load Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-the-german_credit_datacsv-data-into-data-refinery" class="md-nav__link">
+    Load the german_credit_data.csv data into Data Refinery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-refine-data" class="md-nav__link">
+    2. Refine Data
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Refine Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-transformation-flow" class="md-nav__link">
+    Create Transformation Flow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule-jobs" class="md-nav__link">
+    Schedule Jobs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-profile-data" class="md-nav__link">
+    3. Profile Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-visualize-data" class="md-nav__link">
+    4. Visualize Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Data visualization with Data Refinery</h1>
+                
+                <p>Data Refinery is part of IBM Watson and comes with IBM Watson Studio on the public IBM Cloud and IBM Watson Knowledge Catalog running on-premises using IBM Cloud Pak for Data. It’s a self-service data-preparation client for data scientists, data engineers, and business analysts. With it, you can quickly transform large amounts of raw data into quality consumable information that’s ready for analytics. Data Refinery makes it easy to explore, prepare, and deliver data that people across your organization can trust.</p>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, you will learn how to:</p>
+<ol>
+<li><a href="#1-load-data">Load data into the IBM Cloud Pak for Data platform for use with Data Refinery</a></li>
+<li><a href="#2-refine-data">Transform a sample data set, either by entering command-line R code or selecting menu operations</a></li>
+<li><a href="#3-profile-data">Profile the data</a></li>
+<li><a href="#4-visualize-data">Visualize data with charts and graphs</a></li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.ibm.com/analytics/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+</ul>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>Completing this tutorial should take about 45 minutes.</p>
+<h2 id="1-load-data">1. Load Data<a class="headerlink" href="#1-load-data" title="Permanent link">&para;</a></h2>
+<h3 id="load-the-german_credit_datacsv-data-into-data-refinery">Load the german_credit_data.csv data into Data Refinery<a class="headerlink" href="#load-the-german_credit_datacsv-data-into-data-refinery" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Download the <a href="../static/german_credit_data.csv">german_credit_data.csv</a> file to your local machine.</p>
+</li>
+<li>
+<p>From the Project home, click on the <strong>Assets</strong> tab. Next, either drag and drop the downloaded <a href="../static/german_credit_data.csv">german_credit_data.csv</a> file to the right-hand side pane where it says <strong>Drop files here</strong> or browse for files to upload, or click on <strong>browse</strong> and choose the downloaded <a href="../static/german_credit_data.csv">german_credit_data.csv</a> file.</p>
+</li>
+</ul>
+<p><img alt="Upload data" src="../images/upload-data.png" /></p>
+<ul>
+<li>Click on the newly added german_credit_data.csv file.</li>
+</ul>
+<p><img alt="Click on data asset" src="../images/click-data-asset.png" /></p>
+<ul>
+<li>You should be able to see the data as shown below. Click on <strong>Refine</strong>.</li>
+</ul>
+<p><img alt="Click to refine" src="../images/click-to-refine.png" /></p>
+<ul>
+<li>Data Refinery will launch and open to the <code>Data</code> tab. It will also display the information panel with details of the data refinery flow and where the output of the flow will be placed. Go ahead and click the <code>X</code> to the right of the <code>Information</code> panel to close it.</li>
+</ul>
+<p><img alt="Open Data Refinery" src="../images/data-refinery-open.png" /></p>
+<h2 id="2-refine-data">2. Refine Data<a class="headerlink" href="#2-refine-data" title="Permanent link">&para;</a></h2>
+<p>We'll start out in the <code>Data</code> tab where we wrangle, shape and refine our data. As you refine your data, IBM Data Refinery keeps track of the steps in your data flow. You can modify them and even select a step to return to a particular moment in your data’s transformation.</p>
+<h3 id="create-transformation-flow">Create Transformation Flow<a class="headerlink" href="#create-transformation-flow" title="Permanent link">&para;</a></h3>
+<ul>
+<li>With Data Refinery, we can transform our data by directly entering operations in <a href="https://cran.r-project.org/manuals.html">R syntax</a> or interactively by selecting operations from the menu. For example, start typing <code>filter</code> on the Command line and observe that the list of operations displayed will get updated. Click on the filter operation.</li>
+</ul>
+<p><img alt="Command line filter" src="../images/dr-cli-filter.png" /></p>
+<ul>
+<li>A <code>filter</code> operation syntax will be displayed in the Command line. Clicking on the operation name within the Command line will give hints on the syntax and how to use the command. For instance, to filter for customers who have paid credits up to date, build the expression shown below. To inact the filter, you would <code>Apply</code> the expression.</li>
+</ul>
+<pre><code class="language-R">filter(`CreditHistory` == 'credits_paid_to_date')
+</code></pre>
+<ul>
+<li>We can remove this custom filter by clicking on the trash icon on the <code>Custom code</code> step of our data workflow.</li>
+</ul>
+<p><img alt="Clear custom filter" src="../images/dr-clearcustomfilter.png" /></p>
+<ul>
+<li>We will use the UI to explore and transform the data. Click the <code>+Operation</code> button.</li>
+</ul>
+<p><img alt="Choose Operation button" src="../images/dr-choose-operation-button.png" /></p>
+<ul>
+<li>Let's use the <code>Filter</code> operation to check some values. Click on <code>Filter</code> in the left panel.</li>
+</ul>
+<p><img alt="Filter Operation" src="../images/dr-filter-operation.png" /></p>
+<ul>
+<li>We want to make sure that there are no empty values in the <code>StreetAddress</code> column. Select the <code>StreetAddress</code> column from the <code>Column</code> drop down list, select <em><code>Is empty</code></em> from the <code>Operator</code> drop down list, and then click the <code>Apply</code> button.</li>
+</ul>
+<p><img alt="Filter is empty" src="../images/dr-filter-is-empty.png" /></p>
+<blockquote>
+<p><em>Note: If there are records where the selected column is empty, they will be displayed after clicking the apply button. If there are no records for this filter, it means that the rows being sampled do not have any empty values for the selected column.</em></p>
+</blockquote>
+<ul>
+<li>Now, click on the counter-clockwise "back" arrow to remove the filter. Alternately, we can also remove the filter by clicking the trash icon for the Filter step in the <code>Steps</code> panel on the right.</li>
+</ul>
+<p><img alt="Click back arrow" src="../images/dr-click-back-arrow.png" /></p>
+<ul>
+<li>We can remove these records with empty values. Click the <code>+Operation</code> again and this time select the <code>Remove empty rows</code> operation. Select the <code>StreetAddress</code> column, then click the <code>Next</code> button and finally the <code>Apply</code> button.</li>
+</ul>
+<p><img alt="Remove empty rows" src="../images/dr-remove-empty-rows.png" /></p>
+<ul>
+<li>
+<p>Let's say we've decide that there are columns that we don't want to leave in our dataset ( maybe because they might not be usefule features in our Machine Learning model, or because we don't want to make those data attributes accessible to others, or any other reason). We'll remove the <code>FirstName</code>, <code>LastName</code>, <code>Email</code>, <code>StreetAddress</code>, <code>City</code>, <code>State</code>, <code>PostalCode</code> columns.</p>
+</li>
+<li>
+<p>For each columnn to be removed: Click the <code>+Operation</code> button, then select the <code>Remove</code> operation. Click the <code>Change column selection</code> option.</p>
+</li>
+</ul>
+<p><img alt="Remove Column" src="../images/dr-remove-change-column.png" /></p>
+<ul>
+<li>
+<p>In the <code>Select column</code> drop down, choose one of the columns to remove (i.e <code>FirstName</code>). Click the <code>Next</code> button and then the <code>Apply</code> button. The columns will be removed. Repeat for each of the above columns.</p>
+</li>
+<li>
+<p>At this point, you have a data transformation flow with 8 steps. As we saw in the last section, we keep track of each of the steps and we can even undo (or redo) an action using the circular arrows. To see the steps in the data flow that you have performed, click the <code>Steps</code> button. The operations that you have performed on the data will be shown.</p>
+</li>
+</ul>
+<p><img alt="Flow" src="../images/dr-final-flow.png" /></p>
+<ul>
+<li>You can modify these steps in real time and save for future use.</li>
+</ul>
+<h3 id="schedule-jobs">Schedule Jobs<a class="headerlink" href="#schedule-jobs" title="Permanent link">&para;</a></h3>
+<p>Data Refinery allows you to run jobs at scheduled times, and save the output. In this way, you can regularly refine new data as it is updated.</p>
+<ul>
+<li>Click on the "jobs" icon and then <code>Save and create job</code> option from the menu.</li>
+</ul>
+<p><img alt="Click jobs icon" src="../images/dr-save-and-create-job.png" /></p>
+<ul>
+<li>Give the job a name and optional description, then click the <em><code>Next</code></em> button.</li>
+</ul>
+<p><img alt="jobs name" src="../images/dr-savejob-name.png" /></p>
+<ul>
+<li>The job will configure a default input and output data asset, as well as the runtime environment. Click the <em><code>Next</code></em> button.</li>
+</ul>
+<p><img alt="jobs name" src="../images/dr-savejob-environment.png" /></p>
+<ul>
+<li>We can set the job to run on a schedule. For now, leave the schedule off and click the <em><code>Next</code></em> button.</li>
+</ul>
+<p><img alt="jobs name" src="../images/dr-savejob-schedule.png" /></p>
+<ul>
+<li>Click the <em><code>Create and Run</code></em> button to save and run this job.</li>
+</ul>
+<p><img alt="Create and Run Refinery job" src="../images/dr-create-and-run-job.png" /></p>
+<ul>
+<li>This refinery flow will be saved to your project in the <code>Data Refinery flows</code> section of the project overview page. From that section you could revisit the flow to edit the steps or even see any execution jobs you have run. For now, we will move on to exploring our data.</li>
+</ul>
+<h2 id="3-profile-data">3. Profile Data<a class="headerlink" href="#3-profile-data" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Back on the top level of the data refinery view, click on the <code>Profile</code> tab to bring up a view of several statistics and histograms for the attributes in your data.</li>
+</ul>
+<p><img alt="Data Refinery Profile tab" src="../images/dr-profile.png" /></p>
+<ul>
+<li>
+<p>Once the data profile loads, you can get insight into the data from the views and statistics:</p>
+</li>
+<li>
+<p>The median age of the applicants is 36, with the bulk under 49.</p>
+</li>
+<li>
+<p>About as many people had credits_paid_to_date as prior_payments_delayed. Few had no_credits.</p>
+</li>
+<li>
+<p>The median was 3 years for duration at current residence. Range was 1-6 years.</p>
+</li>
+</ul>
+<h2 id="4-visualize-data">4. Visualize Data<a class="headerlink" href="#4-visualize-data" title="Permanent link">&para;</a></h2>
+<p>Let's do some visual exploration of our data using charts and graphs. Note that this is an exploratory phase and we're looking for insights in out data. We can accomplish this in Data Refinery interactively without coding.</p>
+<ul>
+<li>Choose the <code>Visualizations</code> tab to bring up the page where you can select columns that you want to visualize. Select <code>LoanAmount</code> from the "Columns to visualize" drop down list as the first column and click <code>Add another column</code> to add another column. Next add <code>LoanDuration</code> and click the <em><code>Visualize data</code></em> button. The system will pick a suggested plot for you based on your data and show more suggested plot types at the top.</li>
+</ul>
+<p><img alt="Select columns" src="../images/dr-vis-choose-column-loan.png" /></p>
+<ul>
+<li>Remember that we are most interested in knowing how these features impact a loan being at the risk. So, let's add the <code>Risk</code> as a color on top of our current scatter plot. That should help us visually see if there's something of interest here. From the left panel, click the <code>Color Map</code> drop down and select <code>Risk</code>. Also, to see the full data, drag the right side of the data selector at the bottom all the way to the right, in order to show all the data inside your plot.</li>
+</ul>
+<p><img alt="Amount v Duration Scatter" src="../images/dr-vis-loan-amountduration-scatter.png" /></p>
+<ul>
+<li>We notice that there are more blue (risk) on this plot towards the top right, than there is on the bottom left. This is a good start as it shows that there is probably a relationship between the riskiness of a loan and its duration and amount. It appears that the higher the amount and duration, the riskier the loan. Interesting, let's dig in further in how the loan duration could play into the riskiness of a loan.</li>
+</ul>
+<blockquote>
+<p><em>Note: The colors used in your visualization may be different. Be sure to look at chart legend for clarification</em></p>
+</blockquote>
+<ul>
+<li>
+<p>Let's plot a histogram of the <code>LoanDuration</code> to see if we can notice anything. First, select <code>Histogram</code> from the <code>Chart Type</code>.</p>
+</li>
+<li>
+<p>On the left, select <code>LoanDuration</code> for the 'X-axis', select <code>Risk</code> in the 'Split By' section, check the <code>Stacked</code> option, uncheck the <code>Show kde curve</code> toggle, uncheck the <code>Show distribution curve</code> toggle. You should see a chart that looks like the following image.</p>
+</li>
+</ul>
+<p><img alt="Visualize loan duration" src="../images/dr-vis-loanduration-hist.png" /></p>
+<ul>
+<li>
+<p>It looks like the longer the duration the larger the blue bar (risky loan count) become and the smaller the dark blue bars (non risky loan count) become. That indicate loans with longer duration are in general more likely to be risky. However, we need more information.</p>
+</li>
+<li>
+<p>We next explore if there is some insight in terms of the riskiness of a loan based on its duration when broken down by the loan purpose. To do so, let's create a Heat Map plot.</p>
+</li>
+<li>
+<p>At the top of the page, in the <code>Chart Type</code> section, open the arrows on the right, select <code>Heat Map</code>.</p>
+</li>
+</ul>
+<p><img alt="Switch to heat map" src="../images/dr-vis-switch-heatmap.png" /></p>
+<ul>
+<li>Next, select <code>Risk</code> in the column section and <code>LoanPurpose</code> for the <code>Row</code> section. Additionally, to see the effects of the loan duration, select <code>Mean</code> in the summary section, and select <code>LoanDuration</code> in the <code>Value</code> section.</li>
+</ul>
+<p><img alt="Loan purpose heat map" src="../images/dr-vis-loanpurpose-heatmap.png" /></p>
+<ul>
+<li>
+<p>You can now see that the least risky loans are those taken out for purchasing a new car and they are on average 10 years long. To the left of that cell we see that loans taken out for the same purpose that average around 15 years for term length seem to be more risky. So one could conclude the longer the loan term is, the more likely it will be risky. In contrast, we can see that both risky and non-risky loans for the other category seem to have the same average term length, so one could conclude that there's little, if any, relationship between loan length and its riskiness for the loans of type other.</p>
+</li>
+<li>
+<p>In general, for each row, the bigger the color difference between the right and left column, the more likely that loan duration plays a role for the riskiness of the loan category.</p>
+</li>
+<li>
+<p>Now let's look into customizing our plot. Under the Actions panel, notice that you can perform tasks such as <code>Start over</code>, <code>Download chart details</code>, <code>Download chart image</code>, or set <code>Global visualization preferences</code> <em>(Note: Hover over the icons to see the names)</em>. Click on the drop down arrow next to <code>Action</code>. Then click on the <code>Global visualization preferences</code> option from the menu.</p>
+</li>
+</ul>
+<p><img alt="Visualize theme preferences" src="../images/dr-vis-actions-menu.png" /></p>
+<ul>
+<li>We see that we can do things in the <code>Global visualization preferences</code> for <code>Titles</code>, <code>Tools</code>, <code>Theme</code>, and <code>Notifications</code>. Click on the <code>Theme</code> tab and update the color scheme to <code>Dark</code>. Then click the <code>Apply</code> button, now the colors for all of our charts will reflect this. Play around with various Themes and find one that you like.</li>
+</ul>
+<p><img alt="Visualize set theme and choose preferences" src="../images/dr-vis-choose-theme.png" /></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>We've seen a some of the capabilities of the Data Refinery. We saw how we can transform data using R code, as well as using various operations on the columns such as changing the data type, removing empty rows, or deleting the column altogether. We next saw that all the steps in our Data Flow are recorded, so we can remove steps, repeat them, or edit an individual step. We were able to quickly profile the data, to see histograms and statistics for each column. And finally we created more in-depth Visualizations, creating a scatter plot, histogram, and heatmap to explore the relationship between the riskiness of a loan and its duration, and purpose.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

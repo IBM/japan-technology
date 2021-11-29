@@ -1,0 +1,923 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Find, prepare, and understand data with Watson Knowledge Catalog - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-objectives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Find, prepare, and understand data with Watson Knowledge Catalog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-set-up-catalog" class="md-nav__link">
+    1. Set up Catalog
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Set up Catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-catalog" class="md-nav__link">
+    Create the catalog
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-add-data-assets" class="md-nav__link">
+    2. Add Data Assets
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Add Data Assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-data-asset" class="md-nav__link">
+    Local Data Asset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-add-connection" class="md-nav__link">
+    (Optional) Add Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-add-data-from-connection" class="md-nav__link">
+    (Optional) Add Data from Connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-add-collaborators-and-control-access" class="md-nav__link">
+    3. Add Collaborators and Control access
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-add-categories" class="md-nav__link">
+    4. Add categories
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Add categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-categories-optional" class="md-nav__link">
+    Import categories (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-category-manually" class="md-nav__link">
+    Add category manually
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-add-data-classes" class="md-nav__link">
+    5. Add data classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-add-business-terms" class="md-nav__link">
+    6. Add Business terms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-add-rules-for-policies" class="md-nav__link">
+    7. Add rules for policies
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Add rules for policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-create-a-business-term-review" class="md-nav__link">
+    How to create a Business term review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-rule" class="md-nav__link">
+    Adding a rule
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Find, prepare, and understand data with Watson Knowledge Catalog</h1>
+                
+                <p>This tutorial demonstrates how to solve the problems of enterprise data governance using the IBM Watson Knowledge Catalog on the IBM Cloud Pak for Data platform. We'll explain how to use governance, data quality, and active policy management to help you protect and govern sensitive data, trace data lineage, and manage data lakes. This knowledge can help you quickly discover, curate, categorize, and share data assets, data sets, analytical models, and their relationships with others in your organization.</p>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, you will learn how to:</p>
+<ol>
+<li><a href="#1-set-up-catalog">Set up Catalog</a></li>
+<li><a href="#2-add-data-assets">Add Data Assets</a></li>
+<li><a href="#3-add-collaborators-and-control-access">Add collaborators and control access</a></li>
+<li><a href="#4-add-categories">Add categories</a></li>
+<li><a href="#5-add-data-classes">Add data classes</a></li>
+<li><a href="#6-add-business-terms">Add Business terms</a></li>
+<li><a href="#7-add-rules-for-policies">Add rules for policies</a></li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+<li><a href="https://www.ibm.com/cloud/watson-knowledge-catalog">Watson Knowledge Catalog</a></li>
+<li>Admin access to create and administer the catalog</li>
+</ul>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>Completing this tutorial should take about 30-45 minutes.</p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<h2 id="1-set-up-catalog">1. Set up Catalog<a class="headerlink" href="#1-set-up-catalog" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>NOTE: The default catalog is your enterprise catalog. It is created automatically after you install the Watson Knowledge Catalog service and is the only catalog to which advanced data curation tools apply. The default catalog is governed so that data protection rules are enforced. The information assets view shows additional properties of the assets in the default catalog to aid curation. Any subsequent catalogs that you create can be governed or ungoverned, do not have an information assets view, and supply basic data curation tools.</p>
+</blockquote>
+<p>First we'll create a catalog and load some data</p>
+<h3 id="create-the-catalog">Create the catalog<a class="headerlink" href="#create-the-catalog" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Go to the upper-left (☰) hamburger menu and choose <code>Catalogs</code> -&gt; <code>All catalogs</code>.</li>
+</ul>
+<p><img alt="open catalog menu" src="../images/wkc-admin-open-catalog-menu.png" /></p>
+<ul>
+<li>From the <em>Your catalogs</em> page, click the <code>Create catalog</code> button.</li>
+</ul>
+<p><img alt="create WKC catalog" src="../images/wkc-create-catalog.png" /></p>
+<ul>
+<li>Give your catalog a name, check the <code>Enforce data protection rules</code> checkbox and provide an optional description. Then click the <code>Create</code> button.</li>
+</ul>
+<p><img alt="name and create wkc catalog" src="../images/wkc-admin-name-create-catalog.png" /></p>
+<blockquote>
+<p><em>Note: Click <code>Ok</code> in the pop up window when selecting the data protection checkbox.</em></p>
+</blockquote>
+<h2 id="2-add-data-assets">2. Add Data Assets<a class="headerlink" href="#2-add-data-assets" title="Permanent link">&para;</a></h2>
+<p>There are several ways to add assets to the catalog. We are going to add a local data asset. There are also optional sections to add connection assets below.</p>
+<h3 id="local-data-asset">Local Data Asset<a class="headerlink" href="#local-data-asset" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Download the <a href="../static/applicant_personal_data.csv">applicant_personal_data.csv</a> file. Under the <strong>Browse Assets</strong> tab, below Now you can add assets, click <strong>here</strong> to add your data.</p>
+</li>
+<li>
+<p>Click <code>Add to Catalog +</code> in the top right and choose <code>Local files</code>.</p>
+</li>
+</ol>
+<p><img alt="add local files to catalog" src="../images/wkc-add-to-catalog-local-files.png" /></p>
+<ul>
+<li>Click the <code>browse</code> link in the 'Select file(s) panel. Browse to the <code>/data/split/applicant_personal_data.csv</code> file to select it. Add an optional description and click the <code>Add</code> button.</li>
+</ul>
+<p><img alt="click add for local files to catalog" src="../images/wkc-admin-file-selected-now-add.png" /></p>
+<blockquote>
+<p><em>NOTE: Stay in the catalog until loading is complete! If you leave the catalog, the incomplete asset will be deleted.</em></p>
+</blockquote>
+<ul>
+<li>The newly added file will show up under the <em>Browse Assets</em> tab of your catalog:</li>
+</ul>
+<p><img alt="newly added data in catalog" src="../images/wkc-admin-browse-assets.png" /></p>
+<h3 id="optional-add-connection">(Optional) Add Connection<a class="headerlink" href="#optional-add-connection" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You can add a connection to various data sources, for example <em>DB2 Warehouse in IBM Cloud</em>, by choosing <code>Add to Catalog +</code> -&gt; <code>Connection</code>:</li>
+</ul>
+<p><img alt="add connection to catalog" src="../images/wkc-add-connection.png" /></p>
+<ul>
+<li>Click on the data source type you want to add (for example, <code>Db2 Warehouse</code>).</li>
+</ul>
+<p><img alt="chose db2 warehouse connection " src="../images/wkc-choose-db2-warehouse-conn.png" /></p>
+<ul>
+<li>Enter the connection details and click <code>Create</code>:</li>
+</ul>
+<p><img alt="enter db2 warehouse connection details" src="../images/wkc-enter-connection-details.png" /></p>
+<ul>
+<li>The connection now shows up in the catalog.</li>
+</ul>
+<p><strong>Note: Virtualized data can be added to the <em>Default</em> catalog by someone with Administrator or Editor access to that catalog. There is an option to add <code>Data Virtualization</code> as a connection.</strong></p>
+<h3 id="optional-add-data-from-connection">(Optional) Add Data from Connection<a class="headerlink" href="#optional-add-data-from-connection" title="Permanent link">&para;</a></h3>
+<p>Once you have a connection to a data source, you will be able to add assets from that connection.</p>
+<ul>
+<li>Click <code>+Add to Catalog</code> -&gt; <code>Connected asset</code>:</li>
+</ul>
+<p><img alt="add connected asset" src="../images/wkc-add-connected-asset.png" /></p>
+<ul>
+<li>Click <em>Source</em> -&gt; <code>Select source</code>. Browse under <code>DV</code> to your Schema (i.e. UserXYZW) and choose the joined table. Click <code>Select</code>.</li>
+</ul>
+<p>A user can now add this to a project like any other asset from a catalog.</p>
+<h2 id="3-add-collaborators-and-control-access">3. Add Collaborators and Control access<a class="headerlink" href="#3-add-collaborators-and-control-access" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Under the <em>Access Control</em> tab you can click <code>Add Collaborator</code> to give other users access to your catalog.</li>
+</ul>
+<p><img alt="give users access to the catalog" src="../images/wkc-admin-access-control-add-collaborator.png" /></p>
+<ul>
+<li>
+<p>You can search for a user by entering their name in the <code>Collaborators</code> field. Click on the name to select the user., and click <code>Add</code>.</p>
+</li>
+<li>
+<p>You can choose a role for the user - <code>Admin</code>, <code>Editor</code>, or <code>Viewer</code>. Then click the <code>Add</code> button.</p>
+</li>
+</ul>
+<p><img alt="choose role for collaborator" src="../images/wkc-admin-user-roll-choice.png" /></p>
+<ul>
+<li>To access data in the catalog, click on the name of the data.</li>
+</ul>
+<p><img alt="click data name to open" src="../images/wkc-admin-click-data-name-to-open.png" /></p>
+<ul>
+<li>An overview of the data will open with metadata and Governance artifacts.</li>
+</ul>
+<p><img alt="overview of data" src="../images/wkc-admin-data-overview.png" /></p>
+<ul>
+<li>Click on the <code>Asset</code> tab to see a preview of the first 1000 rows.</li>
+</ul>
+<p><img alt="preview of data" src="../images/wkc-admin-data-preview.png" /></p>
+<ul>
+<li>You can click the <code>Review</code> tab and rate the data, as well as comment on it, to provide feedback to consumers of the data.</li>
+</ul>
+<p><img alt="review data" src="../images/wkc-admin-review-data.png" /></p>
+<h2 id="4-add-categories">4. Add categories<a class="headerlink" href="#4-add-categories" title="Permanent link">&para;</a></h2>
+<p>The fundamental abstraction in Watson Knowledge Catalog is the Category. A category is analogous to a folder. You can add categories as needed, or you can import them in CSV format.</p>
+<h3 id="import-categories-optional">Import categories (optional)<a class="headerlink" href="#import-categories-optional" title="Permanent link">&para;</a></h3>
+<p>To import categories with unique names, you will need to be comfortable with running a command in a terminal window. Please skip this if you are not familiar with that process.</p>
+<ul>
+<li>All category names are global in scope, so you'll need to import a file with unique names. Go to where you cloned or downloaded this repository, and navigate to the file <code>data/wkc/glossary-organize-categories.csv</code>. Run the script <code>data/wkc/prepend-user-tag.py</code> using your intials or some other tag in order to create a unique file. For example, I might run <code>./prepend-user-tag -T scottda</code>. If you do not add a tag with the <code>-T</code> parameter, a unique file with unique Category names will be generated with a python time.time() string.</li>
+</ul>
+<p><img alt="run prepend-user-tag script" src="../images/wkc-admin-prepend-user-tag.png" /></p>
+<ul>
+<li>Import a category for your assets by going to the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Categories</code>, then the click the <code>Add category</code> button and choose <code>Import from file</code>. </li>
+</ul>
+<p><img alt="Import categories" src="../images/wkc-admin-import-categories.png" /></p>
+<ul>
+<li>Click the <code>Add file</code> and navigate to where you cloned/downloaded the workshop repository, choosing the file that you have created using the <code>prepend-user-tag.py</code> script, i.e <code>data/wkc/scottda-glossary-organize-categories.csv</code> would be the file I created by running <code>./prepend-user-tag.py -T scottda</code>. Click the <code>Next</code> button.</li>
+</ul>
+<p><img alt="Import select file" src="../images/wkc-import-select-file.png" /></p>
+<ul>
+<li>Under <code>Select merge option</code> choose <code>Replace all values</code> and click <code>Import</code>.</li>
+</ul>
+<p><img alt="Import select merge option" src="../images/wkc-import-select-merge-option.png" /></p>
+<ul>
+<li>
+<p>You will see "The import completed succesfully" when it is completed.</p>
+</li>
+<li>
+<p>In this way, you can import Categories, Business Terms, Classifications, Policies, etc. to populate your governance catalogs.</p>
+</li>
+</ul>
+<h3 id="add-category-manually">Add category manually<a class="headerlink" href="#add-category-manually" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>NOTE: Categories, Business Terms, Data Classes, and othe Governance artifacts are global in scope. When you are asked to create one, pre-pend your initials or some unique tag, or it will fail. For example, below I would use <code>scottda-Personal Data</code> in place of <code>XXX-Personal Data</code>.</p>
+</blockquote>
+<p>In addition to importing, you can manually create categories. Add a category for your assets by going to the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Categories</code>, then click the <code>Add category</code> button and then <code>New category</code>.</p>
+<p><img alt="organize data categories" src="../images/wkc-admin-menu-organize-categories.png" /></p>
+<ul>
+<li>Give your category a name pre-pended with initials or a unique tag, such as <em>XXX-Personal Data</em>, and an optional description, and then click the <code>Save</code> button.</li>
+</ul>
+<p><img alt="new category billing" src="../images/wkc-admin-new-category-personal-data.png" /></p>
+<ul>
+<li>Now, if you hit the <code>Create category</code> link on the <em>Personal Data</em> category screen under <em>Subcategories</em>, you can create a subcategory, such as <em>Residence Information</em>.</li>
+</ul>
+<p><img alt="sub category residence information" src="../images/wkc-admin-new-subcategory-residence-information.png" /></p>
+<ul>
+<li>For the <em>Personal Data</em> category you can select a <em>Type</em>, such as <code>Business term</code>.</li>
+</ul>
+<p><img alt="select business term type" src="../images/wkc-admin-category-add-artifact.png" /></p>
+<ul>
+<li>We can also create classifications for assets, similar to <em>Confidential</em>, <em>Personally Identifiable Information</em>, or <em>Sensitive Personal Information</em> in a similar way, by going to the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Classifications</code>.</li>
+</ul>
+<p><img alt="select classification" src="../images/wkc-admin-navigate-classifications.png" /></p>
+<ul>
+<li>Click on the <code>Add classification</code> button on the top right and then <code>New classification</code> from the drop down menu. These classifications can then be added to your category as a <em>Type</em>:</li>
+</ul>
+<p><img alt="select classification type" src="../images/wkc-admin-add-classifications.png" /></p>
+<h2 id="5-add-data-classes">5. Add data classes<a class="headerlink" href="#5-add-data-classes" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>NOTE: Categories, Business Terms, Data Classes, and othe Governance artifacts are global in scope. When you are asked to create one, pre-pend your initials or some unique tag, or it will fail. For example, below I would use <code>scottda-alphanumeric</code> in place of <code>XXX-alphanumeric</code>.</p>
+</blockquote>
+<p>When you profile your assets, a data class will be inferred from the contents where possible. We'll see more on this later. You can also add your own data classes.</p>
+<ul>
+<li>Add a data class for your assets by going to the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Data classes</code>, then click the <code>Add data class</code> button and then the<code>New data class</code> option from the drop down menu.</li>
+</ul>
+<p><img alt="organize data classes" src="../images/wkc-admin-menu-organize-data-classes.png" /></p>
+<ul>
+<li>Give your new data class a name pre-pended with initials or a tag, i.e. <em>XXX-alphanumeric</em>, and then click <code>Change</code> for Primary category.</li>
+</ul>
+<p><img alt="new data class" src="../images/wkc-admin-create-data-class.png" /></p>
+<ul>
+<li>Choose the <em>Personal Data</em> primary category and click <code>Add</code>.</li>
+</ul>
+<p><img alt="Change primary category" src="../images/wkc-admin-change-primary-category.png" /></p>
+<ul>
+<li>
+<p>Now you can click <code>Save as draft</code>.</p>
+</li>
+<li>
+<p>Once the data class is created, we can optionally: add <em>Stewards</em> for this class, and associate <em>classifications</em> and <em>business terms</em>. When you are ready, click the <code>Publish</code> button and again <code>Publish</code> in the pop up window.</p>
+</li>
+</ul>
+<p><img alt="tools for data class" src="../images/wkc-data-class-add-term-publish.png" /></p>
+<ul>
+<li>
+<p>Now let's add that data class to a column in our <em>applicant_personal_data.csv</em> asset.</p>
+</li>
+<li>
+<p>Go back to the catalog you created earlier (i.e <em>CreditDataCatalog</em>) and open it ((☰) hamburger menu <code>Catalogs</code> -&gt; <code>All catalogs</code> and choose <code>CreditDataCatalog</code>). Under the <em>Browse assets</em> tab, click on the data set <em>applicant_personal_data.csv</em>, and then the <code>Asset</code> tab, to get the column/row preview. Find the <em>CustomerID</em> column and click the down arrow next to "Customer Number" and then <em>View all</em>:</p>
+</li>
+</ul>
+<p><img alt="change data class" src="../images/wkc-admin-existing-data-class.png" /></p>
+<ul>
+<li>In the window that opens, search for your newly created data class, <em>alphanumeric</em> and click it when it returns in the search. Then click the <code>Select</code> button.</li>
+</ul>
+<p><img alt="Set colunn to numerical data class" src="../images/wkc-admin-numeric-data-class.png" /></p>
+<h2 id="6-add-business-terms">6. Add Business terms<a class="headerlink" href="#6-add-business-terms" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>NOTE: Categories, Business Terms, Data Classes, and othe Governance artifacts are global in scope. When you are asked to create one, pre-pend your initials or some unique tag, or it will fail. For example, below I would use <code>scottda-Contact Information</code> in place of <code>XXX-Contact Information</code>.</p>
+</blockquote>
+<p>You can use <a href="https://dataplatform.cloud.ibm.com/docs/content/wsj/governance/dmg16.html">Business terms</a> to standardize definitions of business concepts so that your data is described in a uniform and easily understood way across your enterprise.</p>
+<p>You already saw how to create a category and make it a <em>business term</em>. You can also create the business term as its own entity.</p>
+<ul>
+<li>From the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Business terms</code>:</li>
+</ul>
+<p><img alt="organize Data Business terms" src="../images/wkc-admin-organize-data-business-terms.png" /></p>
+<ul>
+<li>Click on the upper-right <code>Add business term</code> button and then the <code>New business term</code> option in the drop down menu.</li>
+</ul>
+<p><img alt="create business term" src="../images/wkc-admin-create-business-term.png" /></p>
+<ul>
+<li>Give the new Business term a name pre-pended with initials or a tag, such as <em>XXX-Contact Information</em> and optional description. Click <code>Change</code> under <em>Primary category</em> and choose <em>Personal data</em>, then Click the <code>Save as draft</code> button.</li>
+</ul>
+<p><img alt="name new business term" src="../images/wkc-admin-name-business-term.png" /></p>
+<ul>
+<li>A window will come up once the term is created. You can see a rich set of options for creating related terms and adding other metadata. For now, click <code>Publish</code> to make this term available to users of the platform. Go ahead and click <code>Publish</code> on the pop up confirmation window.</li>
+</ul>
+<p><img alt="publish business term" src="../images/wkc-admin-publish-business-term.png" /></p>
+<ul>
+<li>Go back to the catalog you created earlier (i.e <em>CreditDataCatalog</em>) and open it ((☰) hamburger menu <code>Catalog</code> -&gt; <code>All catalogs</code> and choose <code>CreditDataCatalog</code>). Under the <em>Browse assets</em> tab, click on the data set <em>applicant_personal_data.csv</em>, and then the <code>Asset</code> tab, to get the column/row preview. Find the <em>Email</em> column and click the <em>Column information</em> icon (looks like an "eye").</li>
+</ul>
+<p><img alt="choose email columnn information" src="../images/wkc-admin-email-column-information.png" /></p>
+<ul>
+<li>In the window that opens, click the <em>edit</em> icon (looks like a "pencil") next to <em>Business terms</em> :</li>
+</ul>
+<p><img alt="edit business terms" src="../images/wkc-admin-assign-terms-to-column.png" /></p>
+<ul>
+<li>Enter <em>XXX-Contact Information</em> (your uniquely named term such as <em>scottda-ContactInfo</em>) term you created earlier under <em>Business terms</em> and the term will be searched for. Click on the <code>Contact Information</code> term that is found, and click <code>Apply</code>:</li>
+</ul>
+<p><img alt="search business terms" src="../images/wkc-admin-search-contact-to-assign-term.png" /></p>
+<ul>
+<li>
+<p>Click <code>Close</code> in that window once the term has been applied. Now, do the same thing to add the <em>Contact Information</em> Business term to the <em>Telephone</em> column.</p>
+</li>
+<li>
+<p>You will now be able to search for these terms from within the platform. For example, going back to your top level <em>CreditDataCatalog</em>, in the search bar with the comment "What assets are you searching for?" enter your unique <em><unique_string>Contact Information</em> term:</p>
+</li>
+</ul>
+<p><img alt="search using business terms" src="../images/wkc-admin-search-business-terms.png" /></p>
+<ul>
+<li>The <em>applicant_personal_data.csv</em> data set will show up, since it contains columns tagged with the <em>Contact Infomation</em> business term.</li>
+</ul>
+<h2 id="7-add-rules-for-policies">7. Add rules for policies<a class="headerlink" href="#7-add-rules-for-policies" title="Permanent link">&para;</a></h2>
+<p>We can now create rules to control how a user can access data.</p>
+<blockquote>
+<p>NOTE: Workshop teammates can simply reuse 1 term to associate with a rule, i.e. <em>CustomerID</em>, or you can proceed below to create a uniquely named one.</p>
+</blockquote>
+<ul>
+<li>Create a business term called <em>XXX-CustomerID</em>, or re-use one of your workshop teammates buisness terms for this expercise. Assign it to your <em>CustomerID</em> column in the data set using the instructions above. See below if you need details, but try it yourself first, and skip to <em>Adding a rule</em> below if you do not need a reminder.</li>
+</ul>
+<h3 id="how-to-create-a-business-term-review">How to create a Business term review<a class="headerlink" href="#how-to-create-a-business-term-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>From the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Business terms</code>.</p>
+</li>
+<li>
+<p>Click on the upper-right <code>Add business term</code> button and then the <code>New business term</code> option in the drop down menu.</p>
+</li>
+<li>
+<p>Give the new Business term the name <em>XXX-CustomerID</em> and optional description. Click <code>Change</code> under <em>Primary category</em> and choose <em>Personal data</em>, then Click the <code>Save as draft</code> button. In the next window, click <code>Publish</code>.</p>
+</li>
+<li>
+<p>Go back to the catalog you created earlier (i.e <em>CreditDataCatalog</em>) and open it ((☰) hamburger menu <code>Catalog</code> -&gt; <code>All catalogs</code> and choose <code>CreditDataCatalog</code>). Under the <em>Browse assets</em> tab, click on the data set <em>applicant_personal_data.csv</em>, and then the <code>Asset</code> tab, to get the column/row preview. Find the <em>CustomerID</em> column and click the <em>Column information</em> icon (looks like an "eye").</p>
+</li>
+<li>
+<p>In the window that opens, click the <em>edit</em> icon (looks like a "pencil") next to <em>Business terms</em> .</p>
+</li>
+<li>
+<p>Enter <em>CustomerID</em> under <em>Business terms</em> and the term will be searched for. Click on the <code>CustumerID</code> term that is found, and click <code>Apply</code>. Then close the pop up window.</p>
+</li>
+</ul>
+<h3 id="adding-a-rule">Adding a rule<a class="headerlink" href="#adding-a-rule" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>From the upper-left (☰) hamburger menu, choose <code>Governance</code> -&gt; <code>Rules</code>.</p>
+</li>
+<li>
+<p>Click the <code>Add rule</code> button on the top right and then select the  <code>New rule</code> option from the drop down menu.</p>
+</li>
+<li>
+<p>In the 'Create a new rule' page, select the <code>Data protection rule</code> option.</p>
+</li>
+</ul>
+<p><img alt="Data protection rule" src="../images/wkc-new-dataprotection-rule.png" /></p>
+<ul>
+<li>
+<p>Give your rule a unique <em>XXX-Name</em>, leave the <em>Type</em> set to <code>Access</code>, and add a <em>Business definition</em>.</p>
+</li>
+<li>
+<p>Under <em>Rule builder</em> &gt; <em>Condition1</em>: For the <code>If</code> condition, select <em>Business term</em> <em>Contains any</em> <em>CustomerID</em>. Under <em>Action</em>, for the <code>then</code> panel, select <em>mask data</em> <em>in columns containing</em> <em>alphanumeric</em>. Choose the tile for <code>Substitute</code>, which will make a non-identifiable hash. This obscures the actual CustomerID, but allows actions like database joins to still work. Click the <code>Create rule</code> button.</p>
+</li>
+</ul>
+<p><img alt="define rule for masking customerID" src="../images/wkc-admin-rule-substitute-customer-id.png" /></p>
+<ul>
+<li>
+<p>Now if we go back to our <em>applicant_personal_data.csv</em> asset in the catalog at the <em>CustomerID</em> column, it will look the same as before. But a non-admin user will see the "lock" icon and see that the customerID has now been substituted with a hash value.</p>
+</li>
+<li>
+<p>To add a rule to <em>Obfuscate</em> data, create a new data class called <em>Age</em>. See the instructions above if needed, don't forget to publish the class.</p>
+</li>
+<li>
+<p>Back in the <em>CreditDataCatalog</em>, under the <em>applicant_personal_data.csv</em> asset, go to the <code>Overview</code> tab and scroll to the <em>Age</em> column. Click the "down arrow" and you can see that the data has been inferred to be classified as a <em>Code</em>. Change the classifier by clicking <code>View all</code>.</p>
+</li>
+</ul>
+<p><img alt="Age classified as Code" src="../images/wkc-admin-inferred-classifier-code.png" /></p>
+<ul>
+<li>Now change the classifier by starting to type <em>Age</em>. When this comes up in the search, select it and then click the <code>Select</code> button.</li>
+</ul>
+<p><img alt="Change classifier and use" src="../images/wkc-admin-change-classifier-select.png" /></p>
+<ul>
+<li>Following the prior instructions, you can build a new data protection rule to <em>Obfuscate</em> this <em>Age</em> column.</li>
+</ul>
+<p><img alt="Age obfuscate rule " src="../images/wkc-admin-create-obfuscate-rule.png" /></p>
+<ul>
+<li>And now when that column is viewed by a non-admin user, it will have data that is replaced with similarly formatted data.</li>
+</ul>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>In this lab, we learned how to:</p>
+<ul>
+<li>Set up Catalog and Data</li>
+<li>Add collaborators and control access</li>
+<li>Add categories</li>
+<li>Add data classes</li>
+<li>Add Business terms</li>
+<li>Add rules for policies</li>
+</ul>
+<p>This tutorial is part of the <a href="/learningpaths/cloud-pak-for-data-learning-path/">Getting started with IBM Cloud Pak for Data learning path</a>. To continue the series and learn more about IBM Cloud Pak for Data, you can either take a look at the next pattern, <a href="/patterns/data-analysis-model-building-and-deploying-with-wml/">Data analysis, model building, and deploying with Watson Machine Learning with notebook</a>, look at the next tutorial titled <a href="/tutorials/automate-model-building-with-autoai/">Automate model building with AutoAI</a> or <a href="/tutorials/build-an-ai-model-visually-with-spss-modeler-flow/">Build a predictive machine learning model quickly and easily with IBM SPSS Modeler</a>.</p>
+<p>In this tutorial, you have learned a few of the powerful tools available for working with data on the IBM Cloud Pak for Data platform. With IBM Watson Knowledge Catalog, team members can work together in their individual roles to bring data and AI to the enterprise.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

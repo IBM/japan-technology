@@ -1,0 +1,581 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Watson Assistantの紹介 - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Watson Assistantの紹介
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-watson-assistant" class="md-nav__link">
+    Why use Watson Assistant?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アーキテクチャ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    用語
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-assistant" class="md-nav__link">
+    Watson Assistant はどこで利用できますか？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdk" class="md-nav__link">
+    # SDK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    # API
+  </a>
+  
+    <nav class="md-nav" aria-label="# API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    結論
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>IBM Watson Assistant は、あらゆるメッセージング・プラットフォーム、アプリケーション、デバイス、チャネルにおいて、お客様に迅速で一貫性のある正確な回答を提供する、AI を搭載したバーチャル・エージェントです。AI と自然言語処理を使用して、Watson Assistant はお客様との会話から学習し、問題を最初に解決する能力を向上させるとともに、長い待ち時間や退屈な検索、役に立たないチャットボットに対する不満を解消します。</p>
+<p>Watson Assistantを使えば、あらゆるアプリケーション、デバイス、チャネルに会話型インターフェースを構築することができます。ほとんどのバーチャルアシスタントは人間のインタラクションを模倣しようとしますが、Watson Assistantはナレッジベースから答えを検索するタイミング、明確な説明を求めるタイミング、そして人間に誘導するタイミングを把握しています。人間のパーソナルアシスタントのように、あなたが作ったアシスタントは、お客様がタスクを実行したり、質問に答えたりするのをサポートします。これを実現するために、アシスタントのアクションを定義します。</p>
+<p>アクションとは、ユーザーのリクエストに応じてアシスタントに実行させたい個別の結果を表します。アクションは、特定の質問やリクエストに関するお客様とアシスタントとのやりとりを表します。このやりとりは、アクションを開始するユーザーの入力から始まります（例えば、「お金をおろしたい」など）。その後、アシスタントがより多くの情報を収集する際に追加のやり取りが行われ、アシスタントがリクエストを実行したり、お客様の質問に答えたりしたときに終了することがあります。</p>
+<p>Watson Assistantを紹介するビデオはこちらです。</p>
+<iframe src="https://player.vimeo.com/video/590052149?h=05c4576022" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p>。</p>
+<p><a href="https://vimeo.com/590052149">IBM Watson Assistant solves customer problems the first time</a> from <a href="https://vimeo.com/watsonassistant">Watson Assistant</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<p>.</p>
+<h2 id="why-use-watson-assistant">Why use Watson Assistant?<a class="headerlink" href="#why-use-watson-assistant" title="Permanent link">&para;</a></h2>
+<p>バーチャルアシスタント（チャットボット）は、よくあるギミック的なアプローチをはるかに超えています。ボットを使ってアポイントメントを設定したり、車を呼んだりすることができます。検索の代わりになるわけではありません。Amazon EchoやGoogle Homeは、仮想アシスタントの優れた例です。インターフェースがないので、しっかりと構造化された対話で話を進めることが不可欠です。</p>
+<p>Watson Assistantが優れている例としては、顧客のセルフサービスと従業員のセルフサービスが挙げられます。Watsonアシスタント。</p>
+<ul>
+<li>一般的な質問には直接回答し、より複雑な質問にはより一般的な検索結果を参照するタイミングを把握します。</li>
+<li>バーチャルアシスタントでは対応できない問題は、人間のエージェントに引き継ぐ。新しい（2021年10月8日以降）Watson Assistantインスタンスは、Genesys、Nice inContact、Twilio、または自社のエージェントとシームレスに統合します。</li>
+<li>電話番号と統合して、ユーザーがアシスタントと会話できるようにします。Watson Assistantが電話番号を生成するか、IntelePeer、Genesys、Twilioなどの既存のSIPプロバイダと統合します。</li>
+<li>Slack や Facebook Messenger などのエンドチャネルと直接統合することで、ユーザーにとって最も便利な場所でリクエストを処理することができます。</li>
+<li>ユーザーインタラクション内のデータを保存し、時間の経過とともにエクスペリエンスのガイドやパーソナライズに利用可能</li>
+</ul>
+<h2 id="_2">アーキテクチャ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>次の図は、すべての実装に共通する Watson Assistant のアーキテクチャを示しています。このアーキテクチャでは</p>
+<ul>
+<li>
+<p>ユーザーは、これらの統合ポイントの 1 つ以上を通じてアシスタントと対話します。</p>
+<ul>
+<li>
+<p>既存のウェブサイトで実行されるウェブチャットのコードスニペット</p>
+</li>
+<li>
+<p>WhatsAppとTwilio、Slack、Facebook Messengerなど、既存のサードパーティメッセージングプラットフォームに直接公開されるバーチャルアシスタント</p>
+</li>
+<li>
+<p>ユーザーが電話でアクセスする音声アシスタント</p>
+</li>
+<li>
+<p>モバイルアプリや音声インターフェースを備えたロボットなど、お客様が開発するカスタムアプリケーション</p>
+</li>
+</ul>
+</li>
+<li>
+<p>音声アシスタントは、ユーザーの入力を受け取り、それをダイアログスキルに送ります。</p>
+</li>
+<li>
+<p>ダイアログスキルは、ユーザーの入力をさらに解釈し、会話の流れを指示します。ダイアログは、ユーザーに代わって応答したり、トランザクションを実行したりするために必要な情報を収集します。</p>
+</li>
+<li>
+<p>ダイアログスキルで答えられない質問は、サーチスキルに送られ、目的に応じて設定した企業のナレッジベースを検索して、関連する答えを見つけます。</p>
+</li>
+</ul>
+<p><img alt="建築アシスタント" src="https://cloud.ibm.com/docs-content/v1/content/07a736e5918d8c2d1dca127f22a26923060e7653/services/assistant/images/arch-overview-search.png" /></p>
+<p><em>Watson Assistantを展開する際に使用される典型的なアプローチ</em>。</p>
+<h2 id="_3">用語<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>このセクションでは、アプリケーションで Watson Assistant を使用するための学習パスに沿って、知っておく必要のある用語を説明します。</p>
+<table>
+<thead>
+<tr>
+<th>用語</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/services/assistant?topic=assistant-assistants">アシスタント</a></td>
+<td>お客様の問題を解決するための最適なパスにリクエストを誘導します。アシスタントが一般的な質問に直接回答したり、より複雑なものにはより一般的な検索結果を参照できるように、スキルを追加します。</td>
+</tr>
+<tr>
+<td>アクション｜特定の質問やリクエストに関するお客様とアシスタントとのやりとりを含みます。</td>
+<td></td>
+</tr>
+<tr>
+<td>ステップ｜アクションでは、アクションのきっかけとなった最初のお客様の入力に続く、会話の順番を定義します。</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/assistant?topic=assistant-web-chat-basics">ウェブチャット</a></td>
+<td>ウェブチャットは、あなたのウェブサイトにすぐに埋め込むことができるコードスニペットです。</td>
+</tr>
+<tr>
+<td><a href="https://cloud.ibm.com/docs/assistant?topic=assistant-deploy-phone">電話統合</a></td>
+<td>アシスタントに自動的に接続される作業用の電話番号です。また、ご希望であれば、既存のセッション開始プロトコル(SIP)を設定することで、アシスタントを既存のインフラに接続することも可能です。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="watson-assistant">Watson Assistant はどこで利用できますか？<a class="headerlink" href="#watson-assistant" title="Permanent link">&para;</a></h2>
+<p>Watson Assistantは、パブリッククラウドとプライベートクラウドの両方で利用できます。</p>
+<ul>
+<li>
+<p><strong>パブリック・クラウド</strong>。Watson Assistant は <a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-articles-_-cloudreg">IBM Cloud</a>で利用できます。Watson Assistant <a href="https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started">"Getting started tutorial"</a>では、サービスの設定に関する追加情報を提供しています。</p>
+</li>
+<li>
+<p><strong>プライベート・クラウド</strong>。Watson Assistant は、<a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data</a>を使用して、オンプレミスまたはマネージドの IBM プライベート・クラウドからも利用できます。</p>
+</li>
+</ul>
+<h1 id="sdk"># SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h1>
+<p>様々なAIサービスをサポートするいくつかのSDKが用意されています。それらは以下のリストに限定されるものではありません。</p>
+<ul>
+<li><a href="https://github.com/watson-developer-cloud/node-sdk">Node SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/python-sdk">Python SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/swift-sdk">Swift SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/java-sdk">Java SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/go-sdk">Go SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/ruby-sdk">Ruby SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/dotnet-standard-sdk">.NET SDK</a></li>
+<li><a href="https://github.com/watson-developer-cloud/salesforce-sdk">Salesforce SDK</a></li>
+</ul>
+<h1 id="api"># API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<p>Watson Assistant V1 API](https://cloud.ibm.com/apidocs/assistant)をご利用いただけますが、アプリでは<a href="https://cloud.ibm.com/apidocs/assistant-v2">Watson Assistant V2 API</a>のご利用をお勧めします。</p>
+<h2 id="_4">結論<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>本記事では、Watson Assistant の紹介を行いました。サービスの概要を説明し、そのアーキテクチャや用語・概念を解説しました。機能や価格など、Watson Assistant の概要を知るには、<a href="https://www.ibm.com/cloud/watson-assistant/" target="_blank" rel="noopener noreferrer">Watson Assistant 製品ページ</a>をご覧ください。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,570 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>小売業向け接客チャットボットの作成 - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              小売業向け接客チャットボットの作成
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    あなたが学ぼうとしていること
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アシスタントサービスの作成と最初のアシスタント
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    アクションの作成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    条件付きアクションの追加
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    変数を使ったアクションの追加
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    変更点の公開
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>小売業向け接客チャットボットの作成</h1>
+                
+                <p>Watson Assistantは、自然言語を用いたインテリジェントなインターフェースを提供することで、お客様の問題解決をサポートします。アシスタントサービスが提供するツールを、お客様に直接役立つスキルで使用することができます。GUIツールとAPIの柔軟性を組み合わせることで、AIを使ったアプリケーションやツールをシンプルかつパワフルにパワーアップすることができます。</p>
+<h2 id="_1">あなたが学ぼうとしていること<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>1.<a href="#create-the-assistant-service-and-first-assistant">アシスタントサービスと最初のアシスタントの作成</a>
+1.<a href="#create-an-action">アクションの作成</a>
+1.<a href="#条件付きアクションの追加">条件付きアクションの追加</a>
+1.<a href="#add-actions-with-variables">変数付きアクションの追加</a>
+1.<a href="#publish the changes">変更を公開する</a>
+1.<a href="#conclusion">結論</a></p>
+<h2 id="_2">アシスタントサービスの作成と最初のアシスタント<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>1.Watson Assistant を使用するための最初のステップは、サービスのインスタンスを作成することです。これは<a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>を使って行います。インスタンスに意味のある名前を付けます。所属したいリソースグループを選択し、必要に応じてタグを追加して、「<strong>Create</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![アシスタントインスタンスの作成](images/create-assistant-instance.png)
+</code></pre>
+
+<p>1.<strong>Launch Watson Assistant</strong> をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Launch Watson Assistant](images/launch-watson-assistant.png)をクリックします。
+</code></pre>
+
+<p>1.上部のドロップダウンメニューから、<strong>Create new +</strong> をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Click create new](images/click-create-new.png)をクリックします。
+</code></pre>
+
+<p>1.インスタンスに名前と任意の説明を付けて、<strong>Create Assistant</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![名前を付けてアシスタントを作成](images/name-and-create-assistant.png)
+</code></pre>
+
+<h2 id="_3">アクションの作成<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>1.新しいホームページでは、ナビゲーションの手順に従い、<strong>Watson Assistantについて学ぶ</strong>をクリックして1分間のビデオを見ることができます。続けて<strong>Create your first action</strong>をクリックするか、左のナビゲーションパネルを使って<em>Actions</em>のアイコンを選択します。</p>
+<pre class="codehilite"><code class="linenums">![Create your first action](images/create-first-action.png)
+</code></pre>
+
+<p><em>"What does your customer say to start this interaction? "</em>と聞かれます。このチュートリアルでは、「What are your store hours?」と入力し、<strong>Save</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![営業時間の表示](images/store-hours-action.png)
+</code></pre>
+
+<p>1."We are open from 8:00 AM to 9:00 PM every day. "などの文言を入力します。お客様は何も入力する必要がなく、質問にも答えているので、<em>Define customer response</em>セクションを空にして、デフォルトの<em>Continue to next step</em>のままにしておきます。</p>
+<pre class="codehilite"><code class="linenums">![Assitant says store hours](images/asst-says-store-hours.png)
+</code></pre>
+
+<p>1.それでは、今までの成果を試してみましょう。右下の<strong>Preview</strong>をクリックします。チャットボットは "Welcome, how can I assist you? "と始まります。What are your store hours?」というテキストを入力し、矢印をクリックするか、キーボードの<strong>Enter/Return</strong>を押してください。入力した "We are open from 8:00 AM to 9:00 PM every day. "という回答が返ってくるはずです。</p>
+<pre class="codehilite"><code class="linenums">![店舗営業時間の初回テスト](images/first-test-store-hours.png)
+</code></pre>
+
+<p>1.反時計回りの矢印をクリックして、ボットをリセットします。今度は、「When are you open?」と入力します。今度は、ボットが「I'm afraid I don't understand.Please rephase your question." と答えます。ボットが理解できるように、お客様の質問にいくつかの選択肢を追加する必要があります。左上の<strong>Customer starts with</strong>ボックスをクリックして、ここに戻り、質問の別の言い回しを追加します。</p>
+<pre class="codehilite"><code class="linenums">![質問の代替フレーズ](images/alternate-phrases-for-hours.png)
+</code></pre>
+
+<p>1.プレビューウィジェットを使用するには、保存する必要があるため、右上の保存アイコンをクリックします。アシスタント設定の歯車アイコンをクリックすると、自動保存がオンになっていることがわかりますが、この保存は、ステップを切り替えたときに実行されます。次に、プレビューウィンドウで、フレーズのリストにある「開く」などと入力して、再度テストしてみてください。正しい反応が得られるはずです。</p>
+<p>1.プレビューウィンドウで、ボットが「There are no additional steps for this action.新しいステップを追加するか、アクションを終了してください。" と表示されていることに注意してください。アクションを終了しましょう。左上のConversationステップをクリックして戻り、「<em>And then</em>」のドロップダウンを「<strong>End the action</strong>」に変更します。</p>
+<pre class="codehilite"><code class="linenums">![アクションの終了に変更](images/change-to-end-the-action.png)
+</code></pre>
+
+<p>1.変更を保存して、プレビューをリセットします。これで、店舗の営業時間が指定された後にアクションが完了するはずです。</p>
+<h2 id="_4">条件付きアクションの追加<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>1.今度は、"Where are you located? "という質問に答えるアクションを追加します。ホーム画面から「<strong>新しいアクション+</strong>」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![新しいアクションの作成](images/new-action.png)
+</code></pre>
+
+<p>1.What does your customer say to start this interaction? "に対して、<code>Where are you located?</code>と入力します。
+1.アシスタントの発言<em>」の項目に、「ダウンタウンとリバーサイドの2つの場所があります。あなたはどちらに近いですか？
+1.顧客の反応」の項目で、「オプション」を選択し、「ダウンタウン」と「リバーサイド」を入力してください。この情報は前のステップから保存されているので、</em>Allow skipping or always ask?<em>のデフォルトを</em>Skip if the customer already given this information<em>にしておくことができます。購入前の確認のような場合には、</em>Always ask for this information, regardless of earlier messages<em>を選択するとよいでしょう。
+1.Apply</em>*をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![ロケーションオプションの追加](images/location-choose-options.png)
+</code></pre>
+
+<p>1.別のステップを追加し、今度はプルダウンメニューを使用して、<em>Step 2 is taken</em>を<em>with conditions</em>に変更します。条件には、<em>「1.このすべてが真である：</em>We have 2 locations...」<em>が<code>Downtown</code>であることがあらかじめ登録されているはずです。クリックしてみると、</em>is<em> から </em>is not<em> へ、あるいは </em>All<em> of this is true から </em>Any* へと、さまざまな方法でロジックを変更できることがわかります。さらに条件を追加したり、条件のグループ全体を追加することもできます。ここで、「アシスタントの発言」に、「ダウンタウンの店舗は3210 Main St.で、電話番号は303-867-5309です」というような回答を追加することができます。</p>
+<pre class="codehilite"><code class="linenums">![場所の条件を追加](images/location-conditions.png)
+</code></pre>
+
+<p>1.If <code>We have 2 locations</code> is <code>Riverside</code>」と同様の条件を追加することができます。保存後、プレビューウィジェットでボットをテストし、期待通りに動作することを確認します。次の例では、「あなたのロケーションは何ですか」と尋ねていますが、代替案は追加していません。Watson Assistant の曖昧さ回避機能は、私の行動のためのオプションとともに、「Did you mean?私は "Where are you located? "をクリックするか、テキストを入力して希望の回答を得ることができます。また、元の質問にいくつかの代替フレーズを追加する必要があることも分かりました。</p>
+<pre class="codehilite"><code class="linenums">![曖昧な質問に対する明確化](images/location-did-you-mean.png)
+</code></pre>
+
+<h2 id="_5">変数を使ったアクションの追加<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>ここで、変数の仕組みを見てみましょう。Watson Assistant が設定する変数には、<em>Now</em> (現在の時刻と日付)、<em>Current time</em>、Current date* などがあります。</p>
+<p><img alt="アシスタントが設定する変数" src="images/variables-set-by-assistant.png" /></p>
+<p>1.自分で作成した変数<strong>と</strong>新規変数+<strong>をクリックします。username`という名前を入力すると、変数IDに同じ名前があらかじめ入力されていることに気がつきます。これは、APIで読み取ったり設定したりすることができる名前で、必要に応じて異なる名前にすることができます。任意の説明を入力して、</strong>Save**をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![セッション変数の作成](images/create-session-variable.png)
+</code></pre>
+
+<p>1.アクション→Created by you<strong>と</strong>New action +<em><em>をクリックし、インタラクションの開始位置に<code>I have a question about my account</code>と入力します。Assistant says</em>には "What is your username? "と入力し、Customer Responseには</em>Free text*を選択します。</p>
+<p>1.New step +<strong>をクリックして、</strong>Fx<strong>アイコンをクリックして変数を追加します。新しい値を設定する」をクリックし、「セッション変数」→「ユーザー名」を選択し、「宛先」には*1.あなたのユーザー名は何ですか？</strong>.</p>
+<pre class="codehilite"><code class="linenums">![ユーザー名の変数を設定](images/set-username-variable.png)
+</code></pre>
+
+<p>1.Assistant says<em>のレスポンスを編集し、<code>Hello.Welcome back</code>と入力し、</em><em>01-0</em><em>アイコンをクリックして変数を挿入します。ドロップダウンメニューから </em><em>セッション変数-&gt;ユーザー名</em>* を選択します。</p>
+<pre class="codehilite"><code class="linenums">![変数の挿入](images/insert-a-variable.png)
+</code></pre>
+
+<p>1.これをテストすると、アシスタントのレスポンスにユーザー名が挿入されていることがわかります。</p>
+<pre class="codehilite"><code class="linenums">![レスポンスに変数を使用](images/test-username-variable.png)
+</code></pre>
+
+<p>1.Where are you located? "のアクションに戻って、最後（3番目）のステップをクリックし、次に<strong>New step +</strong>をクリックすると、アクション変数を使用できます。Assistant says<em>のボックス内に、テスト「We hope to see you soon at our`」を追加し、</em><em>01-0</em><em>アイコンをクリックして変数を挿入します。01-0</em><em>アイコンをクリックして変数を挿入します。</em>Action variables<em>の下にある</em><em>"1. We have two locations... "</em>*を選択すると、挿入されます。</p>
+<pre class="codehilite"><code class="linenums">![ロケーション用アクション変数の挿入](images/insert-action-variable-for-location.png)
+</code></pre>
+
+<p>1.レスポンスをスムーズにするために、テキスト <code>location.</code> を追加し、<em>And then</em> の部分を <strong>End the action</strong> に変更します。これで、テスト時にダイアログで使用されているロケーションが表示されます。</p>
+<pre class="codehilite"><code class="linenums">![Test action variable for location](images/test-action-variable-for-location.png)
+</code></pre>
+
+<h2 id="_6">変更点の公開<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>変更を最終的に公開することができます。</p>
+<p>1.左側のナビゲーションにある "ロケット "アイコンをクリックして、自分の更新内容を確認します。次に、「公開」をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Publish changes](images/publish-changes.png)
+</code></pre>
+
+<p>1.説明を追加して、<strong>Publish</strong>をクリックします。変更内容が新しいバージョンとして公開され、デプロイされたチャットボットに表示されます。</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルでは、初めてAssistantを搭載したチャットボットを作成する手順を説明しました。Assistant サービスの作成、いくつかのアクションの追加、条件付きロジックと応答内の変数の使用について説明しました。探索して使用する他の Watson Assistant 機能があり、これらは Watson Assistant ラーニングパスの他のチュートリアルで説明されています。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

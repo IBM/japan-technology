@@ -1,0 +1,592 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Create a retail customer service chatbot - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-youre-going-to-learn" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Create a retail customer service chatbot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-youre-going-to-learn" class="md-nav__link">
+    What you're going to learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-assistant-service-and-first-assistant" class="md-nav__link">
+    Create the Assistant service and first Assistant
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-action" class="md-nav__link">
+    Create an action
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-actions-with-conditions" class="md-nav__link">
+    Add actions with conditions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-actions-with-variables" class="md-nav__link">
+    Add actions with variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish-the-changes" class="md-nav__link">
+    Publish the changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Create a retail customer service chatbot</h1>
+                
+                <p>Watson Assistant can help you solve a problem by providing an intelligent interface using natural language. You can use the tools provided by the Assistant service with skills that will directly help your customers. The flexibility of the GUI tools and APIs combine to allow you to power applications and tools using AI in simple and powerful ways.</p>
+<h2 id="what-youre-going-to-learn">What you're going to learn<a class="headerlink" href="#what-youre-going-to-learn" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#create-the-assistant-service-and-first-assistant">Create the Assistant service and first Assistant</a></li>
+<li><a href="#create-an-action">Create an action</a></li>
+<li><a href="#add-actions-with-conditions">Add actions with conditions</a></li>
+<li><a href="#add-actions-with-variables">Add actions with variables</a></li>
+<li><a href="#publish-the-changes">Publish the changes</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="create-the-assistant-service-and-first-assistant">Create the Assistant service and first Assistant<a class="headerlink" href="#create-the-assistant-service-and-first-assistant" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>The first step in using Watson Assistant is creating an instance of the service. You'll do this using <a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>. Give your instance a meaningful name. Choose the resource group you wish to belong to, add tags as desired, and click <strong>Create</strong>.</p>
+<p><img alt="Create assistant instance" src="../images/create-assistant-instance.png" /></p>
+</li>
+<li>
+<p>Click <strong>Launch Watson Assistant</strong>.</p>
+<p><img alt="Launch Watson Assistant" src="../images/launch-watson-assistant.png" /></p>
+</li>
+<li>
+<p>From the top drop-down menu, click <strong>Create new +</strong>.</p>
+<p><img alt="Click create new" src="../images/click-create-new.png" /></p>
+</li>
+<li>
+<p>Give the instance a name and optional description, and click <strong>Create Assistant</strong>.</p>
+<p><img alt="Name and create Assistant" src="../images/name-and-create-assistant.png" /></p>
+</li>
+</ol>
+<h2 id="create-an-action">Create an action<a class="headerlink" href="#create-an-action" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>On your new home page, you can follow the navigation steps and click <strong>Learn about Watson Assistant</strong> to watch a 1-minute video. You can either continue and click <strong>Create your first action</strong>, or use the navigation panel on the left and choose the icon for <em>Actions</em>.</p>
+<p><img alt="Create your first action" src="../images/create-first-action.png" /></p>
+</li>
+<li>
+<p>You are asked <em>"What does your customer say to start this interaction?"</em>. For this tutorial, enter <code>What are your store hours?</code>, and click <strong>Save</strong>.</p>
+<p><img alt="Store hours action" src="../images/store-hours-action.png" /></p>
+</li>
+<li>
+<p>Add a resonse such as "We are open from 8:00 AM until 9:00 PM every day." Because the customer doesn't have to add any input, and the question has been answered, you can leave the <em>Define customer response</em> section empty, and leave the default <em>Continue to next step</em>. </p>
+<p><img alt="Assitant says store hours" src="../images/asst-says-store-hours.png" /></p>
+</li>
+<li>
+<p>Now let's test what you have so far. Click <strong>Preview</strong> in the lower-right corner. The chatbot begins with "Welcome, how can I assist you?" Enter the text <code>What are your store hours?</code>, and click the arrow or press <strong>Enter/Return</strong> on your keyboard.. You should get the response that you entered, "We are open from 8:00 AM until 9:00 PM every day."</p>
+<p><img alt="First test for store hours" src="../images/first-test-store-hours.png" /></p>
+</li>
+<li>
+<p>Click the counter-clockwise arrow to reset the bot. This time, enter <code>When are you open?</code> This time, the bot responds with "I'm afraid I don't understand. Please rephrase your question." You need to add some alternates to the customer question to help the bot understand. Click the <strong>Customer starts with</strong> box in the upper-left to go back to this and add some alternate ways to phrase the question.</p>
+<p><img alt="Alternate phrasing for question" src="../images/alternate-phrases-for-hours.png" /></p>
+</li>
+<li>
+<p>Click the Save icon in the upper right because this must be saved to use the Preview widget. If you click on the gear icon for the Assistant settings, you see that auto-save is on, but it performs this save when you switch between steps. Now, test again in the preview window by typing something like <code>open</code> that is present in your list of phrases. You should get a correct response.</p>
+</li>
+<li>
+<p>Notice in the preview window that the bot ends with "There are no additional steps for this action. Add a new step or end the action." Let's end the action. Go back to the Conversation step by clicking on it in the upper-left corner, and change the <em>And then</em> dropdown to <strong>End the action</strong>.</p>
+<p><img alt="Change to end the action" src="../images/change-to-end-the-action.png" /></p>
+</li>
+<li>
+<p>Save your changes, and reset the Preview. Now, the action should complete after the store hours are given.</p>
+</li>
+</ol>
+<h2 id="add-actions-with-conditions">Add actions with conditions<a class="headerlink" href="#add-actions-with-conditions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Now, add another action to answer the question "Where are you located?" From the home page, click <strong>New action +</strong>.</p>
+<p><img alt="Create New action" src="../images/new-action.png" /></p>
+</li>
+<li>
+<p>In response to "What does your customer say to start this interaction?", enter <code>Where are you located?</code></p>
+</li>
+<li>For the section <em>Assistant says</em>, enter <code>We have 2 locations, Downtown and Riverside. Which one are you closest to?</code></li>
+<li>Under <em>Customer response</em>, choose <strong>Options</strong>, and enter <code>Downtown</code> and <code>Riverside</code>. You can leave the default for <em>Allow skipping or always ask?</em> to be <em>Skip if the customer already gave this information</em> because this information is saved from that previous step. You might choose <em>Always ask for this information, regardless of earlier messages</em> for something like a confirmation before a purchase. </li>
+<li>
+<p>Click <strong>Apply</strong>.</p>
+<p><img alt="Add location options" src="../images/location-choose-options.png" /></p>
+</li>
+<li>
+<p>Add another step, and this time you use the pull-down menu to change <em>Step 2 is taken</em> to be <em>with conditions</em>. The conditions should prepopulate with <em>"1. All of this is true: If </em>We have 2 locations..."<em> is <code>Downtown</code>. You can click around and see that you can change the logic in various ways, from </em>is<em> to </em>is not<em> or from </em>All<em> of this is true to </em>Any<em>. You can add more conditions or an entire group of conditions. Now, you can add an answer under </em>Assistant says* such as "Our Downtown location is at 3210 Main St., and the phone number is 303-867-5309".</p>
+<p><img alt="Add location conditions" src="../images/location-conditions.png" /></p>
+</li>
+<li>
+<p>You can add a similar condition for If <code>We have 2 locations</code> is <code>Riverside</code>. After saving, test the bot in the Preview widget to make sure that it works as expected. In the following example, I ask "what are your locations?", but I haven't added any alternatives. The Watson Assistant disambiguation feature displays a question for clarification, "Did you mean?" along with options for my actions. I can click "Where are you located?" or enter the text and get the wanted response. I also learned that I need to add some alternate phrases to my original question.</p>
+<p><img alt="Clarifications for ambiguous question" src="../images/location-did-you-mean.png" /></p>
+</li>
+</ol>
+<h2 id="add-actions-with-variables">Add actions with variables<a class="headerlink" href="#add-actions-with-variables" title="Permanent link">&para;</a></h2>
+<p>Now, take a look at how variables work. There are variables set by Watson Assistant such as <em>Now</em> (the current time and date), <em>Current time</em>, and Current date*.</p>
+<p><img alt="Variables set by Assistant" src="../images/variables-set-by-assistant.png" /></p>
+<ol>
+<li>
+<p>Click <strong>Variables created by you</strong> and <strong>New variable +</strong>. Enter the name <code>username</code>, and notice that the Variable ID is prepopulated with the same name. This is the name that can be read or set by the API and could be different if you want. Give an optional description, and click <strong>Save</strong>.</p>
+<p><img alt="Create session variable" src="../images/create-session-variable.png" /></p>
+</li>
+<li>
+<p>Click <strong>Actions -&gt; Created by you</strong> and <strong>New action +</strong>, and enter <code>I have a question about my account</code> for the start of the interaction. For <em>Assistant says</em>, ask "What is your username?", and for customer response, choose <em>Free text</em>.</p>
+</li>
+<li>
+<p>Click <strong>New step +</strong>, and click the <strong>Fx</strong> icon to add a variable. Click <strong>Set new value +</strong>, choose <strong>Session variables -&gt; username</strong>, and for "to" choose <strong>1. What is your username?</strong>. </p>
+<p><img alt="Set variable for username" src="../images/set-username-variable.png" /></p>
+</li>
+<li>
+<p>Edit the <em>Assistant says</em> response by entering <code>Hello. Welcome back</code>, then click the <strong>01-0</strong> icon to insert a variable. From the drop-down menu, choose <strong>Session variables -&gt; username</strong>.</p>
+<p><img alt="Insert a variable" src="../images/insert-a-variable.png" /></p>
+</li>
+<li>
+<p>When you test this, you see that the username is inserted into the Assistant response.</p>
+<p><img alt="Using variable in response" src="../images/test-username-variable.png" /></p>
+</li>
+<li>
+<p>If you navigate back to the Action for "Where are you located?" and click the last (third) step, then <strong>New step +</strong>, you can use an Action variable. Inside the <em>Assistant says</em> box, add the test <code>We hope to see you soon at our</code>, and then click the <strong>01-0</strong> icon to insert a variable. Under <em>Action variables</em>, choose <strong>"1. We have 2 locations..."</strong>, and it is inserted.</p>
+<p><img alt="Insert action variable for location" src="../images/insert-action-variable-for-location.png" /></p>
+</li>
+<li>
+<p>Add the text <code>location.</code> to make the response smooth, and change the <em>And then</em> section to <strong>End the action</strong>. Now, when you test you see the location used in the dialog.</p>
+<p><img alt="Test action variable for location" src="../images/test-action-variable-for-location.png" /></p>
+</li>
+</ol>
+<h2 id="publish-the-changes">Publish the changes<a class="headerlink" href="#publish-the-changes" title="Permanent link">&para;</a></h2>
+<p>You can finalize the changes by publishing them. </p>
+<ol>
+<li>
+<p>Click the rocket"icon on the navigation on the left to see your updates. Then, click <strong>Publish</strong>.</p>
+<p><img alt="Publish changes" src="../images/publish-changes.png" /></p>
+</li>
+<li>
+<p>Add a description, and click <strong>Publish</strong>. The changes are live as a new version and show up in any deployed chatbot.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This tutorial walked you through the process of creating your first Assistant-powered chatbot. It covered creating the Assistant service and adding several Actions, using conditional logic and variables in the response. There are other Watson Assistant features to explore and use and these are covered in other tutorials on the Watson Assistant learning path.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

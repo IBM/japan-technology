@@ -1,0 +1,895 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Watson Knowledge Catalogでデータを検索、準備、理解する。 - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Watson Knowledge Catalogでデータを検索、準備、理解する。
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    学習目標
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    見積もり時間
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    手順
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.カタログを作成する
+  </a>
+  
+    <nav class="md-nav" aria-label="1.カタログを作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    カタログの作成
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.データ資産の追加
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ローカルデータアセット
+  </a>
+  
+    <nav class="md-nav" aria-label="ローカルデータアセット">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-add-connection" class="md-nav__link">
+    (Optional) Add Connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    (オプション) 接続からのデータの追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.コラボレーターの追加とアクセスコントロール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.カテゴリーの追加
+  </a>
+  
+    <nav class="md-nav" aria-label="4.カテゴリーの追加">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    カテゴリーのインポート(オプション)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    手動でカテゴリーを追加する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.データクラスの追加
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.ビジネス用語の追加
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.ポリシーのルールを追加する
+  </a>
+  
+    <nav class="md-nav" aria-label="7.ポリシーのルールを追加する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ビジネス用語のレビューを作成する方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ルールの追加
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Watson Knowledge Catalogでデータを検索、準備、理解する。</h1>
+                
+                <p>このチュートリアルでは、IBM Cloud Pak for Data プラットフォーム上の IBM Watson Knowledge Catalog を使用して、エンタープライズ・データ・ガバナンスの問題を解決する方法を示します。ガバナンス、データ品質、アクティブ・ポリシー管理を使用して、機密データの保護と管理、データのリネージの追跡、データ・レイクの管理を行う方法を説明します。この知識は、データ資産、データセット、分析モデル、およびそれらの関係をすばやく発見し、キュレーションし、分類し、組織内の他の人と共有するのに役立ちます。</p>
+<h2 id="_1">学習目標<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルでは、以下の方法を学びます。</p>
+<p>1.<a href="#1-set-up-catalog">カタログを設定する</a>
+1.<a href="#2-add-data-assets">データアセットの追加</a>
+1.<a href="#3-add-collaborators and control-access">コラボレーターの追加とアクセス制御</a>
+1.<a href="#4-add-categories">カテゴリの追加</a>
+1.<a href="#5-add-data-classes">データクラスの追加</a>
+1.<a href="#6-ビジネス用語の追加">ビジネス用語の追加</a>
+1.<a href="#7-add-rules-for-policies">ポリシーのルールを追加</a></p>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+<li><a href="https://www.ibm.com/cloud/watson-knowledge-catalog">Watson Knowledge Catalog</a></li>
+<li>カタログを作成・管理するための管理者アクセス</li>
+</ul>
+<h2 id="_3">見積もり時間<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルを完了するには、約 30～45 分かかります。</p>
+<h2 id="_4">手順<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="1">1.カタログを作成する<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>注：デフォルトのカタログは、エンタープライズカタログです。これは、Watson Knowledge Catalog サービスをインストールすると自動的に作成され、高度なデータキュレーションツールが適用される唯一のカタログです。デフォルトのカタログは、データ保護ルールが適用されるように管理されています。情報資産ビューには、キュレーションに役立つデフォルトカタログ内の資産の追加プロパティが表示されます。その後に作成するカタログは、ガバナイズされたものでもガバナイズされていないものでもよく、情報資産ビューはなく、基本的なデータ キュレーション ツールが提供されます。</p>
+</blockquote>
+<p>まず、カタログを作成し、いくつかのデータを読み込みます。</p>
+<h3 id="_5">カタログの作成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>左上(☰)のハンバーガーメニューで、<code>カタログ</code>→<code>全カタログ</code>を選択します。</li>
+</ul>
+<p><img alt="カタログを開くメニュー" src="images/wkc-admin-open-catalog-menu.png" /></p>
+<ul>
+<li><em>Your catalogs</em>ページから、<code>Create catalog</code>ボタンをクリックします。</li>
+</ul>
+<p><img alt="create WKC catalog" src="images/wkc-create-catalog.png" /></p>
+<p>*カタログに名前をつけ、<code>Enforce data protection rules</code>チェックボックスをチェックし、オプションで説明を記入します。そして、<code>Create</code>ボタンをクリックします。</p>
+<p><img alt="name and create wkc catalog" src="images/wkc-admin-name-creat-catalog.png" /></p>
+<blockquote>
+<p>*注意：データ保護のチェックボックスを選択する際には、ポップアップウィンドウで<code>Ok</code>をクリックしてください。</p>
+</blockquote>
+<h2 id="2">2.データ資産の追加<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>カタログにアセットを追加するにはいくつかの方法があります。ここでは、ローカルデータのアセットを追加します。また、以下に接続アセットを追加するオプションセクションがあります。</p>
+<h2 id="_6">ローカルデータアセット<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>1.application_personal_data.csv](static/applicant_personal_data.csv)ファイルをダウンロードします。Browse Assets<strong>タブの下、Now you can add assetsの下、</strong>here**をクリックしてデータを追加します。</p>
+<ul>
+<li>右上の <code>Add to Catalog +</code> をクリックし、<code>Local files</code> を選択します。</li>
+</ul>
+<p><img alt="ローカルファイルのカタログへの追加" src="images/wkc-add-to-catalog-local-files.png" /></p>
+<ul>
+<li>「Select file(s)」パネルの「browse」リンクをクリックします。<code>/data/split/applicant_personal_data.csv</code> ファイルをブラウズして選択します。任意の説明を追加して、「Add」ボタンをクリックする。</li>
+</ul>
+<p><img alt="click add for local files to catalog" src="images/wkc-admin-file-selected-now-add.png" /></p>
+<blockquote>
+<p>*NOTE: 読み込みが完了するまで、カタログの中にいてください!カタログから離れると、不完全なアセットは削除されます。</p>
+</blockquote>
+<ul>
+<li>新しく追加されたファイルは、カタログの<em>Browse Assets</em>タブの下に表示されます。</li>
+</ul>
+<p><img alt="カタログに新しく追加されたデータ" src="images/wkc-admin-browse-assets.png" /></p>
+<h3 id="optional-add-connection">(Optional) Add Connection<a class="headerlink" href="#optional-add-connection" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Add to Catalog +</code> -&gt; <code>Connection</code> を選択することで、例えば <em>DB2 Warehouse in IBM Cloud</em> など、様々なデータソースへの接続を追加することができます。</li>
+</ul>
+<p><img alt="カタログに接続を追加" src="images/wkc-add-connection.png" /></p>
+<ul>
+<li>追加したいデータソースの種類をクリックします（例：<code>Db2 Warehouse</code>）。</li>
+</ul>
+<p><img alt="chosen db2 warehouse connection " src="images/wkc-choose-db2-warehouse-conn.png" /></p>
+<ul>
+<li>接続の詳細を入力し、<code>Create</code>をクリックします。</li>
+</ul>
+<p><img alt="enter db2 warehouse connection details" src="images/wkc-enter-connection-details.png" /></p>
+<ul>
+<li>カタログに接続が表示されます。</li>
+</ul>
+<p><em><em>注意: 仮想化されたデータは、そのカタログの管理者または編集者のアクセス権を持つ人が、</em>Default</em>カタログに追加することができます。データの仮想化」を接続として追加するオプションがあります。</p>
+<h3 id="_7">(オプション) 接続からのデータの追加<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>データソースへの接続が確立すると、その接続からアセットを追加できるようになります。</p>
+<ul>
+<li><code>+Add to Catalog</code> -&gt; <code>Connected asset</code> をクリックします。</li>
+</ul>
+<p><img alt="add connected asset" src="images/wkc-add-connected-asset.png" /></p>
+<ul>
+<li><em>Source</em>をクリック -&gt; <code>Select source</code>.DV`から自分のスキーマ(例:UserXYZW)を参照し、結合したテーブルを選択する。Select "をクリックします。</li>
+</ul>
+<p>これでユーザーは、カタログの他のアセットと同様に、このテーブルをプロジェクトに追加することができます。</p>
+<h2 id="3">3.コラボレーターの追加とアクセスコントロール<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><em>アクセスコントロール</em>タブで、「コラボレーターの追加」をクリックすると、他のユーザーにカタログへのアクセス権を与えることができます。</li>
+</ul>
+<p><img alt="give users access to the catalog" src="images/wkc-admin-access-control-add-collaborator.png" /></p>
+<ul>
+<li>
+<p><code>Collaborators</code> の欄にユーザーの名前を入力すると、そのユーザーを検索することができます。名前をクリックしてユーザーを選択し、<code>Add</code>をクリックする。</p>
+</li>
+<li>
+<p>ユーザーの役割を <code>Admin</code>, <code>Editor</code>, <code>Viewer</code> のいずれかから選択することができます。その後，「Add」ボタンをクリックする。</p>
+</li>
+</ul>
+<p><img alt="協力者の役割を選択" src="images/wkc-admin-user-roll-choice.png" /></p>
+<ul>
+<li>カタログのデータにアクセスするには、データ名をクリックしてください。</li>
+</ul>
+<p><img alt="click data name to open" src="images/wkc-admin-click-data-name-to-open.png" /></p>
+<ul>
+<li>メタデータとGovernance artifactsを含むデータの概要が開きます。</li>
+</ul>
+<p><img alt="データの概要" src="images/wkc-admin-data-overview.png" /></p>
+<ul>
+<li><code>Asset</code> タブをクリックすると、最初の1000行のプレビューが表示されます。</li>
+</ul>
+<p><img alt="データのプレビュー" src="images/wkc-admin-data-preview.png" /></p>
+<ul>
+<li><code>Review</code> タブをクリックすると、データを評価したり、コメントをつけたりすることができ、データの消費者にフィードバックを与えることができます。</li>
+</ul>
+<p><img alt="データのレビュー" src="images/wkc-admin-review-data.png" /></p>
+<h2 id="4">4.カテゴリーの追加<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>Watson Knowledge Catalog の基本的な抽象化は、Category です。カテゴリーは、フォルダに類似しています。必要に応じてカテゴリーを追加したり、CSV形式でインポートしたりすることができます。</p>
+<h3 id="_8">カテゴリーのインポート(オプション)<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>ユニークな名前のカテゴリーをインポートするには、ターミナルウィンドウでコマンドを実行することに慣れている必要があります。この作業に慣れていない方は読み飛ばしてください。</p>
+<ul>
+<li>カテゴリの名前はすべてグローバルスコープなので、固有の名前を持つファイルをインポートする必要があります。このリポジトリをクローンまたはダウンロードした場所に行き、<code>data/wkc/glossary-organize-categories.csv</code>というファイルにナビゲートしてください。スクリプト<code>data/wkc/prepend-user-tag.py</code>を、あなたのインティアルやその他のタグを使って実行し、ユニークなファイルを作成します。例えば、<code>./prepend-user-tag -T scottda</code>とします。T`パラメータでタグを追加しなければ、Pythonのtime.time()文字列を使って、ユニークなCategory名を持つユニークなファイルが生成されます。</li>
+</ul>
+<p><img alt="prepend-user-tagスクリプトの実行" src="images/wkc-admin-prepend-user-tag.png" /></p>
+<ul>
+<li>左上のハンバーガーメニューから <code>Governance</code> -&gt; <code>Categories</code> を選択し、<code>Add category</code> ボタンをクリックして <code>Import from file</code> を選択することで、アセットのカテゴリーをインポートします。</li>
+</ul>
+<p><img alt="Import categories" src="images/wkc-admin-import-categories.png" /></p>
+<ul>
+<li>例えば、<code>data/wkc/scottda-glossary-organize-categories.csv</code>は、<code>./prepend-user-tag.py -T scottda</code>を実行して作成したファイルになります。Next」ボタンをクリックします。</li>
+</ul>
+<p><img alt="Import select file" src="images/wkc-import-select-file.png" /></p>
+<ul>
+<li><code>Select merge option</code> で <code>Replace all values</code> を選択し、<code>Import</code> をクリックします。</li>
+</ul>
+<p><img alt="選択マージオプションのインポート" src="images/wkc-import-select-merge-option.png" /></p>
+<ul>
+<li>
+<p>インポートが完了すると、「The import completed succesfully」と表示されます。</p>
+</li>
+<li>
+<p>このようにして、カテゴリー、ビジネス用語、分類、ポリシーなどをインポートして、ガバナンスカタログを作成することができます。</p>
+</li>
+</ul>
+<h3 id="_9">手動でカテゴリーを追加する<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>注: カテゴリー、ビジネス用語、データクラス、およびその他のガバナンスの成果物は、グローバルな範囲です。注意: カテゴリー、ビジネス用語、データクラス、およびその他のガバナンスアーティファクトはグローバルな範囲です。例えば、以下の例では、<code>XXX-Personal Data</code>の代わりに<code>scottda-Personal Data</code>を使用しています。</p>
+</blockquote>
+<p>インポートだけでなく、手動でカテゴリーを作成することもできます。左上（☰）のハンバーガーメニューから<code>Governance</code>→<code>Categories</code>を選択し、<code>Add category</code>ボタンをクリックしてから<code>New category</code>をクリックして、アセットのカテゴリーを追加します。</p>
+<p><img alt="データカテゴリの整理" src="images/wkc-admin-menu-organize-categories.png" /></p>
+<ul>
+<li>イニシャルやユニークなタグ(<em>XXX-Personal Data</em>など)を付けた名前と、オプションで説明文を付けて、<code>Save</code>ボタンをクリックします。</li>
+</ul>
+<p><img alt="新規カテゴリーの請求書" src="images/wkc-admin-new-category-personal-data.png" /></p>
+<p><em>ここで、</em>Personal Data<em>カテゴリー画面の</em>Subcategories<em>の下にある<code>Create category</code>リンクを押すと、</em>Residence Information*のようなサブカテゴリーを作成することができます。</p>
+<p><img alt="サブカテゴリ・レジデンス情報" src="images/wkc-admin-new-subcategory-residence-information.png" /></p>
+<ul>
+<li><em>Personal Data</em> カテゴリでは、<code>Business term</code> のような <em>Type</em> を選択することができます。</li>
+</ul>
+<p><img alt="select business term type" src="images/wkc-admin-category-add-artifact.png" /></p>
+<ul>
+<li>左上のハンバーガーメニューから<code>Governance</code>→<code>Classifications</code>を選択することで、同様に<em>Confidential</em>、<em>Personally Identifiable Information</em>、<em>Sensitive Personal Information</em>のような資産の分類を作成することもできます。</li>
+</ul>
+<p><img alt="分類を選択" src="images/wkc-admin-navigate-classifications.png" /></p>
+<ul>
+<li>右上の「Add classification」ボタンをクリックして、ドロップダウンメニューから「New classification」を選択します。これらの分類は、あなたのカテゴリーに<em>タイプ</em>として追加することができます。</li>
+</ul>
+<p><img alt="select classification type" src="images/wkc-admin-add-classifications.png" /></p>
+<h2 id="5">5.データクラスの追加<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>注：カテゴリー、ビジネス用語、データクラス、およびその他のGovernanceアーティファクトは、グローバルな範囲です。作成するように言われたら、自分のイニシャルや何かユニークなタグを前もって付けておかないと失敗します。例えば、以下の例では、「XXX-alphanumeric」の代わりに「scottda-alphanumeric」を使用します。</p>
+</blockquote>
+<p>アセットをプロファイリングする際には、可能な限りコンテンツからデータクラスが推測されます。これについては後で詳しく説明します。また、独自のデータクラスを追加することもできます。</p>
+<ul>
+<li>左上のハンバーガーメニューから「ガバナンス」→「データクラス」を選択し、「データクラスの追加」ボタンをクリックし、ドロップダウンメニューから「新規データクラス」を選択することで、アセットにデータクラスを追加することができます。</li>
+</ul>
+<p><img alt="データクラスの整理" src="images/wkc-admin-menu-organize-data-classes.png" /></p>
+<ul>
+<li><em>XXX-alphanumeric</em>のように、イニシャルやタグを前もって付けた名前を新しいデータクラスに付けて、Primaryカテゴリの<code>Change</code>をクリックします。</li>
+</ul>
+<p><img alt="新しいデータクラス" src="images/wkc-admin-create-data-class.png" /></p>
+<p><em>Personal Data</em>のプライマリーカテゴリーを選び、<code>Add</code>をクリックします。</p>
+<p><img alt="プライマリーカテゴリーの変更" src="images/wkc-admin-change-primary-category.png" /></p>
+<ul>
+<li>
+<p>ここで、<code>Save as draft</code>をクリックします。</p>
+</li>
+<li>
+<p>データクラスが作成されたら、オプションとして、このクラスに<em>Stewards</em>を追加したり、<em>classification</em>や<em>business terms</em>を関連付けたりすることができます。準備ができたら、<code>Publish</code>ボタンをクリックして、ポップアップウィンドウでもう一度<code>Publish</code>をクリックします。</p>
+</li>
+</ul>
+<p><img alt="データクラス用ツール" src="images/wkc-data-class-add-term-publish.png" /></p>
+<ul>
+<li>
+<p>それでは、そのデータクラスを <em>applicant_personal_data.csv</em> アセットのカラムに追加してみましょう。</p>
+</li>
+<li>
+<p>先ほど作成したカタログ（例：<em>CreditDataCatalog</em>）に戻って、それを開きます（(☰)ハンバーガーメニューの <code>Catalogs</code> -&gt; <code>All catalogs</code> で <code>CreditDataCatalog</code> を選択）。Browse assets<em>タブで、データセット</em>applicant_personal_data.csv<em>をクリックして、<code>Asset</code>タブをクリックすると、列/行のプレビューが表示されます。</em>CustomerID<em>列を見つけて、「顧客番号」の横にある下矢印をクリックし、次に</em>View all*をクリックします。</p>
+</li>
+</ul>
+<p><img alt="データクラスの変更" src="images/wkc-admin-existing-data-class.png" /></p>
+<ul>
+<li>開いたウィンドウで、新しく作成したデータクラスである<em>alphanumeric</em>を検索し、検索で戻ってきたらそれをクリックします。そして、<code>Select</code>ボタンをクリックします。</li>
+</ul>
+<p><img alt="Set colunn to numerical data class" src="images/wkc-admin-numeric-data-class.png" /></p>
+<h2 id="6">6.ビジネス用語の追加<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>注：カテゴリー、ビジネス用語、データクラス、およびその他のGovernanceアーティファクトは、グローバルな範囲です。作成するように言われたら、自分のイニシャルや何かユニークなタグを前もって付けておかないと失敗します。例えば、以下では、<code>XXX-連絡先情報</code>の代わりに<code>scottda-連絡先情報</code>を使用しています。</p>
+</blockquote>
+<p>ビジネス用語](https://dataplatform.cloud.ibm.com/docs/content/wsj/governance/dmg16.html)を使用して、ビジネスコンセプトの定義を標準化することで、企業全体で統一された理解しやすい方法でデータを記述することができます。</p>
+<p>カテゴリーを作成して、それを<em>ビジネス用語</em>にする方法はすでに見ました。ビジネス・タームを独自のエンティティとして作成することもできます。</p>
+<ul>
+<li>左上（☰）のハンバーガー・メニューから、「ガバナンス」→「ビジネス用語」を選択します。</li>
+</ul>
+<p><img alt="データビジネス用語の整理" src="images/wkc-admin-organize-data-business-terms.png" /></p>
+<ul>
+<li>右上の「Add business term」ボタンをクリックし、ドロップダウンメニューの「New business term」オプションをクリックします。</li>
+</ul>
+<p><img alt="ビジネス用語の作成" src="images/wkc-admin-create-business-term.png" /></p>
+<p><em>新しいビジネス用語に、イニシャルや</em>XXX-Contact Information<em>のようなタグを前もって付けた名前と、オプションで説明を付けます。</em>Primary category<em> の下の <code>Change</code> をクリックして </em>Personal data* を選択し、<code>Save as draft</code> ボタンをクリックします。</p>
+<p><img alt="名前の新しいビジネス用語" src="images/wkc-admin-name-business-term.png" /></p>
+<ul>
+<li>用語が作成されると、ウィンドウが表示されます。関連用語の作成やその他のメタデータを追加するための豊富なオプションが表示されます。とりあえず、<code>Publish</code>をクリックして、この用語をプラットフォームのユーザーが利用できるようにします。ポップアップした確認ウィンドウで「Publish」をクリックします。</li>
+</ul>
+<p><img alt="ビジネス用語の公開" src="images/wkc-admin-publish-business-term.png" /></p>
+<p><em>先ほど作成したカタログ（例：</em>CreditDataCatalog<em>）に戻って、それを開きます（(☰)ハンバーガーメニュー <code>Catalog</code> -&gt; <code>All catalogs</code> で <code>CreditDataCatalog</code> を選択）。Browse assets</em>タブで、データセット<em>applicant_personal_data.csv</em>をクリックし、次に<code>Asset</code>タブをクリックすると、列/行のプレビューが表示されます。<em>Email</em>列を見つけて、<em>列情報</em>アイコンをクリックします（「目」のように見えます）。</p>
+<p><img alt="メール欄の情報を選択" src="images/wkc-admin-email-column-information.png" /></p>
+<p><em>開いたウィンドウで、</em>Business terms<em>の横にある</em>edit*アイコン（「鉛筆」のように見える）をクリックします。</p>
+<p><img alt="ビジネス用語の編集" src="images/wkc-admin-assign-terms-to-column.png" />をクリックします。</p>
+<ul>
+<li><em>XXX-Contact Information</em>（<em>scottda-ContactInfo</em>のようなあなたのユニークな名前の用語）先ほど<em>Business terms</em>で作成した用語を入力すると、その用語が検索されます。見つかった<code>Contact Information</code>の用語をクリックして、<code>Apply</code>をクリックします。</li>
+</ul>
+<p><img alt="ビジネス用語の検索" src="images/wkc-admin-search-contact-to-assign-term.png" /></p>
+<ul>
+<li>
+<p>用語が適用されたら、そのウィンドウの<code>Close</code>をクリックしてください。次に、同じようにして、<em>Telephone</em>列に<em>Contact Information</em> Business termを追加します。</p>
+</li>
+<li>
+<p>これで、プラットフォーム内でこれらの用語を検索できるようになります。例えば、トップレベルの<em>CreditDataCatalog</em>に戻って、"What assets are you searching for? "というコメントのある検索バーに、固有の<em><unique_string>Contact Information</em>という用語を入力します。</p>
+</li>
+</ul>
+<p><img alt="ビジネス用語で検索" src="images/wkc-admin-search-business-terms.png" /></p>
+<ul>
+<li><em>applicant_personal_data.csv</em>データセットは、<em>Contact Infomation</em>ビジネス用語でタグ付けされたカラムを含んでいるので、表示されます。</li>
+</ul>
+<h2 id="7">7.ポリシーのルールを追加する<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>ユーザーがデータにアクセスする方法を制御するルールを作成できるようになりました。</p>
+<blockquote>
+<p>注意：ワークショップのチームメイトは、ルールに関連付ける用語を単純に1つ再利用することができます（例：<em>CustomerID</em>）。</p>
+</blockquote>
+<ul>
+<li><em>XXX-CustomerID</em>というビジネス用語を作成するか、またはワークショップのチームメイトのビジネス用語の1つをこのエクササイズのために再利用してください。それを上記の手順でデータセットの<em>CustomerID</em>列に割り当てます。詳細が必要な場合は以下を参照してくださいが、まず自分で試してみてください。また、注意喚起が不要な場合は以下の<em>Adding a rule</em>にスキップしてください。</li>
+</ul>
+<h3 id="_10">ビジネス用語のレビューを作成する方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>左上（☰）のハンバーガーメニューから、「Governance」→「Business terms」を選択します。</p>
+</li>
+<li>
+<p>右上の「ビジネス用語の追加」ボタンをクリックし、ドロップダウンメニューの「新規ビジネス用語」を選択します。</p>
+</li>
+<li>
+<p>新しいビジネス用語に <em>XXX-CustomerID</em> という名前と、オプションで説明を付けます。プライマリー・カテゴリ<em>の下にある「変更」をクリックして、</em>Personal data*を選択し、「ドラフトとして保存」ボタンをクリックします。次のウィンドウで<code>Publish</code>をクリックします。</p>
+</li>
+</ul>
+<p><em>先ほど作成したカタログ（例：</em>CreditDataCatalog<em>）に戻り、それを開きます（(☰)ハンバーガーメニューの<code>Catalog</code>-&gt;<code>All catalogs</code>で<code>CreditDataCatalog</code>を選択）。Browse assets</em>タブで、データセット<em>applicant_personal_data.csv</em>をクリックして、<code>Asset</code>タブをクリックすると、列/行のプレビューが表示されます。CustomerID<em>列を見つけて、</em>Column information*アイコンをクリックします（「目」のように見えます）。</p>
+<ul>
+<li>
+<p>開いたウィンドウで、<em>Business terms</em> の隣にある <em>edit</em> アイコンをクリックします（「鉛筆」のように見えます）。</p>
+</li>
+<li>
+<p><em>Business terms</em> の下に <em>CustomerID</em> を入力すると、その用語が検索されます。検索された <code>CustumerID</code> の用語をクリックして、<code>Apply</code> をクリックします。その後、ポップアップウィンドウを閉じます。</p>
+</li>
+</ul>
+<h3 id="_11">ルールの追加<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>左上のハンバーガーメニューから、<code>Governance</code> -&gt; <code>Rules</code> を選択します。</p>
+</li>
+<li>
+<p>右上の「Add rule」ボタンをクリックして、ドロップダウンメニューから「New rule」を選択してください。</p>
+</li>
+<li>
+<p>「Create a new rule」ページで、「Data protection rule」オプションを選択します。</p>
+</li>
+</ul>
+<p><img alt="データ保護ルール" src="images/wkc-new-dataprotection-rule.png" /></p>
+<ul>
+<li>
+<p>ルールにユニークな <em>XXX-Name</em> を与え、<em>Type</em> を <code>Access</code> に設定したまま、<em>Business definition</em> を追加してください。</p>
+</li>
+<li>
+<p><em>Rule builder</em> &gt; <em>Condition1</em> の下にあります。If<code>の条件では、*Business term* *Contains any* *CustomerID*を選択します。*Action* の下の</code>then` パネルでは、<em>mask data</em> <em>in columns containing</em> <em>alphanumeric</em> を選択します。Substitute」のタイルを選択すると、個人を特定できないハッシュが作成されます。これにより、実際のCustomerIDは見えなくなりますが、データベースの結合などの動作は可能になります。ルールの作成」ボタンをクリックします。</p>
+</li>
+</ul>
+<p><img alt="define rule for masking customerID" src="images/wkc-admin-rule-substitute-customer-id.png" /></p>
+<ul>
+<li>ここで、カタログ内の<em>applicant_personal_data.csv</em>アセットの<em>CustomerID</em>カラムに戻ると、前と同じように見えます。しかし、管理者ではないユーザーには「ロック」アイコンが表示され、customerIDがハッシュ値で置き換えられていることがわかります。</li>
+</ul>
+<p><em>データを</em>難読化<em>するルールを追加するには、</em>Age*という新しいデータクラスを作成します。必要に応じて上記の説明を参照し、クラスを公開することを忘れないでください。</p>
+<p><em>CreditDataCatalog</em>に戻り、<em>applicant_personal_data.csv</em>資産の下で、<code>Overview</code>タブに行き、<em>Age</em>列までスクロールします。下矢印」をクリックすると、データが<em>Code</em>に分類されていることが推測されます。View all`をクリックして分類器を変更します。</p>
+<p><img alt="Age classified as Code" src="images/wkc-admin-inferred-classifier-code.png" /></p>
+<p><em>今度は、</em>Age*と入力し始めてclassifierを変更します。これが検索で出てきたら、それを選択して、<code>Select</code>ボタンをクリックします。</p>
+<p><img alt="classifierを変更して使用" src="images/wkc-admin-change-classifier-select.png" /></p>
+<ul>
+<li>前述の指示に従って、この <em>Age</em> カラムを <em>難読化</em> するための新しいデータ保護ルールを構築することができます。</li>
+</ul>
+<p><img alt="Age obfuscate rule" src="images/wkc-admin-create-obfuscate-rule.png" /></p>
+<p>*これで、管理者以外のユーザーがその列を見たときに、同様のフォーマットのデータに置き換えられたデータが表示されます。</p>
+<h2 id="_12">まとめ<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>このラボでは、以下の方法を学びました。</p>
+<ul>
+<li>カタログとデータの設定</li>
+<li>コラボレーターの追加とアクセス制御</li>
+<li>カテゴリーの追加</li>
+<li>データクラスの追加</li>
+<li>ビジネス用語の追加</li>
+<li>ポリシーのルールの追加</li>
+</ul>
+<p>このチュートリアルは、<a href="/learningpaths/cloud-pak-for-data-learning-path/">Getting started with IBM Cloud Pak for Data Learning Path</a>の一部です。このシリーズを続けて IBM Cloud Pak for Data について詳しく学ぶには、次のパターンである <a href="/patterns/data-analysis-model-building-and-deploying-with-wml/">Data analysis, model building, and deploying with Watson Machine Learning with notebook</a> を参照してください。次のチュートリアルである<a href="/tutorials/automate-model-building-with-autoai/">Automate model building with AutoAI</a>または<a href="/tutorials/build-an-ai-model-visually-with-spss-modeler-flow/">Build a predictive machine learning model quickly and easily with IBM SPSS Modeler</a>を見てみましょう。</p>
+<p>このチュートリアルでは、IBM Cloud Pak for Data プラットフォームでデータを扱う際に利用できる強力なツールの一部を学びました。IBM Watson Knowledge Catalog を使えば、チーム・メンバーがそれぞれの役割で協力して、データと AI を企業にもたらすことができます。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

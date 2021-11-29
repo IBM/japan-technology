@@ -1,0 +1,684 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Getting started with IBM Watson OpenScale (automated setup) - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-fairness-use-case" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting started with IBM Watson OpenScale (automated setup)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-fairness-use-case" class="md-nav__link">
+    The fairness use case
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-setup" class="md-nav__link">
+    Automated setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provision-a-watson-openscale-service" class="md-nav__link">
+    Provision a Watson OpenScale service
+  </a>
+  
+    <nav class="md-nav" aria-label="Provision a Watson OpenScale service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-ibm-cloud-pak-for-data-platform" class="md-nav__link">
+    On IBM Cloud Pak for Data platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-ibm-cloud" class="md-nav__link">
+    On IBM Cloud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-insights-dashboard" class="md-nav__link">
+    Use the Insights Dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-analytics-tools" class="md-nav__link">
+    Using the Analytics tools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Getting started with IBM Watson OpenScale (automated setup)</h1>
+                
+                <p>In this tutorial, learn how you can use IBM Watson OpenScale to monitor your artificial intelligence (AI) models for fairness and accuracy. You get a hands-on look at how Watson OpenScale automatically generates a <em>debiased</em> model endpoint to mitigate your fairness issues and provides an <em>explainability</em> view to help you understand how your model makes its predictions. In addition, you see how Watson OpenScale uses <em>drift detection</em>. Drift detection tells you when runtime data is inconsistent with your training data or, if there is an increase in drift, that the data that is likely to lead to lower accuracy.</p>
+<p>This tutorial works with IBM Cloud Pak for Data or on IBM Cloud. The automated setup is used to get you started quickly with an example model.</p>
+<h2 id="the-fairness-use-case">The fairness use case<a class="headerlink" href="#the-fairness-use-case" title="Permanent link">&para;</a></h2>
+<p>The model used in this tutorial is a credit risk predictor. The data set contains loan applicant data and is used to predict "Risk" or "No Risk." The data includes two attributes that are considered sensitive: <code>sex</code> (gender) and <code>age</code>. Using Watson OpenScale with this model, you are able to detect, explain, and fix gender discrimination in the credit risk predictor.</p>
+<h2 id="automated-setup">Automated setup<a class="headerlink" href="#automated-setup" title="Permanent link">&para;</a></h2>
+<p>The automated setup guides you through the process by performing tasks for you in the background. The automated setup tour is designed to work with the least possible user interaction. It automatically makes the following decisions for you:</p>
+<ul>
+<li>
+<p>If you have multiple IBM Watson Machine Learning instances set up, the installation process runs an API call to list the instances and chooses the Watson Machine Learning instance that appears first in the resulting list.</p>
+</li>
+<li>
+<p>To create a new lite version of a Watson Machine Learning instance, the Watson OpenScale installer uses the default resource group for your IBM Cloud account.</p>
+</li>
+</ul>
+<p>The automated setup ends with a guided tour, which highlights key features of Watson OpenScale as you move through the scenario by clicking <strong>Next</strong>. When you exit the tour (you can exit at any point), you can explore the UI on your own. The credit risk model was automatically deployed so that you have something to explore. This tutorial uses the credit risk model to help you explore the features of Watson OpenScale.</p>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>It should take you approximately 45 minutes to complete this tutorial.</p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, you learn how to:</p>
+<ol>
+<li><a href="#provision-a-watson-openscale-service">Provision a Watson OpenScale service</a></li>
+<li><a href="#use-the-insights-dashboard">Use the Insights Dashboard</a></li>
+<li><a href="#using-the-analytics-tools">Use the Analytics tools</a></li>
+</ol>
+<h2 id="provision-a-watson-openscale-service">Provision a Watson OpenScale service<a class="headerlink" href="#provision-a-watson-openscale-service" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Note: Watson OpenScale now allows for provisioning multiple instances of the service. The following steps assume that you configure the default service instance (which is automatically provisioned after installation).</p>
+</blockquote>
+<h4 id="on-ibm-cloud-pak-for-data-platform">On IBM Cloud Pak for Data platform<a class="headerlink" href="#on-ibm-cloud-pak-for-data-platform" title="Permanent link">&para;</a></h4>
+<p>This section explains how to provision Watson OpenScale on the IBM  Cloud Pak for Data platform. If you're using IBM Cloud, skip to the <a href="#on-ibm-cloud">On IBM Cloud</a> section.</p>
+<ol>
+<li>
+<p>In the Cloud Pak for Data instance, go the (☰) menu, and under <strong>Services</strong>, click <strong>Instances</strong>.</p>
+<p><img alt="Service" src="../images/services.png" /></p>
+</li>
+<li>
+<p>Find the OpenScale-default instance from the Instances table, and click the three vertical dots to open the action menu. Then, click <strong>Open</strong>.</p>
+<p><img alt="Openscale Tile" src="../images/services-wos-instance.png" /></p>
+</li>
+<li>
+<p>Because this is the first time you are are launching OpenScale, you are presented with a welcome message where you can launch the auto setup process. Click <strong>Auto setup</strong>.</p>
+<p><img alt="Openscale Auto Setup Launch" src="../images/openscale-autosetup-start.png" /></p>
+</li>
+<li>
+<p>In the Connect to Watson Machine Learning panel, leave the defaults because you are using the Watson Machine Learning instance deployed in the same cluster. Click <strong>Next</strong>.</p>
+<p><img alt="Openscale Auto Setup WML" src="../images/openscale-autosetup-wml.png" /></p>
+</li>
+<li>
+<p>In the Connect to your database panel, enter the connection details for your local Db2 database (this is the database you provisioned in a previous section of the admin guide), and click <strong>Next</strong>.</p>
+</li>
+</ol>
+<p><img alt="Openscale Auto Setup DB" src="../images/openscale-autosetup-db.png" /></p>
+<pre class="codehilite"><code class="linenums">**Note:** If you used Db2 Warehouse on Cloud, you must select the Use SSL checkbox. However, you don't need to provide a certificate.
+
+The auto setup of a model will take some time to run.
+
+![Openscale Auto Setup Running](images/openscale-autosetup-running.png)
+
+After it completes, you see a message if it succeeded.
+
+![Openscale Auto Setup Completed](images/openscale-autosetup-complete.png)
+</code></pre>
+
+<ol>
+<li>
+<p>Click through the Insights dashboard for the deployed models to make sure that the pages load.</p>
+</li>
+<li>
+<p>If you need to give other users access to the OpenScale instance, go to the (☰) menu, and under <strong>Services</strong>, click <strong>Instances</strong>.</p>
+<p><img alt="Service" src="../images/services.png" /></p>
+</li>
+<li>
+<p>Find the OpenScale-default instance from the Instances table, and click the three vertical dots to open the action menu. Then, click <strong>Manage access</strong>.</p>
+<p><img alt="Openscale Tile" src="../images/services-wos-manageaccess.png" /></p>
+</li>
+<li>
+<p>To add users to the service instance, click <strong>Add users</strong>.</p>
+<p><img alt="Openscale Tile" src="../images/services-wos-addusers.png" /></p>
+</li>
+<li>
+<p>For all of the user accounts, select <strong>Editor</strong> as the role for each user, then click <strong>Add</strong>.</p>
+<p><img alt="Openscale Tile" src="../images/services-wos-userrole.png" /></p>
+</li>
+</ol>
+<h4 id="on-ibm-cloud">On IBM Cloud<a class="headerlink" href="#on-ibm-cloud" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>If you do not have an IBM Cloud account, register for <a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">an account</a>.</p>
+</li>
+<li>
+<p>Create a Watson OpenScale instance from the <a href="https://cloud.ibm.com/catalog/services/watson-openscale?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">catalog</a>.</p>
+</li>
+<li>
+<p>Select the Lite plan, enter a Service name, and click <strong>Create</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Launch Application</strong> to start Watson OpenScale.</p>
+</li>
+<li>
+<p>Click <strong>Auto setup</strong> to automatically set up your Watson OpenScale instance with sample data.</p>
+<p><img alt="Demo welcome" src="../images/cloud-auto-setup.png" /></p>
+</li>
+<li>
+<p>Click <strong>Start tour</strong> to tour the Watson OpenScale dashboard.</p>
+</li>
+</ol>
+<h2 id="use-the-insights-dashboard">Use the Insights Dashboard<a class="headerlink" href="#use-the-insights-dashboard" title="Permanent link">&para;</a></h2>
+<p>To launch the OpenScale service:</p>
+<ol>
+<li>
+<p>Go to the (☰) navigation menu, and click <strong>Services -&gt; Instances</strong>.</p>
+<p><img alt="Services Instances" src="../images/services.png" /></p>
+</li>
+<li>
+<p>Click the three vertical dots next to the OpenScale instance that your Administrator has provisioned, and click <strong>Open</strong>.</p>
+<p><img alt="OpenScale instance" src="../images/openscale-instance-open.png" /></p>
+</li>
+</ol>
+<p>Now, let's interact with the tools.</p>
+<ol>
+<li>
+<p>OpenScale loads the Insights Dashboard, which contains tiles for any models being monitored. The GermanCreditRiskModelICP tile is the one you'll use for this tutorial. This tile was configured using the Auto setup script.</p>
+</li>
+<li>
+<p>Click the Insights icon on the left, make sure that you are on the Model monitors tab, and then open the GermanCreditRiskModelICP model tile. Click the 3-dot menu, then click <strong>View details</strong>.</p>
+<p><img alt="OpenScale Insight Dashboard Tile Open" src="../images/openscale-model-view-details.png" /></p>
+</li>
+<li>
+<p>Notice the red alert indicators on the various monitors (Fairness, Quality, and Drift). You should see a red indicator under Fairness. Click the <strong>Fairness score</strong>.</p>
+<p><img alt="Model Overview" src="../images/openscale-fairness-score.png" /></p>
+</li>
+<li>
+<p>Click on the triangle with the ! under <strong>Fairness -&gt; Sex</strong>. This indicates that there has been an alert for this attribute in the Fairness monitor. Alerts are configurable, based on thresholds for fairness outcomes, which can be set and altered as needed.</p>
+<p>By moving your mouse pointer over the trend chart, you can see the values change. Find and click on a time slice where the graph is below the red threshold line. This indicates that the level of fairness is below the predetermined minimum and that some of the transactions at that time are biased.</p>
+<p><img alt="OpenScale Fairness Monitor" src="../images/openscale-fairness-details.png" /></p>
+</li>
+<li>
+<p>After you click on one of the time periods, you see details of the Fairness monitor, including a bar chart that shows how many females received the "No Risk" outcome versus males. You can click <strong>view calculation</strong> to see how the fairness score is calculated. Click <strong>View payload transactions</strong>.</p>
+<p><img alt="OpenScale Fairness Monitor chart" src="../images/openscale-fairness-chart.png" /></p>
+<p>You see a list of transactions. Look for one of the Monitored Group - Female with a <code>Group Bias</code> check mark and a Prediction of "Risk." Click <strong>Explain prediction</strong>. If the time period on the graph for Fairness Monitoring doesn't contain this element, go back and choose another time period until you can find one. This makes the explanation more interesting.</p>
+<p><img alt="OpenScale Fairness Detail" src="../images/openscale-fairness-detail-page.png" /></p>
+<p><strong>Note:</strong> Each of the individual transactions can be examined to see them in detail. Doing so will cache that transaction as you see later. Be aware that the Explainability feature requires thousands of REST calls to the endpoint using variations of the data that are slightly perturbed. This can require several seconds to complete.</p>
+</li>
+<li>
+<p>On the Explain tab for this individual transaction, you can see the relative weights of the most important features for this prediction. Examine the data, then click the <strong>Inspect</strong> tab.</p>
+<p><img alt="OpenScale View Transaction" src="../images/openscale-explain-relative-weight.png" /></p>
+</li>
+<li>
+<p>In the Inspect view of this transaction, you can see the original features that led to this prediction as well as a series of drop-down menus and input boxes that offer the ability to change each feature. You can find which features will change the outcome (in this case, from "Risk" to "No Risk") by clicking <strong>Run Analysis</strong>. Note that this requires thousands of REST calls to the endpoint with slight perturbations in the data, so it can take a few minutes to run. Click <strong>Run Analysis</strong>.</p>
+<p><img alt="OpenScale Inspect Transaction" src="../images/openscale-inspect-transaction.png" /></p>
+<p>In this particular transaction, you see that the presence of a guarantor on the loan is the only thing required to flip the outcome from "Risk" to "No Risk." Other transactions might show a different analysis, so be aware that your results might vary from this. In this example, you can click the drop-down menu for Others on Loan and change to guarantor.</p>
+<p><img alt="OpenScale choose new value" src="../images/openscale-different-outcome.png" /></p>
+</li>
+<li>
+<p>Choosing this new value for guarantor exposes a button for Score new values. Click this button.</p>
+<p><img alt="OpenScale Score new value" src="../images/openscale-score-new-values.png" /></p>
+<p>In this example, you see that the outcome has now been flipped from "Risk" to "No Risk."</p>
+<p><img alt="OpenScale flip outcome" src="../images/openscale-outcome-flipped.png" /></p>
+</li>
+<li>
+<p>Go back to the Insights Dashboard page by clicking on the Insights menu icon. Make sure that you are on the Model monitors tab. Now, open the monitor configuration for the GermanCreditRiskModelICP model by clicking the 3-dot menu on the tile, and then click <strong>Configure monitors</strong>.</p>
+<p><img alt="OpenScale Insight Dashboard Tile Open" src="../images/openscale-configure-monitors.png" /></p>
+</li>
+<li>
+<p>Click the <strong>Endpoints</strong> menu, then the <strong>Endpoints</strong> tab. Use the Endpoints drop-down menu to select <strong>Debiased transactions</strong>. This is the REST endpoint that offers a debiased version of the credit risk machine learning model based on the features that were configured (that is, Sex and Age). It presents an inference that attempts to remove the bias that has been detected.</p>
+<p><img alt="OpenScale Monitors Endpoints" src="../images/openscale-endpoints.png" /></p>
+</li>
+</ol>
+<p>You can see code snippets using cURL, the Java language, and Python, which can be used in your scripts or applications.</p>
+<p>Similarly, you can choose the Feedback logging endpoint to get code for Feedback Logging. This provides an endpoint for sending fresh test data for ongoing quality evaluation. You can upload feedback data here or work with your developer to integrate the code snippet provided to publish feedback data to your Watson OpenScale database.</p>
+<h2 id="using-the-analytics-tools">Using the Analytics tools<a class="headerlink" href="#using-the-analytics-tools" title="Permanent link">&para;</a></h2>
+<p>To use the Analytics tools:</p>
+<ol>
+<li>
+<p>Click the Insights icon on the left, make sure that you are on the Model monitors tab, and then open the GermanCreditRiskModelICP model tile. Click the 3-dot menu, then click <strong>View details</strong>.</p>
+<p><img alt="OpenScale Insight Dashboard Tile Open" src="../images/openscale-model-view-details.png" /></p>
+</li>
+<li>
+<p>Notice the red alert indicators on the various monitors (Fairness, Quality, and Drift). You should see a red indicator under Fairness. Click the <strong>Fairness score</strong>.</p>
+<p><img alt="Model Overview" src="../images/openscale-fairness-score.png" /></p>
+</li>
+<li>
+<p>Click <strong>Analytics -&gt; Predictions by Confidence</strong>. It might take a minute to create the chart. Here, you can see a bar chart that indicates confidence levels and predictions of "Risk" and "No Risk."</p>
+<p><img alt="Analytics Predictions by Confidence" src="../images/openscale-prediction-by-confidence.png" /></p>
+</li>
+<li>
+<p>From this dashboard, click <strong>Analytics -&gt; Chart Builder</strong>. Here, you can create charts using various Measurements, Features, and Dimensions of your machine learning model. You can see a chart that breaks down Predictions by Confidence.</p>
+<p><strong>Note:</strong> You might need to click the date range for Past Week or Yesterday to load the data.</p>
+</li>
+<li>
+<p>You can experiment with changing the values and examine the charts that are created.</p>
+<p><img alt="Analytics Chart builder" src="../images/openscale-chart-builder.png" /></p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This tutorial provides a walkthrough of many of the GUI features using the Watson OpenScale tools. The Auto setup deployment creates a machine learning model, deploys it, and inserts historical data to simulate a model that has been used in production over time. The OpenScale monitors are configured, and you can then explore the various metrics and data.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

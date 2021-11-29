@@ -1,0 +1,1132 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Data virtualization on IBM Cloud Pak for Data - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learning-objectives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data virtualization on IBM Cloud Pak for Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    Learning objectives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-get-the-data" class="md-nav__link">
+    Step 1. Get the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-about-the-dataset" class="md-nav__link">
+    Step 2. About the dataset
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2. About the dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applicant-financial-data" class="md-nav__link">
+    Applicant Financial Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applicant-loan-data" class="md-nav__link">
+    Applicant Loan Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applicant-personal-data" class="md-nav__link">
+    Applicant Personal Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-set-up-the-project-and-provision-data-virtualization-on-ibm-cloud-pak-for-data" class="md-nav__link">
+    Step 3. Set up the project and provision data virtualization on IBM Cloud Pak for Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3. Set up the project and provision data virtualization on IBM Cloud Pak for Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-in-to-ibm-cloud-pak-for-data" class="md-nav__link">
+    Log in to IBM Cloud Pak for Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-ibm-cloud-pak-for-data-project" class="md-nav__link">
+    Create a new IBM Cloud Pak for Data project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provision-data-virtualization-on-ibm-cloud-pak-for-data" class="md-nav__link">
+    Provision data virtualization on IBM Cloud Pak for Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-set-up-one-or-more-databases" class="md-nav__link">
+    Step 4. Set up one or more databases
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4. Set up one or more databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-netezza-performance-server" class="md-nav__link">
+    Set up Netezza Performance Server
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up Netezza Performance Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-these-instructions-if-you-want-to-test-with-netezza" class="md-nav__link">
+    Use these instructions if you want to test with Netezza
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-db2-warehouse-on-ibm-cloud" class="md-nav__link">
+    Set up the Db2 Warehouse on IBM Cloud
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up the Db2 Warehouse on IBM Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-these-instructions-if-you-want-to-test-with-db2-warehouse-on-ibm-cloud" class="md-nav__link">
+    Use these instructions if you want to test with DB2 Warehouse on IBM Cloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-data-for-db2-warehouse-on-cloud" class="md-nav__link">
+    Load data for Db2 Warehouse on Cloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-ssl-certificate" class="md-nav__link">
+    Get SSL certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-the-local-db2-warehouse-on-ibm-cloud-pak-for-data" class="md-nav__link">
+    Set up the local Db2 Warehouse on IBM Cloud Pak for Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up the local Db2 Warehouse on IBM Cloud Pak for Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-these-instructions-if-you-want-to-test-with-db2-warehouse-on-ibm-cloud-pak-for-data" class="md-nav__link">
+    Use these instructions if you want to test with Db2 Warehouse on IBM Cloud Pak for Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-connection-details-for-local-db2-warehouse" class="md-nav__link">
+    Get connection details for local Db2 warehouse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-data-for-local-db2-warehouse-on-ibm-cloud-pak-for-data" class="md-nav__link">
+    Load data for local Db2 warehouse on IBM Cloud Pak for Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-add-a-new-data-source-connection" class="md-nav__link">
+    Step 6. Add a new data source connection
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6. Add a new data source connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-connection-information" class="md-nav__link">
+    Get the connection information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-new-data-source" class="md-nav__link">
+    Add the new data source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualizing-data" class="md-nav__link">
+    Virtualizing data
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtualizing data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-virtualized-tables" class="md-nav__link">
+    Create virtualized tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-joined-virtual-views" class="md-nav__link">
+    Create joined virtual views
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grant-access-to-the-virtualized-data" class="md-nav__link">
+    Grant access to the virtualized data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-the-engineer-role-to-the-users" class="md-nav__link">
+    Assign the Engineer role to the users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-users-assign-virtualized-data" class="md-nav__link">
+    Step 7. Users assign virtualized data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Data virtualization on IBM Cloud Pak for Data</h1>
+                
+                <p>For decades, companies have tried to break down silos by copying data from different operational systems into central data stores for analysis, such as data marts, data warehouses, and data lakes. This is often costly and prone to error. Most struggle to manage an average of 33 unique data sources, which are diverse in structure and type, and are often trapped in data silos that are hard to find and access.</p>
+<p>With <em>data virtualization,</em> you can query data across many systems without having to copy and replicate data, which helps reduce costs. It also can simplify your analytics and make them more up to date and accurate because you’re querying the latest data at its source.</p>
+<p>In this tutorial, we're going to learn how to use data virtualization on IBM Cloud Pak for Data to make queries across multiple data sources. In this example, we'll use Netezza Performance Server or Db2 Warehouse, but you can choose from many that have built-in connectors for IBM Data Virtualization, or any database with a JDBC connector.</p>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, you will learn how to:</p>
+<ul>
+<li>Add datasets to IBM Cloud Pak for Data.</li>
+<li>Add a data source for data virtualization.</li>
+<li>Virtualize the data and create a joined view.</li>
+<li>Assign virtualized data to a project.</li>
+<li>Add roles to users and perform admin tasks.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.ibm.com/analytics/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+<li><a href="https://www.ibm.com/cloud">IBM Cloud Account</a></li>
+<li>One or more data sources</li>
+</ul>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>This tutorial will take approximately 30-45 minutes to complete.</p>
+<h2 id="step-1-get-the-data">Step 1. Get the data<a class="headerlink" href="#step-1-get-the-data" title="Permanent link">&para;</a></h2>
+<p>Download the three data files:</p>
+<ol>
+<li><a href="../static/applicant_financial_data.csv">applicant_financial_data.csv</a></li>
+<li><a href="../static/applicant_loan_data.csv">applicant_loan_data.csv</a></li>
+<li><a href="../static/applicant_personal_data.csv">applicant_personal_data.csv</a></li>
+</ol>
+<h2 id="step-2-about-the-dataset">Step 2. About the dataset<a class="headerlink" href="#step-2-about-the-dataset" title="Permanent link">&para;</a></h2>
+<p>We will be using a credit risk/lending scenario. In this scenario, lenders respond to an increased pressure to expand lending to larger and more diverse audiences by using different approaches to risk modeling. This means going beyond traditional credit data sources to alternative credit sources (i.e. mobile phone plan payment histories, education, etc.), which may introduce risk of bias or other unexpected correlations.</p>
+<p>The credit risk model we are exploring in this workshop uses a training data set that contains 20 attributes about each loan applicant. The scenario and model use synthetic data based on the <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">UCI German Credit dataset</a>.</p>
+<h4 id="applicant-financial-data"><a href="../static/applicant_financial_data.csv">Applicant Financial Data</a><a class="headerlink" href="#applicant-financial-data" title="Permanent link">&para;</a></h4>
+<p>This file has the following attributes:</p>
+<ul>
+<li>CUSTOMERID (hex number, used as Primary Key)</li>
+<li>CHECKINGSTATUS</li>
+<li>CREDITHISTORY</li>
+<li>EXISTINGSAVINGS</li>
+<li>INSTALLMENTPLANS</li>
+<li>EXISTINGCREDITSCOUNT</li>
+</ul>
+<h4 id="applicant-loan-data"><strong><a href="../static/applicant_loan_data.csv">Applicant Loan Data</a></strong><a class="headerlink" href="#applicant-loan-data" title="Permanent link">&para;</a></h4>
+<p>This file has the following attributes:</p>
+<ul>
+<li>CUSTOMERID</li>
+<li>LOANDURATION</li>
+<li>LOANPURPOSE</li>
+<li>LOANAMOUNT</li>
+<li>INSTALLMENTPERCENT</li>
+<li>OTHERSONLOAN</li>
+<li>RISK</li>
+</ul>
+<h4 id="applicant-personal-data"><strong><a href="../static/applicant_personal_data.csv">Applicant Personal Data</a></strong><a class="headerlink" href="#applicant-personal-data" title="Permanent link">&para;</a></h4>
+<p>This file has the following attributes:</p>
+<ul>
+<li>CUSTOMERID</li>
+<li>EMPLOYMENTDURATION</li>
+<li>SEX</li>
+<li>CURRENTRESIDENCEDURATION</li>
+<li>OWNSPROPERTY</li>
+<li>AGE</li>
+<li>HOUSING</li>
+<li>JOB</li>
+<li>DEPENDENTS</li>
+<li>TELEPHONE</li>
+<li>FOREIGNWORKER</li>
+<li>FIRSTNAME</li>
+<li>LASTNAME</li>
+<li>EMAIL</li>
+<li>STREETADDRESS</li>
+<li>CITY</li>
+<li>STATE</li>
+<li>POSTALCODE</li>
+</ul>
+<h2 id="step-3-set-up-the-project-and-provision-data-virtualization-on-ibm-cloud-pak-for-data">Step 3. Set up the project and provision data virtualization on IBM Cloud Pak for Data<a class="headerlink" href="#step-3-set-up-the-project-and-provision-data-virtualization-on-ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h2>
+<h3 id="log-in-to-ibm-cloud-pak-for-data">Log in to IBM Cloud Pak for Data<a class="headerlink" href="#log-in-to-ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h3>
+<p>Launch a browser and navigate to your IBM Cloud Pak for Data deployment.</p>
+<p><img alt="IBM Cloud Pak for Data login" src="../images/cpd-login.png" /></p>
+<h3 id="create-a-new-ibm-cloud-pak-for-data-project">Create a new IBM Cloud Pak for Data project<a class="headerlink" href="#create-a-new-ibm-cloud-pak-for-data-project" title="Permanent link">&para;</a></h3>
+<p>In IBM Cloud Pak for Data, we use the concept of a project to collect/organize the resources used to achieve a particular goal (resources to build a solution to a problem). Your project resources can include data, collaborators, and analytic assets like notebooks and models, etc.</p>
+<ul>
+<li>Go the (☰) navigation menu and under the Projects section, click on <strong>All Projects</strong>.</li>
+</ul>
+<p><img alt="(☰) Menu -&gt; Projects" src="../images/menu-projects.png" /></p>
+<ul>
+<li>Click on the <strong>New project</strong> button on the top right.</li>
+</ul>
+<p><img alt="Start a new project" src="images/prework/new-project.png" /></p>
+<ul>
+<li>Select the <strong>Analytics project</strong> radio button and click the <strong>Next</strong> button.</li>
+</ul>
+<p><img alt="New analytics project" src="../images/new-project-type.png" /></p>
+<ul>
+<li>Select <strong>Create an empty project</strong>.</li>
+</ul>
+<p><img alt="Create empty project" src="../images/cpd-create-empty-project.png" /></p>
+<ul>
+<li>Provide a name and optional description for the project and click <strong>Create</strong>.</li>
+</ul>
+<p><img alt="Pick a name" src="../images/project-name.png" /></p>
+<h3 id="provision-data-virtualization-on-ibm-cloud-pak-for-data">Provision data virtualization on IBM Cloud Pak for Data<a class="headerlink" href="#provision-data-virtualization-on-ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>From the upper-left (☰) hamburger menu, click <strong>Services &gt; Instances</strong> option.</p>
+</li>
+<li>
+<p>From the list of instances, locate the Data Virtualization service, click the action menu (three vertical dots) and select <strong>Provision instance</strong>.</p>
+</li>
+<li>
+<p>In the Configure service &gt; Start page, enable the checkbox for automatic semaphore configuration and click the <strong>Next</strong> button.</p>
+</li>
+</ul>
+<p><img alt="Configure DV start" src="../images/dv-configure-start.png" /></p>
+<ul>
+<li>In the Configure service &gt; Nodes page, leave the default single node and resource allocation and click the <strong>Next</strong> button.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Attempting to configure a DV instance with greater than 64GB RAM has previously resulted in configuration errors.</p>
+</blockquote>
+<p><img alt="Configure DV nodes" src="../images/dv-configure-nodes.png" /></p>
+<ul>
+<li>In the Configure service &gt; Storage page, you must choose <em>ibmc-file-gold-gid</em> as the storage class for both persistent and cache storage. Then click the <strong>Next</strong> button.</li>
+</ul>
+<p><img alt="Configure DV storage" src="../images/dv-configure-storage.png" /></p>
+<ul>
+<li>In the Configure service &gt; Summary page, click the <strong>Configure</strong> button.</li>
+</ul>
+<p><img alt="Configure DV summary" src="../images/dv-configure-summary.png" /></p>
+<ul>
+<li>The configuration process may take a while to complete.</li>
+</ul>
+<h2 id="step-4-set-up-one-or-more-databases">Step 4. Set up one or more databases<a class="headerlink" href="#step-4-set-up-one-or-more-databases" title="Permanent link">&para;</a></h2>
+<p>IBM Cloud Pak for Data can work with any database with a JDBC connector. For this tutorial, we demonstrate using IBM Db2 Warehouse on IBM Cloud, IBM Db2 local on IBM Cloud Pak for Data, and Netezza Performance Server. You can use any one or two of these, all three, or any combination of other databases.</p>
+<h3 id="set-up-netezza-performance-server">Set up Netezza Performance Server<a class="headerlink" href="#set-up-netezza-performance-server" title="Permanent link">&para;</a></h3>
+<h4 id="use-these-instructions-if-you-want-to-test-with-netezza">Use these instructions if you want to test with Netezza<a class="headerlink" href="#use-these-instructions-if-you-want-to-test-with-netezza" title="Permanent link">&para;</a></h4>
+<p>Before you create connection to IBM Netezza Performance Server, you should create required tables and load the <code>csv data</code> into IBM Netezza Performance Server server using <code>nzload</code> cli. To install <code>nzload</code> cli, follow the <a href="https://www.ibm.com/support/knowledgecenter/en/SS5FPD_1.0.0/com.ibm.ips.doc/postgresql/admin/t_sysadm_installing_linux_unix_clients.html">instructions</a>.</p>
+<p>Log in to your IBM Netezza Performance Server console and create three tables for <a href="../static/applicant_loan_data.csv">Applicant Loan Data</a>, <a href="../static/applicant_financial_data.csv">Applicant Financial Data</a>, and <a href="../static/applicant_personal_data.csv">Applicant Personal Data</a>.</p>
+<p>Note that the tables should exist before you load the data using <code>nzload</code>. Then, you can use the <code>nzload</code> CLI command to load the CSV data to your Netezza Performance Server database.</p>
+<pre><code>bash
+
+nzload -u &lt;user&gt; -pw &lt;password&gt; -host &lt;host&gt; -db &lt;database&gt; -t &lt;table name&gt; -delim ',' -df &lt;csv file name&gt;
+</code></pre>
+<p>If the <code>nzload</code> CLI is not supported -- for example in Mac OSX -- you will have to create insert statments for the CSV data provided and run it from the Netezza console. This might take little longer than the <code>nzload</code> command.</p>
+<h3 id="set-up-the-db2-warehouse-on-ibm-cloud">Set up the Db2 Warehouse on IBM Cloud<a class="headerlink" href="#set-up-the-db2-warehouse-on-ibm-cloud" title="Permanent link">&para;</a></h3>
+<h4 id="use-these-instructions-if-you-want-to-test-with-db2-warehouse-on-ibm-cloud">Use these instructions if you want to test with DB2 Warehouse on IBM Cloud<a class="headerlink" href="#use-these-instructions-if-you-want-to-test-with-db2-warehouse-on-ibm-cloud" title="Permanent link">&para;</a></h4>
+<p>It is suggested to use <a href="https://cloud.ibm.com/catalog/services/db2-warehouse?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">Db2 Warehouse on IBM Cloud</a> to best conserve resources on the cluster. If you want to use the local Db2 on the cluster, skip this section and <a href="#step-5-set-up-the-local-db2-warehouse-on-ibm-cloud-pak-for-data">set up the local Db2 Warehouse on IBM Cloud Pak for Data</a> instead.</p>
+<p><strong>NOTE</strong>: Ensure that you have provisioned Db2 warehouse on IBM Cloud before proceeding.</p>
+<ul>
+<li>Once the service is provisioned, Go to Service Credentials and click <strong>New credential +</strong>. Open <code>View credentials</code> and copy the credentials (this is your connection details) for use later.</li>
+</ul>
+<p><img alt="Get Db2 Warehouse credentials" src="../images/db2whoc-credentials.png" /></p>
+<h4 id="load-data-for-db2-warehouse-on-cloud">Load data for Db2 Warehouse on Cloud<a class="headerlink" href="#load-data-for-db2-warehouse-on-cloud" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Now go to Manage and click <strong>Open Console</strong>.</li>
+</ul>
+<p><img alt="Db2 Warehouse Cloud open console" src="../images/db2whoc-manage-console.png" /></p>
+<ul>
+<li>From the upper-left (☰) hamburger menu, click <strong>Data</strong> and then click on the <strong>Load data</strong> tab.</li>
+</ul>
+<p><img alt="Db2 Warehouse Cloud load data" src="../images/db2whoc-load-data.png" /></p>
+<ul>
+<li>
+<p>Click on the <strong>browse files</strong> link in the File Selection section of the page and navigate to where you downloaded this repository, then to <code>data/split/</code> and choose <code>applicant_financial_data.csv</code>, then click the <strong>Next</strong> button.</p>
+</li>
+<li>
+<p>Click <strong>+ New Schema</strong> and name it <code>CP4DCREDIT</code>.</p>
+</li>
+<li>
+<p>With the new schema selected, click <strong>+ New table</strong>. Under New Table Name, type <code>APPLICANTFINANCIALDATA</code> and click <strong>Create &gt; Next</strong>. Accept the defaults and click <strong>Next</strong>, then click <strong>Begin Load</strong>.</p>
+</li>
+<li>
+<p>Repeat the data load steps for the <code>applicant_personal_data.csv</code> file, naming the table <code>APPLICANTPERSONALDATA</code>.</p>
+</li>
+<li>
+<p>Repeat the data load steps for the <code>applicant_loan_data.csv</code> file, naming the table <code>LOANS</code>.</p>
+</li>
+</ul>
+<h4 id="get-ssl-certificate">Get SSL certificate<a class="headerlink" href="#get-ssl-certificate" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>You will need an SSL certificate for IBM Cloud Pak for Data to use the IBM Cloud Db2 Warehouse instance.</p>
+</li>
+<li>
+<p>In the Db2 Warehouse console, from the upper-left (☰) hamburger menu, click <strong>Adminsitration</strong>, then then click the <strong>Connections</strong> tab. Click the <strong>Download SSL Certificate</strong> button.</p>
+</li>
+</ul>
+<p><img alt="Db2 get SSL certificate" src="../images/db2whoc-get-ssl-cert.png" /></p>
+<ul>
+<li>You'll need to convert the SSL certificate from <code>.crt</code> to a <code>.pem</code> file using <a href="https://www.openssl.org/">openssl</a>. Run the following command.</li>
+</ul>
+<p><code>bash
+  openssl x509 -in DigiCertGlobalRootCA.crt -out DigiCertGlobalRootCA.pem -outform PEM -inform DER</code></p>
+<ul>
+<li>Save this file for later use.</li>
+</ul>
+<p>Now that the Db2 Warehouse has been set up on IBM Cloud, you may now skip to <a href="#step-6-add-a-new-data-source-connection">add a new data source connection</a>.</p>
+<h3 id="set-up-the-local-db2-warehouse-on-ibm-cloud-pak-for-data">Set up the local Db2 Warehouse on IBM Cloud Pak for Data<a class="headerlink" href="#set-up-the-local-db2-warehouse-on-ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h3>
+<h4 id="use-these-instructions-if-you-want-to-test-with-db2-warehouse-on-ibm-cloud-pak-for-data">Use these instructions if you want to test with Db2 Warehouse on IBM Cloud Pak for Data<a class="headerlink" href="#use-these-instructions-if-you-want-to-test-with-db2-warehouse-on-ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h4>
+<p>These instructions are for loading the data into the local IBM Cloud Pak for Data version of Db2 Warehouse. If you've used the IBM Cloud instance of Db2 Warehouse, you can skip to the <a href="#step-6-add-a-new-data-source-connection">next section</a>. It is suggested to use <a href="https://cloud.ibm.com/catalog/services/db2-warehouse?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">Db2 Warehouse on IBM Cloud</a> to conserve resources on the IBM Cloud Pak for Data cluster as described in <a href="#step-4-set-up-the-db2-warehouse-on-ibm-cloud">set up the Db2 warehouse on IBM Cloud</a>. If you wish to use the local Db2 on the cluster, continue with this section.</p>
+<p>Note that IBM Cloud Pak for Data can work with any database with a JDBC connector, so Db2 warehouse is only one of many choices.</p>
+<ul>
+<li>
+<p>We are assuming the cluster has already been set up such that you have already installed the Db2 assembly, have created the database deployment, have installed the Data Management Console (DMC) assembly, and have provisioned a DMC service instance.</p>
+</li>
+<li>
+<p>Log into the IBM Cloud Pak for Data instance as an administrator. From the upper-left (☰) hamburger menu, click <strong>Data &gt; Databases</strong>.</p>
+</li>
+<li>
+<p>Click on the three vertical buttons on the database instance tile and click on the <strong>Open database</strong> menu item.</p>
+</li>
+<li>
+<p>Click on the databases drop-down menu on the top left of the page and click on the <strong>Connection Information</strong> option.</p>
+</li>
+</ul>
+<p><img alt="Local Db2 information" src="../images/db2local-conninformation.png" /></p>
+<ul>
+<li>Take note of the connection information because it will be used later.</li>
+</ul>
+<p><strong>IMPORTANT</strong>: At least one OpenShift node should have the tag for db2wh (such as <code>icp4data=database-db2wh</code>); otherwise, you will not be able to provision the local Db2 warehouse. The tag can be set using the following command:</p>
+<blockquote>
+<p><code>oc label node &lt;NODE&gt; icp4data=database-db2wh</code></p>
+</blockquote>
+<h4 id="get-connection-details-for-local-db2-warehouse">Get connection details for local Db2 warehouse<a class="headerlink" href="#get-connection-details-for-local-db2-warehouse" title="Permanent link">&para;</a></h4>
+<p>To get the connection info for your local Db2 Warehouse, go to the hamburger (☰) menu and click on the <strong>My Instances</strong> option.</p>
+<p><img alt="Menu  My Instances" src="../images/menuMyInstances.jpg" /></p>
+<p>Now go to the Provisioned instances tab and click on the row for your local Db2 Warehouse. This will open the details of the Db2 warehouse instance.</p>
+<p><img alt="Provisioned local Db2 details" src="../images/provisionedDBviewDetails.png" /></p>
+<p>Either keep this window open in a separate tab or copy the required connection information: Host, Port, Database name, Username, and Password. You can get the port from the JDBC Connection URL; for example, for the URL jdbc:db2://10.221.243.172:31956/BLUDB, the port is the number after the colon in the URL: 31956.</p>
+<p><img alt="Db2 Connection credentials" src="../images/localDB2details.png" /></p>
+<h4 id="load-data-for-local-db2-warehouse-on-ibm-cloud-pak-for-data">Load data for local Db2 warehouse on IBM Cloud Pak for Data<a class="headerlink" href="#load-data-for-local-db2-warehouse-on-ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Click the hamburger (☰) menu in the upper-left corner and choose <strong>Collect &gt; My data</strong>.</p>
+<p><img alt="Choose Collect My data" src="../images/collectMyData.png" /></p>
+</li>
+<li>
+<p>Go to the Databases tab, click on the three vertical lines on the <strong>Db2 Warehouse</strong> tile and click <strong>Open database</strong>.</p>
+<p><img alt="Open Service Db2 Warehouse" src="../images/userOpenDB2Warehouse.png" /></p>
+</li>
+<li>
+<p>Under Summary, choose <strong>Load &gt; Load Data</strong>.</p>
+<p><img alt="Menu Load Data" src="../images/DB2LoadData.png" /></p>
+</li>
+<li>
+<p>Click on the <strong>browse files</strong> link in the File Selection section of the page and navigate to where you downloaded this repository, then to <code>data/split/</code> and choose <code>applicant_financial_data.csv</code>, then click the <strong>Next</strong> button.</p>
+</li>
+<li>
+<p>Click <strong>+ New Schema</strong> and name it <code>CP4DCREDIT</code>.</p>
+</li>
+<li>
+<p>With the new schema selected, click <strong>+ New table</strong>. Under New Table Name, type <code>APPLICANTFINANCIALDATA</code>, click <strong>Create &gt; Next</strong>. Accept the defaults and click <strong>Next</strong>, then <strong>Begin Load</strong>.</p>
+</li>
+<li>
+<p>Repeat the data load steps for the <code>applicant_personal_data.csv</code> file, naming the table <code>APPLICANTPERSONALDATA</code>.</p>
+</li>
+<li>
+<p>Repeat the data load steps for the <code>applicant_loan_data.csv</code> file, naming the table <code>LOANS</code>.</p>
+</li>
+</ul>
+<h2 id="step-6-add-a-new-data-source-connection">Step 6. Add a new data source connection<a class="headerlink" href="#step-6-add-a-new-data-source-connection" title="Permanent link">&para;</a></h2>
+<p>IBM Cloud Pak for Data can work with any database such as IBM Db2 Warehouse on cloud, IBM Db2 local and Netezza Performance Server, MongoDB. You can use them to set up connection and add as datasource in the following steps.</p>
+<blockquote>
+<p><strong>Note:</strong> If your data source is in a remote data center (not in the same data center as the IBM Cloud Pak for Data instance), you can improve the performance of your data source connections using remote connectors. Follow the instructions in the <a href="https://developer.ibm.com/tutorials/improve-performance-for-your-database-connections-with-remote-connectors/">Improve performance for your data virtualization data sources with remote connectors</a> tutorial to set up a remote connector for your data source.</p>
+</blockquote>
+<h3 id="get-the-connection-information">Get the connection information<a class="headerlink" href="#get-the-connection-information" title="Permanent link">&para;</a></h3>
+<p>If you are using any database such as Db2 warehouse on IBM Cloud, Netezza Performance Server, ensure that you have obtained the JDBC connection details and SSL certificate using the instructions provided as part of <a href="#-get-connection-details-for-db2-warehouse-on-ibm-cloud">Step 4</a> above.</p>
+<p>If you are using the local Db2 warehouse on IBM Cloud Pak for Data, ensure that you have obtained the JDBC connection details using the instructions provided as part of <a href="#-get-connection-details-for-local-db2-warehouse">Step 5</a> above.</p>
+<h3 id="add-the-new-data-source">Add the new data source<a class="headerlink" href="#add-the-new-data-source" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To add a new data source, go the (☰) navigation menu and under the Data section, click on <strong>Platform connections</strong>.</li>
+</ul>
+<p><img alt="(☰) Menu -&gt; Collections" src="../images/menu-connections.png" /></p>
+<ul>
+<li>At the overview, click the <strong>New connection</strong> button.</li>
+</ul>
+<p><img alt="Overview page" src="../images/conn-new-connection.png" /></p>
+<ul>
+<li>
+<p>Start by giving your new connection a name, and select the connection type. (Select <strong>Db2 Warehouse on Cloud</strong> as your connection type for IBM Db2 database or <strong>PureData System For Analytics</strong> for Netezza Performcance server.)</p>
+</li>
+<li>
+<p>On the following screen, provide your new connection a name. Also enter the Host, Port, Database, Username, and Password values for the connection (Note that these are the values you saved when you provisioned the instance).</p>
+</li>
+<li>
+<p>For Db2 Warehouse on Cloud, ensure the check box for <code>Use SSL</code> is selected, then copy and paste the contents of the SSL certificate for Db2 Warehouse (probably called DigiCertGlobalRootCA.pem).</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> You can open the pem file in a text editor to copy the credentials content.</p>
+</blockquote>
+<ul>
+<li>Once you have entered all the connection information, you must first click the <strong>Test Connection</strong> button and after that succeeds, click on the <strong>Save</strong> button.</li>
+</ul>
+<p><img alt="Add a Db2 Warehouse on Cloud connection" src="../images/conn-details.png" /></p>
+<ul>
+<li>The new connection will be listed in the overview.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> To complete this section, you will need the Admin or Data Engineer role on the IBM Cloud Pak for Data platform.</p>
+</blockquote>
+<h2 id="virtualizing-data">Virtualizing data<a class="headerlink" href="#virtualizing-data" title="Permanent link">&para;</a></h2>
+<p>For this section, we'll use the data virtualization tool to import the data from any database like IBM Db2 Warehouse, Netezza Performance Server, or MongoDB, which is exposed as a connection in IBM Cloud Pak for Data. We will use data virtualization to access these tables and then create joined views against those virtualized tables.</p>
+<h3 id="create-virtualized-tables">Create virtualized tables<a class="headerlink" href="#create-virtualized-tables" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To launch the data virtualization tool, go the (☰) navigation menu and under the <strong>Data</strong> section, click on <strong>Data virtualization</strong>.</li>
+</ul>
+<p><img alt="(☰) Menu -&gt; Collect -&gt; Data Virtualization" src="../images/dv-menu.png" /></p>
+<ul>
+<li>From the Data virtualization sub-menu at the top left of the page, click on the menu drop-down list and choose <strong>Virtualize</strong>.</li>
+</ul>
+<p><img alt="Menu -&gt; Virtualize" src="../images/dv-virtualize-menu.png" /></p>
+<ul>
+<li>
+<p>Several tables names will be displayed across any of the data sources that are included in the data virtualization server. You will notice that on the top of the panel, we can filter the tables being displayed by selecting the database type.</p>
+</li>
+<li>
+<p>To simplify the search for tables you will use, click on the <code>Schemas</code> column header to sort the tables by Schema. Then find the tables we will be using for this workshop: <code>APPLICANTFINANCIALDATA</code>, <code>APPLICANTPERSONALDATA</code> and <code>LOANS</code>, which are under the <code>CP4DCREDIT</code> schema. Select the checkboxes next to these three tables, and then click on <strong>Add to cart &gt; View Cart</strong>.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> You may need to page through the available tables by clicking on the right arrow at the bottom of the tables view, or changing the number of <code>Items per page</code> to a larger value at the bottom left of the tables view.</p>
+</blockquote>
+<p><img alt="Choose the tables to virtualize" src="../images/dv-virtualize-tables.png" /></p>
+<ul>
+<li>The next panel prompts you to select where to assign the virtualized tables. Select the <strong>My virtualized data</strong> radio button and click the <strong>Virtualize</strong> button to add the virtualized tables to your data (we left the default values, so the tables will be virtualized under your own user schema with the same table names as the original tables).</li>
+</ul>
+<p><img alt="Add virtualized data to your project" src="../images/dv-virtualize-assign.png" /></p>
+<ul>
+<li>A pop-up dialog panel will indicate that the virtual tables have been created. Let's see the new virtualized tables by clicking the <strong>View my virtualized data</strong> button.</li>
+</ul>
+<p><img alt="We've got virtualized data" src="../images/dv-virtualize-complete.png" /></p>
+<blockquote>
+<p><strong>Note:</strong> You may receive a notification at the top of the page that the virtual assets were published to the catalog. Feel free to dismiss the notification by clicking on the <code>X</code>.</p>
+</blockquote>
+<h3 id="create-joined-virtual-views">Create joined virtual views<a class="headerlink" href="#create-joined-virtual-views" title="Permanent link">&para;</a></h3>
+<p>Now we're going to join the tables we previously virtualized, so we have a final merged set of data. It will be easier to do it here, rather than in a notebook where we'd have to write code to handle three different data sets.</p>
+<ul>
+<li>From the My virtualized data page, click on two of the virtualized tables (<code>APPLICANTPERSONALDATA</code> and <code>APPLICANTFINANCIALDATA</code>), then click the <strong>Join</strong> button.</li>
+</ul>
+<p><img alt="Choose to join two tables" src="../images/dv-join-select-tables.png" /></p>
+<ul>
+<li>To join the tables, we need to pick a key that is common to both data sets. Here we choose to map <code>CustomerID</code> from the first table to <code>CustomerID</code> on the second table. Do this by clicking on one and dragging it to another. We will leave the default of having all the column names selected. When the line is drawn, click on the <strong>Next</strong> button.</li>
+</ul>
+<p><img alt="Map the two customerID keys" src="../images/dv-join-select-columns.png" /></p>
+<ul>
+<li>In the next panel, although we could change the names of our columns, we will accept the existing names for our columns. Click the <strong>Next</strong> button to continue.</li>
+</ul>
+<p><img alt="Review joined column names" src="../images/dv-join-col-names-review.png" /></p>
+<ul>
+<li>In the next panel, we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all-uppercase name), choose something like: <code>XXXAPPLICANTFINANCIALPERSONALDATA</code> (where <code>XXX</code> is your initials in all uppercase). Also select the <strong>My virtualized data</strong> radio button and then click the <strong>Create view</strong> button to add the virtualized aggregate view to your data.</li>
+</ul>
+<p><img alt="Review the proposed joined table" src="../images/dv-join-assign-review.png" /></p>
+<ul>
+<li>A pop-up dialog panel will indicate that the join view creation has succeeded. Click on <strong>View my virutalized data</strong> button.</li>
+</ul>
+<p><img alt="The data join succeeded!" src="../images/dv-join-created-1.png" /></p>
+<ul>
+<li>Repeat the same steps as above, but this time choose to join the new joined view you just created (<code>XXXAPPLICANTFINANCIALPERSONALDATA</code>) and the last virtualized table (<code>LOANS</code>), to create a new joined view that has all three tables. Click the <strong>Join</strong> button.</li>
+</ul>
+<p><img alt="Join final tables" src="../images/dv-join-select-tables-2.png" /></p>
+<ul>
+<li>Again, join the two tables by selecting/mapping the <code>CustomerID</code> from the first table to <code>CustomerID</code> on the second table. Do this by clicking on one and dragging it to another. We will leave the default of having all the column names selected. When the line is drawn, click on the <strong>Next</strong> button.</li>
+</ul>
+<p><img alt="Map the two customerID keys" src="../images/dv-join-select-columns-2.png" /></p>
+<ul>
+<li>
+<p>In the next panel, although we could change the names of our columns, we will accept the existing names for our columns. Click the <strong>Next</strong> button to continue.</p>
+</li>
+<li>
+<p>In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose someething like: <code>XXXAPPLICANTFINANCIALPERSONALLOANSDATA</code> (where <code>XXX</code> is your initials in all uppercase). Also select the <strong>My virtualized data</strong> radio button and then click the <strong>Create view</strong> button to add the virtualized aggregate view to your data.</p>
+</li>
+<li>
+<p>A pop-up dialog panel will indicate that the join view creation has succeeded! Click on <strong>View my virtualized data</strong> button.</p>
+</li>
+<li>
+<p>From the My virtualized data page, you should now see all three virtualized tables and two joined tables. Do not go to the next section until you have all the tables.</p>
+</li>
+</ul>
+<p><img alt="Our data sets at the end of this section" src="../images/dv-virtualized-data-all.png" /></p>
+<h3 id="grant-access-to-the-virtualized-data">Grant access to the virtualized data<a class="headerlink" href="#grant-access-to-the-virtualized-data" title="Permanent link">&para;</a></h3>
+<p>For other users to have access to the data you just virtualized, you need to grant it. Follow these steps to make your virtualized data visible to them:</p>
+<ul>
+<li>
+<p>Go to <strong>Data Virtualization</strong> from the hamburger (☰) menu. Click on <strong>Menu &gt; My virtualized data</strong>.</p>
+</li>
+<li>
+<p>Click on the virtualized data you've created, then click the three vertical dots to the right, and choose <strong>Manage access</strong>.</p>
+</li>
+</ul>
+<p><img alt="Manage access to virtualized data" src="../images/dv-manage-access-menu.png" /></p>
+<ul>
+<li>Click the <strong>Specific users</strong> radio button, then <strong>Add user +</strong>.</li>
+</ul>
+<p><img alt="Grant Access to specific users" src="../images/dv-manage-access-grant.png" /></p>
+<ul>
+<li>Select the users you wish to grant access to and click <strong>Add users</strong>.</li>
+</ul>
+<p><img alt="Select users to grant access to" src="../images/dv-grant-access-select-users.png" /></p>
+<p>Repeat the above steps for the remaining tables and views.</p>
+<h3 id="assign-the-engineer-role-to-the-users">Assign the Engineer role to the users<a class="headerlink" href="#assign-the-engineer-role-to-the-users" title="Permanent link">&para;</a></h3>
+<p>IBM Cloud Pak for Data users that need to use data virtualization functions must be assigned specific roles based on their job descriptions. These roles are Admin, Engineer, User, and Steward.</p>
+<p>Let's assign the Engineer role to some users:</p>
+<ul>
+<li>From the hamburger (☰) menu, choose the <strong>Data Virtualization</strong> option, then click <strong>My virtualized data &gt; User management</strong>.</li>
+</ul>
+<p><img alt="Manage users in data virtualization" src="../images/dv-manage-users.png" /></p>
+<ul>
+<li>Click on <strong>Add users +</strong> and update the role of your users to Engineer.</li>
+</ul>
+<p><img alt="Update roles in data virtualization" src="../images/dv-engineer-role.png" /></p>
+<h2 id="step-7-users-assign-virtualized-data">Step 7. Users assign virtualized data<a class="headerlink" href="#step-7-users-assign-virtualized-data" title="Permanent link">&para;</a></h2>
+<p>Now let's look at how a user who has access to virtualized data can assign the data to their project -- how to add the virtualized data as asset to a project.</p>
+<ul>
+<li>From the data virtualization sub-menu at the top left of the page, click on the menu drop-down list and choose <strong>My virtualized data</strong>. Here you should see the data you have virtualized or that you have been given access to (or that the administrator has assigned to you).</li>
+</ul>
+<p><img alt="(My virtualized data" src="../images/dv-menu-myvirtualizeddata.png" /></p>
+<ul>
+<li>Select the checkbox next to the data sets you want to use in your project and click the <strong>Assign</strong> button to start importing it to your project.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> The name of the data assets to select may vary based on names chosen during data virtualization. The default names to select are LOANS, APPLICANTFINANCIALDATA, APPLICANTPERSONALDATA, APPLICANTFINANCIALPERSONALDATA AND APPLICANTFINANCIALPERSONALLOANDATA.</p>
+</blockquote>
+<p><img alt="Select the data you want to import" src="../images/adddata-select-data-assign.png" /></p>
+<ul>
+<li>In the 'Assign virtual objects' screen, choose your analytics project from the drop-down list. Then click the <strong>Assign</strong> button to add the data to your project.</li>
+</ul>
+<p><img alt="Assign the data to a project" src="../images/adddata-assign-to-project.png" /></p>
+<ul>
+<li>In the <code>Publish virtual assets to catalog</code> pop-up panel, select the <strong>Publish</strong> button to publish these assets to the catalog.</li>
+</ul>
+<p><img alt="Publish to catalog" src="../images/adddata-assignproject-publishdialog.png" /></p>
+<ul>
+<li>In the pop-up panel, you will receive a confirmation that the objects have been assigned to your project. Click the <strong>Go to project</strong> button.</li>
+</ul>
+<p><img alt="Data assigned to a project" src="../images/adddata-objects-assigned-confirmation.png" /></p>
+<ul>
+<li>In the project page, clicking on the <strong>Assets</strong> tab will show the virtualized tables and joined tables that are now in your project (along with other assets that are in the project).</li>
+</ul>
+<p><strong>Do not go on until you see the data assets in your project.</strong></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, we showed how to make a connection to databases that contain our data, how to virtualize them, and how to use the virtualized data.</p>
+<p>Remember that you can add data from different databases and servers if you need to. Moreover, you can virtualize this data from different sources together as well. The goal is to take care of bringing the data to the platform early on so all the data scientists can use it without reinventing the wheel while you keep full control of who has access to what data.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

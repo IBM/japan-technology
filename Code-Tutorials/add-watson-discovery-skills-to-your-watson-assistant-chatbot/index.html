@@ -1,0 +1,519 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Watson AssistantのチャットボットにWatson Discoveryのスキルを追加する - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Watson AssistantのチャットボットにWatson Discoveryのスキルを追加する
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ステップ
+  </a>
+  
+    <nav class="md-nav" aria-label="ステップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    チャットボットにディスカバリースキルを追加する
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    結論
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Watson AssistantのチャットボットにWatson Discoveryのスキルを追加する</h1>
+                
+                <p>IBM Watson Assistantは、自然言語を用いたインテリジェントなインターフェースを提供することで、問題解決を支援します。GUI ツールと API の柔軟性を組み合わせることで、アプリケーションやツールをシンプルかつ効率的に強化することができます。アシスタントを公開した後は、簡単に Web ページに埋め込んで、ユーザーが対話できるようにすることができます。</p>
+<h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-<em>-developer-tutorials-</em>-cloudreg)の公開されたインスタンスが必要です。Watson Assistant ラーニングパス](https://developer.ibm.com/learningpaths/get-started-watson-assistant) に従っている場合はすでに持っていますが、どの Assistant チャットボットでも使用できます。</p>
+<p>また、<a href="https://cloud.ibm.com/catalog/services/watson-discovery?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">Watson Discovery</a>のインスタンスも必要です。スマートドキュメント理解検索スキル](https://developer.ibm.com/learningpaths/get-started-watson-discovery/smart-document-understanding-search-skill/)を完了している場合は、そのスキルを使用できます。それ以外の場合は、Discoveryプロジェクトのサンプルの1つを使用できます。</p>
+<h2 id="_2">ステップ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">チャットボットにディスカバリースキルを追加する<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>1.アシスタントのインスタンスを起動し、<strong>統合</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![統合アイコンをクリック](images/click-integrations-tab.png)
+</code></pre>
+
+<p>1.拡張機能<strong>セクションまでスクロールダウンして、検索の下にある</strong>Add +**をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![検索の追加](images/add-search.png)をクリックします。
+</code></pre>
+
+<p>1.ウィンドウが開いたら、「<strong>Confirm</strong>」をクリックします。</p>
+<p>1.Search Integration**ページで、このチュートリアルで使用するDiscoveryインスタンスを選択します。</p>
+<pre class="codehilite"><code class="linenums">![Choose Discovery instance](images/choose-disco-instance.png)をクリックします。
+</code></pre>
+
+<p>1.使用したいプロジェクトを選択します。チュートリアルの<a href="https://developer.ibm.com/learningpaths/get-started-watson-discovery/smart-document-understanding-search-skill/">スマートドキュメント理解検索スキル</a>を完了している場合は自分で作成したものを選ぶか、<strong>サンプルプロジェクト</strong>を選びます。</p>
+<pre class="codehilite"><code class="linenums">![ディスカバリープロジェクトを選択](images/choose-disco-project.png)
+</code></pre>
+
+<p>1.次の画面では、結果の内容を設定することができます。この例では、タイトルを削除し、表示テキストを変更しました。プレビューを使ってテストすることができます。</p>
+<pre class="codehilite"><code class="linenums">![検索統合設定](images/search-integration-config.png)
+</code></pre>
+
+<p>1.次に、この検索のアクションを追加します。Actions<strong>タブに戻り、</strong>New action +**をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![検索用アクションの追加](images/add-action-for-search.png)
+</code></pre>
+
+<p>1.新しいアクションに名前を付けて、<strong>Save</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![新規アクションの名前と保存](images/new-action-name-and-save.png)
+</code></pre>
+
+<p>1.Define customer response<strong>で、</strong>Free text**を選択します。</p>
+<pre class="codehilite"><code class="linenums">![Define customer response as Free text](images/define-customer-repsonse.png)
+</code></pre>
+
+<p>1.And then<strong>の下で、</strong>Search for the answer**をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![And then Search for the answer](images/and-then-search-for-answer.png)をクリックします。
+</code></pre>
+
+<p>1.プレビュー**タブをクリックして、テキスト<code>I'm having trouble with my thermostat</code>を入力してテストすることができます。と聞かれたら、「How do I turn on the furnace?」と入力してください。なお、質問の別の方法を追加することができ、検索スキルは他の質問にも答えてくれます。</p>
+<pre class="codehilite"><code class="linenums">![プレビューを使用してテスト](images/use-preview-to-test.jpg)
+</code></pre>
+
+<p>1.プレビューテストに問題がなければ、<strong>公開</strong>にアクセスして<strong>公開</strong>をクリックすることで、この新しいアクションを公開できます。</p>
+<pre class="codehilite"><code class="linenums">![Publish new action](images/publish-new-action.png)
+</code></pre>
+
+<p>1.バージョンの説明を追加して、<strong>Publish</strong>をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Add version description](images/add-version-description.png)
+</code></pre>
+
+<p>1.検索スキルはまだドラフトモードなので、Integrationsに戻って検索を開く必要があります。</p>
+<pre class="codehilite"><code class="linenums">![検索統合を開く](images/integration-open-search.png)
+</code></pre>
+
+<p>1.ドロップダウンメニューで <strong>Live</strong> を選択し、<strong>Confirm</strong> をクリックします。</p>
+<pre class="codehilite"><code class="linenums">![Choose Live and Confirm](images/open-search-choose-live.png)
+</code></pre>
+
+<p>1.チャットボットを組み込んだデプロイ済みのアプリ](/learningpaths/get-started-watson-assistant/embed-an-assistant-chatbot/)を作成している場合は、新しい検索スキルをテストできます。</p>
+<pre class="codehilite"><code class="linenums">![Test chat in web page](images/deployed-app-with-chat.png)
+</code></pre>
+
+<p>1.ダイアログで検索スキルが使えるようになりました。</p>
+<pre class="codehilite"><code class="linenums">![検索付きチャットダイアログ](images/chat-with-search.png)
+</code></pre>
+
+<h2 id="_4">結論<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルでは、UI ツールを使用して Watson Discovery Search スキルをチャットボットに数分で統合する方法を紹介しました。この機能を使えば、ユーザーはウェブチャット環境を離れることなく、製品やサービスに関する追加情報を得ることができます。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

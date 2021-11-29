@@ -1,0 +1,698 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Data Refineryによるデータビジュアライゼーション - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Refineryによるデータビジュアライゼーション
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Watson Discoveryを始めましょう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めましょう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めましょう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        インデックス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    学習目標
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    想定される時間
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.データの読み込み
+  </a>
+  
+    <nav class="md-nav" aria-label="1.データの読み込み">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#german_credit_datacsv-data-refinery" class="md-nav__link">
+    german_credit_data.csv データを Data Refinery に読み込みます。
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.データを精製する
+  </a>
+  
+    <nav class="md-nav" aria-label="2.データを精製する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    トランスフォーメーションフローの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ジョブのスケジュール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.プロファイルデータ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.データの可視化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Data Refineryによるデータビジュアライゼーション</h1>
+                
+                <p>Data RefineryはIBM Watsonの一部で、パブリックなIBM Cloud上のIBM Watson Studioと、IBM Cloud Pak for Dataを使ってオンプレミスで動作するIBM Watson Knowledge Catalogが付属しています。これは、データサイエンティスト、データエンジニア、ビジネスアナリスト向けのセルフサービスのデータ準備クライアントです。これを使えば、大量の生データを分析に適した質の高い消費可能な情報に素早く変換することができます。Data Refineryは、組織全体の人々が信頼できるデータを簡単に探索、準備、提供することができます。</p>
+<h2 id="_1">学習目標<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルでは、以下の方法を学びます。</p>
+<p>1.<a href="#1-ロード-データ">Data Refinery で使用するために IBM Cloud Pak for Data プラットフォームにデータをロードする</a>
+1.<a href="#2-refine-data">コマンドラインのRコードを入力するか、メニューの操作を選択して、サンプル・データ・セットを変換する</a>
+1.<a href="#3-profile-data">データをプロファイルする</a>
+1.<a href="#4-visualize-data">チャートやグラフを使ってデータを可視化する</a></p>
+<h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.ibm.com/analytics/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+</ul>
+<h2 id="_3">想定される時間<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>このチュートリアルの完了には、約45分かかります。</p>
+<h2 id="1">1.データの読み込み<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="german_credit_datacsv-data-refinery">german_credit_data.csv データを Data Refinery に読み込みます。<a class="headerlink" href="#german_credit_datacsv-data-refinery" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>german_credit_data.csv](static/german_credit_data.csv)ファイルをローカルマシンにダウンロードしてください。</p>
+</li>
+<li>
+<p>プロジェクトのホームから、「<strong>資産</strong>」タブをクリックします。次に、ダウンロードした<a href="static/german_credit_data.csv">german_credit_data.csv</a>ファイルを右側のペインの<strong>Drop files here</strong>にドラッグ＆ドロップするか、アップロードするファイルをブラウズするか、<strong>browse</strong>をクリックしてダウンロードした<a href="static/german_credit_data.csv">german_credit_data.csv</a>ファイルを選択します。</p>
+</li>
+</ul>
+<p><img alt="データのアップロード" src="images/upload-data.png" /></p>
+<ul>
+<li>新しく追加された german_credit_data.csv ファイルをクリックしてください。</li>
+</ul>
+<p><img alt="データ資産をクリック" src="images/click-data-asset.png" /></p>
+<ul>
+<li>下図のようなデータが表示されます。<strong>Refine</strong>をクリックします。</li>
+</ul>
+<p><img alt="クリックして絞り込む" src="images/click-to-refine.png" /></p>
+<ul>
+<li>Data Refineryが起動し、「Data」タブが表示されます。また、データリファイナリーのフローの詳細と、フローの出力がどこに置かれるかを示す情報パネルが表示されます。情報」パネルの右側にある「X」をクリックして閉じてください。</li>
+</ul>
+<p><img alt="オープンデータリファイナリー" src="images/data-refinery-open.png" /></p>
+<h2 id="2">2.データを精製する<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>まず、「データ」タブで、データを整理し、形を整え、洗練させます。データを洗練させると、IBM Data Refinery はデータフローのステップを追跡します。それらを修正したり、ステップを選択してデータ変換の特定の瞬間に戻ったりすることができます。</p>
+<h3 id="_4">トランスフォーメーションフローの作成<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Data Refinery では、<a href="https://cran.r-project.org/manuals.html">R 構文</a>で直接操作を入力したり、メニューから操作を選択して対話的にデータを変換することができます。例えば、コマンドラインで「filter」と入力すると、表示されている操作の一覧が更新されていくのがわかります。フィルター操作をクリックしてみましょう。</li>
+</ul>
+<p><img alt="コマンドラインフィルタ" src="images/dr-cli-filter.png" /></p>
+<ul>
+<li>コマンドラインに <code>filter</code> オペレーションの構文が表示されます。コマンドライン内の操作名をクリックすると、構文やコマンドの使い方のヒントが表示されます。例えば、クレジットの支払いが完了しているお客様をフィルタリングするには、以下のような式を作ります。フィルタを実行するには、式を <code>Apply</code> します。</li>
+</ul>
+<pre><code class="language-R">filter(`CreditHistory` == 'credit_paid_to_date')
+</code></pre>
+<ul>
+<li>データワークフローの <code>Custom code</code> ステップでゴミ箱アイコンをクリックすると、このカスタムフィルタを削除することができます。</li>
+</ul>
+<p><img alt="カスタムフィルターのクリア" src="images/dr-clearcustomfilter.png" /></p>
+<ul>
+<li>UIを使って、データの探索と変換を行います。+Operation」ボタンをクリックします。</li>
+</ul>
+<p><img alt="Choose Operation button" src="images/dr-choose-operation-button.png" /></p>
+<ul>
+<li><code>Filter</code> オペレーションを使って、いくつかの値をチェックしてみましょう。左パネルの「Filter」をクリックします。</li>
+</ul>
+<p><img alt="フィルター操作" src="images/dr-filter-operation.png" /></p>
+<ul>
+<li><code>StreetAddress</code> カラムに空の値がないことを確認したいと思います。Column<code>ドロップダウンリストから</code>StreetAddress<code>カラムを選択し、</code>Operator<code>ドロップダウンリストから *</code>Is empty<code>* を選択して、</code>Apply` ボタンをクリックしてください。</li>
+</ul>
+<p><img alt="フィルタは空です" src="画像/dr-filter-is-empty.png" /></p>
+<blockquote>
+<p>*注意：選択したカラムが空のレコードがある場合、適用ボタンをクリックした後にそれらが表示されます。このフィルターに該当するレコードがない場合は、サンプリングされる行に選択された列の空の値がないことを意味します。</p>
+</blockquote>
+<ul>
+<li>ここで、反時計回りの「戻る」矢印をクリックすると、フィルタが削除されます。また、右側の<code>Steps</code>パネルで、Filterステップのゴミ箱アイコンをクリックしても、フィルタを削除することができます。</li>
+</ul>
+<p><img alt="戻る矢印をクリック" src="images/dr-click-back-arrow.png" /></p>
+<ul>
+<li>値が空のレコードを削除することができます。もう一度 <code>+Operation</code> をクリックして、今度は <code>Remove empty rows</code> を選択します。StreetAddress<code>列を選択して、</code>Next<code>ボタンをクリックし、最後に</code>Apply`ボタンをクリックします。</li>
+</ul>
+<p><img alt="空の行の削除" src="images/dr-remove-empty-rows.png" /></p>
+<ul>
+<li>
+<p>データセットに残したくない列があると判断したとしましょう（機械学習モデルで有用な特徴ではないかもしれないし、それらのデータ属性を他の人にアクセスさせたくないなどの理由があるかもしれません）。ここでは、<code>FirstName</code>, <code>LastName</code>, <code>Email</code>, <code>StreetAddress</code>, <code>City</code>, <code>State</code>, <code>PostalCode</code> の各カラムを削除します。</p>
+</li>
+<li>
+<p>削除する各カラムについて+操作」ボタンをクリックして、「削除」操作を選択する。Change column selection」オプションをクリックする。</p>
+</li>
+</ul>
+<p><img alt="列の削除" src="images/dr-remove-change-column.png" /></p>
+<ul>
+<li>
+<p><code>Select column</code> ドロップダウンで、削除するカラムのひとつを選択する（例：<code>FirstName</code>）。Next」ボタンをクリックして、「Apply」ボタンをクリックします。カラムが削除されます。上記の各カラムについて繰り返します。</p>
+</li>
+<li>
+<p>この時点で、8つのステップからなるデータ変換フローができあがりました。前のセクションで見たように、それぞれのステップを追跡し、円形の矢印を使ってアクションを元に戻す（またはやり直す）こともできます。自分が実行したデータフローのステップを確認するには、「ステップ」ボタンをクリックします。データに対して実行した操作が表示されます。</p>
+</li>
+</ul>
+<p><img alt="フロー" src="images/dr-final-flow.png" /></p>
+<ul>
+<li>これらのステップをリアルタイムで変更したり、将来使用するために保存することができます。</li>
+</ul>
+<h3 id="_5">ジョブのスケジュール<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Data Refinery では、スケジュールされた時間にジョブを実行し、その出力を保存することができます。このようにして、新しいデータが更新されるたびに、定期的にデータを精査することができます。</p>
+<ul>
+<li>ジョブ」アイコンをクリックし、メニューから「Save and create job」を選択します。</li>
+</ul>
+<p><img alt="ジョブのアイコンをクリック" src="images/dr-save-and-create-job.png" /></p>
+<ul>
+<li>ジョブに名前とオプションの説明を付けて、<em><code>Next</code></em> ボタンをクリックします。</li>
+</ul>
+<p><img alt="ジョブの名前" src="images/dr-save-job-name.png" /></p>
+<ul>
+<li>ジョブでは、デフォルトの入力データと出力データのアセット、およびランタイム環境を構成します。次へ」ボタンをクリックします。</li>
+</ul>
+<p><img alt="jobs name" src="images/dr-savejob-environment.png" /></p>
+<ul>
+<li>ジョブをスケジュールで実行するように設定できます。今のところ、スケジュールをオフにしたまま、<em><code>Next</code></em>ボタンをクリックします。</li>
+</ul>
+<p><img alt="jobs name" src="images/dr-savejob-schedule.png" /></p>
+<ul>
+<li><em><code>Create and Run</code></em> ボタンをクリックして、このジョブを保存・実行します。</li>
+</ul>
+<p><img alt="Refineryジョブの作成と実行" src="images/dr-create-and-run-job.png" /></p>
+<p>*このリファイナリーフローは、プロジェクトの概要ページの「Data Refinery flows」セクションに保存されます。このセクションでは、フローを再訪してステップを編集したり、実行したジョブを確認したりできます。今回は、データの調査に移ります。</p>
+<h2 id="3">3.プロファイルデータ<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>データリファイナリービューのトップレベルに戻り、「プロファイル」タブをクリックすると、データの属性に関するいくつかの統計やヒストグラムが表示されます。</li>
+</ul>
+<p><img alt="Data Refinery Profileタブ" src="images/dr-profile.png" /></p>
+<ul>
+<li>
+<p>データプロファイルが読み込まれると、ビューや統計情報からデータを把握することができます。</p>
+</li>
+<li>
+<p>応募者の年齢の中央値は36歳で、49歳以下の人が多いことがわかります。</p>
+</li>
+<li>
+<p>応募者の年齢の中央値は 36 歳で、49 歳以下が多い。no_credits」はほとんどありませんでした。</p>
+</li>
+<li>
+<p>現在の居住地での滞在期間の中央値は 3 年であった。範囲は1～6年。</p>
+</li>
+</ul>
+<h2 id="4">4.データの可視化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>チャートやグラフを使って、データを視覚的に探索してみましょう。これは探索的な段階であり、データの洞察を探していることに注意してください。Data Refineryでは、コーディングすることなく、インタラクティブにこの作業を行うことができます。</p>
+<ul>
+<li>「Visualizations」タブを選択して、可視化したい列を選択するページを表示します。可視化する列」のドロップダウンリストから最初の列として<code>LoanAmount</code>を選択し、<code>Add another column</code>をクリックして別の列を追加します。次に<code>LoanDuration</code>を追加して、<em><code>Visualize data</code></em>ボタンをクリックします。システムはデータに基づいて提案されたプロットを選び、上部には提案されたプロットの種類がさらに表示されます。</li>
+</ul>
+<p><img alt="Select columns" src="images/dr-vis-choose-column-loan.png" /></p>
+<ul>
+<li>これらの特徴が、リスクのあるローンにどのような影響を与えるかを知ることに最も興味があることを忘れないでください。そこで、現在の散布図の上に「Risk」を色として追加してみましょう。これで、興味のあるものがあるかどうかを視覚的に確認することができます。左パネルの「カラーマップ」ドロップダウンをクリックして、「リスク」を選択します。また、すべてのデータを表示するには、下部にあるデータセレクタの右側を右にドラッグして、プロット内のすべてのデータを表示します。</li>
+</ul>
+<p><img alt="金額と期間の散布図" src="images/dr-vis-loan-amountduration-scatter.png" /></p>
+<ul>
+<li>このプロットでは、左下よりも右上の方が青（リスク）が多いことがわかります。これは、ローンのリスク度とその期間および金額の間におそらく関係があることを示しており、良いスタートとなっています。金額と期間が高ければ高いほど、ローンのリスクは高くなるようです。興味深いので、ローンのリスク度にローンのデュレーションがどのように関わってくるのか、さらに掘り下げてみましょう。</li>
+</ul>
+<blockquote>
+<p>*注：あなたの視覚化で使用されている色は異なる場合があります。チャートの凡例を見て確認してください。</p>
+</blockquote>
+<ul>
+<li>
+<p>「LoanDuration」のヒストグラムをプロットして、何か気付くことができないか見てみましょう。まず、「チャートの種類」から「ヒストグラム」を選択します。</p>
+</li>
+<li>
+<p>左側の 'X 軸' に <code>LoanDuration</code> を選択し、'Split By' セクションで <code>Risk</code> を選択し、<code>Stacked</code> オプションをチェックし、<code>Show kde curve</code> トグルのチェックを外し、<code>Show distribution curve</code> トグルのチェックを外します。以下の画像のようなチャートが表示されるはずです。</p>
+</li>
+</ul>
+<p><img alt="Visualize loan duration" src="images/dr-vis-loanduration-hist.png" /></p>
+<ul>
+<li>
+<p>デュレーションが長くなると、青いバー（リスクの高いローン数）が大きくなり、紺色のバー（リスクの高くないローン数）が小さくなるように見えます。これは、期間が長いローンは、一般的にリスクが高い可能性が高いことを示しています。しかし、私たちはより多くの情報を必要としています。</p>
+</li>
+<li>
+<p>次に、ローンの目的別に見たときに、期間に基づくローンのリスク性について、何らかの洞察があるかどうかを調べてみます。そのために、ヒートマップのプロットを作成してみましょう。</p>
+</li>
+<li>
+<p>ページ上部の「チャートタイプ」セクションで、右の矢印を開き、「ヒートマップ」を選択します。</p>
+</li>
+</ul>
+<p><img alt="ヒートマップに切り替え" src="images/dr-vis-switch-heatmap.png" /></p>
+<ul>
+<li>次に、列のセクションで「Risk」を、「Row」のセクションで「LoanPurpose」を選択します。さらに、ローン期間の影響を見るために、サマリーセクションで「Mean」を選択し、「Value」セクションで「LoanDuration」を選択します。</li>
+</ul>
+<p><img alt="ローン目的別ヒートマップ" src="images/dr-vis-loanpurpose-heatmap.png" /></p>
+<ul>
+<li>
+<p>最もリスクの低いローンは、新車購入のためのローンで、平均して10年であることがわかります。このセルの左側では、同じ目的で借りたローンの平均期間が約15年であることから、よりリスクが高いと考えられる。つまり、ローンの期間が長ければ長いほど、リスクが高くなる可能性が高いと結論づけることができます。対照的に、その他のカテゴリーでは、リスクの高いローンもそうでないローンも、平均的な期間は同じであることがわかり、その他のタイプのローンでは、ローンの長さとリスクの高さにはほとんど関係がないと結論づけることができる。</p>
+</li>
+<li>
+<p>一般的に、各行において、左右の列の色の差が大きいほど、ローンの長さがそのローンカテゴリーのリスク性に関与している可能性が高いと考えられる。</p>
+</li>
+<li>
+<p>それでは、プロットをカスタマイズしてみましょう。Actions」パネルでは、「Start over」、「Download chart details」、「Download chart image」、「Global visualization preferences」*（注：アイコンにカーソルを合わせると名称が表示されます）などのタスクを実行することができます。Action "の隣にあるドロップダウン矢印をクリックします。次に、メニューから「グローバル表示設定」をクリックします。</p>
+</li>
+</ul>
+<p><img alt="テーマ設定の可視化" src="images/dr-vis-actions-menu.png" /></p>
+<ul>
+<li><code>Global visualization preferences</code> の中で、<code>Titles</code>, <code>Tools</code>, <code>Theme</code>, <code>Notifications</code> の操作ができることがわかります。Theme」タブをクリックして、カラースキームを「Dark」に更新します。適用」ボタンをクリックすると、すべてのチャートの色がこれを反映したものになります。いろいろなテーマを試してみて、お好みのものを見つけてください。</li>
+</ul>
+<p><img alt="Visualize set theme and choose preferences" src="images/dr-vis-choose-theme.png" /></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Data Refineryの機能の一部をご紹介しました。Rコードを使ってデータを変換したり、データタイプの変更、空の行の削除、列の完全削除など、列に対するさまざまな操作を行う方法を見ました。次に、データフローのすべてのステップが記録されているので、ステップを削除したり、繰り返したり、個々のステップを編集したりすることができます。また、データを素早くプロファイリングし、各列のヒストグラムや統計を見ることができました。最後に、散布図、ヒストグラム、ヒートマップを作成して、ローンのリスク度と期間、目的との関係を調べ、より詳細な視覚化を行いました。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
