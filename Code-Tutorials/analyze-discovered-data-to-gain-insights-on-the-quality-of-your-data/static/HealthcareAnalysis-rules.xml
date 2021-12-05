@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iaapi:Project xmlns:iaapi="http://www.ibm.com/investigate/api/iaapi" name="HealthcareAnalysis">
+  <DataRuleDefinitions>
+    <DataRuleDefinition folder="All" name="DoD_gte_DoB" status="ACCEPTED">
+      <description>The date of death must be greater than or equal to the date of birth</description>
+      <Policies/>
+      <Variables>
+        <Variable dataType="date" name="datebirth"/>
+        <Variable dataType="date" name="datedeath"/>
+      </Variables>
+      <expression>datedeath = null or datediff(datedeath,datebirth) >= 0</expression>
+    </DataRuleDefinition>
+    <DataRuleDefinition folder="All" name="DoD_lte_Today" status="ACCEPTED">
+      <description>The date of death must be less than or equal to today (cannot be a future date)</description>
+      <Policies/>
+      <Variables>
+        <Variable dataType="date" name="datedeath"/>
+      </Variables>
+      <expression>datedeath = null or datediff(date(),datedeath) >= 0</expression>
+    </DataRuleDefinition>
+    <DataRuleDefinition folder="All" name="At_least_one_of_DL_Passport_exists" status="ACCEPTED">
+      <description>At least the driver's license or the passport should exist</description>
+      <Policies/>
+      <Variables>
+        <Variable dataType="any" name="drivers_license"/>
+        <Variable dataType="any" name="passport"/>
+      </Variables>
+      <expression>drivers_license exists  or passport exists </expression>
+    </DataRuleDefinition>
+  </DataRuleDefinitions>
+</iaapi:Project>

@@ -1,0 +1,4713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>A non-disruptive approach to transform Java monoliths to microservices - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#why-is-breaking-monoliths-into-microservices-so-hard" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A non-disruptive approach to transform Java monoliths to microservices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          AutoAIを探索する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoAIを探索する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoAIを探索する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/nextgen-automl-watson-autoai/" class="md-nav__link">
+        次世代AutoML-Watson AutoAI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compare-model-building-with-and-without-automated-machine-learning/" class="md-nav__link">
+        自動機械学習ありなしで構築したモデルの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/generate-machine-learning-model-pipelines-to-choose-the-best-model-for-your-problem-autoai/" class="md-nav__link">
+        最適なモデルパイプラインの生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/autoai-code-generation/" class="md-nav__link">
+        AutoAIでのPython notebookの自動生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-application-to-predict-your-insurance-premium-cost-with-autoai/" class="md-nav__link">
+        python機械学習ウェブアプリの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automated-feature-engineering-for-relational-data-with-ibm-autoai/" class="md-nav__link">
+        リレーショナルデータの自動特徴量エンジニアリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Cloud Native Toolkitでのイメージビルド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Native Toolkitでのイメージビルド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Native Toolkitでのイメージビルド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/install-toolkit/" class="md-nav__link">
+        ツールキットのインストール
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/starter-kits/" class="md-nav__link">
+        スターターキット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/existing-application/" class="md-nav__link">
+        既存のアプリケーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/poly-repo/" class="md-nav__link">
+        poly-repo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Cloud Pak for Data Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Pak for Data Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Pak for Data Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/cloud-pak-for-data-learning-path/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-cloud-pak-for-data/" class="md-nav__link">
+        IBM Cloud Pak for Data 概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/virtualizing-db2-warehouse-data-with-data-virtualization/" class="md-nav__link">
+        Data Virtualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/data-visualization-with-data-refinery/" class="md-nav__link">
+        Data VirtualizationとData Refinery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/find-prepare-and-understand-data-with-watson-knowledge-catalog/" class="md-nav__link">
+        データを検索、準備、そして理解する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/data-analysis-model-building-and-deploying-with-wml/" class="md-nav__link">
+        データの分析、モデルの生成、そしてデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/automate-model-building-with-autoai/" class="md-nav__link">
+        AutoAIで自動的にモデルを生成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-an-ai-model-visually-with-spss-modeler-flow/" class="md-nav__link">
+        予測可能な機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/getting-started-with-watson-openscale/" class="md-nav__link">
+        Watson OpenScaleでのモデルのモニタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/cloud-pak-for-data-learning-path/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          DataOps基礎
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataOps基礎" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          DataOps基礎
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/dataops-fundamentals/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/incorporate-enterprise-governance-in-your-data/" class="md-nav__link">
+        データにエンタープライズガバナンスを組み込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-to-discover-data-that-resides-in-your-data-sources/" class="md-nav__link">
+        データソースに存在するデータを発見する方法を学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/analyze-discovered-data-to-gain-insights-on-the-quality-of-your-data/" class="md-nav__link">
+        発見されたデータを分析して、データの質についての洞察を得る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/protect-your-data-using-data-privacy-features/" class="md-nav__link">
+        データプライバシー機能によるデータの保護
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-a-single-customer-view-of-your-data-with-data-virtualization/" class="md-nav__link">
+        データの仮想化により、お客様のデータを一元管理する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/dataops-fundamentals/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          Data Quality AI Toolkitについて
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Quality AI Toolkitについて" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data Quality AI Toolkitについて
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/assessing-quality-of-tabular-data-sets-using-apis/" class="md-nav__link">
+        APIを用いた表形式データセットの品質評価
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/deep-dive-into-class-overlap-label-purity/" class="md-nav__link">
+        クラスの重複とラベルの純度をより深く知る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          IBM Event Streams バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM Event Streams バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          IBM Event Streams バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-event-streams-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-fundamentals/" class="md-nav__link">
+        イベントストリームの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-kafka-fundamentals/" class="md-nav__link">
+        kafkaの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/deploying-and-using-a-basic-kafka-instance/" class="md-nav__link">
+        kafkaインスタンスのデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/event-streams-hands-on-java-sample/" class="md-nav__link">
+        ハンズオン イベント ストリーム アプリ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/event-streams-badge-event-streams-dev-challenge/" class="md-nav__link">
+        イベントストリーム コーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-dev-cheat-sheet/" class="md-nav__link">
+        イベントストリーム開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-event-streams-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          IBM MQ バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM MQ バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          IBM MQ バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-mq-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-fundamentals/" class="md-nav__link">
+        MQの基礎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-connect-app-queue-manager-containers/" class="md-nav__link">
+        Que Managerの作成と設定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-setting-up-using-ibm-mq-console/" class="md-nav__link">
+        IBM MQコンソールを使用したMQのセットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-develop-mq-jms/" class="md-nav__link">
+        初めてのMQアプリを書く
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-badge-mq-dev-challenge/" class="md-nav__link">
+        MQコーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-dev-cheat-sheet/" class="md-nav__link">
+        MQ開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-mq-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_8">
+          IBM mono2microの導入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM mono2microの導入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          IBM mono2microの導入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/intro-ibm-mono2micro/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mono2micro-automate-application-refactoring-using-ai/" class="md-nav__link">
+        mono2microの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/" class="md-nav__link">
+        メリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        アプローチ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/transform-monolithic-java-applications-into-microservices-with-the-power-of-ai/" class="md-nav__link">
+        モノリシックなアプリを変換する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/intro-ibm-mono2micro/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9">
+          IOT開発を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-getting-started-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-key-concepts-skills-get-started-iot/" class="md-nav__link">
+        コンセプトとスキル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp101-best-hardware-devices-iot-project/" class="md-nav__link">
+        ハードウェアガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp101-connectivity-network-protocols/" class="md-nav__link">
+        ネットワーキングガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp101-why-use-iot-platform/" class="md-nav__link">
+        IOTプラットフォーム
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
+        IOTソリューションの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-getting-started-iot-development/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10">
+          IOT開発の次の一歩
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発の次の一歩
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-next-steps-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp201-iot-architectures/" class="md-nav__link">
+        IOTアーキテクチャー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-top-10-iot-security-challenges/" class="md-nav__link">
+        IOTセキュリティ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
+        IOTデータの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
+        IOTデバイスの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
+        次のIOTソリューションを構築する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-next-steps-iot-development/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11">
+          Kafkaアプリケーションの開発
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kafkaアプリケーションの開発" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Kafkaアプリケーションの開発
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/introduction/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/getting-started/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/getting-to-production/index.md" class="md-nav__link">
+        本番に向けて
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/more-resources/index.md" class="md-nav__link">
+        その他のリソース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12">
+          Kubernetes Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_12">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-kubernetes/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/linux-basics-and-commands/" class="md-nav__link">
+        Linuxの基本とコマンド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/yaml-basics-and-usage-in-kubernetes/" class="md-nav__link">
+        kubernetesにおけるyamlの基本と使用方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-kubernetes/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_13">
+          KubernetesをOpenShiftに移行する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="KubernetesをOpenShiftに移行する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          KubernetesをOpenShiftに移行する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrate-your-kubernetes-images-to-openshift/" class="md-nav__link">
+        イメージの移行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrate-kubernetes-pod-security-policies-openshift-security-context-constraints/" class="md-nav__link">
+        kubernetes PSPをOpenShift SCCに移行する。
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/tutorial/" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_14">
+          Netezzaパフォーマンスサーバを使った学習の開始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Netezzaパフォーマンスサーバを使った学習の開始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_14">
+          <span class="md-nav__icon md-icon"></span>
+          Netezzaパフォーマンスサーバを使った学習の開始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-getting-started-with-netezza-performance-server/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../access-and-analyze-data-in-netezza-performance-server/" class="md-nav__link">
+        データへのアクセスと分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/load-and-access-data-from-your-cloud-data-warehouse/" class="md-nav__link">
+        クラウドデータウェアハウスからのデータの読み込みとアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/predict-energy-prices-with-in-database-analytics/" class="md-nav__link">
+        データベース分析によるエネルギー価格の予測
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-getting-started-with-netezza-performance-server/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_15">
+          OpenShiftのSecure Context Constraints(SCC)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OpenShiftのSecure Context Constraints(SCC)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_15">
+          <span class="md-nav__icon md-icon"></span>
+          OpenShiftのSecure Context Constraints(SCC)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/intro/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-permissions/" class="md-nav__link">
+        SCC 権限
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/openshift-predefined-scc/" class="md-nav__link">
+        OpenShiftの定義済みSCC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-availability/" class="md-nav__link">
+        SCCの可用性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/deployment-specify-permissions/" class="md-nav__link">
+        デプロイメントでの権限の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-tutorial/" class="md-nav__link">
+        SCCチュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_16">
+          pythonを使ったデータ解析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pythonを使ったデータ解析" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_16">
+          <span class="md-nav__icon md-icon"></span>
+          pythonを使ったデータ解析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/introduction-to-geospatial-data-using-python/" class="md-nav__link">
+        pythonを使った地理空間データの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/working-with-geospatial-vector-data-in-python/" class="md-nav__link">
+        pythonで地理空間ベクトルデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/working-with-geospatial-raster-data-in-python/" class="md-nav__link">
+        pythonで地理空間ラスターデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17" type="checkbox" id="__nav_1_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17">
+          Red Hat OpenShiftでマルチテナンシーを実現する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Red Hat OpenShiftでマルチテナンシーを実現する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_17">
+          <span class="md-nav__icon md-icon"></span>
+          Red Hat OpenShiftでマルチテナンシーを実現する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/introduction/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/multitenancy-and-role-based-access-control/" class="md-nav__link">
+        RBAC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/network-isolation/" class="md-nav__link">
+        ネットワークの分離
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/resource-isolation/" class="md-nav__link">
+        リソースアイソレーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_18" type="checkbox" id="__nav_1_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_18">
+          Streamsを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Streamsを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_18">
+          <span class="md-nav__icon md-icon"></span>
+          Streamsを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/streams-get-started/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-ibm-streams/" class="md-nav__link">
+        IBM Streamsの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-your-first-ibm-streams-app-without-writing-code/" class="md-nav__link">
+        初めてのIBM Streamsアプリを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/add-event-streams-and-a-db-in-python-to-clickstream/" class="md-nav__link">
+        Apache Kafkaからデータを取り込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/build-a-streaming-app-using-ibm-streams-python-api/" class="md-nav__link">
+        pythonのAPIを使ってストリーミングアプリを構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/access-streaming-data-with-rest-services/" class="md-nav__link">
+        ストリーミングデータにレストサービスでアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/score-streaming-data-with-a-machine-learning-model/" class="md-nav__link">
+        ストリーミングデータを機械学習モデルでスコアリングする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/streams-get-started/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_19" type="checkbox" id="__nav_1_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_19">
+          Watson Discoveryを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_19">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_20" type="checkbox" id="__nav_1_20" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_20">
+          Watson Assistantを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Assistantを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_20">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Assistantを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-assistant/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-watson-assistant/" class="md-nav__link">
+        Watson Assistantの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-your-first-assistant-powered-chatbot/" class="md-nav__link">
+        chatbot アシスタント
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/embed-watson-assistant-in-website/" class="md-nav__link">
+        chatbotを埋め込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/add-watson-discovery-skills-to-your-watson-assistant-chatbot/" class="md-nav__link">
+        Watson Assistant ChatbotにWatson Discoveryのスキルを追加する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/integrate-voice-services-to-your-watson-assistant/" class="md-nav__link">
+        Webベースのchatbotを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-assistant/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_21" type="checkbox" id="__nav_1_21" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_21">
+          Watson Machine Learning Acceleratorを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Machine Learning Acceleratorを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_21">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Machine Learning Acceleratorを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/introduction-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/how-to-use-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの使い方
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/elastic-distributed-training-edt-in-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Accelerator Elastic Distributed Traning(EDT)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/use-snap-ml-concurrently/" class="md-nav__link">
+        SnapMLの同時使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/watson-machine-learning-videos/" class="md-nav__link">
+        Watson Mahine Learning ビデオ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_22" type="checkbox" id="__nav_1_22" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_22">
+          Watson Studioを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Studioを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_22">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Studioを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-studio/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-watson-studio/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-data-visualization-preparation-transformation/" class="md-nav__link">
+        Watson Studio データの可視化、準備、変換
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-auto-ai/" class="md-nav__link">
+        モデル構築の自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-spss-modeler-flow/" class="md-nav__link">
+        spss modelerフローの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-using-jupyter-notebook/" class="md-nav__link">
+        Watson Studio上のJupyter Notebookでモデルをビルドする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-studio/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_23" type="checkbox" id="__nav_1_23" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_23">
+          アプリケーション・モダナイゼーションを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="アプリケーション・モダナイゼーションを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_23">
+          <span class="md-nav__icon md-icon"></span>
+          アプリケーション・モダナイゼーションを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/intro-app-mod/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/intro-microservices/index.md" class="md-nav__link">
+        マイクロサービスの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/modernizing-apps-step-by-step/index.md" class="md-nav__link">
+        ステップバイステップでアプリをモダナイズ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_24" type="checkbox" id="__nav_1_24" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_24">
+          異常検知APIを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="異常検知APIを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_24">
+          <span class="md-nav__icon md-icon"></span>
+          異常検知APIを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/what-is-anomaly-detection/" class="md-nav__link">
+        異常検知(Anomaly Detection, アノマリー検知)とは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/anomaly-detection-api/" class="md-nav__link">
+        異常検知用API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/industry-use-case/" class="md-nav__link">
+        業界のユースケース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_25" type="checkbox" id="__nav_1_25" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_25">
+          エッジAI SDKを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="エッジAI SDKを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_25">
+          <span class="md-nav__icon md-icon"></span>
+          エッジAI SDKを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/what-is-edge-ai/" class="md-nav__link">
+        エッジAIとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/coreset/" class="md-nav__link">
+        コアセット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/model-fusion/" class="md-nav__link">
+        モデルフュージョン
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_26" type="checkbox" id="__nav_1_26" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_26">
+          開発者のための機械学習 Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="開発者のための機械学習 Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_26">
+          <span class="md-nav__icon md-icon"></span>
+          開発者のための機械学習 Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-machine-learning-for-developers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-machine-learning/" class="md-nav__link">
+        機械学習の概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初のモデルを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-regression-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        回帰アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-classification-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        分類アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-clustering-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        クラスタリング・アルゴリズムを学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-machine-learning-for-developers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_27" type="checkbox" id="__nav_1_27" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_27">
+          教師付き深層学習
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="教師付き深層学習" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_27">
+          <span class="md-nav__icon md-icon"></span>
+          教師付き深層学習
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/convolutional-neural-networks/index.md" class="md-nav__link">
+        畳み込みニューラルネットワーク(CNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/recurrent-neural-networks/index.md" class="md-nav__link">
+        回帰型ニューラルネットワーク(RNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_28" type="checkbox" id="__nav_1_28" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_28">
+          クラウドを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="クラウドを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_28">
+          <span class="md-nav__icon md-icon"></span>
+          クラウドを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-cloud/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-cloud-computing/index.md" class="md-nav__link">
+        クラウドコンピューティングとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/public-cloud-explained/index.md" class="md-nav__link">
+        パブリッククラウドの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-hybrid-cloud/index.md" class="md-nav__link">
+        ハイブリッドクラウドとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/deploy-your-first-app-to-ibm-cloud/index.md" class="md-nav__link">
+        アプリをIBMクラウドに展開
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/quickly-stand-up-protected-web-interface-for-cloud-native-app-on-ibm-cloud/index.md" class="md-nav__link">
+        IBMクラウド上でのnodejsスターターアプリケーションの開発
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-cloud/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_29" type="checkbox" id="__nav_1_29" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_29">
+          コンテナを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="コンテナを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_29">
+          <span class="md-nav__icon md-icon"></span>
+          コンテナを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/what-are-containers/" class="md-nav__link">
+        コンテナとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../true-benefits-of-moving-to-containers-1/" class="md-nav__link">
+        コンテナへの移行のメリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/building-docker-images-locally-and-in-cloud/" class="md-nav__link">
+        Dockerイメージの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/kubernetes-101-labs/" class="md-nav__link">
+        kubernetes 101 labs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_30" type="checkbox" id="__nav_1_30" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_30">
+          サーバーレスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="サーバーレスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_30">
+          <span class="md-nav__icon md-icon"></span>
+          サーバーレスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-serverless/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-serverless/index.md" class="md-nav__link">
+        サーバーレスの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-faas/index.md" class="md-nav__link">
+        FaaSの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/no-infrastructure-just-code-see-the-sim-plicity-of-serverless/index.md" class="md-nav__link">
+        サーバーレス機能の構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/github-task-automation-with-serverless-actions/index.md" class="md-nav__link">
+        githubのタスク自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/use-multiple-ai-services-with-functions/index.md" class="md-nav__link">
+        複数のAIサービスを利用する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-serverless/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_31" type="checkbox" id="__nav_1_31" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_31">
+          人工知能を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="人工知能を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_31">
+          <span class="md-nav__icon md-icon"></span>
+          人工知能を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/ai-basics/index.md" class="md-nav__link">
+        AIの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初の機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/next-steps/index.md" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_32" type="checkbox" id="__nav_1_32" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_32">
+          深層学習を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="深層学習を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_32">
+          <span class="md-nav__icon md-icon"></span>
+          深層学習を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-with-deep-learning/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../an-introduction-to-deep-learning/" class="md-nav__link">
+        深層学習入門
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cc-machine-learning-deep-learning-architectures/" class="md-nav__link">
+        深層学習アーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compare-deep-learning-frameworks/" class="md-nav__link">
+        深層学習フレームワークの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-a-linear-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        線形回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-a-logistic-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        ロジスティック回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neural-networks-from-scratch/" class="md-nav__link">
+        ゼロから始めるニューラルネットワーク
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-with-deep-learning/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_33" type="checkbox" id="__nav_1_33" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_33">
+          データサイエンスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="データサイエンスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_33">
+          <span class="md-nav__icon md-icon"></span>
+          データサイエンスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-preprocessing-in-detail/" class="md-nav__link">
+        データの前処理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/next-steps/" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_34" type="checkbox" id="__nav_1_34" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_34">
+          ブロックチェーンを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ブロックチェーンを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_34">
+          <span class="md-nav__icon md-icon"></span>
+          ブロックチェーンを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-blockchain/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/cl-blockchain-basics-intro-bluemix-trs/" class="md-nav__link">
+        ブロックチェーンの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/cl-blockchain-basics-glossary-bluemix-trs/" class="md-nav__link">
+        用語集と使用例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blockchain-basics-hyperledger-fabric/" class="md-nav__link">
+        ハイパーレッジャー・ファブリック
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/" class="md-nav__link">
+        ビジネスブロックチェーンの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/quick-start-guide-for-ibm-blockchain-platform/" class="md-nav__link">
+        IBMのブロックチェーン・プラットフォームを使う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-blockchain/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-is-breaking-monoliths-into-microservices-so-hard" class="md-nav__link">
+    Why is breaking monoliths into microservices so hard?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popular-approaches-to-breaking-up-monoliths" class="md-nav__link">
+    Popular approaches to breaking up monoliths
+  </a>
+  
+    <nav class="md-nav" aria-label="Popular approaches to breaking up monoliths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domain-driven-design" class="md-nav__link">
+    Domain-Driven Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strangling-legacy-applications" class="md-nav__link">
+    Strangling legacy applications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-refactoring-approach-of-mono2micro" class="md-nav__link">
+    The refactoring approach of Mono2Micro
+  </a>
+  
+    <nav class="md-nav" aria-label="The refactoring approach of Mono2Micro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mono2micro-combines-dynamic-and-static-analyses-of-the-application-to-provide-a-comprehensive-view-of-the-application" class="md-nav__link">
+    Mono2Micro combines dynamic and static analyses of the application to provide a comprehensive view of the application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mono2micro-uses-ai-to-recommend-service-partitions-at-scale" class="md-nav__link">
+    Mono2Micro uses AI to recommend service partitions at scale
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mono2micro-assists-in-code-refactoring-and-troubleshooting" class="md-nav__link">
+    Mono2Micro assists in code refactoring and troubleshooting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-partitioning" class="md-nav__link">
+    AI-partitioning
+  </a>
+  
+    <nav class="md-nav" aria-label="AI-partitioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-ai-recommendations" class="md-nav__link">
+    Working with the AI recommendations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-business-use-cases" class="md-nav__link">
+    Defining business use cases
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast-track-your-refactoring-work-with-cardinal" class="md-nav__link">
+    Fast track your refactoring work with Cardinal
+  </a>
+  
+    <nav class="md-nav" aria-label="Fast track your refactoring work with Cardinal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categories-of-classes-generated-by-cardinal" class="md-nav__link">
+    Categories of Classes Generated by Cardinal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-cardinal-generated-code-as-the-basis-for-your-refactoring-work" class="md-nav__link">
+    Using Cardinal generated code as the basis for your refactoring work
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-next-steps" class="md-nav__link">
+    Summary and next steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary and next steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    Acknowledgements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>A non-disruptive approach to transform Java monoliths to microservices</h1>
+                
+                <p>Many enterprises have business-critical legacy Java EE applications that have been running for a long time, perhaps ten to fifteen years. The applications are difficult to understand, maintain, and enhance, and they are definitely difficult to modernize. Users often want to move these legacy applications to Containers as a Service (CaaS) environments, which is a cloud service model, for agility, selective scalability, maintainability, and economy.</p>
+<p>The simple and popular lift-and-shift approach often does not meet the demand for selective scalability and maintainability, which means development teams need to refactor a selected group of applications into microservices. Most of the current approaches to refactoring applications are manual in nature.</p>
+<p><sidebar>To learn more about refactoring applications into microservices, read these articles: <ul><li><a href="https://samnewman.io/books/monolith-to-microservices/">Monoliths to MicroServices</a></li> <li><a href="https://martinfowler.com/articles/break-monolith-into-microservices.html">How to break a Monolith to Microservices</a></li></p>
+<li>[Challenges and patterns for modernizing a monolithic application into microservices](/articles/challenges-and-patterns-for-modernizing-a-monolithic-application-into-microservices/)</li>
+<p></ul></sidebar></p>
+<p>Naturally, such manual approaches are time consuming and expensive, and they require specialized skills and experience on the part of the developers. Even after spending significant resources on the manual refactoring, efforts often get abandoned due to complexity, unforeseen patterns or dependencies in the code, and inconsistency between architectural knowledge about the original applications and its current implementations.</p>
+<p>Users often rely on using the well-known <a href="http://heidloff.net/article/strangler-pattern-example/">strangler pattern</a> or a domain-driven design to refactor out a few microservices that typically lie on the edge of the applications, while mostly leaving the core business modules of the applications where the actual complexities reside untouched. It should be noted that the successful refactoring of the core business modules of the legacy monoliths provides the maximum ROI in general.</p>
+<p>To help improve on this manual process and make it easier to break monoliths in to microservices, IBM built the <a href="http://www.ibm.biz/Mono2Micro">Mono2Micro tool</a>, which is a part of the IBM WebSphere Hybrid Edition offering. For an evaluation of Mono2Micro against other microservice extraction tools primarily used in academia, see the <a href="https://video.ibm.com/playlist/635256/video/128768365">this conference presentation</a>.</p>
+<h2 id="why-is-breaking-monoliths-into-microservices-so-hard">Why is breaking monoliths into microservices so hard?<a class="headerlink" href="#why-is-breaking-monoliths-into-microservices-so-hard" title="Permanent link">&para;</a></h2>
+<p>To describe what Mono2Micro does and why it can be the right fit for many users, let’s first discuss why breaking apart a monolith in a logical manner is so hard.</p>
+<p>First and foremost, the legacy aspects of the applications are overwhelmingly complex. The legacy applications we have come across, and where users are struggling the most, are not only of aged designs, but have also been extended and updated over time beyond their original architectural intents, design, and implementation constraints.</p>
+<p>New frameworks or design patterns were frequently added to the application. The extensions often duplicated certain functionalities of the application to fit with the new design patterns, while leaving older functional duplicates in places and operating in tandem. Shortcuts and anti-patterns were introduced to previously well-encapsulated objects and well-defined functional interfaces.
+These amalgam implementations are no longer clean realizations of the original application architectures. As a result, it is a tremendously difficult undertaking to fully comprehend the actual operational processes in use by the current applications. However, this understanding is a necessary first step before we can begin to wrestle with the ideas and strategies for refactoring such legacy monolith applications.</p>
+<p>The second challenge lies in how the enterprise applications were designed and the object-oriented paradigms these applications were implemented under. A typical enterprise application implements one or more centralized business processes that relies on serialized transactions and commonly shares synchronized data objects and states. In contrast, microservices are based on a distributed computing architecture, which foregoes centralized process models and transactions in favor of eventual synchronization and distributed object states. As such, this is a huge paradigm shift in how applications are designed. Developers need to fully understand most of the transactional and object dependencies (both state and data) existing in the legacy monolith applications to determine what can be refactored and also to look for "natural seams" where object dependencies can be minimized.</p>
+<p>Static analysis of a monolith is ill-suited for such discoveries because many of these dependency relationships are not immediately apparent from the call graphs and object exchanges. Traditional object-oriented designs complicate the issue further; for example, objects can have strong dependencies with one another through inheritance relations, objects exchanged through parameter passing not only encapsulate data states but also computational logic, and the exact object types or the specific methods invoked are not always precisely defined due to polymorphisms. Consequently, a specific call from one class to another with objects as parameters in practice might very well exhibit different behaviors and involve different types of objects at runtime. This object orientation makes the task of defining clear APIs among refactored code a daunting challenge.</p>
+<p>Even when executed with great care, it is quite usual for a refactoring analysis to miss certain dependencies or dynamic behaviors. The realization might not appear during the analysis phase but rather in the execution phase when developers start to implement the refactored services. Herein we arrive at a catch-22 situation, whereby when a refactored application is shown to be erroneous, it is hard to pinpoint the source of such an error. Is it due to a bug introduced during the code tweaking? Is it because of missed dependencies? Are there broken transactions? Or, what about out-of-sync data? And, the list goes on. As a result, when an application refactoring attempt fails, there are few verifiable insights that can be obtained about exactly what went wrong and how to improve. The entire expensive exercise essentially becomes a "sunk cost."</p>
+<p>Mono2Micro is specifically designed to deal with these challenges. It ensures that any refactoring recommendations is arrived at on the basis of verifiable evidence. It also ensures that sufficient data points can be obtained through the refactoring exercise such that when issues and unforeseen dependencies are encountered, they can be rapidly diagnosed and pinpointed. Mono2Micro helps in localizing the impact of code changes to each refactored service. Mono2Micro ensures that the existing test cases for the monolith applications can be largely reused for testing their refactored versions.</p>
+<h2 id="popular-approaches-to-breaking-up-monoliths">Popular approaches to breaking up monoliths<a class="headerlink" href="#popular-approaches-to-breaking-up-monoliths" title="Permanent link">&para;</a></h2>
+<p>Before focusing on the refactoring methodology of Mono2Micro, let's describe two strategies that are often attempted when converting monoliths to microservices.</p>
+<h3 id="domain-driven-design">Domain-Driven Design<a class="headerlink" href="#domain-driven-design" title="Permanent link">&para;</a></h3>
+<p>The <a href="/tutorials/cl-domain-driven-design-event-sourcing/">Domain-Driven Design</a> is a well-known strategy for identifying service components that can be refactored out from the monolith. It fits with the requirement of a microservice architecture in that if a specific set of code can be identified that implements a well-defined business domain, and the data and interaction boundary of that domain can be cleanly described, then you have a good chance of building an independent set of microservices from it.</p>
+<p>In practice, though, identifying a clean domain boundary in a legacy application can be extremely difficult. Business domains are concepts at the business process and architectural level. The actual implementation of this design in Java EE inevitably introduces various classes, methods, and object state dependencies. Also, as mentioned earlier, the extensions and modifications done to the application over time introduce further dependencies that might not agree with the original architectural designs. Consequently, even when starting with a well-intended domain boundary assumption, it is uncertain whether the current code implementation has such a clean boundary.</p>
+<p>Often, in these legacy applications, it is quite difficult to determine precisely what needs to be rewritten, how the APIs can be formed, and how object states should be exchanged when working on refactoring the application. Developers have little evidence to suggest whether the domain breakdown at the code level would be realizable. Ideally, developers and architects would like to observe how an application behaves across the potential domain boundaries under various business use cases and then analyze those observations to make further evidence-based assessments, especially during the refactoring exercise.</p>
+<p>We believe that Domain-Driven Design is a valuable approach for developing greenfield applications in microservice forms, but it is not very useful for transforming brownfield monoliths to microservices.  </p>
+<h3 id="strangling-legacy-applications">Strangling legacy applications<a class="headerlink" href="#strangling-legacy-applications" title="Permanent link">&para;</a></h3>
+<p><sidebar> You can learn more about the Strangler Pattern in <a href="https://martinfowler.com/bliki/StranglerFigApplication.html">Martin Fowler’s article</a> or in this <a href="https://www.ibm.com/garage/method/practices/code/chunking-strategy-strangler-pattern">IBM Garage practices</a> article.</sidebar></p>
+<p>The <a href="/articles/cl-strangler-application-pattern-microservices-apps-trs/">Strangler Pattern</a> attempts to identify parts of the application that can be made independent of the main application without much of an effort and then refactor those parts into microservices. Initially, a strangled monolith can continue to operate as a hybrid model; one or a few microservices taken out of the original monolith in conjunction with a version of the original monolith stripped of the components that have been separated and converted to microservices. Eventually, the entire application might be gradually converted into microservices following the same incremental separation principle.</p>
+<p>Even though this approach is widely advocated, in practice, it is not easy to identify such stranglers in a legacy application, especially when it comes to the core business logic.</p>
+<p>To make such a strangler truly independent, generally three types of dependencies need to be considered:</p>
+<ul>
+<li><strong>Process dependencies</strong>: Because Java EE applications typically implement a set of business processes, a strangler is truly independent if it can encapsulate an entire process.</li>
+<li><strong>Application code dependencies</strong>: The code constructs themselves will have dependencies with each other, such as through inheritance, invocation, containment, and parameter passing. For a strangler to be independent, these dependencies need to be either exposed and rewritten as APIs or removed through code rewriting.</li>
+<li><strong>Object state dependencies</strong>: Different parts of the application and process might have assumptions on a set of common shared object state. For a strangler to be independent, shared object states need to reside in the same service or they need to be transformed to become independent.</li>
+</ul>
+<p>In practice, it is often a very difficult task to successfully identify the dependencies deterministically in large applications. This is especially true when some of these dependencies are not apparent from the analysis of the code base itself. Some say that a legacy application is more similar to an ancient oak tree with many crossing branches rather than a strangler fig tree. To manually trace the branching and account for all of the dependencies in order to arrive at viable stranglers one requires an intelligent solution that can cope with high degrees of complexity at scale.</p>
+<p><sidebar>For an illustration of a simple strangler pattern using Mono2Micro, refer to the <a href="http://heidloff.net/article/strangler-pattern-example">Strangler Pattern Example</a>.</sidebar></p>
+<p>Even if we are able to develop such a solution, chances are that we might miss certain hidden dependencies due to the dynamic nature and legacy aspects of the Java EE applications. Hence there is a need to verify whether a refactored service is indeed valid and if not, one should be able to understand what is missing. Mono2Micro helps with the former problem with an AI-assisted refactoring advisory and follows up with guided code generation and post-refactor testing to address the latter.</p>
+<h2 id="the-refactoring-approach-of-mono2micro">The refactoring approach of Mono2Micro<a class="headerlink" href="#the-refactoring-approach-of-mono2micro" title="Permanent link">&para;</a></h2>
+<p>The Mono2Micro tool is an AI-driven approach to application modernization that helps users assess what segments can be refactored from their legacy applications by looking at:</p>
+<ul>
+<li>How the code implementation reflects intended business processes and domains</li>
+<li>How different components of the application interact with each other sequentially and causally under specific business use cases</li>
+<li>What are the observable code and object state dependencies that need to be handled</li>
+</ul>
+<p>In this way, Mono2Micro is a bottom-up, guided refactoring solution that grounds the developer’s domain-driven view of a service in what is actually happening at the code level with data-driven decision support on what is refactorable based on their business, budget, time, and resource constraints. The AI mechanisms provide all the evidence to recommend what are likely the sensible partitions in terms of business logic and what are likely the natural seams to consider for implementation. This guidance can be gathered in either one attempt or in stages depending on the developer’s modernization objectives and the estimated efforts.</p>
+<p><sidebar>For an overview of how and what Mono2Micro generates in terms of recommendations and code generation, refer to the ‘Principles of operation’ section of <a href="/articles/advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/">this article</a>. </sidebar></p>
+<p>Mono2Micro also assists users in refactoring the partitions into independent services by automatically generating the code for the partitions that include automatic interface wrapping, distributed object management including parameter passing, monitoring, and exception handling support to help discover what may be missing and why.</p>
+<h3 id="mono2micro-combines-dynamic-and-static-analyses-of-the-application-to-provide-a-comprehensive-view-of-the-application">Mono2Micro combines dynamic and static analyses of the application to provide a comprehensive view of the application<a class="headerlink" href="#mono2micro-combines-dynamic-and-static-analyses-of-the-application-to-provide-a-comprehensive-view-of-the-application" title="Permanent link">&para;</a></h3>
+<p>In building Mono2Micro, we relied on our field experiences to learn all we could about legacy applications, and we found it is extremely important to analyze the running applications. Runtime information can tell us how the application components interact with each other under specific business use cases, in what temporal order, and discover causal relations that are difficult to obtain through static code analysis alone (for example, how different components of a Java EE service are used to handle a service session, how objects are shared and accessed through frameworks, and so on). Because runtime tracing is highly dependent on the test cases executed and the set of test cases might be incomplete, static analysis is also applied to understand code-level constructs and metadata that are relevant to refactoring such as inheritance and containment relations, objects passed as actual parameters, and certain Java EE framework specific annotations.</p>
+<h3 id="mono2micro-uses-ai-to-recommend-service-partitions-at-scale">Mono2Micro uses AI to recommend service partitions at scale<a class="headerlink" href="#mono2micro-uses-ai-to-recommend-service-partitions-at-scale" title="Permanent link">&para;</a></h3>
+<p>Mono2Micro takes into consideration well-defined business use cases and runtime traces between the classes that are generated from executing the appropriate test cases. Mono2Micro uses an unsupervised approach to create partitions. First, it ingests runtime traces as input data collected by executing one or more business use cases where a runtime trace constitutes a temporal sequence of two or more classes and method calls. Then, it uses those traces to extract spatio-temporal relationships between classes. Based on the relationships, it leverages a hierarchical clustering algorithm to partition classes into desired number of partitions. Each partition generated represents one or more underlying business functionalities of the application.</p>
+<p><sidebar>For Mono2Micro's AI algorithm and sample evaluations of partitions using BCP, ICP, and SM, consult this <a href="https://www.researchgate.net/publication/345751911_Mono2Micro_an_AI-based_toolchain_for_evolving_monolithic_enterprise_applications_to_a_microservice_architecture">ACM conference paper</a>.</sidebar></p>
+<p>The partitions are further verified and evaluated based on three metrics:  </p>
+<ul>
+<li><strong>Business-context purity (BCP)</strong>, which is a measure of the average entropy of business use cases per partition; that is, the functional cohesiveness of a partition in terms of the business use cases it implements. In Mono2Micro, business-context purity favors partitions that implement few related business use cases and therefore is better aligned to domains.</li>
+<li><strong>Inter-partition calls (ICP)</strong>, which is the percentage of runtime calls that occur between two partitions. In Mono2Micro, inter-partition calls attempt to identify partitions where the inter-partition interactions are minimized both in terms of the number of methods and the call volume, thereby leading to services with cleaner and fewer required APIs.</li>
+<li><strong>Structural modularity (SM)</strong>, which is a quantification of the modular quality of partitions in terms of the structural cohesiveness of classes within a partition and the coupling between partitions. In Mono2Micro, structural modularity helps in identifying partitions that are more self-reliant in their operations and hence have higher independence.</li>
+</ul>
+<p>Mono2Micro also allows users to specify the maximum desired number of partitions to break the application into. The estimation of this number can be obtained by the user’s initial thoughts on the number of services the application is likely to have. The user can further experiment by changing this parameter to see what outcomes make sense by referring to the three different metrics described earlier. Mono2Micro has been proven effective in creating granular, functionally cohesive, loosely coupled, and explainable microservices.</p>
+<h2 id="mono2micro-assists-in-code-refactoring-and-troubleshooting">Mono2Micro assists in code refactoring and troubleshooting<a class="headerlink" href="#mono2micro-assists-in-code-refactoring-and-troubleshooting" title="Permanent link">&para;</a></h2>
+<p>Mono2Micro can help create independently running partitions by providing a set of auto-generated code covering service conversions, object parameter wrappings, distributed object management, and exception handling. The techniques applied mostly preserve the semantic equivalence of the original code base with no modification to the original application code. Therefore, a user not only verifies that all the dependencies with the new service partition are accounted for, but also executes existing test cases to verify that no hidden dependencies were missed. Thus, Mono2Micro helps the users to fact-check their refactored services and assures that all of the dependencies at process, code, and object state levels are accounted for. Users can then make evidence-based assessments of how good their partitioned service is and precisely what needs to be tweaked or rewritten to make it a cloud-native microservice.</p>
+<h2 id="ai-partitioning">AI-partitioning<a class="headerlink" href="#ai-partitioning" title="Permanent link">&para;</a></h2>
+<p>One of the powerful features of Mono2Micro is its AI partitioning mechanism. Architects and developers can use the AI partitioning outcomes while working on refactoring their monoliths.</p>
+<h3 id="working-with-the-ai-recommendations">Working with the AI recommendations<a class="headerlink" href="#working-with-the-ai-recommendations" title="Permanent link">&para;</a></h3>
+<p>Through the Mono2Micro UI, a user can customize their partitions by moving classes between partitions or even create completely new partitions and assign classes to them by shifting classes from existing partitions. Any changes at the partition level may impact the metrics: BCP, ICP and SM. Since the AI considers all of the metrics in tandem, it is entirely possible that the user might want to favor one metric over another. By moving the classes between partitions, users can explore the what-if scenarios to see how effective their desired partitioning strategy is in terms of these metrics and whether it makes sense to use the partition customization as it stands.</p>
+<p>Another interesting aspect of AI-recommended partitions is the possibility of identifying utility classes. Even though the current Mono2Micro solution does not flag them as such, users can identify one or more classes as potential utility classes if they are invoked by many classes from different partitions and are used under many diverse business use cases. For certain applications, these utility classes can be packaged as libraries or replaced by cloud-native services to achieve better service independence.</p>
+<h3 id="defining-business-use-cases">Defining business use cases<a class="headerlink" href="#defining-business-use-cases" title="Permanent link">&para;</a></h3>
+<p>Runtime traces of the business use cases are the most important data provided by the users to the Mono2Micro AI engine. Ideally, the business use cases should reflect the business domain functions and services that users want to refactor the application into. This can be a specific functionality, such as 'buy stock' or 'sell stock,' or it can be a specific service, such as 'user login.' Users should have the freedom to create a real-world view of the functionalities that make sense to them. At a granular level, they can think of such functionalities as separate and independent implementations of their applications. Users should provide meaningful use case labels that will help architects clearly understand the partitioning evidence that is displayed in Mono2Micro.</p>
+<h2 id="fast-track-your-refactoring-work-with-cardinal">Fast track your refactoring work with Cardinal<a class="headerlink" href="#fast-track-your-refactoring-work-with-cardinal" title="Permanent link">&para;</a></h2>
+<p>Cardinal is the solution component of Mono2Micro that takes as input the application code base, the application metadata, and the class partitions, and then generates the initial code base for the partitions as services.</p>
+<p><sidebar>Details on Cardinal are in the <a href="https://epwt-www.mybluemix.net/software/support/trial/cst/programwebsite.wss?siteId=911&amp;h=&amp;tabId=">Mono2Micro User Guide</a>, which you can only access after you’ve accepted the license on the trial version.</sidebar></p>
+<p>With the Cardinal component, users can:</p>
+<ul>
+<li>Understand the implication of a partitioned service in terms of how it interacts with the rest of the application</li>
+<li>Its performance aspects on the refactored application</li>
+<li>Detection of any potential errors and issues associated with the refactored service</li>
+</ul>
+<p>These data points serve as an invaluable foundation to determine how to rewrite certain parts of the service to make it scalable and more efficient. More specifically, Cardinal implements a set of protocols that make your application work in partitions like they did as a monolith. The resulting partitioned services are largely semantically equivalent to the original monolith.</p>
+<p>Cardinal does not alter the original code base. Therefore, users can clearly understand Mono2Micro-generated refactoring at the code level and can test the refactored code with the original test cases. Cardinal provides the users with the following auto-generated functionalities:</p>
+<ul>
+<li>Service wrappings converting inter-partition method calls into APIs</li>
+<li>Client-side wrapping that turns remote objects into proxies to facilitate inter-partition method calls</li>
+<li>Call parameter resolution that does not serialize application objects, but rather passes a globally addressable object reference which any partition can use through proxy</li>
+<li>Distributed object management and garbage collection that ensure a single object instance state across all the partitions</li>
+<li>Dynamic object type resolution to support polymorphism</li>
+<li>Built-in exception handling to support troubleshooting</li>
+</ul>
+<p>A commonly asked question around Cardinal is why not just use a remote object protocol like <a href="https://docs.oracle.com/javase/tutorial/rmi/overview.html">Java remote method invocation (RMI)</a>. The primary reasons are:</p>
+<ul>
+<li>Mono2Micro wants to have all of the client and service wrappings to be done at the code level of the original monolith such that it is easy for users to understand and troubleshoot. This code level encapsulation is the steppingstone toward the final rewriting of the service.</li>
+<li>Cardinal deals with parameter objects in a much more transparent way than RMI without requiring serialization.</li>
+<li>Remote objects in Cardinal are POJOs, and they look and behave exactly like their original classes. This minimizes the impact of change on the existing codebase, and the risk of the error introduction is also significantly reduced.</li>
+<li>The Cardinal protocol does not require object reference to be bounded by an invocation and allows arbitrary call nesting and self-referencing.</li>
+</ul>
+<h3 id="categories-of-classes-generated-by-cardinal">Categories of Classes Generated by Cardinal<a class="headerlink" href="#categories-of-classes-generated-by-cardinal" title="Permanent link">&para;</a></h3>
+<p>The following are the types of classes that are generated by Cardinal, which are reported in the cardinal summary report and also in the comments of the Mono2Micro generated code.</p>
+<ul>
+<li><strong>Surface Class</strong>. A surface class is a class that is accessed by more than one partition, either through parameter passing, field declaration, or method invocation. A surface class will have three representations: a physical class, service class and a proxy class.</li>
+<li><strong>Physical Class</strong>. A physical class is the original class from the monolith. It resides in a single partition service.</li>
+<li><strong>Service Class</strong>. A service API wrapper class for a physical class in a partition. It facilitates all remote invocations to the instances of the physical class coming from outside the partition through service calls.</li>
+<li><strong>Proxy Class</strong>. A proxy class is a simple representation of a surface class that does not reside in the same partition. It is used to facilitate object accesses and invocations through remote service calls to the partition containing the physical class.</li>
+<li><strong>Dummy Class</strong>. A dummy class is a class that is not used in a partition as far as Mono2Micro can observe. It is a fail-safe mechanism provided by Cardinal such that if a dummy class is accessed at runtime, an exception is thrown. Dummy classes help to simplify the compilation and the execution of the refactored partitions as each partition would appear to have the same classes and the declarations as in the original monolith. The dummy classes can be removed from each partition after the completion of testing and verification.</li>
+</ul>
+<h3 id="using-cardinal-generated-code-as-the-basis-for-your-refactoring-work">Using Cardinal generated code as the basis for your refactoring work<a class="headerlink" href="#using-cardinal-generated-code-as-the-basis-for-your-refactoring-work" title="Permanent link">&para;</a></h3>
+<p>Cardinal does not generate deployment-ready microservices. Cardinal accelerates the users' refactoring work. It does much more than generating API templates, as it very quickly provides users with an easy way to build and deploy refactored partitions as services and to experiment with the outcome for validation (using monolith test cases), troubleshooting (detecting missed dependencies), and performance assessment (how chatty are the inter-partition calls).
+Based on these data points, users can now plan which partitions make sense to rewrite into better microservices, how much effort it might take, or decide whether they should modify the partition recommendations to reflect a different business domain breakdown. The entire process of code analysis, partition recommendations and adjustments, and the execution for evaluation that is provided by Mono2Micro fast tracks the users with a guided and a data-driven approach to their refactoring efforts.</p>
+<h2 id="summary-and-next-steps">Summary and next steps<a class="headerlink" href="#summary-and-next-steps" title="Permanent link">&para;</a></h2>
+<p>Mono2Micro is an evidence-based AI assistant for developers and architects to use in application modernization. The goal of Mono2Micro is to provide step-by-step guidance to transform your legacy applications in a safe and sound manner with a high velocity, rather than try to generate deployable microservices on day one, which we believe is not an attainable goal in practice.</p>
+<p>Mono2Micro understands application modernization is a journey, but the value needs to be unlocked right away and in the right way. From our experiences in real life customer engagements and also with manual refactoring exercises, we’ve learned that different users often want different short-term benefits from their application modernization efforts, and the state of their legacy applications might not be suitable for their immediate needs. Therefore, Mono2Micro quickly helps developers and architects:</p>
+<ul>
+<li>Clean up their code by identifying possible dead code and anti-patterns, and realize values obtained by simple transformations (for example, changing certain inheritance to compositions)</li>
+<li>Identify business domain oriented microservices and discover code-level dependencies of refactoring</li>
+<li>Assess the effort to refactor and also the efficiency of the refactored partitions.</li>
+</ul>
+<h3 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">&para;</a></h3>
+<p>Authors acknowledge the support received from Melissa Modejski, VP, Application Platform and Integration; Dr. Ruchir Puri, IBM Fellow, Chief Scientist, IBM Research; Dr. Nicholas Fuller, Director, IBM Research; and the entire development team of Mono2Micro. Authors also acknowledge the assistance provided by John Meegan (Offering Manager) and Michelle Corbin (Content Developer) to publish this article on IBM Developer.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

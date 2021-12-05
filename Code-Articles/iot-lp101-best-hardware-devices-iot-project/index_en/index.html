@@ -1,0 +1,4702 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Choosing the best hardware for your next IoT project - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iot-device-characteristics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Choosing the best hardware for your next IoT project
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          AutoAIを探索する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoAIを探索する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoAIを探索する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/nextgen-automl-watson-autoai/" class="md-nav__link">
+        次世代AutoML-Watson AutoAI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compare-model-building-with-and-without-automated-machine-learning/" class="md-nav__link">
+        自動機械学習ありなしで構築したモデルの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/generate-machine-learning-model-pipelines-to-choose-the-best-model-for-your-problem-autoai/" class="md-nav__link">
+        最適なモデルパイプラインの生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/autoai-code-generation/" class="md-nav__link">
+        AutoAIでのPython notebookの自動生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-application-to-predict-your-insurance-premium-cost-with-autoai/" class="md-nav__link">
+        python機械学習ウェブアプリの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automated-feature-engineering-for-relational-data-with-ibm-autoai/" class="md-nav__link">
+        リレーショナルデータの自動特徴量エンジニアリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Cloud Native Toolkitでのイメージビルド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Native Toolkitでのイメージビルド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Native Toolkitでのイメージビルド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/install-toolkit/" class="md-nav__link">
+        ツールキットのインストール
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/starter-kits/" class="md-nav__link">
+        スターターキット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/existing-application/" class="md-nav__link">
+        既存のアプリケーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/poly-repo/" class="md-nav__link">
+        poly-repo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Cloud Pak for Data Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Pak for Data Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Pak for Data Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/cloud-pak-for-data-learning-path/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro-to-cloud-pak-for-data/" class="md-nav__link">
+        IBM Cloud Pak for Data 概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/virtualizing-db2-warehouse-data-with-data-virtualization/" class="md-nav__link">
+        Data Virtualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/data-visualization-with-data-refinery/" class="md-nav__link">
+        Data VirtualizationとData Refinery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/find-prepare-and-understand-data-with-watson-knowledge-catalog/" class="md-nav__link">
+        データを検索、準備、そして理解する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/data-analysis-model-building-and-deploying-with-wml/" class="md-nav__link">
+        データの分析、モデルの生成、そしてデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/automate-model-building-with-autoai/" class="md-nav__link">
+        AutoAIで自動的にモデルを生成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-an-ai-model-visually-with-spss-modeler-flow/" class="md-nav__link">
+        予測可能な機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/getting-started-with-watson-openscale/" class="md-nav__link">
+        Watson OpenScaleでのモデルのモニタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/cloud-pak-for-data-learning-path/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          DataOps基礎
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataOps基礎" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          DataOps基礎
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/dataops-fundamentals/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/incorporate-enterprise-governance-in-your-data/" class="md-nav__link">
+        データにエンタープライズガバナンスを組み込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-to-discover-data-that-resides-in-your-data-sources/" class="md-nav__link">
+        データソースに存在するデータを発見する方法を学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/analyze-discovered-data-to-gain-insights-on-the-quality-of-your-data/" class="md-nav__link">
+        発見されたデータを分析して、データの質についての洞察を得る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/protect-your-data-using-data-privacy-features/" class="md-nav__link">
+        データプライバシー機能によるデータの保護
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-a-single-customer-view-of-your-data-with-data-virtualization/" class="md-nav__link">
+        データの仮想化により、お客様のデータを一元管理する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/dataops-fundamentals/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          Data Quality AI Toolkitについて
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Quality AI Toolkitについて" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data Quality AI Toolkitについて
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/assessing-quality-of-tabular-data-sets-using-apis/" class="md-nav__link">
+        APIを用いた表形式データセットの品質評価
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/deep-dive-into-class-overlap-label-purity/" class="md-nav__link">
+        クラスの重複とラベルの純度をより深く知る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          IBM Event Streams バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM Event Streams バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          IBM Event Streams バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-event-streams-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-fundamentals/" class="md-nav__link">
+        イベントストリームの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-kafka-fundamentals/" class="md-nav__link">
+        kafkaの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/deploying-and-using-a-basic-kafka-instance/" class="md-nav__link">
+        kafkaインスタンスのデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/event-streams-hands-on-java-sample/" class="md-nav__link">
+        ハンズオン イベント ストリーム アプリ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/event-streams-badge-event-streams-dev-challenge/" class="md-nav__link">
+        イベントストリーム コーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-dev-cheat-sheet/" class="md-nav__link">
+        イベントストリーム開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-event-streams-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          IBM MQ バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM MQ バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          IBM MQ バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-mq-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-fundamentals/" class="md-nav__link">
+        MQの基礎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-connect-app-queue-manager-containers/" class="md-nav__link">
+        Que Managerの作成と設定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-setting-up-using-ibm-mq-console/" class="md-nav__link">
+        IBM MQコンソールを使用したMQのセットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-develop-mq-jms/" class="md-nav__link">
+        初めてのMQアプリを書く
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/mq-badge-mq-dev-challenge/" class="md-nav__link">
+        MQコーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-dev-cheat-sheet/" class="md-nav__link">
+        MQ開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-mq-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_8">
+          IBM mono2microの導入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM mono2microの導入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          IBM mono2microの導入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/intro-ibm-mono2micro/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mono2micro-automate-application-refactoring-using-ai/" class="md-nav__link">
+        mono2microの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/" class="md-nav__link">
+        メリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../a-non-disruptive-approach-to-transform-java-monoliths-to-microservices/" class="md-nav__link">
+        アプローチ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/transform-monolithic-java-applications-into-microservices-with-the-power-of-ai/" class="md-nav__link">
+        モノリシックなアプリを変換する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/intro-ibm-mono2micro/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9">
+          IOT開発を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-getting-started-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-key-concepts-skills-get-started-iot/" class="md-nav__link">
+        コンセプトとスキル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        ハードウェアガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp101-connectivity-network-protocols/" class="md-nav__link">
+        ネットワーキングガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp101-why-use-iot-platform/" class="md-nav__link">
+        IOTプラットフォーム
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
+        IOTソリューションの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-getting-started-iot-development/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10">
+          IOT開発の次の一歩
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発の次の一歩
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-next-steps-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp201-iot-architectures/" class="md-nav__link">
+        IOTアーキテクチャー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-top-10-iot-security-challenges/" class="md-nav__link">
+        IOTセキュリティ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
+        IOTデータの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
+        IOTデバイスの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
+        次のIOTソリューションを構築する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-next-steps-iot-development/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11">
+          Kafkaアプリケーションの開発
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kafkaアプリケーションの開発" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Kafkaアプリケーションの開発
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/introduction/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/getting-started/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/getting-to-production/index.md" class="md-nav__link">
+        本番に向けて
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/more-resources/index.md" class="md-nav__link">
+        その他のリソース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12">
+          Kubernetes Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_12">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-kubernetes/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/linux-basics-and-commands/" class="md-nav__link">
+        Linuxの基本とコマンド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/yaml-basics-and-usage-in-kubernetes/" class="md-nav__link">
+        kubernetesにおけるyamlの基本と使用方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-kubernetes/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_13">
+          KubernetesをOpenShiftに移行する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="KubernetesをOpenShiftに移行する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          KubernetesをOpenShiftに移行する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrate-your-kubernetes-images-to-openshift/" class="md-nav__link">
+        イメージの移行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../migrate-kubernetes-pod-security-policies-openshift-security-context-constraints/" class="md-nav__link">
+        kubernetes PSPをOpenShift SCCに移行する。
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/tutorial/" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_14">
+          Netezzaパフォーマンスサーバを使った学習の開始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Netezzaパフォーマンスサーバを使った学習の開始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_14">
+          <span class="md-nav__icon md-icon"></span>
+          Netezzaパフォーマンスサーバを使った学習の開始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-getting-started-with-netezza-performance-server/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../access-and-analyze-data-in-netezza-performance-server/" class="md-nav__link">
+        データへのアクセスと分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/load-and-access-data-from-your-cloud-data-warehouse/" class="md-nav__link">
+        クラウドデータウェアハウスからのデータの読み込みとアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/predict-energy-prices-with-in-database-analytics/" class="md-nav__link">
+        データベース分析によるエネルギー価格の予測
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-getting-started-with-netezza-performance-server/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_15">
+          OpenShiftのSecure Context Constraints(SCC)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OpenShiftのSecure Context Constraints(SCC)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_15">
+          <span class="md-nav__icon md-icon"></span>
+          OpenShiftのSecure Context Constraints(SCC)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/intro/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-permissions/" class="md-nav__link">
+        SCC 権限
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/openshift-predefined-scc/" class="md-nav__link">
+        OpenShiftの定義済みSCC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-availability/" class="md-nav__link">
+        SCCの可用性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/deployment-specify-permissions/" class="md-nav__link">
+        デプロイメントでの権限の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-tutorial/" class="md-nav__link">
+        SCCチュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_16">
+          pythonを使ったデータ解析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pythonを使ったデータ解析" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_16">
+          <span class="md-nav__icon md-icon"></span>
+          pythonを使ったデータ解析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/introduction-to-geospatial-data-using-python/" class="md-nav__link">
+        pythonを使った地理空間データの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/working-with-geospatial-vector-data-in-python/" class="md-nav__link">
+        pythonで地理空間ベクトルデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/working-with-geospatial-raster-data-in-python/" class="md-nav__link">
+        pythonで地理空間ラスターデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17" type="checkbox" id="__nav_1_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17">
+          Red Hat OpenShiftでマルチテナンシーを実現する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Red Hat OpenShiftでマルチテナンシーを実現する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_17">
+          <span class="md-nav__icon md-icon"></span>
+          Red Hat OpenShiftでマルチテナンシーを実現する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/introduction/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/multitenancy-and-role-based-access-control/" class="md-nav__link">
+        RBAC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/network-isolation/" class="md-nav__link">
+        ネットワークの分離
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/resource-isolation/" class="md-nav__link">
+        リソースアイソレーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_18" type="checkbox" id="__nav_1_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_18">
+          Streamsを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Streamsを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_18">
+          <span class="md-nav__icon md-icon"></span>
+          Streamsを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/streams-get-started/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-ibm-streams/" class="md-nav__link">
+        IBM Streamsの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-your-first-ibm-streams-app-without-writing-code/" class="md-nav__link">
+        初めてのIBM Streamsアプリを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/add-event-streams-and-a-db-in-python-to-clickstream/" class="md-nav__link">
+        Apache Kafkaからデータを取り込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/build-a-streaming-app-using-ibm-streams-python-api/" class="md-nav__link">
+        pythonのAPIを使ってストリーミングアプリを構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/access-streaming-data-with-rest-services/" class="md-nav__link">
+        ストリーミングデータにレストサービスでアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/score-streaming-data-with-a-machine-learning-model/" class="md-nav__link">
+        ストリーミングデータを機械学習モデルでスコアリングする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/streams-get-started/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_19" type="checkbox" id="__nav_1_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_19">
+          Watson Discoveryを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_19">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_20" type="checkbox" id="__nav_1_20" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_20">
+          Watson Assistantを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Assistantを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_20">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Assistantを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-assistant/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-watson-assistant/" class="md-nav__link">
+        Watson Assistantの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/create-your-first-assistant-powered-chatbot/" class="md-nav__link">
+        chatbot アシスタント
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/embed-watson-assistant-in-website/" class="md-nav__link">
+        chatbotを埋め込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/add-watson-discovery-skills-to-your-watson-assistant-chatbot/" class="md-nav__link">
+        Watson Assistant ChatbotにWatson Discoveryのスキルを追加する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/integrate-voice-services-to-your-watson-assistant/" class="md-nav__link">
+        Webベースのchatbotを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-assistant/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_21" type="checkbox" id="__nav_1_21" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_21">
+          Watson Machine Learning Acceleratorを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Machine Learning Acceleratorを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_21">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Machine Learning Acceleratorを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/introduction-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/how-to-use-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの使い方
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/elastic-distributed-training-edt-in-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Accelerator Elastic Distributed Traning(EDT)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/use-snap-ml-concurrently/" class="md-nav__link">
+        SnapMLの同時使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/watson-machine-learning-videos/" class="md-nav__link">
+        Watson Mahine Learning ビデオ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_22" type="checkbox" id="__nav_1_22" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_22">
+          Watson Studioを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Studioを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_22">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Studioを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-studio/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-watson-studio/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-data-visualization-preparation-transformation/" class="md-nav__link">
+        Watson Studio データの可視化、準備、変換
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-auto-ai/" class="md-nav__link">
+        モデル構築の自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-spss-modeler-flow/" class="md-nav__link">
+        spss modelerフローの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/watson-studio-using-jupyter-notebook/" class="md-nav__link">
+        Watson Studio上のJupyter Notebookでモデルをビルドする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-studio/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_23" type="checkbox" id="__nav_1_23" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_23">
+          アプリケーション・モダナイゼーションを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="アプリケーション・モダナイゼーションを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_23">
+          <span class="md-nav__icon md-icon"></span>
+          アプリケーション・モダナイゼーションを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/intro-app-mod/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/intro-microservices/index.md" class="md-nav__link">
+        マイクロサービスの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/modernizing-apps-step-by-step/index.md" class="md-nav__link">
+        ステップバイステップでアプリをモダナイズ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_24" type="checkbox" id="__nav_1_24" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_24">
+          異常検知APIを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="異常検知APIを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_24">
+          <span class="md-nav__icon md-icon"></span>
+          異常検知APIを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/what-is-anomaly-detection/" class="md-nav__link">
+        異常検知(Anomaly Detection, アノマリー検知)とは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/anomaly-detection-api/" class="md-nav__link">
+        異常検知用API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/industry-use-case/" class="md-nav__link">
+        業界のユースケース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_25" type="checkbox" id="__nav_1_25" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_25">
+          エッジAI SDKを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="エッジAI SDKを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_25">
+          <span class="md-nav__icon md-icon"></span>
+          エッジAI SDKを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/what-is-edge-ai/" class="md-nav__link">
+        エッジAIとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/coreset/" class="md-nav__link">
+        コアセット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/model-fusion/" class="md-nav__link">
+        モデルフュージョン
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_26" type="checkbox" id="__nav_1_26" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_26">
+          開発者のための機械学習 Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="開発者のための機械学習 Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_26">
+          <span class="md-nav__icon md-icon"></span>
+          開発者のための機械学習 Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-machine-learning-for-developers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction-to-machine-learning/" class="md-nav__link">
+        機械学習の概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初のモデルを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-regression-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        回帰アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-classification-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        分類アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/learn-clustering-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        クラスタリング・アルゴリズムを学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-machine-learning-for-developers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_27" type="checkbox" id="__nav_1_27" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_27">
+          教師付き深層学習
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="教師付き深層学習" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_27">
+          <span class="md-nav__icon md-icon"></span>
+          教師付き深層学習
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/convolutional-neural-networks/index.md" class="md-nav__link">
+        畳み込みニューラルネットワーク(CNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/recurrent-neural-networks/index.md" class="md-nav__link">
+        回帰型ニューラルネットワーク(RNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_28" type="checkbox" id="__nav_1_28" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_28">
+          クラウドを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="クラウドを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_28">
+          <span class="md-nav__icon md-icon"></span>
+          クラウドを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-cloud/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-cloud-computing/index.md" class="md-nav__link">
+        クラウドコンピューティングとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/public-cloud-explained/index.md" class="md-nav__link">
+        パブリッククラウドの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-hybrid-cloud/index.md" class="md-nav__link">
+        ハイブリッドクラウドとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/deploy-your-first-app-to-ibm-cloud/index.md" class="md-nav__link">
+        アプリをIBMクラウドに展開
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/quickly-stand-up-protected-web-interface-for-cloud-native-app-on-ibm-cloud/index.md" class="md-nav__link">
+        IBMクラウド上でのnodejsスターターアプリケーションの開発
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-cloud/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_29" type="checkbox" id="__nav_1_29" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_29">
+          コンテナを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="コンテナを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_29">
+          <span class="md-nav__icon md-icon"></span>
+          コンテナを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/what-are-containers/" class="md-nav__link">
+        コンテナとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../true-benefits-of-moving-to-containers-1/" class="md-nav__link">
+        コンテナへの移行のメリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/building-docker-images-locally-and-in-cloud/" class="md-nav__link">
+        Dockerイメージの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/kubernetes-101-labs/" class="md-nav__link">
+        kubernetes 101 labs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_30" type="checkbox" id="__nav_1_30" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_30">
+          サーバーレスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="サーバーレスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_30">
+          <span class="md-nav__icon md-icon"></span>
+          サーバーレスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-serverless/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-serverless/index.md" class="md-nav__link">
+        サーバーレスの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-faas/index.md" class="md-nav__link">
+        FaaSの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/no-infrastructure-just-code-see-the-sim-plicity-of-serverless/index.md" class="md-nav__link">
+        サーバーレス機能の構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/github-task-automation-with-serverless-actions/index.md" class="md-nav__link">
+        githubのタスク自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/use-multiple-ai-services-with-functions/index.md" class="md-nav__link">
+        複数のAIサービスを利用する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-serverless/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_31" type="checkbox" id="__nav_1_31" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_31">
+          人工知能を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="人工知能を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_31">
+          <span class="md-nav__icon md-icon"></span>
+          人工知能を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/ai-basics/index.md" class="md-nav__link">
+        AIの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初の機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/next-steps/index.md" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_32" type="checkbox" id="__nav_1_32" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_32">
+          深層学習を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="深層学習を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_32">
+          <span class="md-nav__icon md-icon"></span>
+          深層学習を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-with-deep-learning/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../an-introduction-to-deep-learning/" class="md-nav__link">
+        深層学習入門
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cc-machine-learning-deep-learning-architectures/" class="md-nav__link">
+        深層学習アーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../compare-deep-learning-frameworks/" class="md-nav__link">
+        深層学習フレームワークの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-a-linear-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        線形回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/build-a-logistic-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        ロジスティック回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../neural-networks-from-scratch/" class="md-nav__link">
+        ゼロから始めるニューラルネットワーク
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-with-deep-learning/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_33" type="checkbox" id="__nav_1_33" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_33">
+          データサイエンスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="データサイエンスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_33">
+          <span class="md-nav__icon md-icon"></span>
+          データサイエンスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-preprocessing-in-detail/" class="md-nav__link">
+        データの前処理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/next-steps/" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_34" type="checkbox" id="__nav_1_34" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_34">
+          ブロックチェーンを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ブロックチェーンを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_34">
+          <span class="md-nav__icon md-icon"></span>
+          ブロックチェーンを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-blockchain/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/cl-blockchain-basics-intro-bluemix-trs/" class="md-nav__link">
+        ブロックチェーンの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/cl-blockchain-basics-glossary-bluemix-trs/" class="md-nav__link">
+        用語集と使用例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blockchain-basics-hyperledger-fabric/" class="md-nav__link">
+        ハイパーレッジャー・ファブリック
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/" class="md-nav__link">
+        ビジネスブロックチェーンの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Tutorials/quick-start-guide-for-ibm-blockchain-platform/" class="md-nav__link">
+        IBMのブロックチェーン・プラットフォームを使う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-blockchain/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iot-device-characteristics" class="md-nav__link">
+    IoT device characteristics
+  </a>
+  
+    <nav class="md-nav" aria-label="IoT device characteristics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-acquisition-and-control" class="md-nav__link">
+    Data acquisition and control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-processing-and-storage" class="md-nav__link">
+    Data processing and storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectivity" class="md-nav__link">
+    Connectivity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-management" class="md-nav__link">
+    Power management
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-off-the-shelf-hardware-for-prototyping-your-iot-project" class="md-nav__link">
+    Types of off-the-shelf hardware for prototyping your IoT project
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of off-the-shelf hardware for prototyping your IoT project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microcontroller-development-boards" class="md-nav__link">
+    Microcontroller development boards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-board-computers" class="md-nav__link">
+    Single board computers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choosing-between-microcontroller-development-boards-and-single-board-computers" class="md-nav__link">
+    Choosing between microcontroller development boards and single-board computers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iot-hardware-requirements-for-deploying-your-iot-project" class="md-nav__link">
+    IoT hardware requirements for deploying your IoT project
+  </a>
+  
+    <nav class="md-nav" aria-label="IoT hardware requirements for deploying your IoT project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-requirements" class="md-nav__link">
+    Security requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ease-of-development" class="md-nav__link">
+    Ease of development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-acquisition-processing-and-storage-requirements" class="md-nav__link">
+    Data acquisition, processing, and storage requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connectivity-requirements" class="md-nav__link">
+    Connectivity requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-requirements" class="md-nav__link">
+    Power requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-device-design-requirements" class="md-nav__link">
+    Physical device design requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-requirements" class="md-nav__link">
+    Cost requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Choosing the best hardware for your next IoT project</h1>
+                
+                <!-- <sidebar> <heading>Learning path: Getting started with IoT development</heading> <p>This article is part of the IoT 101 learning path, a quick-start guide for IoT developers.</p> <ul> <li> [IoT concepts and skills](/articles/iot-key-concepts-skills-get-started-iot)</li> <li>IoT hardware guide (this article)</li> <li> [IoT networking guide](/articles/iot-lp101-connectivity-network-protocols/)</li> <li> [IoT platforms](/articles/iot-lp101-why-use-iot-platform/)</li> <li> [Tutorial: Build a smart doorbell](/tutorials/iot-lp101-get-started-develop-iot-home-automation/)</li></ul></sidebar> -->
+
+<p>Connected devices are central to IoT. Devices gather data and monitor parameters. They are found on everything from industrial equipment, buildings, and cars, to animals, cargo shipments, pipelines, and people.</p>
+<p>Hardware and software components are designed for IoT applications via a standard design protocol: specification development, conceptual design, prototype, test, and ultimately rollout of hardware and software integrated into a network.  Some platforms, such as Arduino and Raspberry Pi, may expedite design and allow rapid prototyping without involved customization, thus expediting the time required to implement an IoT configuration.</p>
+<p>Design will require identification of performance requirements, the necessary hardware and software to achieve such requirements, followed by specifications for components – either commercially off-the-shelf (COTS) or customized designs – with due consideration for the operating environment and the application to be used within it.</p>
+<p>In the context of IoT, a device refers to anything that attains information and transmits it. For example, a pressure sensor within a pipeline, a temperature sensor within a refrigerated railcar, or tiny chips inserted beneath the skin of a cow in a scattered heard – are all devices. Devices may stand alone, or they work in sync with other devices.</p>
+<p>In this article, I’ll review some off-the-shelf hardware options and some factors to consider in selecting them to develop your next IoT project.</p>
+<h2 id="iot-device-characteristics">IoT device characteristics<a class="headerlink" href="#iot-device-characteristics" title="Permanent link">&para;</a></h2>
+<p>As an IoT landscape develops, new devices and platforms will be introduced.  There are key characteristics that are common to IoT devices that provide a basis of comparison when selecting hardware and software to configure a new IoT network or to develop and expand an existing one.</p>
+<p>IoT devices may be characterized by capabilities:  </p>
+<ul>
+<li>Data acquisition and control</li>
+<li>Data processing and storage</li>
+<li>Connectivity</li>
+<li>Power management</li>
+</ul>
+<h3 id="data-acquisition-and-control">Data acquisition and control<a class="headerlink" href="#data-acquisition-and-control" title="Permanent link">&para;</a></h3>
+<p><em>Data acquisition</em> (<a href="https://en.wikipedia.org/wiki/Data_acquisition">DAQ</a>) gathers analog information at a fixed time interval (the data sample rate), and transmits it as a digital signal to a remote output device for a digital readout. DAQ may include signal conditioning (to manipulate and scale raw sensor readings), and analog-to-digital converters to convert the analog sensor readings into digital values so that they can be processed and analyzed.</p>
+<p><em>Sensors</em> are components that measure physical variables and convert them to electrical signals (voltages). Sensors are available, commercially, off-the-shelf, and specified to measure a range of variables which include: temperature, humidity, pressure, smoke, gas, light, sound, vibration, air-flow, water-flow, speed, acceleration, proximity, GPS position, altitude, and a multitude of other variables.</p>
+<p>Sensors vary in their functionality and may be used to measure a wide assortment of conditions. For example, proprioceptive sensors monitor the internal state of the device. Sensors such as push buttons, sliding controls, or touchscreens may be used to interact directly with a device (Human-Machine Interface).</p>
+<p>Each type of sensor has many options. Manufacturers and their sensor product specifications vary. The sensor’s accuracy, precision, and required operating condition may vary from catalog to catalog and from manufacturer to manufacturer. Sensors may be used within an engine, underwater, embedded in humans or animals, and even in space. Environments require different sensor characteristics and are designed for different uses accordingly.</p>
+<p>An important characteristic of sensor components is resolution. The resolution of a sensor represents the smallest amount of change that the sensor can reliably read and is related to the size of the numeric value that is used to represent raw sensor readings. For example, an analog temperature sensor with 10 bits of resolution represents a temperature reading using a numeric value between 0 and 1023. Bits are binary, so 10 bits provides two to the power of 10, or 1024 possible values in total. However, in practice, sensors are affected by electrical noise which reduces the actual resolution.</p>
+<p>While sensors convert a physical variable like temperature to an electrical signal, output devices are the inverse: they convert an electrical signal to a physical outcome. Output devices include LEDs, speakers, and screens.  This may require <em>actuators</em> such as motors, relays, and solenoids that physically actuate something. Actuators are common in industrial IoT applications.  For example, pneumatic linear actuators are widely adopted in manufacturing to move and grip products during the assembly process. An actuator on an axle of a school bus may actuate braking when adverse motion is detected. A high temperature in a refrigerated container with produce inside, may actuate an alarm when a temperature rises to a certain unacceptable level.</p>
+<h3 id="data-processing-and-storage">Data processing and storage<a class="headerlink" href="#data-processing-and-storage" title="Permanent link">&para;</a></h3>
+<p>IoT devices require specific data processing and storage capability. This helps achieve data aggregation, transmission, and analysis. Some IoT devices may process data directly, while others transmit this data to other devices, gateway devices, or cloud applications for further  aggregation and analysis.</p>
+<p>Edge analytics performs data analysis at the edges of a network rather than in a centralized location. Data can be analyzed in realtime on the devices themselves, or it can be analytized on a nearby gateway device (like a router) connected to the IoT devices, in lieu of transmitting large volumes of data upstream to a cloud server or data center for further analysis. Processing data at the edge aggregates and filters the data as it is collected, with only the most salient data sent upstream. Edge analytics reduces upstream processing and storage requirements alleviates network load.</p>
+<p>The processing power and storage used by an IoT application depends on processing required by the services or apps that consume the data. Available memory and processor specifications, clock speed, and number of cores, all of which subsequently determine the devices rate of data processing. The capacity of the non-volatile flash, which is used to persist data until transmitted upstream, determines how much data can be stored on the device. Devices performing edge analytics require substantially more processing capabilities than devices that perform only basic data processing like validating, normalizing, scaling, or converting readings.</p>
+<h3 id="connectivity">Connectivity<a class="headerlink" href="#connectivity" title="Permanent link">&para;</a></h3>
+<p>Network connectivity is a defining characteristic of any IoT device. Devices communicate with other devices locally. They then publish data via cloud-based services. Some devices communicate wirelessly, by using 802.11 (Wi-Fi), Bluetooth, RFID, cellular networks, or Low Power wide area network (LPWAN) technologies like LoRa, SigFox or NB-IoT. Wired communication is suited to stationary devices. Such devices may be installed in smart buildings, home automation, and industrial control applications, for example, and connected with Ethernet, or retrofitted with Ethernet over power. Serial communication is a form of wired connectivity between devices, using standard protocols like <em>Universal Asynchronous Receiver Transmitter</em> (UART), or the <em>Controller Area Network</em> (CAN) protocol, which has its origins in the automotive industry.</p>
+<h3 id="power-management">Power management<a class="headerlink" href="#power-management" title="Permanent link">&para;</a></h3>
+<p>Power management is a critical factor for portable and wearable IoT devices that rely on a wireless power source, such as batteries or photovoltaic cells (solar). Depending on usage patterns and the power requirements of the attached sensors, actuators, or integrated circuits (ICs), a device may be put into sleep mode or into low-power mode periodically to conserve power.</p>
+<p>For example, a single-board computer like the Raspberry Pi 4 requires around 700 – 1000mA of current to operate under typical usage. If you were transmitting data constantly over a wifi network, or if the device under heavy load was performing a lot of data processing, the power usage would be high, but then  it would drop when the device became idle. If you connect a camera module, the required amperage increases by about 250mA when the camera is in use. Also, sensors normally require power to operate; the GPIO pins on the Raspberry Pi supply 3.3V or 5V, up to a total of 50mA current across all of the pins. The power consumption of the device increases as you increase the number of components that are attached to the pins.</p>
+<h2 id="types-of-off-the-shelf-hardware-for-prototyping-your-iot-project">Types of off-the-shelf hardware for prototyping your IoT project<a class="headerlink" href="#types-of-off-the-shelf-hardware-for-prototyping-your-iot-project" title="Permanent link">&para;</a></h2>
+<p>Developing IoT applications is more accessible with the growing availability of low-cost, commercially available off-the-shelf hardware development boards, platforms, and prototyping kits. Modular hardware designs provide great  flexibility. With a greater selection of components, designers may substitute  new sensors with different specifications. Alternatively, you can independently upgrade the networking, data processing, or storage modules of a device for evolving requirements.</p>
+<p>Many commercial off-the-shelf hardware devices, including microcontrollers and single-board computers, are designed around <em>System-on-a-Chip</em> (SoC) integrated circuits. SoCs bundle capabilities such as data processing, storage, and networking onto a single chip. This configuration means that you sacrifice some flexibility for the sake of convenience, but, fortunately, there are a huge number of commodity devices available with a range of configurations to choose from. For example, Table 1 lists the technical specifications for a selection of microcontrollers that can be used for prototyping IoT projects and provides a comparison of three popular <em>Single-Board-Computers</em> (SBCs).</p>
+<h3 id="microcontroller-development-boards">Microcontroller development boards<a class="headerlink" href="#microcontroller-development-boards" title="Permanent link">&para;</a></h3>
+<p>A <em>microcontroller</em> is a SoC that provides data processing and storage capabilities. Microcontrollers contain a processor core (or cores), memory (RAM), and <em>erasable programmable read-only memory</em> (EPROM) for storing the custom programs that run on the microcontroller. <em>Microcontroller development boards</em> are PCBs with additional circuitry to support the microcontroller to make it more convenient to prototype with and program the chip.</p>
+<p>Sensors and actuators connect to the microcontroller through digital or analog <em>General Purpose Input/Output</em> (GPIO) pins or through a hardware bus. Standard communication protocols like <a href="https://en.wikipedia.org/wiki/I%C2%B2C">I2C</a> and <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus">SPI</a> are used for intra-device communication with the components that are connected with the bus. Adopting standards makes it easier to add or swap out components that are connected with the bus.</p>
+<p>Arduino (<a href="http://arduino.cc/en/Main/">http://arduino.cc/en/Main/</a>) is an open source device platform, with an active community who are creating compatible development boards and tooling. Device capabilities vary across the official Arduino models (<a href="https://www.arduino.cc/en/Products/Compare">https://www.arduino.cc/en/Products/Compare)</a>), and also between the dozens of third-party compatible boards. All of the devices in are Arduino-compatible microcontrollers, including the ubiquitous Arduino Uno, Particle's Electron, which includes an integrated cellular modem, and Espressif Systems' (<a href="https://espressif.com/en/products/hardware/esp8266ex/overview">https://espressif.com/en/products/hardware/esp8266ex/overview</a>) ESP8266-01, a low cost, low-power microcontroller with integrated wifi.</p>
+<figure> <heading>Arduino micro-controller development board</heading> <img alt="" height="505" src="images/picture1.jpg" width="758"></img></figure>
+
+<p>Like Arduino, the ESP8266, has an active community of adopters. Notable development boards that are based around the ESP8266, include <a href="http://www.nodemcu.com/index_en.html">NodeMCU</a>, <a href="https://docs.wemos.cc/en/latest/d1/index.html">WeMos D1</a>, and AdaFruit's Feather Huzzah (<a href="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview">https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview</a>). A number of alternative firmware options for ESP8266-based boards have been developed by the open source and maker community, enabling IoT developers to program for these boards using Lua, Python, and JavaScript, and to support over-the-air (OTA) updates.</p>
+<p><table-complex border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="Technical specifications for Arduino Uno, Particle Electron, and Espressif Systems ESP8266-01 microcontrollers"> <heading refname="table-microcontrollers">Technical specifications for Arduino Uno, Particle Electron, and Espressif Systems ESP8266-01 microcontrollers</heading> <thead> <tr> <th> Characteristic </th> <th> Feature </th> <th> Arduino Uno </th> <th> Particle Electron </th> <th> Espressif Systems ESP8266-01 </th></tr></thead> <tbody> <tr> <td colspan="5"> <strong> <em>Data acquisition and control</em></strong></td></tr> <tr> <td></td> <td> <strong>GPIO pins</strong></td> <td> 6 Analog in <br/> 14 Digital - 6 PWM </td> <td> 12 Analog in <br/> 2 Analog out <br/> 30 Digital - 13 PWM <br/></td> <td> 2 Digital <br/> 1 Analog </td></tr> <tr> <td></td> <td> <strong>Logic level voltage</strong></td> <td> 5V </td> <td> 3.3V </td> <td> 3.3V </td></tr> <tr> <td colspan="5"> <strong> <em>Data processing and storage</em></strong></td></tr> <tr> <td></td> <td> <strong>Processor</strong></td> <td> ATMega328P </td> <td> 32-bit STM32F205 <br/> ARM Cortex M3 </td> <td> 32-bit Tensilica L106 </td></tr> <tr> <td></td> <td> <strong>Processor speed</strong></td> <td> 16 KHz </td> <td> 120 MHz </td> <td> 80 MHz </td></tr> <tr> <td></td> <td> <strong>Memory</strong></td> <td> 32 kB flash, <br/> 1 kB EEPROM </td> <td> 1 Mb flash, <br/> 128 kB RAM </td> <td> 1 Mb </td></tr> <tr> <td colspan="5"> <strong> <em>Connectivity</em></strong></td></tr> <tr> <td></td> <td> <strong>Network Interfaces</strong></td> <td> None by default. Can be added with shields. </td> <td> Integrated cellular modem (2G / 3G) </td> <td> Integrated wifi </td></tr> <tr> <td colspan="5"> <strong> <em>Power</em></strong></td></tr> <tr> <td></td> <td> <strong>Recommended Power Supply</strong></td> <td> 9-12V DC 0.5 - 2A barrel, or 5V 500mA USB, or 9 - 12V on VIN pin </td> <td> 5V micro USB or 3.9V-12VDC on VIN pin </td> <td> Regulated 3.3V 300mA supply on VCC pin </td></tr> <tr> <td colspan="5"> <strong> <em>Other</em></strong></td></tr> <tr> <td></td> <td> <strong>Dimensions</strong></td> <td> 2.7 in X 2.1 in </td> <td> 2.05 in x 0.8 in </td> <td> 1.4 in x 1 in </td></tr> <tr> <td></td> <td> <strong>Typical cost</strong></td> <td> $20 </td> <td> $39 - $59 </td> <td> $10 </td></tr></tbody></table-complex></p>
+<p>The standard approach for developing the software to run on Arduino-compatible microcontrollers is to use C or C++ and the Arduino IDE, however community-developed language bindings and visual programming tools also exist. Arduino-compatible boards that share common pin layouts are able to be expanded by using optional third-party shields, for example, to add an Ethernet port or Bluetooth to an Arduino Uno. Arduino is the most widely adopted hobbyist microcontroller development environment, but others like Tessel (<a href="https://tessel.io/">https://tessel.io/</a>) and Particle.io (<a href="http://particle.io">http://particle.io</a>) natively support JavaScript, while Python is supported for boards like MicroPython's PyBoard (<a href="http://micropython.org">http://micropython.org</a>) and by WeIO (<a href="http://we-io.net/hardware/">http://we-io.net/hardware/</a>).</p>
+<p>Selecting an Arduino-compatible microcontroller makes it easier to port programs that are developed using the cross-platform Arduino libraries and Arduino IDE to run on other Arduino-compatible devices. Working through and around subtle difference is still required.</p>
+<p>For example, the Arduino Uno uses 5V logic on digital I/O pins (where 0 volts equals LOW or OFF and 5 volts equals HIGH or ON), but the ESP8266 and Particle boards use 3.3V logic (HIGH is 3.3V). This might affect your choice of sensor or actuator components, as some components only work with one or the other. Swapping sensors that are designed for 5V to 3.3V logic might result in unpredictable results and possibly damage the pins that are intolerant to higher voltages, and so you’d need to add a logic-level converter to make this work. When you get down to implementing low-level hardware features like enabling deep sleep mode or reading from connected sensors by using specific protocols, you’ll likely need to rely on device or component-specific libraries that will make your code less portable.</p>
+<h3 id="single-board-computers">Single board computers<a class="headerlink" href="#single-board-computers" title="Permanent link">&para;</a></h3>
+<p><em>Single board computers</em> (SBCs) are a step up from microcontrollers. They allow you to attach peripheral devices like keyboards, mice, and screens, as well as offering more memory and processing power (for example, a 1.2 GHz 32-bit ARM microprocessor from compared to an 8-bit 16KHz microcontroller from ).</p>
+<p>Table 2 lists technical specifications for three SBCs, the Raspberry Pi 4 (<a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a>), BeagleBone Black (<a href="http://beagleboard.org/black">http://beagleboard.org/black</a>) and DragonBoard 410c (<a href="https://developer.qualcomm.com/hardware/dragonboard-410c">https://developer.qualcomm.com/hardware/dragonboard-410c</a>).</p>
+<figure> <heading>Raspberry Pi single-board-computer</heading> <img alt="" height="488" src="images/picture2.jpg" width="732"></img></figure>
+
+<p>The distinction between microcontrollers and single-board-computers is somewhat arbitrary. Some devices, like the Onion Omega 2 (<a href="https://docs.onion.io/omega2-docs/omega2.html#omega2">https://docs.onion.io/omega2-docs/omega2.html#omega2</a>), fall somewhere in between, with almost as much on-board memory and processing capability as a low-end SBC. There are also a number of hybrid devices, like the UDOO Quad (<a href="http://www.udoo.org/docs/Introduction/Introduction.html">http://www.udoo.org/docs/Introduction/Introduction.html</a>) that integrate an ARM-based Linux system with an Arduino-compatible micro-controller.</p>
+<p><table-complex border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="Technical specifications for Raspberry Pi 4, BeagleBone Black, and DragonBoard SBCs"> <heading refname="table-sbcs">Technical specifications for Raspberry Pi 4, BeagleBone Black and DragonBoard SBCs</heading> <thead> <tr> <th> Characteristic </th> <th> Feature </th> <th> Raspberry Pi 4 </th> <th> BeagleBone Black </th> <th> Qualcomm DragonBoard 410c </th></tr></thead> <tbody> <tr> <td colspan="5"> <strong> <em>Data acquisition and control</em></strong></td></tr> <tr> <td></td> <td> <strong>GPIO pins</strong></td> <td> 40 I/O pins, including 29 Digital </td> <td> 65 Digital - 8 PWM <br/> 7 Analog in </td> <td> 12 Digital </td></tr> <tr> <td></td> <td> <strong>Logic level voltage</strong></td> <td> 3.3V </td> <td> 5V </td> <td> 1.8V </td></tr> <tr> <td colspan="5"> <strong> <em>Data processing and storage</em></strong></td></tr> <tr> <td></td> <td> <strong>Processor</strong></td> <td> ARM Cortex A72 </td> <td> AM335X ARM Cortex A8 </td> <td> ARM Cortex A53 </td></tr> <tr> <td></td> <td> <strong>Processor speed</strong></td> <td> 1.5GHz </td> <td> 1 GHz </td> <td> 1.2 GHz </td></tr> <tr> <td></td> <td> <strong>Memory</strong></td> <td> 1-4 Gb </td> <td> 512 Mb RAM, 4 Gb Flash </td> <td> 1Gb, 8Gb Flash </td></tr> <tr> <td colspan="5"> <strong> <em>Connectivity</em></strong></td></tr> <tr> <td></td> <td> <strong>Network Interfaces</strong></td> <td> Wifi, Ethernet, Bluetooth </td> <td> Ethernet, <br/> USB ports allow external wifi / Bluetooth adaptors </td> <td> Wifi, Bluetooth, GPS </td></tr> <tr> <td colspan="5"> <strong> <em>Power</em></strong></td></tr> <tr> <td></td> <td> <strong>Recommended Power Supply</strong></td> <td> 5V 3A USB Type C </td> <td> 5V 1.2A - 2A barrel </td> <td> 6.5 - 18V 2A barrel </td></tr> <tr> <td colspan="5"> <strong> <em>Other</em></strong></td></tr> <tr> <td></td> <td> <strong>Dimensions</strong></td> <td> 3.5 x 2.3 in </td> <td> 3.4 x 2.1 in </td> <td> 3.3 in x 2.1 in </td></tr> <tr> <td></td> <td> <strong>Typical cost</strong></td> <td> $35 </td> <td> $55 </td> <td> $75 </td></tr></tbody></table-complex></p>
+<p>As with microcontrollers, SBC device capabilities can be expanded through the addition of stackable expansion boards known as <em>hats</em> on Raspberry Pi and <em>capes</em> on BeagleBone Black, and through the addition of external modules, such as motor controllers or analog-to-digital converters, to mitigate limitations with the built-in device capabilities.</p>
+<p>Many SBC devices are more like a mini-PC, and run an embedded operating system, typically a streamlined Linux distribution. As a result, there are many more development tools and language choices that are available for developing embedded applications that work with the attached sensors and actuators on these devices than on microcontroller boards. However, SBCs are more complex to set up, larger, more power hungry, and more prone to problems like corruption of the SD card or flash memory where applications are stored.</p>
+<h3 id="choosing-between-microcontroller-development-boards-and-single-board-computers">Choosing between microcontroller development boards and single-board computers<a class="headerlink" href="#choosing-between-microcontroller-development-boards-and-single-board-computers" title="Permanent link">&para;</a></h3>
+<p>Although off-the-shelf microcontroller development boards and single-board computers might only be part of an  IoT solution, they are ideal for bootstrapping the development of one.</p>
+<p>One way to get started is to consider the key IoT device characteristics in light of your application's requirements, and then work through the following design decisions:</p>
+<ul>
+<li>Determine the type and number of peripheral sensors and output components that you need, and, if necessary, any design circuits for these components</li>
+<li>Select a microcontroller or single-board device to co-ordinate reading from and controlling the peripheral components</li>
+<li>Decide on the data communication protocols that you need to use for intra-device communication (for example, using I2C for communication between the microcontroller and any attached sensors)</li>
+<li>Select the networking hardware and protocols that you need to use to communicate with cloud services and apps</li>
+</ul>
+<p>For example, to set up a home automation system on a budget, you may choose the Raspberry Pi Zero W. It is a small and very low-cost SBC device  with ample processing power and memory (1GHz ARM6 processor and 512 MB RAM) to perform data processing and analytics on the device. It supports microSD card flash memory expansion up to 64GB for storing programs and data. And, it is equipped with a full 40-pin GPIO header, just like the Raspberry Pi 4, which allows connecting multiple sensors and supports both SPI and I2C protocols. It has on-board wifi for connecting with a home network, and it can be powered with micro-USB off a portable power pack or wall power supply.</p>
+<p>As you progress further with your  IoT landscape design you may stop and compare your anticipated performance with design intent. Conduct device design and prototype, embedded software selection, and the selection of upstream services and apps, but then stop to assess it. You can periodically assess your prototypes against your functional and non-functional requirements, including performance, reliability, and security, and revisit these choices as necessary.</p>
+<h2 id="iot-hardware-requirements-for-deploying-your-iot-project">IoT hardware requirements for deploying your IoT project<a class="headerlink" href="#iot-hardware-requirements-for-deploying-your-iot-project" title="Permanent link">&para;</a></h2>
+<p>IoT devices are highly specialized. They are designed to operate within very specific environments. The hardware for IoT projects vary widely. While you may prototype with generic off-the-shelf hardware, you eventually can move toward the design and development of custom PCBs and components, tailored to the requirement of your IoT solutions. As part of this process, you will need to consider these kinds of hardware requirements:</p>
+<ul>
+<li>Security requirements</li>
+<li>Ease of development</li>
+<li>Data acquisition, processing and storage requirements</li>
+<li>Connectivity requirements</li>
+<li>Power requirements</li>
+<li>Physical device design</li>
+<li>Cost requirements</li>
+</ul>
+<h3 id="security-requirements">Security requirements<a class="headerlink" href="#security-requirements" title="Permanent link">&para;</a></h3>
+<p>Security is critical element within IoT. It is imperative that it be considered at all stages of design and development. Data integrity and security captured by any device must remain intact - even during prototyping. Security requirements apply to the IoT devices themselves, your network, and the  cloud, mobile and web service applications.</p>
+<p>Related security requirements include:</p>
+<ul>
+<li>Ensuring that each device has enough processing power and memory to be able to encrypt and decrypt data and messages at the rate that they are sent and received</li>
+<li>Ensuring that the embedded software development libraries support whatever authorization and access control mechanisms are used to authenticate with upstream services and apps</li>
+<li>Choosing to adopt off-the-shelf devices that implement device management protocols for securely registering new devices as they are added to a network to avoid spoofing, and those that include firmware capabilities to support secure over the air updates for security patches</li>
+</ul>
+<h3 id="ease-of-development">Ease of development<a class="headerlink" href="#ease-of-development" title="Permanent link">&para;</a></h3>
+<p>While prototyping, ease of development is another high priority requirement so that you can quickly and easily get your IoT device up and running, capturing data, and communicating with other devices and the cloud.</p>
+<p>Consider the accessibility, availability, and quality of API documentation, development tools, and support offered by the hardware manufacturer or by the development community. Select devices that are quick and easy to program and re-flash, as well as being low touch to deploy, with zero or minimal per-device configuration required, to cut down on frustration and save time while you are developing your IoT solution.</p>
+<h3 id="data-acquisition-processing-and-storage-requirements">Data acquisition, processing, and storage requirements<a class="headerlink" href="#data-acquisition-processing-and-storage-requirements" title="Permanent link">&para;</a></h3>
+<p>The number of sensors that are connected, the resolution of the data that is captured, and the rate at which the data is sampled all determine the volume of data to be processed, which impacts on data processing and storage requirements.</p>
+<p>The amount of data that needs to be retained on a device is dependent on how frequently the device connects to transmit data upstream. A wired, always-connected device that is installed in a smart building, one that streams low volumes of raw data directly to a highly available server, will require less data processing power and storage compared to a device that needs to process large volumes of data in bursts. A device that only connects every few hours to conserve power will require more storage to log data locally in the interim.</p>
+<h3 id="connectivity-requirements">Connectivity requirements<a class="headerlink" href="#connectivity-requirements" title="Permanent link">&para;</a></h3>
+<p>Connectivity requirements for wireless networking include operating range, how far the signal will need to be transmitted, and the anticipated volume and rate of data to be transmitted. Consider fault-tolerance and the ability for a device to reconnect and retry sending data, after it was disconnected.</p>
+<p>Your hardware may have integrated network connectivity like Bluetooth or wifi, or this capability might need to be added with an expansion board or module. An external module that can be upgraded can provide more flexibility, as you have the option to try different modules to evaluate their range and power consumption.</p>
+<h3 id="power-requirements">Power requirements<a class="headerlink" href="#power-requirements" title="Permanent link">&para;</a></h3>
+<p>Many of the other requirements, including the number of sensors needed, and the rate of network transmission, will impact the device’s power requirements. Consider whether your device wll be hardwired for power, or require a portable power source like a battery or supercapacitor. If it requires a portable power supply such as a battery, you need to know the size, weight, and capacity requirements for the battery, as well as whether it must be rechargeable, replaceable, or discarded after the battery dies. If the device is rechargeable, how often should be charged, and by what means?</p>
+<h3 id="physical-device-design-requirements">Physical device design requirements<a class="headerlink" href="#physical-device-design-requirements" title="Permanent link">&para;</a></h3>
+<p>The physical device design requirements include the appearance and size of the device.</p>
+<p>The environmental conditions in which the device will be installed also need to be considered, for example, will it need a waterproof or ruggedized enclosure? For example, a device that is installed on the underside of a truck as part of a fleet monitoring application would need to be shielded to ensure it continued to operate under harsh conditions; it would need to be waterproof and resistant to dirt, shock, and vibration.</p>
+<h3 id="cost-requirements">Cost requirements<a class="headerlink" href="#cost-requirements" title="Permanent link">&para;</a></h3>
+<p>The cost of the hardware includes the initial outlay for the hardware and associated components (such as any sensors) as well as their on-going operating costs, such as power and maintenance costs in the form of replacing worn parts or defective components. Also consider possible licensing fees for some components or device drivers. Purchasing commercially available off-the-shelf development boards or SBCs may be more economical than fabricating  custom boards. As you scale out your IoT network with many devices, dedicated hardware devices may become a wiser alternative.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Every application and situation is different. There is no “one-size-fits all” approach to selecting hardware for IoT projects. Adopting standards-based, commodity hardware like microcontrollers, or single-board-computers, can save time and expense in the early stages of development, without sacrificing flexibility. What you learn in the prototyping phase can help make critical hardware design decisions later in deploying your IoT solution.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,31 @@
+I'll start building up my flows now to control my home automation system.
+
+So the first thing that I'm going to do is to create nodes to correspond to my PIR sensor and my buzzer.  So these are Raspberry Pi GPIO nodes.  And for my sensor, it's going to be the one with the Raspberry Pi icon on the left-hand side, that's an input sensor, so I can drop that into the flow and double-click to configure. So I need to set that up on the same pin as my sensor, that's pin 7. I don't need to worry about these values for now, but I will give it a name, PIR sensor, so that I can identify the node in the flow. So now whenever that sensor is triggered, a message will be sent from that node with a raw reading of the sensor in the payload.
+
+The next thing that I'll do is set up a GPIO node for my buzzer.  This time it's going to be an output node. And I'm going to use that so that I can verify whenever my sensor is triggered by beeping the buzzer.  So, I'll drag the GPIO node into the flow, double-click to edit, and set that up on pin 11 to correspond to my buzzer. Now, it's an output node, so the options are a bit different, but it is a digital output. And I can give it a name just like the sensor, so I'll call it buzzer.
+
+So, if I wanted to, I could connect that input node directly to the output node, and the buzzer would beep whenever the sensor is triggered.  But, it would beep continuously when the sensor is triggered.  So instead, what I'll do is I'll search for a trigger node, and I'll drop that in between. So I can hook up the output of the sensor to the input of the trigger, and the output of the trigger to the input of the buzzer.  And I can configure that trigger so that it'll only cause the buzzer to trigger for a short period of time, just 200 miliseconds; so it's only going to be a short beep. And I can also get the trigger to reset.  So, if I set the trigger to reset whenever the value of the sensor is zero, it means it's only going to trigger the buzzer when the sensor is activated. So when the value is 1.
+
+So now that I've done that, I can deploy this to test it out.  And now, whenever I activate the motion sensor, I should hear the buzzer beep.  And the status of those individual nodes will update, in real time, so whenever the sensor is triggered, I'll see the real sensor value beneath the node, and whenever the buzzer is beeping, I'll see the value of the buzzer beneath the node there too. So now I know that my buzzer works, and I know that my sensor is reading.  But what I want to do is see the actual message that is coming from that node.  So I'll go and grab a debug node, and drop that into my flow. And put the message that's coming from the sensor into the debug node.  And I can configure it to display the entire message.  So, now if I deploy that, whenever my sensor is triggered, I'll see the entire message that is coming from my sensor node in the debug panel.  I can see that the payload there is either 1 or 0 depending on if the sensor has been activated or not.  I'll just disconnect this buzzer while I'm working so that it's not triggerig every time I test the motion sensor.  And now I can also delete the debug node now that I know what the message looks like.
+
+So the next thing that I want to do is add in a home kit node.  So this home kit node...I need to first of all configure it with a home kit accessory.  And, I'll need to configure a pin code so that when I connect to it from my iOS device I enter that pin code to connect to the accessory.  I can leave these at the defaults, but I will configure it as a sensor type of accessory and I'll give it a name, so I'm going to call it a motion sensor.  Now that I've set up the accessory, I can now create an instance, so its going to be a motion sensor and I can give it a name so because this one is going to be connected to my front door, I'll call it my door sensor.
+
+So now that I have that home kit node configured, I can hook it up to my sensor. So, the value from the PIR sensor is going to feed into the home kit node so it'll trigger and appear on my iOS device. But the thing is, I don't want to use the raw value, I don't want to use a 1 or 0, I'm going to have to convert it into a format that that home kit node understands.  So in order to work out what keys it's expecting in the payload, I'm going to drop in a function, and I'm just going to send through some dummy values. So if I set the message payload to be foobar... and then hook that function up to my home kit node, and hook my sensor up to the function, so that it will trigger when the sensor activates.  Now whenever the sensor activates, I should see a message appearing from the home kit node saying which characteristics, which keys it is expecting in that payload.  And the one that we are interested in here is the motion detected key. So this is what we're going to need to set based on the raw sensor reading.  So I'll go in and update that conversion function, set motion detected, and I'll set it to the value of the message payload that's come in from the PIR sensor.  So this is going to be the raw reading from the sensor.  
+
+So if we now deploy this version of the flow, whenever the sensor triggers we should see motion sensor is set to one or zero underneath the door sensor.  Now this should probably be a Boolean, so what I'll do is I'll go and tweak the conversion function so that it is no longer a raw number.  And the easiest way to do that is to use the negation operator, so if I negate the raw value twice, it will convert into a Boolean.  So there we have it.  Motion detected true or false depending on whether the sensor is triggered.
+
+Let's add that in now to our Home app on the iPhone. So what we do is go into the Home app, and we see motion sensor has popped up there.  It says that its not certified and it might not work, that's going to happen for all of the ones we set up with Raspberry Pi, and that's ok.  And we'll enter a code manually for this one, just all ones, and we'll wait for that to pair, and there it is.  So now, this is our default room door sensor, click Done.  Whenever this triggers now, (beep), see, it shows up as triggered... and now I could go to my Apple TV or my iPad and I could set that up as part of my home automation flow.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

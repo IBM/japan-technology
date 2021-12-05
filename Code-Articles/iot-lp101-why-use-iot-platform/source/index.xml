@@ -1,0 +1,172 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="yes" layout="ArticleStandard18" skill-level="3" toc="yes"><id cma-id="1046519" original="yes"/><keywords content="IoT, IoT platforms"/><meta-last-updated day="12" initials="corbinm@us.ibm.com" month="02" year="2018"/><content-area-primary name="iot"/><title>Streamlining the development of your IoT applications by using an IoT
+            platform</title><subtitle>A guide to help you understand why you should you use an IoT
+            Platform</subtitle><pdf pages="6" paperSize="common" size="141 KB" url="iot-lp101-why-use-iot-platform-pdf.pdf"/><author email="anna.m.gerber@gmail.com" email-cc="troy@backstopmedia.com" jobtitle="Senior Software Developer" publish-email="no"><author-level>none</author-level><bio>Anna Gerber is a full-stack developer with 15 years experience in the
+                university sector, formerly a Technical Project Manager at The University
+                of Queensland ITEE eResearch specialising in Digital Humanities, and a
+                Research Scientist at the Distributed System Technology Centre (DSTC).
+                Anna is a JavaScript robotics enthusiast and maker and enjoys tinkering
+                with soft circuits and 3D printers.</bio><img align="left" alt="Anna Gerber" height="60" src="https://www.ibm.com/developerworks/i/p-agerber60.jpg" valign="top" width="60"/><author-name><GivenName>Anna</GivenName><FamilyName>Gerber</FamilyName></author-name><company-name/><social-networks><social-network><social-network-name>dW author profile</social-network-name><social-network-url>https://developer.ibm.com/author/anna.m.gerber/</social-network-url></social-network></social-networks></author><date-published day="05" month="06" year="2017"/><date-updated day="03" month="01" year="2018"/><social-media-meta><twitter-summary-card><twitter-card-abstract>This article explores the key capabilities of IoT
+                    platforms and considers the top general-purpose end-to-end IoT
+                    platforms. You'll learn why you should adopt an IoT platform to
+                    rapidly develop your IoT solutions and quickly get the most value from
+                    your IoT data.</twitter-card-abstract><twitter-card-img height="440" src="https://www.ibm.com/developerworks/i/twitterdw-topic-iot.png" width="880"/></twitter-summary-card></social-media-meta><abstract>This article explores the key capabilities of IoT platforms and
+            considers the top general-purpose end-to-end IoT platforms. You'll learn why
+            you should adopt an IoT platform to rapidly develop your IoT solutions and
+            quickly get the most value from your IoT data.</abstract><docbody><sidebar><heading>IoT 101: Getting started with IoT development</heading><p>This article is part of the <a href="https://www.ibm.com/developerworks/library/iot-lp101-quick-start-guide-iot-developers/index.html" target="_blank">IoT 101 learning path</a>, a quick-start guide
+                    for IoT developers.</p><ul><li><a href="https://developer.ibm.com/dwblog/2017/just-getting-started-iot-consider-7-key-iot-concepts-skills/" target="_blank">IoT concepts and skills</a></li><li><a href="https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.html" target="_blank">IoT hardware guide</a></li><li><a href="https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/index.html" target="_blank">IoT networking guide</a></li><li>IoT platforms (this article)</li><li><a href="https://www.ibm.com/developerworks/library/iot-lp101-get-started-develop-iot-home-automation/index.html" target="_blank">Tutorial: Build a simple home automation system</a></li></ul></sidebar><p>Developing and deploying IoT systems is complex<mdash/>it involves
+                coordinating a diverse range of connected devices, networks, cloud
+                services, and mobile and web applications. </p><p>IoT platforms provide middleware to connect and manage hardware devices and
+                the data that they collect with user-facing mobile and web applications.
+                These IoT platforms are typically designed to establish secure
+                communication between devices, apps, and services. They also make it
+                faster and easier to develop and deploy IoT applications. IoT platforms
+                are designed to be scalable and reliable. For example, they implement
+                fault tolerance so that your IoT systems will continue to operate in the
+                face of device, network, or cloud service failures. By leveraging
+                standards and providing well documented APIs and SDKs, IoT platforms
+                enable you to integrate heterogeneous devices, apps, and services into
+                your IoT system, providing you with the flexibility to customize and
+                substitute components as requirements change. </p><p>The Internet of Things is evolving at a rapid pace, so you'll need to
+                develop your IoT applications quickly and efficiently to minimize time to
+                market and remain competitive. Although each IoT initiative comes with its
+                own set of unique requirements, most IoT projects share some common
+                requirements for the management of connected devices and the
+                communication, storage, and analysis of the data that they generate. IoT
+                platforms address these fundamental requirements by providing generic,
+                customizable tools and services and also the <a href="https://developer.ibm.com/iotplatform/2017/01/17/iot-platform-vs-iot-infrastructure/">abstractions</a> that you can build upon when you develop your custom
+                IoT solutions. </p><p>By exploring the key capabilities of IoT platforms and considering the top
+                general-purpose end-to-end IoT platforms, you will come to realize why you
+                should adopt an IoT platform to rapidly develop your IoT solutions and
+                quickly get the most value from your IoT data.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="2IoTplatformcapabilitiesoutline" type="h2">IoT platform capabilities</heading><p>Consider these key IoT platform capabilities: </p><ul><li>Device management</li><li>Data communication protocols</li><li>Data storage </li><li>Rules and analytics</li><li>Rapid application development and deployment</li><li>Integration </li><li>Security </li><li>Cost of developing and maintaining the solutions that you build with
+                    the IoT platform. </li></ul><p>The relative importance of each of these capabilities will depend on your
+                use case. For example, consider a small-scale home automation system.
+                Device management is not a primary concern because there are so few
+                devices to manage. Because a home automation use case is a fairly reactive
+                use case, it is less important that the IoT platform provide data storage
+                and data analytics capabilities to store and analyze historical sensor
+                readings. However, the IoT platform must support fast and reliable data
+                communication protocols to ensure that events that are detected by sensors
+                are not missed and can be responded to in near real time. And yet, for an
+                industrial IoT application that involves thousands of sensors that monitor
+                factory equipment in order to detect equipment failures and to predict
+                when to perform maintenance on the equipment, the device management and
+                analytics capabilities of the IoT platform would obviously be much more
+                important.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="21Devicemanagementoutline" type="h3">Device management</heading><sidebar><p>Read more about managing IoT devices in my developerWorks article, "<a href="https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.html">Choosing the best hardware for your next IoT project</a>."</p></sidebar><p>One of the core functions of an IoT platform is managing IoT hardware
+                devices. Device management occurs throughout the entire lifecycle of each
+                IoT device, including provisioning of new devices, monitoring and
+                maintaining operating devices, and eventually decommissioning devices when
+                they reach their end of life. IoT platforms provide features for managing
+                device registration, configuration, and over-the-air updates. With an IoT
+                Platform, you can receive alerts for the device status and monitor
+                statistics for the device health or usage. IoT Platforms also provide
+                remote debugging for when things go wrong. Asset management, including the
+                ability to list and search connected devices and to query and manage
+                device metadata, also falls under the umbrella of device management. </p><p>Look for IoT platforms that are device agnostic and that can integrate with
+                your existing Enterprise Resource Planning (ERP) systems.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="22Datacommunicationprotocolsoutline" type="h3">Data communication protocols</heading><sidebar><p>Read more about IoT networking protocols in my developerWorks article,
+                        "<a href="https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/index.html">Connecting all the things in the Internet of Things</a>."</p></sidebar><p>Secure and reliable communication between IoT devices, gateways, and
+                cloud-based apps and services is essential for enabling remote management
+                and updating the connected devices as well as for the transmission of
+                data. Although some data can be stored and processed locally with edge
+                analytics, some of the data that is collected from sensors and other IoT
+                devices will need to be delivered to cloud services or apps upstream for
+                aggregation, further processing, or visualization. Because thousands of
+                devices are often connected within a single IoT system, many IoT platforms
+                incorporate message broker services to enable devices and gateways to send
+                and receive messages with low latency and at scale. These message broker
+                services usually use standard communication protocols like MQTT, CoAP, or
+                XMPP. Some platforms also support web sockets for real-time
+                communication.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="23Datastorageoutline" type="h3">Data storage</heading><p>With billions of connected devices generating data at an unprecedented
+                rate, where to store the vast quantities of data is another aspect to
+                consider when you are choosing an IoT platform. Data lakes are used to
+                store data in a variety of formats including raw, structured,
+                semi-structured, or structured. These data lakes are often built on top of
+                NoSQL or Hadoop technologies for maximum flexibility and scalability. Data
+                lakes and other data stores provided by IoT platforms are usually highly
+                available, support concurrent reads and writes, and include configurable
+                indexes to improve performance when your IoT app accesses and queries the
+                data. </p><heading alttoc="" inline-commenting-id="cmt_3" refname="24RulesandAnalyticsoutline" type="h3">Rules and Analytics</heading><p>Once the data is reliably stored, the next consideration is how to gain
+                insight from your IoT data. Many IoT platforms offer analytics
+                capabilities that include real-time and batch processing. A rules engine
+                demonstrates the power of real-time data analytics to produce actionable
+                insights, with rules encoding the conditions that are used to trigger
+                actions. Some platforms provide turnkey analytics applications, however a
+                platform that supports customization of built-in reports, analytics
+                dashboards, and data visualizations is an even more flexible choice.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="25Rapidapplicationdevelopmentanddeploymentoutline" type="h3">Rapid application development and
+                deployment</heading><p>Speeding up development and delivery of purpose-built applications is one
+                of the main motivating factors for adopting an IoT platform. So, it makes
+                sense to select an IoT platform that provides code boilerplate generation
+                tools, templates or widgets to support rapid development, and tools to
+                streamline and automate deployment. </p><heading alttoc="" inline-commenting-id="cmt_3" refname="26Integrationoutline" type="h3">Integration</heading><p>Interoperability is an important consideration within IoT because of the
+                huge variety of connected devices and IoT-related services already in
+                production, not to mention the billions more that are anticipated to come
+                online in the coming years. With IoT evolving so quickly, future-proofing
+                your IoT system is essential. IoT platforms achieve this interoperability
+                by adopting standards and by providing additional layers of abstraction
+                and normalization over the underlying technologies. For example, your
+                applications are less likely to break when things change, if you upgrade
+                your IoT devices to use a sensor with a higher resolution. IoT platforms
+                provide integration with other platforms, devices, web services, tools,
+                and applications through SDKs and APIs, with REST APIs being particularly
+                common.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="27Securityoutline" type="h3">Security</heading><p>Security is an integral part of the design of any IoT solution. Security
+                includes securing devices and network communication in addition to
+                implementing cloud and application-level security. Choose an IoT platform
+                that provides authentication and authorization services, preferably with
+                integration to existing systems that are used for identity management like
+                LDAP, and one that adopts standards, like X.509 for device authentication.
+                For secure communication, your IoT platform should adopt a standard like
+                TLS for encrypting content and ensuring data integrity. IoT platforms
+                might also implement role-based access control for users, devices,
+                gateways, and services, as well as providing security monitoring and
+                auditing tools.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="28Costoutline" type="h3">Cost</heading><p>Speeding up development of IoT solutions is one of the main benefits of
+                adopting an IoT platform, however an IoT platform can also help to reduce
+                development costs. Ongoing costs, like subscription fees for accessing a
+                hosted IoT platform or hosting costs for a self-hosted platform, will
+                typically be less than the cost of developing and maintaining custom-made
+                in-house solutions. Many IoT platforms offer free trial periods or low
+                usage tiers that you can use to get started with almost no upfront
+                expenditure, but be sure to factor in how those costs will change after
+                the initial trial is over.</p><heading alttoc="" inline-commenting-id="cmt_3" refname="3ComparingIoTplatformsoutline" type="h2">Comparing IoT platforms</heading><p>There are hundreds of IoT platforms available from a range of vendors. Some
+                platforms are highly specialized, for example, only catering to one market
+                vertical like GE Predix (<a href="https://www.predix.io/)">https://www.predix.io/)</a>, a PaaS IoT platform aimed specifically
+                at Industrial IoT. Other IoT platforms are focused on providing only a
+                subset of the functions that might be required for your IoT system, rather
+                than an end-to-end IoT platform solution, for example, Cisco and SAS
+                Edge-to-Enterprise IoT Analytics Platform, which is focused on IoT
+                analytics only. As a result, you might choose to adopt more than one IoT
+                platform.</p><p>As a starting point, here are five popular general-purpose end-to-end IoT
+                platforms that are suitable for a wide range of applications: </p><ul><li><strong><a href="https://www.ibm.com/internet-of-things/platform/watson-iot-platform/">IBM Watson IoT</a></strong><sidebar><p>Want to give Watson IoT Platform a try?  Create your Internet of
+                        Things application with Watson IoT Platform at no charge with your
+                    <a href="https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform/trial"><strong>free trial</strong></a>.</p></sidebar><p>Built on top of the IBM Cloud platform, IBM Watson IoT is a
+                        mature, developer-friendly IoT platform with strengths in
+                        real-time analytics and cognitive computing.</p><p>The platform also supports device management, authentication and
+                        authorization, secure data storage and communication, standard
+                        communication protocols like MQTT and HTTPS, rules, REST APIs and
+                        SDKs. According to the IDC, a market research company, the <a href="https://www.ibmjournal.com/internet-of-things/ibm-watson-iot-platform-could-be-the-platform-of-platforms">Watson IoT portfolio and the Watson IoT Platform were named
+                            the IoT Platform of Platforms</a>.</p></li><li><strong><a href="https://aws.amazon.com/iot-platform/how-it-works/">Amazon Web Services IoT</a></strong><p>AWS IoT is a highly scalable IoT platform. It includes an SDK,
+                        authentication and authorization, device registry, a device
+                        gateway that communicates with devices using MQTT, WebSockets or
+                        HTTP, and a rules engine that integrates with existing AWS
+                        services like DynamoDB. An interesting feature of AWS IoT is
+                        "device shadows," which is a persistent virtual version of each
+                        device including the last known state of the device.</p></li><li><strong><a href="https://www.microsoft.com/en-au/internet-of-things/azure-iot-suite">Microsoft Azure IoT Suite</a></strong><p>The Microsoft Azure IoT Suite is another comprehensive IoT
+                        platform, which includes support for device management and device
+                        twins (like device shadowing) by using Azure IoT Hub, standard
+                        communication protocols including MQTT, AMQP, and HTTP, secure
+                        storage, rules, and analytics engines supporting predictive
+                        analysis and data visualization.</p></li><li><strong><a href="https://www.thingworx.com/">ThingWorx</a></strong><p>PTC ThingWorx is an enterprise IoT platform that supports
+                        model-driven rapid application development. Features include
+                        device management, application modeling, support for standard
+                        protocols including MQTT, AMQP, XMPP, CoAP, and WebSockets and
+                        predictive analytics, as well as REST APIs and SDKs to support
+                        integration.</p></li><li><strong><a href="https://www.kaaproject.org/">Kaa</a></strong><p>Kaa
+                        is a free open source IoT platform that is published under an
+                        Apache 2.0 license, which allows the platform to be self-hosted.
+                        Kaa includes REST APIs and SDKs for Java, C++, and C, with
+                        features for device management, data collection, configuration
+                        management, notifications, load balancing, and data analysis.</p></li></ul><heading alttoc="" inline-commenting-id="cmt_4" refname="4Summaryoutline" type="h2">Summary</heading><p>With so many different IoT platforms to choose from, selecting a platform
+                may seem daunting at first. Consider your requirements against the
+                capabilities of each platform to select the best match for your business.
+                Adopting an IoT platform can simplify, speed up, and otherwise streamline
+                the development of your next IoT project. By using an IoT platform, you
+                can focus on the requirements that are unique to your use-case and quickly
+                deliver value to your customers.</p><related-topics-block><link><text>IoT Platform versus IoT Infrastructure</text><url>https://developer.ibm.com/iotplatform/2017/01/17/iot-platform-vs-iot-infrastructure/</url></link><link><text>Watson IoT Platform Developer Center</text><url>https://developer.ibm.com/iotplatform/</url></link><link><text>Connecting all the things in the Internet of Things</text><url>https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/index.html</url></link><link><text>Choosing the best hardware for your next IoT project</text><url>https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.html</url></link></related-topics-block></docbody></dw-article><!-- PUB_TO_MAV --></dw-document>

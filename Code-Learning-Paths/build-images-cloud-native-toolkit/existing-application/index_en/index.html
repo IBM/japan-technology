@@ -1,0 +1,5245 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Use the Cloud-Native Toolkit on an existing application - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Use the Cloud-Native Toolkit on an existing application
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          AutoAIを探索する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoAIを探索する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoAIを探索する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explore-autoai/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explore-autoai/nextgen-automl-watson-autoai/" class="md-nav__link">
+        次世代AutoML-Watson AutoAI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/compare-model-building-with-and-without-automated-machine-learning/" class="md-nav__link">
+        自動機械学習ありなしで構築したモデルの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/generate-machine-learning-model-pipelines-to-choose-the-best-model-for-your-problem-autoai/" class="md-nav__link">
+        最適なモデルパイプラインの生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/autoai-code-generation/" class="md-nav__link">
+        AutoAIでのPython notebookの自動生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/create-an-application-to-predict-your-insurance-premium-cost-with-autoai/" class="md-nav__link">
+        python機械学習ウェブアプリの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/automated-feature-engineering-for-relational-data-with-ibm-autoai/" class="md-nav__link">
+        リレーショナルデータの自動特徴量エンジニアリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explore-autoai/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Cloud Native Toolkitでのイメージビルド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Native Toolkitでのイメージビルド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Native Toolkitでのイメージビルド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-toolkit/" class="md-nav__link">
+        ツールキットのインストール
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kits/" class="md-nav__link">
+        スターターキット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        既存のアプリケーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../poly-repo/" class="md-nav__link">
+        poly-repo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Cloud Pak for Data Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Pak for Data Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Pak for Data Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud-pak-for-data-learning-path/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/intro-to-cloud-pak-for-data/" class="md-nav__link">
+        IBM Cloud Pak for Data 概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/virtualizing-db2-warehouse-data-with-data-virtualization/" class="md-nav__link">
+        Data Virtualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/data-visualization-with-data-refinery/" class="md-nav__link">
+        Data VirtualizationとData Refinery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/find-prepare-and-understand-data-with-watson-knowledge-catalog/" class="md-nav__link">
+        データを検索、準備、そして理解する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/data-analysis-model-building-and-deploying-with-wml/" class="md-nav__link">
+        データの分析、モデルの生成、そしてデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/automate-model-building-with-autoai/" class="md-nav__link">
+        AutoAIで自動的にモデルを生成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-an-ai-model-visually-with-spss-modeler-flow/" class="md-nav__link">
+        予測可能な機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/getting-started-with-watson-openscale/" class="md-nav__link">
+        Watson OpenScaleでのモデルのモニタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud-pak-for-data-learning-path/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          DataOps基礎
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataOps基礎" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          DataOps基礎
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dataops-fundamentals/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/incorporate-enterprise-governance-in-your-data/" class="md-nav__link">
+        データにエンタープライズガバナンスを組み込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-to-discover-data-that-resides-in-your-data-sources/" class="md-nav__link">
+        データソースに存在するデータを発見する方法を学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/analyze-discovered-data-to-gain-insights-on-the-quality-of-your-data/" class="md-nav__link">
+        発見されたデータを分析して、データの質についての洞察を得る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/protect-your-data-using-data-privacy-features/" class="md-nav__link">
+        データプライバシー機能によるデータの保護
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-a-single-customer-view-of-your-data-with-data-virtualization/" class="md-nav__link">
+        データの仮想化により、お客様のデータを一元管理する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dataops-fundamentals/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          Data Quality AI Toolkitについて
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Quality AI Toolkitについて" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data Quality AI Toolkitについて
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/assessing-quality-of-tabular-data-sets-using-apis/" class="md-nav__link">
+        APIを用いた表形式データセットの品質評価
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/deep-dive-into-class-overlap-label-purity/" class="md-nav__link">
+        クラスの重複とラベルの純度をより深く知る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          IBM Event Streams バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM Event Streams バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          IBM Event Streams バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-event-streams-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/event-streams-fundamentals/" class="md-nav__link">
+        イベントストリームの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/event-streams-kafka-fundamentals/" class="md-nav__link">
+        kafkaの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/deploying-and-using-a-basic-kafka-instance/" class="md-nav__link">
+        kafkaインスタンスのデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/event-streams-hands-on-java-sample/" class="md-nav__link">
+        ハンズオン イベント ストリーム アプリ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/event-streams-badge-event-streams-dev-challenge/" class="md-nav__link">
+        イベントストリーム コーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/event-streams-dev-cheat-sheet/" class="md-nav__link">
+        イベントストリーム開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-event-streams-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          IBM MQ バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM MQ バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          IBM MQ バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-mq-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/mq-fundamentals/" class="md-nav__link">
+        MQの基礎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-connect-app-queue-manager-containers/" class="md-nav__link">
+        Que Managerの作成と設定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-setting-up-using-ibm-mq-console/" class="md-nav__link">
+        IBM MQコンソールを使用したMQのセットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-develop-mq-jms/" class="md-nav__link">
+        初めてのMQアプリを書く
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-badge-mq-dev-challenge/" class="md-nav__link">
+        MQコーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/mq-dev-cheat-sheet/" class="md-nav__link">
+        MQ開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-mq-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_8">
+          IBM mono2microの導入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM mono2microの導入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          IBM mono2microの導入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-ibm-mono2micro/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/mono2micro-automate-application-refactoring-using-ai/" class="md-nav__link">
+        mono2microの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/" class="md-nav__link">
+        メリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/a-non-disruptive-approach-to-transform-java-monoliths-to-microservices/" class="md-nav__link">
+        アプローチ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/transform-monolithic-java-applications-into-microservices-with-the-power-of-ai/" class="md-nav__link">
+        モノリシックなアプリを変換する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-ibm-mono2micro/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9">
+          IOT開発を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-getting-started-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-key-concepts-skills-get-started-iot/" class="md-nav__link">
+        コンセプトとスキル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp101-best-hardware-devices-iot-project/" class="md-nav__link">
+        ハードウェアガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp101-connectivity-network-protocols/" class="md-nav__link">
+        ネットワーキングガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
+        IOTプラットフォーム
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
+        IOTソリューションの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-getting-started-iot-development/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10">
+          IOT開発の次の一歩
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発の次の一歩
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-next-steps-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
+        IOTアーキテクチャー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
+        IOTセキュリティ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
+        IOTデータの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
+        IOTデバイスの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
+        次のIOTソリューションを構築する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-next-steps-iot-development/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11">
+          Kafkaアプリケーションの開発
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kafkaアプリケーションの開発" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Kafkaアプリケーションの開発
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/introduction/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/getting-started/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/getting-to-production/index.md" class="md-nav__link">
+        本番に向けて
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/more-resources/index.md" class="md-nav__link">
+        その他のリソース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12">
+          Kubernetes Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_12">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-kubernetes/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/linux-basics-and-commands/" class="md-nav__link">
+        Linuxの基本とコマンド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/yaml-basics-and-usage-in-kubernetes/" class="md-nav__link">
+        kubernetesにおけるyamlの基本と使用方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-kubernetes/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_13">
+          KubernetesをOpenShiftに移行する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="KubernetesをOpenShiftに移行する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          KubernetesをOpenShiftに移行する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../migrate-kubernetes-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/migrate-your-kubernetes-images-to-openshift/" class="md-nav__link">
+        イメージの移行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/migrate-kubernetes-pod-security-policies-openshift-security-context-constraints/" class="md-nav__link">
+        kubernetes PSPをOpenShift SCCに移行する。
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../migrate-kubernetes-openshift/tutorial/" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../migrate-kubernetes-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_14">
+          Netezzaパフォーマンスサーバを使った学習の開始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Netezzaパフォーマンスサーバを使った学習の開始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_14">
+          <span class="md-nav__icon md-icon"></span>
+          Netezzaパフォーマンスサーバを使った学習の開始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-getting-started-with-netezza-performance-server/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/access-and-analyze-data-in-netezza-performance-server/" class="md-nav__link">
+        データへのアクセスと分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/load-and-access-data-from-your-cloud-data-warehouse/" class="md-nav__link">
+        クラウドデータウェアハウスからのデータの読み込みとアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/predict-energy-prices-with-in-database-analytics/" class="md-nav__link">
+        データベース分析によるエネルギー価格の予測
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-getting-started-with-netezza-performance-server/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_15">
+          OpenShiftのSecure Context Constraints(SCC)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OpenShiftのSecure Context Constraints(SCC)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_15">
+          <span class="md-nav__icon md-icon"></span>
+          OpenShiftのSecure Context Constraints(SCC)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/intro/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/scc-permissions/" class="md-nav__link">
+        SCC 権限
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/openshift-predefined-scc/" class="md-nav__link">
+        OpenShiftの定義済みSCC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/scc-availability/" class="md-nav__link">
+        SCCの可用性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/deployment-specify-permissions/" class="md-nav__link">
+        デプロイメントでの権限の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/scc-tutorial/" class="md-nav__link">
+        SCCチュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_16">
+          pythonを使ったデータ解析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pythonを使ったデータ解析" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_16">
+          <span class="md-nav__icon md-icon"></span>
+          pythonを使ったデータ解析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/introduction-to-geospatial-data-using-python/" class="md-nav__link">
+        pythonを使った地理空間データの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/working-with-geospatial-vector-data-in-python/" class="md-nav__link">
+        pythonで地理空間ベクトルデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/working-with-geospatial-raster-data-in-python/" class="md-nav__link">
+        pythonで地理空間ラスターデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17" type="checkbox" id="__nav_1_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17">
+          Red Hat OpenShiftでマルチテナンシーを実現する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Red Hat OpenShiftでマルチテナンシーを実現する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_17">
+          <span class="md-nav__icon md-icon"></span>
+          Red Hat OpenShiftでマルチテナンシーを実現する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/introduction/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/multitenancy-and-role-based-access-control/" class="md-nav__link">
+        RBAC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/network-isolation/" class="md-nav__link">
+        ネットワークの分離
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/resource-isolation/" class="md-nav__link">
+        リソースアイソレーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_18" type="checkbox" id="__nav_1_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_18">
+          Streamsを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Streamsを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_18">
+          <span class="md-nav__icon md-icon"></span>
+          Streamsを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../streams-get-started/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-ibm-streams/" class="md-nav__link">
+        IBM Streamsの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-your-first-ibm-streams-app-without-writing-code/" class="md-nav__link">
+        初めてのIBM Streamsアプリを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/add-event-streams-and-a-db-in-python-to-clickstream/" class="md-nav__link">
+        Apache Kafkaからデータを取り込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/build-a-streaming-app-using-ibm-streams-python-api/" class="md-nav__link">
+        pythonのAPIを使ってストリーミングアプリを構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/access-streaming-data-with-rest-services/" class="md-nav__link">
+        ストリーミングデータにレストサービスでアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/score-streaming-data-with-a-machine-learning-model/" class="md-nav__link">
+        ストリーミングデータを機械学習モデルでスコアリングする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../streams-get-started/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_19" type="checkbox" id="__nav_1_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_19">
+          Watson Discoveryを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_19">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-discovery/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_20" type="checkbox" id="__nav_1_20" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_20">
+          Watson Assistantを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Assistantを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_20">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Assistantを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-assistant/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-watson-assistant/" class="md-nav__link">
+        Watson Assistantの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-your-first-assistant-powered-chatbot/" class="md-nav__link">
+        chatbot アシスタント
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/embed-watson-assistant-in-website/" class="md-nav__link">
+        chatbotを埋め込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/add-watson-discovery-skills-to-your-watson-assistant-chatbot/" class="md-nav__link">
+        Watson Assistant ChatbotにWatson Discoveryのスキルを追加する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/integrate-voice-services-to-your-watson-assistant/" class="md-nav__link">
+        Webベースのchatbotを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-assistant/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_21" type="checkbox" id="__nav_1_21" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_21">
+          Watson Machine Learning Acceleratorを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Machine Learning Acceleratorを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_21">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Machine Learning Acceleratorを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/introduction-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/how-to-use-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの使い方
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/elastic-distributed-training-edt-in-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Accelerator Elastic Distributed Traning(EDT)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/use-snap-ml-concurrently/" class="md-nav__link">
+        SnapMLの同時使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/watson-machine-learning-videos/" class="md-nav__link">
+        Watson Mahine Learning ビデオ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_22" type="checkbox" id="__nav_1_22" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_22">
+          Watson Studioを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Studioを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_22">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Studioを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-studio/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-watson-studio/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-data-visualization-preparation-transformation/" class="md-nav__link">
+        Watson Studio データの可視化、準備、変換
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-auto-ai/" class="md-nav__link">
+        モデル構築の自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-spss-modeler-flow/" class="md-nav__link">
+        spss modelerフローの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-using-jupyter-notebook/" class="md-nav__link">
+        Watson Studio上のJupyter Notebookでモデルをビルドする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-studio/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_23" type="checkbox" id="__nav_1_23" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_23">
+          アプリケーション・モダナイゼーションを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="アプリケーション・モダナイゼーションを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_23">
+          <span class="md-nav__icon md-icon"></span>
+          アプリケーション・モダナイゼーションを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/intro-app-mod/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/intro-microservices/index.md" class="md-nav__link">
+        マイクロサービスの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/modernizing-apps-step-by-step/index.md" class="md-nav__link">
+        ステップバイステップでアプリをモダナイズ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_24" type="checkbox" id="__nav_1_24" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_24">
+          異常検知APIを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="異常検知APIを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_24">
+          <span class="md-nav__icon md-icon"></span>
+          異常検知APIを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/what-is-anomaly-detection/" class="md-nav__link">
+        異常検知(Anomaly Detection, アノマリー検知)とは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/anomaly-detection-api/" class="md-nav__link">
+        異常検知用API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/industry-use-case/" class="md-nav__link">
+        業界のユースケース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_25" type="checkbox" id="__nav_1_25" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_25">
+          エッジAI SDKを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="エッジAI SDKを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_25">
+          <span class="md-nav__icon md-icon"></span>
+          エッジAI SDKを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/what-is-edge-ai/" class="md-nav__link">
+        エッジAIとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/coreset/" class="md-nav__link">
+        コアセット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/model-fusion/" class="md-nav__link">
+        モデルフュージョン
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_26" type="checkbox" id="__nav_1_26" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_26">
+          開発者のための機械学習 Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="開発者のための機械学習 Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_26">
+          <span class="md-nav__icon md-icon"></span>
+          開発者のための機械学習 Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-machine-learning-for-developers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-to-machine-learning/" class="md-nav__link">
+        機械学習の概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初のモデルを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-regression-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        回帰アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-classification-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        分類アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-clustering-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        クラスタリング・アルゴリズムを学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-machine-learning-for-developers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_27" type="checkbox" id="__nav_1_27" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_27">
+          教師付き深層学習
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="教師付き深層学習" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_27">
+          <span class="md-nav__icon md-icon"></span>
+          教師付き深層学習
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/convolutional-neural-networks/index.md" class="md-nav__link">
+        畳み込みニューラルネットワーク(CNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/recurrent-neural-networks/index.md" class="md-nav__link">
+        回帰型ニューラルネットワーク(RNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_28" type="checkbox" id="__nav_1_28" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_28">
+          クラウドを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="クラウドを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_28">
+          <span class="md-nav__icon md-icon"></span>
+          クラウドを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-cloud/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-cloud-computing/index.md" class="md-nav__link">
+        クラウドコンピューティングとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/public-cloud-explained/index.md" class="md-nav__link">
+        パブリッククラウドの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-hybrid-cloud/index.md" class="md-nav__link">
+        ハイブリッドクラウドとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/deploy-your-first-app-to-ibm-cloud/index.md" class="md-nav__link">
+        アプリをIBMクラウドに展開
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/quickly-stand-up-protected-web-interface-for-cloud-native-app-on-ibm-cloud/index.md" class="md-nav__link">
+        IBMクラウド上でのnodejsスターターアプリケーションの開発
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-cloud/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_29" type="checkbox" id="__nav_1_29" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_29">
+          コンテナを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="コンテナを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_29">
+          <span class="md-nav__icon md-icon"></span>
+          コンテナを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-containers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-containers/what-are-containers/" class="md-nav__link">
+        コンテナとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/true-benefits-of-moving-to-containers-1/" class="md-nav__link">
+        コンテナへの移行のメリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/building-docker-images-locally-and-in-cloud/" class="md-nav__link">
+        Dockerイメージの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/kubernetes-101-labs/" class="md-nav__link">
+        kubernetes 101 labs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-containers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_30" type="checkbox" id="__nav_1_30" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_30">
+          サーバーレスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="サーバーレスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_30">
+          <span class="md-nav__icon md-icon"></span>
+          サーバーレスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-serverless/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-serverless/index.md" class="md-nav__link">
+        サーバーレスの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-faas/index.md" class="md-nav__link">
+        FaaSの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/no-infrastructure-just-code-see-the-sim-plicity-of-serverless/index.md" class="md-nav__link">
+        サーバーレス機能の構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/github-task-automation-with-serverless-actions/index.md" class="md-nav__link">
+        githubのタスク自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/use-multiple-ai-services-with-functions/index.md" class="md-nav__link">
+        複数のAIサービスを利用する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-serverless/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_31" type="checkbox" id="__nav_1_31" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_31">
+          人工知能を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="人工知能を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_31">
+          <span class="md-nav__icon md-icon"></span>
+          人工知能を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/ai-basics/index.md" class="md-nav__link">
+        AIの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初の機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/next-steps/index.md" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_32" type="checkbox" id="__nav_1_32" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_32">
+          深層学習を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="深層学習を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_32">
+          <span class="md-nav__icon md-icon"></span>
+          深層学習を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-with-deep-learning/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/an-introduction-to-deep-learning/" class="md-nav__link">
+        深層学習入門
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/cc-machine-learning-deep-learning-architectures/" class="md-nav__link">
+        深層学習アーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/compare-deep-learning-frameworks/" class="md-nav__link">
+        深層学習フレームワークの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-a-linear-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        線形回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-a-logistic-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        ロジスティック回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/neural-networks-from-scratch/" class="md-nav__link">
+        ゼロから始めるニューラルネットワーク
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-with-deep-learning/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_33" type="checkbox" id="__nav_1_33" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_33">
+          データサイエンスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="データサイエンスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_33">
+          <span class="md-nav__icon md-icon"></span>
+          データサイエンスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/data-preprocessing-in-detail/" class="md-nav__link">
+        データの前処理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/next-steps/" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_34" type="checkbox" id="__nav_1_34" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_34">
+          ブロックチェーンを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ブロックチェーンを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_34">
+          <span class="md-nav__icon md-icon"></span>
+          ブロックチェーンを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-blockchain/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/cl-blockchain-basics-intro-bluemix-trs/" class="md-nav__link">
+        ブロックチェーンの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/cl-blockchain-basics-glossary-bluemix-trs/" class="md-nav__link">
+        用語集と使用例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/blockchain-basics-hyperledger-fabric/" class="md-nav__link">
+        ハイパーレッジャー・ファブリック
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/" class="md-nav__link">
+        ビジネスブロックチェーンの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/quick-start-guide-for-ibm-blockchain-platform/" class="md-nav__link">
+        IBMのブロックチェーン・プラットフォームを使う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-blockchain/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-to-be-deployed" class="md-nav__link">
+    Application to be deployed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fork-and-clone-the-repo" class="md-nav__link">
+    1. Fork and clone the repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prepare-your-project-to-use-the-cloud-native-toolkit" class="md-nav__link">
+    2. Prepare your project to use the Cloud-Native Toolkit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-prepare-the-github-repo" class="md-nav__link">
+    3. Prepare the GitHub repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-a-standard-nodejs-v14-image-as-our-base-builder-image" class="md-nav__link">
+    Use a standard nodejs v14 image as our base builder image.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#here-we-use-an-image-from-alpine-which-contains-the-phantomjs-package" class="md-nav__link">
+    Here we use an image from Alpine which contains the PhantomJS package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-to-build-the-application" class="md-nav__link">
+    required to build the application.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-that-this-image-from-alpine-is-pulled-from-docker-hub-which-may" class="md-nav__link">
+    Note that this image from Alpine is pulled from Docker Hub, which may
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-downloads-if-you-reach-your-pull-rate-limit-try-again-later" class="md-nav__link">
+    limit downloads. If you reach your pull rate limit, try again later.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    Install dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-our-deployable-image-based-on-ubi" class="md-nav__link">
+    Build our deployable image based on UBI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-license-file-to-satisfy-requirement-for-building-a-certifiable-image" class="md-nav__link">
+    Add license file to satisfy requirement for building a certifiable image.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certification-requires-the-files-have-a-proper-extension-and-be-placed-in" class="md-nav__link">
+    Certification requires the files have a proper extension and be placed in
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-directory-named-licenses-our-example-repo-license-file-is-named-license" class="md-nav__link">
+    a directory named licenses. Our example repo license file is named LICENSE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#and-in-the-root-directory-so-we-use-the-following-command-to-comply" class="md-nav__link">
+    and in the root directory, so we use the following command to comply:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-app" class="md-nav__link">
+    Start app
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-label-information-that-will-be-associated-with-our-image-this-is-another" class="md-nav__link">
+    Add label information that will be associated with our image. This is another
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirement-for-building-a-certifiable-image" class="md-nav__link">
+    requirement for building a certifiable image.
+  </a>
+  
+    <nav class="md-nav" aria-label="requirement for building a certifiable image.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-use-the-toolkit-to-create-a-pipeline" class="md-nav__link">
+    4. Use the toolkit to create a pipeline
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Use the toolkit to create a pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-webhooks" class="md-nav__link">
+    GitHub Webhooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-scan" class="md-nav__link">
+    Image scan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-watch-the-pipeline-in-the-openshift-web-console" class="md-nav__link">
+    5. Watch the pipeline in the OpenShift web console
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-resolve-the-issue-with-the-deploy-task" class="md-nav__link">
+    6. Resolve the issue with the deploy task
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Resolve the issue with the deploy task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-the-source-code-to-ignore-the-credentials" class="md-nav__link">
+    Modify the source code to ignore the credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-watson-assistant-credentials-and-add-them-to-the-application" class="md-nav__link">
+    Generate Watson Assistant credentials and add them to the application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-re-run-the-pipeline" class="md-nav__link">
+    7. Re-run the pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-resolve-the-issue-with-the-health-task" class="md-nav__link">
+    8. Resolve the issue with the health task
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Resolve the issue with the health task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-the-source-code-to-add-the-health-endpoint" class="md-nav__link">
+    Modify the source code to add the health endpoint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-the-health-task-from-the-pipeline" class="md-nav__link">
+    Remove the health task from the pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-explore-the-results" class="md-nav__link">
+    9. Explore the results
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Explore the results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-the-running-application" class="md-nav__link">
+    View the running application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-the-image-in-the-image-registry" class="md-nav__link">
+    View the image in the image registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-artifacts-in-artifactory" class="md-nav__link">
+    View artifacts in Artifactory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-code-quality-results-in-sonarqube" class="md-nav__link">
+    View code quality results in SonarQube
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-the-tags-in-the-github-repo" class="md-nav__link">
+    View the tags in the GitHub repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>This tutorial demonstrates how to incorporate the <a href="https://cloudnativetoolkit.dev/">Cloud-Native Toolkit</a> into your application so that you can build, test, and deploy your application on a Red Hat OpenShift cluster. Get hands-on experience using the toolkit to create a pipeline of tasks that will turn your application into a universal application image (UAI). This is a major first step toward meeting the requirements for <a href="https://connect.redhat.com/en/partner-with-us/red-hat-container-certification">Red Hat Container Certification</a>.</p>
+<p>This tutorial builds on the concepts discussed in the article <a href="/learningpaths/build-images-cloud-native-toolkit/starter-kits/">Use the Cloud-Native Toolkit starter kits</a>.</p>
+<p>Follow the steps in this tutorial to use the toolkit to add the necessary files to your existing GitHub repo so that you can build an OpenShift CI/CD pipeline to manage the deployment of your application.</p>
+<p>Changes you make to your GitHub repo will trigger the pipeline to:</p>
+<ul>
+<li>Compile and build the code base</li>
+<li>Run tests, including unit and integration tests defined in the repo, and code quality and security using SonarQube</li>
+<li>Build and scan a UAI</li>
+<li>Deploy the UAI on your OpenShift cluster</li>
+<li>Tag the UAI and GitHub repo with a release version</li>
+<li>Store the UAI in a container registry</li>
+</ul>
+<p>This tutorial also covers examples of where your pipeline might fail and steps to resolve those issues.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>To complete this tutorial, you need access to the following:</p>
+<ul>
+<li>A public <a href="https://github.com/">GitHub</a> account</li>
+<li>An <a href="https://cloud.ibm.com/?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a> account</li>
+<li>A Red Hat OpenShift cluster</li>
+</ul>
+<p>You also need to perform these setup tasks:</p>
+<ul>
+<li>Install the Cloud-Native Toolkit on your OpenShift cluster, as described in the tutorial <a href="/learningpaths/build-images-cloud-native-toolkit/install-toolkit/">Install the Cloud-Native Toolkit</a>. Only the administrator of your OpenShift cluster needs to install the toolkit for you to access it.</li>
+<li>Prepare your accounts for the Cloud-Native Toolkit following the instructions found <a href="https://cloudnativetoolkit.dev/getting-started/prereqs/">in the documentation</a>. This involves generating GitHub and IBM access tokens.</li>
+<li>Install the Cloud-Native Toolkit <a href="https://cloudnativetoolkit.dev/getting-started/dev-env-setup/">developer tools</a> on your machine.</li>
+<li>Install the Cloud-Native Toolkit <a href="https://cloudnativetoolkit.dev/getting-started/cli">Command Line Interface (CLI)</a>.</li>
+</ul>
+<blockquote>
+<p><strong>NOTE</strong>: An IBM Cloud account is only required because our example app uses the Watson Assistant service. It is not a requirement of the Cloud-Native Toolkit, which can be used with any supported Kubernetes based cluster, such as Red Hat OpenShift.</p>
+</blockquote>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>It should take you approximately 60 minutes to complete this tutorial.</p>
+<h2 id="application-to-be-deployed">Application to be deployed<a class="headerlink" href="#application-to-be-deployed" title="Permanent link">&para;</a></h2>
+<p>The application used in this tutorial is an open source Node.js application -- a pizza-ordering chatbot that is built on the IBM Watson Assistant service created on IBM Cloud.</p>
+<p>The application serves as a good example because it has the following properties:</p>
+<ul>
+<li>Source that's maintained in an open source GitHub repository</li>
+<li>A conventional build file that specifies how to install, test, and run the app</li>
+<li>Defined unit and integration tests</li>
+<li>A Dockerfile for building a Docker image</li>
+</ul>
+<p>The repository is <a href="https://github.com/IBM/watson-assistant-slots-intro">https://github.com/IBM/watson-assistant-slots-intro</a>, which includes a README that provides instructions for building and running the app.</p>
+<p>The app requires the use of the IBM Watson Assistant service to be fully functional. This requires setting up and configuring the Watson service.</p>
+<p>Also, if you want to test the app by running it locally, you need to install the Node.js runtime or <code>npm</code>.</p>
+<p>If you prefer to focus just on the pipeline portion of this tutorial and not bother with any Watson services, this tutorial provides steps to bypass the Watson services content and still end up with a successful deployment.</p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-fork-and-clone-the-repo">Fork and clone the repo</a></li>
+<li><a href="#2-prepare-your-project-to-use-the-cloud-native-toolkit">Prepare your project to use the Cloud-Native Toolkit</a></li>
+<li><a href="#3-prepare-the-github-repo">Prepare the GitHub repo</a></li>
+<li><a href="#4-use-the-toolkit-to-create-a-pipeline">Use the toolkit to create a pipeline</a></li>
+<li><a href="#5-watch-the-pipeline-in-the-openshift-web-console">Watch the pipeline in the OpenShift web console</a></li>
+<li><a href="#6-resolve-the-issue-with-the-deploy-task">Resolve the issue with the <strong>deploy</strong> task</a></li>
+<li><a href="#7-re-run-the-pipeline">Re-run the pipeline</a></li>
+<li><a href="#8-resolve-the-issue-with-the-health-task">Resolve the issue with the <strong>health</strong> task</a></li>
+<li><a href="#9-explore-the-results">Explore the results</a></li>
+</ol>
+<h3 id="1-fork-and-clone-the-repo">1. Fork and clone the repo<a class="headerlink" href="#1-fork-and-clone-the-repo" title="Permanent link">&para;</a></h3>
+<p>First, fork the repo to your own GitHub account. Then, clone the forked repo to your local machine:</p>
+<pre><code class="language-bash">git clone https://github.com/&lt;your-github-name&gt;/watson-assistant-slots-intro.git
+cd watson-assistant-slots-intro
+</code></pre>
+<p>Create a branch for your changes. Modifying the <code>main</code> branch in a forked repo can cause issues if you ever want to re-sync with the original repo.</p>
+<p>Name your branch <code>dev</code>:</p>
+<pre><code class="language-bash">git checkout -b dev
+</code></pre>
+<h3 id="2-prepare-your-project-to-use-the-cloud-native-toolkit">2. Prepare your project to use the Cloud-Native Toolkit<a class="headerlink" href="#2-prepare-your-project-to-use-the-cloud-native-toolkit" title="Permanent link">&para;</a></h3>
+<p>In a terminal, use the <code>oc</code> CLI to prepare your project:</p>
+<pre><code class="language-bash"># Use CLI login provided by the OpenShift console
+oc login &lt;your-info&gt;
+# Create and switch to a new OpenShift project
+oc new-project &lt;your-project&gt;
+# Sync the project to prepare it for use with the toolkit
+oc sync &lt;your-project&gt;
+</code></pre>
+<p><em><strong>Note:</strong> All toolkit assets are stored in the OpenShift <code>tools</code> project. The <code>sync</code> command makes those assets available to your project. It also sets the project that will be used in subsequent commands.</em></p>
+<h3 id="3-prepare-the-github-repo">3. Prepare the GitHub repo<a class="headerlink" href="#3-prepare-the-github-repo" title="Permanent link">&para;</a></h3>
+<p>You need to make the following changes in your repo to integrate your GitHub repo with an OpenShift pipeline.</p>
+<ol>
+<li>
+<p>Add the required pipeline files.</p>
+<p>The simplest way to do this is to run the <code>oc enable</code> command from the root directory of the repo.</p>
+<p><em><strong>Note:</strong> This example is a Node.js app, so you should select the <code>nodejs</code> pipeline.</em></p>
+<p><code>bash
+$ cd watson-assistant-slots-intro
+$ oc enable
+Looking up pipelines from repository: https://github.com/IBM/ibm-garage-tekton-tasks
+? Which pipeline should be enabled? nodejs
+piping stream</code></p>
+<p><strong>Here's what happened:</strong></p>
+<ol>
+<li>A listing of available pipelines was retrieved from https://github.com/IBM/ibm-garage-tekton-tasks.</li>
+<li>You selected the stable/nodejs@latest pipeline.</li>
+<li>The following files were added to your repo:</li>
+<li>Jenkinsfile</li>
+<li>chart</li>
+<li>pipeline.yaml</li>
+<li>sonar-project.properties</li>
+</ol>
+<p>Don't forget to commit the new files.</p>
+<p>Once added, you should see the following new files in your repo:</p>
+<ul>
+<li>Jenkinsfile</li>
+<li>chart/base/.helmignore</li>
+<li>chart/base/Chart.yaml</li>
+<li>chart/base/templates/NOTES.txt</li>
+<li>chart/base/templates/_helpers.tpl</li>
+<li>chart/base/templates/deployment.yaml</li>
+<li>chart/base/templates/ingress.yaml</li>
+<li>chart/base/templates/route.yaml</li>
+<li>chart/base/templates/service.yaml</li>
+<li>chart/base/values.yaml</li>
+<li>pipeline.yaml</li>
+<li>sonar-project.properties</li>
+</ul>
+</li>
+<li>
+<p>Modify the source directory in the <code>sonar-project.properties</code> file.</p>
+<p>Edit the file and modify the source path value for <code>sonar.sources</code>. The repo does not contain a source sub-directory, so just point to the root directory. Also, remove the <code>sonar.test</code> key.</p>
+<p>Your file should look like the following:</p>
+<p><code>yaml
+sonar.projectKey=ibm:enable-node
+sonar.language=javascript
+sonar.sources=.
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
+sonar.sourceEncoding=UTF-8</code></p>
+</li>
+<li>
+<p>Modify the Dockerfile.</p>
+<p>When modifying the Dockerfile, there are two main goals:</p>
+<ul>
+<li>Use best practices to create a UAI, as described in this <a href="/learningpaths/universal-application-image/">learning path</a>.</li>
+<li>Build an image that is in compliance with Red Hat Container certification requirements.</li>
+</ul>
+<p>As described in the best practices article, you need to make sure your image is based on a <a href="https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image">Universal Base Image</a> (UBI). UBI images run in both OpenShift and Kubernetes and can be distributed royalty free.</p>
+<p>This tutorial builds a Node.js (version 14) app, so use the <code>nodejs-14</code> UBI.</p>
+<p>To accomplish this, search the <a href="https://catalog.redhat.com/software/containers/explore/">Red Hat Container Catalog</a> to determine which UBI to build from.</p>
+<p>Search for Node.js 14 in the catalog:</p>
+<p><img alt="nodejs-ubi.png" src="../images/nodejs-ubi.png" /></p>
+<p>Click on the tile to get the release information:</p>
+<p><img alt="nodejs-ubi-details.png" src="../images/nodejs-ubi-details.png" /></p>
+<p>To use the current version, use the tag <code>registry.access.redhat.com/ubi8/nodejs-14:1-28</code> when specifying it in your Dockerfile.</p>
+<p>Your Dockerfile should look like this:</p>
+<p>```docker</p>
+<h1 id="use-a-standard-nodejs-v14-image-as-our-base-builder-image">Use a standard nodejs v14 image as our base builder image.<a class="headerlink" href="#use-a-standard-nodejs-v14-image-as-our-base-builder-image" title="Permanent link">&para;</a></h1>
+<h1 id="here-we-use-an-image-from-alpine-which-contains-the-phantomjs-package">Here we use an image from Alpine which contains the PhantomJS package<a class="headerlink" href="#here-we-use-an-image-from-alpine-which-contains-the-phantomjs-package" title="Permanent link">&para;</a></h1>
+<h1 id="required-to-build-the-application">required to build the application.<a class="headerlink" href="#required-to-build-the-application" title="Permanent link">&para;</a></h1>
+<h1 id="note-that-this-image-from-alpine-is-pulled-from-docker-hub-which-may">Note that this image from Alpine is pulled from Docker Hub, which may<a class="headerlink" href="#note-that-this-image-from-alpine-is-pulled-from-docker-hub-which-may" title="Permanent link">&para;</a></h1>
+<h1 id="limit-downloads-if-you-reach-your-pull-rate-limit-try-again-later">limit downloads. If you reach your pull rate limit, try again later.<a class="headerlink" href="#limit-downloads-if-you-reach-your-pull-rate-limit-try-again-later" title="Permanent link">&para;</a></h1>
+<p>FROM node:14.0.0-alpine3.10 AS builder</p>
+<p>WORKDIR /app
+COPY . /app</p>
+<h1 id="install-dependencies">Install dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h1>
+<p>RUN npm install</p>
+<h1 id="build-our-deployable-image-based-on-ubi">Build our deployable image based on UBI<a class="headerlink" href="#build-our-deployable-image-based-on-ubi" title="Permanent link">&para;</a></h1>
+<p>FROM registry.access.redhat.com/ubi8/nodejs-14:1-28
+WORKDIR /app
+COPY --from=builder /app .</p>
+<h1 id="add-license-file-to-satisfy-requirement-for-building-a-certifiable-image">Add license file to satisfy requirement for building a certifiable image.<a class="headerlink" href="#add-license-file-to-satisfy-requirement-for-building-a-certifiable-image" title="Permanent link">&para;</a></h1>
+<h1 id="certification-requires-the-files-have-a-proper-extension-and-be-placed-in">Certification requires the files have a proper extension and be placed in<a class="headerlink" href="#certification-requires-the-files-have-a-proper-extension-and-be-placed-in" title="Permanent link">&para;</a></h1>
+<h1 id="a-directory-named-licenses-our-example-repo-license-file-is-named-license">a directory named licenses. Our example repo license file is named LICENSE<a class="headerlink" href="#a-directory-named-licenses-our-example-repo-license-file-is-named-license" title="Permanent link">&para;</a></h1>
+<h1 id="and-in-the-root-directory-so-we-use-the-following-command-to-comply">and in the root directory, so we use the following command to comply:<a class="headerlink" href="#and-in-the-root-directory-so-we-use-the-following-command-to-comply" title="Permanent link">&para;</a></h1>
+<p>COPY --from=builder /app/LICENSE /licenses/LICENSE.txt</p>
+<h1 id="start-app">Start app<a class="headerlink" href="#start-app" title="Permanent link">&para;</a></h1>
+<p>EXPOSE 3000</p>
+<p>CMD [ "npm","start"]</p>
+<h1 id="add-label-information-that-will-be-associated-with-our-image-this-is-another">Add label information that will be associated with our image. This is another<a class="headerlink" href="#add-label-information-that-will-be-associated-with-our-image-this-is-another" title="Permanent link">&para;</a></h1>
+<h1 id="requirement-for-building-a-certifiable-image">requirement for building a certifiable image.<a class="headerlink" href="#requirement-for-building-a-certifiable-image" title="Permanent link">&para;</a></h1>
+<p>LABEL name="dev-rh/watson-assistant-slots-intro" \
+  vendor="IBM" \
+  version="0.0.9" \
+  release="" \
+  summary="Pizza chatbot" \
+  description="This chatbot allows users to order pizza."</p>
+<p>```</p>
+<p>As you can see above, the <code>LABEL</code> tag is required for Red Hat Container certification.</p>
+<p><em><strong>Note:</strong> In the example Dockerfile, you can see that we are hard-coding the version tag. When completing this tutorial, you should bump this value every time you push changes to your GitHub repo. Ideally, this value should come from a variable or parameter.</em></p>
+</li>
+</ol>
+<p><strong>Important:</strong> Once you complete all of the above changes, commit and push the files to the <code>dev</code> branch of your repo.</p>
+<h3 id="4-use-the-toolkit-to-create-a-pipeline">4. Use the toolkit to create a pipeline<a class="headerlink" href="#4-use-the-toolkit-to-create-a-pipeline" title="Permanent link">&para;</a></h3>
+<p>In a terminal, <code>cd</code> to your local repo directory.</p>
+<p>Then, use the <code>oc</code> CLI command to create and run your pipeline, using the following options:</p>
+<ul>
+<li>Use Tekton pipelines</li>
+<li>Skip the image scan</li>
+<li>Use the <code>nodejs</code> pipeline</li>
+</ul>
+<pre><code class="language-bash">$ cd watson-assistant-slots-intro
+$ oc pipeline --tekton --pipeline ibm-nodejs -p scan-image=false
+</code></pre>
+<p><em><strong>Note:</strong> The first time you run the pipeline, you will be prompted for your GitHub username and personal access token. If you missed the step on how to create a token in the Prerequisites section, read the <a href="https://cloudnativetoolkit.dev/getting-started/prereqs#account-tokens">documentation</a> for instructions.</em></p>
+<p>Here is the sample output. The project name is <code>dev-rh</code> and the source repo branch is <code>dev</code>:</p>
+<pre><code class="language-bash">$ oc pipeline --tekton --pipeline ibm-nodejs -p scan-image=false
+Creating pipeline on openshift cluster in dev-rh namespace
+Retrieving git parameters
+  Project git repo: https://github.com/rhagarty/watson-assistant-slots-intro.git
+? Provide the git username: rhagarty
+? Provide the git password or personal access token: [hidden]
+  Branch: dev
+Retrieving available template pipelines from tools
+Copying tasks from tools
+Copied Pipeline from tools/ibm-nodejs to dev-rh/watson-assistant-slots-intro
+Creating TriggerTemplate for pipeline: watson-assistant-slots-intro
+Creating TriggerBinding for pipeline: watson-assistant-slots-intro
+Creating/updating TriggerEventListener for pipeline: tekton
+  Creating new event listener
+  Waiting for event listener rollout: dev-rh/el-tekton
+Creating/updating Route for pipeline: tekton
+Creating PipelineRun for pipeline: watson-assistant-slots-intro
+Creating Github webhook for repo: https://github.com/rhagarty/watson-assistant-slots-intro.git
+Warning: Webhook already exists for this trigger in this repository.
+
+Pipeline run started: watson-assistant-slots-intro-1791a553221
+
+Next steps:
+  Tekton cli:
+    View PipelineRun info - tkn pr describe watson-assistant-slots-intro-1791a553221
+    View PipelineRun logs - tkn pr logs -f watson-assistant-slots-intro-1791a553221
+  OpenShift console:
+    View PipelineRun - https://console-openshift-console.isv-scenarios-ocp-f2c6cdc6801be85fd188b09d006f13e3-0000.us-south.containers.appdomain.cloud/k8s/ns/dev-rh/tekton.dev~v1beta1~PipelineRun/watson-assistant-slots-intro-1791a553221
+</code></pre>
+<h4 id="github-webhooks">GitHub Webhooks<a class="headerlink" href="#github-webhooks" title="Permanent link">&para;</a></h4>
+<p>As you can see in the output above, the toolkit creates a webhook in our GitHub repository. In this case, this task was not needed because the webhook already exists.</p>
+<p>The purpose of the webhook is to trigger a new run of the pipeline whenever changes are committed to the GitHub branch being tracked. In our example, we did not specify a branch name, so the default is to use the current branch being used at the time when the <code>oc pipeline</code> is run, which in this case is the <code>dev</code> branch.</p>
+<p>It is possible to have webhooks created for multiple branches. In fact, this is a perfect way to set up a production environment. For example, a team can run pipelines for both a <code>dev</code> and the <code>master</code> branch, which means both branches would have their own webhook. When developers make a change and merge to the <code>dev</code> branch, they could verify that their test pipeline completes successfully. They could then submit those changes to the <code>master</code> branch, which would kick off the production pipeline. </p>
+<h4 id="image-scan">Image scan<a class="headerlink" href="#image-scan" title="Permanent link">&para;</a></h4>
+<p>Note that using the option <code>scan-image=false</code> means that the <code>img-scan</code> scan task that looks for vulnerabilities will be skipped. To avoid having to troubleshoot all potential issues that the scan may find, this tutorial simply assumes that the UBI has no vulnerabilities and moves on to the next task.</p>
+<p><em><strong>Note:</strong> Having your image pass the image scan task is a positive step toward getting it certified by Red Hat, but does not guarantee it. This scan task is dependent on how you installed and configured the Cloud Native Toolkit, as well as your cluster environment, so the actual scan tools used during the <code>img-scan</code> task may vary, and may not be the same scan tools used during certification.</em></p>
+<p>For more details on preparing your UAI for certification, see the article <a href="https://developer.ibm.com/learningpaths/universal-application-image/design-universal-image/">Best practices for designing a universal application image</a>.</p>
+<p>If you would like to try running the pipeline with image scanning turned on, you can always re-run the pipeline command and either use the parameter <code>scan-image=true</code>, or remove the parameter and let the pipeline query you for whether or not to run it (the default is "yes").</p>
+<h3 id="5-watch-the-pipeline-in-the-openshift-web-console">5. Watch the pipeline in the OpenShift web console<a class="headerlink" href="#5-watch-the-pipeline-in-the-openshift-web-console" title="Permanent link">&para;</a></h3>
+<p>Click the <code>View PipelineRun</code> link provided at the end of the <code>oc pipeline</code> output.  This takes you to the pipeline run in your project in the OpenShift web console:</p>
+<p><img alt="oc-pipeline-slots-fail.png" src="../images/oc-pipeline-slots-fail.png" /></p>
+<p>Here is a short description on what each task is doing:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Task</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>setup</strong></td>
+<td>Clones the specified branch of the repo and sets up the parameters to be used by the remaining tasks in the pipeline.</td>
+</tr>
+<tr>
+<td><strong>test</strong></td>
+<td>Builds the app and then performs integration tests. Runs code coverage and quality tests using <a href="https://www.sonarqube.org/">SonarQube</a>.</td>
+</tr>
+<tr>
+<td><strong>build</strong></td>
+<td>Builds the Docker image and pushes it to the OpenShift image registry.</td>
+</tr>
+<tr>
+<td><strong>deploy</strong></td>
+<td>Deploys the image and creates a helm chart. Tests to ensure deployment succeeded.</td>
+</tr>
+<tr>
+<td><strong>health</strong></td>
+<td>Calls the container <code>health</code> endpoint to ensure deployment is up and running.</td>
+</tr>
+<tr>
+<td><strong>tag-release</strong></td>
+<td>Tags the release in the GitHub repo with a new unique version number.</td>
+</tr>
+<tr>
+<td><strong>img-release</strong></td>
+<td>Tags the image release and pushes it to the container registry.</td>
+</tr>
+<tr>
+<td><strong>img-scan</strong></td>
+<td>Performs a scan on the image.</td>
+</tr>
+<tr>
+<td><strong>helm-release</strong></td>
+<td>Uses the image tag as part of the filename for the Helm chart. Artifacts are stored in <a href="https://jfrog.com/artifactory/">Artifactory</a>.</td>
+</tr>
+<tr>
+<td><strong>gitops</strong></td>
+<td>Using <a href="https://argoproj.github.io/argo-cd/">Argo CD</a>, this task publishes the Helm chart configuration to the provided GitOps repos to trigger downstream deployments. <em><strong>Note:</strong> This activity is outside the scope of this tutorial, so we will not configure any GitOps repos. This task will result in no action being taken.</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-resolve-the-issue-with-the-deploy-task">6. Resolve the issue with the deploy task<a class="headerlink" href="#6-resolve-the-issue-with-the-deploy-task" title="Permanent link">&para;</a></h3>
+<p>From the pipeline panel, you can see that the <code>deploy</code> task had an error. If you look at the logs for this task, you will see that it timed-out waiting for the actual deployment of the image to successfully complete. It will not complete because the application fails to start.</p>
+<p>To determine what the problem is, look at the deployment logs.</p>
+<ol>
+<li>
+<p>From the <strong>Workloads</strong> menu, click <strong>Deployments</strong>:</p>
+<p><img alt="debug-deployments.png" src="../images/debug-deployments.png" /></p>
+</li>
+<li>
+<p>Find the <strong>watson-assistant-slots-intro</strong> deployment and select it. Then select the <strong>Pods</strong> tab to see the pod that had the error:</p>
+<p><img alt="debug-pods.png" src="../images/debug-pods.png" /></p>
+</li>
+<li>
+<p>Click on the problem pod, then click the <strong>Logs</strong> tab to see the problem:</p>
+<p><img alt="debug-logs.png" src="../images/debug-logs.png" /></p>
+</li>
+</ol>
+<p>In the logs, note that the the <code>apikey</code> parameter is missing. This issue was expected since the application requires credentials to access the Watson Assistant service.</p>
+<p>There are two ways to solve this:</p>
+<ul>
+<li>
+<p>If you don't need your application to be fully functional, you can solve this issue by simply changing the code so that the lack of credentials will not cause the app to exit. The end result is that your application will deploy, but the chatbot will show a warning message.</p>
+</li>
+<li>
+<p>A better approach is to actually generate the Watson Assistant credentials and assign them to the application.</p>
+</li>
+</ul>
+<p>Choose the option below that works best for you:</p>
+<ul>
+<li><a href="#modify-the-source-code-to-ignore-the-credentials">Modify the source code to ignore the credentials</a></li>
+<li><a href="#generate-watson-assistant-credentials-and-add-them-to-the-application">Generate Watson Assistant credentials and add them to the application</a></li>
+</ul>
+<h4 id="modify-the-source-code-to-ignore-the-credentials">Modify the source code to ignore the credentials<a class="headerlink" href="#modify-the-source-code-to-ignore-the-credentials" title="Permanent link">&para;</a></h4>
+<p>In the root directory of the source repo, modify the <code>app.js</code> file to set the variable <code>failOnMissingCredentials</code> to false (around line 40). This allows the app to deploy without an error:</p>
+<p><img alt="change-code.png" src="../images/change-code.png" /></p>
+<p>The pipeline automatically restarts when you commit and push this change to the <code>dev</code> branch of your repo.</p>
+<h4 id="generate-watson-assistant-credentials-and-add-them-to-the-application">Generate Watson Assistant credentials and add them to the application<a class="headerlink" href="#generate-watson-assistant-credentials-and-add-them-to-the-application" title="Permanent link">&para;</a></h4>
+<p>Complete the following steps:</p>
+<ol>
+<li>
+<p>From your IBM Cloud account, create and configure a Watson Assistant service as outlined in steps 2 and 3 of the <a href="https://github.com/IBM/watson-assistant-slots-intro/blob/master/doc/source/local.md#run-locally">Run locally</a> section of the GitHub repo README.</p>
+</li>
+<li>
+<p>Create a <code>secrets</code> asset in your OpenShift project.</p>
+<p>To access the OpenShift secrets panel:</p>
+<ul>
+<li>Select the <strong>Administrator</strong> console.</li>
+<li>From the <strong>Workloads</strong> menu, select <strong>Secrets</strong>.</li>
+<li>Click the <strong>Create</strong> drop-down menu and select <strong>From YAML</strong>.</li>
+<li>From the YAML editor, paste in the following code:</li>
+</ul>
+<p><code>yaml
+apiVersion: v1
+kind: Secret
+metadata:
+    name: watson-assistant-slots-intro
+    namespace: &lt;project-name&gt;
+type: Opaque
+stringData:
+    CONVERSATION_APIKEY: &lt;apikey&gt;
+    CONVERSATION_URL: &lt;service-url&gt;
+    WORKSPACE_ID: &lt;workspace-id&gt;</code></p>
+<p>The name of the secret is <code>watson-assistant-slots-intro</code>.</p>
+</li>
+</ol>
+<ul>
+  <li>Add your project name to the `namespace` field.</li>
+  <li>Following the README instructions of the cloned repo, cut and paste your Watson Assistant credentials and workspace ID into the YAML file.</li>
+  <li>Click **Save** to create the secret.</li>
+  </ul>
+
+<ol>
+<li>
+<p>Add your secret to the deployment:</p>
+<p>One way to add your secret to the deployment is from the <strong>Secrets</strong> panel:</p>
+<ul>
+<li>Select the new secret and click <strong>Details</strong>. Then select the <strong>Add Secret to Workload</strong> button.</li>
+<li>Select the deployment <code>watson-assistant-slots-intro</code> and the <code>Add secret as Environment Variables</code> option:
+    <img alt="add-secret-to-deployment.png" src="../images/add-secret-to-deployment.png" /></li>
+<li>Click <strong>Save</strong> to add the secret. </li>
+</ul>
+<p>Alternatively, you can add the secret from the <strong>Deployments</strong> panel:</p>
+<ul>
+<li>From the <strong>Workloads</strong> menu, select <strong>Deployments</strong>. Find the <code>watson-assistant-slots-intro</code> deployment, then click <strong>Edit Deployment</strong> from the action menu.
+    <img alt="edit-slots-deployment.png" src="../images/edit-slots-deployment.png" /></li>
+<li>From the <strong>Environment</strong> tab, click <strong>+ Add All From Config Map or Secret</strong> and then select your <code>watson-assistant-slots-intro</code> secret.
+    <img alt="add-secret-to-deployment-2.png" src="../images/add-secret-to-deployment-2.png" /></li>
+<li>Click <strong>Save</strong> to update the deployment.</li>
+</ul>
+</li>
+</ol>
+<h3 id="7-re-run-the-pipeline">7. Re-run the pipeline<a class="headerlink" href="#7-re-run-the-pipeline" title="Permanent link">&para;</a></h3>
+<p>Using webhooks, the pipeline is restarted any time a change is made to the <code>dev</code> branch of your GitHub repo.</p>
+<p><em><strong>Note:</strong> Specifically, it is the <code>push</code> command that triggers the webhook.</em></p>
+<p>This should have happened in the previous step if you chose to modify the <code>app.js</code> file. But if you modified the deployment by adding a secret, you need to restart the pipeline manually. You can do this in one of two ways:</p>
+<ol>
+<li>
+<p>From the <strong>Pipelines</strong> panel, select the <strong>watson-assistant-slots-intro</strong> pipeline and then click <strong>Start Last Run</strong>:</p>
+<p><img alt="rerun-slots-pipeline.png" src="../images/rerun-slots-pipeline.png" /></p>
+</li>
+<li>
+<p>Or, from the <strong>Pipeline Runs</strong> panel, select the associated pipeline run and then click <strong>Rerun</strong> from the action menu:</p>
+<p><img alt="restart-pipeline-run.png" src="../images/restart-pipeline-run.png" /></p>
+</li>
+</ol>
+<h3 id="8-resolve-the-issue-with-the-health-task">8. Resolve the issue with the health task<a class="headerlink" href="#8-resolve-the-issue-with-the-health-task" title="Permanent link">&para;</a></h3>
+<p>When you start the pipeline back up, the <code>health</code> task will fail because your application does not provide a <code>health</code> endpoint.</p>
+<p>Again, there are several ways to solve this issue. You can modify your application to implement a <code>health</code> endpoint, or you can simply remove this task from the pipeline.</p>
+<p>The best-practice approach is to add the endpoint, as described in <a href="https://developer.ibm.com/learningpaths/universal-application-image/deploy-image/#3-implement-a-health-endpoint">Implement and deploy a manageable application</a>.</p>
+<p>Choose the option below that works best for you:</p>
+<ul>
+<li><a href="#modify-the-source-code-to-add-the-health-endpoint">Modify the source code to add the health endpoint</a></li>
+<li><a href="#remove-the-health-task-from-the-pipeline">Remove the health task from the pipeline</a></li>
+</ul>
+<h4 id="modify-the-source-code-to-add-the-health-endpoint">Modify the source code to add the health endpoint<a class="headerlink" href="#modify-the-source-code-to-add-the-health-endpoint" title="Permanent link">&para;</a></h4>
+<p>In the root directory of the source repo, modify the <code>app.js</code> file to add the following to the current list of routes:</p>
+<pre><code class="language-javascript">// add health endpoint
+app.get('/health', (req, res) =&gt; {
+  console.log('Health Check called');
+  res.send('UP');
+});
+</code></pre>
+<p><em><strong>Note:</strong> You can first test this route locally by starting the app and then sending a <code>GET</code> request with <code>http://localhost:3000/health</code></em></p>
+<p>The pipeline automatically re-starts when you commit and push this change to the <code>dev</code> branch of your repo.</p>
+<h4 id="remove-the-health-task-from-the-pipeline">Remove the health task from the pipeline<a class="headerlink" href="#remove-the-health-task-from-the-pipeline" title="Permanent link">&para;</a></h4>
+<p>From the <strong>Pipelines</strong> menu, select <strong>Pipelines</strong>. Find the <code>watson-assistant-slots-intro</code> pipeline, then click <strong>Edit Pipeline</strong> from the <strong>Actions</strong> menu.</p>
+<p><img alt="pipeline-remove-health.png" src="../images/pipeline-remove-health.png" /></p>
+<p>From the <strong>Edit Pipeline</strong> panel, select the <strong>Health</strong> task. From the health task properties panel, click the <strong>Actions</strong> menu and select <strong>Remove Task</strong>.</p>
+<p><img alt="remove-health-task.png" src="../images/remove-health-task.png" /></p>
+<p>Click <code>Confirm</code> to delete the task from the pipeline, then click <code>Save</code> to save the changes.</p>
+<p>Because you didn't make any repo changes, you need to restart the pipeline manually.</p>
+<p>After re-running the pipeline, you should now see it complete without any errors:</p>
+<p><img alt="pipeline-slots-success.png" src="../images/pipeline-success.png" /></p>
+<h3 id="9-explore-the-results">9. Explore the results<a class="headerlink" href="#9-explore-the-results" title="Permanent link">&para;</a></h3>
+<h4 id="view-the-running-application">View the running application<a class="headerlink" href="#view-the-running-application" title="Permanent link">&para;</a></h4>
+<p>To view the deployed application, click the <strong>Developer</strong> console and select <strong>Topologies</strong> from the menu.</p>
+<ul>
+<li>Use the icon in the top-right corner to ensure you are in <strong>Topology View</strong> mode:</li>
+</ul>
+<p><img alt="topology-view.png" src="../images/topology-view.png" /></p>
+<p>If you click on the upper-right icon, it will open a browser tab pointing to your application. In this example, the application is a chatbot for ordering pizza:</p>
+<p><img alt="pizza-app.png" src="../images/pizza-app.png" /></p>
+<h4 id="view-the-image-in-the-image-registry">View the image in the image registry<a class="headerlink" href="#view-the-image-in-the-image-registry" title="Permanent link">&para;</a></h4>
+<p>To view the images created by the pipeline during the <code>img-release</code> task, click the <strong>Cloud-Native Toolkit</strong> menu icon and select <strong>Image Registry</strong>:</p>
+<p><img alt="image-registry-menu-selection.png" src="../images/image-registry-menu-selection.png" /></p>
+<p>In the toolkit that's configured for this tutorial, the image registry is stored on the IBM Cloud. From the <strong>Container Registry</strong> panel, you can see the images that have been created along with tags to indicate the release versions:</p>
+<p><img alt="ibm-cloud-container-registry.png" src="../images/ibm-cloud-container-registry.png" /></p>
+<h4 id="view-artifacts-in-artifactory">View artifacts in Artifactory<a class="headerlink" href="#view-artifacts-in-artifactory" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>To view the artifacts created by the pipeline during the <code>helm-release</code> task, click on the <strong>Cloud-Native Toolkit</strong> menu icon and select <strong>Artifactory</strong>:</p>
+<p><img alt="artifactory-menu-selection.png" src="../images/artifactory-menu-selection.png" /></p>
+</li>
+<li>
+<p>When the Artifactory panel is displayed, navigate to the <strong>Artifactory<code>&gt;</code>Artifacts</strong> panel. Use the search bar to find the <code>watson-assistant-slots</code> artifacts:</p>
+<p><img alt="artifactory-search.png" src="../images/artifactory-search.png" /></p>
+</li>
+<li>
+<p>Click one of the versions to navigate to the file view where you can see all the files associated with the release:</p>
+<p><img alt="artifactory-file-list.png" src="../images/artifactory-file-list.png" /></p>
+</li>
+</ol>
+<p>All of the files listed came directly from the helm chart (<code>chart/base</code>) directory in your source repo. The <code>values.yaml</code> template file has been updated to include tags and values from the associated release.</p>
+<h4 id="view-code-quality-results-in-sonarqube">View code quality results in SonarQube<a class="headerlink" href="#view-code-quality-results-in-sonarqube" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>To view the code quality and code security results created during the <code>test</code> phase of the pipeline, click on the Cloud-Native toolkit menu icon and select <strong>SonarQube</strong>:</p>
+<p><img alt="sonarqube-menu-selection.png" src="../images/sonarqube-menu-selection.png" /></p>
+</li>
+<li>
+<p>From the main panel, click <strong>Projects</strong>, then select the <strong>watson-assistant-slots-intro</strong> tile:</p>
+<p><img alt="sonarqube-panel.png" src="../images/sonarqube-panel.png" /></p>
+</li>
+</ol>
+<h4 id="view-the-tags-in-the-github-repo">View the tags in the GitHub repo<a class="headerlink" href="#view-the-tags-in-the-github-repo" title="Permanent link">&para;</a></h4>
+<p>You will also see that the version tags have been added to your GitHub repository:</p>
+<p><img alt="assistant-slots-repo-tags.png" src="../images/assistant-slots-repo-tags.png" /></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This tutorial walked you through the process of integrating an existing GitHub repo with the Cloud-Native Toolkit to deploy an existing application on a Red Hat OpenShift cluster. The application is an open source Node.js chatbot.</p>
+<p>By completing this tutorial, you have gained hands-on experience in:</p>
+<ul>
+<li>Integrating an existing GitHub repo with the Cloud-Native Toolkit.</li>
+<li>Seeing how the toolkit builds pipelines to create universal application image (UAI) deployments.</li>
+<li>Updating a Dockerfile to make it compliant with Red Hat Container Certification.</li>
+<li>Navigating the Red Hat OpenShift console with regards to tasks, pipelines, and deployments.</li>
+<li>Troubleshooting, modifying, and removing pipeline tasks.</li>
+<li>How webhooks integrate pipelines and GitHub source repos.</li>
+</ul>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>This tutorial discussed the importance of building an image that meets the requirements for Red Hat certification. If you want to certify your container with Red Hat, check out this article on <a href="https://github.ibm.com/TT-ISV-org/images/blob/main/certification/README.md">Red Hat Container Certification</a>.</p>
+<p>Additionally, if you want to see how you can apply the same principles discussed in this tutorial with a more complex real-world application, check out the advanced tutorial <a href="/learningpaths/build-images-cloud-native-toolkit/poly-repo">Build a Red Hat OpenShift certifiable image from a complex application</a>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

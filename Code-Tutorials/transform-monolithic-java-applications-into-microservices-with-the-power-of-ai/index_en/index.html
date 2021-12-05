@@ -1,0 +1,5461 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Transform monolithic Java applications into microservices with the power of AI - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transform monolithic Java applications into microservices with the power of AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          AutoAIを探索する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoAIを探索する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoAIを探索する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/nextgen-automl-watson-autoai/" class="md-nav__link">
+        次世代AutoML-Watson AutoAI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/compare-model-building-with-and-without-automated-machine-learning/" class="md-nav__link">
+        自動機械学習ありなしで構築したモデルの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generate-machine-learning-model-pipelines-to-choose-the-best-model-for-your-problem-autoai/" class="md-nav__link">
+        最適なモデルパイプラインの生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/autoai-code-generation/" class="md-nav__link">
+        AutoAIでのPython notebookの自動生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-application-to-predict-your-insurance-premium-cost-with-autoai/" class="md-nav__link">
+        python機械学習ウェブアプリの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/automated-feature-engineering-for-relational-data-with-ibm-autoai/" class="md-nav__link">
+        リレーショナルデータの自動特徴量エンジニアリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/explore-autoai/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Cloud Native Toolkitでのイメージビルド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Native Toolkitでのイメージビルド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Native Toolkitでのイメージビルド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/install-toolkit/" class="md-nav__link">
+        ツールキットのインストール
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/starter-kits/" class="md-nav__link">
+        スターターキット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/existing-application/" class="md-nav__link">
+        既存のアプリケーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/build-images-cloud-native-toolkit/poly-repo/" class="md-nav__link">
+        poly-repo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Cloud Pak for Data Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Pak for Data Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Pak for Data Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/cloud-pak-for-data-learning-path/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/intro-to-cloud-pak-for-data/" class="md-nav__link">
+        IBM Cloud Pak for Data 概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../virtualizing-db2-warehouse-data-with-data-virtualization/" class="md-nav__link">
+        Data Virtualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-visualization-with-data-refinery/" class="md-nav__link">
+        Data VirtualizationとData Refinery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../find-prepare-and-understand-data-with-watson-knowledge-catalog/" class="md-nav__link">
+        データを検索、準備、そして理解する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/data-analysis-model-building-and-deploying-with-wml/" class="md-nav__link">
+        データの分析、モデルの生成、そしてデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../automate-model-building-with-autoai/" class="md-nav__link">
+        AutoAIで自動的にモデルを生成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-an-ai-model-visually-with-spss-modeler-flow/" class="md-nav__link">
+        予測可能な機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started-with-watson-openscale/" class="md-nav__link">
+        Watson OpenScaleでのモデルのモニタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/cloud-pak-for-data-learning-path/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          DataOps基礎
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataOps基礎" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          DataOps基礎
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/dataops-fundamentals/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../incorporate-enterprise-governance-in-your-data/" class="md-nav__link">
+        データにエンタープライズガバナンスを組み込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-to-discover-data-that-resides-in-your-data-sources/" class="md-nav__link">
+        データソースに存在するデータを発見する方法を学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analyze-discovered-data-to-gain-insights-on-the-quality-of-your-data/" class="md-nav__link">
+        発見されたデータを分析して、データの質についての洞察を得る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protect-your-data-using-data-privacy-features/" class="md-nav__link">
+        データプライバシー機能によるデータの保護
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-single-customer-view-of-your-data-with-data-virtualization/" class="md-nav__link">
+        データの仮想化により、お客様のデータを一元管理する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/dataops-fundamentals/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          Data Quality AI Toolkitについて
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Quality AI Toolkitについて" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data Quality AI Toolkitについて
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/assessing-quality-of-tabular-data-sets-using-apis/" class="md-nav__link">
+        APIを用いた表形式データセットの品質評価
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/deep-dive-into-class-overlap-label-purity/" class="md-nav__link">
+        クラスの重複とラベルの純度をより深く知る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-quality-ai-toolkit/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          IBM Event Streams バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM Event Streams バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          IBM Event Streams バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-event-streams-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/event-streams-fundamentals/" class="md-nav__link">
+        イベントストリームの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/event-streams-kafka-fundamentals/" class="md-nav__link">
+        kafkaの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploying-and-using-a-basic-kafka-instance/" class="md-nav__link">
+        kafkaインスタンスのデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-hands-on-java-sample/" class="md-nav__link">
+        ハンズオン イベント ストリーム アプリ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../event-streams-badge-event-streams-dev-challenge/" class="md-nav__link">
+        イベントストリーム コーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/event-streams-dev-cheat-sheet/" class="md-nav__link">
+        イベントストリーム開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-event-streams-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          IBM MQ バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM MQ バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          IBM MQ バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-mq-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/mq-fundamentals/" class="md-nav__link">
+        MQの基礎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-connect-app-queue-manager-containers/" class="md-nav__link">
+        Que Managerの作成と設定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-setting-up-using-ibm-mq-console/" class="md-nav__link">
+        IBM MQコンソールを使用したMQのセットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-develop-mq-jms/" class="md-nav__link">
+        初めてのMQアプリを書く
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mq-badge-mq-dev-challenge/" class="md-nav__link">
+        MQコーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/mq-dev-cheat-sheet/" class="md-nav__link">
+        MQ開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/ibm-mq-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_8">
+          IBM mono2microの導入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM mono2microの導入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          IBM mono2microの導入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/intro-ibm-mono2micro/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/mono2micro-automate-application-refactoring-using-ai/" class="md-nav__link">
+        mono2microの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/" class="md-nav__link">
+        メリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/a-non-disruptive-approach-to-transform-java-monoliths-to-microservices/" class="md-nav__link">
+        アプローチ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        モノリシックなアプリを変換する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/intro-ibm-mono2micro/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9">
+          IOT開発を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-getting-started-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/iot-key-concepts-skills-get-started-iot/" class="md-nav__link">
+        コンセプトとスキル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/iot-lp101-best-hardware-devices-iot-project/" class="md-nav__link">
+        ハードウェアガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/iot-lp101-connectivity-network-protocols/" class="md-nav__link">
+        ネットワーキングガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
+        IOTプラットフォーム
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
+        IOTソリューションの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-getting-started-iot-development/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10">
+          IOT開発の次の一歩
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発の次の一歩
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-next-steps-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
+        IOTアーキテクチャー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
+        IOTセキュリティ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp301-iot-manage-data/" class="md-nav__link">
+        IOTデータの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp301-iot-device-management/" class="md-nav__link">
+        IOTデバイスの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
+        次のIOTソリューションを構築する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/iot-next-steps-iot-development/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11">
+          Kafkaアプリケーションの開発
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kafkaアプリケーションの開発" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Kafkaアプリケーションの開発
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/introduction/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/getting-started/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/getting-to-production/index.md" class="md-nav__link">
+        本番に向けて
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/more-resources/index.md" class="md-nav__link">
+        その他のリソース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/develop-kafka-apps/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12">
+          Kubernetes Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_12">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-kubernetes/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux-basics-and-commands/" class="md-nav__link">
+        Linuxの基本とコマンド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../yaml-basics-and-usage-in-kubernetes/" class="md-nav__link">
+        kubernetesにおけるyamlの基本と使用方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-kubernetes/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_13">
+          KubernetesをOpenShiftに移行する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="KubernetesをOpenShiftに移行する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          KubernetesをOpenShiftに移行する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/migrate-your-kubernetes-images-to-openshift/" class="md-nav__link">
+        イメージの移行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/migrate-kubernetes-pod-security-policies-openshift-security-context-constraints/" class="md-nav__link">
+        kubernetes PSPをOpenShift SCCに移行する。
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/tutorial/" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/migrate-kubernetes-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_14">
+          Netezzaパフォーマンスサーバを使った学習の開始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Netezzaパフォーマンスサーバを使った学習の開始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_14">
+          <span class="md-nav__icon md-icon"></span>
+          Netezzaパフォーマンスサーバを使った学習の開始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-getting-started-with-netezza-performance-server/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/access-and-analyze-data-in-netezza-performance-server/" class="md-nav__link">
+        データへのアクセスと分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/load-and-access-data-from-your-cloud-data-warehouse/" class="md-nav__link">
+        クラウドデータウェアハウスからのデータの読み込みとアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/predict-energy-prices-with-in-database-analytics/" class="md-nav__link">
+        データベース分析によるエネルギー価格の予測
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-getting-started-with-netezza-performance-server/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_15">
+          OpenShiftのSecure Context Constraints(SCC)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OpenShiftのSecure Context Constraints(SCC)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_15">
+          <span class="md-nav__icon md-icon"></span>
+          OpenShiftのSecure Context Constraints(SCC)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/intro/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-permissions/" class="md-nav__link">
+        SCC 権限
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/openshift-predefined-scc/" class="md-nav__link">
+        OpenShiftの定義済みSCC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-availability/" class="md-nav__link">
+        SCCの可用性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/deployment-specify-permissions/" class="md-nav__link">
+        デプロイメントでの権限の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/secure-context-constraints-openshift/scc-tutorial/" class="md-nav__link">
+        SCCチュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_16">
+          pythonを使ったデータ解析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pythonを使ったデータ解析" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_16">
+          <span class="md-nav__icon md-icon"></span>
+          pythonを使ったデータ解析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/introduction-to-geospatial-data-using-python/" class="md-nav__link">
+        pythonを使った地理空間データの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/working-with-geospatial-vector-data-in-python/" class="md-nav__link">
+        pythonで地理空間ベクトルデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/working-with-geospatial-raster-data-in-python/" class="md-nav__link">
+        pythonで地理空間ラスターデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/data-analysis-using-python/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17" type="checkbox" id="__nav_1_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17">
+          Red Hat OpenShiftでマルチテナンシーを実現する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Red Hat OpenShiftでマルチテナンシーを実現する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_17">
+          <span class="md-nav__icon md-icon"></span>
+          Red Hat OpenShiftでマルチテナンシーを実現する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/introduction/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../multitenancy-and-role-based-access-control/" class="md-nav__link">
+        RBAC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/network-isolation/" class="md-nav__link">
+        ネットワークの分離
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/resource-isolation/" class="md-nav__link">
+        リソースアイソレーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/multitenancy-red-hat-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_18" type="checkbox" id="__nav_1_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_18">
+          Streamsを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Streamsを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_18">
+          <span class="md-nav__icon md-icon"></span>
+          Streamsを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/streams-get-started/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-ibm-streams/" class="md-nav__link">
+        IBM Streamsの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-your-first-ibm-streams-app-without-writing-code/" class="md-nav__link">
+        初めてのIBM Streamsアプリを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/add-event-streams-and-a-db-in-python-to-clickstream/" class="md-nav__link">
+        Apache Kafkaからデータを取り込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/build-a-streaming-app-using-ibm-streams-python-api/" class="md-nav__link">
+        pythonのAPIを使ってストリーミングアプリを構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../access-streaming-data-with-rest-services/" class="md-nav__link">
+        ストリーミングデータにレストサービスでアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/score-streaming-data-with-a-machine-learning-model/" class="md-nav__link">
+        ストリーミングデータを機械学習モデルでスコアリングする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/streams-get-started/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_19" type="checkbox" id="__nav_1_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_19">
+          Watson Discoveryを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_19">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_20" type="checkbox" id="__nav_1_20" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_20">
+          Watson Assistantを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Assistantを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_20">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Assistantを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-assistant/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-assistant/" class="md-nav__link">
+        Watson Assistantの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-your-first-assistant-powered-chatbot/" class="md-nav__link">
+        chatbot アシスタント
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embed-watson-assistant-in-website/" class="md-nav__link">
+        chatbotを埋め込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../add-watson-discovery-skills-to-your-watson-assistant-chatbot/" class="md-nav__link">
+        Watson Assistant ChatbotにWatson Discoveryのスキルを追加する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate-voice-services-to-your-watson-assistant/" class="md-nav__link">
+        Webベースのchatbotを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-assistant/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_21" type="checkbox" id="__nav_1_21" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_21">
+          Watson Machine Learning Acceleratorを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Machine Learning Acceleratorを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_21">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Machine Learning Acceleratorを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/introduction-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/how-to-use-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの使い方
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/elastic-distributed-training-edt-in-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Accelerator Elastic Distributed Traning(EDT)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/use-snap-ml-concurrently/" class="md-nav__link">
+        SnapMLの同時使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/watson-machine-learning-videos/" class="md-nav__link">
+        Watson Mahine Learning ビデオ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-machine-learning-accelerator/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_22" type="checkbox" id="__nav_1_22" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_22">
+          Watson Studioを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Studioを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_22">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Studioを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-studio/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-watson-studio/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../watson-studio-data-visualization-preparation-transformation/" class="md-nav__link">
+        Watson Studio データの可視化、準備、変換
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../watson-studio-auto-ai/" class="md-nav__link">
+        モデル構築の自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../watson-studio-spss-modeler-flow/" class="md-nav__link">
+        spss modelerフローの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../watson-studio-using-jupyter-notebook/" class="md-nav__link">
+        Watson Studio上のJupyter Notebookでモデルをビルドする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-watson-studio/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_23" type="checkbox" id="__nav_1_23" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_23">
+          アプリケーション・モダナイゼーションを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="アプリケーション・モダナイゼーションを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_23">
+          <span class="md-nav__icon md-icon"></span>
+          アプリケーション・モダナイゼーションを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/intro-app-mod/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/intro-microservices/index.md" class="md-nav__link">
+        マイクロサービスの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/modernizing-apps-step-by-step/index.md" class="md-nav__link">
+        ステップバイステップでアプリをモダナイズ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-application-modernization/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_24" type="checkbox" id="__nav_1_24" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_24">
+          異常検知APIを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="異常検知APIを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_24">
+          <span class="md-nav__icon md-icon"></span>
+          異常検知APIを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/what-is-anomaly-detection/" class="md-nav__link">
+        異常検知(Anomaly Detection, アノマリー検知)とは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/anomaly-detection-api/" class="md-nav__link">
+        異常検知用API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/industry-use-case/" class="md-nav__link">
+        業界のユースケース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-anomaly-detection-api/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_25" type="checkbox" id="__nav_1_25" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_25">
+          エッジAI SDKを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="エッジAI SDKを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_25">
+          <span class="md-nav__icon md-icon"></span>
+          エッジAI SDKを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/what-is-edge-ai/" class="md-nav__link">
+        エッジAIとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/coreset/" class="md-nav__link">
+        コアセット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/model-fusion/" class="md-nav__link">
+        モデルフュージョン
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-edge-ai-sdk/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_26" type="checkbox" id="__nav_1_26" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_26">
+          開発者のための機械学習 Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="開発者のための機械学習 Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_26">
+          <span class="md-nav__icon md-icon"></span>
+          開発者のための機械学習 Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-machine-learning-for-developers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/introduction-to-machine-learning/" class="md-nav__link">
+        機械学習の概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初のモデルを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-regression-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        回帰アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-classification-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        分類アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-clustering-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        クラスタリング・アルゴリズムを学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/learning-path-machine-learning-for-developers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_27" type="checkbox" id="__nav_1_27" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_27">
+          教師付き深層学習
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="教師付き深層学習" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_27">
+          <span class="md-nav__icon md-icon"></span>
+          教師付き深層学習
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/convolutional-neural-networks/index.md" class="md-nav__link">
+        畳み込みニューラルネットワーク(CNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/recurrent-neural-networks/index.md" class="md-nav__link">
+        回帰型ニューラルネットワーク(RNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/supervised-deep-learning/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_28" type="checkbox" id="__nav_1_28" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_28">
+          クラウドを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="クラウドを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_28">
+          <span class="md-nav__icon md-icon"></span>
+          クラウドを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-cloud/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-cloud-computing/index.md" class="md-nav__link">
+        クラウドコンピューティングとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/public-cloud-explained/index.md" class="md-nav__link">
+        パブリッククラウドの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-hybrid-cloud/index.md" class="md-nav__link">
+        ハイブリッドクラウドとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy-your-first-app-to-ibm-cloud/index.md" class="md-nav__link">
+        アプリをIBMクラウドに展開
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickly-stand-up-protected-web-interface-for-cloud-native-app-on-ibm-cloud/index.md" class="md-nav__link">
+        IBMクラウド上でのnodejsスターターアプリケーションの開発
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-cloud/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_29" type="checkbox" id="__nav_1_29" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_29">
+          コンテナを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="コンテナを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_29">
+          <span class="md-nav__icon md-icon"></span>
+          コンテナを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/what-are-containers/" class="md-nav__link">
+        コンテナとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/true-benefits-of-moving-to-containers-1/" class="md-nav__link">
+        コンテナへの移行のメリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../building-docker-images-locally-and-in-cloud/" class="md-nav__link">
+        Dockerイメージの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes-101-labs/" class="md-nav__link">
+        kubernetes 101 labs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-containers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_30" type="checkbox" id="__nav_1_30" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_30">
+          サーバーレスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="サーバーレスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_30">
+          <span class="md-nav__icon md-icon"></span>
+          サーバーレスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-serverless/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-serverless/index.md" class="md-nav__link">
+        サーバーレスの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../videos/what-is-faas/index.md" class="md-nav__link">
+        FaaSの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../no-infrastructure-just-code-see-the-sim-plicity-of-serverless/index.md" class="md-nav__link">
+        サーバーレス機能の構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github-task-automation-with-serverless-actions/index.md" class="md-nav__link">
+        githubのタスク自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-multiple-ai-services-with-functions/index.md" class="md-nav__link">
+        複数のAIサービスを利用する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-serverless/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_31" type="checkbox" id="__nav_1_31" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_31">
+          人工知能を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="人工知能を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_31">
+          <span class="md-nav__icon md-icon"></span>
+          人工知能を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/ai-basics/index.md" class="md-nav__link">
+        AIの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初の機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/next-steps/index.md" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-artificial-intelligence/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_32" type="checkbox" id="__nav_1_32" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_32">
+          深層学習を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="深層学習を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_32">
+          <span class="md-nav__icon md-icon"></span>
+          深層学習を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-with-deep-learning/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/an-introduction-to-deep-learning/" class="md-nav__link">
+        深層学習入門
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/cc-machine-learning-deep-learning-architectures/" class="md-nav__link">
+        深層学習アーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/compare-deep-learning-frameworks/" class="md-nav__link">
+        深層学習フレームワークの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-a-linear-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        線形回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-a-logistic-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        ロジスティック回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/neural-networks-from-scratch/" class="md-nav__link">
+        ゼロから始めるニューラルネットワーク
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-with-deep-learning/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_33" type="checkbox" id="__nav_1_33" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_33">
+          データサイエンスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="データサイエンスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_33">
+          <span class="md-nav__icon md-icon"></span>
+          データサイエンスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/data-preprocessing-in-detail/" class="md-nav__link">
+        データの前処理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/next-steps/" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-data-science/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_34" type="checkbox" id="__nav_1_34" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_34">
+          ブロックチェーンを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ブロックチェーンを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_34">
+          <span class="md-nav__icon md-icon"></span>
+          ブロックチェーンを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-blockchain/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cl-blockchain-basics-intro-bluemix-trs/" class="md-nav__link">
+        ブロックチェーンの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cl-blockchain-basics-glossary-bluemix-trs/" class="md-nav__link">
+        用語集と使用例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Articles/blockchain-basics-hyperledger-fabric/" class="md-nav__link">
+        ハイパーレッジャー・ファブリック
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/" class="md-nav__link">
+        ビジネスブロックチェーンの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start-guide-for-ibm-blockchain-platform/" class="md-nav__link">
+        IBMのブロックチェーン・プラットフォームを使う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Code-Learning-Paths/get-started-blockchain/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collecting-data-on-the-monolithic-application" class="md-nav__link">
+    Collecting data on the monolithic application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-mono2micro-ai-analysis-for-application-partitioning-recommendations" class="md-nav__link">
+    Running the Mono2Micro AI analysis for application partitioning recommendations
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the Mono2Micro AI analysis for application partitioning recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customizing-and-adjusting-partitions" class="md-nav__link">
+    Customizing and adjusting partitions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-initial-microservices-foundation-code" class="md-nav__link">
+    Generating initial microservices foundation code
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating initial microservices foundation code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generated-code-service-classes" class="md-nav__link">
+    Generated code: Service classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-code-proxy-classes" class="md-nav__link">
+    Generated code: Proxy classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-code-original-classes" class="md-nav__link">
+    Generated code: Original classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-code-java-interface-classes" class="md-nav__link">
+    Generated code: Java interface classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-code-dummy-classes" class="md-nav__link">
+    Generated code: Dummy classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactoring-non-java-parts-of-monolithic-applications-further-code-changes-and-deploying-final-partitions-as-microservices" class="md-nav__link">
+    Refactoring non-Java parts of monolithic applications, further code changes, and deploying final partitions as microservices
+  </a>
+  
+    <nav class="md-nav" aria-label="Refactoring non-Java parts of monolithic applications, further code changes, and deploying final partitions as microservices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cardinal-utility-code-module" class="md-nav__link">
+    Cardinal utility code module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitions-build-config" class="md-nav__link">
+    Partitions build config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ear-modules-per-partition" class="md-nav__link">
+    EAR modules per partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-ee-modules-within-ear" class="md-nav__link">
+    Java EE modules within EAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jax-rs-configuration-per-partition" class="md-nav__link">
+    JAX-RS configuration per partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-server-config-per-partition" class="md-nav__link">
+    Application server config per partition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-config-and-setup" class="md-nav__link">
+    Database config and setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-partitions-as-containerized-microservices" class="md-nav__link">
+    Deploy partitions as containerized microservices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Transform monolithic Java applications into microservices with the power of AI</h1>
+                
+                <!-- ## Before you begin
+
+This tutorial is part of the *[Introduction to IBM Mono2Micro](/series/intro-to-ibm-mono2micro/)* series.
+
+| Level | Topic | Type |
+| --- | --- | --- |
+| 101 | [Introducing IBM Mono2Micro](/articles/mono2micro-automate-application-refactoring-using-ai/) | Article |
+| 101 | [Get a visual introduction to IBM Mono2Micro](/videos/introduction-to-mono2micro/) | Video |
+| 102 | [Understand the advantages of using IBM Mono2Micro to automate application refactoring](/articles/advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/) | Article |
+| **201** | **Use IBM Mono2Micro to transform monolithic Java applications into microservices with the power of AI** | **Tutorial** |
+
+In this series, learn about the key features of IBM Mono2Micro and how to use them to transform monolithic Java applications into microservices. -->
+
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>One of the best ways to modernize business applications is to refactor them into microservices, allowing each microservice to be independently enhanced and scaled while providing agility and improved speed of delivery. Microservices are also a natural way to shift legacy applications to the cloud, a destination many enterprise customers are yet to reach.</p>
+<p>IBM&reg; Mono2Micro is an AI-based semi-automated toolset that uses novel machine learning algorithms and a first-of-its-kind code generation technology to assist you in that refactoring journey to full or partial microservices, all without <strong>rewriting</strong> the Java application code and the business logic within. It analyzes the monolithic application in both a static and dynamic fashion, and then provides recommendations for how the monolithic application can be partitioned into groups of classes that can become potential microservices. Based on the partitioning, Mono2Micro also generates the microservices foundation code and APIs, which, alongside the existing monolith Java classes, can be used to implement and deploy running microservices.</p>
+<p><img alt="" src="../images/1-mono2micro-overview.png" /></p>
+<p>The following figure is a high-level flow diagram that illustrates how to get started with Mono2Micro in collecting data on an existing monolithic application and then running the AI analyzer tool to generate two kinds of recommendations on different ways to partition the application.</p>
+<p><img alt="" src="../images/2-high-level-flow.png" /></p>
+<p>The "<a href="#collecting-data-on-the-monolithic-application">Collecting data on the monolithic application</a>" section will go into more detail about how to collect all the data, but essentially data is collected statically from code analysis and dynamically as the instrumented monolithic application is run through various use case scenarios to exercise as much of the codebase as possible.</p>
+<p>Based on the collected data, Mono2Micro generates a <em>Natural Seams Partitioning</em> recommendation that aims to partition and group the monolithic classes such that there are minimal class containment dependencies and entanglements (in other words, classes calling methods outside their partitions) between the partitions. The "Data Dependency Analysis" refers to this kind of dependency analysis between the Java classes. In effect, this breaks up the monolithic application along its natural seams with the least amount of disruption.</p>
+<p>Based on the use case data and runtime log traces, and not taking class containment dependencies and method calls into account, Mono2Micro also generates a <em>Business Logic Partitioning</em> that might present more entanglements and dependencies between partitions, but ultimately provides a more useful partitioning of the monolithic application divided along functional and business logic capabilities.</p>
+<p>This tutorial uses an open source monolithic Java EE benchmark application emulating an online stock trading system, called DayTrader, to walk you through the entire Mono2Micro toolset end to end, starting with the monolithic application, and ending with a deployed and containerized microservices version of the same app.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>It's recommended that you visit the <a href="http://ibm.biz/Mono2Micro">Mono2Micro</a> page and download the:</p>
+<ul>
+<li>User guide</li>
+<li>Data collector tool</li>
+<li>
+<p><code>Mono2Micro-example.zip</code> file, which contains all of the code and files this tutorial discusses (more details about each can be found in the <code>README</code> within):</p>
+</li>
+<li>
+<p>Monolith source code: <code>./daytrader/monolith</code></p>
+</li>
+<li>Monolith application data: <code>./daytrader/application-data/</code></li>
+<li>Mono2Micro analysis (initial recommendations by the AI analysis tool): <code>./daytrader/mono2micro-analysis/</code></li>
+<li>Mono2Micro analysis (further customized by hand): <code>./daytrader/mono2micro-analysis-custom/</code></li>
+<li>
+<p>Deployable microservices source code based on Mono2Micro generated code: <code>./daytrader/microservices/</code></p>
+<p><strong>Note:</strong> If you have any trouble downloading the <code>Mono2Micro-example.zip</code> file, you can also <a href="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/mono2micro/Mono2Micro-Example.zip">download it directly</a>.</p>
+</li>
+</ul>
+<p>This tutorial assumes that you've already installed the Mono2Micro containers and tools on your machine. Note that running the specific tools and editing or generating the files outlined in the steps throughout this tutorial are completely optional. You can follow along by examining all generated files and code provided in the .zip file.</p>
+<h2 id="collecting-data-on-the-monolithic-application">Collecting data on the monolithic application<a class="headerlink" href="#collecting-data-on-the-monolithic-application" title="Permanent link">&para;</a></h2>
+<p>The first step in using Mono2Micro to begin the refactoring process is to prepare the monolithic application's Java source code for static and dynamic analysis (at the very least, the source code for the parts or modules of the monolithic application that you intend to refactor to microservices). For the DayTrader app, the complete set of source files are already available in a single directory tree, consisting of an EAR module, an EJB module, and a web module, along with other auxiliary files. For the purposes of this article, assume that <code>Mono2Micro-example.zip</code> is extracted in the <code>/m2m/</code> parent directory. The monolith source files tree can then be found in <code>/m2m/daytrader/monolith/</code> directory.</p>
+<p>Let's begin with the static data collection phase by running the Mono2Micro <strong>Bluejay</strong> tool to analyze the Java source code, instrument it, and produce the analysis in two JSON files. To run the analysis, issue the following command:</p>
+<pre><code>docker run -e LICENSE=accept --rm -it -v /m2m/daytrader:/var/application ibmcom/mono2micro-bluejay /var/application/monolith
+</code></pre>
+<p>Bluejay then runs and creates a mirror copy of the input source directory in its parent directory with a <code>-klu</code> extension. For example, in <code>/m2m/daytrader/monolith-klu/</code>, where all the Java files within the entire directory tree will be instrumented to log entry and exit times in each method (more on this to come). In addition to instrumenting the source, two JSON files <code>refTable.json</code> and <code>symTable.json</code> are produced in <code>/m2m/daytrader/monolith-klu/</code>. These files capture various details and metadata about each Java class, such as their method signatures, class variables and types, class containment dependencies (when one classes uses another class as an instance variable type, or method return/argument type), class inheritance, package dependencies, source file locations, and so on. This static analysis therefore gathers a detailed overview of the Java code in the monolithic application, which the Mono2Micro AI analyzer tool will use to provide recommendations on how to partition the monolithic application. Furthermore, this information is also used by the Mono2Micro code generation tool to generate the foundation and plumbing code for implementing each partition as microservices.</p>
+<p>As previously mentioned, along with generating the two table .json files from the static analysis, Bluejay also instruments all Java files in the entire source tree, injecting logging statements into each method to mark the exact times the method was entered and exited. Additionally, it also logs the thread ID, which is used later by the Mono2Micro AI analyzer tool to piece together broken fragments in the trace data. Using this version of the source code, an instrumented version of the monolithic application can then be built and run, exercising as much of the code as possible by running various user scenarios throughout the application, and dynamically collecting additional data in preparation for AI analysis. To build and run the instrumented DayTrader app, using the source in <code>/m2m/daytrader/monolith-klu/</code>, the same <a href="https://github.com/WASdev/sample.daytrader7/blob/master/docs/Using-cmd-line.md">build process</a> that is already used for the original monolithic application can be used.</p>
+<p>Before starting this next phase of data collection, let's take a look at an example of the instrumentation in the monolithic code by looking at the TradeAction class in <code>/m2m/dayatrader/monolith-klu/daytrader-ee7-ejb/src/main/java/com/ibm/websphere/samples/daytrader/TradeAction.java</code>, which shows exactly how the statements to record entry and exit times are injected:</p>
+<pre><code class="language-java">public OrderDataBean buy(String userID, String symbol, double quantity, int orderProcessingMode) throws Exception {
+
+    try {
+
+        System.err.println(&amp;quot;|v2.0.0r34|&amp;quot;+String.valueOf(System.currentTimeMillis())+&amp;quot;,[&amp;quot;+String.valueOf(Thread.currentThread().getId())+&amp;quot;],&amp;quot;+&amp;quot;Entering daytrader_src/daytrader-ee7-ejb/src/main/java/com/ibm/websphere/samples/daytrader/TradeAction.java::com.ibm.websphere.samples.daytrader.TradeAction::buy(String, String, double, int)|&amp;quot;);
+
+        if (Log.doActionTrace()) {
+
+            Log.trace(&amp;quot;TradeAction:buy&amp;quot;, userID, symbol, new Double(quantity), new Integer(orderProcessingMode));
+
+        }
+
+        OrderDataBean orderData = trade.buy(userID, symbol, quantity, orderProcessingMode);
+
+        // after the purchase or sell of a stock, update the stocks volume and price
+
+        updateQuotePriceVolume(symbol, TradeConfig.getRandomPriceChangeFactor(), quantity);
+
+        return orderData;
+
+    }
+
+    finally {
+
+        System.err.println(&amp;quot;|v2.0.0r34|&amp;quot;+String.valueOf(System.currentTimeMillis())+&amp;quot;,[&amp;quot;+String.valueOf(Thread.currentThread().getId())+&amp;quot;],&amp;quot;+&amp;quot;Exiting daytrader_src/daytrader-ee7-ejb/src/main/java/com/ibm/websphere/samples/daytrader/TradeAction.java::com.ibm.websphere.samples.daytrader.TradeAction::buy(String, String, double, int)|&amp;quot;);
+
+    }
+
+}
+</code></pre>
+<p>Now we're ready to proceed to the next phase of data collection from the monolithic application. This is a crucial phase, where both the quantity and quality of the data gathered will impact the quality and usefulness of the partitioning recommendations from the Mono2Micro AI analyzer tool. The key concept here is to run as many user scenarios as possible in the running instrumented monolithic application, exercising as much of the codebase as possible. These user scenarios (or business use cases, if you will), should be typical user threads through the application, related to various functionality that the application provides -- more akin to functional verification test cases or larger green threads, and less so to unit test cases.</p>
+<p>In the case of DayTrader, a few examples of these scenarios would include:</p>
+<ul>
+<li>Configuring the application and setting up the database</li>
+<li>Logging into the application as a user</li>
+<li>Once logged in, pulling up the market summary and looking at stock quotes</li>
+<li>Purchasing stocks and doing other trades</li>
+</ul>
+<p>As these use cases are run on the instrumented monolithic application, we will use the Mono2Micro <strong>Flicker</strong> tool to record use case labels and the start and stop times of when that use case or scenario was run. The Flicker tool acts like a stopwatch to record use cases, and the labels provided to Flicker for each use case should be meaningful, as this will come into play later when viewing the Mono2Micro AI analysis, where the classes and flow within the code is associated with the use case labels. Flicker is a simple Java-based tool that prompts the user for the use label and then records the start time, and prompts again for the "stop" command after the user finishes running that scenario on the monolithic application.</p>
+<p>The following command is a typical command to run the Flicker tool, where both it and the running monolithic application are on the same machine (refer to the Mono2Micro user guide for more complicated setups):</p>
+<pre><code>java -cp commons-net-3.6.jar;json-simple-1.1.jar;. Flicker -no_ntp
+</code></pre>
+<p>The following figure is a screenshot of an example use cases (logging in as a user) being run on the monolithic application as I ran the Flicker tool alongside:</p>
+<p><img alt="" src="../images/3-example-of-two-use-cases-1.png" /></p>
+<p>As I ran through the user login scenario, for example, Flicker recorded the start time, and then the stop time after I returned to it and entered the "STOP" command to indicate that I had finished with the scenario.</p>
+<p>Similarly, the following figure is a screenshot of another example use cases (a user viewing their stock portfolio) being run on the monolithic application as I ran the Flicker tool alongside:</p>
+<p><img alt="" src="../images/4-example-of-two-use-cases-2.jpg" /></p>
+<p>After exiting the Flicker tool, it produces a context .json file that captures the use case labels and their start/stop times. One or more of these context .json files can be produced. These are just two simple examples. A more complete list of use cases I ran on the instrumented monolithic application can be found in <code>/m2m/daytrader/application-data/contexts/daytrader.json</code>.</p>
+<p>To review, the following list is a summary of the data that has been collected on the monolithic application:</p>
+<ul>
+<li>Two table .json files containing specific information about the Java classes and their relationships from static analysis of the code.</li>
+<li>One or more context .json files that contain use case names/labels and their start and stop times.</li>
+<li>All the standard console output/error log files captured on the application server side as the use cases were being run on the instrumented application.</li>
+</ul>
+<p>With these three sets of data, Mono2Micro can now correlate what exact Java classes and methods were executed during the start and stop times of each use case, and thereby associate the observed flow of code within the application to a use case. Let's now proceed to the next phase of using Mono2Micro, which is to run the AI analyzer tool against this data.</p>
+<h2 id="running-the-mono2micro-ai-analysis-for-application-partitioning-recommendations">Running the Mono2Micro AI analysis for application partitioning recommendations<a class="headerlink" href="#running-the-mono2micro-ai-analysis-for-application-partitioning-recommendations" title="Permanent link">&para;</a></h2>
+<p>The Mono2Micro <strong>AIPL</strong> tool is the analyzer that uses unsupervised machine learning AI techniques to analyze the three sets of data collected on a monolithic application, as done in the previous section. To prepare for the analysis, the input directories and an optional config.ini file can be set up before running the tool. The <code>/m2m/daytrader/application-data/</code> directory contains the subdirectories within which the data files are placed:</p>
+<ul>
+<li><code>contexts/</code>: One or more context .json files generated while running the Flicker tool alongside the use case runs.</li>
+<li><code>logs/</code>: One or more console log files from the application server as the instrumented monolithic application was run through the various use cases.</li>
+<li><code>tables/</code>: The two table .json files generated by the Bluejay tool.</li>
+<li><code>config.ini</code>: Optional file to configure various parameters for the analysis tool. If one doesn't exist, AIPL generates it for you with default values. (Please refer to the user guide for more details on the parameters.)</li>
+</ul>
+<p>To run the AIPL tool, issue the following command:</p>
+<pre><code>docker run -e LICENSE=accept --rm -it -v /m2m/daytrader/application-data:/var/application ibmcom/mono2micro-aipl
+</code></pre>
+<p>When the AIPL tool finishes its analysis, it will generate an application partitioning recommendations graph .json file, various reports, and other output files in the <code>mono2micro/mono2micro-output/</code> subdirectory within the parent directory of the input subdirectories. In this example, that means a <code>/m2m/daytrader/application-data/mono2micro/mono2micro-output/</code> will be created. For your convenience, the output files are already packaged in the .zip. If you exctract it into <code>/m2m/</code>, it can be found in the <code>/m2m/daytrader/mono2micro-analysis/</code> directory. Some files of note:</p>
+<ul>
+<li><code>/m2m/daytrader/mono2micro-analysis/oriole/final_graph.json</code>: The full set of application partition recommendations (natural seams and business logic) and associated details, viewable in the Mono2Micro UI.</li>
+<li><code>/m2m/daytrader/mono2micro-analysis/Cardinal-Report.html</code>: A detailed report of all the application partitions, their member classes, outward facing classes, and more.</li>
+<li><code>/m2m/daytrader/mono2micro-analysis/Oriole-Report.html</code>: A summary report of all the application partitions and their associated business use cases.</li>
+<li><code>/m2m/daytrader/mono2micro-analysis/cardinal/*</code>: A complete set of input files (based on the partitioning) for the next and last stage of the Mono2Micro pipeline -- running the code generator.</li>
+</ul>
+<p>Let's now take a look at the partitioning recommendations Mono2Micro generated by loading the <code>final_graph.json</code> in the graph UI. To do this, first launch the UI with the following command:</p>
+<pre><code>docker run -e LICENSE=accept -d -p 3000:3000 --name=m2mgui ibmcom/mono2micro-ui
+</code></pre>
+<p>Load the UI in your favorite browser by pointing it at this URL: <code>http://localhost:3000/</code>.</p>
+<p>Be sure to read the user guide to learn more about all the features of this UI, and how to navigate within it to view and interact with the partitions and classes in the different views for the natural seams and business logic partitioning schemes, to re-arrange the partition and class nodes, and to create a customized partitioning based on either of the two recommended schemes. For now, load the <code>/m2m/daytrader/mono2micro-analysis-custom/oriole/final_graph.json</code> file in the UI, as this graph file already has the generated partitionings optimally arranged and expanded, as well as a customized partitioning view that will be discussed in the next section.</p>
+<p><img alt="" src="../images/5-run-Mono2Micro-AI-analysis.png" /></p>
+<p>Once loaded, the default view will show the business logic partitioning view, as illustrated in the following figure.</p>
+<p><img alt="" src="../images/6-business-logic-partitioning-view.png" /></p>
+<p>As you can see, Mono2Micro has recommended five partitions (partition-0 to partition-4), allocating and grouping the monolithic applications's Java classes within them based on the use case runs that the AIPL tool observed and analyzed.</p>
+<p>A bulk of the back-end functionality of the DayTrader app -- most of its EJB, JPA, and action classes that handle the application's core functionality such as user logins, accounts, etc -- just so happened to get grouped into <code>partition-1</code> based on the use case observations. And, similarly, based on other observed use cases runs, some Message-Driven Bean (MDB) classes that handle messaging got placed in <code>partition-2</code>, and various other classes into <code>partition-3</code>. Note how <code>partition-0</code> and <code>partition-4</code> are fairly isolated partitions containing the Ping* servlet classes, which are essentially standalone test code in DayTrader. The edges between the class nodes represent the flow of code that Mono2Micro observed, very likely from method calls from one class to another, or by other means. When clicking on a class node, partition, or edge, more information can be gleaned from the side panel in terms of number calls between classes, the use cases involved, and so on. As expected, there are a lot of interactions between the classes in <code>partition-1</code>, <code>partition-2</code>, and <code>partition-3</code>.</p>
+<p>In the tool UI, you can click on the AccountDataBean class in <code>partition-1</code> to show what other classes call into it from this and other partitions. To aid in your viewing experience, you can double-click on any partition to expand or collapse it, you can choose to filter which partitions are shown, and more.</p>
+<p>It is interesting to note the "Unobserved" partition that I left collapsed in the screenshot above. The following figure shows a view with the partition expanded.</p>
+<p><img alt="" src="../images/7-business-logic-partitioning-expanded.png" /></p>
+<p>Most of the classes in there are the various other Ping* test classes that come with the DayTrader app, along with some JSF classes, and so on. Given that I did not run use cases that exercised this section of the application codebase, Mono2Micro placed them in this partition. Another possible reason that classes could get allocated to this partition is when there's dead code in a monolith -- where, despite a fairly good coverage of use case execution, certain classes never get hit since they are essentially dead code.</p>
+<p>Switching to the natural seams view, we see a partitioning scheme where there are less interactions between partitions (as expected), and the bulk of the monolithic application's functionality is encapsulated by the classes in <code>partition-2</code> and <code>partition-3</code> with minimal interactions between them:</p>
+<p><img alt="" src="../images/8-natural-seams-view.png" /></p>
+<p>In both of these views, each partition is essentially the beginning of a potential microservice meant to run on its own instance of an application server, such as WebSphere Liberty, where the functionality provided by the Java classes within it can be served up as microservice APIs.</p>
+<p>Alongside the graph and the insights it provides into the monolithic application and partitioning recommendations, the Mono2Micro AIPL tool also generates two HTML reports:</p>
+<ul>
+<li>Oriole-Report.html gives an overview of how the business logic partitions are related to the use cases.</li>
+<li>Cardinal-Report.html ("deep partition analysis" report) provides more details on the partitions themselves, including the list of member monolithic classes within each partition, which classes are external-facing (classes whose methods are called by classes outside of the partition), which external classes are called from each partition, and so on.</li>
+</ul>
+<p>Both of these reports are generated directly in the <code>/m2m/daytrader/application-data/mono2micro/mono2micro-output/</code>, if you ran AIPL, as per above. You can also find these reports in <code>/m2m/daytrader/mono2micro-analysis/</code> after extracting <code>Mono2Micro-example.zip</code> in <code>/m2m/</code>. Please refer to the user guide for more details about these two reports.</p>
+<p>Another useful report that AIPL generates in the output folder is coverage.txt, which provides details about the percentage of classes and methods coverages based on the use case data provided.</p>
+<p>In order to proceed with a set of partitions that best allows DayTrader to be refactored as a set of microservices, let's take the business logic partitioning scheme and further customize and tweak it, using our knowledge of how the monolithic application works, in order to come up with an optimal partitioning scheme.</p>
+<h3 id="customizing-and-adjusting-partitions">Customizing and adjusting partitions<a class="headerlink" href="#customizing-and-adjusting-partitions" title="Permanent link">&para;</a></h3>
+<p>In order to refine the recommended business logic partitions, I started by considering <code>partition-0</code>, <code>partition-4</code>, and the <code>Unobserved</code> partitions. In these partitions, almost all of the classes are discrete test Ping* servlet classes, as well as some JSF classes. Given that the DayTrader monolith has a web-based front end and UI, I decided it was best to use one single partition to house all of the front-end code for the application, which then would include all html/jsp/etc files, the Java servlet classes that are referred to by the html files, and any other code/files related to the front end. An important point to note here is that Java servlets need to be running on the <strong>same</strong> application server instance that serves up the html files referring to the servlets.</p>
+<p>As a general guideline, we recommend that users do a similar customization where all front-end- or UI-related classes are grouped into a single partition, if their monolithic application happens to have a UI or front end. Given that most web-based UIs will likely be composed of non-Java code (such has Javascript, HTML, JSP, and so on), Mono2Micro will not consider such code and, therefore, they will not be in the recommended partitions. So this "front end" partition serves as an ideal home for these files, along with any Java code in the monolithic application that goes hand-in-hand with the front end, such as servlet classes.</p>
+<p>To start editing the graph, select <strong>Custom view</strong> from in the "Graph view" drop-down list (assuming you load the original graph .json file in <code>/m2m/daytrader/mono2micro-analysis/oriole/final_graph.json</code> or if you generated a new graph after running AIPL yourself in <code>/m2m/daytrader/application-data/mono2micro/mono2micro-output/oriole/final-graph.json</code>):</p>
+<p><img alt="" src="../images/9-custom-graph-view.png" /></p>
+<p>The UI will ask you to choose whether to start your custom view based on the business logic view or the natural seams view. Let's choose the business logic view:</p>
+<p><img alt="" src="../images/10-custom-view-based-on-business-logic.png" /></p>
+<p>Once you select <strong>Start</strong>, you'll be presented with the same business logic partitioning in the custom view. To begin editing, set <strong>Edit graph</strong> to <strong>On</strong>. You're now able to drag classes from one partition to another in order to move them, or drag them to any empty space between the partitions to create a new partition with that class.</p>
+<p><img alt="" src="../images/11-creating-custom-partitions-1.png" /></p>
+<p>In order to form my front end partition to house all the servlet classes and other front-end code, I decided to repurpose <code>partition-0</code>. To start that process, the first step was to move all the classes in <code>partition-4</code> to <code>partition-0</code>, starting with PingEJBLocal, for example, and continuing with the other classes until the last class is moved across, at which time the Mono2Micro UI automatically removes <code>partition-4</code> altogether:</p>
+<p><img alt="" src="../images/12-creating-custom-partitions-2.png" /></p>
+<p>Similarly, I then moved all the classes in the <code>Unobserved</code> partition to <code>partition-0</code>. After that, I renamed this partition to "web" by editing the partition name field.</p>
+<p>You should now have a good idea of how to edit the graph, move classes around, and rename partitions. Let's switch back to the pre-customized graph file provided in the sample and load <code>/m2m/daytrader/mono2micro-analysis-custom/oriole/final_graph.json</code> in the UI. Once that's loaded and you switch to the custom view, you will see the final customizations I did to the business logic partitioning in order to prepare for code generation and deployment of microservices:</p>
+<p><img alt="" src="../images/14-final-customizations-view.jpg" /></p>
+<p>The following table provides a complete list of the classes I moved from the original business logic partitioning and the reasoning behind each move:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Class</strong></th>
+<th><strong>Original partition</strong></th>
+<th><strong>Destination partition</strong></th>
+<th><strong>Reason for move</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TradeAppServlet</td>
+<td>partition-1</td>
+<td>web</td>
+<td>Servlet class, needs to be on same app server instance as calling html</td>
+</tr>
+<tr>
+<td>TradeConfigServlet</td>
+<td>partition-3</td>
+<td>web</td>
+<td>Servlet class, needs to be on same app server instance as calling html</td>
+</tr>
+<tr>
+<td>TradeServletAction</td>
+<td>partition-1</td>
+<td>web</td>
+<td>Servlet related code</td>
+</tr>
+<tr>
+<td>TradeScenarioServlet</td>
+<td>unobserved</td>
+<td>web</td>
+<td>Servlet class, needs to be on same app server instance as calling html</td>
+</tr>
+<tr>
+<td>TradeWebContextListener</td>
+<td>partition-3</td>
+<td>web</td>
+<td>@WebListener annotated class that is associated to servlets</td>
+</tr>
+<tr>
+<td>Ping* classes</td>
+<td>partition-4, unobserved</td>
+<td>web</td>
+<td>Discrete unit tests tied to the front-end of the application and html call points</td>
+</tr>
+<tr>
+<td>TradeBuildDB</td>
+<td>partition-2</td>
+<td>web</td>
+<td>Though it's not a servlet or servlet related Java EE class itself, this class's methods are called from other code using arguments based on <code>HttpServletResponse</code>, such as <code>TradeConfigServlet.service()</code>, therefore requiring it to be on the same app server as the servlets. This was not readily apparent until I initially tried to run the partitions where <code>TradeBuildDB</code> still remained in <code>partition-2</code> while the servlets were in the <code>web</code> partition, and errors occurred at runtime that then lead to this solution. See next section for more details.</td>
+</tr>
+<tr>
+<td>DTBroker3MDB</td>
+<td>unobserved</td>
+<td>partition-1</td>
+<td>Message driven beans need to be running on the same app server as other back-end Java EE objects which they are messaging with</td>
+</tr>
+<tr>
+<td>KeyBlock and inner classes</td>
+<td>partition-3</td>
+<td>partition-2</td>
+<td>Has to be on the same application server instance as <code>KeySequenceDirect</code></td>
+</tr>
+<tr>
+<td>RunStatsDataBean</td>
+<td>partition-3</td>
+<td>partition-2</td>
+<td>Closely related to <code>TradeDirect</code> in <code>partition-2</code></td>
+</tr>
+<tr>
+<td>HoldingDataBean</td>
+<td>partition-3</td>
+<td>partition-1</td>
+<td><code>HoldingDataBean</code> is an entity (JPA) bean that needs to be running on the same application server with the other entity JPA beans in <code>partition-1</code>, since the whole JPA persistence unit resides there and the database model cannot be broken apart</td>
+</tr>
+<tr>
+<td>OrdersAlertFilter</td>
+<td>partition-1</td>
+<td>web</td>
+<td>See next section</td>
+</tr>
+<tr>
+<td>all remaining classes</td>
+<td>unobserved</td>
+<td>web</td>
+<td>See next section</td>
+</tr>
+</tbody>
+</table>
+<p>Some important aspects to consider here are how JPA entity beans that belong to the same persistence unit in the monolith should be kept together in the same partition if the database model is to remain intact. And any Java EE classes that use resource injection (i.e. to inject EJB instances, persistence manager objects, etc), should also be in the same partition as those require the same application server instance to orchestrate the injections.</p>
+<p>Apart from figuring out how best to move around classes based on your knowledge of the monolith application and middleware specifications it uses, you can also start to incrementally move classes between partitions and/or make them external facing as you build and run the partitions (see next sections), by observing and debugging errors at runtime with more tracing enabled. More than likely, the need to make some customizations won&#39;t be apparent until the first few runs of the partitions as deployed microservices.</p>
+<h2 id="generating-initial-microservices-foundation-code">Generating initial microservices foundation code<a class="headerlink" href="#generating-initial-microservices-foundation-code" title="Permanent link">&para;</a></h2>
+<p>Once the custom partitioning is finalized, you can re-run AIPL to re-generate the <code>cardinal/</code> folder which along with the monolith source code serves as input to the Mono2Micro <strong>Cardinal</strong> code generator tool. Please refer to the user guide as to how run the AIPL tool again for a modified graph file. The <code>cardinal/</code> input folder for my customized partitioning is already included in the sample .zip and after extracting <code>Mono2Micro-example.zip</code> in <code>/m2m/</code>, can be found in <code>/m2m/daytrader/mono2micro-analysis-custom/cardinal/</code>. As previously mentioned, the original monolithic application source code can be found in <code>/m2m/daytrader/monolith/...</code>. So, with both these sets of files in the two directories, we can now proceed to the code generation stage to generate foundation microservices code for all the partitions.</p>
+<p>One thing you might notice is the presence of a <code>user_defined.txt</code> file in <code>/m2m/daytrader/mono2micro-analysis-custom/cardinal/</code>, which the Cardinal tool reads on start-up if one exists. This is a way to provide a list of one or more monolith classes that are to be treated as "external facing," where classes outside its partition might call into it. These external facing classes are also called "service classes" in Mono2Micro nomenclature. Recall that the deep partition analysis report Cardinal-Report.html generated by AIPL lists all external facing classes per partition that the AI analysis deemed necessary... but there could always be cases where some classes were not called out as such (typically due to insufficient use cases being run that allows Mono2Micro to observe this external facing behavior), although they should be in order for the partitions to fully communicate. So in effect this is a way for users to further instruct the Mono2Micro code generation tool. In my example, I list the following two classes in user_defined.txt and that was due to further debugging when the initially generated partitions were compiled and run which lead me to realize these needed to be service classes (see next sections for more details):</p>
+<pre><code>TradeDirect,interface
+
+FinancialUtils,interface
+</code></pre>
+<p>To run the Mono2Micro Cardinal code generator tool, issue the following command:</p>
+<pre><code>docker run -e LICENSE=accept --rm -it -v /m2m/daytrader:/var/application ibmcom/mono2micro-cardinal /var/application/monolith /var/application/mono2micro-analysis-custom/cardinal
+</code></pre>
+<p><strong>Note:</strong> The two input arguments are the paths to the cardinal folder of input file generated by AIPL for Cardinal and the monolith source folder.</p>
+<p>Once it runs and finishes, the tool generates a directory for each partition all within the parent directory of the monolith source directory. Each partition directory will have a directory tree structure exactly the same as the monolith source directory tree, wherever Java files are concerned. Additionally, Cardinal generates an extra module folder <code>application/</code> in each partition containing utility Java code specifically tuned to this partition that other generated code uses. The generated Java code will be in the following directories:</p>
+<pre><code>├── monolith-partition1/
+│   ├── application/ (generated utility code)
+│   ├── daytrader-ee7-ejb/ (original monolith subfolder with generated code and monolith classes)
+│   └── daytrader-ee7-web/ (original monolith subfolder with generated code and monolith classes)
+├── monolith-partition2/
+├── monolith-partition3/
+├── monolith-web/
+</code></pre>
+<p>Within the input <code>cardinal/</code> folder (<code>/m2m/daytrader/mono2micro-analysis-custom/cardinal/</code> in our example) some useful reports and informational files are generated in the c<code>ardinal-codegen/</code> subfolder containing the deep partition analysis reports (see previous section) in textual format -- a <code>CardinalSummary.txt</code> file and a <code>CardinalSings.json</code> file. The <code>CardinalSings.json</code> file lists any potential issues for the user to address in order to get optimal code generation (refer to the user guide for more details). And a <code>CardinalSummary.txt</code> lists all the generated Java files and those which were copied from the monolith source directory tree.</p>
+<p>Let's now look at the various kinds of Java code that Cardinal generates using <code>CardinalSummary.txt</code> as a guide, and see how the basic communication protocol works in the generated code that allows monolith classes to be distributed across partitions <strong><em>without re-writing any code</em></strong> while behaving exactly as they did in the monolithic application.</p>
+<h3 id="generated-code-service-classes">Generated code: Service classes<a class="headerlink" href="#generated-code-service-classes" title="Permanent link">&para;</a></h3>
+<p>These are generated classes that sit alongside all external-facing monolith classes, a service class whose methods are wrappers for the monolith class's public methods. The service class uses JAX-RS web services technology in the wrapper methods to serve up the monolith class's public methods as REST APIs. For example, the <code>TradeAction</code> class in <code>partition-1</code> is an external-facing class, and the following code shows a typical public method <code>buy()</code> within:</p>
+<pre><code class="language-java">/**
+ * Purchase a stock and create a new holding for the given user. Given a
+ * stock symbol and quantity to purchase, retrieve the current quote price,
+ * debit the user's account balance, and add holdings to user's portfolio.
+ *
+ * @param userID
+ *            the customer requesting the stock purchase
+ * @param symbol
+ *            the symbol of the stock being purchased
+ * @param quantity
+ *            the quantity of shares to purchase
+ * @return OrderDataBean providing the status of the newly created buy order
+ */
+@Override
+public OrderDataBean buy(String userID, String symbol, double quantity, int orderProcessingMode) throws Exception {
+    if (Log.doActionTrace()) {
+        Log.trace(&quot;TradeAction:buy&quot;, userID, symbol, new Double(quantity), new Integer(orderProcessingMode));
+    }
+    OrderDataBean orderData = trade.buy(userID, symbol, quantity, orderProcessingMode);
+
+    // after the purchase or sell of a stock, update the stocks volume and
+    // price
+
+    updateQuotePriceVolume(symbol, TradeConfig.getRandomPriceChangeFactor(), quantity);
+
+    return orderData;
+}
+</code></pre>
+<p>Mono2Micro therefore generates a companion <code>TradeActionService</code> class. The following code listing shows the <code>buy()</code> service wrapper method, where it obtains an instance of the actual monolith class using the partition's cluster object manager (one of the generated utility classes that manages the monolith object instances), and actually does the monolith class method call and handles the method arguments and return types by converting them to JSON before sending them as payload via the webservice.</p>
+<pre><code class="language-java">@Path(&quot;/buy&quot;)
+@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+@Produces(MediaType.APPLICATION_JSON)
+public Response buy(
+    @FormParam(&quot;klu__referenceID&quot;) String klu__referenceID,
+    @FormParam(&quot;userID&quot;) String userID,
+    @FormParam(&quot;symbol&quot;) String symbol,
+    @FormParam(&quot;quantity&quot;) String quantity,
+    @FormParam(&quot;orderProcessingMode&quot;) String orderProcessingMode,
+    @Context HttpServletResponse servletResponse
+) {
+
+    String userID_fpar = userID;
+
+    String symbol_fpar = symbol;
+
+    double quantity_fpar = Double.parseDouble(quantity);
+
+    int orderProcessingMode_fpar = Integer.parseInt(orderProcessingMode);
+
+    OrderDataBean response;
+
+    // dynamically dispatched method: using reference ID, get object from cluster object manager and
+    // call method on the object
+    TradeAction instTradeAction = (TradeAction)ClusterObjectManager.getObject(klu__referenceID);
+    try {
+        response = instTradeAction.buy(userID_fpar, symbol_fpar, quantity_fpar, orderProcessingMode_fpar);
+    }
+    catch (Throwable t) {
+        String msg = &quot;Call to method buy() of TradeAction raised exception&quot;+t.getMessage();
+        logger.warning(msg);
+        throw new WebApplicationException(msg, t, CardinalException.APPLICATION_EXCEPTION);
+    }
+    JsonObjectBuilder jsonresp = Json.createObjectBuilder();
+
+    // convert physical/proxy object(s) referenced by &quot;response&quot; to reference ID(s)
+    String response_obj = SerializationUtil.encodeWithDynamicTypeCheck(response);
+    JsonObject jsonobj = jsonresp.add(&quot;return_value&quot;, response_obj).build();
+
+    logger.info(&quot;[TradeAction] Returning JSON object: &quot;+jsonobj.toString());
+    return Response
+        .status(Response.Status.OK)
+        .entity(jsonobj)
+        .build();
+
+}
+</code></pre>
+<p>To see exactly how the dynamic object management is done in generated code, look at an example such as <code>/m2m/daytrader/microservices/daytrader-partition1/cardinal-utils/src/main/java/com/ibm/cardinal/util/ClusterObjectManager.java</code>. Note also that non-primitive Java types are handled using serialization. In this case, the return type <code>OrderDataBean</code> is not only non-primitive but also a JPA entity bean in <code>partition-1</code> and is therefore in turn handled as external-facing. How these service classes are called, and how their method arguments and return types are handled from the client partitions are the domain of "proxy classes," which Mono2Micro also generates. Let's now see how they work next.</p>
+<h3 id="generated-code-proxy-classes">Generated code: Proxy classes<a class="headerlink" href="#generated-code-proxy-classes" title="Permanent link">&para;</a></h3>
+<p>For every service class generated in the partition per external facing monolith class, the Mono2Micro Cardinal tool also generates a proxy class in <em>all</em> other partitions, meant to act as a proxy of the monolith class to all code in the other partitions that refer to it. For this <code>TradeAction</code> class example, a proxy class by the exact name is generated in partitions <code>partition-2</code>, <code>partition-3</code>, and <code>web</code>, where wrapper methods use JAX-RS webservice client code to call out to the service class's REST API under the covers. In other words, all original monolith code in other partitions that use <code>TradeAction</code> will be none the wiser, continuing to compile and run as before with the proxy rather than the original. The following code listing shows the <code>buy()</code> method in the proxy class, serving as a client method to its method counterpart in the service class.</p>
+<pre><code class="language-java">@Override
+    public OrderDataBean buy(String userID, String symbol, double quantity, int orderProcessingMode) throws Exception {
+        // create form for service request
+        Form form = new Form();
+        form.param(&quot;klu__referenceID&quot;, getKlu__referenceID());
+        form.param(&quot;userID&quot;, userID);
+
+        form.param(&quot;symbol&quot;, symbol);
+
+        form.param(&quot;quantity&quot;, String.valueOf(quantity));
+
+        form.param(&quot;orderProcessingMode&quot;, String.valueOf(orderProcessingMode));
+
+        logger.info(&quot;[TradeAction] Calling service &quot;+serviceURI+
+            &quot;/buy with form: &quot;+form.asMap());
+
+        // call service and get encoded response from response JSON
+        Response svc_response;
+        try {
+            svc_response = client.target(serviceURI)
+                .path(&quot;buy&quot;)
+                .request(MediaType.APPLICATION_JSON)
+                .post(Entity.form(form), Response.class);
+        }
+        catch (WebApplicationException wae) {
+            Throwable cause = wae.getCause();
+            logger.warning(&quot;[TradeAction] Exception thrown in service call: &quot;+wae.getMessage());
+            if (wae.getResponse().getStatus() == CardinalException.APPLICATION_EXCEPTION) {
+                logger.warning(&quot;[TradeAction] Re-throwing wrapped application exception: &quot;);
+                // typecast to declared exception types
+                if (cause instanceof Exception) {
+                    throw (Exception)cause;
+                }
+            }
+            throw (RuntimeException)cause;
+        }
+        String response_json_str = svc_response.readEntity(String.class);
+        logger.info(&quot;[TradeAction] Response JSON string: &quot;+response_json_str);
+        JsonReader json_reader = Json.createReader(new StringReader(response_json_str));
+        JsonObject response_json = json_reader.readObject();
+        String response = response_json.getString(&quot;return_value&quot;);
+        svc_response.close();
+
+        // convert reference ID(s) stored in &quot;response&quot; to physical/proxy object(s)
+        OrderDataBean response_obj = (OrderDataBean)SerializationUtil.decodeWithDynamicTypeCheck(response);
+        return response_obj;
+
+    }
+</code></pre>
+<p>Note how at the end the return value of the REST API call is essentially a serialized referenced ID of the proxy object to <code>OrderDataBean</code>, subsequently deserialized and handled by the generated serialization utility code that is specifically tuned to this partition.</p>
+<h3 id="generated-code-original-classes">Generated code: Original classes<a class="headerlink" href="#generated-code-original-classes" title="Permanent link">&para;</a></h3>
+<p>These are the original monolith classes allocated to a partition, copied as-is from the monolith source directory tree to the partition directory.</p>
+<h3 id="generated-code-java-interface-classes">Generated code: Java interface classes<a class="headerlink" href="#generated-code-java-interface-classes" title="Permanent link">&para;</a></h3>
+<p>Since Java interface classes don't have state, Mono2Micro copies all Java interface classes in the monolith to <em>all</em> partitions. This is to err on the side of caution, so that any monolith code referring to them in the partitions can still compile.</p>
+<h3 id="generated-code-dummy-classes">Generated code: Dummy classes<a class="headerlink" href="#generated-code-dummy-classes" title="Permanent link">&para;</a></h3>
+<p>So far, per partition, there are:</p>
+<ul>
+<li>Initially allocated monolith Java classes</li>
+<li>Service classes for any of these monolith classes that are external facing</li>
+<li>Proxy classes for all external-facing classes from all other partitions</li>
+<li>Java interface classes from the monolith</li>
+</ul>
+<p>In a perfect world, if exhaustive use cases were run such that the Mono2Micro AI is able to observe all possible code paths in the monolith, this will probably complete the picture of each partition. But in reality, this is not usually the case. So once again, to be on the safe side, Mono2Micro generates monolith class outside of these as "dummy" classes in each partition. These dummy classes just have the public method signatures of the original monolith class, but the method bodies intentionally throw an exception to indicate that this code was entered as the partition runs. This then gives insight to the user as the partitions are being run and debugged, and also a pointer as to what corrective action to potentially take: expand use case coverage to beef up the application data such that this code is exercised, or move the class to a different partition, or make the original monolith class (that the dummy class is a shell of) to be external facing in its home partition.</p>
+<p>For example, the following code listing shows the <code>OrdersAlertFilter</code> class that was originally allocated by Mono2Micro to <code>partition-1</code> and designated as not external-facing, which led to dummy versions of it being generated in all other partitions:</p>
+<pre><code class="language-java">public class OrdersAlertFilter implements Filter {
+
+    /**
+     * Constructor for CompletedOrdersAlertFilter
+     */
+    public OrdersAlertFilter() {
+    throw new CardinalException(&quot;ERROR: dummy function called at daytrader-ee7-web/src/main/java/com/ibm/websphere/samples/daytrader/web/OrdersAlertFilter.java:OrdersAlertFilter:OrdersAlertFilter&quot;);
+    }
+
+    public void init(FilterConfig filterConfig) throws ServletException {
+    throw new CardinalException(&quot;ERROR: dummy function called at daytrader-ee7-web/src/main/java/com/ibm/websphere/samples/daytrader/web/OrdersAlertFilter.java:OrdersAlertFilter:init&quot;);
+    }
+
+    /**
+     *  Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+     */
+
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+    throw new CardinalException(&quot;ERROR: dummy function called at daytrader-ee7-web/src/main/java/com/ibm/websphere/samples/daytrader/web/OrdersAlertFilter.java:OrdersAlertFilter:doFilter&quot;);
+    }
+</code></pre>
+<p>When initially running and testing the partitions, I noticed the above exceptions being thrown in the web partition which along with other reasons lead me to move OrdersAlertFilter to the web partition, thereby solving the problem. So dummy classes are a convenient way to ensure the generated partitions still compile more easily, but then give insight at runtime as to what further customizations and tweaks to do on the partitioning.</p>
+<p>At this point, we have done most of the customizations to the business logic partitions we initially set out to do and generated the microservices foundation code with the Mono2Micro Cardinal tool. Along the way I mentioned how some of the customizations were a result of running and debugging the partitions which obviously requires the partition build config be set up and various other non-Java aspects of the monolith application such as the server config and Java EE meta-data to be refactored to the partitions. All of the Mono2Micro tooling and automation has led us to this point, and it certainly takes the user a long way on the journey of refactoring monoliths to microservices. The remainder of that journey essentially boils down to manually refactoring and integrating these non-Java aspects of the monolith, along with further hand customizations based on the initial runs, to finally get to running microservices that represent the same functionality as the original monolith. Let's take a look at that in the next section.</p>
+<h2 id="refactoring-non-java-parts-of-monolithic-applications-further-code-changes-and-deploying-final-partitions-as-microservices">Refactoring non-Java parts of monolithic applications, further code changes, and deploying final partitions as microservices<a class="headerlink" href="#refactoring-non-java-parts-of-monolithic-applications-further-code-changes-and-deploying-final-partitions-as-microservices" title="Permanent link">&para;</a></h2>
+<p>After Mono2Micro generates the initial microservices plumbing code and places that along with the monolith classes into each partition, the foundations of the microservices are now there. That is, each partition is meant to run as a microservice, deployed on an application server (such as WebSphere Liberty) where the monolith classes&#39; public methods are served up as REST API. Each partition is effectively then a mini version of the original monolith, its folder structure mirroring the original monolith folder and module structure. In order to build and run each partition, more than just the Java code is needed of course. And here is when a key question is usually raised: <em>What exactly does one do with the non-Java parts of the monolith with respect to each partition, and how, in order to facilitate the final goal of running all partitions as microservices?</em></p>
+<p>One approach I took with this DayTrader example and highly recommend for most Java applications is as follows: Copy <em>all</em> of the non-Java files in the monolith (i.e. the build config files such the Maven pom.xml or Gradle files, server config files such as the WebSphere server.xml, Java EE meta-data and deployment descriptors such as application.xml, web.xml, ejb-jar.xml, persistence.xml etc) to <em>every</em> partition, following the same directory structure which will partially already exist in each partition. Starting with that as a base, the aim then is to pare down and incrementally reduce the content of all these files (based on knowledge of what functionality each partition entails, and/or through an iterative compile-run-debug process), ending up with just the needed content in each partition. After this is done, each partition will indeed be a mini subset of the original monolith, and working together with all the other running partitions and finally become microservices that provide the exact same functionality as the original monolith.</p>
+<p>Before doing the full refactoring and build setup of each partition, you can also try doing a quick compilation test of the generated code by using an IDE tailored to support Java EE and the application server, such as the Eclipse based IBM Liberty Developer Tools: <a href="https://marketplace.eclipse.org/content/ibm-liberty-developer-tools">https://marketplace.eclipse.org/content/ibm-liberty-developer-tools</a> . I won&#39;t go into too much detail as to the exact steps to do this, but using this toolset as an example, the basic steps are:</p>
+<ol>
+<li>Create a Java EE web project (&gt;=v3.x) for each partition and set the runtime target a WebSphere Liberty installation.</li>
+<li>Import the partition from the filesystem into the project.</li>
+<li>Ensure all partitions module folders containing Java source files are correctly configured as source folders within the Eclipse tools, rooted where the package directories are.This includes the monolith module folders as well as the <code>application</code> utility code folder generated by Cardinal. (See previous section.)</li>
+<li>Build the project and observe any compilation errors.</li>
+</ol>
+<p>The compilation errors (which will mostly likely be in the monolith code in the partition) can then be looked at, and fixed as necessary. Likely some of these errors might be as a result of the issues raised in CardinalSings.json that Mono2Micro&#39;s Cardinal tool generates. When I initially compiled the partitions with generated code, the only errors I had to fix were to change some places in monolith code that was directly referring to public fields in classes outside their partitions (such as TradeConfig's fields). Cardinal flags this specific issue in CardinalSings.json and also generates getter/setter methods in the monolith class with the public fields, so that referring code can be changed to use the getter and setter methods instead. This then allows the original monolith class with the public fields to be used a service class across partitions.</p>
+<p>That said, let&#39;s proceed with the full refactoring and build of all the partitions using the monolith&#39;s maven based build scheme on each. Each partition therefore will ultimately build to a daytrader-ee-7 ear module like the monolith, and have within it a daytrader-ee7-ejb and daytader-ee7-web module. To see the fully deployed microservice code and config files I ended up with in each partition, look at <code>/m2m/daytrader/microservices/</code> and all subfolders (assuming you extracted the <code>Mono2Micro-example.zip</code> in <code>/m2m/</code>).</p>
+<h3 id="cardinal-utility-code-module">Cardinal utility code module<a class="headerlink" href="#cardinal-utility-code-module" title="Permanent link">&para;</a></h3>
+<p>First, to build the generated Cardinal utility code in each partition, I renamed the generated <code>application/</code> folder to <code>cardinal-utils/</code> and put together a <code>pom.xml</code> fashioned after the monolith's EJB/web module's pom files to build it as a utility .jar (with the aim of then including it as an additional module in the partition .ear file):</p>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;  
+
+    &lt;parent&gt;
+        &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+        &lt;artifactId&gt;daytrader7&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+    &lt;name&gt;cardinal-utils&lt;/name&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;artifactId&gt;cardinal-utils&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;build&gt;
+        &lt;finalName&gt;${project.artifactId}&lt;/finalName&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;
+</code></pre>
+<h3 id="partitions-build-config">Partitions build config<a class="headerlink" href="#partitions-build-config" title="Permanent link">&para;</a></h3>
+<p>Next, for each partition, the root <code>pom.xml</code> that was copied from the monolith was modified as per the following for all partitions (note the addition of the <code>cardinal-utils</code> module):</p>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;net.wasdev.maven.parent&lt;/groupId&gt;
+        &lt;artifactId&gt;java7-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.3&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+    &lt;artifactId&gt;daytrader7&lt;/artifactId&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;WAS Liberty Sample - Java EE7 Benchmark Sample&lt;/name&gt;
+
+    &lt;licenses&gt;
+        &lt;license&gt;
+            &lt;name&gt;The Apache Software License, Version 2.0&lt;/name&gt;
+            &lt;url&gt;https://raw.github.com/WASdev/sample.async.jaxrs/master/LICENSE&lt;/url&gt;
+            &lt;distribution&gt;repo&lt;/distribution&gt;
+        &lt;/license&gt;
+    &lt;/licenses&gt;
+
+    &lt;modules&gt;
+        &lt;module&gt;cardinal-utils&lt;/module&gt;
+        &lt;module&gt;daytrader-ee7-ejb&lt;/module&gt;
+        &lt;module&gt;daytrader-ee7-web&lt;/module&gt;
+        &lt;module&gt;daytrader-ee7&lt;/module&gt;
+    &lt;/modules&gt;
+
+&lt;/project&gt;
+</code></pre>
+<h3 id="ear-modules-per-partition">EAR modules per partition<a class="headerlink" href="#ear-modules-per-partition" title="Permanent link">&para;</a></h3>
+<p>In copying over all the non-Java files and folders from the monolith and laying them down over each partition's directory structure, one of the new subfolders in each partition will be the <code>daytrader-ee7/</code> subfolder, which contains the build config and meta-data files for the Java EE .ear module itself (given that it has no Java code at all, the Mono2Micro Cardinal tool never creates this subfolder as it generates each partition for DayTrader). In there, the pom.xml file instructs Maven as to how to assemble the ear. Let's take a look at the customized ones for each partition.</p>
+<p><code>/m2m/daytrader/microservices/daytrader-partition1/daytrader-ee7/pom.xml</code> (note the extra configuration section I added at the end):</p>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+        &lt;artifactId&gt;daytrader7&lt;/artifactId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;name&gt;WAS Liberty Sample - Java EE7 Benchmark Sample - EAR&lt;/name&gt;
+
+    &lt;packaging&gt;ear&lt;/packaging&gt;
+    &lt;artifactId&gt;daytrader-ee7&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;dependencies&gt;
+          &lt;dependency&gt;
+            &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+            &lt;artifactId&gt;cardinal-utils&lt;/artifactId&gt;
+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+            &lt;type&gt;jar&lt;/type&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+            &lt;artifactId&gt;daytrader-ee7-ejb&lt;/artifactId&gt;
+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+            &lt;type&gt;jar&lt;/type&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+            &lt;artifactId&gt;daytrader-ee7-web&lt;/artifactId&gt;
+            &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+            &lt;type&gt;war&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+   &lt;!-- extra configuration to ensure archives within ear don't have versions in filenames, default and specific locations for modules, etc --&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-ear-plugin&lt;/artifactId&gt;
+                &lt;configuration&gt;
+                    &lt;fileNameMapping&gt;no-version&lt;/fileNameMapping&gt;
+                    &lt;defaultLibBundleDir&gt;lib&lt;/defaultLibBundleDir&gt;
+                    &lt;modules&gt;
+                        &lt;webModule&gt;
+                            &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+                            &lt;artifactId&gt;daytrader-ee7-web&lt;/artifactId&gt;
+                            &lt;bundleDir&gt;/&lt;/bundleDir&gt;
+                        &lt;/webModule&gt;
+                        &lt;jarModule&gt;
+                            &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+                            &lt;artifactId&gt;daytrader-ee7-ejb&lt;/artifactId&gt;
+                            &lt;bundleDir&gt;/&lt;/bundleDir&gt;
+                        &lt;/jarModule&gt;
+                    &lt;/modules&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p>For the <code>partition-2</code>, <code>partition-3</code>, and <code>web</code> partitions, note how there's a difference in the extra configuration. This is because its EJB module source folder contains no actual EJBs and only proxies instead. It therefore should not be marked as such, otherwise the application server will throw errors about not finding EJBs in the EJB module.</p>
+<p><code>/m2m/daytrader/microservices/daytrader-partition2/daytrader-ee7/pom.xml</code>:</p>
+<pre><code class="language-xml">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-ear-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;fileNameMapping&gt;no-version&lt;/fileNameMapping&gt;
+                &lt;defaultLibBundleDir&gt;lib&lt;/defaultLibBundleDir&gt;
+                &lt;modules&gt;
+                    &lt;webModule&gt;
+                        &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+                        &lt;artifactId&gt;daytrader-ee7-web&lt;/artifactId&gt;
+                        &lt;bundleDir&gt;/&lt;/bundleDir&gt;
+                    &lt;/webModule&gt;
+                    &lt;!-- don't mark ejb module in this partition since the EJBs/entities there are Mono2Micro generated proxies only
+                    &lt;jarModule&gt;
+                        &lt;groupId&gt;net.wasdev.wlp.sample&lt;/groupId&gt;
+                        &lt;artifactId&gt;daytrader-ee7-ejb&lt;/artifactId&gt;
+                        &lt;bundleDir&gt;/&lt;/bundleDir&gt;
+                    &lt;/jarModule&gt;
+                    --&gt;
+                &lt;/modules&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<p>Apart from the ear module <code>pom.xml</code> file, the <code>application.xml</code> Java EE deployment descriptor should also be tweaked for each partition.</p>
+<p><code>/m2m/daytrader/microservices/daytrader-partition1/daytrader-ee7/src/main/application/META-INF/application.xml</code>:</p>
+<pre><code class="language-xml">&lt;application
+    xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd&quot; version=&quot;7&quot;&gt;
+  &lt;description&gt;DayTrader Stock Trading Performance Benchmark Sample&lt;/description&gt;
+  &lt;display-name&gt;DayTrader&lt;/display-name&gt;
+  &lt;module&gt;
+    &lt;web&gt;
+      &lt;web-uri&gt;daytrader-ee7-web.war&lt;/web-uri&gt;
+      &lt;context-root&gt;/daytrader&lt;/context-root&gt;
+    &lt;/web&gt;
+  &lt;/module&gt;
+  &lt;module&gt;
+    &lt;ejb&gt;daytrader-ee7-ejb.jar&lt;/ejb&gt;
+  &lt;/module&gt;
+  &lt;!-- should not represent util jars meant for general ear-wide use as a java module as that implies it's a JEE client app
+  &lt;module&gt;
+    &lt;java&gt;cardinal-utils.jar&lt;/java&gt;
+  &lt;/module&gt;
+  --&gt;
+
+&lt;/application&gt;
+</code></pre>
+<h3 id="java-ee-modules-within-ear">Java EE modules within EAR<a class="headerlink" href="#java-ee-modules-within-ear" title="Permanent link">&para;</a></h3>
+<p>As per the pom, <code>partition-1</code> has an EJB and web module as Java EE modules, whereas the other partitions (<code>partition-2</code>, <code>partition-3</code>, and <code>web</code>) only have a web module in the EAR's Java EE deployment descriptor.</p>
+<p><code>/m2m/daytrader/microservices/daytrader-partition2/daytrader-ee7/src/main/application/META-INF/application.xml</code>:</p>
+<pre><code class="language-xml">&lt;application
+    xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd&quot; version=&quot;7&quot;&gt;
+  &lt;description&gt;DayTrader Stock Trading Performance Benchmark Sample&lt;/description&gt;
+  &lt;display-name&gt;DayTrader&lt;/display-name&gt;
+  &lt;module&gt;
+    &lt;web&gt;
+      &lt;web-uri&gt;daytrader-ee7-web.war&lt;/web-uri&gt;
+      &lt;context-root&gt;/daytrader&lt;/context-root&gt;
+    &lt;/web&gt;
+  &lt;/module&gt;
+  &lt;!-- don't mark ejb module in this partition since the EJBs/entities there are cardinal proxies only
+  &lt;module&gt;
+    &lt;ejb&gt;daytrader-ee7-ejb.jar&lt;/ejb&gt;
+  &lt;/module&gt;
+  --&gt;
+  &lt;!-- should not represent util jars meant for general ear-wide use as a java module as that implies it's a JEE client app
+    &lt;module&gt;
+    &lt;java&gt;cardinal-utils.jar&lt;/java&gt;
+  &lt;/module&gt;
+  --&gt;
+&lt;/application&gt;
+</code></pre>
+<p>Within the EJB and web modules in each partition, the monolith versions of the Java EE deployment descriptor .xml files were left as-is and deleted from partitions for which these files did not apply to. Be sure to look through these files for your own reference:</p>
+<ul>
+<li><code>/m2m/daytrader/microservices/&lt;partition directory&gt;/daytrader-ee7-ejb/pom.xml</code></li>
+<li><code>/m2m/daytrader/microservices/daytrader7-partition1/daytrader-ee7-ejb/src/main/resources/ejb-jar.xml</code> and other files: Only for <code>partition-1</code> and deleted from all other partitions</li>
+<li><code>/m2m/daytrader/microservices/&lt;partition directory&gt;/daytrader-ee7-web/pom.xml</code></li>
+<li><code>/m2m/daytrader/microservices/&lt;partition directory&gt;/daytrader-ee7-web/src/main/webapp/*</code>: Various Java EE web module config and meta-data files</li>
+</ul>
+<p>For the <code>web</code> partition, <em>all</em> the non-Java files and code from the monolith's web module should be copied over, such as all UI related code (i.e. .html files, .jsp files, image files, etc). For <code>partition-1</code>, <code>partition-2</code>, and <code>partition-3</code>, only the <code>web.xml</code> file and certain other Java EE deployment descriptor files should be copied over in order to build a minimal Java EE web module. This is because I made a conscientious decision to host all the UI and front-end code of the monolith in my custom web partition, but still want a Java EE web module in all partitions.</p>
+<h3 id="jax-rs-configuration-per-partition">JAX-RS configuration per partition<a class="headerlink" href="#jax-rs-configuration-per-partition" title="Permanent link">&para;</a></h3>
+<p>Let's next look at how to facilitate the JAX-RS code generated by Mono2Micro as these partitions are run on the app server. Firstly, as part of the utility code that Cardinal generates, a JAXRSConfiguration class is generated per partition. This class sets up the JAX-RS config where all service classes are registered, and is meant to be copied over and placed in one Java EE module of your preference within each partition. For this DayTrader example, I chose to place it in the web module of each partition. The following code listing shows an example from <code>partition-1</code> in <code>/m2m/daytrader/microservices/daytrader7-partition1/daytrader-ee7-web/src/main/java/com/ibm/websphere/samples/daytrader/JAXRSConfiguration.java</code>:</p>
+<pre><code class="language-java">@ApplicationPath(&quot;rest&quot;)
+public class JAXRSConfiguration extends Application {
+
+    public Set&lt;Class&lt;?&gt;&gt; getClasses() {
+        Set&lt;Class&lt;?&gt;&gt; classes = new HashSet&lt;Class&lt;?&gt;&gt;();
+        classes.add(TradeActionService.class);
+        classes.add(MarketSummaryDataBeanService.class);
+        classes.add(AccountDataBeanService.class);
+        classes.add(AccountProfileDataBeanService.class);
+        classes.add(HoldingDataBeanService.class);
+        classes.add(OrderDataBeanService.class);
+        classes.add(QuoteDataBeanService.class);
+        classes.add(LogService.class);
+        classes.add(TradeConfigService.class);
+        classes.add(FinancialUtilsService.class);
+        return classes;
+    }
+}
+</code></pre>
+<h3 id="application-server-config-per-partition">Application server config per partition<a class="headerlink" href="#application-server-config-per-partition" title="Permanent link">&para;</a></h3>
+<p>For this DayTrader example, I copied the Liberty server config that originally came in a separate <code>daytrader-ee7-wlpcfg/</code> folder in the monolith and placed it within <code>./daytrader-ee7/src/main/liberty/config/</code> in each partition&#39;s ear module. The contents of the monolith&#39;s server.xml were left mostly as is, i.e take a look at <code>/m2m/daytrader/microservices/daytrader-partition2/daytrader-ee7/src/main/liberty/config/server.xml</code>. Usually this can be further customized and reduced to pull in only applicable server features to each partition. Also note that if the original monolith was running on a traditional WebSphere server, and you wish to run the partitions on Liberty, a server.xml can either be handcrafted, or created with the assistance of other IBM migration and modernization tools. Of course, this would only be possible if the monolith uses functionality that WebSphere Liberty supports.</p>
+<p>Additionally, each partition's <code>server.xml</code> also needs to add JAX-RS-related features if they don't already exist, in order to facilitate the generated code's JAX-RS webservice service and client code:</p>
+<pre><code class="language-xml">&lt;feature&gt;jaxrs-2.0&lt;/feature&gt;
+&lt;feature&gt;mpConfig-1.2&lt;/feature&gt;
+&lt;feature&gt;mpOpenAPI-1.0&lt;/feature&gt;
+</code></pre>
+<p>The other changes to <code>server.xml</code> revolved around my decision of changing the database setup, which I'll discuss next.</p>
+<h3 id="database-config-and-setup">Database config and setup<a class="headerlink" href="#database-config-and-setup" title="Permanent link">&para;</a></h3>
+<p>The DayTrader monolith uses a local file-based Derby database as a back end for its JPA entity beans. For a partitioning such as this, where all the code requiring use of the database is placed in a single partition, it would've been perfectly ok to keep using the Derby database in <code>partition-1</code> and only configure its application server config and Java EE deployment descriptor files for the database. But for a more robust and flexible setup, a server-based RDBMS like DB2 can be used, where it runs as a separate microservice and can be used by more than one partition (even though in this example&#39;s case there is no need to). To do this, these changes were made to <code>partition-1</code>'s application server config.</p>
+<p><code>/m2m/daytrader/microservices/daytrader7-partition1/daytrader-ee7/src/main/liberty/config/server.xml</code>:</p>
+<pre><code class="language-xml">&lt;jdbcDriver id=&quot;DB2Driver&quot; libraryRef=&quot;DB2JCC4Lib&quot;/&gt;
+&lt;library id=&quot;DB2JCC4Lib&quot; filesetRef=&quot;DB2Fileset&quot; /&gt;
+&lt;fileset id=&quot;DB2Fileset&quot;  dir=&quot;${shared.resource.dir}/db2jars&quot; includes=&quot;db2jcc4.jar&quot;/&gt;
+
+&lt;authData id=&quot;TradeDataSourceAuthData&quot; password=&quot;${env.DB_PASSWORD}&quot; user=&quot;${env.DB_USER}&quot;/&gt;
+&lt;authData id=&quot;TradeAdminAuthData&quot; password=&quot;${env.DB_PASSWORD}&quot; user=&quot;${env.DB_USER}&quot;/&gt;
+
+&lt;dataSource jndiName=&quot;jdbc/TradeDataSource&quot; jdbcDriverRef=&quot;DB2Driver&quot; connectionManagerRef=&quot;conMgr1&quot; id=&quot;DefaultDataSource&quot; isolationLevel=&quot;TRANSACTION_READ_COMMITTED&quot; statementCacheSize=&quot;60&quot;&gt;
+    &lt;properties.db2.jcc databaseName=&quot;${env.DB_DATABASE}&quot; serverName=&quot;${env.DB_HOST}&quot; portNumber=&quot;${env.DB_PORT}&quot; user=&quot;${env.DB_USER}&quot; password=&quot;${env.DB_PASSWORD}&quot; /&gt;
+&lt;/dataSource&gt;
+</code></pre>
+<p><code>/m2m/daytrader/microservices/run_db2_container.sh</code>: A utility script to pull down and start the DB2 docker container and set it up with the DayTrader database schema.</p>
+<h3 id="deploy-partitions-as-containerized-microservices">Deploy partitions as containerized microservices<a class="headerlink" href="#deploy-partitions-as-containerized-microservices" title="Permanent link">&para;</a></h3>
+<p>To portably run the builds of all the partitions and at the same time prepare them for containerization, I decided to use Docker based builds right from the start by creating a multi-stage Dockerfile for each partition, and then orchestrating those Docker builds via the docker-compose tool.</p>
+<p>In each partition, the Dockerfile looks like the following (<code>/m2m/daytrader/microservices/daytrader7-partition1/Dockerfile</code>):</p>
+<pre><code class="language-yaml">########################################
+# Build Image
+########################################
+FROM maven:3.6-jdk-8-slim as build
+
+WORKDIR /app
+COPY . .
+
+RUN mvn clean
+RUN mvn install
+
+########################################
+# Production Image
+########################################
+FROM open-liberty:microProfile2-java8-ibm
+
+# Add build files
+COPY --from=build --chown=1001:0 /app/daytrader-ee7/target/daytrader-ee7-1.0-SNAPSHOT.ear /config/apps/daytrader-ee7.ear
+COPY --from=build --chown=1001:0 /app/daytrader-ee7/src/main/liberty/config/ /config/
+COPY --from=build --chown=1001:0 /app/daytrader-ee7/src/main/liberty/resources/db2jcc4.jar /liberty/usr/shared/resources/db2jars/
+</code></pre>
+<p>Here's the docker compose config in <code>/m2m/daytrader/docker-compose.yaml</code>:</p>
+<pre><code class="language-yaml">version: &quot;3.0&quot;
+
+services:
+
+  daytrader7-web:
+    build: ./daytrader7-web
+    image: daytrader7-web
+    container_name: daytrader7-web
+    ports:
+      - &quot;9080:9080&quot;
+    environment:
+      - DB_HOST=db2
+      - DB_PORT=50000
+      - DB_DATABASE=TRADEDB
+      - DB_USER=db2inst1
+      - DB_PASSWORD=db2inst1
+      - APPLICATION_PARTITION_1_REST_URL=http://daytrader7-partition1:9080/daytrader/rest/
+      - APPLICATION_PARTITION_2_REST_URL=http://daytrader7-partition2:9080/daytrader/rest/
+      - APPLICATION_PARTITION_3_REST_URL=http://daytrader7-partition3:9080/daytrader/rest/
+    networks:
+      - daytrader7
+
+  daytrader7-partition1:
+    build: ./daytrader7-partition1
+    image: daytrader7-partition1
+    container_name: daytrader7-partition1
+    ports:
+      - &quot;9081:9080&quot;
+    environment:
+      - DB_HOST=db2
+      - DB_PORT=50000
+      - DB_DATABASE=TRADEDB
+      - DB_USER=db2inst1
+      - DB_PASSWORD=db2inst1
+      - APPLICATION_PARTITION_2_REST_URL=http://daytrader7-partition2:9080/daytrader/rest/
+      - APPLICATION_PARTITION_3_REST_URL=http://daytrader7-partition3:9080/daytrader/rest/
+    networks:
+      - daytrader7
+
+  daytrader7-partition2:
+    build: ./daytrader7-partition2
+    image: daytrader7-partition2
+    container_name: daytrader7-partition2
+    ports:
+      - &quot;9082:9080&quot;
+    environment:
+      - DB_HOST=db2
+      - DB_PORT=50000
+      - DB_DATABASE=TRADEDB
+      - DB_USER=db2inst1
+      - DB_PASSWORD=db2inst1
+      - APPLICATION_PARTITION_1_REST_URL=http://daytrader7-partition1:9080/daytrader/rest/
+      - APPLICATION_PARTITION_3_REST_URL=http://daytrader7-partition3:9080/daytrader/rest/
+    networks:
+      - daytrader7
+
+  daytrader7-partition3:
+    build: ./daytrader7-partition3
+    image: daytrader7-partition3
+    container_name: daytrader7-partition3
+    environment:
+      - DB_HOST=db2
+      - DB_PORT=50000
+      - DB_DATABASE=TRADEDB
+      - DB_USER=db2inst1
+      - DB_PASSWORD=db2inst1
+      - APPLICATION_PARTITION_1_REST_URL=http://daytrader7-partition1:9080/daytrader/rest/
+      - APPLICATION_PARTITION_2_REST_URL=http://daytrader7-partition2:9080/daytrader/rest/
+    ports:
+      - &quot;9083:9080&quot;
+    networks:
+      - daytrader7
+
+networks:
+  daytrader7:
+    external: true
+</code></pre>
+<p>You can study the docker compose yaml at your own convenience, but some important highlights include:</p>
+<ul>
+<li>Each partition is passed environment variables specifying the end point URLs for JAX-RS web services in other partitions. The Cardinal generated code uses these environment variable in the proxy code to call the JAX-RS services.</li>
+<li>For JAX-RS, URLs cannot contain underscores, a problem I faced when initially trying to run the partitions as microservices and spent a lot of time debugging.</li>
+<li>The <code>daytrader</code> part in the URLs is the context root the Java EE application' the <code>rest</code> part matches what each <code>JAXRSConfiguration</code> specifies per partition.</li>
+<li>A docker network is set up so that all partitions can communicate with each other.</li>
+<li>All partitions use port 9080 internally within the Docker environment, but expose themselves on separate ports externally to the host machine.</li>
+<li>Using this scheme as a base, a Kubernetes deployment can be set up on a cluster where each container acts a Kubernetes service.</li>
+</ul>
+<p>A typical problem that can only be solved after initially running the partitions are to discover how and when dummy class methods are being hit (see previous section for more details). In my case, this led me to designate <code>TradeDirect</code> and <code>FinancialUtils</code> as external facing service classes. After re-generating code with Cardinal and copying over the new code to the partitions, this problem was fixed.</p>
+<p>Another problem I hit during initial debugging of running partitions were how some of the .jsp code in the <code>web</code> partition was failing since they were directly referencing public fields in a monolith class that was being proxied. So similar to what was done previously in regular monolith Java classes, the solution was to change the direct field references to using getters/setters for that field. As a regular practice, it is best if in the monolith all Java code (in .java and .jsp files) that refer directly to public fields in other classes are changed to use getter and setter methods before attempting to refactor the monolith with Mono2Micro.</p>
+<p>In order to run the partitions as microservices in our extracted example, issue the following commands (refer to the README in <code>Mono2Micro-example.zip</code> for more details):</p>
+<p><code>cd /m2m/daytrader/microservices</code></p>
+<p><code>./run_db2_container.sh</code> (Wait a few minutes for DB2 setup to finish and service to start. If setup fails, the script will time out after 10 minutes.)</p>
+<p><code>docker-compose up -d</code></p>
+<p><code>docker-compose logs -f</code> (Monitor the logs from all the containers and wait until Liberty has started the DayTrader application in each.)</p>
+<p>By default, the generated code uses minimal logging and tracing to optimize performance and only shows errors. To modify the level of logging and tracing in the Mono2Mirco-generated code and see more information about what's happening in the code flow within and between microservices, change the <code>DEFAULT_LOG_LEVEL variable</code> value to <code>Level.FINE</code> in the each partition's <code>com.ibm.cardinal.util.CardinalLogger</code> Java source file located in the <code>cardinal-utils</code> module. This is highly recommended as you initially run the microservices and start to debug problems that may appear at microservice and application server startup or once the application is running. This detailed tracing also shows the various communications going on between partitions which can be interesting to observe to see the flow of execution between monolith code and Mono2Micro generated code.</p>
+<p>Finally, open the application by navigating to <a href="http://localhost:9080/daytrader/">http://localhost:9080/daytrader/</a> in your browser, and you can now use the refactored DayTrader application running as microservices!</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This tutorial has attempted to show a full end-to-end flow, starting with a Java EE monolithic application, using the AI-driven Mono2Micro tools to analyze it and recommend different ways it can be partitioned for potential microservices. Using the Mono2Micro UI to further interact with and customize the partitioning, its unique code generation tool is then used to generate a bulk of the foundation microservices code, while allowing the monolithic Java classes to stay completely as-is without any rewriting. With further manual refactoring of the non-Java aspects of the monolithic application, a set of microservices are deployed in containers that provide the exact same functionality as the monolithic application.</p>
+<p>The entire Mono2Micro team and I are excited about the release of this revolutionary software toolset for accelerating the modernization of applications. We look forward to sharing more material in the near future.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

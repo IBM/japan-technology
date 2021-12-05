@@ -1,0 +1,175 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="yes" layout="ArticleStandard18" skill-level="3" toc="yes"><id cma-id="1048324" original="yes"/><keywords content="IoT, architectures, reference architecture, connected devices"/><meta-last-updated day="03" initials="corbinm@us.ibm.com" month="01" year="2018"/><content-area-primary name="iot"/><title>Simplify the development of your IoT solutions with IoT
+      architectures</title><subtitle>Strategies for creating scalable, flexible, and robust IoT
+      solutions</subtitle><pdf pages="8" paperSize="common" size="362 KB" url="iot-lp201-iot-architectures-pdf.pdf"/><author email="anna.m.gerber@gmail.com" email-cc="" jobtitle="Senior Software Developer" publish-email="no"><author-level>none</author-level><bio>Anna Gerber is a full-stack developer with 15 years experience in the
+                university sector, formerly a Technical Project Manager at The University
+                of Queensland ITEE eResearch specialising in Digital Humanities, and a
+                Research Scientist at the Distributed System Technology Centre (DSTC).
+                Anna is a JavaScript robotics enthusiast and maker and enjoys tinkering
+                with soft circuits and 3D printers.</bio><img align="left" alt="Anna Gerber" height="60" src="https://www.ibm.com/developerworks/i/p-agerber60.jpg" valign="top" width="60"/><author-name><GivenName>Anna</GivenName><FamilyName>Gerber</FamilyName></author-name><company-name/><social-networks><social-network><social-network-name>dW author profile</social-network-name><social-network-url>https://developer.ibm.com/author/anna.m.gerber/</social-network-url></social-network></social-networks></author><date-published day="07" month="08" year="2017"/><!--<date-updated day="07" month="09" year="2017"/>--><social-media-meta><twitter-summary-card><twitter-card-title>Simplify the development of your IoT solutions with
+          IoT architectures: Strategies for creating scalable, flexible, and
+          robust IoT solutions</twitter-card-title><twitter-card-abstract>Apply these strategies when you plan data-driven
+          IoT architectures. These strategies help you simplify development,
+          manage complexity, and ensure that your IoT solutions remain scalable,
+          flexible, and robust.</twitter-card-abstract><twitter-card-img height="440" src="https://www.ibm.com/developerworks/i/twitterdw-topic-iot.png" width="880"/></twitter-summary-card></social-media-meta><abstract>Apply these strategies when you plan data-driven IoT
+      architectures. These strategies help you simplify development, manage
+      complexity, and ensure that your IoT solutions remain scalable, flexible,
+      and robust.</abstract><docbody><sidebar><heading>IoT 201: Building skills in IoT development</heading><p>This article is part of the <a href="https://www.ibm.com/developerworks/opensource/library/iot-lp201-next-steps-guide-iot-developers/index.html" target="_blank">IoT 201 learning path</a>, a next-steps developer
+                    guide for IoT.</p><ul><li><a href="https://developer.ibm.com/dwblog/2017/dive-deeper-iot-development/" target="_blank">Diving deeper into IoT development</a></li><li><a href="https://developer.ibm.com/dwblog/2017/5-popular-iot-developer-kits-help-speed-iot-development/" target="_blank">IoT developer kits</a></li><li>IoT architectures (this article)</li><li><a href="https://www.ibm.com/developerworks/library/iot-lp201-iot-connected-cities/index.html" target="_blank">Large-scale IoT solution: Connected
+                        cities</a></li><li><a href="https://www.ibm.com/developerworks/library/iot-lp201-build-skills-iot-health-app/" target="_blank">Tutorial: Develop a healthy habits
+                        tracker</a></li></ul></sidebar><p>One of the biggest challenges you face when you are planning Internet
+        of Things (IoT) solutions is dealing with complexity. A typical IoT
+        solution involves many heterogeneous IoT devices, with sensors that
+        produce data that is then analyzed to gain insights. IoT devices are
+        connected either directly to a network or through a gateway device to a
+        network, which enables the devices to communicate with each other and
+        with cloud services and applications (<xref href="#ibmmodel"/>).</p><figure><heading refname="ibmmodel">Human view of Internet of Things (Source:
+          X-Force Research and Development, “IBM X-Force Threat Intelligence
+          Quarterly 4Q 2014,” Doc # WGL03062USEN, Publish Date: Nov 2014.
+          http://www.ibm.com/security/xforce/downloads.html)
+          <!--(Source: IBM POV white paper "Internet of Things
+          Security" -\- <a
+            href="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=RAW14382USEN"
+            >https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=RAW14382USEN</a>;
+          although it really came from this slideshare:
+          https://www.slideshare.net/patrickbouillaud/wgl03062-usen-copy)--></heading><img alt="" height="787" src="image1.png" width="1057"/></figure><p>Edge <a href="https://www.ibm.com/blogs/internet-of-things/edge-iot-analytics/">computing</a> describes the work that happens at the edges of the IoT
+        network, where the physical devices connect to the cloud. With a focus
+        on reducing latency, improving privacy, and reducing bandwidth costs
+        within data-driven IoT applications, edge computing architectures are
+        becoming increasingly common within IoT. </p><p>In this article, I discuss the following strategies that you can apply
+        when you plan data-driven IoT architectures. These strategies help you
+        simplify development, manage complexity, and ensure that your IoT
+        solutions remain scalable, flexible, and robust:</p><ul><li>Adopt a layered architecture</li><li>Security by design</li><li>Automate operations</li><li>Design for interoperability</li><li>Follow a reference architecture</li></ul><heading alttoc="" inline-commenting-id="cmt_1" refname="1Adoptalayeredarchitectureoutline" type="h2">Adopt a layered architecture</heading><p>An architecture describes the structure of your IoT solution, including
+        the physical aspects (that is, the things) and the virtual aspects (like
+        services and communication protocols). Adopting a multi-tiered
+        architecture allows you to focus on improving your understanding about
+        how all of the most important aspects of the architecture operate
+        independently before you integrate them within your IoT application.
+        This modular approach helps to manage the complexity of IoT
+        solutions.</p><p>For data-driven IoT applications that involve edge analytics, a basic
+        three-tiered architecture, which is shown in Figure 2, captures the flow
+        of information from devices, to edge services, and then out to cloud
+        services. A more detailed IoT architecture would also include vertical
+        layers that cut across the other layers, like identity management or
+        data security.</p><figure><heading refname="archlayers">Layers of an IoT architecture</heading><!-- ORIG IMG SIZE:  601x513 --><img alt="" height="256" src="image2.png" width="300"/></figure><heading alttoc="" inline-commenting-id="cmt_2" refname="13Deviceslayeroutline" type="h3">Devices layer</heading><sidebar><p>You can read more about the IoT device characteristics in my <a href="https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.html" target="_blank">IoT hardware guide</a>.</p><p>You can read more about the network technologies in my <a href="https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/index.html" target="_blank">IoT connectivity guide</a>.</p></sidebar><p>The components in the device layer (shown at the bottom of <xref href="#archlayers"/>) include physical sensors and actuators that are
+        connected to IoT devices and the IoT devices themselves. Sensors and
+        actuators on their own are typically not considered to be "smart"
+        devices, but sensors and actuators often connect either directly or
+        wirelessly over technologies like Bluetooth LE or ZigBee to IoT devices
+        that have more processing capabilities. </p><p>Some IoT devices communicate directly with related cloud services and
+        apps. However, it is common for IoT devices to communicate upstream
+        through gateways, which are intermediate devices that have slightly more
+        processing power than the basic IoT devices. Although they don't always
+        have sensors attached directly, gateway devices play an important role
+        in the data acquisition process. They can perform basic
+        analog-to-digital conversions, scaling, and other normalization of the
+        raw sensor data readings.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="14Edgelayeroutline" type="h3">Edge layer</heading><p>The Edge layer (shown as the middle tier of <xref href="#archlayers"/>)
+        relates to the analytics and pre-processing services that are located at
+        the edge of the network. Edge analytics occurs in real time (or near
+        real time) by processing the stream of data at the point where the data
+        is collected as it comes in from the sensors. Basic pre-processing tasks
+        like filtering and aggregation of data are performed at the edge, and
+        then key pre-processed data is transferred upstream to cloud services
+        and applications for further processing and analytics.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="15Cloudlayeroutline" type="h3">Cloud layer</heading><p>After the data has been prepared, it is sent upstream for further
+        processing, storage, and use within cloud applications, in the cloud
+        layer (shown as the top tier of <xref href="#archlayers"/>). The cloud
+        applications that perform the data processing are often complemented by
+        mobile apps and web-based client applications that present the data to
+        end users and that provide access to tools for further exploration and
+        analysis through dashboards and visualizations.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="2SecuritybyDesignoutline" type="h2">Implement "Security by Design"</heading><sidebar><p>You can read more about security by design in this <a href="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=RAW14382USEN" target="_blank">IBM Point of View white paper, <em>Internet of
+              Things Security</em>.</a></p></sidebar><p>To achieve end-to-end security within an IoT solution, security must be
+        a priority across all of the layers of your IoT architecture. You need
+        to think about security as a cross-cutting concern in your IoT
+        architecture, rather than as a separate layer of your IoT architecture
+        to be tackled in isolation at the end. With so many devices connected,
+        the integrity of the system as a whole needs to be maintained even when
+        individual devices or gateways are compromised. Ensure that your
+        architecture supports multiple layers of defense. Also, ensure that your
+        IoT solution can identify and neutralize devices that become
+        compromised, such as by using gateways to isolate vulnerable devices and
+        to monitor communications and usage patterns to detect anomalies.</p><sidebar><p>You can read more about IoT security in <a href="https://www.ibm.com/developerworks/security/library/iot-trs-secure-iot-solutions1/index.html" target="_blank">this developerWorks article series</a>.</p></sidebar><p>You should adopt standards and best practices for these aspects of your
+        IoT infrastructure: </p><ul><li>Device, application and user identity, authentication,
+          authorization, and access control</li><li>Key management</li><li>Data security</li><li>Secure communication channels and message integrity (by using
+          encryption)</li><li>Auditing</li><li>Secure development and delivery</li></ul><heading alttoc="" inline-commenting-id="cmt_4" refname="4Automateoperationsoutline" type="h2">Automate operations</heading><p>Ensure that your IoT architecture supports automation and orchestration
+        across all of the layers. Plan to use these automation features when you
+        roll out your IoT solution so that you can support fast and easy
+        development and deployment. For example, a microservices architecture at
+        the Edge or Cloud Layer can be implemented by using <a href="https://www.ibm.com/developerworks/mobile/library/iot-docker-containers/index.html" target="_blank">container technologies</a> and orchestrated by using
+        tools such as <a href="https://console.bluemix.net/docs/containers/container_index.html" target="_blank">Kubernetes</a>, provided by your IoT platform. These
+        features make operations like setting up a new device or gateway or
+        deploying a new instance of a cloud application to process the device
+        data less error prone. Avoiding manual configuration ensures that
+        operations are repeatable, which is essential for being able to scale up
+        to IoT solutions that involve thousands or even millions of connected
+        devices.</p><heading alttoc="" inline-commenting-id="cmt_5" refname="5DesignforInteroperabilityoutline" type="h2">Design for interoperability</heading><p>The diversity of devices, network protocols, and data formats that you
+        adopt in your IoT solutions presents one of the greatest architectural
+        challenges for IoT. If you intend to adopt more than one IoT platform in
+        your IoT solution, you'll need to consider whether the technologies that
+        are used within each IoT platform can be integrated into a cohesive
+        solution. </p><p>One of the best strategies for maintaining interoperability in IoT is
+        adopting standards. Standards provide you with flexibility to switch out
+        or introduce additional components, as long as the new components
+        conform to the same standards that you already adopted. </p><p>Reference architectures also provide guidelines to assist you in
+        planning your IoT architecture. They are usually standards-based and
+        encapsulate design patterns and best practices. Adopting a reference
+        architecture, and then selecting IoT platforms that implement them by
+        following the guidelines described in the reference architecture, is a
+        reliable strategy for maintaining interoperability within your IoT
+        architecture.</p><heading alttoc="" inline-commenting-id="cmt_6" refname="6Followreferencearchitecturesoutline" type="h2">Follow reference
+        architectures</heading><p>There are many initiatives currently working towards standardizing IoT
+        architectures to improve interoperability. IoT platform vendors and
+        research partners collaborate through these initiatives to define IoT
+        reference architectures. Reference architectures act as an architectural
+        foundation, describing high level building blocks that are used within
+        IoT solutions and establishing a shared terminology for key
+        architectural concepts. These initiatives draw on a broad range of
+        existing solutions to highlight effective design patterns and best
+        practices. </p><p>Some widely referenced IoT reference architectures include:</p><ul><li><a href="http://www.meet-iot.eu/deliverables-IOTA/D1_5.pdf" target="_blank">Internet of Things – Architecture (IoT-A)</a>: The
+          IoT-A reference model and architecture was developed through an EU
+          lighthouse project in 2013. IoT-A was designed to be built upon in
+          order to develop concrete architectures that are applicable across a
+          range of domains.</li><li><a href="https://standards.ieee.org/develop/project/2413.html" target="_blank">IEEE P2413 - Standard for an Architectural Framework
+            for the Internet of Things (IoT):</a> This ongoing IEEE
+          standardization project aims to identify commonalities across IoT
+          domains, including manufacturing, smart buildings, smart cities,
+          intelligent transport systems, smart grid, and healthcare.</li><li><a href="https://www.iiconsortium.org/IIC_PUB_G1_V1.80_2017-01-31.pdf?cm_mc_uid=42240287207114889661528&amp;cm_mc_sid_50200000=1498959849" target="_blank">Industrial Internet Reference Architecture
+            (IIRA)</a> – IIRA was developed specifically for industrial IoT
+          applications by the Industrial Internet Consortium, which was founded
+          in March 2014 by AT&amp;T, Cisco, General Electric, IBM, and
+          Intel.</li></ul><p>Reference architectures can be used as a template for developing IoT
+        solutions. The architectures listed above describe IoT architectural
+        components and their functions in high-level terms, but they can be made
+        more concrete by mapping abstract requirements onto specific
+        technologies or technology stacks.</p><heading alttoc="" inline-commenting-id="cmt_7" refname="61ComponentsofanIoTReferenceArchitectureoutline" type="h3">Components of an IoT Reference
+        Architecture</heading><p>The details of reference architectures differ depending on the
+        application domain; however, most IoT reference architectures describe
+        at least the following capabilities:</p><ul><li>Managing devices and their data</li><li>Connectivity and communication </li><li>Analytics and applications</li></ul><p>In addition, reference architectures usually also describe mechanisms
+        to address non-functional requirements such as flexibility, reliability,
+        quality of service, interoperability, and integration.</p><heading alttoc="" refname="611Managingdevicesandtheirdataoutline" type="h4">Managing devices and their data</heading><p>The device management aspect of a reference architecture is concerned
+        with managing devices, their identity, and their lifecycles. Reference
+        architectures describe: </p><ul><li>Device onboarding </li><li>Updating device firmware </li><li>Applying new configurations </li><li>Triggering remote operations like disabling, enabling, or
+          decommissioning devices</li></ul><heading alttoc="" refname="612Connectivityandcommunicationoutline" type="h4">Connectivity and communication</heading><p>Managing connectivity and bidirectional communication between devices,
+        between devices and gateways, and between gateways and cloud services
+        and applications is another key capability that is often described
+        within IoT reference architectures. For edge computing, event-driven
+        architectures are a good choice, with communication between devices and
+        services using publish/subscribe protocols and message brokers.</p><heading alttoc="" refname="613Analyticsandapplicationsoutline" type="h4">Analytics and applications</heading><p>To derive value from the data that comes from IoT devices, cloud
+        applications provide visualization and analytics tools that operate over
+        streams or batches of data to identify actionable insights. Depending on
+        the use case, decision management and business process tools can trigger
+        alerts or carry out actions in response.</p><heading alttoc="" inline-commenting-id="cmt_7" refname="62ConcreteReferenceArchitecturesoutline" type="h3">Concrete Reference
+        Architectures</heading><p>The patterns and guidelines that are often provided by a reference
+        architecture can be drawn from within a specific IoT domain, such as
+        Industrial IoT, or can be generalized from solutions across a range of
+        domains. High-level generalized architectures can be used as templates
+        to create more concrete domain-specific or platform-specific
+        architectures. </p><sidebar><p>You can read more about IoT platforms in my <a href="https://www.ibm.com/developerworks/library/iot-lp101-why-use-iot-platform/index.html" target="_blank">IoT platform guide</a>.</p></sidebar><p>General-purpose IoT platform vendors often provide more applied
+        reference architectures, along with implementation guides for developing
+        IoT solutions that conform to their reference architectures using the
+        tools and software agents that are provided by the platform. Some IoT
+        platform-centric reference architectures include:</p><ul><li><a href="https://www.ibm.com/devops/method/content/architecture/iotArchitecture" target="_blank">IBM IoT reference architecture </a></li><li><a href="https://www.intel.com.au/content/www/au/en/internet-of-things/white-papers/iot-platform-reference-architecture-paper.html" target="_blank">Intel IoT platform Reference Architecture </a></li><li><a href="https://azure.microsoft.com/en-au/updates/microsoft-azure-iot-reference-architecture-available/" target="_blank">Microsoft Azure IoT Architecture</a></li><li><a href="https://aws.amazon.com/blogs/startups/iot-a-small-things-primer/" target="_blank">Amazon Web Services Pragma Architecture</a></li></ul><p><a href="https://www.ibm.com/devops/method/content/architecture/iotArchitecture/industrie_40" target="_blank">IBM Industrie 4.0</a> reference architecture is an
+        example of a domain-specific reference architecture, which is designed
+        for industrial IoT applications, based on the IIRA reference
+        architecture and the IBM IoT Reference Architecture. </p><heading alttoc="" inline-commenting-id="cmt_7" refname="7Conclusionoutline" type="h2">Conclusion</heading><p>Designing data-driven IoT solutions is complex due to the scale and
+        heterogeneousness of the devices and connectivity involved. In this
+        article, I've outlined some strategies for designing secure, flexible,
+        and scalable IoT architectures.</p><related-topics-block><link><text>IoT hardware guide</text><url>https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.html</url></link><link><text>IoT connectivity guide</text><url>https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/index.html</url></link><link><text>IoT platforms guide</text><url>https://www.ibm.com/developerworks/library/iot-lp101-why-use-iot-platform/index.html</url></link><link><text>IBM Point of View white paper, Internet of Things Security</text><url>https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=RAW14382USEN</url></link></related-topics-block></docbody></dw-article><!-- PUB_TO_MAV --></dw-document>

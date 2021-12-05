@@ -1,0 +1,391 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="no" layout="ArticleStandard18" skill-level="2" toc="auto"><id cma-id="1035508" original="yes"/><keywords content="blockchain, intro, basics, hyperledger project, distributed ledger,             dlt, distributed ledger technology,              sloane brakeville, bhargav perepa, ibm, cloud, service"/><meta-last-updated day="22" initials="gemoore@us.ibm.com" month="06" year="2018"/><!--https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-intro-bluemix-trs/--><!--cl-blockchain-basics-intro-bluemix-trs-_-article--><!--000 no refs to the bluemix catalog on this article, unless I update any of the
+        CTA bars--><content-area-primary name="blockchain"/><content-area-secondary name="cloud"/><title>Blockchain basics: Introduction to distributed ledgers</title><subtitle>Get to know this game-changing technology and how to start using
+            it</subtitle><target-content-file file-description="Blockchain 101 infographic" file-type="pdf" filename="What it is, how it works" link-method-dd="no" link-method-ftp="no" link-method-http="yes" registration-required="no" show-license="no" size="705KB" target-content-type="Product documentation" url-download-director="" url-ftp="" url-http="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=XI912346USEN"/><pdf pages="8" paperSize="common" size="206 KB" url="cl-blockchain-basics-intro-bluemix-trs-pdf.pdf"/><author email="sbrakev@us.ibm.com" email-cc="" jobtitle="Blockchain Specialist at IBM" publish-email="yes"><author-level>none</author-level><bio><nbsp/></bio><img align="left" alt="Author photo - Sloane Brakeville" height="60" src="http://www.ibm.com/developerworks/i/p-sbrakeville60.jpg" valign="top" width="60"/><author-name><GivenName>Sloane</GivenName><FamilyName>Brakeville</FamilyName></author-name><company-name> IBM</company-name><social-networks><social-network><social-network-name>LinkedIn</social-network-name><social-network-url>https://www.linkedin.com/in/sbrakev</social-network-url></social-network></social-networks></author><author email="bvperepa@us.ibm.com" email-cc="" jobtitle="WebSphere Integration Technology Specialist" publish-email="yes"><author-level>contributing-author</author-level><bio><b>Bhargav Perepa</b> is a WebSphere IT Specialist with IBM Federal Software Group in Washington D.C. He was a WebSphere developer at the IBM Austin WebSphere Development Lab and has previous Smalltalk and C++ development experience. Bhargav holds a Masters degree in Computer Sciences from IIT, Chicago and an MBA degree from UT-Austin, Texas.  You can reach Bhargav at <a href="mailto:bvperepa@us.ibm.com">bvperepa@us.ibm.com</a>.</bio><img align="left" alt="Photo of Bhargav Perepa" border="0" height="60" name="Bhargav Perepa" src="http://www.ibm.com/developerworks/i/p-bperepa.jpg" valign="top" width="60"/><author-name><GivenName>Bhargav</GivenName><FamilyName>Perepa</FamilyName></author-name><company-name>IBM</company-name><social-networks><social-network><social-network-name>LinkedIn</social-network-name><social-network-url>https://www.linkedin.com/in/bhargav-perepa/</social-network-url></social-network></social-networks></author><!--<date-published day="09" month="05" year="2016"/>
+        <date-updated day="18" month="03" year="2018"/>--><date-published day="18" month="03" year="2018"/><social-media-meta><twitter-summary-card><twitter-card-title>IBM Blockchain basics: Introduction to distributed
+                    ledgers</twitter-card-title><twitter-card-abstract>Learn how blockchain networks are transforming the
+                    way business transactions happen.  And see how IBM is helping to advance the
+                    technology.</twitter-card-abstract><twitter-card-img height="440" src="https://www.ibm.com/developerworks/i/twitterdw-28828-serverledger.png" width="880"/></twitter-summary-card></social-media-meta><abstract>Everyone is placing bets on how the blockchain technology will
+            revolutionize the way organizations and institutions transact business. Let's
+            look at how a blockchain network operates, how you can take advantage of it,
+            and how IBM is helping to advance the technology.</abstract><docbody><p>Everyone is watching how blockchain's distributed ledger technology is revolutionizing the way
+                organizations conduct
+                their business transactions. </p><button-link><text>Kick-start your exploration of distributed ledger technology with the new IBM
+                    Blockchain Platform Starter Plan</text><url>http://www.ibm.com/blockchain/getting-started.html</url></button-link><p>Let's look at how a blockchain network operates,
+                how you can take advantage of it, and how IBM and other companies are
+                collaborating to advance the technology across a spectrum of industries.
+                First, a little background is in order.</p><heading refname="" type="h2">What is a distributed ledger?</heading><p> A <strong><em>distributed ledger</em></strong> is a type of database that
+                is shared, replicated, and synchronized among the members of a
+                decentralized network.
+                The distributed ledger records the transactions, such as the exchange of
+                assets or data, among the participants in the network.</p><p> Participants in the network govern and agree by consensus on the updates
+                to the records in the ledger. No central authority or third-party mediator, such as a
+                financial institution or clearinghouse, is involved. Every record in the distributed ledger 
+                has a timestamp and unique
+                cryptographic signature, thus making the ledger an auditable, immutable
+                history of all transactions in the network.
+                <!--One implementation of distributed ledger
+                technology is the open source Hyperledger Fabric blockchain.--></p><heading refname="" type="h3">The role of business ledgers</heading><p>In today's connected and integrated world, economic
+                activity<!--, wealth and
+                value creation--> takes place in
+                business networks that span <!--across--> national, geographic, and
+                jurisdictional boundaries. Business networks typically come together at
+                marketplaces where the <em><strong>participants</strong></em>, such as
+                producers, consumers, suppliers, partners, market makers/enablers, and
+                other stakeholders own, control, and exercise their rights, privileges,
+                and entitlements on objects of value known as
+                    <em><strong>assets</strong></em>.</p><p>Assets can be tangible and physical, such as cars, homes, or strawberries,
+                or intangible and virtual, such as deeds, patents, and stock certificates.
+                Asset ownership and transfers are the
+                    <em><strong>transactions</strong></em> that create value in a business
+                network.</p><p>Transactions typically involve various participants like buyers, sellers,
+                and intermediaries (such as banks, auditors, or notaries) whose business
+                agreements and contracts <!--within a business context and--> are recorded
+                in <em><strong>ledgers</strong></em>. A business typically uses multiple
+                ledgers to keep track of asset ownership and asset transfers between
+                participants in its various lines of businesses. Ledgers are the systems
+                of record for a business's economic activities and interests.</p><p>A typical ledger looks something like this:</p><figure><img alt="" height="190" src="ledger.png" width="639"/></figure><heading refname="" type="h3">Problems with current business ledgers</heading><p>Current business ledgers in use today are deficient in many ways. They are
+                inefficient, costly, and <!--slow,--> subject to misuse and tampering.
+                <!--These problems stem from reliance on centralized third-party <!-\-actors-\->
+                systems, such as financial institutions, clearinghouses, and other
+                mediators of existing institutional arrangements.</p>
+            <p>These centralized ledger systems lead to bottlenecks and slowdowns of
+                transaction settlements. --> Lack of transparency, as well as susceptibility
+                to corruption and fraud, lead to disputes. Having to resolve disputes and
+                possibly reverse transactions or provide insurance for transactions is
+                costly. These risks and uncertainties contribute to missed business
+                opportunities.</p><p>Furthermore, out-of-sync copies of business ledgers on each network
+                participant’s own systems lead to faulty business decisions made on
+                temporary, incorrect data. At best, the ability to make a fully informed
+                decision is delayed while differing copies of the ledgers are
+                reconciled.</p><!--<pullquote>
+                <pullquote-text>What is unique about a blockchain network is its
+                    decentralized consensus mechanism.</pullquote-text>
+                <pullquote-source/>
+            </pullquote>--><heading refname="" type="h2">What is blockchain, exactly?</heading><!--<sidebar>
+                <p><strong>Blockchain terms and use cases</strong></p>
+                <p>Get a handle on more blockchain terminology and all its potential uses
+                    in our "<a target="new"
+                        href="https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-glossary-bluemix-trs/index.html"
+                        >Blockchain glossary</a>."</p>
+            </sidebar>--><sidebar><p><strong>Now, could you explain "blockchain" to someone?</strong></p><p>If you hesitated, you're not alone! Our <a href="https://developer.ibm.com/dwblog/2017/what-is-blockchain-hyperledger-fabric-distributed-ledger/" target="new">Blockchain primer</a> really breaks it down. Read it
+                    and you'll be ready to regale your family, neighbors, and co-workers
+                    with your new-found fluency!</p></sidebar><p>A blockchain is a tamper-evident, shared digital ledger that records
+                transactions in a public or private peer-to-peer network. Distributed to
+                all member nodes in the network, the ledger permanently records, in a
+                sequential chain of cryptographic hash-linked
+                    <em><strong>blocks</strong></em>, the history of asset exchanges that
+                take place between the peers in the network.</p><p>All the confirmed and validated transaction blocks are linked and chained
+                from the beginning of the chain to the most current block, hence the name
+                        <em><strong>blockchain</strong></em>. The blockchain thus acts as
+                a single source of truth, and members in a blockchain network can view
+                only those transactions that are relevant to them.</p><heading refname="" type="h2">How does a blockchain network work?</heading><sidebar><heading>Test your blockchain knowledge!</heading><p>Take the <a href="https://developer.ibm.com/courses/all/blockchain-essentials/">Blockchain essentials course for developers</a>, and you'll learn
+                    the ins and outs of asset transfers. At the end of the free,
+                    self-paced course, take a quiz, get a badge, and start planning useful
+                    blockchain applications for your business network.</p></sidebar><p>Instead of relying on a third party, such as a financial institution, to
+                mediate transactions, member nodes in a blockchain network
+                <!--payment system--> use a consensus protocol to agree on ledger content,
+                and cryptographic hashes and digital signatures to ensure the integrity of
+                transactions.</p><p><em><strong>Consensus</strong></em> ensures that the shared ledgers are
+                exact copies, and lowers the risk of fraudulent transactions, because
+                tampering would have to occur across many places at exactly the same time.
+                        <strong><em>Cryptographic hashes</em></strong>, such as the SHA256
+                computational algorithm, ensure that any alteration to transaction input
+                <mdash/> even the most minuscule change <mdash/> results in a different
+                hash value being computed, which indicates potentially compromised
+                transaction input. <strong><em>Digital signatures</em></strong> ensure
+                that transactions originated from senders (signed with private keys) and
+                not imposters.</p><p>The decentralized peer-to-peer blockchain network prevents any single
+                participant or group of participants from controlling the underlying
+                infrastructure or undermining the entire system. Participants in the
+                network are all equal, adhering to the same protocols. They can be
+                individuals, state actors, organizations, or a combination of all these
+                types of participants.</p><p>At its core, the system records the chronological order of transactions
+                with all nodes agreeing to the validity of transactions using the chosen
+                consensus model. The result is transactions that cannot be altered or
+                reversed, unless the change is agreed to by all members in the network in
+                a subsequent transaction.</p><button-link><text>Kick-start your own blockchain network now with the new IBM
+                    Blockchain Platform Starter Plan</text><url>http://www.ibm.com/blockchain/getting-started.html</url></button-link><heading refname="" type="h2">What are the business benefits of
+                blockchain?</heading><!--<sidebar> 
+                <img align="left" alt="Blockchain newsletter signup" height="75"
+                    src="http://www.ibm.com/developerworks/i/newsletter-icon-blockchain.png"
+                    width="75"/>
+                <p>Get a monthly roundup of the best free tools, training, and community
+                    resources to put Blockchain to work.<br/><a
+                        href="http://ibm.biz/blockchain-newsletter" target="new"
+                            ><strong>Current issue</strong></a> | <a
+                        href="http://ibm.biz/blockchain-newsletter-signup" target="new"
+                            ><strong>Subscribe</strong></a></p>
+            </sidebar>--><p>In legacy business networks, all participants maintain their own ledgers
+                with duplication and discrepancies that result in disputes, increased
+                settlement times, and the need for intermediaries with their associated
+                overhead costs. However, by using blockchain-based shared ledgers, where
+                transactions cannot be altered once validated by consensus and written to
+                the ledger, businesses can <strong><em>save time and costs while reducing
+                        risks</em></strong>. </p><p>Blockchain consensus mechanisms provide the benefits of a consolidated,
+                consistent dataset with reduced errors, near-real-time reference data, and
+                the flexibility for participants to change the descriptions of the assets
+                they own.</p><p>Because no one participating member owns the source of origin for
+                information contained in the shared ledger, blockchain technologies lead
+                to increased trust and integrity in the flow of transaction information
+                among the participating members.</p><p>Immutability mechanisms of blockchain technologies lead to lowered cost of
+                audit and regulatory compliance with improved transparency. And because
+                contracts being executed on business networks using blockchain
+                technologies are automated and final, businesses benefit from increased
+                speed of execution, reduced costs, and less risk, all of which enables
+                businesses to <strong><em>build new revenue streams to interact with
+                        clients</em></strong>.</p><heading type="h2">What's a good blockchain use case?</heading><sidebar><heading>Is blockchain is right for you?</heading><!--https://www.youtube.com/watch?v=RKb3D66Akv4--><video-container><video-id>RKb3D66Akv4</video-id><video-title display="no">What makes a good blockchain
+                        solution?</video-title><video-length><minutes>02</minutes><seconds>31</seconds></video-length></video-container></sidebar><p>Blockchain was first introduced to the market as the 
+                <a href="https://www.ibm.com/blogs/blockchain/2017/05/the-difference-between-bitcoin-and-blockchain-for-business/">technology
+                underpinning Bitcoin exchanges</a>, but its practical uses in the world of
+                business extend far beyond cryptocurrency transactions. For example, in
+                finance, blockchain networks allow securities trades to be settled in
+                minutes rather than days. In supply chains, blockchain networks allow the
+                flow of goods and payments to be tracked and logged in real time.</p><p>To determine whether your use case is a good fit for blockchain, ask
+                yourself these questions:</p><ol><li>Is a business network involved?</li><li>Is consensus used to validate transactions?</li><li>Is an audit trail, or provenance, required?</li><li>Must the record of transactions be immutable, or tamper proof?</li><li><!--Finality (less disputes)-->Should dispute resolution be
+                    final?</li></ol><p>If you answered yes to the first question and to at least one other, then
+                your use case would benefit from blockchain technology. A network always
+                needs to be involved for blockchain to be the right solution, but the
+                network can take many forms. The network can be <em>between
+                    organizations</em>, such as a supply chain, or the network can be
+                    <em>within an organization</em>. Within an organization, a blockchain
+                network could be used to share reference data between divisions or to
+                create an audit or compliance network, for example. The network can also
+                exist <em>between individuals</em>, who might need to store data, digital
+                assets, or contracts on the blockchain, for example.</p><p>See <a href="https://www.ibm.com/blockchain/industries/">industry
+                    examples</a> of how diverse organizations <mdash/> in banking and financial
+                markets, supply chain, healthcare, and transportation, for
+                example <mdash/> are adopting blockchain to support new business
+                models.</p><heading type="h2">What is Hyperledger?</heading><!--<sidebar>
+                <heading>How to develop your first Hyperleder Fabric blockchain app,
+                    fast!</heading>
+                <p>Choose your preferred development environment: online, local, or in the
+                    cloud!</p>
+                <p>Start with online samples. Develop and test locally in a complete dev
+                    environment. Share your blockchain app for collaborative development
+                    on the IBM Cloud.</p>
+                <p><a href="https://www.ibm.com/blockchain/getting-started" target="_blank" rel="noopener noreferrer nofollow"><strong>Develop
+                            your blockchain app</strong></a></p>
+            </sidebar>--><p><a href="http://www.hyperledger.org">Hyperledger</a> is an open source
+                effort to advance cross-industry blockchain technologies for business use.
+                It's a global collaboration, hosted by The Linux Foundation<reg/>, including
+                leaders in finance, banking, Internet of Things, supply chain,
+                manufacturing, and technology. These 183+ diverse members and 9 ongoing
+                projects, including Hyperledger Fabric and Hyperledger Composer, work in
+                concert to create an open, standardized, and enterprise-grade distributed
+                ledger framework and code base.</p><p>The <a href="IBM Blockchain: From farm to table">Hyperledger Fabric</a> framework supports distributed
+                ledger solutions on permissioned networks, where the members are known to
+                each other, for a wide range of industries.
+                Its modular architecture maximizes the confidentiality, resilience, and
+                flexibility of blockchain solutions. <a href="https://www.hyperledger.org/projects/fabric">Hyperledger
+                    Composer</a> is a set of free, open source tools for quickly
+                prototyping, defining, and testing a Hyperledger Fabric blockchain network and writing
+                applications to interact with it.</p><p>The IBM Blockchain Platform runs on the Hyperledger Fabric framework and
+                integrates the Hyperledger Composer toolset as the "IBM Blockchain
+                Platform: Develop" tools. 
+                Learn more about <a href="https://www.hyperledger.org/projects/fabric" target="new">Hyperledger Fabric</a> and the <a href="http://www.ibm.com/blockchain/platform/">IBM Blockchain
+                    Platform</a>.</p><!-- <p>To provide functionality and required capabilities, the Hyperledger Fabric
+                is based on these concepts:</p>
+            <ul>
+                <li>Smart contracts</li>
+                <li>Digital assets</li>
+                <li>System of record repositories/stores</li>
+                <li>Decentralized consensus-based network</li>
+                <li>Pluggable consensus algorithms/models</li>
+                <li>Cryptographic security</li>
+            </ul>--><!--<figure>
+                <img alt="Reference architecture" height="342" src="fig8.png" width="550"
+                />
+            </figure>--><!--<p>You can learn more at the <a href="http://www.hyperledger.org">Hyperledger
+                    Project</a>, in the <a target="new"
+                    href="http://www.the-blockchain.com/docs/Hyperledger%20Whitepaper.pdf"
+                    >Hyperledger Whitepaper</a>, and in the <a target="new"
+                    href="http://hyperledger-fabric.readthedocs.io/en/latest/">Hyperledger
+                    Fabric documentation</a> on GitHub.</p>--><heading type="h3"><!--IBM and Hyperledger-->Enterprise blockchain
+                requirements</heading><sidebar><heading>IBM's perspective on blockchain technology</heading><!--https://www.youtube.com/watch?v=PzvfSZEid0Q--><video-container><video-id>PzvfSZEid0Q</video-id><video-title display="no">IBM's point of view on blockchain
+                        technology</video-title><video-length><minutes>09</minutes><seconds>02</seconds></video-length></video-container></sidebar><p>We believe that blockchain is a truly disruptive technology that can
+                transform business networks. We also believe that this innovation has to
+                happen in the open, collaborating with other technology companies and
+                industries. To this end, IBM continues to contribute code to several
+                active Hyperledger projects. </p><p>From IBM's perspective, industrial-grade blockchain technologies have the
+                following characteristics:</p><ul><li>A <strong>shared, permissioned ledger</strong> is the append-only
+                    system of record (SOR) and single source of truth. It is visible to
+                    the authenticated members in the business network channels.</li><li>A <strong>consensus protocol</strong> agreed to by all participating
+                    members of the business network ensures that the ledger is updated
+                    only with network-verified transactions.</li><li><strong>Cryptography</strong> ensures tamper-proof security,
+                    authentication, and integrity of transactions.
+                    <!--being recorded in shared ledgerTamper-proof security--></li><!--<li>Privacy with the identity of participants not linked to transactions</li>
+                <li>Scalability <!-\-000 ??? with proven IBM record-\-></li>
+                <li>Confidentiality with permission control</li>
+                <li>Auditability and audit transparency (identity
+                    and ownership are proven at any point of the transaction lifecycle)</li>--><li><strong>Chaincode</strong> (also called mart contracts) encapsulates
+                    participant terms of agreement for the business that takes place on
+                    the network; chaincode is stored on the validating peer nodes in the blockchain.</li></ul><p>In addition to these attributes, enterprise blockchain technology needs to
+                meet key industry requirements such as performance, verified identifies,
+                and private and confidential transactions. Hyperledger Fabric has been
+                architected to meet these needs. It is also designed with a pluggable
+                consensus model, allowing businesses to select an optimal algorithm for
+                their networks.</p><heading type="h2">How do I get started?</heading><!--<sidebar>
+                <heading>Ready to start developing your own blockchain
+                    solutions?</heading>
+                <p>For the fastest start to developing your first blockchain application,
+                    head over to the <a
+                        href="https://www.ibm.com/blockchain/getting-started">IBM Blockchain
+                        Platform page for developers</a>.</p>
+                <p>When you're ready to dig deeper into deploying blockchain network
+                    solutions, examine all your options in <a
+                        href="http://www.ibm.com/developerworks/cloud/library/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/index.html"
+                        target="new">IBM Blockchain 101: Quick-start guide for
+                        developers</a>.</p>
+            </sidebar>--><!--000 added this paragraph 4.30.17 from a press release: 
+                https://www-03.ibm.com/press/us/en/pressrelease/52192.wss--><!--https://www.youtube.com/watch?v=UW5Ex8oZ7eQ--><!--<sidebar>
+                <heading>IBM Blockchain: From farm to table</heading>
+                <!-\-https://www.youtube.com/watch?v=UW5Ex8oZ7eQ-\->
+                <video-container>
+                    <video-id>UW5Ex8oZ7eQ</video-id>
+                    <video-title display="no">IBM Blockchain: From farm to table</video-title>
+                    <video-length>
+                        <!-\-<minutes>0.0</minutes>-\->
+                        <seconds>15</seconds>
+                    </video-length>
+                </video-container>
+            </sidebar>--><p>IBM is the leader in secure open-source blockchain solutions built for the
+                enterprise. As an early member of the Linux Foundation's Hyperledger
+                Project, IBM is dedicated to supporting the development of openly governed
+                blockchains. IBM has worked with over 400 clients across financial
+                services, supply chains, IoT, risk management, digital rights management,
+                and healthcare to implement blockchain applications delivered via the IBM
+                Cloud.</p><p>IBM offers a flexible platform and secure infrastructure to help you
+                develop, govern, and operate your enterprise blockchain network. 
+                Over 40 active networks with multiple organizations 
+                are using the IBM Blockchain Platform to exchange
+                assets every day and improve business processes ranging from food safety
+                to trade efficiencies and digital payments. Learn about <a href="https://www.ibm.com/blockchain/offerings.html">IBM Blockchain
+                    solutions</a>, and see how you can <a href="https://www.ibm.com/blockchain/getting-started.html" target="new">start using blockchain in your business</a> today.</p><p>If you're a developer, the easiest, most economical way to learn your way around a real business
+                blockchain and start developing blockchain skills <em>and</em> applications
+                now is to sign up for the IBM Blockchain Platform Starter Plan. 
+                With the new Starter Plan, you can
+                    quickly spin up a blockchain pre-production network, deploy sample applications, 
+            and develop and deploy client applications.</p><button-link><text>Accelerate your blockchain development skills with the new IBM
+                    Blockchain Platform Starter Plan</text><url>https://www.ibm.com/developerworks/cloud/library/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/index.html</url></button-link><!-- <heading refname="" type="h3">IBM Blockchain on IBM Cloud</heading>
+            <figure>
+                <img alt="Blockchain service page in IBM Cloud" height="128"
+                    src="IBM_Blockchain_logo_128sq.png" width="129"/>
+            </figure>
+            <p>With the <a target="new"
+                    href="https://console.ng.bluemix.net/catalog/services/blockchain/?ca=dw-_-bluemix-_-cl-blockchain-basics-intro-bluemix-trs-_-article"
+                    >IBM Blockchain Platform on IBM Cloud</a>,
+                you can create your own blockchain network with validating nodes and a
+                security service. From there, you can deploy smart contracts (also called
+                chaincode), see results, and build applications.</p>
+            
+            <p>Experiment with <a target="new"
+                    href="https://console.ng.bluemix.net/docs/services/blockchain/index.html?ca=dw-_-bluemix-_-cl-blockchain-basics-intro-bluemix-trs-_-article"
+                    >Blockchain on IBM Cloud</a>. Follow the step-by-step instructions in <a
+                    target="new"
+                    href="http://www.ibm.com/developerworks/cloud/library/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/index.html"
+                    >IBM Blockchain 101: Quick-start guide for developers</a> to
+                experiment with your own blockchain network in a secure cloud environment. </p>
+            
+            <heading refname="" type="h3">IBM-signed and tested images from Docker
+                Hub</heading>
+                <p>Alternatively, you can set up and run a blockchain network using IBM-signed
+                Docker images and Docker Compose files. The images have been tested for
+                functionality, stability, and performance, and you can deploy them in any
+                environment you choose. IBM offers technical support for this
+                configuration for purchase.</p>
+            <p>Get the <a target="new" href="https://hub.docker.com/u/ibmblockchain/"
+                    >images on Docker Hub</a>, and <a target="new"
+                    href="https://www.ibm.com/blockchain/hyperledger-fabric-support.html"
+                    >learn more</a>.</p>
+
+            <heading type="h3">Other offerings</heading>
+            <p>IBM offers a high-security environment for enterprise deployments. Networks
+                run in isolation on secure infrastructure that prevents any backdoor
+                access or tampering.</p>
+            <p>IBM also offers the Watson IoT<trade/> Platform with its built-in
+                capability for adding selected Internet of Things data to a private
+                blockchain. <!-\-an integrated blockchain
+                + IOT platform-\->
+                This allows IoT devices to send data to private blockchain ledgers for
+                inclusion in shared transactions with tamper-resistant records.</p>
+            <p>Learn more about <a target="new"
+                    href="http://www.ibm.com/blockchain/offerings.html">IBM Blockchain
+                    solutions</a>.</p>--><heading refname="" type="h2">Conclusion</heading><p>Blockchain technologies represent a fundamentally new way to transact
+                business. They usher in a robust and smart next generation of applications
+                for the registry and exchange of physical, virtual, tangible, and
+                intangible assets. Thanks to the key concepts of cryptographic security,
+                decentralized consensus, and a shared public ledger (with its properly
+                controlled and permissioned visibility), blockchain technologies can
+                profoundly change the way we organize our economic, social, political, and
+                scientific activities.<br/><nbsp/><br/></p><heading type="h2">Next steps</heading><p>We'll conclude this introduction to distributed ledgers with six great
+                ways to continue your blockchain odyssey:</p><ul><li>Explore blockchain technology by getting your hands on code! 
+                    With the new IBM Blockchain Platform Starter Plan, you can
+                    quickly spin up a blockchain pre-production network, deploy sample applications, 
+            and develop and deploy client applications. <a href="https://www.ibm.com/developerworks/cloud/library/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/index.html"><strong>Get started</strong></a>!<br/><nbsp/><br/></li><li>Stay in the know with the Blockchain Newsletter from developerWorks. Check
+                    out the <a href="http://ibm.biz/blockchain-newsletter" target="new"><strong>current issue</strong></a> and <a href="http://ibm.biz/blockchain-newsletter-signup" target="new"><strong>subscribe</strong></a>.<br/><nbsp/><br/></li><li>Stop by the <a href="https://developer.ibm.com/blockchain" target="new"><strong>Blockchain Developer Center</strong></a> on
+                    developerWorks. It's your source for free tools and tutorials, along
+                    with code and community support, for developing and deploying
+                    blockchain solutions for business.<br/><nbsp/><br/></li><li>Take the <a href="https://developer.ibm.com/courses/all/blockchain-essentials/" target="new"><strong>Blockchain essentials course for
+                            developers</strong></a> to learn the ins and outs of asset
+                    transfers. At the end of the free, self-paced course, take a quiz, get
+                    a badge, and start planning useful blockchain applications for your
+                    business network.<br/><nbsp/><br/></li><li>Advance to the <a href="https://developer.ibm.com/courses/all/ibm-blockchain-foundation-developer/" target="new"><strong>IBM Blockchain foundation
+                            developer course</strong></a>, a free 6-hour course that expands on
+                    "Blockchain essentials" and provides a more detailed picture of the
+                    components and architecture of blockchain business networks, as well
+                    as experience building a network and creating an application.<br/><nbsp/><br/></li><li>Check out the many <a href="https://developer.ibm.com/code/technologies/blockchain/"><strong>blockchain code patterns</strong></a>, which provide roadmaps for solving
+                    complex problems, and include overviews, architecture diagrams, process flows, repo pointers, 
+                    and additional reading.</li></ul><p><em><strong>This content was originally published on IBM developerWorks on May 9,
+                2016.</strong></em></p><!--<heading refname="" type="h4">Acknowledgments</heading>
+            <p>The authors are grateful for contributions from Nitin Gaur, Joshua Horton,
+                and Nikhil Gupta, who reviewed the content and provided constructive
+                suggestions. Additionally, they thank Scott Sloan, Sujatha Perepa, and the
+                rest of the IBM Technical Sales Leadership Council (TSLC) team for
+                connecting as one unified IBM Blockchain team.</p>
+            <p><nbsp/></p>--><!--<related-topics-block>
+                <link>
+                    <text>IBM Blockchain Platform</text>
+                    <url>http://ibm.com/blockchain/platform/</url>
+                </link>
+                <link>
+                    <text>IBM Blockchain Platform: Developers</text>
+                    <url>https://www.ibm.com/blockchain/getting-started</url>
+                </link>
+                <link>
+                    <text>Blockchain Developer Center</text>
+                    <url>https://developer.ibm.com/blockchain</url>
+                </link>
+                <link>
+                    <text>Blockchain basics: Glossary and use cases</text>
+                    <url>https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-glossary-bluemix-trs/</url>
+                </link>
+                <link>
+                    <text>Blockchain 101: Quick-start guide for developers</text>
+                    <url>http://www.ibm.com/developerworks/cloud/library/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/index.html</url>
+                </link>
+                <link>
+                    <text>Blockchain essentials (free course for developers)</text>
+                    <url>https://developer.ibm.com/courses/all/blockchain-essentials/</url>
+                </link>
+                <link>
+                    <text>Blockchain solutions and services from IBM</text>
+                    <url>https://www.ibm.com/blockchain/offerings.html</url>
+                    <!-\-<url>https://console.ng.bluemix.net/catalog/services/blockchain?cm_sp=dw-bluemix-_-cl-blockchain-basics-glossary-bluemix-trs-_-article</url>-\->
+                </link>
+                <link>
+                    <text>Hyperledger Composer</text>
+                    <url>https://hyperledger.org/projects/composer</url>
+                </link>
+                <link>
+                    <text>Hyperledger Fabric</text>
+                    <url>http://hyperledger-fabric.readthedocs.io/en/latest/</url>
+                </link>
+                <link>
+                    <text>Hyperledger Fabric application samples</text>
+                    <url>https://github.com/hyperledger/fabric-samples</url>
+                </link>
+                <link>
+                    <text>Hyperledger community</text>
+                    <url>https://www.hyperledger.org/community</url>
+                </link>
+            </related-topics-block>--></docbody></dw-article><!-- PUB_TO_MAV --></dw-document>

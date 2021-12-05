@@ -1,0 +1,5679 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Build a Red Hat OpenShift certifiable image from a complex application - IBM Code Learning Path 日本語サイト</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prerequisites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="IBM Code Learning Path 日本語サイト" class="md-header__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IBM Code Learning Path 日本語サイト
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Build a Red Hat OpenShift certifiable image from a complex application
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="IBM Code Learning Path 日本語サイト" class="md-nav__button md-logo" aria-label="IBM Code Learning Path 日本語サイト" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    IBM Code Learning Path 日本語サイト
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Learning Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learning Paths" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Learning Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          AutoAIを探索する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoAIを探索する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoAIを探索する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explore-autoai/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explore-autoai/nextgen-automl-watson-autoai/" class="md-nav__link">
+        次世代AutoML-Watson AutoAI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/compare-model-building-with-and-without-automated-machine-learning/" class="md-nav__link">
+        自動機械学習ありなしで構築したモデルの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/generate-machine-learning-model-pipelines-to-choose-the-best-model-for-your-problem-autoai/" class="md-nav__link">
+        最適なモデルパイプラインの生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/autoai-code-generation/" class="md-nav__link">
+        AutoAIでのPython notebookの自動生成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/create-an-application-to-predict-your-insurance-premium-cost-with-autoai/" class="md-nav__link">
+        python機械学習ウェブアプリの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/automated-feature-engineering-for-relational-data-with-ibm-autoai/" class="md-nav__link">
+        リレーショナルデータの自動特徴量エンジニアリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../explore-autoai/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Cloud Native Toolkitでのイメージビルド
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Native Toolkitでのイメージビルド" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Native Toolkitでのイメージビルド
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install-toolkit/" class="md-nav__link">
+        ツールキットのインストール
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../starter-kits/" class="md-nav__link">
+        スターターキット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../existing-application/" class="md-nav__link">
+        既存のアプリケーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        poly-repo
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Cloud Pak for Data Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cloud Pak for Data Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Pak for Data Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud-pak-for-data-learning-path/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/intro-to-cloud-pak-for-data/" class="md-nav__link">
+        IBM Cloud Pak for Data 概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/virtualizing-db2-warehouse-data-with-data-virtualization/" class="md-nav__link">
+        Data Virtualization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/data-visualization-with-data-refinery/" class="md-nav__link">
+        Data VirtualizationとData Refinery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/find-prepare-and-understand-data-with-watson-knowledge-catalog/" class="md-nav__link">
+        データを検索、準備、そして理解する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/data-analysis-model-building-and-deploying-with-wml/" class="md-nav__link">
+        データの分析、モデルの生成、そしてデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/automate-model-building-with-autoai/" class="md-nav__link">
+        AutoAIで自動的にモデルを生成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-an-ai-model-visually-with-spss-modeler-flow/" class="md-nav__link">
+        予測可能な機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/getting-started-with-watson-openscale/" class="md-nav__link">
+        Watson OpenScaleでのモデルのモニタリング
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud-pak-for-data-learning-path/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          DataOps基礎
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataOps基礎" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          DataOps基礎
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dataops-fundamentals/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/incorporate-enterprise-governance-in-your-data/" class="md-nav__link">
+        データにエンタープライズガバナンスを組み込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-to-discover-data-that-resides-in-your-data-sources/" class="md-nav__link">
+        データソースに存在するデータを発見する方法を学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/analyze-discovered-data-to-gain-insights-on-the-quality-of-your-data/" class="md-nav__link">
+        発見されたデータを分析して、データの質についての洞察を得る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/protect-your-data-using-data-privacy-features/" class="md-nav__link">
+        データプライバシー機能によるデータの保護
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-a-single-customer-view-of-your-data-with-data-virtualization/" class="md-nav__link">
+        データの仮想化により、お客様のデータを一元管理する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dataops-fundamentals/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_5">
+          Data Quality AI Toolkitについて
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Quality AI Toolkitについて" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Data Quality AI Toolkitについて
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/assessing-quality-of-tabular-data-sets-using-apis/" class="md-nav__link">
+        APIを用いた表形式データセットの品質評価
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/deep-dive-into-class-overlap-label-purity/" class="md-nav__link">
+        クラスの重複とラベルの純度をより深く知る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-quality-ai-toolkit/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_6">
+          IBM Event Streams バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM Event Streams バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          IBM Event Streams バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-event-streams-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/event-streams-fundamentals/" class="md-nav__link">
+        イベントストリームの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/event-streams-kafka-fundamentals/" class="md-nav__link">
+        kafkaの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/deploying-and-using-a-basic-kafka-instance/" class="md-nav__link">
+        kafkaインスタンスのデプロイ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/event-streams-hands-on-java-sample/" class="md-nav__link">
+        ハンズオン イベント ストリーム アプリ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/event-streams-badge-event-streams-dev-challenge/" class="md-nav__link">
+        イベントストリーム コーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/event-streams-dev-cheat-sheet/" class="md-nav__link">
+        イベントストリーム開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-event-streams-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_7">
+          IBM MQ バッジ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM MQ バッジ" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_7">
+          <span class="md-nav__icon md-icon"></span>
+          IBM MQ バッジ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-mq-badge/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/mq-fundamentals/" class="md-nav__link">
+        MQの基礎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-connect-app-queue-manager-containers/" class="md-nav__link">
+        Que Managerの作成と設定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-setting-up-using-ibm-mq-console/" class="md-nav__link">
+        IBM MQコンソールを使用したMQのセットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-develop-mq-jms/" class="md-nav__link">
+        初めてのMQアプリを書く
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/mq-badge-mq-dev-challenge/" class="md-nav__link">
+        MQコーディングチャレンジ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/mq-dev-cheat-sheet/" class="md-nav__link">
+        MQ開発者チートシート
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ibm-mq-badge/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_8">
+          IBM mono2microの導入
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IBM mono2microの導入" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_8">
+          <span class="md-nav__icon md-icon"></span>
+          IBM mono2microの導入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-ibm-mono2micro/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/mono2micro-automate-application-refactoring-using-ai/" class="md-nav__link">
+        mono2microの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/advantages-of-using-ibm-mono2micro-to-automate-application-refactoring/" class="md-nav__link">
+        メリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/a-non-disruptive-approach-to-transform-java-monoliths-to-microservices/" class="md-nav__link">
+        アプローチ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/transform-monolithic-java-applications-into-microservices-with-the-power-of-ai/" class="md-nav__link">
+        モノリシックなアプリを変換する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-ibm-mono2micro/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_9" type="checkbox" id="__nav_1_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_9">
+          IOT開発を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_9">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-getting-started-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-key-concepts-skills-get-started-iot/" class="md-nav__link">
+        コンセプトとスキル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp101-best-hardware-devices-iot-project/" class="md-nav__link">
+        ハードウェアガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp101-connectivity-network-protocols/" class="md-nav__link">
+        ネットワーキングガイド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
+        IOTプラットフォーム
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
+        IOTソリューションの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-getting-started-iot-development/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_10" type="checkbox" id="__nav_1_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_10">
+          IOT開発の次の一歩
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_10">
+          <span class="md-nav__icon md-icon"></span>
+          IOT開発の次の一歩
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-next-steps-iot-development/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
+        IOTアーキテクチャー
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
+        IOTセキュリティ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
+        IOTデータの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
+        IOTデバイスの管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
+        次のIOTソリューションを構築する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../iot-next-steps-iot-development/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_11" type="checkbox" id="__nav_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_11">
+          Kafkaアプリケーションの開発
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kafkaアプリケーションの開発" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Kafkaアプリケーションの開発
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/introduction/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/getting-started/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/getting-to-production/index.md" class="md-nav__link">
+        本番に向けて
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/more-resources/index.md" class="md-nav__link">
+        その他のリソース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../develop-kafka-apps/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_12" type="checkbox" id="__nav_1_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_12">
+          Kubernetes Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kubernetes Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_12">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-kubernetes/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/linux-basics-and-commands/" class="md-nav__link">
+        Linuxの基本とコマンド
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/yaml-basics-and-usage-in-kubernetes/" class="md-nav__link">
+        kubernetesにおけるyamlの基本と使用方法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-kubernetes/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_13" type="checkbox" id="__nav_1_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_13">
+          KubernetesをOpenShiftに移行する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="KubernetesをOpenShiftに移行する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          KubernetesをOpenShiftに移行する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../migrate-kubernetes-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/migrate-your-kubernetes-images-to-openshift/" class="md-nav__link">
+        イメージの移行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/migrate-kubernetes-pod-security-policies-openshift-security-context-constraints/" class="md-nav__link">
+        kubernetes PSPをOpenShift SCCに移行する。
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../migrate-kubernetes-openshift/tutorial/" class="md-nav__link">
+        チュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../migrate-kubernetes-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_14" type="checkbox" id="__nav_1_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_14">
+          Netezzaパフォーマンスサーバを使った学習の開始
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Netezzaパフォーマンスサーバを使った学習の開始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_14">
+          <span class="md-nav__icon md-icon"></span>
+          Netezzaパフォーマンスサーバを使った学習の開始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-getting-started-with-netezza-performance-server/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/access-and-analyze-data-in-netezza-performance-server/" class="md-nav__link">
+        データへのアクセスと分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/load-and-access-data-from-your-cloud-data-warehouse/" class="md-nav__link">
+        クラウドデータウェアハウスからのデータの読み込みとアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/predict-energy-prices-with-in-database-analytics/" class="md-nav__link">
+        データベース分析によるエネルギー価格の予測
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-getting-started-with-netezza-performance-server/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_15" type="checkbox" id="__nav_1_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_15">
+          OpenShiftのSecure Context Constraints(SCC)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OpenShiftのSecure Context Constraints(SCC)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_15">
+          <span class="md-nav__icon md-icon"></span>
+          OpenShiftのSecure Context Constraints(SCC)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/intro/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/scc-permissions/" class="md-nav__link">
+        SCC 権限
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/openshift-predefined-scc/" class="md-nav__link">
+        OpenShiftの定義済みSCC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/scc-availability/" class="md-nav__link">
+        SCCの可用性
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/deployment-specify-permissions/" class="md-nav__link">
+        デプロイメントでの権限の指定
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../secure-context-constraints-openshift/scc-tutorial/" class="md-nav__link">
+        SCCチュートリアル
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_16" type="checkbox" id="__nav_1_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_16">
+          pythonを使ったデータ解析
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pythonを使ったデータ解析" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_16">
+          <span class="md-nav__icon md-icon"></span>
+          pythonを使ったデータ解析
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/introduction-to-geospatial-data-using-python/" class="md-nav__link">
+        pythonを使った地理空間データの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/working-with-geospatial-vector-data-in-python/" class="md-nav__link">
+        pythonで地理空間ベクトルデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/working-with-geospatial-raster-data-in-python/" class="md-nav__link">
+        pythonで地理空間ラスターデータを扱う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-analysis-using-python/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_17" type="checkbox" id="__nav_1_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_17">
+          Red Hat OpenShiftでマルチテナンシーを実現する
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Red Hat OpenShiftでマルチテナンシーを実現する" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_17">
+          <span class="md-nav__icon md-icon"></span>
+          Red Hat OpenShiftでマルチテナンシーを実現する
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/introduction/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/multitenancy-and-role-based-access-control/" class="md-nav__link">
+        RBAC
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/network-isolation/" class="md-nav__link">
+        ネットワークの分離
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/resource-isolation/" class="md-nav__link">
+        リソースアイソレーション
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../multitenancy-red-hat-openshift/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_18" type="checkbox" id="__nav_1_18" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_18">
+          Streamsを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Streamsを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_18">
+          <span class="md-nav__icon md-icon"></span>
+          Streamsを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../streams-get-started/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-ibm-streams/" class="md-nav__link">
+        IBM Streamsの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-your-first-ibm-streams-app-without-writing-code/" class="md-nav__link">
+        初めてのIBM Streamsアプリを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/add-event-streams-and-a-db-in-python-to-clickstream/" class="md-nav__link">
+        Apache Kafkaからデータを取り込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/build-a-streaming-app-using-ibm-streams-python-api/" class="md-nav__link">
+        pythonのAPIを使ってストリーミングアプリを構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/access-streaming-data-with-rest-services/" class="md-nav__link">
+        ストリーミングデータにレストサービスでアクセス
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/score-streaming-data-with-a-machine-learning-model/" class="md-nav__link">
+        ストリーミングデータを機械学習モデルでスコアリングする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../streams-get-started/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_19" type="checkbox" id="__nav_1_19" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_19">
+          Watson Discoveryを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Discoveryを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_19">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Discoveryを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-discovery/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-watson-discovery/" class="md-nav__link">
+        Watson Discoveryの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/create-an-app-to-perform-intelligent-searches-on-data/" class="md-nav__link">
+        データに対してインテリジェントな検索を実行するアプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Patterns/enhance-customer-helpdesk-with-smart-document-understanding-using-search-skill/" class="md-nav__link">
+        Smart Document Understandingの検索スキル機能を使って、ヘルプデスクを強化する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-an-intelligent-search-app-using-watson-discovery-ui-components/" class="md-nav__link">
+        UIでインテリジェントな検索アプリを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-discovery/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_20" type="checkbox" id="__nav_1_20" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_20">
+          Watson Assistantを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Assistantを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_20">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Assistantを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-assistant/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-watson-assistant/" class="md-nav__link">
+        Watson Assistantの紹介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/create-your-first-assistant-powered-chatbot/" class="md-nav__link">
+        chatbot アシスタント
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/embed-watson-assistant-in-website/" class="md-nav__link">
+        chatbotを埋め込む
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/add-watson-discovery-skills-to-your-watson-assistant-chatbot/" class="md-nav__link">
+        Watson Assistant ChatbotにWatson Discoveryのスキルを追加する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/integrate-voice-services-to-your-watson-assistant/" class="md-nav__link">
+        Webベースのchatbotを作成する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-assistant/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_21" type="checkbox" id="__nav_1_21" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_21">
+          Watson Machine Learning Acceleratorを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Machine Learning Acceleratorを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_21">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Machine Learning Acceleratorを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/introduction-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/how-to-use-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Acceleratorの使い方
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/elastic-distributed-training-edt-in-watson-machine-learning-accelerator/" class="md-nav__link">
+        Watson Machine Learning Accelerator Elastic Distributed Traning(EDT)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/use-snap-ml-concurrently/" class="md-nav__link">
+        SnapMLの同時使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/watson-machine-learning-videos/" class="md-nav__link">
+        Watson Mahine Learning ビデオ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-machine-learning-accelerator/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_22" type="checkbox" id="__nav_1_22" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_22">
+          Watson Studioを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Watson Studioを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_22">
+          <span class="md-nav__icon md-icon"></span>
+          Watson Studioを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-studio/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-watson-studio/" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-data-visualization-preparation-transformation/" class="md-nav__link">
+        Watson Studio データの可視化、準備、変換
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-auto-ai/" class="md-nav__link">
+        モデル構築の自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-spss-modeler-flow/" class="md-nav__link">
+        spss modelerフローの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/watson-studio-using-jupyter-notebook/" class="md-nav__link">
+        Watson Studio上のJupyter Notebookでモデルをビルドする
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-watson-studio/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_23" type="checkbox" id="__nav_1_23" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_23">
+          アプリケーション・モダナイゼーションを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="アプリケーション・モダナイゼーションを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_23">
+          <span class="md-nav__icon md-icon"></span>
+          アプリケーション・モダナイゼーションを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/intro-app-mod/index.md" class="md-nav__link">
+        導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/intro-microservices/index.md" class="md-nav__link">
+        マイクロサービスの導入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/modernizing-apps-step-by-step/index.md" class="md-nav__link">
+        ステップバイステップでアプリをモダナイズ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-application-modernization/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_24" type="checkbox" id="__nav_1_24" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_24">
+          異常検知APIを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="異常検知APIを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_24">
+          <span class="md-nav__icon md-icon"></span>
+          異常検知APIを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/what-is-anomaly-detection/" class="md-nav__link">
+        異常検知(Anomaly Detection, アノマリー検知)とは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/anomaly-detection-api/" class="md-nav__link">
+        異常検知用API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/industry-use-case/" class="md-nav__link">
+        業界のユースケース
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-anomaly-detection-api/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_25" type="checkbox" id="__nav_1_25" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_25">
+          エッジAI SDKを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="エッジAI SDKを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_25">
+          <span class="md-nav__icon md-icon"></span>
+          エッジAI SDKを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/what-is-edge-ai/" class="md-nav__link">
+        エッジAIとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/overview/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/coreset/" class="md-nav__link">
+        コアセット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/model-fusion/" class="md-nav__link">
+        モデルフュージョン
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-edge-ai-sdk/summary/" class="md-nav__link">
+        概要
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_26" type="checkbox" id="__nav_1_26" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_26">
+          開発者のための機械学習 Learning Path
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="開発者のための機械学習 Learning Path" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_26">
+          <span class="md-nav__icon md-icon"></span>
+          開発者のための機械学習 Learning Path
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-machine-learning-for-developers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/introduction-to-machine-learning/" class="md-nav__link">
+        機械学習の概要
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初のモデルを作る
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-regression-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        回帰アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-classification-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        分類アルゴリズムの学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/learn-clustering-algorithms-using-python-and-scikit-learn/" class="md-nav__link">
+        クラスタリング・アルゴリズムを学ぶ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-path-machine-learning-for-developers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_27" type="checkbox" id="__nav_1_27" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_27">
+          教師付き深層学習
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="教師付き深層学習" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_27">
+          <span class="md-nav__icon md-icon"></span>
+          教師付き深層学習
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/convolutional-neural-networks/index.md" class="md-nav__link">
+        畳み込みニューラルネットワーク(CNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/recurrent-neural-networks/index.md" class="md-nav__link">
+        回帰型ニューラルネットワーク(RNN)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supervised-deep-learning/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_28" type="checkbox" id="__nav_1_28" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_28">
+          クラウドを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="クラウドを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_28">
+          <span class="md-nav__icon md-icon"></span>
+          クラウドを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-cloud/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-cloud-computing/index.md" class="md-nav__link">
+        クラウドコンピューティングとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/public-cloud-explained/index.md" class="md-nav__link">
+        パブリッククラウドの説明
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-hybrid-cloud/index.md" class="md-nav__link">
+        ハイブリッドクラウドとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/deploy-your-first-app-to-ibm-cloud/index.md" class="md-nav__link">
+        アプリをIBMクラウドに展開
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/quickly-stand-up-protected-web-interface-for-cloud-native-app-on-ibm-cloud/index.md" class="md-nav__link">
+        IBMクラウド上でのnodejsスターターアプリケーションの開発
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-cloud/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_29" type="checkbox" id="__nav_1_29" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_29">
+          コンテナを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="コンテナを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_29">
+          <span class="md-nav__icon md-icon"></span>
+          コンテナを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-containers/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-containers/what-are-containers/" class="md-nav__link">
+        コンテナとは
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/true-benefits-of-moving-to-containers-1/" class="md-nav__link">
+        コンテナへの移行のメリット
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/building-docker-images-locally-and-in-cloud/" class="md-nav__link">
+        Dockerイメージの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/kubernetes-101-labs/" class="md-nav__link">
+        kubernetes 101 labs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-containers/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_30" type="checkbox" id="__nav_1_30" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_30">
+          サーバーレスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="サーバーレスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_30">
+          <span class="md-nav__icon md-icon"></span>
+          サーバーレスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-serverless/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-serverless/index.md" class="md-nav__link">
+        サーバーレスの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../videos/what-is-faas/index.md" class="md-nav__link">
+        FaaSの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/no-infrastructure-just-code-see-the-sim-plicity-of-serverless/index.md" class="md-nav__link">
+        サーバーレス機能の構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/github-task-automation-with-serverless-actions/index.md" class="md-nav__link">
+        githubのタスク自動化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/use-multiple-ai-services-with-functions/index.md" class="md-nav__link">
+        複数のAIサービスを利用する
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-serverless/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_31" type="checkbox" id="__nav_1_31" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_31">
+          人工知能を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="人工知能を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_31">
+          <span class="md-nav__icon md-icon"></span>
+          人工知能を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/index.md" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/ai-basics/index.md" class="md-nav__link">
+        AIの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-and-test-your-first-machine-learning-model-using-python-and-scikit-learn/" class="md-nav__link">
+        最初の機械学習モデルの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/next-steps/index.md" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-artificial-intelligence/summary/index.md" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_32" type="checkbox" id="__nav_1_32" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_32">
+          深層学習を始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="深層学習を始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_32">
+          <span class="md-nav__icon md-icon"></span>
+          深層学習を始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-with-deep-learning/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/an-introduction-to-deep-learning/" class="md-nav__link">
+        深層学習入門
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/cc-machine-learning-deep-learning-architectures/" class="md-nav__link">
+        深層学習アーキテクチャ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/compare-deep-learning-frameworks/" class="md-nav__link">
+        深層学習フレームワークの比較
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-a-linear-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        線形回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/build-a-logistic-regression-neural-network-using-tensorflow/" class="md-nav__link">
+        ロジスティック回帰を行う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/neural-networks-from-scratch/" class="md-nav__link">
+        ゼロから始めるニューラルネットワーク
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-with-deep-learning/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_33" type="checkbox" id="__nav_1_33" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_33">
+          データサイエンスを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="データサイエンスを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_33">
+          <span class="md-nav__icon md-icon"></span>
+          データサイエンスを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/data-preprocessing-in-detail/" class="md-nav__link">
+        データの前処理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/data-analysis-in-python-using-pandas/" class="md-nav__link">
+        pandasを使ったpythonでのデータ解析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/next-steps/" class="md-nav__link">
+        次のステップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-data-science/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_34" type="checkbox" id="__nav_1_34" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_34">
+          ブロックチェーンを始めよう
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ブロックチェーンを始めよう" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_34">
+          <span class="md-nav__icon md-icon"></span>
+          ブロックチェーンを始めよう
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-blockchain/" class="md-nav__link">
+        はじめに
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/cl-blockchain-basics-intro-bluemix-trs/" class="md-nav__link">
+        ブロックチェーンの基礎知識
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/cl-blockchain-basics-glossary-bluemix-trs/" class="md-nav__link">
+        用語集と使用例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Articles/blockchain-basics-hyperledger-fabric/" class="md-nav__link">
+        ハイパーレッジャー・ファブリック
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/" class="md-nav__link">
+        ビジネスブロックチェーンの構築
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Code-Tutorials/quick-start-guide-for-ibm-blockchain-platform/" class="md-nav__link">
+        IBMのブロックチェーン・プラットフォームを使う
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get-started-blockchain/summary/" class="md-nav__link">
+        まとめ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimated-time" class="md-nav__link">
+    Estimated time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-fork-the-source-repo" class="md-nav__link">
+    Step 1. Fork the source repo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-prepare-project-to-use-the-cloud-native-toolkit" class="md-nav__link">
+    Step 2. Prepare project to use the Cloud-Native Toolkit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-use-the-toolkit-to-create-a-pipeline" class="md-nav__link">
+    Step 3. Use the toolkit to create a pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-watch-the-pipeline-in-the-openshift-web-console" class="md-nav__link">
+    Step 4. Watch the pipeline in the OpenShift web console
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-modify-the-test-task" class="md-nav__link">
+    Step 5. Modify the test task
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5. Modify the test task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-the-pipelines-test-task" class="md-nav__link">
+    Edit the pipeline's test task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-fix-the-sonarqube-java-bin-path" class="md-nav__link">
+    Step 6. Fix the SonarQube Java bin path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-working-with-a-separate-repo-for-dockerfiles" class="md-nav__link">
+    Step 7. Working with a separate repo for Dockerfiles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-working-with-a-helm-chart" class="md-nav__link">
+    Step 8. Working with a Helm chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-customize-the-health-task" class="md-nav__link">
+    Step 9. Customize the health task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-tag-the-source-code-with-semantic-versioning" class="md-nav__link">
+    Step 10. Tag the source code with semantic versioning
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 10. Tag the source code with semantic versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edit-the-pipelines-tag-release-task" class="md-nav__link">
+    Edit the pipeline's tag-release task
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-11-build-and-label-with-tags" class="md-nav__link">
+    Step 11. Build and label with tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 11. Build and label with tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-build-args-to-the-build-task" class="md-nav__link">
+    Add build args to the build task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-the-pipelines-tag-release-task" class="md-nav__link">
+    Move the pipeline's tag-release task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass-in-build-args" class="md-nav__link">
+    Pass in build args
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-12-check-the-image-scan-results" class="md-nav__link">
+    Step 12. Check the image scan results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-13-helm-release-to-artifactory" class="md-nav__link">
+    Step 13. Helm release to Artifactory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-14-explore-the-results" class="md-nav__link">
+    Step 14. Explore the results
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 14. Explore the results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-the-running-application" class="md-nav__link">
+    View the running application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-the-image-in-the-image-registry" class="md-nav__link">
+    View the image in the image registry
+  </a>
+  
+    <nav class="md-nav" aria-label="View the image in the image registry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openshift-internal-registry" class="md-nav__link">
+    OpenShift internal registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-cloud-container-registry" class="md-nav__link">
+    IBM Cloud Container Registry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-artifacts-in-artifactory" class="md-nav__link">
+    View artifacts in Artifactory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-code-quality-results-in-sonarqube" class="md-nav__link">
+    View code quality results in SonarQube
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-the-tags-in-the-github-repo" class="md-nav__link">
+    View the tags in the GitHub repo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Build a Red Hat OpenShift certifiable image from a complex application</h1>
+                
+                <p>In developing real-world applications, you often have to integrate multiple tools and processes in order to access the data you need and deliver a great result for end users. This tutorial shows you how to build, test, containerize, and deploy an open source database using the Cloud-Native Toolkit's Red Hat OpenShift pipelines and tasks. The end result is a CI/CD pipeline running on OpenShift that demonstrates best practices and provides integrations with popular open source tools. The pipeline produces an image that is ready for Red Hat OpenShift certification.</p>
+<p>This tutorial builds on the concepts discussed in other tutorials:</p>
+<ol>
+<li><a href="/learningpaths/build-images-cloud-native-toolkit/install-toolkit/">Install the Cloud-Native Toolkit</a></li>
+<li><a href="/learningpaths/build-images-cloud-native-toolkit/starter-kits/">Use the Cloud-Native Toolkit starter kits</a></li>
+<li><a href="/learningpaths/build-images-cloud-native-toolkit/existing-application/">Use the Cloud-Native Toolkit on an existing application</a></li>
+</ol>
+<p>We recommend going through the above tutorials first to get up and running successfully with the Cloud-Native Toolkit using simpler web apps. Unlike the introductory tutorials, this tutorial focuses on an application that is not an easy fit for the Cloud-Native Toolkit's out-of-the-box pipelines.</p>
+<p>This tutorial starts with a copy of JanusGraph and the JanusGraph Docker repo. This project is not structured like the simple web app examples (like the starter kits), but it is structured like many open source projects:</p>
+<ul>
+<li>This project is poly-repo -- it uses separate repos for source code and Dockerfiles.</li>
+<li>This project maintains multiple versions, so the directory and branching strategy is not as simple as that of the starter kit examples.</li>
+<li>This isn't a web app with the usual default ports and a health endpoint.</li>
+</ul>
+<p>This case study walks you through how to:</p>
+<ul>
+<li>Modify tasks</li>
+<li>Add parameters to a pipeline</li>
+<li>Pass pipeline parameters to tasks</li>
+<li>Run static analysis on source code</li>
+<li>Work with multiple repos</li>
+<li>Build and deploy a certifiable image on OpenShift</li>
+<li>Scan images for vulnerabilities</li>
+<li>Use semantic versioning on branches</li>
+</ul>
+<p>The ultimate goal is to accomplish three things:</p>
+<ol>
+<li>Build an application image that can be used for Red Hat OpenShift certification.</li>
+<li>Demonstrate best practices using CI/CD pipelines on OpenShift with open source tools.</li>
+<li>Turn this case study into a learning exercise that will help future projects.</li>
+</ol>
+<!--
+## Application to be used
+For this case study, we started with the JanusGraph database open source repos:
+* https://github.com/JanusGraph/janusgraph
+* https://github.com/JanusGraph/janusgraph-docker
+**Note:** Instead of forking the JanusGraph repos and potentially generating noise and distractions for the JanusGraph community (for example, accidental PRs and abnormal spikes in forks), we are providing repos that are a snapshot of those repos. This will allow you to walk through this case study using our copies and your own fork where you can create tags and releases. -->
+
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>In order to complete this tutorial, you must first complete the following prerequisites.</p>
+<p>You need access to the following:</p>
+<ul>
+<li>A <a href="https://github.com/">GitHub</a> account</li>
+<li>A Red Hat OpenShift cluster</li>
+</ul>
+<p>You also need to perform these setup tasks:</p>
+<ul>
+<li>Install the Cloud-Native Toolkit on your OpenShift cluster, as described in the article <a href="/learningpaths/build-images-cloud-native-toolkit/install-toolkit">Install the Cloud-Native Toolkit</a>.</li>
+<li>Prepare your accounts for the Cloud-Native Toolkit following the instructions found in the <a href="https://cloudnativetoolkit.dev/learning/dev-setup/">documentation</a>. This involves:<ul>
+<li><a href="https://cloudnativetoolkit.dev/learning/dev-setup/#github-account">Generating GitHub access tokens</a></li>
+<li><a href="https://cloudnativetoolkit.dev/learning/dev-setup/#installing-command-line-tools">Installing cluster command-line tools on your developer machine</a></li>
+<li><a href="https://cloudnativetoolkit.dev/learning/dev-setup/#install-the-cloud-native-toolkit-command-line-interface-cli">Installing the Cloud-Native Toolkit Command Line Interface</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="estimated-time">Estimated time<a class="headerlink" href="#estimated-time" title="Permanent link">&para;</a></h2>
+<p>It should take you approximately 90 minutes to complete this tutorial if you go through all the steps without waiting for each pipeline run to complete.</p>
+<p>Most of the steps describe a problem, tell you how to fix the problem, and show the result after the fix. It can be more satisfying to see your own pipeline advance further and confirm every fix, but it will take hours to complete if you don't work ahead. To save you time, it is recommended that you let your pipeline run at your convenience, but read ahead, make multiple modifications, and rely on the provided screenshots to see the errors that you would have had to wait for. (<em><strong>Note:</strong> Some runs are skipped in the following example.</em>)</p>
+<p><img alt="pipeline_runs" src="../images/pipeline_runs.png" /></p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#step-1-fork-the-source-repo">Fork the source repo</a></li>
+<li><a href="#step-2-prepare-project-to-use-the-cloud-native-toolkit">Prepare project to use the Cloud-Native Toolkit</a></li>
+<li><a href="#step-3-use-the-toolkit-to-create-a-pipeline">Use the toolkit to create a pipeline</a></li>
+<li><a href="#step-4-watch-the-pipeline-in-the-openshift-web-console">Watch the pipeline in the OpenShift web console</a></li>
+<li><a href="#step-5-modify-the-test-task">Modify the test task</a></li>
+<li><a href="#step-6-fix-the-sonarqube-java-bin-path">Fix the SonarQube Java bin path</a></li>
+<li><a href="#step-7-working-with-a-separate-repo-for-dockerfiles">Working with a separate repo for Dockerfiles</a></li>
+<li><a href="#step-8-working-with-a-helm-chart">Working with a Helm charts</a></li>
+<li><a href="#step-9-customize-the-health-task">Customize the health task</a></li>
+<li><a href="#step-10-tag-the-source-code-with-semantic-versioning">Tag the source code with semantic versioning</a></li>
+<li><a href="#step-11-build-and-label-with-tags">Build and label with tags</a></li>
+<li><a href="#step-12-check-the-image-scan-results">Check the image scan results</a></li>
+<li><a href="#step-13-helm-release-to-artifactory">Helm release to Artifactory</a></li>
+<li><a href="#step-14-explore-the-results">Explore the results</a></li>
+</ol>
+<h2 id="step-1-fork-the-source-repo">Step 1. Fork the source repo<a class="headerlink" href="#step-1-fork-the-source-repo" title="Permanent link">&para;</a></h2>
+<p>Our example is based on the JanusGraph open source graph database. Since we didn't want to distract the JanusGraph community with a spike in forks (and perhaps a flurry of accidental PRs), we chose to mirror their repos into our own snapshot repos. From these, you will create your own repos where you can make changes, branches, tags, and releases.</p>
+<ol>
+<li>Browse to https://github.com/IBM/demo-db.</li>
+<li>Click the <strong>Fork</strong> button.</li>
+<li>
+<p>Select an account or organization where you are authorized to create repos.</p>
+<p><img alt="form_demo_db.png" src="../images/fork_demo_db.png" /></p>
+</li>
+</ol>
+<p>In your fork, take note of a few things:</p>
+<ul>
+<li>The URL of your fork will look like <code>https://github.com/&lt;your-user&gt;/demo-db</code> where <code>&lt;your-user&gt;</code> is the user or organization that you selected. This will be the source repo URL that you should use below.</li>
+<li>The repo includes many branches. The branch named <code>v0.5</code> is the one we focus on in this tutorial.</li>
+<li>
+<p>The repo has many tags. During this tutorial, you will automatically create new tags on the <code>v0.5</code> branch using the semantic versioning. Click on the <strong>Tags</strong> button to see what versions you are starting with:</p>
+<p><img alt="tags.png" src="../images/tags.png" /></p>
+</li>
+</ul>
+<details><summary>Dockerfile modifications for OpenShift</summary>
+  <br />
+
+<p>We already provided [Dockerfile-rhos](https://github.com/IBM/demo-db-docker/blob/master/0.5/Dockerfile-rhos) and [docker-entrypoint-rhos.sh](https://github.com/IBM/demo-db-docker/blob/master/0.5/docker-entrypoint-rhos.sh), which are modified versions of the original Dockerfile and docker-entrypoint.sh from the janusgraph-docker repo. You should be able to use our repo as-is, but since this is an important part of creating an image that can pass certification, let's review the changes we made.</p>
+
+<p>When modifying the Dockerfile, keep these 2 goals in mind:</p>
+
+<ul>
+<li>Use best practices to create a Universal Application Image (UAI), as described in this [article](https://developer.ibm.com/learningpaths/universal-application-image/design-universal-image/).</li>
+<li> Build an image that is in compliance with Red Hat Container certification requirements.</li>
+</ul>
+
+<p>As described in the best practices article, the first thing you need to do is make sure your image is based on a Universal Base Image (UBI). UBIs run in both OpenShift and Kubernetes, and can be distributed royalty free.</p>
+
+<p>To accomplish this, we first determined which UBI to build from by searching the available options from the [Red Hat Container Catalog](https://catalog.redhat.com/software/containers/explore/).</p>
+<p>Since we are building a Java app, we looked for an OpenJDK UBI. Doing a search on `openjdk`, we found OpenJDK 1.8 and OpenJDK 11 UBI images:</p>
+
+<br />
+ <img src="images/ubi8openjdk.png" alt="View of the OpenJDK 1.8 images"> 
+<br />
+
+<p>We then clicked on the tile to get release information:</p>
+
+<br />
+ <img src="images/ubi8openjdk.png" alt="View of the OpenJDK 1.8 images"> 
+<br />
+
+<br />
+ <img src="images/openjdk11_details.png" alt="View of the OpenJDK 11 UBI images"> 
+<br />
+
+<p>To use the current latest version, we use the tag `1.3-15`. In our Dockerfile-rhos, we use `FROM registry.access.redhat.com/ubi8/openjdk-11:1.3-15` (where it was using 8-jre-slim-buster).</p>
+
+<p>Before: `FROM openjdk:8-jre-slim-buster`</p>
+<p>After: `FROM registry.access.redhat.com/ubi8/openjdk-11:1.3-15`</p>
+
+<p>After this `FROM` line, we needed to add `USER root`. Without this line, some of the `chmod` commands that follow would fail. We will not be running the container as root though. After the permissions are set, a `USER janusgraph` command is used.</p>
+
+<p>When the container runs on OpenShift, it will be assigned a different user ID based on the project. This user will be a member of the root group. Some modifications have been made to give access to this user with the root group instead of the JanusGraph user and group that was assumed to be available before. Running the database doesn't really require a special user; it was only the file permission setup that needed some adjustments.</p>
+
+<p>We used the name Dockerfile-rhos and docker-entrypoint-rhos.sh so that the original versions are still available. You can see all the modifications by comparing the files.</p>
+
+</details>
+
+<h2 id="step-2-prepare-project-to-use-the-cloud-native-toolkit">Step 2. Prepare project to use the Cloud-Native Toolkit<a class="headerlink" href="#step-2-prepare-project-to-use-the-cloud-native-toolkit" title="Permanent link">&para;</a></h2>
+<p>In a terminal, use the <code>oc</code> CLI to prepare your project:</p>
+<pre><code class="language-bash"># Use CLI login provided by the OpenShift console
+oc login &lt;your-info&gt;
+# Create and switch to a new OpenShift project
+oc new-project &lt;your-project&gt;
+# Sync the project to prepare it for use with the toolkit
+oc sync &lt;your-project&gt;
+</code></pre>
+<p><em><strong>Note:</strong> All toolkit assets are stored in the OpenShift <code>tools</code> project. The <code>sync</code> command makes those assets available to your project.</em></p>
+<h2 id="step-3-use-the-toolkit-to-create-a-pipeline">Step 3. Use the toolkit to create a pipeline<a class="headerlink" href="#step-3-use-the-toolkit-to-create-a-pipeline" title="Permanent link">&para;</a></h2>
+<p>Using the project you created, create a Tekton pipeline from your repo. When you run the <code>oc pipeline</code> command, it will normally prompt you with options. It will also automatically determine some options based on your repo (in your current directory). In this example, we already know the options that we want and can specify a remote repo, branch, and options on the command line.</p>
+<p>Use the <code>oc pipeline</code> command with the following arguments:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gitUrl#branch-name</td>
+<td>Provides the Git URL for the repository that should be registered in the pipeline. The branch can be added by appending <code>#{branch-name}</code>.  If not provided, the Git URL and branch will be read from the current directory.</td>
+</tr>
+<tr>
+<td>--tekton</td>
+<td>Create a Tekton pipeline (instead of Jenkins).</td>
+</tr>
+<tr>
+<td>--pipeline ibm-java-maven</td>
+<td>Use the Maven pipeline.</td>
+</tr>
+<tr>
+<td>-p scan-image=true</td>
+<td>Set the scan-image parameter to <code>true</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>In a terminal, run the following commands to create and run your pipeline, replacing <code>&lt;your-user&gt;</code> with your actual user or organization. Notice that you're working on the <strong>v0.5</strong> branch.</p>
+<pre><code class="language-txt">oc pipeline https://github.com/&lt;your-user&gt;/demo-db#v0.5 --tekton --pipeline ibm-java-maven -p scan-image=true
+</code></pre>
+<p>When prompted, provide your GitHub username and the personal access token that you created earlier.</p>
+<p>Your output will look similar to this:</p>
+<p><img alt="oc_pipeline" src="../images/oc-pipeline.png" /></p>
+<p><em><strong>Warning:</strong> This will create a very long-running pipeline that we expect to fail. So instead of waiting for it to finish, please read ahead to the instructions to stop and fix the pipeline.</em></p>
+<h2 id="step-4-watch-the-pipeline-in-the-openshift-web-console">Step 4. Watch the pipeline in the OpenShift web console<a class="headerlink" href="#step-4-watch-the-pipeline-in-the-openshift-web-console" title="Permanent link">&para;</a></h2>
+<p>Browse to the <code>View PipelineRun</code> link provided at the end of the <code>oc pipeline</code> output.  This will take you to the pipeline run in your project in the OpenShift web console:</p>
+<p><img alt="oc_pipeline" src="../images/oc_pipeline.png" /></p>
+<p>Here is a short description on what each task is doing:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Task</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>setup</strong></td>
+<td>Clones the specified branch of the repo and sets up the parameters to be used by the remaining tasks in the pipeline.</td>
+</tr>
+<tr>
+<td><strong>test</strong></td>
+<td>Builds the app and then performs integration tests. Runs code coverage and quality tests using SonarQube.</td>
+</tr>
+<tr>
+<td><strong>build</strong></td>
+<td>Builds the Docker image and pushes it to the OpenShift image registry.</td>
+</tr>
+<tr>
+<td><strong>deploy</strong></td>
+<td>Deploys the application to the CI environment for verification using the provided Helm chart.</td>
+</tr>
+<tr>
+<td><strong>health</strong></td>
+<td>Calls the container <code>health</code> endpoint to ensure deployment is up and running.</td>
+</tr>
+<tr>
+<td><strong>tag-release</strong></td>
+<td>Tags the release in the Git repo with a new unique version number.</td>
+</tr>
+<tr>
+<td><strong>img-release</strong></td>
+<td>Tags the image release and pushes it to the container registry.</td>
+</tr>
+<tr>
+<td><strong>img-scan</strong></td>
+<td>Performs a scan on the image.</td>
+</tr>
+<tr>
+<td><strong>helm-release</strong></td>
+<td>Uses the image tag as part of the filename for the Helm chart. Artifacts are stored in Artifactory.</td>
+</tr>
+<tr>
+<td><strong>gitops</strong></td>
+<td>Publishes the Helm chart configuration to the provided GitOps repo to trigger downstream deployments.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-5-modify-the-test-task">Step 5. Modify the <strong>test</strong> task<a class="headerlink" href="#step-5-modify-the-test-task" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_test_failed" src="../images/pipeline_test_failed.png" /></p>
+<p>From the <code>Pipeline Run Details</code> graph, you can see that the <code>test</code> task had an error. Click on the task to see the logs for the task.</p>
+<p><em><strong>Note:</strong> If your pipeline run is taking too long, you can use the <strong>Actions</strong> drop-down to stop the run. We are expecting it to fail, and in some cases it will take a long time.</em></p>
+<p><img alt="pipeline_test_fail_log.png" src="../images/pipeline_test_fail_log.png" /></p>
+<p>The <strong>ibm-java-maven</strong> pipeline uses the <strong>ibm-java-maven-test-v2-5-0 (test)</strong> task to clone the source code repo and use Maven to build (package) and then test the code. After those steps succeed, it runs SonarQube's SonarScanner for static analysis of the code.</p>
+<p>In this case study, the Maven tests don't succeed by default in this environment. In order to get through this step <em>without getting into too many project-specific Maven details</em>, you can make the following customizations to the test task:</p>
+<ol>
+<li>Modify the task to add a parameter for Maven command-line goals and options.</li>
+<li>Modify the pipeline to add a new parameter to pass to the test task.</li>
+</ol>
+<p>This allows you to:
+   * Run goals "clean package"
+   * Only test core projects
+   * Skip the Release Audit Tool (RAT) part of this Maven project
+   * Suppress the excessive progress logging
+   * Continue to the next step even if some tests fail
+   * Customize these settings when starting a pipeline</p>
+<p>While some of these changes are very project-specific, this is a good general example of how you can take a pipeline and task that was provided by the toolkit and modify it to be a better fit for your project's preferences.</p>
+<h3 id="edit-the-pipelines-test-task">Edit the pipeline's test task<a class="headerlink" href="#edit-the-pipelines-test-task" title="Permanent link">&para;</a></h3>
+<p>So far, we've only looked at the "pipeline run." Remember, you used the link provided by <code>oc pipeline</code> output to view a specific run of a specific pipeline. In addition to viewing the output and details of a pipeline run, the actions available here include <em>Stop Run</em>, <em>Rerun</em>, and <em>Delete Pipeline Run</em>.</p>
+<p>To change the actual pipeline and tasks, navigate from <code>Pipeline Runs</code> to <code>Pipelines</code>.</p>
+<ol>
+<li>
+<p>Navigate to the pipeline:</p>
+<ul>
+<li>The easy way to get from a pipeline run to the pipeline is to find and click on the <code>Pipeline</code> link shown under <strong>Pipeline Run Details</strong>:</li>
+</ul>
+<p><img alt="pipeline_run_to_pipeline.png" src="../images/pipeline_run_to_pipeline.png" /></p>
+<ul>
+<li>Alternatively, you can always navigate to your pipelines from the sidebar as follows:</li>
+<li>Use the <strong>Administrator</strong> perspective.</li>
+<li>In the left sidebar, expand <strong>Pipelines</strong>.</li>
+<li>Click <strong>Pipelines</strong>.</li>
+<li>Make sure the <strong>Project</strong> drop-down shows your project.</li>
+<li>Click on your pipeline (the toolkit uses your repo name for the pipeline name).</li>
+</ul>
+</li>
+<li>
+<p>Navigate to the <code>test</code> task:</p>
+<ul>
+<li>Under the pipeline details, the tasks are shown with links to the task resources.</li>
+<li>Select the <strong>ibm-java-maven-test-v2-5-0 (test)</strong> task.</li>
+</ul>
+<p><img alt="pipeline_tasks_test.png" src="../images/pipeline_tasks_test.png" /></p>
+</li>
+<li>
+<p>Edit the task YAML.</p>
+<p><em><strong>Note:</strong> Make sure that you only edit the copy of the task <strong>in your project</strong> and <strong>NOT</strong> the original version in the <code>tools</code> project (which will be shared with other projects).</em></p>
+<ul>
+<li>
+<p>Click on the <strong>YAML</strong> tab.</p>
+</li>
+<li>
+<p>Copy the following YAML and add it under spec/params to create a new <code>GOALS</code> parameter:</p>
+</li>
+</ul>
+<p><code>yaml
+      - default: package
+        description: maven goals and options
+        name: GOALS
+        type: string</code></p>
+<ul>
+<li>The following screenshot shows what it should look like (if you made it the first parameter):</li>
+</ul>
+<p><img alt="maven_task_goals.png" src="../images/maven_task_goals.png" /></p>
+<ul>
+<li>
+<p>Click the <strong>Save</strong> button to save your edits.</p>
+</li>
+<li>
+<p>Copy the following YAML and add it under spec/steps to <em>replace the build and test steps with a single test step</em> that runs Maven using the <code>GOALS</code> parameter:</p>
+</li>
+</ul>
+<p><code>bash
+    if [ -f "./mvnw" ]; then
+      ./mvnw $(params.GOALS)
+    else
+      mvn $(params.GOALS)
+    fi</code></p>
+<ul>
+<li>Refer to the before/after screenshots below. Make sure you replace the 2 steps with 1 step.</li>
+</ul>
+<p><strong>Before</strong></p>
+<p><img alt="maven_before.png" src="../images/maven_before.png" /> </p>
+<p><strong>After</strong></p>
+<p><img alt="maven_after.png" src="../images/maven_after.png" /></p>
+<ul>
+<li>Click the <strong>Save</strong> button again to save your edits</li>
+</ul>
+<p><em><strong>Note:</strong> In the Maven lifecycle, <code>package</code> includes <code>test</code>. We are eliminating a redundant step, but the main goal here is to allow passing in whatever Maven goals and options you want.</em></p>
+</li>
+<li>
+<p>Add a <code>maven-goals</code> parameter to the pipeline.</p>
+<ul>
+<li>
+<p>Now that the <code>test</code> task has a parameter for Maven goals, you need to add a pipeline parameter so that you can pass in options:</p>
+</li>
+<li>
+<p>Go back to your <strong>Pipeline Details</strong> page. Select the <strong>Parameters</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>+Add Pipeline Parameter</strong>.</p>
+</li>
+<li>
+<p>Fill in the Name, Description, and Default Value (explained in detail later) as follows:</p>
+<ul>
+<li><strong>Name</strong>: <code>maven-test-goals</code></li>
+<li><strong>Description</strong>: Goals and options for the Maven test task</li>
+<li><strong>Default value</strong>: <code>clean package --no-transfer-progress -Drat.skip=true   -pl=janusgraph-driver,janusgraph-core,janusgraph-test,janusgraph-backend-testutils,janusgraph-inmemory</code></li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Save</strong> at the bottom of the page:</p>
+</li>
+</ul>
+<p><img alt="maven-test-goals.png" src="../images/maven-test-goals.png" /></p>
+<p><em><strong>Tip:</strong> Notice that some of the existing default values seem like good defaults, but you will be replacing the <code>git-url</code> and <code>git-revision</code> with your own URL and v0.5 every time you start the pipeline. So... you might want to just make those values the defaults while you are here.</em></p>
+</li>
+<li>
+<p>Assign the pipeline parameter to the task parameter:</p>
+</li>
+<li>
+<p>Go to your pipelines <strong>Details</strong> tab.</p>
+</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Edit pipeline</strong>.</li>
+<li>Click <strong>Edit YAML</strong>.</li>
+<li>
+<p>Copy the following YAML and add it under spec/tasks in the <code>test</code> task params:</p>
+<p><code>yaml
+    - name: GOALS
+      value: $(params.maven-test-goals)</code></p>
+<p><img alt="test-task-goals.png" src="../images/test-task-goals.png" /></p>
+</li>
+<li>
+<p>Select <strong>Save</strong> at the bottom of the page.</p>
+</li>
+<li>
+<p>Start the pipeline:</p>
+</li>
+<li>
+<p>Use the <strong>Actions</strong> drop-down and select <strong>Start</strong>.</p>
+</li>
+<li>Provide your <strong>git-url</strong> (for example, <code>https://github.com/&lt;your-user&gt;/demo-db</code> for the source code repo).</li>
+<li>Set <strong>git-revision</strong> to <code>v0.5</code> (our Git branch).</li>
+<li>Use the defaults for <strong>scan-image</strong> and <strong>maven-test-goals</strong>.</li>
+<li>
+<p>Select <strong>Start</strong>.</p>
+<p><img alt="start-with-goals.png" src="../images/start-with-goals.png" /></p>
+</li>
+</ol>
+<p><em><strong>Note:</strong> The pipeline can still take a while and fail, so you probably should read ahead while it runs.</em></p>
+<ol>
+<li>
+<p>Take a closer look at our project's Maven default goals:</p>
+<p>While your pipeline is running, let's take a look at the default goals! You may have noticed that we made some very specific choices. In general, this probably would not be a good "default value," but while we are working on this pipeline for this project only, this specific default is handy. Yes, it is lazy -- a better default would probably be "package" or perhaps "clean verify," depending on your Maven preferences, and then you would add options to the default as needed when you start a pipeline.</p>
+<p>Here's an explanation of what you can use to optimize your tests and make them pass:</p>
+<ul>
+<li><code>clean package</code> is a Maven way of saying: "Start clean and then do all the build and test, but stop before install and deploy."</li>
+<li><code>--no-transfer-progress</code> turns off the progress logging that makes the log output really long. The progress indicator is nice when you are running on a command line, but not so nice if you have to scroll through the log.</li>
+<li><code>-Drat.skip=true</code> -- the Apache RAT tests gave us problems on some branches, so we disabled it for now with this handy option that the POM file understands.</li>
+<li><code>-pl=&lt;project-list&gt;</code> filters the projects. You can do this for speed and to avoid some tests that may not be working for you.</li>
+</ul>
+<p>A couple more options to add:</p>
+<ul>
+<li><code>--fail-never</code> is good for demo purposes, when you want to continue even if some tests fail.</li>
+<li><code>-DskipTests</code> can be used if you really want to speed things up for a demo.</li>
+</ul>
+<p>Ideally, you could skip all the tests that fail or run too slow by default or with a flag like the <code>rat.skip</code> flag. Getting that done is more about Maven and project-specific decisions, so we avoid that here and move on with our streamlined pipeline.</p>
+</li>
+<li>
+<p>Examine the expected results:</p>
+<ul>
+<li>Near the top of test log, right after <code>STEP-TEST</code>, you should see a the <code>mvn</code> command to confirm that your changes have actually been used (as <code>mvn &lt;maven-test-goals&gt;</code>). If you examine the logs from the test task, you should see the unit test results at the end of the test step (right before <code>STEP-SONAR-SCAN</code>). You should see that you ran hundreds of tests, but only in the projects in the <code>-pl</code> list.</li>
+</ul>
+<p><img alt="test_results.png" src="../images/test_results.png" /></p>
+<ul>
+<li>If the test step failed for you, try using the <code>--fail-never</code> flag (and/or <code>-DskipTests</code>) to get past the <code>test</code> step and start the <code>sonar-scan</code> step (still in the <code>test</code> task).</li>
+</ul>
+</li>
+<li>
+<p>Move on to the next error.</p>
+<p>The above fixes should get you successfully through the <code>git-clone</code> and <code>test</code> steps of the <code>test</code> task, but the <code>sonar-scan</code> step (the final step in the <code>test</code> task) will fail.</p>
+<p>To save yourself some time, you can read ahead and fix the next problems that we have already encountered. Let the current <strong>pipeline run</strong> continue if you want to see the error result, or stop it to save some resources.</p>
+</li>
+</ol>
+<h2 id="step-6-fix-the-sonarqube-java-bin-path">Step 6. Fix the SonarQube Java bin path<a class="headerlink" href="#step-6-fix-the-sonarqube-java-bin-path" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_test_failed" src="../images/pipeline_test_failed.png" /></p>
+<p>After the Java code is tested and compiled using Maven goals, the pipeline provided by the toolkit uses SonarQube for static analysis of the code. The provided task looks for a single <code>target</code> directory. You need to change that to look in the <code>target</code> directory of each subdirectory (that is, <code>*/target</code>).</p>
+<p>The original error after you got past the unit tests looked like this:</p>
+<pre><code class="language-txt">ERROR: Invalid value for sonar.java.binaries
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION FAILURE
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 21.925s
+INFO: Final Memory: 17M/201M
+INFO: ------------------------------------------------------------------------
+ERROR: Error during SonarScanner execution
+java.lang.IllegalStateException: No files nor directories matching 'target'
+</code></pre>
+<p>The <code>test</code> task already has the parameter you need: <code>$(params.sonarqube-java-bin-path)</code>. This is used in the task, but is not a pipeline parameter. You can add a parameter to the pipeline again like you did above and pass the parameter value in to the task. Instead, this time, we show you how to make a simpler fix by just changing the default in the task.</p>
+<ol>
+<li>
+<p>Navigate to the <code>test</code> task again:</p>
+<ul>
+<li>Under the Pipeline details, the tasks are shown with links to the task resources.</li>
+<li>Click the <code>ibm-java-maven-test-v2-5-0 (test)</code> task.</li>
+</ul>
+</li>
+<li>
+<p>Edit the task YAML.</p>
+<ul>
+<li>Click the <strong>YAML</strong> tab.</li>
+<li>Change the <code>sonarqube-java-bin-path</code> default to <code>'*/target'</code>.</li>
+</ul>
+<p><img alt="sonarqube-java-bin-path.png" src="../images/sonarqube-java-bin-path.png" /></p>
+</li>
+<li>
+<p>Start last run!</p>
+<p>Because you didn't add any new pipeline parameters, you can just re-run the last pipeline run:</p>
+<ul>
+<li>Navigate to your last pipeline run.</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Rerun</strong>.</li>
+</ul>
+<p><img alt="sonar_success.png" src="../images/sonar_success.png" /></p>
+</li>
+<li>
+<p>Move on to the next error.</p>
+<p>Expect the <code>test</code> task to succeed this time. The <code>build</code> task will fail next, and we look at that in the next section. To save yourself some time, you can read ahead and fix the next problems that you have already encountered. Let the current <strong>pipeline run</strong> continue so that you can explore the SonarQube static analysis results after the <code>test</code> task completes -- as shown in <a href="#step-14-explore-the-results">Step 14. Explore the results</a>.</p>
+</li>
+</ol>
+<h2 id="step-7-working-with-a-separate-repo-for-dockerfiles">Step 7. Working with a separate repo for Dockerfiles<a class="headerlink" href="#step-7-working-with-a-separate-repo-for-dockerfiles" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_build_failed.png" src="../images/pipeline_build_failed.png" /></p>
+<p>From the <strong>Pipeline Run Details</strong>, you will see that the <code>build</code> task fails.</p>
+<p>When you get the error indicator, click the <strong>build</strong> task in the graph shown under <strong>Pipeline Run Details</strong>. This takes you directly to the <strong>Logs</strong> tab and selects the <code>build</code> task for you.</p>
+<p><img alt="pipeline_build_fail_log.png" src="../images/pipeline_build_fail_log.png" /></p>
+<p>The build fails due to not being able to find the Dockerfile. In this case, the <code>/source</code> directory is where the build task clones the repo. The Dockerfile is expected to be at the root of the repo.</p>
+<p>As is common in many real-world applications, the JanusGraph project is poly-repo. The source code that you built and tested above is in one repo, but the Dockerfiles are in another repo. For applications that maintain multiple versions (all of them?), it is also common to have Dockerfiles in subdirectories.</p>
+<p>To allow for some of the variations that are common in poly-repo projects, you should modify the pipeline to allow the following:</p>
+<ul>
+<li>The <strong>Git URL for the Dockerfiles repo</strong> is different from the source code repo.</li>
+<li>The <strong>build context</strong> (directory containing the Dockerfile) is not the repo root directory.</li>
+<li>The <strong>Dockerfile</strong> has a different name (for example, "Dockerfile-rhos").</li>
+</ul>
+<p>To address this, modify the pipeline to allow additional parameters and specify which pipeline parameters to pass to each task parameter.</p>
+<p>The <strong>ibm-java-maven</strong> pipeline uses the <strong>ibm-build-tag-push-v2-5-0 (build)</strong> task to build, tag, and push a container image using <code>buildah</code> with a Dockerfile. If you take a look at the YAML for the <strong>ibm-build-tag-push-v2-5-0 (build)</strong> task, you will see that the task already has the parameters you need for the 3 things listed above (<code>git-url</code>, <code>CONTEXT</code>, and <code>DOCKERFILE</code>).</p>
+<p>There is a fourth parameter change that is much less obvious. The pipeline uses the parameter <code>git-revision</code>. In our source repo, this was the branch name <code>v0.5</code>. The <code>setup</code> task takes the git-revision and converts it into a hash ID. The hash ID from our source repo won't work in other repos (even if the branch name is the same), so we need to have a different git-revision for each repo.</p>
+<ol>
+<li>
+<p>Add 3 parameters to the pipeline:</p>
+<ul>
+<li>Go back to your <strong>Pipeline Details</strong> page and select the <strong>Parameters</strong> tab.</li>
+<li>Click <strong>+ Add Pipeline Parameter</strong> for each of the parameters.</li>
+<li>
+<p>Fill in <strong>Name</strong>, <strong>Description</strong>, and <strong>Default Value</strong> as follows:</p>
+<ul>
+<li><strong>Parameter 1</strong><ul>
+<li><strong>Name</strong>: <code>dockerfile-git-url</code></li>
+<li><strong>Description</strong>: The URL of the Git repo containing the Dockerfile</li>
+<li><strong>Default value</strong>: https://github.com/IBM/demo-db-docker</li>
+</ul>
+</li>
+<li><strong>Parameter 2</strong><ul>
+<li><strong>Name</strong>: <code>dockerfile-context-path</code></li>
+<li><strong>Description</strong>: The build context directory</li>
+<li><strong>Default value</strong>: 0.5</li>
+</ul>
+</li>
+<li><strong>Parameter 3</strong>  <ul>
+<li><strong>Name</strong>: <code>dockerfile-file-name</code></li>
+<li><strong>Description</strong>: The file name of the Dockerfile to use</li>
+<li><strong>Default value</strong>: Dockerfile-rhos</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Save</strong>  at the bottom of the page.</p>
+</li>
+</ul>
+<p><img alt="add_build_params.png" src="../images/add_build_params.png" /></p>
+</li>
+<li>
+<p>Assign the pipeline parameters to task parameters:</p>
+<ul>
+<li>Go to your pipeline's <strong>Details</strong> tab.</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Edit pipeline</strong>.</li>
+<li>Click on <strong>Edit YAML</strong>.</li>
+<li>Copy the following YAML and add it under spec/tasks in the <code>build</code> task params:</li>
+</ul>
+<p><code>yaml
+      - name: CONTEXT
+        value: $(params.dockerfile-context-path)
+      - name: DOCKERFILE
+        value: $(params.dockerfile-file-name)</code></p>
+<ul>
+<li>In the same section, edit the existing values for the <code>build</code> task params to change <code>git-url</code> and <code>git-revision</code> like this:</li>
+</ul>
+<p><code>yaml
+      - name: git-url
+        value: $(params.dockerfile-git-url)
+      - name: git-revision
+        value: main</code></p>
+<ul>
+<li>Click <strong>Save</strong> at the bottom of the page.</li>
+</ul>
+<p><img alt="build_task_params.png" src="../images/build_task_params.png" /></p>
+<p><em><strong>Note:</strong> If you were using the same branch names in the source and Docker repos, you could pass in <code>$(params.git-revision)</code> and use the branch name instead of the hash ID (or add yet another pipeline parameter, if necessary), but in this case the Dockerfiles repo uses the <code>main</code> branch for all versions, so you can just set it and forget it.</em></p>
+</li>
+<li>
+<p>Start the pipeline:</p>
+<ul>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Start</strong>.</li>
+<li>Provide <em>your</em> <strong>git-url</strong> (for example, <code>https://github.com/&lt;your-user&gt;/demo-db</code> for the source code repo).</li>
+<li>Set <strong>git-revision</strong> to <code>v0.5</code> (our Git branch).</li>
+<li>Use the defaults for <strong>scan-image</strong> and <strong>maven-test-goals</strong>.</li>
+<li>Set <strong>dockerfile-git-url</strong> to <code>https://github.com/IBM/demo-db-docker</code> (you can use <em>our</em> repo).</li>
+<li>Set your <strong>dockerfile-context-path</strong> to <code>0.5</code> (our release directory).</li>
+<li>Set your <strong>dockerfile-file-name</strong> to <code>Dockerfile-rhos</code>.</li>
+<li>Click <strong>Start</strong>.</li>
+</ul>
+<p><img alt="start_with_docker_params.png" src="../images/start_with_docker_params.png" /></p>
+</li>
+<li>
+<p>Move on to the next error:</p>
+<p>You can expect the <code>build</code> task to succeed this time. The <code>deploy</code> task will fail next, and we will look at that in the next section. To save yourself some time, you can read ahead and fix the next problems that we have already encountered. Just let the current <code>pipeline run</code> continue so that you can explore the results after the <code>build</code> task completes.</p>
+</li>
+<li>
+<p>Look at the <code>build</code> results:</p>
+<p>After the task completes, you can find the image that you built in your image registry -- as shown in <a href="#step-14-explore-the-results">Step 14. Explore results</a>.</p>
+</li>
+</ol>
+<h2 id="step-8-working-with-a-helm-chart">Step 8. Working with a Helm chart<a class="headerlink" href="#step-8-working-with-a-helm-chart" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_deploy_failed.png" src="../images/pipeline_deploy_failed.png" /></p>
+<p>From the <strong>Pipeline Run Details</strong>, you will see that the <code>deploy</code> task fails.</p>
+<p>When you get the error indicator, click on the <code>deploy</code> task in the graph shown under <strong>Pipeline Run Details</strong>. This will take you directly to the <strong>Logs</strong> tab and select the <strong>deploy</strong> task for you.</p>
+<p><img alt="deploy_failed.png" src="../images/deploy_failed.png" /></p>
+<p>The deploy fails because the Helm charts are not found. It is common for projects to keep Helm charts in separate repos, often with other projects. For now, you should put your Helm charts in the same repo as your Dockerfiles, but you will add parameters to the pipeline to make it flexible.</p>
+<ol>
+<li>
+<p>Add parameters to the pipeline:</p>
+<ul>
+<li>Go back to your <strong>Pipeline Details</strong> page and select the <strong>Parameters</strong> tab.</li>
+<li>Click <strong>+ Add Pipeline Parameter</strong> for each of the parameters.</li>
+<li>Fill in <strong>Name</strong>, <strong>Description</strong>, and <strong>Default Value</strong> as follows:<ul>
+<li><strong>Parameter 1</strong><ul>
+<li><strong>Name</strong>: <code>chart-git-url</code></li>
+<li><strong>Description</strong>: The URL of the Git repo containing the Helm chart</li>
+<li><strong>Default value</strong>: https://github.com/IBM/demo-db-docker</li>
+</ul>
+</li>
+<li><strong>Parameter 2</strong><ul>
+<li><strong>Name</strong>: <code>chart-root</code></li>
+<li><strong>Description</strong>: The chart root directory</li>
+<li><strong>Default value</strong>: chart</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Click <strong>Save</strong> at the bottom of the page.</li>
+</ul>
+<p><img alt="add_deploy_params.png" src="../images/add_deploy_params.png" /></p>
+</li>
+<li>
+<p>Assign the pipeline parameters to the task parameters:</p>
+<ul>
+<li>Go to your pipelines <strong>Details</strong> tab.</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Edit pipeline</strong>.</li>
+<li>Click <strong>Edit YAML</strong>.</li>
+<li>Copy the following YAML and add it under spec/tasks in the <code>deploy</code> task params:</li>
+</ul>
+<p><code>yaml
+      - name: chart-root
+        value: $(params.chart-root)</code></p>
+<ul>
+<li>In the same section, edit the existing values for the <code>deploy</code> task params to change <code>git-url</code> and <code>git-revision</code> like this:</li>
+</ul>
+<p><code>yaml
+      - name: git-url
+        value: $(params.chart-git-url)
+      - name: git-revision
+        value: main</code>
+* Select <strong>Save</strong> at the bottom of the page.</p>
+</li>
+<li>
+<p>Navigate to the <strong>deploy</strong> task.</p>
+<ul>
+<li>Under the <strong>Pipeline Details</strong>, the tasks are shown with links to the task resources.</li>
+<li>Click on the <code>ibm-deploy-v2-5-0 (deploy)</code> task.</li>
+</ul>
+<p><img alt="pipeline_tasks_deploy.png" src="../images/pipeline_tasks_deploy.png" /></p>
+</li>
+<li>
+<p>Edit the task YAML.</p>
+<p><em><strong>Note:</strong> You should only edit the task in this project!  Do <strong>not</strong> edit the task in the <code>tools</code> project.</em></p>
+<ul>
+<li>
+<p>Click the <strong>YAML</strong> tab.</p>
+</li>
+<li>
+<p>Copy the following YAML and add it under spec/params to create a new <code>chart-root</code> parameter:</p>
+</li>
+</ul>
+<p><code>yaml
+      - default: ''
+        name: chart-root
+        type: string</code></p>
+<ul>
+<li>
+<p>Click the <strong>Save</strong> button to save your edits</p>
+</li>
+<li>
+<p>Edit the <code>deploy</code> script to use the <code>chart-root</code> parameter when it is not empty (otherwise, use the existing <code>find</code> command):</p>
+</li>
+</ul>
+<p>```bash
+    CHART_ROOT="$(params.chart-root)"</p>
+<pre class="codehilite"><code class="linenums">if [[ -z &quot;${CHART_ROOT}&quot; ]]; then
+  export CHART_ROOT=$(find . -name chart)
+fi
+
+FILE_NUM=$(find ${CHART_ROOT} -name 'Chart*.yaml' |wc -l)
+
+if [[ &quot;${FILE_NUM}&quot; -gt 1 ]]; then
+  echo &quot;Error: Found &gt;1 Chart*.yaml&quot;
+  exit 1
+fi
+
+echo &quot;CHART_ROOT: $CHART_ROOT&quot;
+
+export CHART=$(find ${CHART_ROOT} -name 'Chart*.yaml')
+
+echo &quot;CHART: $CHART&quot;
+</code></pre>
+
+<p>```</p>
+<ul>
+<li>Refer to the before/after screenshots below.</li>
+</ul>
+<p><strong>Before</strong></p>
+<p><img alt="chart_root_before.png" src="../images/chart_root_before.png" /> </p>
+<p><strong>After</strong></p>
+<p><img alt="chart_root_after.png" src="../images/chart_root_after.png" /> </p>
+<ul>
+<li>Click the <strong>Save</strong> button again to save your edits.</li>
+</ul>
+</li>
+<li>
+<p>Fix the <code>helm-release</code> task, too!</p>
+<ul>
+<li>The <code>helm-release</code> task requires the exact same changes, using the same parameters that you used here:</li>
+<li>Assign the pipeline parameters to the <code>helm-release task</code> parameters.</li>
+<li>Edit the <code>helm-release</code> task YAML.</li>
+<li>CHART_ROOT is set twice in this task, so either make the modification in both places or comment out the second assignment.</li>
+</ul>
+</li>
+<li>
+<p>Start the pipeline:</p>
+<ul>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Start</strong>.</li>
+<li>Provide your <strong>git-url</strong> (for example, <code>https://github.com/&lt;your-user&gt;/demo-db.git</code> for the source code repo).</li>
+<li>Set <strong>git-revision</strong> to <code>v0.5</code> (our Git branch).</li>
+<li>Use the defaults for <strong>scan-image</strong> and <strong>maven-test-goals</strong>.</li>
+<li>Set the <strong>dockerfile-git-url</strong> to <code>https://github.com/IBM/demo-db-docker.git</code>.</li>
+<li>Set your <strong>dockerfile-context-path</strong> to <code>0.5</code> (our release directory).</li>
+<li>Set your <strong>dockerfile-file-name</strong> to <code>Dockerfile-rhos</code>.</li>
+<li>Set the <strong>chart-git-url</strong> to <code>https://github.com/IBM/demo-db-docker.git</code>.</li>
+<li>Use the default for <strong>chart-root</strong> (chart).</li>
+<li>Select <strong>Start</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Move on to the next error:</p>
+<p>Expect the <strong>deploy</strong> task to succeed this time. The <strong>health</strong> task will fail next, and we'll look at that in the next section. To save yourself some time, you can read ahead and fix the next problems that we have already encountered. Just let the current <strong>pipeline run</strong> continue so that you can explore the results after the <code>deploy</code> task completes.</p>
+</li>
+<li>
+<p>Look at the <code>deploy</code> results:</p>
+<p>After the task completes, you should have a running application -- as shown in <a href="#step-14-explore-the-results">Step 14. Explore the results</a>.</p>
+</li>
+</ol>
+<h2 id="step-9-customize-the-health-task">Step 9. Customize the <strong>health</strong> task<a class="headerlink" href="#step-9-customize-the-health-task" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_health_failed.png" src="../images/pipeline_health_failed.png" /></p>
+<p>The health task fails because JanusGraph does not have a <code>/health</code> endpoint. You can customize the task to test with a Gremlin script.</p>
+<ol>
+<li>
+<p>Assign the pipeline parameters to the task parameters:</p>
+<ul>
+<li>Go to your pipeline's <strong>Details</strong> tab.</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Edit pipeline</strong>.</li>
+<li>Click <strong>Edit YAML</strong>.</li>
+<li>Edit the existing value for the <code>health</code> task params to change the <code>health-endpoint</code> like this:</li>
+</ul>
+<p><code>yaml
+      - name: health-endpoint
+        value: '?gremlin=888-111'</code>
+* Refer to the before/after screenshots below:</p>
+<p><strong>Before</strong></p>
+<pre class="codehilite"><code class="linenums">![health_endpoint_before.png](images/health_endpoint_before.png)
+</code></pre>
+
+<p><strong>After</strong></p>
+<p><img alt="health_endpoint_after.png" src="../images/health_endpoint_after.png" /></p>
+<ul>
+<li>Click the <strong>Save</strong> button to save your edits.</li>
+</ul>
+<p><em><strong>Note:</strong> In order to allow this, you enabled HTTP in your JanusGraph deployment. This allows you to send a gremlin script. Your test script is 888 minus 111. If you try it, you should find the result value is 777 (wrapped in JSON).</em></p>
+</li>
+<li>
+<p>Start last run!</p>
+<p>Since you didn't add any new pipeline parameters, you can just re-run the last pipeline run:</p>
+<ul>
+<li>Navigate to your last pipeline run:</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Rerun</strong>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="step-10-tag-the-source-code-with-semantic-versioning">Step 10. Tag the source code with semantic versioning<a class="headerlink" href="#step-10-tag-the-source-code-with-semantic-versioning" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_img_scan_failed.png" src="../images/pipeline_img_scan_failed.png" /></p>
+<p>The <code>tag-release</code> and <code>img-release</code> tasks will succeed, but it is worth taking some time to look at how tagging works and fixing a problem that you won't notice on your first run.</p>
+<p>The <code>tag-release</code> task provided by the Cloud-Native Toolkit checks your source repo for tags. If the latest commit on your branch is <em>not</em> already tagged, <a href="https://www.npmjs.com/package/release-it"><code>release-it</code></a> is used to determine the next tag value. A tag and release will be created in your Git repo. If the last commit <em>is</em> already tagged, then the existing tag is used.</p>
+<p><code>release-it</code> uses the latest Git tag and understands normal versioning practices to increment the version. For example, 0.1.0 would be followed by 0.1.1, and v0.5.0 would be followed by v0.5.1. Since the latest version is determined based on the git-revision (for example, branch), you can run pipelines on each branch and the releases should be incremented as you would expect. For additional capabilities, refer to the <a href="https://github.com/release-it/release-it#readme"><code>release-it</code> documentation</a>.</p>
+<p>In our case study, we found that we needed one small change to the script in the <code>tag-release</code> task. The provided task checks for a specific tag pattern, <code>^[0-9]+.[0-9]+.[0-9]+$</code>, which is very common for semantic versioning. However, another common practice is to start the tag with the character <code>v</code> (for example, <code>v1.2.3</code>). The scripted pattern match does not work in that case. Let's fix that!</p>
+<p><em><strong>Note:</strong> The problem only occurs when the last commit is tagged in this style. If the last commit is not yet tagged, you won't notice this problem. The fix will prevent the same commit from getting additional incremental tags.</em></p>
+<h3 id="edit-the-pipelines-tag-release-task">Edit the pipeline's tag-release task<a class="headerlink" href="#edit-the-pipelines-tag-release-task" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Navigate back to the pipeline.</li>
+<li>
+<p>Navigate to the <code>tag-release</code> task.</p>
+<p><img alt="pipeline_tasks_tag_release.png" src="../images/pipeline_tasks_tag_release.png" /></p>
+</li>
+<li>
+<p>Edit the task YAML:</p>
+<ul>
+<li>Click the <strong>YAML</strong> tab.</li>
+<li>Add <code>v?</code> after the caret symbol (<code>^</code>) to allow the script to work with an optional <code>v</code> before the version numbers.</li>
+<li>Refer to the before/after screenshots below and the highlighted change.</li>
+<li>Click the <strong>Save</strong> button to save your edits.</li>
+</ul>
+<p><strong>Before</strong>
+<img alt="tag_release_before.png" src="../images/tag_release_before.png" /> </p>
+<p><strong>After</strong>
+<img alt="tag_release_after.png" src="../images/tag_release_after.png" /></p>
+<p><em><strong>Note:</strong> When the latest revision already has a recognizable version tag, that tag is used instead of creating a new one. If you want to create a new tag/release, you should have at least one commit since the last tag. This fix prevents tags that start with 'v' from being ignored by this check.</em></p>
+<p>After the task completes, you will see that the version tags have been added to your GitHub repository -- as shown in <a href="#step-14-explore-the-results">Step 14. Explore the results</a>. This tag is also used later.</p>
+</li>
+<li>
+<p>Continue on to the next step to build and label using tagged source code.</p>
+</li>
+</ol>
+<h2 id="step-11-build-and-label-with-tags">Step 11. Build and label with tags<a class="headerlink" href="#step-11-build-and-label-with-tags" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_building.png" src="../images/pipeline_building.png" /></p>
+<p>Red Hat Container Certification requires that an image must contain these 6 pieces of information as labels in the image:</p>
+<ul>
+<li>name: Name of the image</li>
+<li>vendor: Company name</li>
+<li>version: Version of the image</li>
+<li>release: A number used to identify the specific build for this image</li>
+<li>summary: A short overview of the application or component in this image</li>
+<li>description: A long description of the application or component in this image</li>
+</ul>
+<p>If you look at the <a href="https://github.com/IBM/demo-db-docker/blob/main/0.5/Dockerfile-rhos">Dockerfile-rhos</a>, you will see that we already have a <code>LABEL</code> statement to set those.</p>
+<pre><code class="language-bash">ARG JANUS_VERSION=0.5
+
+LABEL name=&quot;DemoDB&quot; \
+      maintainer=&quot;developer@example.com&quot; \
+      vendor=&quot;IBM&quot; \
+      version=${JANUS_VERSION} \
+      release=&quot;1&quot; \
+      summary=&quot;A demo database&quot; \
+      description=&quot;A demo database for OpenShift certification&quot;
+</code></pre>
+<p>So far, however, this results in the version being set to <code>0.5</code>, which is the default set in the file. We'd like to improve that by using the same version that we used for tagging the source code. To do this <em>without manually editing the Dockerfile</em>, we need to make the <code>tag-release</code> task run before the <code>build</code> task and make the pipeline pass the result tag (the release) to the <code>build</code> task.</p>
+<p>While making this change, we can fix a second issue that we've been ignoring so far. In the original JanusGraph Dockerfile, pre-built artifacts were downloaded using release tags. Since we have been building before tagging, we've been using the branch name to build the latest v0.5 source. If the code on that branch changes during the pipeline run, it is possible that the code we test and tag won't be the same as the code we build and release. By passing build arguments into the <code>build</code> task, we are also able to make sure that we build and release the same code that we test and tag.</p>
+<h3 id="add-build-args-to-the-build-task">Add build args to the build task<a class="headerlink" href="#add-build-args-to-the-build-task" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Navigate back to the pipeline:</p>
+<ul>
+<li>Under the <strong>Pipeline Details</strong>, the tasks are shown with links to the task resources.</li>
+<li>Click on the <strong>ibm-build-tag-push-v2-5-0 (build)</strong> task.</li>
+</ul>
+<p><img alt="pipeline_tasks_build.png" src="../images/pipeline_tasks_build.png" /></p>
+</li>
+<li>
+<p>Edit the task YAML:</p>
+<ul>
+<li>Click on the <strong>YAML</strong> tab.</li>
+<li>Copy the following YAML and add it under spec/params to create a new <code>BUILDARGS</code> parameter:</li>
+</ul>
+<p><code>yaml
+      - default: ''
+        description: build args
+        name: BUILDARGS
+        type: string</code></p>
+<ul>
+<li>This screenshot shows what it should look like (if you made it the first parameter):</li>
+</ul>
+<p><img alt="buildargs_param.png" src="../images/buildargs_param.png" /></p>
+<ul>
+<li>
+<p>Click the <strong>Save</strong> button to save your edits.</p>
+</li>
+<li>
+<p>Add <code>$(params.BUILDARGS)</code> to the <code>build</code> task's script. Add this as a parameter to the <code>buildah bud</code> command -- right after the word <code>bud</code>.</p>
+</li>
+<li>
+<p>Refer to the below before/after screenshots.</p>
+</li>
+</ul>
+<p><strong>Before</strong>
+<img alt="buildahbud_before.png" src="../images/buildahbud_before.png" /></p>
+<p><strong>After</strong>
+<img alt="buildahbud_after.png" src="../images/buildahbud_after.png" /></p>
+<ul>
+<li>Click the <strong>Save</strong> button again to save your edits.</li>
+</ul>
+</li>
+</ol>
+<h3 id="move-the-pipelines-tag-release-task">Move the pipeline's tag-release task<a class="headerlink" href="#move-the-pipelines-tag-release-task" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Navigate back to the pipeline.</li>
+<li>
+<p>Change the task order by editing the <code>runAfter</code> value for 3 tasks:</p>
+<ul>
+<li>Set the <code>build</code> <code>runAfter</code> to <code>tag-release</code>.</li>
+<li>Set the <code>tag-release</code> <code>runAfter</code> to <code>test</code>.</li>
+<li>Set the <code>img-release</code> <code>runAfter</code> to <code>health</code>.</li>
+<li>Hit <strong>Save</strong> at the bottom of the page.</li>
+</ul>
+</li>
+<li>
+<p>Go back to your pipeline's <strong>Details</strong> tab to make sure that you still have a connected line of tasks (mistakes can create pipeline forks).</p>
+</li>
+</ol>
+<h3 id="pass-in-build-args">Pass in build args<a class="headerlink" href="#pass-in-build-args" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Assign a value to the task parameter:</p>
+<ul>
+<li>Go to your pipeline's <strong>Details</strong> tab.</li>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Edit pipeline</strong>.</li>
+<li>Click on <strong>Edit YAML</strong>.</li>
+<li>Copy the following YAML and add it under spec/tasks in the <code>build</code> task params:
+  ```yaml<ul>
+<li>name: BUILDARGS
+    value: '--build-arg JANUS_VERSION=$(tasks.tag-release.results.tag) --build-arg GIT_REVISION=$(tasks.setup.results.git-revision)'
+  ```</li>
+</ul>
+</li>
+<li>Hit <strong>Save</strong> at the bottom of the page. It may be automatically formatted for multi-line style like this:
+  <img alt="buildargs_value.png" src="../images/buildargs_value.png" /></li>
+</ul>
+</li>
+<li>
+<p>Start the pipeline:</p>
+<ul>
+<li>Use the <strong>Actions</strong> drop-down and select <strong>Start</strong>.</li>
+<li>Provide your <strong>git-url</strong> (for example,<code>https://github.com/&lt;your-user&gt;/demo-db.git</code> for the source code repo).</li>
+<li>Set <strong>git-revision</strong> to <code>v0.5</code> (our git branch).</li>
+<li>Use the defaults for <strong>scan-image</strong> and <strong>maven-test-goals</strong>.</li>
+<li>Set the <strong>dockerfile-git-url</strong> to <code>https://github.com/IBM/demo-db-docker.git</code>.</li>
+<li>Set your <strong>dockerfile-context-path</strong> to <code>0.5</code> (our release directory).</li>
+<li>Set your <strong>dockerfile-file-name</strong> to <code>Dockerfile-rhos</code>.</li>
+<li>Set the <strong>chart-git-url</strong> to <code>https://github.com/IBM/demo-db-docker.git</code>.</li>
+<li>Use the default for <strong>chart-root</strong> (chart).</li>
+<li>Hit <strong>Start</strong>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="step-12-check-the-image-scan-results">Step 12. Check the image scan results<a class="headerlink" href="#step-12-check-the-image-scan-results" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_img_scan_failed.png" src="../images/pipeline_img_scan_failed.png" /></p>
+<p>We don't expect the <code>img-scan</code> to fail today, but vulnerabilities are continuously found so your pipeline might detect one.</p>
+<p>The pipeline task provided by the toolkit automatically determines whether to run the image scan with Trivy or IBM Vulnerability Advisor, and fails the build when issues are found.</p>
+<p>The following screenshot is from the original Dockerfile before it was converted to use a UBI. One of the benefits of building on top of a UBI is the frequency of vulnerability fixes.</p>
+<p><img alt="img_scan_error.png" src="../images/img_scan_error.png" /></p>
+<p>Including the image scan in your pipeline is important to ensure that you are creating images that are free of vulnerabilities. If you need to temporarily skip the image scan, recall that the original pipeline was created with a <code>-p scan-image=true</code> parameter. You have probably also noticed that the <code>scan-image</code> parameter is available to set (true or false) when you start the pipeline.</p>
+<h2 id="step-13-helm-release-to-artifactory">Step 13. Helm release to Artifactory<a class="headerlink" href="#step-13-helm-release-to-artifactory" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_helm_release_failed.png" src="../images/pipeline_helm_release_failed.png" /></p>
+<ol>
+<li>
+<p>The <code>helm-release</code> task needs the same modifications that were required in the <code>deploy</code> task. If you did not make those fixes in <a href="#step-8-working-with-a-helm-chart">Step 8. Working with a Helm chart</a>, then go back and apply the fixes to the <code>helm-release</code> task:</p>
+<ul>
+<li>Assign the same pipeline parameters to the <code>helm-release</code> task parameters.</li>
+<li>Edit the <code>helm-release</code> task YAML.</li>
+<li><code>CHART_ROOT</code> is set twice in this task, so you should either make the modification in both places or comment out the second assignment.</li>
+</ul>
+<p><img alt="pipeline_tasks_tag_release.png" src="../images/pipeline_tasks_tag_release.png" /></p>
+</li>
+<li>
+<p>If you found and fixed this problem, <strong>Rerun</strong> your last pipeline run.</p>
+</li>
+</ol>
+<h2 id="step-14-explore-the-results">Step 14. Explore the results<a class="headerlink" href="#step-14-explore-the-results" title="Permanent link">&para;</a></h2>
+<p><img alt="pipeline_success.png" src="../images/pipeline_success.png" /></p>
+<h3 id="view-the-running-application">View the running application<a class="headerlink" href="#view-the-running-application" title="Permanent link">&para;</a></h3>
+<p>You can view the deployed application by selecting the <strong>Developer</strong> perspective and then clicking <strong>Topology</strong> in the sidebar.</p>
+<p><img alt="topology-view.png" src="../images/topology-view.png" /></p>
+<h3 id="view-the-image-in-the-image-registry">View the image in the image registry<a class="headerlink" href="#view-the-image-in-the-image-registry" title="Permanent link">&para;</a></h3>
+<h4 id="openshift-internal-registry">OpenShift internal registry<a class="headerlink" href="#openshift-internal-registry" title="Permanent link">&para;</a></h4>
+<p>If your Cloud-Native Toolkit is set up with the internal container registry (for example, you used the toolkit's Fast Install), then you can find your image as follows:</p>
+<ul>
+<li>Go to the OpenShift Web Console sidebar.</li>
+<li>Navigate to <strong>Builds</strong> &gt; <strong>Image Streams</strong>.</li>
+<li>Select your image stream (named after the source repo).</li>
+<li>Use the <strong>Details</strong> tab or the <strong>History</strong> tab to see the images that were pushed and tagged.</li>
+<li>Click on an image stream tag (IST) to see the IST details page which includes image details and labels.</li>
+</ul>
+<p><img alt="internal-registry" src="../images/internal-registry.png" /></p>
+<h4 id="ibm-cloud-container-registry">IBM Cloud Container Registry<a class="headerlink" href="#ibm-cloud-container-registry" title="Permanent link">&para;</a></h4>
+<p>If your cluster is configured to use an IBM Cloud Container Registry, to view the images created by the pipeline during the <code>img-release</code> task, click on the <strong>Cloud-Native Toolkit</strong> menu icon and select <strong>Image Registry</strong>:</p>
+<p><img alt="image-registry-menu-selection.png" src="../images/image-registry-menu-selection.png" /></p>
+<p>From the <strong>Container Registry</strong> panel, you can see the images that have been created, along with a tag to indicate the release version:</p>
+<p><img alt="registry-image" src="../images/registry-image.png" /></p>
+<h3 id="view-artifacts-in-artifactory">View artifacts in Artifactory<a class="headerlink" href="#view-artifacts-in-artifactory" title="Permanent link">&para;</a></h3>
+<p>To view the artifacts created by our pipeline during <code>helm-release</code> task, click on the <strong>Cloud-Native Toolkit</strong> menu icon and select <strong>Artifactory</strong>:</p>
+<p><img alt="artifactory-menu-selection.png" src="../images/artifactory-menu-selection.png" /></p>
+<p>When the Artifactory panel is displayed, navigate to the <strong>Artifactory</strong> &gt; <strong>Artifacts</strong> panel. Expand <strong>generic-local</strong> to find your project name. Expand your project to see your artifacts.</p>
+<p>You can expand an artifact <code>.tgz</code> file to see the contents. All of the files listed come directly from the Helm chart (<code>chart/base</code>) directory in our source repo. The <code>values.yaml</code> template file has been updated to include tags and values from the associated release.</p>
+<p><img alt="artifactory_values.png" src="../images/artifactory_values.png" /></p>
+<h3 id="view-code-quality-results-in-sonarqube">View code quality results in SonarQube<a class="headerlink" href="#view-code-quality-results-in-sonarqube" title="Permanent link">&para;</a></h3>
+<p>To view the code quality and code security results created during the <code>test</code> phase of our pipeline, click on the <strong>Cloud-Native Toolkit</strong> menu icon and select <strong>SonarQube</strong>:</p>
+<p><img alt="sonarqube-menu-selection.png" src="../images/sonarqube-menu-selection.png" /></p>
+<p>From the main panel, click on <strong>Projects</strong>, then click on the project named after your repo. Explore the potential bugs, vulnerabilities, security hotspots, technical debt, code smells, and more.</p>
+<p><img alt="sonarqube-panel.png" src="../images/sonarqube-panel.png" /></p>
+<h3 id="view-the-tags-in-the-github-repo">View the tags in the GitHub repo<a class="headerlink" href="#view-the-tags-in-the-github-repo" title="Permanent link">&para;</a></h3>
+<p>After the task completes, you will see that the version tags have been added to your GitHub repository. This tag is also used later.</p>
+<p><img alt="repo-tagged" src="../images/repo-tagged.png" /></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This tutorial walked you through the process of building a CI/CD pipeline on OpenShift for a complex poly-repo application with the Cloud-Native Toolkit. By completing this tutorial, you have gained hands-on experience in:</p>
+<ul>
+<li>Updating a Dockerfile to make it compliant with Red Hat Container Certification.</li>
+<li>Using a poly-repo application with an OpenShift pipeline and tasks from the Cloud-Native Toolkit.</li>
+<li>Seeing how the toolkit provides pipelines and tasks to create universal application image deployments.</li>
+<li>Customizing OpenShift pipelines and tasks.</li>
+<li>Navigating the Red Hat OpenShift console with regards to tasks, pipelines, and deployments.</li>
+</ul>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, we discussed the importance of building an image that meets the requirements for Red Hat certification, but we never went through the actual steps to verify this. If you would like to see how this is done, please check out this article on <a href="https://github.ibm.com/TT-ISV-org/images/blob/main/certification/README.md">Red Hat Container Certification</a>.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
