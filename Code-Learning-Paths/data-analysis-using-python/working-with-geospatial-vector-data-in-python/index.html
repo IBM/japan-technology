@@ -2217,13 +2217,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    ノートブックの読み込みと実行
+  <a href="#please-add-conda-packages-here" class="md-nav__link">
+    Please add conda packages here
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    condaのパッケージを追加してください
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pipパッケージを追加してください
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip_1" class="md-nav__link">
+    pipパッケージを追加するには、次の行をコメントアウトしてください。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-pip" class="md-nav__link">
+    - pip
+  </a>
+  
+    <nav class="md-nav" aria-label="- pip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ノートブックの読み込みと実行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     ノートブックの概要
   </a>
@@ -2318,11 +2354,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
     結論
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4619,13 +4660,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    ノートブックの読み込みと実行
+  <a href="#please-add-conda-packages-here" class="md-nav__link">
+    Please add conda packages here
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    condaのパッケージを追加してください
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pipパッケージを追加してください
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip_1" class="md-nav__link">
+    pipパッケージを追加するには、次の行をコメントアウトしてください。
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-pip" class="md-nav__link">
+    - pip
+  </a>
+  
+    <nav class="md-nav" aria-label="- pip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ノートブックの読み込みと実行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     ノートブックの概要
   </a>
@@ -4720,11 +4797,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_15" class="md-nav__link">
     結論
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4741,8 +4823,6 @@
               
                 
                 
-                  <h1>pythonで地理空間ベクトルデータを扱う</h1>
-                
                 <p>ベクターデータは、地理的な位置に関する情報を座標の形で含む地理空間データの一種です。これらの座標は、点、線、多角形のいずれかです。ベクトルデータは、地理的な情報を推測するのに役立ちます。例えば、2つの異なる都市の緯度と経度があれば、その都市間の距離を計算することができます。</p>
 <p><img alt="イントロプロット" src="images/intro-plot.png" /></p>
 <p>ベクトルデータと、Pythonを使用してベクトルデータを表現しアクセスするさまざまな方法については、<a href="/learningpaths/data-analysis-using-python/introduction-togeospatial-data-using-python/">Introduction to geospatial data using Python</a>の記事で詳しく説明しています。このチュートリアルでは、コードスニペットを使って、ベクトルデータの扱い方を説明します。</p>
@@ -4754,84 +4834,99 @@
 </ul>
 <h2 id="_2">ステップ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">セットアップ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>1.IBM Cloud にサインアップまたはログインします。</p>
-<p>1.リソース」ページの上部にある「<strong>Create resource</strong>」をクリックします。リソースは、左上のハンバーガー・メニューの下にあります。</p>
-<pre class="codehilite"><code class="linenums">![リソースダッシュボードの作成](images/resources.png)
-</code></pre>
-
-<p>1.Watson Studio**」を検索し、そのタイルをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio タイル](images/studio.png)
-</code></pre>
-
-<p>1.Lite プランを選択して、<strong>Create</strong> をクリックします。
-1.リソースリストに戻り、Watson Studio サービスをクリックして、<strong>Get Started</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio の開始](images/launch.png)
-
-これで Watson Studio になっているはずです。
-</code></pre>
-
-<p>1.Create a project<strong> または </strong>New project<strong> のいずれかをクリックします。
-1.Create an empty project</strong>（空のプロジェクトの作成）を選択します。
-1.プロジェクトに名前を付けます。
-1.既存のObject Storageサービスインスタンスを選択するか、新しいインスタンスを作成します。これはノートブックとデータを保存するために使用されます。注：「プロジェクト」ページに戻るときは、「更新」を忘れずにクリックしてください。
-1.Create**をクリックします。</p>
+<ol>
+<li>
+<p>IBM Cloud にサインアップまたはログインします。</p>
+</li>
+<li>
+<p>リソース」ページの上部にある「<strong>Create resource</strong>」をクリックします。リソースは、左上のハンバーガー・メニューの下にあります。</p>
+<p><img alt="リソースダッシュボードの作成" src="images/resources.png" /></p>
+</li>
+<li>
+<p>「<strong>Watson Studio</strong>」を検索し、そのタイルをクリックします。</p>
+<p><img alt="Watson Studio タイル" src="images/studio.png" /></p>
+</li>
+<li>
+<p>Lite プランを選択して、<strong>Create</strong> をクリックします。</p>
+</li>
+<li>
+<p>リソースリストに戻り、Watson Studio サービスをクリックして、<strong>Get Started</strong>をクリックします。</p>
+<p><img alt="Watson Studio の開始" src="images/launch.png" />
+これで Watson Studio になっているはずです。</p>
+</li>
+<li>
+<p><strong>Create a project</strong> または <strong>New project</strong> のいずれかをクリックします。</p>
+</li>
+<li><strong>Create an empty project</strong>（空のプロジェクトの作成）を選択します。</li>
+<li>プロジェクトに名前を付けます。</li>
+<li>既存のObject Storageサービスインスタンスを選択するか、新しいインスタンスを作成します。これはノートブックとデータを保存するために使用されます。注：「プロジェクト」ページに戻るときは、「更新」を忘れずにクリックしてください。</li>
+<li><strong>Create</strong>をクリックします。</li>
+</ol>
 <h3 id="_4">プロジェクトの作成 アクセストークン<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>ノートブックにデータを読み込むには、アクセストークンが必要です。</p>
-<p>1.プロジェクトの上部にある「設定」タブを開き、スクロールダウンして「<strong>アクセストークン</strong>」を選択します。
-1.New token<strong>」をクリックします。
-1.新しいトークンに名前を付け、</strong>Editor<strong>を選択し、</strong>Create**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![アクセストークン](画像/token.png)
-
-これは、ノートブックの後半で必要になります。
-</code></pre>
-
+<ol>
+<li>プロジェクトの上部にある「設定」タブを開き、スクロールダウンして「<strong>アクセストークン</strong>」を選択します。</li>
+<li>New token**」をクリックします。</li>
+<li>
+<p>新しいトークンに名前を付け、<strong>Editor</strong>を選択し、<strong>Create</strong>をクリックします。</p>
+<p><img alt="アクセストークン" src="images/token.png" />
+これは、ノートブックの後半で必要になります。</p>
+</li>
+</ol>
 <h3 id="python">カスタムPython環境の作成<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
 <p>デフォルトのPython環境には必要なライブラリがインストールされていないため、<code>conda create</code>を使ってカスタマイズした環境を作成する必要があります。ただし、この環境はIBM Cloud上で動作するため、いくつかの手順があります。</p>
-<p>1.プロジェクトの上部にある環境タブに移動します。
-1.<strong>新しい環境定義</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![新しい環境の定義](images/new_env.png)
-</code></pre>
-
-<p>1.新しい環境に名前を付けます。
-1.デフォルトのまま、フリーのハードウェア構成 <strong>Free - 1 vCPU and 4 GB RAM</strong>、 <strong>Default Python 3.6</strong> を選択し、 <strong>Create</strong> をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![環境の定義](images/customize.png)
-</code></pre>
-
-<p>1.新しい環境をカスタマイズします。スクロールダウンして、Customizationの下にある<strong>Create</strong>リンクをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Customization option](images/customize_env.png)
-</code></pre>
-
-<p>1.編集可能なテキストフィールドが表示されます。テキストをすべて削除し、以下のコードをコピーしてテキストフィールドに貼り付けます。</p>
-<pre class="codehilite"><code class="linenums">```
-チャンネルを
-- デフォールト
-- コンダフォージ
-
-# condaのパッケージをここに追加してください
-依存関係があります。
+<ol>
+<li>プロジェクトの上部にある環境タブに移動します。</li>
+<li>
+<p><strong>新しい環境定義</strong>をクリックします。</p>
+<p><img alt="新しい環境の定義" src="images/new_env.png" /></p>
+</li>
+<li>
+<p>新しい環境に名前を付けます。</p>
+</li>
+<li>
+<p>デフォルトのまま、フリーのハードウェア構成 <strong>Free - 1 vCPU and 4 GB RAM</strong>、 <strong>Default Python 3.6</strong> を選択し、 <strong>Create</strong> をクリックします。</p>
+<p><img alt="環境の定義" src="images/customize.png" /></p>
+</li>
+<li>
+<p>新しい環境をカスタマイズします。スクロールダウンして、Customizationの下にある<strong>Create</strong>リンクをクリックします。</p>
+<p><img alt="Customization option" src="images/customize_env.png" /></p>
+</li>
+<li>
+<p>編集可能なテキストフィールドが表示されます。テキストをすべて削除し、以下のコードをコピーしてテキストフィールドに貼り付けます。</p>
+<p>```
+channels:
+- defaults
+- conda-forge</p>
+<h1 id="please-add-conda-packages-here">Please add conda packages here<a class="headerlink" href="#please-add-conda-packages-here" title="Permanent link">&para;</a></h1>
+<h1 id="conda">condaのパッケージを追加してください<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h1>
+<p>dependencies:
 - geopandas=0.4.1
 - geoplot=0.2.4
 - pysal=2.0.0
 - folium=0.9.1
-- python=3.6.8
-
-# ここでpipパッケージを追加してください
-# pipパッケージを追加するには、次の行をコメントアウトしてください。
-#- pip
-```
-</code></pre>
-
-<p>1.Apply**」をクリックします。</p>
+- python=3.6.8</p>
+<h1 id="pip">pipパッケージを追加してください<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h1>
+<h1 id="pip_1">pipパッケージを追加するには、次の行をコメントアウトしてください。<a class="headerlink" href="#pip_1" title="Permanent link">&para;</a></h1>
+<h1 id="-pip">- pip<a class="headerlink" href="#-pip" title="Permanent link">&para;</a></h1>
+<p>```
+1. 「<strong>Apply</strong>」をクリックします。</p>
+</li>
+</ol>
 <p>これで、この新しい環境を使ってノートブックを実行できるようになりました。</p>
 <h2 id="_5">ノートブックの読み込みと実行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>新しいノートブックを追加するには</p>
-<p>1.Add to project<strong>をクリックして、</strong>Notebook**を選択します。</p>
-<pre class="codehilite"><code class="linenums">![ノートブックの追加](images/addnotebook.png)
-</code></pre>
-
-<p>1.New notebook from URL<strong>」を選択します。
-1.ノートブックに名前を付け、URL <a href="https://github.com/IBM/data-analysis-using-python/blob/master/notebooks/vector-data-using-geopandas.ipynb" target="_blank" rel="noopener noreferrer">https://github.com/IBM/data-analysis-using-python/blob/master/notebooks/vector-data-using-geopandas.ipynb</a> をコピーします。
-1.作成した</strong>カスタムランタイム環境<strong>を選択し、</strong>ノートブックの作成**をクリックします。</p>
+<ol>
+<li>
+<p><strong>Add to project</strong>をクリックして、<strong>Notebook</strong>を選択します。</p>
+<p><img alt="ノートブックの追加" src="images/addnotebook.png" /></p>
+</li>
+<li>
+<p>「<strong>New notebook from URL</strong>」を選択します。</p>
+</li>
+<li>ノートブックに名前を付け、URL <a href="https://github.com/IBM/data-analysis-using-python/blob/master/notebooks/vector-data-using-geopandas.ipynb" target="_blank" rel="noopener noreferrer">https://github.com/IBM/data-analysis-using-python/blob/master/notebooks/vector-data-using-geopandas.ipynb</a> をコピーします。</li>
+<li>作成した<strong>カスタムランタイム環境</strong>を選択し、<strong>ノートブックの作成</strong>をクリックします。</li>
+</ol>
 <p>ノートブックがロードされます。ノートブックの指示に従って、すべてのセルを実行してください。その後、このチュートリアルに戻ります。</p>
 <h2 id="_6">ノートブックの概要<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">データセットについて<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
@@ -4849,7 +4944,7 @@
 <p>このチュートリアルに関連する<a href="https://github.com/IBM/data-analysis-using-python/blob/master/notebooks/vector-data-using-geopandas.ipynb" target="_blank" rel="noopener noreferrer">ノートブック</a>には、GeoPandasのこれらの機能が表示されています。</p>
 <h3 id="geodataframe">GeoDataFrame の初期化<a class="headerlink" href="#geodataframe" title="Permanent link">&para;</a></h3>
 <p>pandasの拡張機能である<a href="https://geopandas.org" target="_blank" rel="noopener noreferrer">GeoPandas</a>を使用するだけでなく、幾何学的なオブジェクトを定義するために<a href="https://shapely.readthedocs.io/en/latest/">Shapely</a>を使用し、その特徴の一部を視覚化するために<a href="https://matplotlib.org" target="_blank" rel="noopener noreferrer">matplotlib</a>を使用します。次の図は、使用した <code>import</code> のリストです。</p>
-<p><img alt="import" src="画像/imports.png" /></p>
+<p><img alt="import" src="images/imports.png" /></p>
 <p>まず、pandasを使って簡単なDataFrameを作成します。次の画像は、各都市の緯度と経度の情報を含むベクターデータのサンプルです。</p>
 <p><img alt="vector table" src="images/vector-example.png" /></p>
 <p>次に、先に定義したDataFrameから経度と緯度の列を組み合わせた<em>point</em>という名前の追加の列を作成します。この列のエントリは、Shapelyを使って初期化することで、<code>Point</code>オブジェクトに変換されます。この列の名前は <em>geometry</em> です。</p>
@@ -4857,37 +4952,37 @@
 <h4 id="geoseriesgeodataframe">GeoSeriesとGeoDataFrame<a class="headerlink" href="#geoseriesgeodataframe" title="Permanent link">&para;</a></h4>
 <p>GeoPandasでは、主要なデータ構造であるGeoSeriesとGeoDataFrameの2つをpandasから拡張しています。GeoSeriesは、pandas Seriesのように、各エントリが行に対応する1つまたは複数の図形を表すベクトルです。GeoDataFrameは、pandasのDataFrameと同様に、GeoSeriesの列とその他の情報を持つ2次元のデータ構造です。GeoDataFrame内のGeoSeries列は、<em>geometry</em>と呼ばれています。</p>
 <p>次の図は、既存のDataFrameを拡張してGeoDataFrameを作成する方法を示したコードスニペットです。点列はもはや必要ないため、現在は削除しています。</p>
-<p><img alt="ジオデータフレーム" src="画像/gdf.png" /></p>
+<p><img alt="ジオデータフレーム" src="images/gdf.png" /></p>
 <h3 id="_8">属性とメソッド<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>この新しいGeoDataFrameには、pandas DataFrameと同じ属性とメソッドが定義されています。例えば、次の図のコードでは、人口欄の平均値と面積欄の最小値を算出しています。</p>
-<p><img alt="mean" src="画像/mean.png" /></p>
+<p><img alt="mean" src="images/mean.png" /></p>
 <p><img alt="min" src="images/min.png" /></p>
 <p>次の画像は、人口と面積を使って密度を計算する方法を説明するコードです。このGeoDataFrameは、pandas DataFrameという性質上、今のところ何も変わっていません。</p>
-<p><img alt="密度" src="画像/密度.png" /></p>
+<p><img alt="密度" src="images/density.png" /></p>
 <p>しかし、このGeoDataFrameには、いくつかの追加属性やメソッドがあります。メソッドや属性が適用されるときは、<em>geometry</em>列に適用されます。関数の完全なリストは、<a href="https://geopandas.org/reference.html" target="_blank" rel="noopener noreferrer">API Reference</a>に記載されています。まず、人気のある組み込み属性をいくつか見てみましょう。それは <code>area</code>, <code>bounds</code>, <code>total_bounds</code>, <code>geom_type</code> です。</p>
 <p>cities DataFrameにはPointしか含まれていないので、<code>area</code>は0のGeoSeriesを返します。</p>
 <p><img alt="cities-1 area" src="images/cities1-area.png" /></p>
 <p>total_bounds`は、DataFrameのエントリ全体のxおよびy座標の最小値と最大値の境界を返します。</p>
-<p><img alt="total bounds" src="画像/total_bounds.png" /></p>
+<p><img alt="total bounds" src="images/total_bounds.png" /></p>
 <p><code>geom_type</code> は、各エントリのジオメトリタイプを返します。GeoDataFrameは、複数のジオメトリタイプを持つことができます。</p>
 <p><img alt="geom type" src="images/geom_type.png" /></p>
 <p>次の例では、<code>distance</code>によって、ロンドンから他の4つの都市のそれぞれの距離を計算することができます。</p>
 <p><img alt="距離" src="images/distance-1.png" /></p>
 <p>次に、元の都市データセットのサブセットである別のGeoDataFrameを作成します。元のデータセットから2つの行を削除して、他の属性やメソッドをいくつか試してみて、GeoPandasの機能をさらに理解してみましょう。</p>
-<p><img alt="cities-2" src="画像/cities-2.png" /></p>
+<p><img alt="cities-2" src="images/cities-2.png" /></p>
 <p>area`は、前回見たものと同様のDataSeriesを返します。</p>
 <p><img alt="cities-2 area" src="images/cities-2-area.png" /></p>
-<p>bounds<code>は、</code>total-bounds<code>（上記参照）とは異なり、</code>bounds<code>はDataFrameの各エントリのxとyのminとmaxの配列を返すのに対し、</code>total-bounds`はDataFrame全体の1つのセットを返すという意味です。</p>
+<p><code>bounds</code>は、<code>total-bounds</code>（上記参照）とは異なり、<code>bounds</code>はDataFrameの各エントリのxとyのminとmaxの配列を返すのに対し、<code>total-bounds</code>はDataFrame全体の1つのセットを返すという意味です。</p>
 <p><img alt="cities-2 bounds" src="images/cities-2-bounds.png" /></p>
-<p>geom-type`は、先ほどの「city」データセットの場合と同じです。</p>
+<p><code>geom-type</code>は、先ほどの「city」データセットの場合と同じです。</p>
 <p><img alt="cities-2 geom type" src="images/cities-2-geom-type.png" /></p>
-<p>centroid`メソッドは、各ジオメトリの中心点をGeoSeriesで返します。Pointの場合は、その点自体が削除されます。ただし、LineやPolygonのジオメトリの場合は、動作が異なります。</p>
+<p><code>centroid</code>メソッドは、各ジオメトリの中心点をGeoSeriesで返します。Pointの場合は、その点自体が削除されます。ただし、LineやPolygonのジオメトリの場合は、動作が異なります。</p>
 <p><img alt="cities-2 centroid" src="images/cities-2-centroid.png" /></p>
-<p>representative-point`メソッドは、ジオメトリ内にあることが保証された点を返します。これはセントロイドである可能性もありますが、必ずしもそうではありません。centroidと同様に、Pointジオメトリの場合は、その点自体が返されます。</p>
+<p><code>representative-point</code>メソッドは、ジオメトリ内にあることが保証された点を返します。これはセントロイドである可能性もありますが、必ずしもそうではありません。centroidと同様に、Pointジオメトリの場合は、その点自体が返されます。</p>
 <p><img alt="cities-2 representative point" src="images/cities-2-representative-point.png" /></p>
 <h3 id="_9">点と線と多角形<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>事前にShapelyを使って、citiesのGeoDataFrameにPointを定義しているので、<code>squeeze</code>メソッドを使って、各都市を代表するポイントを抽出することができます。以下の画像は、そのためのコードです。</p>
-<p><img alt="ポイント" src="画像/ポイント-1.png" /></p>
+<p><img alt="ポイント" src="images/point-1.png" /></p>
 <p>2つのポイントを組み合わせて、Shapelyの<code>LineString</code>オブジェクトを適用すると、ラインを表すGeoSeriesが構築されます。次のコードスニペットは、このメソッドを使って都市間にいくつかのラインが構築される様子を示しています。</p>
 <p><img alt="ライン" src="images/line-1.png" /></p>
 <p>3つ以上の点を同様の方法で組み合わせて、ポリゴンを形成することができます。Shapelyには、このポリゴンを定義し、GeoSeriesを作成するためのPolygonインターフェースがあります。</p>
@@ -4901,14 +4996,14 @@
 <h3 id="_11">バッファ<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>バッファとは、対象物の周囲に緩衝材を加えて領域を特定する方法です。バッファの単位や尺度は、ユースケースによって異なります。バッファは、点、線、ポリゴンのいずれにも適用でき、結果は常にポリゴンになります。</p>
 <p>以下のコードでは、同じエントリに対して毎回提供される距離に基づいてバッファサイズがどのように変化するかを示すために、1行だけのDataFrameを作成しています。</p>
-<p><img alt="都市-1" src="画像/バッファ-1.png" /></p>
+<p><img alt="都市-1" src="images/バッファ-1.png" /></p>
 <p>次のグラフでは、内側の赤い点が実際のポイントを表しています。この点を中心とした3つの同心円は、異なるバッファサイズを表しています。バッファを適用する例としては、ウイルスの震源地からどの程度の範囲を隔離する必要があるかを特定することが挙げられます。</p>
-<p><img alt="バッファ" src="画像/バッファ-2.png" /></p>
+<p><img alt="バッファ" src="images/バッファ-2.png" /></p>
 <h3 id="_12">空間的な関係<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>GeoPandasには、2つのデータセットの関係を理解するためにGeoDataFrameに適用できるいくつかのバイナリ述語があります。例えば、このチュートリアルで設定した2つのデータセット、citiesとcities2を考えてみましょう。次の図は、結果をよりよく視覚化するのに役立ちます。</p>
 <p><img alt="cities" src="images/27.png" /></p>
 <p><img alt="cities 2" src="images/28.png" /></p>
-<p>contains<code>は、最もよく使われる関係性のテスト方法の1つです。ここでは、地理的特徴や幾何学的形状の間の関係を見つけるために使用できる、4つの異なる</code>contains`の例を提供します。</p>
+<p><code>contains</code>は、最もよく使われる関係性のテスト方法の1つです。ここでは、地理的特徴や幾何学的形状の間の関係を見つけるために使用できる、4つの異なる<code>contains</code>の例を提供します。</p>
 <p>cities2のどのポイントがcitiesデータセットに存在するかを計算するために、以下のコードを使用します。</p>
 <p><img alt="contains 1" src="images/cities2-contains-1.png" /></p>
 <p>cities2データセット内のどのジオメトリがロンドンを含むかを調べるには、次のコードを使用します。</p>
@@ -4917,7 +5012,7 @@
 <p><img alt="contains 3" src="images/cities2-contains-3.png" /></p>
 <p>次の図は、どのエントリにManchesterデータポイントが含まれているかを調べるための同様のコードです。</p>
 <p><img alt="contains 4" src="images/cities2-contains-4.png" /></p>
-<p>within<code>は別の関係性テストで、ある点が別の点の中にあるかどうかを調べるのに使われます。以下の図は、</code>within<code>がどのように使われるかを示す入出力の例である。以下に示すように、</code>intersects<code>,</code>crosses<code>,</code>disjoint` も同様に使用することができます。</p>
+<p><code>within</code>は別の関係性テストで、ある点が別の点の中にあるかどうかを調べるのに使われます。以下の図は、<code>within</code>がどのように使われるかを示す入出力の例である。以下に示すように、 <code>intersects</code>, <code>crosses</code>, <code>disjoint</code> も同様に使用することができます。</p>
 <p><img alt="within" src="images/cities2-within.png" /></p>
 <p><img alt="intersects" src="images/cities2-intersects.png" /></p>
 <p><img alt="crosses" src="images/cities2-crosses.png" /></p>
@@ -4932,7 +5027,7 @@
 <p>個々のポリゴンがすべて1つのマルチポリゴンにまとめられていることに注目してください。グラフに示されているように、それぞれの行政区を分けていた細い線は、グラフには存在していません。軸ラベルをオフにして、プロットのサイズを大きくして、もう少しわかりやすくしています。</p>
 <p><img alt="boroughs 2 plot" src="images/allboroughs-plot-2.png" /></p>
 <h3 id="join">Join<a class="headerlink" href="#join" title="Permanent link">&para;</a></h3>
-<p>join`は、複数のデータセットの行を1つにまとめるのに使います。</p>
+<p><code>join</code>は、複数のデータセットの行を1つにまとめるのに使います。</p>
 <p>まず、.csvファイルをインポートして、pandasのDataFrameを作成します。このDataFrameでは、行数が5、列数が84となっていることに注目してください。元のboroughs DataFrameには6列しかありません。</p>
 <p><img alt="boroughs 2" src="images/boroughs-2.png" /></p>
 <p>インデックスカラムを<em>code</em>に設定し、<code>join</code>を適用すると、新しいGeoDataFrameには同じ数の行（5）が含まれていますが、カラムは89になっており、これは両方のDataFrameのカラムが追加されたものであることがわかります。</p>
