@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4624,76 +4624,81 @@
 <h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>のアカウントを持っていること。</li>
-<li><a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+<li><a href="https://www.ibm.com/jp-ja/products/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
 <li><a href="https://www.python.org/">Python</a>の実用的な知識。</li>
 <li><a href="https://www.tensorflow.org/">TensorFlow</a>についての実務知識</li>
 </ul>
 <h2 id="_3">予想される実行時間<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルを完了するには、約30分かかります。</p>
 <h2 id="_4">手順<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>1.<a href="#create-ibm-cloud-account-and-access-ibm-cloud-pak for-data-as-a-service">IBM Cloud アカウントを作成し、IBM Cloud Pak for Data as a Service にアクセスする</a>
-1.<a href="#create-a-new-project">新しいプロジェクトの作成</a>
-1.<a href="#associate the Watson-machine-learning-service-with-the-project">Watson Machine Learning Service をプロジェクトに関連付ける</a>
-1.<a href="#add-the-data-set-to-your-project">データセットをプロジェクトに追加する</a> (IBM Cloud Pak for Data as a Service を使用している場合)
-1.<a href="#add-a-notebook-to-your-project">ノートブックをプロジェクトに追加する</a>
-1.<a href="#run-the-notebook">ノートブックを実行する</a></p>
+<ol>
+<li><a href="#create-ibm-cloud-account-and-access-ibm-cloud-pak for-data-as-a-service">IBM Cloud アカウントを作成し、IBM Cloud Pak for Data as a Service にアクセスする</a></li>
+<li><a href="#create-a-new-project">新しいプロジェクトの作成</a></li>
+<li><a href="#associate the Watson-machine-learning-service-with-the-project">Watson Machine Learning Service をプロジェクトに関連付ける</a></li>
+<li><a href="#add-the-data-set-to-your-project">データセットをプロジェクトに追加する</a> (IBM Cloud Pak for Data as a Service を使用している場合)</li>
+<li><a href="#add-a-notebook-to-your-project">ノートブックをプロジェクトに追加する</a></li>
+<li><a href="#run-the-notebook">ノートブックを実行する</a></li>
+</ol>
 <h3 id="ibm-cloud-data-as-a-service-ibm-cloud-pak">IBM Cloud アカウントを作成し、Data as a Service の IBM Cloud Pak にアクセスします。<a class="headerlink" href="#ibm-cloud-data-as-a-service-ibm-cloud-pak" title="Permanent link">&para;</a></h3>
-<p>1.IBM Cloud](https://cloud.ibm.com/registration?cm_sp=ibmdev-<em>-developer-tutorials-</em>-cloudreg)にサインインします。
-1.IBM Watson&reg;Studioを検索します。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studioの選択](images/searchforcpd.png)
-</code></pre>
-
-<p>1.地域と料金プランを選択してサービスを作成し、「<strong>Create</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Watson サービスの作成](images/createcpd.png)
-</code></pre>
-
+<ol>
+<li><a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>にサインインします。</li>
+<li>
+<p>IBM Watson&reg;Studioを検索します。</p>
+<p><img alt="Watson Studioの選択" src="images/searchforcpd.png" /></p>
+</li>
+<li>
+<p>地域と料金プランを選択してサービスを作成し、「<strong>Create</strong>」をクリックします。</p>
+<p><img alt="Watson サービスの作成" src="images/createcpd.png" /></p>
+</li>
+</ol>
 <h3 id="_5">新しいプロジェクトの作成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>1.Watson Studio サービスを起動します。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio の起動](images/createaproject.png)
-</code></pre>
-
-<p>1.Create a project<strong> と </strong>Create an empty project<strong> をクリックします。プロジェクトに名前を付け、ストレージサービスを追加したことを確認してから、</strong>Create** をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![プロジェクトの作成](images/createnewproject.png)
-</code></pre>
-
+<ol>
+<li>
+<p>Watson Studio サービスを起動します。</p>
+<p><img alt="Watson Studio の起動" src="images/createaproject.png" /></p>
+</li>
+<li>
+<p><strong>Create a project</strong> と <strong>Create an empty project</strong> をクリックします。プロジェクトに名前を付け、ストレージサービスを追加したことを確認してから、<strong>Create</strong> をクリックします。</p>
+<p><img alt="プロジェクトの作成" src="images/createnewproject.png" /></p>
+</li>
+</ol>
 <p>プロジェクトが作成されると、プロジェクトのダッシュボードが表示されます。</p>
 <h3 id="watson-machine-learning-service">Watson Machine Learning Service をプロジェクトに関連付ける<a class="headerlink" href="#watson-machine-learning-service" title="Permanent link">&para;</a></h3>
-<p>1.プロジェクトの <strong>設定</strong> に移動します。
-1.Associated services」の「Add service」をクリックし、ドロップダウンメニューから「<strong>Watson</strong>」を選択します。</p>
-<pre class="codehilite"><code class="linenums">![サービスの追加](images/settingsandassociate.png)
-</code></pre>
-
-<p>1.Watson Machine Learning サービスを追加します。</p>
-<pre class="codehilite"><code class="linenums">![Watson Machine Learning サービスの追加](images/selectmlservice.png)
-</code></pre>
-
-<p>1.サービスをマークして、プロジェクトと関連付けます。</p>
-<pre class="codehilite"><code class="linenums">![](images/associatemlservice.png)
-</code></pre>
-
+<ol>
+<li>プロジェクトの <strong>設定</strong> に移動します。</li>
+<li>
+<p>「Associated services」の「Add service」をクリックし、ドロップダウンメニューから「<strong>Watson</strong>」を選択します。</p>
+<p><img alt="サービスの追加" src="images/settingsandassociate.png" /></p>
+</li>
+<li>
+<p>Watson Machine Learning サービスを追加します。</p>
+<p><img alt="Watson Machine Learning サービスの追加" src="images/selectmlservice.png" /></p>
+</li>
+<li>
+<p>サービスをマークして、プロジェクトと関連付けます。</p>
+<p><img alt="" src="images/associatemlservice.png" /></p>
+</li>
+</ol>
 <h3 id="_6">プロジェクトにデータセットを追加する<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>右側の <strong>browse</strong> をクリックし、<strong>csv file</strong> を選択して、データセットをプロジェクトに追加します。データセットは以下の URL からダウンロードできます。</p>
-<pre><code>https://github.com/IBM/dl-learning-path-assets/tree/main/fundamentals-of-deeplearning/data/FuelConsumption.csv
-</code></pre>
 <p><img alt="Browsing to add data set" src="images/browsedatafile.png" /></p>
 <p>データセットがアップロードされると、「データ資産」の下に表示されます。</p>
 <h3 id="_7">プロジェクトにノートブックを追加する<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>1.Add to Project<strong>をクリックして、メニューから</strong>Notebook**を選択して、Jupyter Notebookをプロジェクトに追加します。</p>
-<pre class="codehilite"><code class="linenums">![プロジェクトへのノートブックの追加](images/addjupyter.png)
-</code></pre>
-
-<p>1.From URL**を選択し、GitHub repoからノートブックのURLを貼り付けます。</p>
-<pre class="codehilite"><code class="linenums">```
-https://github.com/IBM/dl-learning-path-assets/tree/main/fundamentals-of-deeplearning/notebooks/LinearRegressionwithTensorFlow.ipynb
-```
-</code></pre>
-
-<p>1.ノートブックの名前を決めて、「Create」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ノートブックの名前付け](images/pasteurl.png)
-</code></pre>
-
+<ol>
+<li>
+<p><strong>Add to Project</strong>をクリックして、メニューから<strong>Notebook</strong>を選択して、Jupyter Notebookをプロジェクトに追加します。</p>
+<p><img alt="プロジェクトへのノートブックの追加" src="images/addjupyter.png" /></p>
+</li>
+<li>
+<p><strong>From URL</strong>を選択し、GitHub repoからノートブックのURLを貼り付けます。</p>
+</li>
+<li>
+<p>ノートブックの名前を決めて、「Create」をクリックします。</p>
+<p><img alt="ノートブックの名前付け" src="images/pasteurl.png" /></p>
+</li>
+</ol>
 <h3 id="_8">ノートブックの実行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>ノートブックが読み込まれたら、ノートブックの内容を確認します。セル<strong>をクリックし、</strong>Run All**を選択してノートブックを実行します。</p>
+<p>ノートブックが読み込まれたら、ノートブックの内容を確認します。<strong>セル</strong>をクリックし、<strong>Run All</strong>を選択してノートブックを実行します。</p>
 <p><img alt="ノートブックの実行" src="images/runnotebook.png" /></p>
 <p>ノートブックでは、TensorFlowの基本的な仕組みを理解するために、線形関数の簡単な例を示しています。</p>
 <h2 id="_9">まとめ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>

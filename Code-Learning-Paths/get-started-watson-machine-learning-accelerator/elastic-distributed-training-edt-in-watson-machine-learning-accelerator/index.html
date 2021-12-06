@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4564,25 +4564,32 @@
 </ul>
 <h3 id="_3">お客様のコードの変更<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>なお、以下の画像は、<code>diff</code>コマンドを使って、_before_と_EDT-enabled_のコードを比較したものです。</p>
-<p>1.Elastic Distributed Trainingに必要な追加のライブラリをインポートし、環境変数を設定します。EDTヘルパースクリプトの <code>edtcallback.py</code>, <code>emetrics.py</code>, <code>elog.py</code> が必要です。これらは、変更したコードと同じディレクトリにコピーする必要があります。サンプルバージョンは、<a href="https://github.com/IBM/wmla-assets/blob/master/WMLA-learning-journey/elastic-distributed-training-module/pytorch-mnist-edt-model.zip" target="_blank" rel="noopener noreferrer">tutorial repo</a>のtarballに含まれています。また、http://ibm.biz/WMLA-samples からダウンロードすることもできます。</p>
-<pre class="codehilite"><code class="linenums">![追加ライブラリの追加](images/figure1.png)
-</code></pre>
-
-<p>1.データロード関数を、<code>torch.utils.data.Dataset</code> 型の 2 つのアイテムを含むタプルを返す EDT 互換の関数で置き換えます。</p>
-<pre class="codehilite"><code class="linenums">![データ読み込み関数の置き換え](images/figure2.png)
-</code></pre>
-
-<p>1.トレーニングループとテストループを EDT 相当の関数で置き換えます。これには、<code>main</code>関数の作成が必要です。APIコールでパラメータを指定して、そのパラメータをモデルに渡すことも可能です。</p>
+<ol>
+<li>
+<p>Elastic Distributed Trainingに必要な追加のライブラリをインポートし、環境変数を設定します。EDTヘルパースクリプトの <code>edtcallback.py</code>, <code>emetrics.py</code>, <code>elog.py</code> が必要です。これらは、変更したコードと同じディレクトリにコピーする必要があります。サンプルバージョンは、<a href="https://github.com/IBM/wmla-assets/blob/master/WMLA-learning-journey/elastic-distributed-training-module/pytorch-mnist-edt-model.zip" target="_blank" rel="noopener noreferrer">tutorial repo</a>のtarballに含まれています。また、http://ibm.biz/WMLA-samples からダウンロードすることもできます。</p>
+<p><img alt="追加ライブラリの追加" src="images/figure1.png" /></p>
+</li>
+<li>
+<p>データロード関数を、<code>torch.utils.data.Dataset</code> 型の 2 つのアイテムを含むタプルを返す EDT 互換の関数で置き換えます。</p>
+<p><img alt="データ読み込み関数の置き換え" src="images/figure2.png" /></p>
+</li>
+<li>
+<p>トレーニングループとテストループを EDT 相当の関数で置き換えます。これには、<code>main</code>関数の作成が必要です。APIコールでパラメータを指定して、そのパラメータをモデルに渡すことも可能です。</p>
+</li>
+</ol>
 <p><img alt="トレーニングとテストの置き換え" src="images/figure3.png" /></p>
-<p>1.Elastic Distributed Trainingインスタンスをインスタンス化し、特定のパラメータを指定してEDTジョブを起動します。</p>
-<pre class="codehilite"><code class="linenums">* エポック
-* エフェクティブ・バッチ・サイズ
-* EDTトレーニングジョブあたりのGPUの最大数
-* チェックポイント作成頻度（エポック数
-
-![EDTインスタンスのインスタンス化](images/figure4.png)
-</code></pre>
-
+<ol>
+<li>
+<p>Elastic Distributed Trainingインスタンスをインスタンス化し、特定のパラメータを指定してEDTジョブを起動します。</p>
+<ul>
+<li>エポック</li>
+<li>エフェクティブ・バッチ・サイズ</li>
+<li>EDTトレーニングジョブあたりのGPUの最大数</li>
+<li>チェックポイント作成頻度（エポック数</li>
+</ul>
+<p><img alt="EDTインスタンスのインスタンス化" src="images/figure4.png" /></p>
+</li>
+</ol>
 <h2 id="watson-machine-learning-accelerator_1">例データ用クラウドパックのWatson Machine Learning Accelerator<a class="headerlink" href="#watson-machine-learning-accelerator_1" title="Permanent link">&para;</a></h2>
 <p>この例を Cloud Pak for Data で試すには、<a href="https://github.com/IBM/wmla-assets/blob/master/dli-learning-path/tutorials-cpd-wmla/CPD35x-elastic-distributed-training-via-WMLA-api.ipynb" target="_blank" rel="noopener noreferrer">Watson Machine Learning Accelerator 2.2 Jupyter Notebook</a>を使用します。</p>
 <h2 id="_4">結論<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>

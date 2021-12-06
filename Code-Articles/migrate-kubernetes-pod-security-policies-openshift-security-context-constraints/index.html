@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4700,72 +4700,32 @@
 <p>KubernetesのPod Security PoliciesをOpenShiftのSecurity Context Constraintsに移行する_方法を説明する前に、それぞれのセキュリティメカニズムが何をするのかを見てみましょう。</p>
 <h3 id="kubernetespsp">Kubernetesのポッドセキュリティポリシー(PSP)<a class="headerlink" href="#kubernetespsp" title="Permanent link">&para;</a></h3>
 <p>Kubernetesクラスタ内のコンテナは、そのアプリケーションがホストネットワークやボリュームなどの資産にアクセスすることを制限します。これは、アプリケーションがLinux環境や他のコンテナに影響を与えるような変更を行うことを防ぐためです。アプリケーションが保護されたLinux機能へのアクセスを必要とする場合、ポッドはこのアクセスを設定することができます。ポッドが実行されるためには（つまり、クラスターがポッドを認めるためには）、ポッドが構成したアクセスをクラスターが許可する必要があります。</p>
-<p>Kubernetesクラスタでは、PSPを使用して、ポッドがコンテナ上で有効にできるパーミッションを指定します。Kubernetes docs](https://kubernetes.io/docs/concepts/policy/pod-security-policy/)によると。"<code>PodSecurityPolicy</code> オブジェクトは、ポッドがシステムに受け入れられるために実行しなければならない一連の条件と、関連フィールドのデフォルトを定義します。"PSPはオプションのアドミッションコントローラとして、Kubernetesクラスタ上で実行できるものを制限する役割を果たします。</p>
+<p>Kubernetesクラスタでは、PSPを使用して、ポッドがコンテナ上で有効にできるパーミッションを指定します。<a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">Kubernetes docs</a>によると。"<code>PodSecurityPolicy</code> オブジェクトは、ポッドがシステムに受け入れられるために実行しなければならない一連の条件と、関連フィールドのデフォルトを定義します。"PSPはオプションのアドミッションコントローラとして、Kubernetesクラスタ上で実行できるものを制限する役割を果たします。</p>
 <h3 id="openshiftsccsecurity-context-constraints">OpenShiftにおけるSCC(Security Context Constraints)について<a class="headerlink" href="#openshiftsccsecurity-context-constraints" title="Permanent link">&para;</a></h3>
 <p>OpenShiftはKubernetesよりも厳しいセキュリティポリシーを採用しています。OpenShiftでは、コンテナ化されたアプリケーションが保護されたLinux機能にアクセスできるようにするために、SCC（Security Context Constraints）を使用します。SCCはクラスタ内で定義され、管理者がポッドのパーミッションを制御できるようにします。</p>
-<p>Role Based Access Controls](https://docs.openshift.com/container-platform/4.6/authentication/managing-security-context-constraints.html#role-based-access-to-ssc_configuring-internal-oauth)と同様です。(RBAC)がユーザーのクラスタのリソースへのアクセスを管理するのと同様に、SCCはポッドのLinux機能へのアクセスを管理します。</p>
+<p><a href="https://docs.openshift.com/container-platform/4.6/authentication/managing-security-context-constraints.html#role-based-access-to-ssc_configuring-internal-oauth">Role Based Access Controls</a>と同様です。(RBAC)がユーザーのクラスタのリソースへのアクセスを管理するのと同様に、SCCはポッドのLinux機能へのアクセスを管理します。</p>
 <p>学習パス<a href="https://developer.ibm.com/learningpaths/secure-context-constraints-openshift/">Get started with security context constraints on Red Hat OpenShift</a>では、SCCとは何か、どのように使用するのかを徹底的に紹介しています。</p>
 <h3 id="rbac">役割ベースのアクセス制御(RBAC)<a class="headerlink" href="#rbac" title="Permanent link">&para;</a></h3>
 <p>SCC は、直接または理想的には RBAC ロールを介して、セキュリティアカウントと関連付けられます。RBAC は、ポリシーやセキュリティ制約の使用を許可するために使用します。RBACインフラストラクチャは、Role、ClusterRole、RoleBinding、およびClusterRoleBindingによって実装されます。まず、RoleまたはClusterRoleは、目的のポリシーを使用するためのアクセスを許可する必要があります。次に、(Cluster)Roleを認可されたユーザーにバインドします。</p>
 <p>KubernetesとOpenShiftのRBACについて、PSPとSCCをどのように組み込んでいるのかを詳しく知りたい方は、こちらをご覧ください。</p>
 <ul>
-<li>KubernetesにおけるRBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)</li>
-<li>Using RBAC for PSP](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#via-rbac)</li>
-<li>OpenShiftでのRBAC](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html)</li>
-<li>SCCでのRBACの使用](https://docs.openshift.com/container-platform/4.6/authentication/managing-security-context-constraints.html#role-based-access-to-ssc_configuring-internal-oauth)</li>
+<li><a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">KubernetesにおけるRBAC</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/#via-rbac">Using RBAC for PSP</a></li>
+<li><a href="https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html">OpenShiftでのRBAC</a></li>
+<li><a href="https://docs.openshift.com/container-platform/4.6/authentication/managing-security-context-constraints.html#role-based-access-to-ssc_configuring-internal-oauth">SCCでのRBACの使用</a></li>
 </ul>
 <p>これらの背景情報を参考に、KubernetesからOpenShiftにポリシーを移行するために必要なことをご覧ください。</p>
 <h2 id="kubernetesopenshift">KubernetesからOpenShiftへのセキュリティポリシーの移行<a class="headerlink" href="#kubernetesopenshift" title="Permanent link">&para;</a></h2>
 <p>KubernetesからOpenShiftにセキュリティポリシーを移行するには、Pod Security PolicyのすべてのコントロールアスペクトがSecurity Context Constraintsに移行されていることを確認する必要があります。クラスタ管理者は、PSPとSCCの両方を定義します。</p>
 <p>まず、Kubernetesクラスタで利用可能なPSPを特定する必要があります。PSPの一覧を取得するには、このコマンドを使用します。</p>
-<pre><code>$ kubectl get psp
-</code></pre>
 <p>Kubernetesクラスタには、デフォルトではビルトインのPSPは含まれていません。この例では、<code>my-custom-psp</code>というPSPを追加しています。すると、コマンドはそれをリストに表示します（リストの中で唯一のアイテムです）。</p>
-<pre><code>$ kubectl get psp
-name priv caps selinux runasuser fsgroup supgroup readonlyrootfs volumes
-my-custom-psp false RunAsAny MustRunAs MustRunAs MustRunAs false persistentVolumeClaim,secret,emptyDir
-
-$
-</code></pre>
-<p>my-custom-psp`の設定を見るには、次のコマンドを実行します。</p>
-<pre><code>$ kubectl get psp my-custom-psp -o yaml
-</code></pre>
+<p><code>my-custom-psp</code>の設定を見るには、次のコマンドを実行します。</p>
 <p>このコマンドは、PSPを表示します。</p>
-<pre><code>apiVersion: policy/v1beta1
-種類PodSecurityPolicy
-metadata
-  name: my-custom-psp
-  selfLink:/apis/policy/v1beta1/podsecuritypolicies/my-custom-psp
-  ...
-spec:
-  privileged: false
-  fsGroup:
-    ranges:
-    - max:6000
-      最小: 5000
-    ルールマストランナ
-  runAsUserです。
-    の範囲を指定します。
-    - マックス：2000
-      最小: 1000
-    ルールを設定します。マストランア
-  seLinuxです。
-    ルールを実行します。RunAsAny
-  supplementalGroups:
-    ranges:
-    - max:6000
-      最小：5000
-    ルールを設定します。マストラン・アス
-  ボリューム
-  - persistentVolumeClaim
-  - シークレット
-  - emptyDir
-</code></pre>
 <p>このポリシーでは、コントロールの一部を</p>
 <ul>
 <li><code>privileged</code> が "false" に設定されています。このポリシーでは、特権的なアクセス権を持つポッドのデプロイを許可しません。</li>
-<li>fsGroup<code>と</code>supplementalGroups`には、グループIDの特定の範囲に対する制限が与えられています。</li>
-<li>このポリシーでは、特定のボリュームへのアクセスを許可します。persistentVolumeClaim<code>、</code>secret<code>、</code>emptyDir`の3つです。</li>
+<li><code>fsGroup</code>と<code>supplementalGroups</code>には、グループIDの特定の範囲に対する制限が与えられています。</li>
+<li>このポリシーでは、特定のボリュームへのアクセスを許可します。<code>persistentVolumeClaim</code>、<code>secret</code>、<code>emptyDir</code>の3つです。</li>
 </ul>
 <h3 id="psp-scc">PSP を SCC に変換する<a class="headerlink" href="#psp-scc" title="Permanent link">&para;</a></h3>
 <p>コントロールを OpenShift の SCC に移行する必要があります。以下の表は、KubernetesとOpenShiftの間のセキュリティコントロールフィールドのマッピングです。基本的には、OpenShiftのSCCファイルを構築する際に、左のPSPコントロールフィールド名を、該当する右のSCCコントロールフィールド名に置き換えて、PSPファイルを更新します。</p>
@@ -4796,94 +4756,35 @@ spec:
 <h3 id="_2">コントロールアスペクト値の指定<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>コントロールアスペクトの詳細にもバリエーションがあります。例えば、<code>RunAsUser</code> コントロールの表現方法が異なります。</p>
 <p>PSPでは</p>
-<pre><code>    runAsUserです。
-      ルールを設定します。マストランア
-      範囲
-      - 最小値：1000
-        最大値: 2000
-</code></pre>
 <p>SCCでは</p>
-<pre><code>runAsUserです。
-  タイプである。マストランアズレンジ
-  uidRangeMin:1000
-  uidRangeMax: 2000
-</code></pre>
 <p>SCCではすべてのコントロールがどのように表現されているのか、PSPとはどう違うのかを理解するために、<a href="https://developer.ibm.com/learningpaths/secure-context-constraints-openshift">SCC Learning Path</a>を徹底的に読み込んでください。</p>
 <h3 id="psp">変換されたPSPはどのようなものか<a class="headerlink" href="#psp" title="Permanent link">&para;</a></h3>
 <p>先ほどのPSPのマニフェストの例をSCCのマニフェストファイルに適応すると、以下のようになります。</p>
-<pre><code>アプリケーションバージョン: v1
-種類: SecurityContextConstraints
-メタデータ
-  name: scc-tutorial-scc
-allowPrivilegedContainer: false
-runAsUser:
-  type:マストランアズレンジ
-  uidRangeMin:1000
-  uidRangeMax: 2000
-seLinuxContextです。
-  タイプを使用します。ランアサニー
-fsGroup:
-  タイプマストランア
-  の範囲である。
-  - 最小値：5000
-    max:6000
-サプリメンタルグループ。
-  タイプを指定します。MustRunAs
-  の範囲になります。
-  - ミニ：5000
-    max:6000
-</code></pre>
 <p>このSCCをファイルに保存し、コマンドを使ってクラスタにデプロイすることができます。</p>
-<pre><code>oc create -f &lt;scc_manifest_file_name.yaml&gt;.
-</code></pre>
 <p>これで、既存のPSPからSCC設定ファイルを作成するために必要なことがわかりました。次のステップは、RBACアーティファクトであるRole(またはClusterRole)とRoleBinding(またはClusterRoleBinding)を移行することです。</p>
 <h3 id="rbac_1">RBACの移行<a class="headerlink" href="#rbac_1" title="Permanent link">&para;</a></h3>
 <p>ロールとロールバインディングは、どのユーザーがどのポリシーにアクセスできるかをマッピングするのに役立ちます。</p>
-<p>1.セキュリティポリシーを OpenShift に移行する前に、特定のポッドのセキュリティポリシーを使用するロールを特定する必要があります。ロールのリストを取得するには、<code>kubectl get roles -n &lt;namespace&gt;</code> を使用し、特定のロールの YAML 出力を取得するには、<code>kubectl get role &lt;role_name&gt; -o yaml -n &lt;namespace&gt;</code> を使用します。</p>
-<pre class="codehilite"><code class="linenums">ロールのYAML出力の例を以下に示します。
-
-```
-$ kubectl get role use-example-psp -n myproject -o yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind:役割
-メタデータ
-  creationTimestamp:&quot;2021-03-16T03:48:35Z&quot;
-  managedFields:
-  - apiVersion: rbac.authorization.k8s.io/v1
-    fieldsType:フィールドタイプ: FieldsV1
-    fieldsV1です。
-      f:rules:{}
-    マネージャー: kubectl-create
-    操作を行います。更新
-    時間&quot;2021-03-16T03:48:35Z&quot;
-  名前: 使用例-PSP
-  名前空間: MIPROJECT
-  resourceVersion:&quot;16574&quot;
-  selfLinkです。/apis/rbac.authorization.k8s.io/v1/namespaces/myproject/roles/use-example-psp
-  uid: a227f47d-1981-4ad5-aad9-28ef167b73c2
-のルールです。
-- apiGroups:
-- extensions
-resourceNames:
-- example-psp
-のリソースを参照してください。
-- podsecuritypolicies
-動詞
-- use
-```
-
-このロールは、リソース `podsecuritypolicies` をアクション `use` にマッピングしていることに注意してください。
-
-podsecuritypolicies`を使用するすべてのロールについて、対応するロールをOpenShiftで作成する必要があります。
-</code></pre>
-
-<p>1.次のステップは、ロールをユーザーやサービスアカウントにマッピングするRoleBindingsを特定することです。セキュリティポリシーをKubernetesからOpenShiftに移行する際には、ロールを移行するのと同じ方法でRoleBindingsを移行します。  </p>
-<p>1.セキュリティポリシーを使用するClusterRolesがある場合は、ClusterRolesとClusterRoleBindingsも移行する必要があります。</p>
-<pre class="codehilite"><code class="linenums">&gt; 注：SCCおよび(Cluster)RoleBindingで指定されたユーザー、グループ、およびサービスアカウントが存在することを確認する必要があります。ユーザーやグループが存在しない場合は、以下のいずれかを行う必要があります。
-&gt; 適切なユーザー、グループ、またはサービス・アカウントを含むようにロールを編集します。
-&gt; - SCCおよびClusterRoleBindingで使用できるように、OpenShiftで必要なユーザー、グループ、またはサービスアカウントを作成する。
-</code></pre>
-
+<ol>
+<li>
+<p>セキュリティポリシーを OpenShift に移行する前に、特定のポッドのセキュリティポリシーを使用するロールを特定する必要があります。ロールのリストを取得するには、<code>kubectl get roles -n &lt;namespace&gt;</code> を使用し、特定のロールの YAML 出力を取得するには、<code>kubectl get role &lt;role_name&gt; -o yaml -n &lt;namespace&gt;</code> を使用します。</p>
+<p>ロールのYAML出力の例を以下に示します。</p>
+<p>このロールは、リソース <code>podsecuritypolicies</code> をアクション <code>use</code> にマッピングしていることに注意してください。</p>
+</li>
+</ol>
+<p><code>podsecuritypolicies</code>を使用するすべてのロールについて、対応するロールをOpenShiftで作成する必要があります。</p>
+<ol>
+<li>
+<p>次のステップは、ロールをユーザーやサービスアカウントにマッピングするRoleBindingsを特定することです。セキュリティポリシーをKubernetesからOpenShiftに移行する際には、ロールを移行するのと同じ方法でRoleBindingsを移行します。</p>
+</li>
+<li>
+<p>セキュリティポリシーを使用するClusterRolesがある場合は、ClusterRolesとClusterRoleBindingsも移行する必要があります。</p>
+<blockquote>
+<p>注：SCCおよび(Cluster)RoleBindingで指定されたユーザー、グループ、およびサービスアカウントが存在することを確認する必要があります。ユーザーやグループが存在しない場合は、以下のいずれかを行う必要があります。
+適切なユーザー、グループ、またはサービス・アカウントを含むようにロールを編集します。
+- SCCおよびClusterRoleBindingで使用できるように、OpenShiftで必要なユーザー、グループ、またはサービスアカウントを作成する。</p>
+</blockquote>
+</li>
+</ol>
 <p>これらのマニフェストファイル（SCC、(Cluster)Role、(Cluster)RoleBinding）をすべて作成したら、これらをクラスタに適用することで、SCCが実装され、アプリケーションのデプロイメントが安全に行われるようになります。</p>
 <h2 id="kubernetespspopenshiftscc">Kubernetesの定義済みPSPとOpenShiftの定義済みSCCのマッピング<a class="headerlink" href="#kubernetespspopenshiftscc" title="Permanent link">&para;</a></h2>
 <p>一般的に、クラスタ内のアプリケーションポッドに権限を付与するために、管理者はベンダーが提供する定義済み（つまりデフォルト）のPSPを使用するのではなく、カスタムPSPを定義する必要があります。アプリケーションを移行するために、管理者は上述のように、カスタムPSPの定義を対応するカスタムSCCの定義に変換する必要があります。しかし、アプリケーションがベンダーの定義済みPSPを使用している場合、管理者はそれらを対応する定義済みSCCにどのように変換すればよいのでしょうか？</p>
@@ -4902,7 +4803,7 @@ podsecuritypolicies`を使用するすべてのロールについて、対応す
 <p>詳細は<a href="https://developer.ibm.com/learningpaths/secure-context-constraints-openshift/openshift-predefined-scc/#openshift-s-predefined-sccs">OpenShift's predefined SCCs</a>を参照してください。</p>
 <p>OpenShift の事前定義された SCC は、主に Red Hat がクラスターに構築するツールが使用するためのものです。ユーザーアプリケーションも定義済みSCCを使用することができますが、<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">最小特権の原則</a>により、アプリケーションが必要とする特権に完全に一致するものがない限り、アプリケーションが必要とする特権のみを持つカスタムSCCを定義することがより安全なアプローチとなります。</p>
 <h3 id="ibm-cloud-kubernetes-servicepspscc">IBM Cloud Kubernetes Serviceにおける定義済みのPSPとSCC<a class="headerlink" href="#ibm-cloud-kubernetes-servicepspscc" title="Permanent link">&para;</a></h3>
-<p>IBM Cloud Kubernetes Service](https://cloud.ibm.com/docs/containers) (IKS)クラスターから<a href="https://cloud.ibm.com/docs/openshift">Red Hat OpenShift on IBM Cloud</a>クラスターにアプリケーションを移行する場合、IBMはいくつかの独自の定義済みPSPとSCCを組み込んでいます。IBMがホストするKubernetesクラスターには、これらの<a href="https://cloud.ibm.com/docs/containers?topic=containers-psp#ibm_psp">追加のPSP</a>が含まれます。</p>
+<p><a href="https://cloud.ibm.com/docs/containers">IBM Cloud Kubernetes Service</a> (IKS)クラスターから<a href="https://cloud.ibm.com/docs/openshift">Red Hat OpenShift on IBM Cloud</a>クラスターにアプリケーションを移行する場合、IBMはいくつかの独自の定義済みPSPとSCCを組み込んでいます。IBMがホストするKubernetesクラスターには、これらの<a href="https://cloud.ibm.com/docs/containers?topic=containers-psp#ibm_psp">追加のPSP</a>が含まれます。</p>
 <ul>
 <li>ibm-anyuid-hostaccess-psp</li>
 <li>ibm-anyuid-hostpath-psp（アイビーエム-アニュイッド-ホストパス-psp</li>
@@ -4920,7 +4821,7 @@ podsecuritypolicies`を使用するすべてのロールについて、対応す
 </ul>
 <p>ご覧のとおり、IBMがあらかじめ定義したPSPとSCCは1対1で対応しています。唯一の違いは、名前の最後に「psp」または「scc」というサフィックスが付いていることです。IBM の定義済み PSP を使用しているアプリケーションを OpenShift に移行する場合は、RBAC リソースを変更して、「psp」名のリソースではなく「scc」名のリソースを指定します。</p>
 <h3 id="amazon-elastic-kubernetes-servicepsp">Amazon Elastic Kubernetes Serviceの定義済みPSPについて<a class="headerlink" href="#amazon-elastic-kubernetes-servicepsp" title="Permanent link">&para;</a></h3>
-<p>Amazon Elastic Kubernetes Service(EKS)では、Kubernetesクラスタに<a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-security-policy.html">1つの定義済みPSP</a>を追加し、<code>eks.privileged</code>としています。このポリシーには制限がないため、コンテナ内で有効にできる特権に制限はありません。Red Hat OpenShift Service on AWS (ROSA) は、OpenShift クラスタに定義済みの SCC を追加しません。eks.privileged<code>PSP を必要とするアプリケーションを移行するには、その RBAC を更新して Red Hat によって事前に定義された</code>privileged` SCC を使用します。</p>
+<p>Amazon Elastic Kubernetes Service(EKS)では、Kubernetesクラスタに<a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-security-policy.html">1つの定義済みPSP</a>を追加し、<code>eks.privileged</code>としています。このポリシーには制限がないため、コンテナ内で有効にできる特権に制限はありません。Red Hat OpenShift Service on AWS (ROSA) は、OpenShift クラスタに定義済みの SCC を追加しません。<code>eks.privileged</code> PSP を必要とするアプリケーションを移行するには、その RBAC を更新して Red Hat によって事前に定義された <code>privileged</code> SCC を使用します。</p>
 <h3 id="azure-kubernetes-servicepsp">Azure Kubernetes Serviceの事前定義されたPSP<a class="headerlink" href="#azure-kubernetes-servicepsp" title="Permanent link">&para;</a></h3>
 <p>同様に、Azure Kubernetes Service(AKS)では、<code>privileged</code>という名前の単一の<a href="https://docs.microsoft.com/en-us/azure/aks/use-pod-security-policies#default-aks-policies">default AKS policy</a>を追加し、AKSはクラスタ内の認証済みユーザに適用します。このポリシーには制限がないため、クラスター内のどのユーザーも、有効にできる特権に制限がなく、コンテナをデプロイすることができます。Azure Red Hat OpenShiftでは、Red Hatがすでに搭載しているSCCに、事前に定義されたSCCを追加していませんが、Red Hatが事前に定義しているSCCの1つに、<code>privileged</code>というものがあります。したがって、アプリケーションがAzureの<code>privileged</code> PSPを使用する場合は、そのRBACを更新して、Red Hatが事前に定義した<code>privileged</code> SCCを使用するようにしてください。</p>
 <h2 id="_3">まとめ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>

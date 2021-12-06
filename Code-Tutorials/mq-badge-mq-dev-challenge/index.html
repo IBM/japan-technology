@@ -1469,14 +1469,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1543,7 +1543,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1557,7 +1557,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1600,14 +1600,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1632,7 +1632,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1646,7 +1646,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1660,7 +1660,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1674,7 +1674,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1688,7 +1688,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4767,7 +4767,7 @@
 <li>アプリケーションを開発・実行するための Java Development Kit (JDK)</li>
 <li>JMSクラス（<code>JMS.jar</code>ファイル内</li>
 <li>IBMおよびIBM MQのJMSクラス（<code>com.ibm.mq.allclient.jar</code>ファイル）。</li>
-<li>JmsPutGet.java` サンプル</li>
+<li><code>JmsPutGet.java</code> サンプル</li>
 <li>この MQ デベロッパーチャレンジのサンプルコード（<code>mq-dev-badge-sample</code>）。</li>
 </ul>
 <h2 id="the-challenge">The challenge<a class="headerlink" href="#the-challenge" title="Permanent link">&para;</a></h2>
@@ -4780,14 +4780,16 @@
 <li><strong>キュー・マネージャーに接続</strong> (私たちが提供したもの)</li>
 <li><strong>Subscribe</strong> to <code>newTickets</code> topic</li>
 <li><strong>Send</strong> a <code>request message</code> for a batch of tickets, <strong>set</strong> a <code>reply-to destination</code> and <code>message expiry</code> of 15 minutes (for us want to commit a purchase indefinitely)</li>
-<li>**Reply-to destination<code>に指定した確認キューから</code>response message` を取得します。</li>
+<li><code>****Reply-to destination</code> に指定した確認キューから <code>response message</code> を取得します。</li>
 <li><strong>結果を印刷</strong>する</li>
 </ul>
 <p>もし、途中で行き詰ってしまった場合は、<a href="https://developer.ibm.com/articles/mq-dev-cheat-sheet/" target="_blank" rel="noopener noreferrer"><em>cheat sheet</em></a>を用意し、<a href="https://github.com/ibm-messaging/mq-dev-badge-sample/tree/master/ModelAnswer/com/ibm/mq/demo" target="_blank" rel="noopener noreferrer"><em>model answer</em></a>をパッケージ化して参考にしています。</p>
 <p>この課題に取り組むための3つの方法を用意しました。</p>
-<p>1.今すぐコードを書いてみる
+<ol>
+<li>今すぐコードを書いてみる
 2.模範解答アプリケーションを確認する
-3.簡単な不具合を修正してみる</p>
+3.簡単な不具合を修正してみる</li>
+</ol>
 <h2 id="_2">クライアントアプリのメッセージングサービスアーキテクチャ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>サードパーティサービスは、チケットが販売可能になると、リセラーメッセージを生成して、購読者（あなたです！）に通知します。</p>
 <p>チケット再販業者は、会議イベントのチケットのバッチを要求します。チケットが割り当てられると、再販業者は顧客に自由に配布することができます。</p>
@@ -4805,23 +4807,31 @@
 <p>MVP(minimum viable product)に集中できるように、この図では、MQサーバーとDockerコンテナで提供した再販業者サービスに関連して、作成しなければならないIBM MQ JMSアプリの要素を示しています。メインのクライアントアプリのアクションには、名前と番号が付けられています。</p>
 <p><img alt="MQクライアントアプリのアーキテクチャ図" src="images/learn-mq-badge-architecture-diagram-client-app.png" /></p>
 <p>アプリケーションのコーディングが完了すると、アプリケーションは次のようになります。</p>
-<p>1.キュー・マネージャーに接続する
-2.トピックへの登録
-    * 3.パブリケーションの受信
-    * パブリケーションを処理する
-    * パブリケーションを受信すると、0枚以上のチケットを購入するためのリクエストメッセージを作成し、購入キューに送信します。リクエストメッセージにはプロパティがあります。
-        * 何枚のチケットを要求するかを示します。
-        * 与えられた <code>EventID</code> に対して
-        * 確認のための <code>reply-to destination</code> を設定します (応答)。
-        * メッセージの有効期限」を15分に設定します。
-3.3. リクエストメッセージを購入（リクエスト）キューに入れます。
-    * (チケット購入コーディネータアプリは、このキューから取得します)
-    * (メッセージを処理して、チケットがあればその枚数を割り当てる)
-    * （確認（応答）キューにメッセージを入れます。応答メッセージにはプロパティがあります。
-        * チケットがあれば、何枚割り当てられたかを示します。
-        * 与えられた <code>EventID</code> に対して
+<ol>
+<li>キュー・マネージャーに接続する
+2.トピックへの登録<ul>
+<li>3.パブリケーションの受信</li>
+<li>パブリケーションを処理する</li>
+<li>パブリケーションを受信すると、0枚以上のチケットを購入するためのリクエストメッセージを作成し、購入キューに送信します。リクエストメッセージにはプロパティがあります。<ul>
+<li>何枚のチケットを要求するかを示します。</li>
+<li>与えられた <code>EventID</code> に対して</li>
+<li>確認のための <code>reply-to destination</code> を設定します (応答)。</li>
+<li>「メッセージの有効期限」を15分に設定します。
+3.3. リクエストメッセージを購入（リクエスト）キューに入れます。</li>
+</ul>
+</li>
+<li>(チケット購入コーディネータアプリは、このキューから取得します)</li>
+<li>(メッセージを処理して、チケットがあればその枚数を割り当てる)</li>
+<li>（確認（応答）キューにメッセージを入れます。応答メッセージにはプロパティがあります。<ul>
+<li>チケットがあれば、何枚割り当てられたかを示します。</li>
+<li>与えられた <code>EventID</code> に対して
 4.レスポンスキューからの取得を行います。
-5.何枚のイベントチケットが購入されたかを出力する</p>
+5.何枚のイベントチケットが購入されたかを出力する</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 <p>クライアントのメッセージングアプリには、次のような動作が求められます。</p>
 <ul>
 <li>30秒ごとに <code>newTickets</code> トピックに公開されたメッセージを処理します。</li>
@@ -4831,98 +4841,66 @@
 </ul>
 <h2 id="_4">前提条件の確認<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>まず、Java Development Kitがインストールされているかどうかを確認します。  以下のコマンドを発行します。</p>
-<pre><code>java -version
-</code></pre>
 <p>のような出力が表示されるはずです。</p>
 <p><img alt="java versionコマンドの出力" src="images/java-version-output.png" /></p>
 <p>JDK 8, <code>1.8.n_nnn</code>が必要です。</p>
 <p>Javaがインストールされていない場合は、<a href="https://adoptopenjdk.net/installation.html" target="_blank" rel="noopener noreferrer nofollow">_OpenJDK_ページ</a>にアクセスし、OpenJDK 8とお使いのプラットフォームを選択してください。いくつかのプラットフォームでは、コマンドラインを使って引き込んでインストールすることができます。ただ、JRE（Java Runtime Environment）だけでなく、開発用のJDK（Java Development Kit）を入手するようにしてください。</p>
-<p>このラーニングパスの最初のチュートリアル](/learningpaths/ibm-mq-badge/write-run-first-mq-app/)を完了した場合、すでにJDK(Java Development Kit)と、<code>com.ibm.mq.allclient.jar</code>と<code>javax.jms-api-2.0.1.jar</code>ファイルのあるMQClientディレクトリを持っているはずです。チャレンジアプリを実行するには、これらの <code>.jar</code> ファイルが必要です。MQClientのディレクトリにJDKと<code>.jar</code>ファイルがあれば、次のステップである<a href="#get-the-challenge-code">チャレンジコードの取得</a>に進むことができます。</p>
+<p><a href="/learningpaths/ibm-mq-badge/write-run-first-mq-app/">このラーニングパスの最初のチュートリアル</a>を完了した場合、すでにJDK(Java Development Kit)と、<code>com.ibm.mq.allclient.jar</code>と<code>javax.jms-api-2.0.1.jar</code>ファイルのあるMQClientディレクトリを持っているはずです。チャレンジアプリを実行するには、これらの <code>.jar</code> ファイルが必要です。MQClientのディレクトリにJDKと<code>.jar</code>ファイルがあれば、次のステップである<a href="#get-the-challenge-code">チャレンジコードの取得</a>に進むことができます。</p>
 <p>このチュートリアルを完了していない場合は、セットアップを行いましょう。</p>
-<p>1.サンプルに必要なファイルを保存するMQClientディレクトリを、例えばホームディレクトリに作成します。</p>
-<pre class="codehilite"><code class="linenums">```
-mkdir MQClient
-```
-</code></pre>
-
-<p>2.MQClient<code>ディレクトリに移動し、</code>curl<code>を使って</code>com.ibm.mq.allclient.jar`ファイルを取り込みます。</p>
-<pre class="codehilite"><code class="linenums">```
-curl -o com.ibm.mq.allclient-9.1.4.0.jar https://repo1.maven.org/maven2/com/ibm/mq/com.ibm.mq.allclient/9.2.3.0/com.ibm.mq.allclient-9.2.3.0.jar
-```
-</code></pre>
-
+<ol>
+<li>サンプルに必要なファイルを保存するMQClientディレクトリを、例えばホームディレクトリに作成します。</li>
+</ol>
+<p><code>2.MQClient</code>ディレクトリに移動し、<code>curl</code>を使って<code>com.ibm.mq.allclient.jar</code>ファイルを取り込みます。</p>
 <p>3.3. <code>MQClient</code> フォルダから、<code>curl</code> を使って JMS <code>.jar</code> ファイルを取り込みます。</p>
-<pre class="codehilite"><code class="linenums">```
-curl -o javax.jms-api-2.0.1.jar https://repo1.maven.org/maven2/javax/jms/javax.jms-api/2.0.1/javax.jms-api-2.0.1.jar
-```
-</code></pre>
-
 <h2 id="_5">チャレンジコードの取得<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>バッジのチャレンジコードをダウンロードする必要があります。このコードは、<a href="https://github.com/ibm-messaging/mq-dev-badge-sample" target="_blank" rel="noopener noreferrer"><em>ibm/messaging/mq-dev-badge-sample</em></a>のGithubリポジトリに格納されています。</p>
-<p>Githubのibm/messaging/mq-dev-badge-sampleリポジトリにアクセスして、cloneまたはdownloadボタンをクリックします。Clone with SSH」、「Use HTTPS」、「Download ZIP with the code」のいずれかを選択できます。リポジトリをMQClientのディレクトリにクローンまたは解凍します。</p>
-<p>1.コードをローカルに入手したら、sample codeディレクトリに変更します。</p>
-<pre class="codehilite"><code class="linenums">cd mq-dev-badge-sample`。
-</code></pre>
-
+<p>Githubのibm/messaging/mq-dev-badge-sampleリポジトリにアクセスして、cloneまたはdownloadボタンをクリックします。「Clone with SSH」、「Use HTTPS」、「Download ZIP with the code」のいずれかを選択できます。リポジトリをMQClientのディレクトリにクローンまたは解凍します。</p>
+<ol>
+<li>コードをローカルに入手したら、sample codeディレクトリに変更します。</li>
+</ol>
+<p><code>cd mq-dev-badge-sample</code>。</p>
 <p>2.2. print-working-directory コマンドを実行して、正しい場所にいることを確認します。</p>
 <pre class="codehilite"><code class="linenums">`pwd`
 
 あなたのパスが次のようになっていることを確認してください。
+</code></pre>
 
-~/MQClient/mq-dev-badge-sample`となります。
-
-Windowsでは、パスが次のようになっているはずです。
+<p><code>~/MQClient/mq-dev-badge-sample</code>となります。</p>
+<pre class="codehilite"><code class="linenums">Windowsでは、パスが次のようになっているはずです。
 
 ~MQClient/mq-dev-badge-sample}となります。
 </code></pre>
 
 <p>3.3. 「ls」と入力して、ディレクトリの内容を表示します。</p>
-<pre class="codehilite"><code class="linenums">ls」と入力してください。
-
-これらのディレクトリとファイルが表示されます。
+<p>「    ls」と入力してください。</p>
+<pre class="codehilite"><code class="linenums">これらのディレクトリとファイルが表示されます。
 </code></pre>
 
-<p><code>├-- MQTicketService
+<p><code></code>├-- MQTicketService
     │ ├-- Dockerfile
     │ .
     │ .
     │ └-- チケットジェネレーター
     ├-- ModelAnswer
     ├-- ModelAnswerWithDefectToFix
-    └-- TicketReseller</code>（チケットリセラー</p>
-<p>MQTicketService<code>ディレクトリには、MQサーバー(キューマネージャー)を搭載したイメージを構築し、コンテナを立ち上げるための定義が記載された</code>Dockerfile<code>があります。また、</code>TicketGenerator`というディレクトリには、アプリをコーディングして実行したときに相互作用するアプリやサービスのJavaコードが入っています。サーバーサイドのアプリは、キューマネージャーと同時にコンテナ内で起動します。</p>
+<code>└-- TicketReseller</code>（チケットリセラー</p>
+<p><code>MQTicketService</code>ディレクトリには、MQサーバー(キューマネージャー)を搭載したイメージを構築し、コンテナを立ち上げるための定義が記載された<code>Dockerfile</code>があります。また、<code>TicketGenerator</code>というディレクトリには、アプリをコーディングして実行したときに相互作用するアプリやサービスのJavaコードが入っています。サーバーサイドのアプリは、キューマネージャーと同時にコンテナ内で起動します。</p>
 <h2 id="_6">イベント予約システムの立ち上げ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>リセラーアプリのコーディングを始める前に、サーバーサイドやイベント予約サービスがどのように動作するか見てみましょう。</p>
 <p>まず、Dockerイメージを構築し、MQと、チケットの空き状況を公開し、アプリからのリクエストに応答するアプリを入れたコンテナを実行します。</p>
 <p>動作を確認したら終了させて、後でチャレンジアプリをテストする準備ができたら再起動させます。</p>
 <p>以下の手順で、イベント予約サービスを立ち上げます。</p>
-<p>1.mq-dev-badge-sample ディレクトリ内で、MQTicketService ディレクトリに変更します。</p>
-<pre class="codehilite"><code class="linenums">```
-cd MQTicketService
-```
-</code></pre>
-
+<ol>
+<li>mq-dev-badge-sample ディレクトリ内で、MQTicketService ディレクトリに変更します。</li>
+</ol>
 <p>2.この場所にある <code>Dockerfile</code> には、コンテナ内で MQ を実行し、パブリッシャーとレスポンスアプリを実行するためのすべてが定義されています。以下のコマンドを実行してイメージを構築します。</p>
-<pre class="codehilite"><code class="linenums">```
-docker build .-t mqbadge:latest
-```
-</code></pre>
-
 <p>3.Dockerはすべての前提条件を取り込み、イメージをビルドします。ビルドが完了したら、ビルドされたイメージ <code>mqbadge</code> があることを確認してください。</p>
-<pre class="codehilite"><code class="linenums">```
-ドッカーイメージ
-```
-
-と表示されます。
+<pre class="codehilite"><code class="linenums">と表示されます。
 ![docker imagesコマンドの出力](images/docker_images_output.png)
 </code></pre>
 
 <p>7.イメージからコンテナを実行します。</p>
-<pre class="codehilite"><code class="linenums">```
-docker run -e LICENSE=accept -e MQ_QMGR_NAME=QM1 -e LOG_FORMAT=json -e MQ_APP_PASSWORD=passw0rd -p 1414:1414 -p 9443:9443 -ti --name mqebs mqbadge:latest
-```
-
-すぐに、コンテナからの出力がコマンドラインに表示されるようになります。イベントが公開され始めているので、気をつけてください。
+<pre class="codehilite"><code class="linenums">すぐに、コンテナからの出力がコマンドラインに表示されるようになります。イベントが公開され始めているので、気をつけてください。
 ![dockerイメージの実行による出力](images/docker_image_run_output.png)
 </code></pre>
 
@@ -4930,8 +4908,8 @@ docker run -e LICENSE=accept -e MQ_QMGR_NAME=QM1 -e LOG_FORMAT=json -e MQ_APP_PA
 <p>コンテナのプロセスは以下の通りです。</p>
 <ul>
 <li><strong>publisher app</strong> (30秒ごとに利用可能なチケットに関する情報を送信する)</li>
-<li><strong>チケット購入コーディネータ</strong>：購入リクエストを処理し、チケットのバッチを割り当てます。<br />
-<strong>重要：</strong>購入リクエストを処理し、チケットを割り当てる、イベント予約ビジネスの中核となる部分です。IBM MQ Messagingは、会議イベント処理コードの中で重要な役割を果たしており、会議イベント予約サービスとチケット販売会社の間で、価値の高いメッセージの確実な配信を行っています。チケットを売りすぎたり、リクエストに応えられなかったりすると、会議イベントの予約事業者の評判が下がってしまうので、この点を正しく理解することが重要です。</li>
+<li><strong>チケット購入コーディネータ</strong>：購入リクエストを処理し、チケットのバッチを割り当てます。
+    <strong>重要：</strong>購入リクエストを処理し、チケットを割り当てる、イベント予約ビジネスの中核となる部分です。IBM MQ Messagingは、会議イベント処理コードの中で重要な役割を果たしており、会議イベント予約サービスとチケット販売会社の間で、価値の高いメッセージの確実な配信を行っています。チケットを売りすぎたり、リクエストに応えられなかったりすると、会議イベントの予約事業者の評判が下がってしまうので、この点を正しく理解することが重要です。</li>
 <li>IBM MQサーバ<strong>：サブスクリプション・トピック</strong> <code>newTickets</code>、リクエスト・メッセージ用の<strong>purchase queue</strong>、レスポンス・メッセージ用の<strong>confirmation queue</strong>をホストするキュー・マネージャです。</li>
 </ul>
 <p>キューは、Dockerコンテナの起動時に<a href="https://www.ibm.com/docs/ibm-mq/latest?topic=reference-runmqsc-run-mqsc-commands" target="_blank" rel="noopener noreferrer"><em>MQSC</em> commands</a>を実行することで、管理的に作成されました。
@@ -4940,26 +4918,22 @@ docker run -e LICENSE=accept -e MQ_QMGR_NAME=QM1 -e LOG_FORMAT=json -e MQ_APP_PA
 <h2 id="modelanswer">ModelAnswerアプリを実行して動作を確認する<a class="headerlink" href="#modelanswer" title="Permanent link">&para;</a></h2>
 <p>別のターミナルを開き、<code>MQClient/mq-dev-badge-sample/ModelAnswer</code>ディレクトリに移動します。</p>
 <p>そのディレクトリで、アプリケーションをコンパイルするコマンドを実行します。</p>
-<p><code>javac -cp ../../com.ibm.mq.allclient-9.2.3.0.jar: ../../javax.jms-api-2.0.1.jar com/ibm/mq/demo/*.java</code> のようにします。</p>
+<p>*<code>javac -cp ../../com.ibm.mq.allclient-9.2.3.0.jar: ../../javax.jms-api-2.0.1.jar com/ibm/mq/demo/*.java</code> のようにします。</p>
 <p>Windowsの場合、このコマンドは</p>
-<p>javac -cp ...com.ibm.mq.allclient-9.2.3.0.jar; ...\javax.jms-api-2.0.1.jar com\ibm˶demo˶*.java` です。</p>
+<p><code>*javac -cp ...com.ibm.mq.allclient-9.2.3.0.jar; ...\javax.jms-api-2.0.1.jar com\ibm˶demo˶*.java</code> です。</p>
 <p>このコマンドは、<code>MQClient</code>ディレクトリに<code>.jar</code>ファイルがある場合にのみ動作します。  また、<a href="#check-your-prereqs">Check your prereqs</a>や<a href="#get-the-challenge-code">Get the challenge code</a>のセクションを参照して、コードが正しくセットアップされているか確認してください。</p>
-<p>ファイルを見て、アプリが正しくコンパイルされたことを確認します。ls com/ibm/mq/demo`.</p>
-<p>ls com/ibm/mq/demo`というファイルを見て、アプリが正しくコンパイルされたことを確認してください。</p>
+<p>ファイルを見て、アプリが正しくコンパイルされたことを確認します。<code>ls com/ibm/mq/demo</code>.</p>
+<p><code>ls com/ibm/mq/demo</code>というファイルを見て、アプリが正しくコンパイルされたことを確認してください。</p>
 <p><img alt="コンパイルされたアプリのディレクトリの出力" src="images/compiled-app-output.png" /></p>
 <p>サービスの入ったコンテナが停止した元のターミナル・ウィンドウに戻ります。</p>
 <p>2つのターミナル・ウィンドウを並べて配置し、両方を簡単に操作できるようにします。</p>
 <p><img alt="2つのターミナルウィンドウを並べて表示" src="images/two-terminal-windows.png" /></p>
 <p>左側のDockerコンテナのターミナルでは、コンテナを再起動して、サーバーとアプリの動作による出力を確認する必要があります。  コンテナを起動します。</p>
-<pre><code>docker restart mqebs
-</code></pre>
 <p>コンテナからの出力をターミナルで取得します。</p>
-<pre><code>docker container attach mqebs
-</code></pre>
 <p>右側のターミナルで、ModelAnswerアプリケーションを実行するためのコマンドを準備しますが、コマンドを入力する前に、サーバーターミナルのイベントが表示され始めるのを待ちます。</p>
 <p><code>java -cp ../../com.ibm.mq.allclient-9.2.3.0.jar:../../javax.jms-api-2.0.1.jar:. com.ibm.mq.demo.Reseller</code>.</p>
 <p>Windowsでは、このようなコマンドになります。</p>
-<p>Java -cp ...\com.ibm.mq.allclient-9.1.4.0.jar;...\javax.jms-api-2.0.1.jar;...com.ibm.mq.demo.Reseller`.</p>
+<p><code>Java -cp ...\\com.ibm.mq.allclient-9.1.4.0.jar;...\javax.jms-api-2.0.1.jar;...com.ibm.mq.demo.Reseller</code>.</p>
 <p><img alt="2つのターミナルウィンドウを並べてコマンドを入力" src="images/two-terminal-windows-cmds.png" /></p>
 <p>これで、ModelAnswerアプリケーションを起動するコマンドを実行すると、次のように表示されるはずです。</p>
 <p><img alt="2つのターミナルウィンドウを並べてコマンドを入力" src="images/two-terminal-windows-cmds2.png" /></p>
@@ -5022,7 +4996,7 @@ docker run -e LICENSE=accept -e MQ_QMGR_NAME=QM1 -e LOG_FORMAT=json -e MQ_APP_PA
 トランザクションコーディネータは、両方の操作が正常に完了するか、あるいは全く完了しないかを確認するために使用されます。</p>
 <p>アプリケーションが複雑になると、複数のアプリケーションやバックエンドシステムのトランザクションを調整するために、エンタープライズ規模のフレームワークが使用されます。  エンタープライズ・スケールのフレームワークには、以下のようなものがあります。
 * IBMのオープンソースプロジェクトである<a href="https://openliberty.io/" target="_blank" rel="noopener noreferrer nofollow"><em>Open Liberty</em></a>。
-* <a href="https://www.ibm.com/cloud/websphere-application-platform" target="_blank" rel="noopener noreferrer"><em>IBM WebSphere Application Server</em></a> のことです。
+* <a href="https://www.ibm.com/jp-ja/cloud/websphere-application-platform" target="_blank" rel="noopener noreferrer"><em>IBM WebSphere Application Server</em></a> のことです。
 * <a href="https://spring.io/" target="_blank" rel="noopener noreferrer nofollow"><em>Spring</em></a></p>
 <h3 id="_15">アプリのパフォーマンスを重視する<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>アプリケーションのパフォーマンスを確実に向上させたい場合は、<a href="https://developer.ibm.com/articles/mq-best-practices/" target="_blank" rel="noopener noreferrer">開発者向けのベストプラクティス_</a>を参考にしてください。</p>

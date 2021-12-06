@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4720,18 +4720,28 @@
 <h2 id="_3">手順<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="1">ステップ 1.環境設定<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p>環境を整えるために</p>
-<p>1.Edge AI APIのドキュメントページに移動し、<strong>Get trial subscription</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![トライアルサブスクリプション](images/figure1.png)
-</code></pre>
-
-<p>1.すでにIBM IDを持っている場合は、登録ページでログインします。そうでない場合は、自分で<a href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776&amp;target=https%3A%2F%2Flogin.ibm.com%2F">新しいIBM ID</a>を作成します。</p>
-<p>1.ログインすると、システムはお客様にトライアルサブスクリプションの権利を与え、My IBM ページに移動します。Trial for Edge AI API」タイルを探して、「<strong>Launch</strong>」をクリックします。</p>
-<p>1.My APIs」ページで、「<strong>Edge AI</strong>」タイルをクリックします。ページが開いたら、[Key management]セクションを見つけ、行を展開してClient IDとClient secretの両方を確認し、可視性（目）アイコンをクリックして実際の値を表示します。これらの値は、このチュートリアルで使用するAPIキーなので、メモしておいてください。</p>
-<pre class="codehilite"><code class="linenums">![鍵の管理](画像/図2.png)
-</code></pre>
-
-<p>1.受け取ったAPIキーの値を含むconfig.jsonファイルを作成します。</p>
-<p>1.pip を使って、Python パッケージ <code>requests</code> をインストールします。</p>
+<ol>
+<li>
+<p>Edge AI APIのドキュメントページに移動し、<strong>Get trial subscription</strong>をクリックします。</p>
+<p><img alt="トライアルサブスクリプション" src="images/figure1.png" /></p>
+</li>
+<li>
+<p>すでにIBM IDを持っている場合は、登録ページでログインします。そうでない場合は、自分で<a href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776&amp;target=https%3A%2F%2Flogin.ibm.com%2F">新しいIBM ID</a>を作成します。</p>
+</li>
+<li>
+<p>ログインすると、システムはお客様にトライアルサブスクリプションの権利を与え、My IBM ページに移動します。「Trial for Edge AI API」タイルを探して、「<strong>Launch</strong>」をクリックします。</p>
+</li>
+<li>
+<p>「My APIs」ページで、「<strong>Edge AI</strong>」タイルをクリックします。ページが開いたら、[Key management]セクションを見つけ、行を展開してClient IDとClient secretの両方を確認し、可視性（目）アイコンをクリックして実際の値を表示します。これらの値は、このチュートリアルで使用するAPIキーなので、メモしておいてください。</p>
+<p><img alt="鍵の管理" src="images/図2.png" /></p>
+</li>
+<li>
+<p>受け取ったAPIキーの値を含むconfig.jsonファイルを作成します。</p>
+</li>
+<li>
+<p>pip を使って、Python パッケージ <code>requests</code> をインストールします。</p>
+</li>
+</ol>
 <h2 id="step-2model-fusion-api">Step 2.Model Fusion APIを起動します。<a class="headerlink" href="#step-2model-fusion-api" title="Permanent link">&para;</a></h2>
 <p>APIドキュメントページで、Model Fusion APIを探します。</p>
 <p>&lt;スクリーンショットの追加</p>
@@ -4739,184 +4749,41 @@
 <p>この<a href="static/model-fusion">Pythonノートブックの例</a>では、2つのCNNエッジモデルから集約融合モデルを作成しています。お好みのPythonノートブックIDEを使ってノートブックを作業することができます。</p>
 <h4 id="_4">モデルフュージョン<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>Model Fusionは、エッジ環境での連合学習のためのフレームワークです。連合学習とは、各参加ノード（またはパーティ）がローカルにデータを保持し、学習プロトコルを通じて他の参加者と対話する分散型の機械学習プロセスです。連携学習の背景には、データを他者と共有したくないというニーズがありますが、これは主にプライバシーと機密性への懸念によるものです。</p>
-<pre><code>API呼び出しやデータシリアライズのためのインポートライブラリ
-インポートリクエスト
-import pickle
-インポート json
-インポートOS
-</code></pre>
 <h4 id="model-fusion">Model Fusionの要件<a class="headerlink" href="#model-fusion" title="Permanent link">&para;</a></h4>
 <p>Federated Learningでは、モデルフュージョンのために、すべての関係者が同じモデルアーキテクチャを使用する必要があります。この例では、すべての関係者が使用するPytorch CNNを定義します。</p>
-<pre><code>インポートtorch
-from torch import nn
-
-model = nn.Sequential(nn.Conv2d(1, 32, 3, 1),
-                      nn.ReLU(),
-                      nn.Conv2d(32, 64, 3, 1),
-                      nn.ReLU()となっています。
-                      nn.MaxPool2d(2, 2)。
-                      nn.Dropout2d(p=0.25)。
-                      nn.Flatten()。
-                      nn.Linear(9216, 128),
-                      nn.ReLU()。
-                      nn.Dropout2d(p=0.5)。
-                      nn.Linear(128, 10)。
-                      nn.LogSoftmax(dim=1))
-
-fname = 'torch_mnist_cnn.pt'
-torch.save(model, fname)
-</code></pre>
 <h4 id="_5">アグリゲータ用のパラメータを用意する<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>アグリゲータはフュージョンアルゴリズムの実行を担当し、登録されている相手に問い合わせをして、連携学習の処理を行います。送信されるクエリは、モデルやアルゴリズムの種類によって異なります。融合ハンドラクラスで指定された融合アルゴリズムに従って、モデルの更新情報が集約されます。</p>
 <h4 id="_6">構成要素<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>アグリゲータの構成を設定するパラメータの一覧を以下に示します。</p>
 <ul>
 <li><code>fusion_algorithm</code>:フェデレーションの学習プロセスにおける融合アルゴリズムの名前です。オプションには <code>'fedavg'</code>, <code>'iter_avg'</code>, <code>'doc2vec'</code> があります。</li>
-<li><code>fedavg</code>:fedavg` 融合アルゴリズムは，機械学習モデルをフェデレーション学習で学習するためのよく知られた方法です．アグリゲータは、各ラウンドにおいて、更新されたローカルモデルの重みとサンプルサイズをすべてのパーティに要求し、学習に使用されたサンプルサイズに基づいて、収集されたモデルの重みに対して加重平均集計を行います。そして，グローバルモデルの重みは，収集されたすべてのローカルモデルの重みの加重平均によって更新されます。</li>
+<li><code>`fedavg</code>:fedavg` 融合アルゴリズムは，機械学習モデルをフェデレーション学習で学習するためのよく知られた方法です．アグリゲータは、各ラウンドにおいて、更新されたローカルモデルの重みとサンプルサイズをすべてのパーティに要求し、学習に使用されたサンプルサイズに基づいて、収集されたモデルの重みに対して加重平均集計を行います。そして，グローバルモデルの重みは，収集されたすべてのローカルモデルの重みの加重平均によって更新されます。</li>
 <li><code>iter_avg</code>:この反復型平均融合アルゴリズムは，グローバルトレーニングラウンドごとに，登録されているすべての当事者にクエリを反復的に送信して情報を求め，当事者から収集した情報を用いてグローバルモデルを更新します。具体的には、アグリゲータは、各ラウンドにおいて、更新されたローカルモデルの重みをすべてのパーティに要求し、その後、収集されたモデルの重みに対して単純な平均化集計を行います。そして、グローバルモデルのウェイトは、収集されたすべてのローカルモデルのウェイトの平均値によって更新されます。</li>
 <li>doc2vec<code>:</code>doc2vec<code>は，</code>word2vec<code>と同様に，テキスト文書のベクトル埋め込みを学習する教師なしアルゴリズムです．doc2vec</code> のモデルの融合方法は、フェデレーション平均化アルゴリズムをセマンティックなベクトル埋め込みの設定に適応させたものです。</li>
 <li><code>model_type</code>:融合に使用するモデルのタイプです。オプションには '<code>keras'</code>, <code>'pytorch'</code>, <code>'doc2vec'</code> があります。</li>
-<li><code>model_file</code>:model_file`: 保存された初期モデルで、アグリゲータが各パーティに配布し、各パーティのプライベートデータセットで個別にトレーニングを行います。model_fileはユーザーによって定義されます。</li>
-<li><code>num_parties</code>: 融合に参加するノードの数です。融合に参加するノードの数です。</li>
-<li><code>rounds</code>: 融合のラウンド数です。* <code>rounds</code>: 融合を完了するまでのラウンド数。</li>
+<li><code>`model_file</code>:model_file`: 保存された初期モデルで、アグリゲータが各パーティに配布し、各パーティのプライベートデータセットで個別にトレーニングを行います。model_fileはユーザーによって定義されます。</li>
+<li><code>num_parties</code>: 融合に参加するノードの数です。融合に参加するノードの数です。
+<strong><em>* <code>rounds</code>: 融合のラウンド数です。</em></strong>* <code>rounds</code>: 融合を完了するまでのラウンド数。</li>
 <li><code>epochs</code>: エポック数です。各融合ラウンドで学習するエポック数です。</li>
 <li><code>learning_rate</code>: 学習率。学習に使用するパーティの学習率です。</li>
 <li><code>optimizer</code>: オプティマイザーの名前です。学習に使用するオプティマイザーの名前です (<code>doc2vec</code> には適用されません)。KerasやPyTorchのライブラリで使用されている名前である必要がある（例：PyTorchの場合はoptim.Adam）。</li>
 </ul>
-<pre><code>フュージョン = 'fedavg'
-モデルタイプ = 'pytorch'
-model_file = 'torch_mnist_cnn.pt'
-num_parties = 2
-ラウンド数 = 5
-エポック数 = 3
-lr = 1
-オプティマイザー = 'optim.Adadelta'
-</code></pre>
 <h4 id="_7">アグリゲーターの起動<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>アグリゲータの設定ファイルを定義すると、<code>edgeai_model_fusion</code>サービスからアグリゲータを起動することができます。このサービスが成功すると、パーティがアグリゲータに登録するためのIDが返されます。</p>
-<pre><code>url = 'https://&lt;model_fusion_api_url&gt;/start-aggregator' # 正しいurlを挿入してください。
-
-payload = {'fusion_algorithm': fusion, 'model_type': model_type, 'num_parties': num_parties, 'rounds': rounds, 'learning_rate': lr, 'epochs': epochs, 'optimizer': optimizer}.
-
-files = {'model_file': open(model_file, 'rb'), }.
-
-r = requests.post(url, data=payload, files=files, verify=False)
-
-r.テキスト
-
-agg_id = r.json()['aggregator_id'].
-</code></pre>
 <h4 id="_8">各パーティのローカルデータを用意する<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>各政党は独立してモデルを学習するために独自のデータセットを保持しているので、MNISTデータセットのサブセットを各政党ごとに入手し、一様に分割します。</p>
-<pre><code>def print_statistics(i, x_test_pi, x_train_pi, nb_labels, y_train_pi):
-    print('Party_', i)
-    print('nb_x_train: ', np.shape(x_train_pi),
-          'nb_x_test: ', np.shape(x_test_pi))
-    for l in range(nb_labels):
-        print('* Label ', l, ' samples:', (y_train_pi == l).sum())
-
-## import numpy as np
-## from keras import utils
-## from keras.datasets import mnist
-
-img_rows, img_cols = 28, 28
-nb_dp_per_party = [500,500].
-
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
-x_train = x_train.astype('float32').reshape(x_train.shape[0], 1, img_rows, img_cols) / 255.
-y_train = y_train.astyype('int64')
-x_test = x_test.asstype('float32').reshape(x_test.shape[0], 1, img_rows, img_cols) / 255.
-y_test = y_test.astyype('int64')
-
-labels, train_counts = np.unique(y_train, return_counts=True)
-te_labels, test_counts = np.unique(y_test, return_counts=True)
-
-if np.all(np.isin(labels, te_labels)):
-    print(&quot;Warning: test set and train set contain different labels&quot;)
-
-num_train = np.shape(y_train)[0] 。
-num_test = np.shape(y_test)[0] です。
-num_labels = np.shape(np.unique(y_test))[0] 。
-nb_parties = len(nb_dp_per_party)
-
-
-train_probs = {label: 1.0 / len(labels) for label in labels}.
-test_probs = {label: 1.0 / len(te_labels) for label in te_labels}.
-
-for idx, dp in enumerate(nb_dp_per_party):
-    train_p = np.array([train_probs[y_train[idx]] for idx in range(num_train)])
-    train_p /= np.sum(train_p)
-    train_indices = np.random.choice(num_train, dp, p=train_p)
-    test_p = np.array([test_probs[y_test[idx]] for idx in range(num_test)])
-    test_p /= np.sum(test_p)
-
-    # テストを均等に分割
-    test_indices = np.random.choice(num_test, int(num_test / nb_parties), p=test_p)
-    x_train_pi = x_train[train_indices] (x_train_pi)
-    y_train_pi = y_train[train_indices] (y_train[train_indices])
-    x_test_pi = x_test[test_indices] (x_test[test_indices])
-    y_test_pi = y_test[test_indices] (テストインデックス)
-
-    # これをnpzにまとめる
-    name_file = 'data_party' + str(idx) + '.npz'
-    print(name_file)
-    np.savez(name_file, x_train=x_train_pi, y_train=y_train_pi,
-             x_test=x_test_pi, y_test=y_test_pi)
-
-    print_statistics(idx, x_test_pi, x_train_pi, num_labels, y_train_pi)
-</code></pre>
 <h4 id="start-party-nodes">Start party nodes<a class="headerlink" href="#start-party-nodes" title="Permanent link">&para;</a></h4>
 <p>フェデレーションに参加するために各パーティを起動します。アグリゲータへの登録には、以下のパラメータが必要です。</p>
 <ul>
 <li><code>aggregator_id</code>:融合のために接続するアグリゲータのIDです。</li>
 <li><code>data</code>:学習するデータファイルのパスです。</li>
 <li><code>data_handler_class_name</code>: 学習するデータハンドラの名前です。学習するデータハンドラの名前です。モデルフュージョンでは、データを前処理するためにdata_handlerが必要です。APIには、Kerasモデルの'cifar10_keras'や'mnist_keras'、PyTorchモデルの'mnist_pytorch'、<code>doc2vec</code>の'20_newsgroup'や'wikipedia'などの一般的なデータセット用のハンドラーが含まれています。カスタムの <code>datahandler</code> が提供されている場合は、そのクラスの名前を列挙する必要があります。</li>
-<li><code>custom_data_handler</code> (オプション):ユーザーが作成したトレーニング用のデータハンドラのPythonモジュールへのパスです。カスタマーデータハンドラーの作成方法については、こちらを参照してください。<strong>NEED LINK</strong>*</li>
+<li><code>custom_data_handler</code> (オプション):ユーザーが作成したトレーニング用のデータハンドラのPythonモジュールへのパスです。カスタマーデータハンドラーの作成方法については、こちらを参照してください。<strong><em>NEED LINK</em></strong></li>
 </ul>
 <p>成功すると、サービスに登録できる残りの相手の数が通知されます。</p>
-<pre><code>データハンドラー = 'mnist_pytorch'
-
-url = 'https://&lt;model_fusion_API_URL&gt;/start-party' # APIのURLを追加します。
-
-payload = {'aggregator_id': agg_id, 'data_handler_class_name': data_handler}.
-
-files = {'data': open('data_party0.npz', 'rb'), }.
-
-r = requests.post(url, data=payload, files=files, verify=False)
-
-r.テキスト
-
-url = 'https://&lt;model_fusion_API_URL&gt;/start-party' # APIのURLを追加します。
-
-payload = {'aggregator_id': agg_id, 'data_handler_class_name': 'mnist_pytorch'}。
-
-files = {'data': open('data_party1.npz', 'rb'), }.
-
-r = requests.post(url, data=payload, files=files, verify=False)
-
-r.テキスト
-</code></pre>
 <h4 id="model-fusion_1">連携学習（Model Fusion）の開始<a class="headerlink" href="#model-fusion_1" title="Permanent link">&para;</a></h4>
 <p>アグリゲータへの登録が完了したら、連携学習を開始します。ここでは、<code>model_fusion</code>サービスに<code>train</code>コマンドを発行して学習を開始します。</p>
 <p>正しいアグリゲータを登録するためには、<code>aggregator_id</code>パラメータが必要です。トレーニングが成功すると、サービスはフュージョンによって得られたグローバルモデルのモデルウェイトを返す必要があります。</p>
-<pre><code>url = 'https://&lt;model_fusion_API_URL&gt;/train' # APIのURLを入力してください。
-payload = {'aggregator_id': agg_id}.
-r = requests.post(url, json=payload, verify=False)
-
-r
-
-グローバルモデルの再構築を可能にする、モデル学習プロセスからのグローバルモデル（パラメータ）の取得
-global_model = r.json()['global_model'] # ウェイトとして保存し、pytorchモデルに提供することができます。
-
-フェデレーション終了
-url = 'https://&lt;model_fusion_API_URL&gt;/stop' # 正しいURLを入れる
-
-payload = {'aggregator_id': agg_id}.
-
-r = requests.post(url, json=payload, verify=False)
-
-r.text
-</code></pre>
 <p><strong>注</strong>:APIドキュメントのページには、Try this APIという機能があり、これはRESTクライアントのUIです。これを使えば、同じコンテキストでドキュメントを読んでAPIを呼び出すことができます。</p>
 <h2 id="_9">まとめ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、API キーを保護し、IBM Cloud にホストされている Edge AI API を簡単に呼び出す方法を説明しました。スイートに含まれるAPIは、アプリケーションのニーズに合わせてさまざまなアルゴリズムを呼び出すのに役立ちます。ご質問やご相談がありましたら、EdgeAI.User@ibm.com。</p>

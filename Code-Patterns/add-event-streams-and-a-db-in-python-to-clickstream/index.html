@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4503,23 +4503,27 @@
 <p>このパターンでは、Apache Kafka を利用したストリーミング・アプリケーションを作成するための基本的な手順を説明します。このアプリケーションは、IBM Cloud Pak for Data 上の IBM Streams を使用して構築します。IBM Streams は、ストリーミング・アプリケーションを視覚的に作成できる内蔵 IDE (Streams Flows) を提供しています。IBM Cloud Pak for Data プラットフォームは、複数のデータ・ソースとの統合、組み込みのアナリティクス、Jupyter Notebooks、機械学習などの追加サポートを提供します。</p>
 <p>Apache Kafkaサービスには、Kafkaプラットフォーム上に構築された高スループットのメッセージバスであるIBM Event Streams on IBM Cloudを使用します。以下の例では、クリックストリーム・データ（オンライン・ショッピング・サイトを閲覧中のユーザーのクリックから取得したデータ）のソースとターゲットの両方として使用しています。</p>
 <h2 id="_3">フロー<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><img alt="フロー" src="画像/flow.png" /></p>
-<p>1.ユーザーがIBM Streamsでストリーミングアプリを作成する。
-1.ストリーミングアプリは、IBM Event Streamsを介してKafkaサービスを利用し、メッセージを送受信する。
-1.IBM StreamsアプリからJupyterノートブックが生成される。
-1.ユーザーがJupyter notebookでストリーミングアプリを実行する。
-1.Jupyter notebookはIBM Event Streams経由でKafkaサービスにアクセスし、メッセージを送受信する。</p>
+<p><img alt="フロー" src="images/flow.png" /></p>
+<ol>
+<li>ユーザーがIBM Streamsでストリーミングアプリを作成する。</li>
+<li>ストリーミングアプリは、IBM Event Streamsを介してKafkaサービスを利用し、メッセージを送受信する。</li>
+<li>IBM StreamsアプリからJupyterノートブックが生成される。</li>
+<li>ユーザーがJupyter notebookでストリーミングアプリを実行する。</li>
+<li>Jupyter notebookはIBM Event Streams経由でKafkaサービスにアクセスし、メッセージを送受信する。</li>
+</ol>
 <h2 id="_4">指示<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>始める準備はできましたか？README](https://github.com/IBM/ibm-streams-with-kafka)では、以下の手順を説明しています。</p>
-<p>1.レポをクローンする
-1.IBMクラウド上のProvison Event Streams
-1.サンプルKafkaコンソールPythonアプリの作成
-1.IBM StreamsサービスをCloud Pak for Dataに追加する
-1.Cloud Pak for Dataに新しいプロジェクトを作成する
-1.Cloud Pak for DataでStreams Flowを作成します。
-1.KafkaをソースとするStreams Flowを作成します。
-1.Streams Flowオプションを使用してノートブックを生成する
-1.生成されたStreams Flowノートブックを実行する</p>
+<p><a href="https://github.com/IBM/ibm-streams-with-kafka">始める準備はできましたか？README</a>では、以下の手順を説明しています。</p>
+<ol>
+<li>レポをクローンする</li>
+<li>IBMクラウド上のProvison Event Streams</li>
+<li>サンプルKafkaコンソールPythonアプリの作成</li>
+<li>IBM StreamsサービスをCloud Pak for Dataに追加する</li>
+<li>Cloud Pak for Dataに新しいプロジェクトを作成する</li>
+<li>Cloud Pak for DataでStreams Flowを作成します。</li>
+<li>KafkaをソースとするStreams Flowを作成します。</li>
+<li>Streams Flowオプションを使用してノートブックを生成する</li>
+<li>生成されたStreams Flowノートブックを実行する</li>
+</ol>
                 
                   
                 

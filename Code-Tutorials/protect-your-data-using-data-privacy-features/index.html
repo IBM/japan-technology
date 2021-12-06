@@ -1389,14 +1389,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1463,7 +1463,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1477,7 +1477,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1520,14 +1520,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1552,7 +1552,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1566,7 +1566,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1580,7 +1580,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1594,7 +1594,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1608,7 +1608,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4607,7 +4607,7 @@
 </ul>
 <h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data v4.0</a>。</li>
+<li><a href="https://www.ibm.com/jp-ja/products/cloud-pak-for-data">IBM Cloud Pak for Data v4.0</a>。</li>
 <li><a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.0?topic=services-watson-knowledge-catalog">Watson Knowledge Catalog on Cloud Pak for Data</a>。</li>
 <li><a href="https://developer.ibm.com/tutorials/analyze-discovered-data-to-gain-insights-on-the-quality-of-your-data">Analyze discovered data to gain insights on the quality of your data</a>の手順を完了すること。</li>
 <li>データ・プライバシー・ルールを適用した結果を検証するために、IBM Cloud Pak for Data インスタンスに 2 人の非管理者ユーザーを作成する必要があります。このチュートリアルでは、<em>regular_user</em>というユーザーは通常のユーザーを表し、<em>restricted_user</em>は、いくつかの追加のアクセス制限があるユーザーを表します。カタログや割り当てられたサービスにアクセスできるように、両方のユーザーに<strong>User</strong>と<strong>Developer</strong>のロールを提供します。</li>
@@ -4617,208 +4617,232 @@
 <h2 id="step-1">Step 1.アクセスを拒否するデータ保護ルールの追加<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h2>
 <p>ルールで指定されたユーザーがデータを閲覧できないようにするデータ保護ルールの作成から始めます。</p>
 <p>ここでは、「Restrict access for Passport and Driver's License number」というガバナンスルールを実施するためのデータ保護ルールを作成します。これは、これらのフィールドを持つアセットの可視性を特定のユーザー（ここではrestricted_user）に制限するというものです。</p>
-<p>1.IBM Cloud Pak for Data インスタンスにログインします。</p>
-<pre class="codehilite"><code class="linenums">![CPDログイン](images/cpd-login.png)
-</code></pre>
-
-<p>1.左上の<strong>ハンバーガー（☰）</strong>メニューに行き、<strong>Governance</strong>を展開し、<strong>Rules</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ハンバーガーメニュー-ルール](images/cpd-hamburger-menu-rules.png)
-</code></pre>
-
-<p>1.Add rule &gt; New rule**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ルール - 新規追加](images/cpd-add-new-rule.png)
-</code></pre>
-
-<p>1.データ保護ルール」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - data protection rule](images/cpd-data-protection-rule.png)をクリックします。
-</code></pre>
-
-<p>1.ルールの名前を入力し（<code>Restrict access - Passport and Drivers License</code>）、ルールのタイプを <strong>Access</strong> と選択し、ルールの説明を入力します。右側にある<em>Condition 1</em>の最初の部分を作成します。"If <code>Data class contains any Passport</code>"という条件を構成する値を選択して入力します。条件の中にさらにセクションを追加するには、<strong>+</strong>記号をクリックします。OR**を選択して2つのセクションを結合し、"<code>Business term contains any Patient Driver's License</code>"という形で値を入力・選択して2つ目のセクションを更新します。この条件は、オブジェクトのデータ・クラスがPassportである場合、またはオブジェクトのビジネス・タームがPatient Driver's Licenseである場合に、ルールを実行することを示しています。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule deny access - 1](images/cpd-dp-rule-deny-access-1.png)
-</code></pre>
-
-<p>1.Add new condition +**」をクリックします。</p>
-<p>1.新しい条件(<em>Condition 2</em>)が追加されます。2つの条件を結合するために<strong>AND</strong>を選択し、"If <code>User name contains any</code>. "という形式で値を入力・選択して<em>Condition 2</em>を更新する。Add users +**」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule deny access - 2](images/cpd-dp-rule-deny-access-2.png)
-</code></pre>
-
-<p>1.ポップアップウィンドウで、<strong>restricted_user</strong>を選択し、<strong>Add</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule deny access - 3](images/cpd-dp-rule-deny-access-3.png)
-
-**注意**:**restricted_user**は、PassportデータクラスまたはPatient Driver's Licenseビジネスタームを持つすべてのデータへのアクセスを拒否したい、システムに存在するユーザーを表します。
-</code></pre>
-
-<p>1.条件2は "If User name contains any restricted_user. "となっています。この条件は、データにアクセスしようとしているユーザーが<strong>restricted_user</strong>である場合にルールを実行することを示しています。最後に、実行する<em>Action</em>を<strong>deny access to data</strong>にして、<strong>Create</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule deny access - 4](images/cpd-dp-rule-deny-access-4.png)
-</code></pre>
-
-<p>1.ルールが保存され、画面に表示されます。パンくずリストの<strong>Rules</strong>をクリックすると、Rulesページに戻ります。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule deny access saved](images/cpd-dp-rule-deny-access-saved.png)
-</code></pre>
-
+<ol>
+<li>
+<p>IBM Cloud Pak for Data インスタンスにログインします。</p>
+<p><img alt="CPDログイン" src="images/cpd-login.png" /></p>
+</li>
+<li>
+<p>左上の<strong>ハンバーガー（☰）</strong>メニューに行き、<strong>Governance</strong>を展開し、<strong>Rules</strong>をクリックします。</p>
+<p><img alt="ハンバーガーメニュー-ルール" src="images/cpd-hamburger-menu-rules.png" /></p>
+</li>
+<li>
+<p><strong>Add rule &gt; New rule</strong>をクリックします。</p>
+<p><img alt="ルール - 新規追加" src="images/cpd-add-new-rule.png" /></p>
+</li>
+<li>
+<p>「データ保護ルール」をクリックします。</p>
+<p><img alt="Rules - data protection rule" src="images/cpd-data-protection-rule.png" />をクリックします。</p>
+</li>
+<li>
+<p>ルールの名前を入力し（<code>Restrict access - Passport and Drivers License</code>）、ルールのタイプを <strong>Access</strong> と選択し、ルールの説明を入力します。右側にある<em>Condition 1</em>の最初の部分を作成します。"If <code>Data class contains any Passport</code>"という条件を構成する値を選択して入力します。条件の中にさらにセクションを追加するには、<strong>+</strong>記号をクリックします。<strong>OR</strong>を選択して2つのセクションを結合し、"<code>Business term contains any Patient Driver's License</code>"という形で値を入力・選択して2つ目のセクションを更新します。この条件は、オブジェクトのデータ・クラスがPassportである場合、またはオブジェクトのビジネス・タームがPatient Driver's Licenseである場合に、ルールを実行することを示しています。</p>
+<p><img alt="Rules - dp rule deny access - 1" src="images/cpd-dp-rule-deny-access-1.png" /></p>
+</li>
+<li>
+<p>「<strong>Add new condition +</strong>」をクリックします。</p>
+</li>
+<li>
+<p>新しい条件(<em>Condition 2</em>)が追加されます。2つの条件を結合するために<strong>AND</strong>を選択し、"If <code>User name contains any</code>. "という形式で値を入力・選択して<em>Condition 2</em>を更新する。「<strong>Add users +</strong>」をクリックします。</p>
+<p><img alt="Rules - dp rule deny access - 2" src="images/cpd-dp-rule-deny-access-2.png" /></p>
+</li>
+<li>
+<p>ポップアップウィンドウで、<strong>restricted_user</strong>を選択し、<strong>Add</strong>をクリックします。</p>
+<p><img alt="Rules - dp rule deny access - 3" src="images/cpd-dp-rule-deny-access-3.png" /></p>
+<p><strong>注意</strong>:<strong>restricted_user</strong>は、PassportデータクラスまたはPatient Driver's Licenseビジネスタームを持つすべてのデータへのアクセスを拒否したい、システムに存在するユーザーを表します。</p>
+</li>
+<li>
+<p>条件2は "If User name contains any restricted_user. "となっています。この条件は、データにアクセスしようとしているユーザーが<strong>restricted_user</strong>である場合にルールを実行することを示しています。最後に、実行する<em>Action</em>を<strong>deny access to data</strong>にして、<strong>Create</strong>をクリックします。</p>
+<p><img alt="Rules - dp rule deny access - 4" src="images/cpd-dp-rule-deny-access-4.png" /></p>
+</li>
+<li>
+<p>ルールが保存され、画面に表示されます。パンくずリストの<strong>Rules</strong>をクリックすると、Rulesページに戻ります。</p>
+<p><img alt="Rules - dp rule deny access saved" src="images/cpd-dp-rule-deny-access-saved.png" /></p>
+</li>
+</ol>
 <h2 id="step-2">Step 2.データを再編集するデータ保護ルールの追加<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h2>
 <p>次に、データ保護ルールを使用してデータを再編集する方法を確認します。この方法では、列のデータを正確に10個のX文字からなる文字列に置き換えます。この方法は、データを隠すのに役立ちますが、データの元の形式を保持することはできません。すべての値が 10 X 文字に置き換えられるため、データの参照整合性も失われます。その列が他のテーブルの外部キー参照として使用されていた場合、データが再編集されるとその外部キー参照も失われます。</p>
 <p>データ保護ルールを作成して、「患者の生年月日を再編集する」というガバナンス・ルールを実施します。これは、患者の生年月日を隠しておくべきだというものです。</p>
-<p>1.ルール］ページで、［<strong>ルールの追加-&gt;新規ルール</strong>］をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ルール - 新規追加](images/cpd-add-new-rule.png)
-</code></pre>
-
-<p>1.データ保護ルール」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - data protection rule](images/cpd-data-protection-rule.png)をクリックします。
-</code></pre>
-
-<p>1.ルールの名前を入力し（<code>Redact the Birthdate of Patient</code>）、ルールのタイプを <strong>Access</strong> に選択し、ルールの説明を入力します。右側に、"If <code>Business term contains any Patient Birth Date</code>"という条件を構成する値を選択して入力し、<em>Condition 1</em>を作成します。Action<strong>の項目で、</strong>deny access to data<strong>をクリックしてドロップダウンメニューを開き、</strong>mask data**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule redact - 1](images/cpd-dp-rule-redact-1.png)
-</code></pre>
-
-<p>1.新しいフィールドが画面に表示されます。値を入力・選択して<strong>Action</strong>を更新し、"then <code>mask data in columns containing Business term Patient Birth Date</code>"という形式にします。データをマスクする方法を選択してください<strong>で、</strong>再編集*<em>を選択します。再演</em>ボックス内の値にカーソルを合わせると、マスキング後の値が表示されます。作成」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule redact - 2](images/cpd-dp-rule-redact-2.png)
-</code></pre>
-
-<p>1.ルールが保存され、画面に表示されます。パンくずリストの<strong>Rules</strong>をクリックすると、Rulesページに戻ります。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule redact saved](images/cpd-dp-rule-redact-saved.png)
-</code></pre>
-
+<ol>
+<li>
+<p>ルール］ページで、［<strong>ルールの追加-&gt;新規ルール</strong>］をクリックします。</p>
+<p><img alt="ルール - 新規追加" src="images/cpd-add-new-rule.png" /></p>
+</li>
+<li>
+<p>「データ保護ルール」をクリックします。</p>
+<p><img alt="Rules - data protection rule" src="images/cpd-data-protection-rule.png" />をクリックします。</p>
+</li>
+<li>
+<p>ルールの名前を入力し（<code>Redact the Birthdate of Patient</code>）、ルールのタイプを <strong>Access</strong> に選択し、ルールの説明を入力します。右側に、"If <code>Business term contains any Patient Birth Date</code>"という条件を構成する値を選択して入力し、<em>Condition 1</em>を作成します。<strong>Action</strong>の項目で、<strong>deny access to data</strong>をクリックしてドロップダウンメニューを開き、<strong>mask data</strong>をクリックします。</p>
+<p><img alt="Rules - dp rule redact - 1" src="images/cpd-dp-rule-redact-1.png" /></p>
+</li>
+<li>
+<p>新しいフィールドが画面に表示されます。値を入力・選択して<strong>Action</strong>を更新し、"then <code>mask data in columns containing Business term Patient Birth Date</code>"という形式にします。<strong>データをマスクする方法を選択してください</strong>で、<strong>再編集</strong>を選択します。<em>再演</em>ボックス内の値にカーソルを合わせると、マスキング後の値が表示されます。「作成」をクリックします。</p>
+<p><img alt="Rules - dp rule redact - 2" src="images/cpd-dp-rule-redact-2.png" /></p>
+</li>
+<li>
+<p>ルールが保存され、画面に表示されます。パンくずリストの<strong>Rules</strong>をクリックすると、Rulesページに戻ります。</p>
+<p><img alt="Rules - dp rule redact saved" src="images/cpd-dp-rule-redact-saved.png" /></p>
+</li>
+</ol>
 <h2 id="step-3">Step 3.置換するデータにデータ保護ルールを追加する<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h2>
 <p>データ保護ルールを使用して、データを置換する方法を確認します。この方法では、元の形式とは一致しない値でデータを置換します。ただし、置換されたデータのある列で、ある値が何度も使用されている場合は、同じ置換値に置き換えられます。このように、このデータのマスキング方法では、データを元のフォーマットに保つことはできませんが、データの参照整合性を保つことができます。</p>
 <p>人種、民族、性別などのセンシティブな個人情報をマスクするという「センシティブな個人情報をマスクする」というガバナンスルールを実施するためのデータ保護ルールを作成してみましょう。</p>
-<p>1.ルール」ページで、「<strong>ルールの追加」&gt;「新しいルール」</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ルール - 新規追加](images/cpd-add-new-rule.png)
-</code></pre>
-
-<p>1.データ保護ルール」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - data protection rule](images/cpd-data-protection-rule.png)をクリックします。
-</code></pre>
-
-<p>1.ルールの名前(<code>Hide Sensitive Personal Information</code>)を入力し、ルールの種類を <strong>Access</strong> にして、ルールの説明を入力します。右側で、"If <code>Business term contains any Patient Race Patient Ethnicity Patient Gender</code>"という条件を構成する値を選択して入力し、<em>Condition 1</em>を作成します。Action<strong>では、</strong>deny access to data<strong>をクリックしてドロップダウンメニューを開き、</strong>mask data**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ルール - dpルールの代用 - 1](images/cpd-dp-rule-substitute-1.png)
-</code></pre>
-
-<p>1.新しいフィールドが画面に表示されます。値を入力・選択して<strong>Action</strong>を更新し、「then <code>mask data in columns containing Business term Patient Race Patient Ethnicity Patient Gender</code>」の形にします。データをマスクする方法を選択する<strong>で、</strong>Substitute*<em>を選択します。Substitute</em>ボックス内の値にカーソルを合わせると、マスキング後の値が表示されます。作成」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule substitute - 2](images/cpd-dp-rule-substitute-2.png)
-</code></pre>
-
-<p>1.ルールが保存され、画面に表示されます。パンくずリストの<strong>Rules</strong>をクリックすると、Rulesページに戻ります。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule substitute saved](images/cpd-dp-rule-substitute-saved.png)
-</code></pre>
-
+<ol>
+<li>
+<p>「ルール」ページで、「<strong>ルールの追加」&gt;「新しいルール」</strong>をクリックします。</p>
+<p><img alt="ルール - 新規追加" src="images/cpd-add-new-rule.png" /></p>
+</li>
+<li>
+<p>「データ保護ルール」をクリックします。</p>
+<p><img alt="Rules - data protection rule" src="images/cpd-data-protection-rule.png" />をクリックします。</p>
+</li>
+<li>
+<p>ルールの名前(<code>Hide Sensitive Personal Information</code>)を入力し、ルールの種類を <strong>Access</strong> にして、ルールの説明を入力します。右側で、"If <code>Business term contains any Patient Race Patient Ethnicity Patient Gender</code>"という条件を構成する値を選択して入力し、<em>Condition 1</em>を作成します。<strong>Action</strong>では、<strong>deny access to data</strong>をクリックしてドロップダウンメニューを開き、<strong>mask data</strong>をクリックします。</p>
+<p><img alt="ルール - dpルールの代用 - 1" src="images/cpd-dp-rule-substitute-1.png" /></p>
+</li>
+<li>
+<p>新しいフィールドが画面に表示されます。値を入力・選択して<strong>Action</strong>を更新し、「then <code>mask data in columns containing Business term Patient Race Patient Ethnicity Patient Gender</code>」の形にします。<strong>データをマスクする方法を選択する</strong>で、<strong>Substitute</strong>を選択します。<em>Substitute</em>ボックス内の値にカーソルを合わせると、マスキング後の値が表示されます。「作成」をクリックします。</p>
+<p><img alt="Rules - dp rule substitute - 2" src="images/cpd-dp-rule-substitute-2.png" /></p>
+</li>
+<li>
+<p>ルールが保存され、画面に表示されます。パンくずリストの<strong>Rules</strong>をクリックすると、Rulesページに戻ります。</p>
+<p><img alt="Rules - dp rule substitute saved" src="images/cpd-dp-rule-substitute-saved.png" /></p>
+</li>
+</ol>
 <h2 id="step-4">Step 4.データを難読化するデータ保護ルールの追加<a class="headerlink" href="#step-4" title="Permanent link">&para;</a></h2>
 <p>次に、データ保護ルールを使って、データを難読化する方法を見てみましょう。この方法では、データを同様の形式の値に置き換えます。ただし、参照整合性やデータの分散は保持されません。したがって、クレジットカード番号や銀行口座番号などの金融口座情報、パスポート番号や社会保障番号などの政府の身分証明書、電話番号や電子メールアドレスなどの連絡先情報などのデータをマスキングするのに適した方法です。</p>
 <p>ここでは、社会保障番号をダミーの値に置き換えるという「社会保障番号のマスク」というガバナンスルールを実施するデータ保護ルールを作成します。</p>
-<p>1.ルール」ページで、<strong>「ルールの追加」&gt;「新しいルール」</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ルール - 新規追加](images/cpd-add-new-rule.png)
-</code></pre>
-
-<p>1.データ保護ルール」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - data protection rule](images/cpd-data-protection-rule.png)をクリックします。
-</code></pre>
-
-<p>1.ルールの名前(<code>Hide Social Security Number</code>)を入力し、ルールの種類を <strong>Access</strong> にして、ルールの説明を入力します。右側に、"If <code>Data class contains any US Social Security Number</code>. "という条件を構成する値を選択して入力し、<em>Condition 1</em>を作成します。Action<strong>では、</strong>deny access to data<strong>をクリックしてドロップダウンメニューを開き、</strong>mask data**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ルール - dpルールの難読化 - 1](images/cpd-dp-rule-obfuscate-1.png)
-</code></pre>
-
-<p>1.新しいフィールドが画面に表示されます。値を入力・選択して<strong>Action</strong>を更新し、"then <code>mask data in columns containing Data class US Social Security Number</code>"という形式にします。データをマスクする方法を選択してください<strong>で、</strong>難読化**を選択します。難読化]ボックス内の値にカーソルを合わせたり離したりすると、[前]と[後]の値のデータ形式がマスキング後も同じであることがわかります。作成」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule obfuscate - 2](images/cpd-dp-rule-obfuscate-2.png)
-</code></pre>
-
-<p>1.ルールが保存され、画面に表示されます。</p>
-<pre class="codehilite"><code class="linenums">![Rules - dp rule obfuscate saved](images/cpd-dp-rule-obfuscate-saved.png)
-</code></pre>
-
+<ol>
+<li>
+<p>「ルール」ページで、<strong>「ルールの追加」&gt;「新しいルール」</strong>をクリックします。</p>
+<p><img alt="ルール - 新規追加" src="images/cpd-add-new-rule.png" /></p>
+</li>
+<li>
+<p>「データ保護ルール」をクリックします。</p>
+<p><img alt="Rules - data protection rule" src="images/cpd-data-protection-rule.png" />をクリックします。</p>
+</li>
+<li>
+<p>ルールの名前(<code>Hide Social Security Number</code>)を入力し、ルールの種類を <strong>Access</strong> にして、ルールの説明を入力します。右側に、"If <code>Data class contains any US Social Security Number</code>. "という条件を構成する値を選択して入力し、<em>Condition 1</em>を作成します。<strong>Action</strong>では、<strong>deny access to data</strong>をクリックしてドロップダウンメニューを開き、<strong>mask data</strong>をクリックします。</p>
+<p><img alt="ルール - dpルールの難読化 - 1" src="images/cpd-dp-rule-obfuscate-1.png" /></p>
+</li>
+<li>
+<p>新しいフィールドが画面に表示されます。値を入力・選択して<strong>Action</strong>を更新し、"then <code>mask data in columns containing Data class US Social Security Number</code>"という形式にします。<strong>データをマスクする方法を選択してください</strong>で、<strong>難読化</strong>を選択します。[難読化]ボックス内の値にカーソルを合わせたり離したりすると、[前]と[後]の値のデータ形式がマスキング後も同じであることがわかります。「作成」をクリックします。</p>
+<p><img alt="Rules - dp rule obfuscate - 2" src="images/cpd-dp-rule-obfuscate-2.png" /></p>
+</li>
+<li>
+<p>ルールが保存され、画面に表示されます。</p>
+<p><img alt="Rules - dp rule obfuscate saved" src="images/cpd-dp-rule-obfuscate-saved.png" /></p>
+</li>
+</ol>
 <h2 id="step-5">Step 5.デフォルトカタログへのアセットの発行<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h2>
 <p>ここまでで、アセットの検出と分析の手順が完了し、データを保護するためのルールも組み込まれました。次に、アセットをカタログに公開して、他のユーザーがこれらのアセットを利用できるようにします。</p>
-<p>1.左上の<strong>ハンバーガー</strong>メニューを開き、<strong>ガバナンス</strong>を展開し、<strong>データ品質</strong>をクリックします。あなたの <strong>HealthcareAnalysis</strong> プロジェクトのタイルをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Go to project](images/cpd-go-to-project.png)をクリックします。
-</code></pre>
-
-<p>1.すべてのアセットを選択して、<strong>Publish +</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![DQアセットの公開](images/cpd-publish-assets.png)
-</code></pre>
-
-<p>1.ポップアップウィンドウで、<strong>Publish</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Publish DQ assets - confirm](images/cpd-publish-assets-confirm.png)をクリックします。
-</code></pre>
-
-<p>1.アセットがデフォルトのカタログに公開されます。Refresh**アイコンをクリックしてテーブルを更新すると、アセットの最終公開日が更新されていることを確認できます。</p>
-<pre class="codehilite"><code class="linenums">![公開日更新](images/cpd-published-date-updated.png)
-</code></pre>
-
-<p>1.左上の<strong>ハンバーガー（☰）</strong>メニューに移動し、<strong>Catalogs</strong>を展開し、<strong>All catalogs</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Go to catalog](images/cpd-go-to-catalog.png)
-</code></pre>
-
-<p>1.1. <strong>Default Catalog</strong>のタイルをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Go to default catalog](images/cpd-default-catalog.png)をクリックします。
-</code></pre>
-
-<p>1.アセットがカタログに表示されます。</p>
-<pre class="codehilite"><code class="linenums">![カタログの資産](images/cpd-catalog-assets.png)
-</code></pre>
-
+<ol>
+<li>
+<p>左上の<strong>ハンバーガー</strong>メニューを開き、<strong>ガバナンス</strong>を展開し、<strong>データ品質</strong>をクリックします。あなたの <strong>HealthcareAnalysis</strong> プロジェクトのタイルをクリックします。</p>
+<p><img alt="Go to project" src="images/cpd-go-to-project.png" />をクリックします。</p>
+</li>
+<li>
+<p>すべてのアセットを選択して、<strong>Publish +</strong>をクリックします。</p>
+<p><img alt="DQアセットの公開" src="images/cpd-publish-assets.png" /></p>
+</li>
+<li>
+<p>ポップアップウィンドウで、<strong>Publish</strong>をクリックします。</p>
+<p><img alt="Publish DQ assets - confirm" src="images/cpd-publish-assets-confirm.png" />をクリックします。</p>
+</li>
+<li>
+<p>アセットがデフォルトのカタログに公開されます。<strong>Refresh</strong>アイコンをクリックしてテーブルを更新すると、アセットの最終公開日が更新されていることを確認できます。</p>
+<p><img alt="公開日更新" src="images/cpd-published-date-updated.png" /></p>
+</li>
+<li>
+<p>左上の<strong>ハンバーガー（☰）</strong>メニューに移動し、<strong>Catalogs</strong>を展開し、<strong>All catalogs</strong>をクリックします。</p>
+<p><img alt="Go to catalog" src="images/cpd-go-to-catalog.png" /></p>
+</li>
+<li>
+<ol>
+<li><strong>Default Catalog</strong>のタイルをクリックします。</li>
+</ol>
+<p><img alt="Go to default catalog" src="images/cpd-default-catalog.png" />をクリックします。</p>
+</li>
+<li>
+<p>アセットがカタログに表示されます。</p>
+<p><img alt="カタログの資産" src="images/cpd-catalog-assets.png" /></p>
+</li>
+</ol>
 <h2 id="6">ステップ6.コラボレーターをデフォルトカタログに追加する<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <p>デフォルトでは、デフォルトカタログには<strong>admin</strong>ユーザーのみがアクセスできます。他のユーザーがカタログやカタログ内のアセットにアクセスできるようにするには、カタログにコラボレーターとして追加する必要があります。</p>
-<p>1.Access Control」タブを開き、「Add collaborators +**」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Catalog - add collaborators](images/cpd-catalog-add-collab.png)
-</code></pre>
-
-<p>1.ポップアップウィンドウで、新しいユーザーに提供するロールを選択します（このチュートリアルでは<strong>Viewer</strong>で十分です）。Collaborators<strong>で、デフォルトのカタログに共同作業者として追加したいユーザーを検索して選択し、</strong>Add**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Catalog - add collab - add](images/cpd-catalog-add-collab-add.png)
-
-**注意**:カタログには、最低2人の非管理者ユーザーを追加する必要があります。そのうちの1人は、[Step 1: Add data protection rule to deny access](#step-1-add-data-protection-rule-toeny-access)で定義したルールで指定したユーザーです。
-</code></pre>
-
-<p>1.新しく追加されたユーザーは、デフォルトカタログの<strong>アクセス制御</strong>タブの共同作業者のリストに表示されます。</p>
-<pre class="codehilite"><code class="linenums">![Catalog - collabs added](images/cpd-catalog-collabs-added.png)
-</code></pre>
-
+<ol>
+<li>
+<p>「<strong>Access Control」タブを開き、「Add collaborators +</strong>」をクリックします。</p>
+<p><img alt="Catalog - add collaborators" src="images/cpd-catalog-add-collab.png" /></p>
+</li>
+<li>
+<p>ポップアップウィンドウで、新しいユーザーに提供するロールを選択します（このチュートリアルでは<strong>Viewer</strong>で十分です）。<strong>Collaborators</strong>で、デフォルトのカタログに共同作業者として追加したいユーザーを検索して選択し、<strong>Add</strong>をクリックします。</p>
+<p><img alt="Catalog - add collab - add" src="images/cpd-catalog-add-collab-add.png" /></p>
+<p><strong>注意</strong>:カタログには、最低2人の非管理者ユーザーを追加する必要があります。そのうちの1人は、<a href="#step-1-add-data-protection-rule-toeny-access">Step 1: Add data protection rule to deny access</a>で定義したルールで指定したユーザーです。</p>
+</li>
+<li>
+<p>新しく追加されたユーザーは、デフォルトカタログの<strong>アクセス制御</strong>タブの共同作業者のリストに表示されます。</p>
+<p><img alt="Catalog - collabs added" src="images/cpd-catalog-collabs-added.png" /></p>
+</li>
+</ol>
 <h2 id="step-7">Step 7.データ保護ルールが適用されていることを確認する<a class="headerlink" href="#step-7" title="Permanent link">&para;</a></h2>
 <p>デフォルトのカタログへのアクセス権を与えられた管理者以外のユーザーとしてログインし、データ保護ルールが適用されているかどうかを確認できます。</p>
-<p>1.IBM Cloud Pak for Dataからログアウトし、<a href="#step-1-add-data-protection-rule-toeny-access">Step 1: Add data protection rule to deny access</a>で定義したルールで指定したユーザーである<strong>restricted_user</strong>でログインし直します。</p>
-<p>1.左上の<strong>ハンバーガー</strong>メニューで<strong>Catalogs</strong>を展開し、<strong>All catalogs</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![User - go to catalog](images/cpd-user-go-to-catalog.png)
-</code></pre>
-
-<p>1.1. <strong>Default Catalog</strong>タイルをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![User - go to default catalog](images/cpd-user-default-catalog.png)をクリックします。
-</code></pre>
-
-<p>1.ページの一番下までスクロールすると、カタログのアセットが表示されます。<strong>PATIENTS</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![User - catalog - PATIENTS](images/cpd-user-catalog-assets.png)
-</code></pre>
-
-<p>1.Restrict access Passport and Drivers Licenseデータ保護ルールによってブロックされているため、ユーザーがPATIENTSアセットを表示できないというエラーが表示されます。</p>
-<pre class="codehilite"><code class="linenums">![ユーザー - PATIENTSにアクセスできません](images/cpd-user-cannot-access-patients.png)
-</code></pre>
-
-<p>1.ブレッドクラムを使用して<strong>Default Catalog</strong>に戻り、<strong>ENCOUNTERS</strong>などの別のアセットにアクセスしようとすると、そのアセットのコンテンツを見ることができるはずです。これは、ユーザーはDriver's License（運転免許証）またはPassport（パスポート）フィールドを含むアセットへのアクセスを拒否されているだけで、ENCOUNTERSアセットにはそれらが存在しないためです。</p>
-<pre class="codehilite"><code class="linenums">![ユーザー - ENCOUNTERSにアクセス可能](images/cpd-user-can-access-encounters.png)
-</code></pre>
-
-<p>1.IBM Cloud Pak for Data からログアウトし、デフォルトのカタログにコラボレーターとして追加されたもう 1 人のユーザーである <strong>regular_user</strong> としてログインし直します。</p>
-<p>1.前と同様に、左上の<strong>ハンバーガー（☰）</strong>メニューに行き、<strong>Catalogs</strong>を展開して、<strong>All catalogs</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![User - go to catalog](images/cpd-user-go-to-catalog.png)
-</code></pre>
-
-<p>1.1. <strong>Default Catalog</strong>タイルをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![User - go to default catalog](images/cpd-user-default-catalog.png)をクリックします。
-</code></pre>
-
-<p>1.ページの一番下までスクロールして、カタログのアセットを確認し、<strong>PATIENTS</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![User - catalog - PATIENTS](images/cpd-user-catalog-assets.png)
-</code></pre>
-
-<p>1.今回は、このユーザーがデータへのアクセスを拒否されていないため、PATIENTSアセットが画面に読み込まれているはずです。Asset<strong>タブに移動します。アセットのプレビューが画面に読み込まれます。データがマスクされるまで時間がかかる場合がありますが、その場合は通知が表示されます。画面上では、5つの列がマスキングされていることが確認できます。Lock</strong>アイコンをクリックすると、マスクされた列の詳細が表示されます。1つの列は難読化され、3つの列は置換され、1つの列は再編集されています。</p>
-<pre class="codehilite"><code class="linenums">![User - catalog - masked PATIENTS - 1](images/cpd-user-catalog-masked-patients-1.png)
-</code></pre>
-
-<p>1.BIRTHDATE」と「SSN」の列を見てください。これらの列には、列名の横にロックアイコンが付いています。これは、これらの列がマスクされていることを示しています。ロックアイコンをクリックすると、マスクされている列の詳細が表示されます。例えば、BIRTHDATEの近くにあるロックアイコンは、この列の値とフォーマットが「Redact the Birth Date of Patient」データ実施ルールによって再編集されていることを示しています。すべてのBIRTHDATEの値が10個のX文字の文字列に置き換えられていることがわかります。SSNについては、値が難読化されています。つまり、同じフォーマットの他の値に置き換えられています。したがって、実際のSSN値は隠されますが、フィールドのフォーマットは維持されます。</p>
-<pre class="codehilite"><code class="linenums">![ユーザー - カタログ - マスクされた患者 - 2](images/cpd-user-catalog-masked-patients-2.png)
-</code></pre>
-
-<p>1.右側にスクロールして、「RACE」、「ETHNICITY」、「GENDER」の各列を見てください。これらの列のデータは、元のフィールドの形式とは一致しない値で置き換えられています。しかし、それぞれの列では、同じ値が複数回出現していることがわかります。これは、列内で出現するすべての値が同じテキストに置き換えられているためです。これにより、列の参照整合性が保たれます。</p>
-<pre class="codehilite"><code class="linenums">![ユーザー - カタログ - マスクされた患者 - 3](images/cpd-user-catalog-masked-patients-3.png)
-</code></pre>
-
+<ol>
+<li>
+<p>IBM Cloud Pak for Dataからログアウトし、<a href="#step-1-add-data-protection-rule-toeny-access">Step 1: Add data protection rule to deny access</a>で定義したルールで指定したユーザーである<strong>restricted_user</strong>でログインし直します。</p>
+</li>
+<li>
+<p>左上の<strong>ハンバーガー</strong>メニューで<strong>Catalogs</strong>を展開し、<strong>All catalogs</strong>をクリックします。</p>
+<p><img alt="User - go to catalog" src="images/cpd-user-go-to-catalog.png" /></p>
+</li>
+<li>
+<ol>
+<li><strong>Default Catalog</strong>タイルをクリックします。</li>
+</ol>
+<p><img alt="User - go to default catalog" src="images/cpd-user-default-catalog.png" />をクリックします。</p>
+</li>
+<li>
+<p>ページの一番下までスクロールすると、カタログのアセットが表示されます。<strong>PATIENTS</strong>をクリックします。</p>
+<p><img alt="User - catalog - PATIENTS" src="images/cpd-user-catalog-assets.png" /></p>
+</li>
+<li>
+<p>Restrict access Passport and Drivers Licenseデータ保護ルールによってブロックされているため、ユーザーがPATIENTSアセットを表示できないというエラーが表示されます。</p>
+<p><img alt="ユーザー - PATIENTSにアクセスできません" src="images/cpd-user-cannot-access-patients.png" /></p>
+</li>
+<li>
+<p>ブレッドクラムを使用して<strong>Default Catalog</strong>に戻り、<strong>ENCOUNTERS</strong>などの別のアセットにアクセスしようとすると、そのアセットのコンテンツを見ることができるはずです。これは、ユーザーはDriver's License（運転免許証）またはPassport（パスポート）フィールドを含むアセットへのアクセスを拒否されているだけで、ENCOUNTERSアセットにはそれらが存在しないためです。</p>
+<p><img alt="ユーザー - ENCOUNTERSにアクセス可能" src="images/cpd-user-can-access-encounters.png" /></p>
+</li>
+<li>
+<p>IBM Cloud Pak for Data からログアウトし、デフォルトのカタログにコラボレーターとして追加されたもう 1 人のユーザーである <strong>regular_user</strong> としてログインし直します。</p>
+</li>
+<li>
+<p>前と同様に、左上の<strong>ハンバーガー（☰）</strong>メニューに行き、<strong>Catalogs</strong>を展開して、<strong>All catalogs</strong>をクリックします。</p>
+<p><img alt="User - go to catalog" src="images/cpd-user-go-to-catalog.png" /></p>
+</li>
+<li>
+<ol>
+<li><strong>Default Catalog</strong>タイルをクリックします。</li>
+</ol>
+<p><img alt="User - go to default catalog" src="images/cpd-user-default-catalog.png" />をクリックします。</p>
+</li>
+<li>
+<p>ページの一番下までスクロールして、カタログのアセットを確認し、<strong>PATIENTS</strong>をクリックします。</p>
+<p><img alt="User - catalog - PATIENTS" src="images/cpd-user-catalog-assets.png" /></p>
+</li>
+<li>
+<p>今回は、このユーザーがデータへのアクセスを拒否されていないため、PATIENTSアセットが画面に読み込まれているはずです。<strong>Asset</strong>タブに移動します。アセットのプレビューが画面に読み込まれます。データがマスクされるまで時間がかかる場合がありますが、その場合は通知が表示されます。画面上では、5つの列がマスキングされていることが確認できます。<strong>Lock</strong>アイコンをクリックすると、マスクされた列の詳細が表示されます。1つの列は難読化され、3つの列は置換され、1つの列は再編集されています。</p>
+<p><img alt="User - catalog - masked PATIENTS - 1" src="images/cpd-user-catalog-masked-patients-1.png" /></p>
+</li>
+<li>
+<p>「BIRTHDATE」と「SSN」の列を見てください。これらの列には、列名の横にロックアイコンが付いています。これは、これらの列がマスクされていることを示しています。ロックアイコンをクリックすると、マスクされている列の詳細が表示されます。例えば、BIRTHDATEの近くにあるロックアイコンは、この列の値とフォーマットが「Redact the Birth Date of Patient」データ実施ルールによって再編集されていることを示しています。すべてのBIRTHDATEの値が10個のX文字の文字列に置き換えられていることがわかります。SSNについては、値が難読化されています。つまり、同じフォーマットの他の値に置き換えられています。したがって、実際のSSN値は隠されますが、フィールドのフォーマットは維持されます。</p>
+<p><img alt="ユーザー - カタログ - マスクされた患者 - 2" src="images/cpd-user-catalog-masked-patients-2.png" /></p>
+</li>
+<li>
+<p>右側にスクロールして、「RACE」、「ETHNICITY」、「GENDER」の各列を見てください。これらの列のデータは、元のフィールドの形式とは一致しない値で置き換えられています。しかし、それぞれの列では、同じ値が複数回出現していることがわかります。これは、列内で出現するすべての値が同じテキストに置き換えられているためです。これにより、列の参照整合性が保たれます。</p>
+<p><img alt="ユーザー - カタログ - マスクされた患者 - 3" src="images/cpd-user-catalog-masked-patients-3.png" /></p>
+</li>
+</ol>
 <h2 id="_4">まとめ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、IBM Cloud Pak for Data 上の Watson Knowledge Catalog 内でデータ保護ルールを使用する方法を学びました。医療データにデータ保護ルールを追加して、特定のユーザーにデータの利用を制限しました。また、他のデータ保護ルールを追加して、一部のデータを他のデータに置き換えて隠すようにしました。これにより、ユーザーは実際のデータを見ることはできませんが、存在する列を見ることができ、使用されたデータマスキングのタイプに基づいて、それらの列のフォーマットやテーブル参照についても知ることができます。最後に、データ資産をデフォルトカタログに公開し、データ資産の所有者ではない他のユーザーとしてログインすることで、資産とデータへのアクセス権があることを確認することで、データ保護ルールが実施されていることを確認しました。</p>
 <p>このチュートリアルは、<a href="https://developer.ibm.com/articles/an-introduction-to-the-dataops-discipline">An introduction to the DataOps discipline</a>シリーズの一部です。</p>

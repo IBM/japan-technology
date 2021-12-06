@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4853,39 +4853,28 @@
 <h2 id="_1">ファイルとディレクトリ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>最初に、標準的な GNU/Linux オペレーティングシステムの基本的なファイル構造の操作方法を説明します。標準の GNU/Linux オペレーティングシステムには、コンピュータに保存されているデータを整理するファイル管理階層があります。特定のデータが保存されている場所を特定することは、オペレーティングシステムがどのように構成されているかを理解するための最初のレッスンの一つです。ここでは、今までのLinuxの経験を無駄にしないために、「Linuxファイルシステム階層の紹介」については別の機会にします。それよりも、<a href="https://www.linux.org/threads/file-hierarchy-standard-fhs.9999/">File System Hierarchy</a>について詳しく説明している記事がありますので、そちらをご覧ください。ここでは、あなたが自分の道を少しは知っていると仮定して、簡単にナビゲートするためのいくつかのヒント（あるいは、いくつかのリマインダー）を提供します。このスキルは、ファイルの編集、ファイルシステムの操作、変更、設定の確認などを求められたときに必要になります。</p>
 <h3 id="cd">cd によるディレクトリの変更<a class="headerlink" href="#cd" title="Permanent link">&para;</a></h3>
-<p>ターミナルシェル](http://www.linuxcommand.org/lc3_lts0010.php)のカレントディレクトリから目的のディレクトリに移動するには、<code>cd</code>コマンドを使用します。このコマンドは、GNU/Linux ファイルシステムのディレクトリ構造を移動する際に非常によく使用されます。構文は以下のとおりです。</p>
-<pre><code>cd [ディレクトリ].
-</code></pre>
-<p>directory]`というパラメータは、変更したい目的のディレクトリを指し、このディレクトリへのファイルシステム階層を介した<strong>パス</strong>は、さまざまな方法で指定できます。</p>
-<p>1.<a href="#absolute-path">絶対パス</a>
-1.<a href="#relative-path">相対パス</a>
-1.<a href="#tilde-expansions">チルダ展開</a>
-1.<a href="#特別なinode">特別なinode</a></p>
+<p><a href="http://www.linuxcommand.org/lc3_lts0010.php">ターミナルシェル</a>のカレントディレクトリから目的のディレクトリに移動するには、<code>cd</code>コマンドを使用します。このコマンドは、GNU/Linux ファイルシステムのディレクトリ構造を移動する際に非常によく使用されます。構文は以下のとおりです。</p>
+<p>[<code>directory]</code>というパラメータは、変更したい目的のディレクトリを指し、このディレクトリへのファイルシステム階層を介した<strong>パス</strong>は、さまざまな方法で指定できます。</p>
+<ol>
+<li><a href="#absolute-path">絶対パス</a></li>
+<li><a href="#relative-path">相対パス</a></li>
+<li><a href="#tilde-expansions">チルダ展開</a></li>
+<li><a href="#特別なinode">特別なinode</a></li>
+</ol>
 <h4 id="_2">絶対パス<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>絶対パス**とは、<a href="https://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/the-root-directory.html">ルートディレクトリ</a>から、ファイルシステムの階層に存在する対象のディレクトリやファイルまでの「完全な経路」のことです。(一般的には <code>/</code> と表記されます)から、目的のディレクトリやファイルまでの、ファイルシステム階層内に存在する「完全な経路」です。  以下に、絶対パスを表示する簡単な例を示します。</p>
+<p><strong>絶対パス</strong>とは、<a href="https://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/the-root-directory.html">ルートディレクトリ</a>から、ファイルシステムの階層に存在する対象のディレクトリやファイルまでの「完全な経路」のことです。(一般的には <code>/</code> と表記されます)から、目的のディレクトリやファイルまでの、ファイルシステム階層内に存在する「完全な経路」です。  以下に、絶対パスを表示する簡単な例を示します。</p>
 <p>ユーザー名が<code>jsmith</code>の場合、標準的なGNU/Linuxオペレーティングシステムでは、彼女の<a href="https://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/home.html">ホームディレクトリ</a>への絶対パスは次のようになります。</p>
-<pre><code>/home/jsmith
-</code></pre>
 <p>_クイックヒント：標準的なGNU/Linuxオペレーティング・システムでは、目的のディレクトリを指定せずに、コマンド・プロンプトで<code>cd</code>と入力することで、ホーム・ディレクトリに行くことができます。</p>
 <p>上記の例では、対象となるディレクトリへのパスがかなり短くなっていますが、多くの場合、ディレクトリへのパスが非常に長くなることがあります。ここでは、以下のようなファイルシステムの階層構造を利用します。</p>
 <p><img alt="file_hierarchy" src="https://media.github.ibm.com/user/37987/files/b9750700-387e-11e9-94a0-d5a6bb78151c" /></p>
 <p>このディレクトリ構造の場合、<code>pacific_rose</code>ファイルの絶対パスは次のようになります。</p>
-<pre><code>/home/jsmith/grocery_store/foods/produce/fruits/apples/pacific_rose
-</code></pre>
 <h4 id="_3">相対パス<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>GNU/Linux オペレーティングシステムの真の力は、そのコマンドラインインターフェース（CLI）にあります。Linux でタスクを実行する際には、コマンドを入力するために CLI を使用することがよくあります。必要なときに毎回コマンドラインにフルパスを入力するのは面倒ですが、ここでは相対パスがサポートしてくれます。</p>
 <p>相対パスとは、現在の作業ディレクトリからの相対的なディレクトリ（またはファイル）へのパスのことです。上の例を見てみましょう。現在の作業ディレクトリが <code>/home/jsmith/grocery_store/foods/produce/</code> ディレクトリの場合、<code>fruits</code> ディレクトリへの移動は非常に簡単です。</p>
-<pre><code>$ cd fruits
-</code></pre>
 <p>現在の作業ディレクトリには <code>fruits</code> サブディレクトリが含まれているので、上記のコマンドは相対パスを使用しているために動作します。これは、<code>cd</code>コマンドで絶対パスが指定されていない場合に、オペレーティングシステムが行う「仮定」と言ってもよいでしょう。これで、<code>fruits</code>ディレクトリに移動したので、<code>pwd</code>コマンドでこのディレクトリのフルパスを確認することができます。</p>
-<pre><code>$ pwd
-/home/jsmith/grocery_store/foods/produce/fruits
-</code></pre>
-<p>pwd` (print working directory) コマンドは，現在の作業ディレクトリを表示するのに便利ですが，これはしばしば絶対パス形式で表示されます。このように，絶対パスと相対パスを使ってファイルシステムの階層を移動することができます。</p>
+<p><code>pwd</code> (print working directory) コマンドは，現在の作業ディレクトリを表示するのに便利ですが，これはしばしば絶対パス形式で表示されます。このように，絶対パスと相対パスを使ってファイルシステムの階層を移動することができます。</p>
 <h4 id="_4">チルダの拡張子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<p>Bashシェル**を搭載した標準的なGNU/Linuxオペレーティングシステムでは、ファイル階層のナビゲーションをより簡単にするために、<a href="https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html">チルダ拡張</a>が用意されています。チルダ拡張とは何かを説明するために、この例を見てみましょう。</p>
-<pre><code>$ cd ~
-</code></pre>
+<p><strong>Bashシェル</strong>を搭載した標準的なGNU/Linuxオペレーティングシステムでは、ファイル階層のナビゲーションをより簡単にするために、<a href="https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html">チルダ拡張</a>が用意されています。チルダ拡張とは何かを説明するために、この例を見てみましょう。</p>
 <p>上のコマンドのチルダ <code>~</code> は，<code>$HOME</code> <a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_02.html#sect_03_02_01">環境変数</a>の値に対応しており，通常は現在のユーザのホームディレクトリに設定されています。つまり，この変数の値は，現在ログインしているユーザに応じて変化します。  同じシステム上で、ジェーン・スミスが<code>cd ~</code>コマンドを実行すると、<code>/home/jsmith</code>ディレクトリに移動しますが、マーク・ジョーンズ（ユーザー名<code>mjones</code>でログインしている）が同じコマンドを実行すると、<code>/home/mjones</code>ディレクトリに移動します。</p>
 <p>ここでは、チルダを使った拡張機能の例をいくつか紹介します。</p>
 <ul>
@@ -4894,77 +4883,35 @@
 <li><code>~mjones/grocery_store</code> - <code>mjones</code> ユーザーの $HOME ディレクトリに <em>special</em> 存在する <code>grocery_store</code> サブディレクトリです。</li>
 </ul>
 <h4 id="inode">特別なinode<a class="headerlink" href="#inode" title="Permanent link">&para;</a></h4>
-<p>一段と深く掘り下げるために、<em>inodes_について簡単に説明します。Ian D. Allen](http://teaching.idallen.com/dat2330/04f/notes/links_and_inodes.html)の定義によると、</em>「Unixでは、ディレクトリやファイルの内容を構成するデータの集まりは名前ではなく、inodeと呼ばれるデータ構造の一部として格納されています」_要するに、ディレクトリやファイルはinode番号に対応する名前であり、ファイルシステムの階層を移動するために使用できる「特別なinode」がいくつか存在しています。以下にその例を示します。</p>
-<p>...`（ダブルドット）のinodeは、ファイルシステム階層の<strong>親ディレクトリ</strong>（1つ上のレベル）に変更するために使用できます。</p>
-<pre><code>$ cd ...
-</code></pre>
+<p>一段と深く掘り下げるために、<em>inodes_について簡単に説明します。<a href="http://teaching.idallen.com/dat2330/04f/notes/links_and_inodes.html">Ian D. Allen</a>の定義によると、</em>「Unixでは、ディレクトリやファイルの内容を構成するデータの集まりは名前ではなく、inodeと呼ばれるデータ構造の一部として格納されています」_要するに、ディレクトリやファイルはinode番号に対応する名前であり、ファイルシステムの階層を移動するために使用できる「特別なinode」がいくつか存在しています。以下にその例を示します。</p>
+<p><code>...</code>（ダブルドット）のinodeは、ファイルシステム階層の<strong>親ディレクトリ</strong>（1つ上のレベル）に変更するために使用できます。</p>
 <p>また，<code>..</code>（ダブルドット）のinodeを連結することで，ファイルシステムの階層を複数のレベルで移動することができます。</p>
-<pre><code>$ pwd
-/home/jsmith/grocery_store/foods/produce/fruits
-$ cd .../ .../
-$ pwd
-/home/jsmith/grocery_store/foods
-$
-</code></pre>
 <p>ここでは、ファイルシステムの階層を<code>fruits</code>ディレクトリから<code>foods</code>ディレクトリ（2階層上）に移動しています。</p>
 <p>また，<code>-</code>（ダッシュ）で前の作業ディレクトリに移動することができます。</p>
-<pre><code>$ cd -.
-</code></pre>
 <p>あるディレクトリから別のディレクトリに移動してから戻る必要がある場合、<code>-</code>（ダッシュ）を使うと、現在作業しているファイルシステムの階層に関係なく、前の作業ディレクトリに戻ることができます。</p>
 <h3 id="pushdpopd">pushd/popd によるディレクトリの変更<a class="headerlink" href="#pushdpopd" title="Permanent link">&para;</a></h3>
-<p>ここで、Linux ユーザーがファイルシステム階層を移動するための第 2 の手段として、<code>pushd</code>、<code>popd</code>、<code>dirs</code>コマンドがあります。これら3つのシェルビルトインを併用することで、最近訪れたディレクトリのリストである<a href="https://www.gnu.org/software/bash/manual/html_node/The-Directory-Stack.html#The-Directory-Stack">directory stack</a>を操作することができます。この最近訪問したディレクトリのリストを保存するために使用されるデータ構造は、まさにスタックまたはLIFO (Last in, First out)データ構造です。pushd<code>はカレントディレクトリを対象となるディレクトリに変更し、この新しいディレクトリをスタックに追加し、</code>popd` はスタックの一番上にリストされているディレクトリを削除してから、スタックの一番上にあるディレクトリにディレクトリを変更します。</p>
+<p>ここで、Linux ユーザーがファイルシステム階層を移動するための第 2 の手段として、<code>pushd</code>、<code>popd</code>、<code>dirs</code>コマンドがあります。これら3つのシェルビルトインを併用することで、最近訪れたディレクトリのリストである<a href="https://www.gnu.org/software/bash/manual/html_node/The-Directory-Stack.html#The-Directory-Stack">directory stack</a>を操作することができます。この最近訪問したディレクトリのリストを保存するために使用されるデータ構造は、まさにスタックまたはLIFO (Last in, First out)データ構造です。<code>pushd</code> はカレントディレクトリを対象となるディレクトリに変更し、この新しいディレクトリをスタックに追加し、<code>popd</code> はスタックの一番上にリストされているディレクトリを削除してから、スタックの一番上にあるディレクトリにディレクトリを変更します。</p>
 <p>私の個人的な経験では、<code>pushd</code>と<code>popd</code>コマンドは、訪問したディレクトリの「パンくずリスト」を作成する方法として、自動化スクリプトで最もよく目にするものです。このリストを利用できるようにしておくと、自動化されたタスクで、特定の方法や順序でファイル（およびディレクトリ）に変更を加える必要がある場合に役立ちます。以前に訪れたディレクトリをスタックから "ポップ "して、簡単に再訪することができます。</p>
-<p>dirs<code>コマンドは、私が利用したことのあるコマンドではありませんが、とても便利なコマンドです。このコマンドを使うと、ディレクトリスタック自体を表示して、最近訪れたディレクトリのリストを見ることができます。また、このコマンドにはいくつかのオプションがあり、必要に応じてスタックを「管理」することができます。ここでは、</code>pushd<code>、</code>popd<code>、</code>dirs`の各コマンドを使った例を紹介します。</p>
-<p>home/jsmith/grocery_store/foods/<code>から出発して、</code>pushd<code>を使って</code>produce`ディレクトリに変更してみます。</p>
-<pre><code>$ pushd produce
-</code></pre>
+<p><code>dirs</code>コマンドは、私が利用したことのあるコマンドではありませんが、とても便利なコマンドです。このコマンドを使うと、ディレクトリスタック自体を表示して、最近訪れたディレクトリのリストを見ることができます。また、このコマンドにはいくつかのオプションがあり、必要に応じてスタックを「管理」することができます。ここでは、<code>pushd</code>、<code>popd</code>、<code>dirs</code>の各コマンドを使った例を紹介します。</p>
+<p><code>home/jsmith/grocery_store/foods/</code>から出発して、<code>pushd</code>を使って<code>produce</code>ディレクトリに変更してみます。</p>
 <p>現在のカレントディレクトリは <code>/home/jsmith/grocery_store/foods/produce</code> ディレクトリで、<code>pushd</code> を使ってこのディレクトリに移動したので、<code>dirs</code> コマンドで示すように、ディレクトリスタックに追加されています。</p>
-<pre><code>$ dirs
-/home/jsmith/grocery_store/foods/produce /home/jsmith/grocery_store/foods
-$
-</code></pre>
 <p>ディレクトリのリストは、左から右へ、最近訪れた順に並んでいることに注意してください。もう一度 <code>pushd</code> を使って <code>meats</code> ディレクトリに移動してから、ディレクトリスタックをもう一度見てみましょう。</p>
-<pre><code>$ pushd /home/jsmith/grocery_store/foods/meats
-$ dirs
-/home/jsmith/grocery_store/foods/meats /home/jsmith/grocery_store/foods/produce /home/jsmith/grocery_store/foods
-$
-</code></pre>
 <p>これで、ディレクトリリストは、最近訪れたディレクトリが3つに増えました。ここで、<code>popd</code>コマンドを使用すると、ディレクトリスタックの一番上にリストされていたディレクトリが削除され、カレントディレクトリは<code>/home/jsmith/grocery_store/foods/produce</code>に戻ります。</p>
-<pre><code>$ popd
-$ pwd
-/home/jsmith/grocery_store/foods/produce
-</code></pre>
 <p>また、ディレクトリスタックを見ると、最近アクセスしたディレクトリが2つに減っていることがわかります。</p>
-<pre><code>ディレクトリー
-/home/jsmith/grocery_store/foods/produce /home/jsmith/grocery_store/foods
-$
-</code></pre>
-<p>pushd<code>,</code>popd<code>,</code>dirs` コマンドで使用できるオプションの一覧については， GNU.org Bash マニュアルの <a href="https://www.gnu.org/software/bash/manual/html_node/Directory-Stack-Builtins.html#Directory-Stack-Builtins">Directory Stack Builtins</a> の章を参照してください．</p>
+<p><code>pushd</code>, <code>popd</code>, <code>dirs</code> コマンドで使用できるオプションの一覧については， GNU.org Bash マニュアルの <a href="https://www.gnu.org/software/bash/manual/html_node/Directory-Stack-Builtins.html#Directory-Stack-Builtins">Directory Stack Builtins</a> の章を参照してください．</p>
 <p>この先の記事やチュートリアルでは、ディレクトリ構造を簡単にナビゲートすることは、確かに便利なスキルになります。</p>
 <h3 id="_5">ディレクトリの作成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>ナビゲーションについて説明しましたが、次にディレクトリの作成について簡単に説明します。</p>
-<pre><code>$ mkdir [target] (ターゲット)
-</code></pre>
 <p>この例では，<code>[target]</code> は，作成したいディレクトリの名前です。実行すると，<code>mkdir</code>は，（フルパスが指定されていないので）現在の作業ディレクトリにこのディレクトリを作成します。また，フルパスが特定でき，ユーザアカウントに権限があれば，ファイルシステム階層のどのレベルにも新しいディレクトリを作成することができます。例えば、以下のようになります。</p>
-<pre><code>$ mkdir /home/jsmith/grocery_store/foods/produce/veggies
-</code></pre>
 <p>これにより、<code>home/jsmith/grocery_store/foods/produce</code>ディレクトリの中に<code>veggies</code>ディレクトリが作成されます。ファイルシステムの階層の同じレベルに複数のディレクトリを作成する必要がある場合がよくあります。また、まったく新しいディレクトリ構造を作成しなければならない場合もあります。このような場合には、<code>-p</code>コマンドオプションが非常に便利です。より高度な例を挙げてみましょう。</p>
-<pre><code>$ mkdir -p /home/jsmith/grocery_store/foods/meats/{beef,fish,chicken,pork/{bacon,sausage}}}。
-</code></pre>
 <p>この例では、いくつかのコンセプトがあります。まず、<code>-p</code>オプションでは、パスに含まれるディレクトリが以前に作成されていてもいなくても、指定された「パス」を作成することができます。括弧を使うことで、複数のディレクトリを同時に作成することができます。ここでは、<code>meats</code>ディレクトリ（事前に作成していない）の中に、<code>beef</code>、<code>fish</code>、<code>chicken</code>、<code>pork</code>のサブディレクトリを作成しています。さらに、<code>pork</code>ディレクトリの下に、<code>bacon</code>と<code>sausage</code>の2つのサブディレクトリを作成しています。  このように、たった1つのコマンドで全く新しいディレクトリ構造を作ることができるという、コマンドラインの力を実感していただけると思います。</p>
-<p>mkdir`コマンドの詳細については、<a href="https://www.lifewire.com/create-directories-linux-mkdir-command-3991847">mkdirを使ってディレクトリを作成する方法に関するlifewireの記事</a>を参照してください。</p>
+<p><code>mkdir</code>コマンドの詳細については、<a href="https://www.lifewire.com/create-directories-linux-mkdir-command-3991847">mkdirを使ってディレクトリを作成する方法に関するlifewireの記事</a>を参照してください。</p>
 <h3 id="_6">ファイルとディレクトリの表示<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>ここまでは、標準的な GNU/Linux オペレーティングシステムでのディレクトリの移動と作成の方法を説明しました。ここでは、ディレクトリの一覧表示、ファイルの表示、編集について説明します。GUI ベースのアプリケーション以外にも、CLI から直接ファイルやディレクトリを表示する方法がいくつかあります。</p>
 <h4 id="ls">lsでディレクトリの内容を見る<a class="headerlink" href="#ls" title="Permanent link">&para;</a></h4>
 <p>ディレクトリの内容を表示するには、さまざまな方法で<code>ls</code>コマンドを使用できます。コマンドプロンプトでの単純な<code>ls</code>は、現在の作業ディレクトリの内容を（水平方向に）表示します。</p>
-<pre><code>$ ls
-</code></pre>
 <p>よく使われるコマンドオプションもいくつかあります。たとえば，コマンドに<code>-l</code>フラグを追加すると，対象となるディレクトリの内容（ファイル/ディレクトリ名，パーミッション，所有者，修正日，ファイル/ディレクトリサイズなど）が表示されます。</p>
-<pre><code>$ ls -l
-</code></pre>
-<p>a`オプションは、<a href="https://www.ghacks.net/2009/04/16/linux-tips-view-hidden-files/">hidden files</a>を含むディレクトリの内容を表示します。[hidden files]とは、主にデスクトップのカスタマイズやパーソナライズ、アプリケーションの設定などに使用されるファイルです。</p>
-<pre><code>$ ls -a
-</code></pre>
+<p><code>a</code>オプションは、<a href="https://www.ghacks.net/2009/04/16/linux-tips-view-hidden-files/">hidden files</a>を含むディレクトリの内容を表示します。[hidden files]とは、主にデスクトップのカスタマイズやパーソナライズ、アプリケーションの設定などに使用されるファイルです。</p>
 <p><strong>lsの既知のコマンドオプション</strong>。</p>
 <p>これまでに説明してきた<code>ls</code>コマンドのオプションは、最も広く使われているものです。しかし、同じように便利なオプションが他にもいくつかあります。以下に簡単なリストを示します。</p>
 <p>| ls commmand｜ Description｜説明
@@ -4976,18 +4923,10 @@ $
 | <code>ls -lS</code> | 出力をファイルサイズ順に表示し、最大のファイルを_最初に表示します。
 | <code>ls -ltr</code>| <code>-l</code>, <code>-t</code>, <code>-r</code> オプションを組み合わせると、修正日順に出力を表示し、最新のものを_last_に表示します。</p>
 <h4 id="cat">cat でファイルを表示する<a class="headerlink" href="#cat" title="Permanent link">&para;</a></h4>
-<p>ファイルの内容を見るための最もシンプルなコマンドの一つが <code>cat</code> コマンドです。cat`は、_"concatatenate"_の略で、ファイルの内容を見るだけでなく、出力をリダイレクトしてファイルを作成するのにも使われます。</p>
-<pre><code>$ cat pacific_rose
-これはテストファイルです。
-$
-</code></pre>
+<p>ファイルの内容を見るための最もシンプルなコマンドの一つが <code>cat</code> コマンドです。<code>cat</code>は、_"concatatenate"_の略で、ファイルの内容を見るだけでなく、出力をリダイレクトしてファイルを作成するのにも使われます。</p>
 <p>ここでは、<code>pacific_rose</code>ファイルに「This is a test file.」というテキストが含まれています。<code>cat</code> はこのファイルの内容をターミナルウィンドウに直接表示するので、中身を見るには手っ取り早い方法です。</p>
-<p>リダイレクト演算子](https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection)と組み合わせることで、<code>cat</code>を使ってファイルを作成することもできます。</p>
-<pre><code>$ cat &gt; granny_smith
-</code></pre>
+<p><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-i-o-redirection">リダイレクト演算子</a>と組み合わせることで、<code>cat</code>を使ってファイルを作成することもできます。</p>
 <p>上のコマンドは，現在の作業ディレクトリの中に，<code>granny_smith</code>という名前の新しいファイルを作成します。</p>
-<pre><code>$ cat apple1.txt apple2.txt apple3.txt &gt; three_apples.txt
-</code></pre>
 <p>前述のとおり、<code>cat</code>は_"concatenate"_の略で、上の例では、<code>&gt;</code>リダイレクト演算子を使って、複数のファイルの内容を1つのファイルにまとめる方法を示しています。</p>
 <p>また、<code>cat</code>コマンドと一緒に使うと便利なコマンドフラグ（またはオプション）の一覧を以下に示します。</p>
 <ul>
@@ -4995,9 +4934,9 @@ $
 <li><code>cat -e</code> は、ファイル出力の中に、行末や行間スペース（通常は <code>$</code> 文字を使用）を表示します。</li>
 <li><code>cat -T</code> は、タブ区切りの行をファイルの出力に表示します。</li>
 </ul>
-<p>cat`コマンドの詳しい使い方については、こちらの<a href="http://www.linfo.org/cat.html">LINFO article on the cat command</a>をご覧ください。</p>
+<p><code>cat</code>コマンドの詳しい使い方については、こちらの<a href="http://www.linfo.org/cat.html">LINFO article on the cat command</a>をご覧ください。</p>
 <h4 id="moreless">ファイルをmore/lessで表示する<a class="headerlink" href="#moreless" title="Permanent link">&para;</a></h4>
-<p>ターミナルで直接ファイルを表示するには、<code>more</code>と<code>less</code>コマンドを使う方法があります。more<code>と</code>less<code>の両方とも、ファイルの内容を見ることができ、ファイルの出力が画面のバッファを満たすと一時停止します。ここで一時停止するか、いずれかのキーを押して残りの出力を見て続行するかを選択できます。しかし、</code>less<code>コマンドは少し違います。more</code>コマンドと同じ機能でファイルを見ることができますが、<code>less</code>では、出力を_backwards_（後方）に移動することができます（<code>more</code>コマンドでは出力を前方にしか見ることができません）。</p>
+<p>ターミナルで直接ファイルを表示するには、<code>more</code>と<code>less</code>コマンドを使う方法があります。<code>more</code>と<code>less</code>の両方とも、ファイルの内容を見ることができ、ファイルの出力が画面のバッファを満たすと一時停止します。ここで一時停止するか、いずれかのキーを押して残りの出力を見て続行するかを選択できます。しかし、<code>less</code>コマンドは少し違います。<code>more</code>コマンドと同じ機能でファイルを見ることができますが、<code>less</code>では、出力を_backwards_（後方）に移動することができます（<code>more</code>コマンドでは出力を前方にしか見ることができません）。</p>
 <h4 id="vimemacspico">端末用テキストエディタ (vim/emacs/pico)<a class="headerlink" href="#vimemacspico" title="Permanent link">&para;</a></h4>
 <p>Linux を使った学習では、設定ファイルの作成、更新、削除などを行う必要があります。これらの作業は、ほとんどの Linux オペレーティングシステムに搭載されているテキストエディタを使用して行うことができます。以下のようなものがあります。</p>
 <ul>
@@ -5013,13 +4952,7 @@ $
 <p><strong>pico</strong> （ピコ
 * <a href="https://www.cs.colostate.edu/helpdocs/pico.html">Basic Pico Commands</a></p>
 <h3 id="_7">ファイルのパーミッション<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>学習パス](/series/kubernetes-learning-path/)で学習を進めていくと、ファイルのパーミッションについて理解する必要が出てきます。Linuxユーザーとして、Linuxオペレーティングシステム上に保存されているファイルに対して、ユーザーとして何ができるかを細かく制御することができます。多くの場合、ファイルやディレクトリが機能するためには、特定のレベルのパーミッションが設定されていることが求められます（例えば、スクリプトを実行可能にするなど）。ここでは、ファイルのパーミッションについて簡単に説明します。</p>
-<pre><code>$ ls -l
--rw-r--r-- 1 jdoe staff 0 Mar 15 08:30 brisket.txt
--rw-r--r-- 1 jdoe staff 0 Mar 15 08:30 ground.txt
--rw-r--r-- 1 jdoe staff 0 Mar 15 08:30 ribs.txt
--rw-r-r-- 1 jdoe staff 0 Mar 15 08:30 tar_tar.txt
-</code></pre>
+<p><a href="/series/kubernetes-learning-path/">学習パス</a>で学習を進めていくと、ファイルのパーミッションについて理解する必要が出てきます。Linuxユーザーとして、Linuxオペレーティングシステム上に保存されているファイルに対して、ユーザーとして何ができるかを細かく制御することができます。多くの場合、ファイルやディレクトリが機能するためには、特定のレベルのパーミッションが設定されていることが求められます（例えば、スクリプトを実行可能にするなど）。ここでは、ファイルのパーミッションについて簡単に説明します。</p>
 <p>このディレクトリ一覧のサンプルでは、ディレクトリに含まれる各ファイルのパーミッションを<code>-rw-r--</code>で表しています。ファイルやディレクトリのパーミッションは，user，group，others（all other）の3つのアカウントロールに対して設定されます。与えることのできる権限は、読み取り（r）、書き込み（w）、実行（x）です。各ファイルにアクセスするアカウントやグループに応じて、パーミッションがどのように適用されるかを、以下の表で説明しています。</p>
 <p>「brisket.txt」というファイルのパーミッションを左から右に読むと（最初の<code>-</code>を省略すると）、ファイルのパーミッションは以下のようになります。</p>
 <table>
@@ -5041,24 +4974,8 @@ $
 <p>ファイルやディレクトリへのフルアクセス権限は，<code>rwx</code>と表記されます。この例では，ユーザ <code>jdoe</code> には読み取りと書き込みのパーミッションが，<code>staff</code> グループには読み取りのパーミッションが，その他のすべての人には読み取りのパーミッションが与えられています。  UGO（ユーザー、グループ、その他）の概念を理解するには、こちらの<a href="https://www.linux.com/learn/getting-know-linux-file-permissions">Linuxのファイルパーミッションを知るための記事</a>に目を通しておくと、より深く理解できると思います。</p>
 <h4 id="chmod">chmodによるパーミッションの変更<a class="headerlink" href="#chmod" title="Permanent link">&para;</a></h4>
 <p>ファイルに適用されているパーミッションを変更する必要がある場合があります。ここで活躍するのが<code>chmod</code>コマンドです。前述したように、パーミッションを変更することで、bashスクリプトを実行可能にすることができます（つまり、コマンドラインでスクリプト自体を呼び出すことで「実行」できるようになります）。</p>
-<pre><code>$ ls -l script_to_run.sh
--rw-r--r-- 1 jdoe staff 0 Mar 15 13:33 script_to_run.sh
-$ chmod u+x script_to_run.sh
-$ ls -l script_to_run.sh
--rwxr--r-- 1 jdoe staff 0 Mar 15 13:33 script_to_run.sh
-</code></pre>
 <p>上の例では、<code>script_to_run.sh</code> にユーザーの <code>+x</code> 属性が追加されています。  これは、このスクリプトが <code>jdoe</code> ユーザーによって "実行可能" になったことを意味します。</p>
-<pre><code>$ chmod ug+x script_to_run.sh
-$ ls -l script_to_run.sh
--rwxr-xr-- 1 jdoe staff 0 Mar 15 13:33 script_to_run.sh
-</code></pre>
 <p>上の例では、<code>u</code>（ユーザー）と<code>g</code>（グループ）の両方を使って<code>chmod</code>コマンドを実行していますが、これは、アカウントの役割を組み合わせて、ファイルのパーミッションを並行して変更することもできることを示しています。また，<code>+</code>文字は実行可能属性を付加し，反対に<code>-</code>文字はそれを除去します。</p>
-<pre><code>$ ls -l script_to_run.sh
--rwxr-xr-- 1 jdoe staff 0 Mar 15 13:33 script_to_run.sh
-$ chmod ug-x script_to_run.sh # ここで - 文字に注意してください。
-$ ls -l script_to_run.sh
--rw-r--r-- 1 jdoe staff 0 Mar 15 13:33 script_to_run.sh
-</code></pre>
 <p>ご覧のように、<code>chmod</code>は必要に応じてファイルのパーミッションを微調整するのにとても便利なコマンドです。</p>
 <h2 id="docker">Dockerの基本コマンド<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
 <p>ここでは、標準的なGNU/Linuxオペレーティングシステムを使用しながら、ファイルシステムのナビゲーション、ファイルやディレクトリの表示と作成、ターミナルシェルのカスタマイズを始めるためのコマンドラインの例を一通り説明しました。しかし、このチュートリアルは、より高度なDocker、Kubernetes、Istioのチュートリアルやコードパターンを掘り下げるための入門編としての意味合いが強いので、まずは簡単にいくつかのDockerコマンドを列挙してみましょう。</p>
@@ -5191,14 +5108,14 @@ $ ls -l script_to_run.sh
 </tr>
 </tbody>
 </table>
-<p>kubectl`コマンドの一覧については、https://kubernetes.io/docs/reference/kubectl/cheatsheet/。</p>
+<p><code>kubectl</code>コマンドの一覧については、https://kubernetes.io/docs/reference/kubectl/cheatsheet/。</p>
 <h2 id="_8">まとめ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルは、<a href="https://www.docker.com/">Docker</a>、<a href="https://kubernetes.io/">Kubernetes</a>、<a href="https://istio.io/">Istio</a>などのコンテナ技術について学び続ける際の「氷を割る」ような、コマンドラインのウォーミングアップとしての役割を果たすことを目的としています。新しい技術を習得する前に基本を再確認することは有意義なことです。このチュートリアルで取り上げたトピックが、皆さんの記憶を呼び覚ましたり、何か新しいことを習得するのに役立つことを願っています。</p>
 <h2 id="_9">次のステップ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルを終えたら、<a href="/series/kubernetes-learning-path/">Kubernetes Learning Path</a>の次のステップを確認してください。また、コンテナを使ってみたいと思ったら、以下のリソースやコードパターンもチェックしてみてください。</p>
 <ul>
 <li><a href="https://cloud.ibm.com/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial">Start creating Kubernetes clusters</a></li>
-<li>大規模なマイクロサービスを接続、管理、保護する。<a href="https://www.ibm.com/cloud/info/istio">Run Istio on the IBM Cloud Kubernetes Service</a>。</li>
+<li>大規模なマイクロサービスを接続、管理、保護する。<a href="https://www.ibm.com/jp-ja/cloud/info/istio">Run Istio on the IBM Cloud Kubernetes Service</a>。</li>
 <li><a href="https://cloud.ibm.com/kubernetes/catalog/registry?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">Manage Docker container images in a fully managed private registry</a></li>
 <li>Code pattern:<a href="/patterns/istio-for-multi-clusters-across-iks-and-icp/"> Using Istio across private and public clusters</a></li>
 <li>Code pattern:<a href="/patterns/run-drupal-website-on-kubernetes/">Run a Drupal website on Kubernetes</a></li>

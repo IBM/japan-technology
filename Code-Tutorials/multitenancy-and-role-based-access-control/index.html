@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4607,82 +4607,116 @@
 <h2 id="_2">見積もり時間<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルを完了するには、約30分かかります。</p>
 <h2 id="_3">手順<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>1.<a href="#log-in-and-create-projects">ログインしてプロジェクトを作成する</a>
-1.<a href="#create-users">ユーザーの作成</a>
-1.<a href="#create-role-bindings">ロールバインディングの作成</a>
-1.<a href="#impersonate-user-and-deploy-application">ユーザーになりすましてアプリケーションをデプロイ</a>
-1.<a href="#create-and-deploy-the-pod">ポッドの作成とデプロイ</a>
-1.<a href="#switch-to-another-user">別のユーザーに切り替える</a></p>
+<ol>
+<li><a href="#log-in-and-create-projects">ログインしてプロジェクトを作成する</a></li>
+<li><a href="#create-users">ユーザーの作成</a></li>
+<li><a href="#create-role-bindings">ロールバインディングの作成</a></li>
+<li><a href="#impersonate-user-and-deploy-application">ユーザーになりすましてアプリケーションをデプロイ</a></li>
+<li><a href="#create-and-deploy-the-pod">ポッドの作成とデプロイ</a></li>
+<li><a href="#switch-to-another-user">別のユーザーに切り替える</a></li>
+</ol>
 <h2 id="_4">ログインしてプロジェクトを作成<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Webコンソールからはローカルユーザーを作成できないため、IBM Cloud Shellでユーザーとプロジェクトを作成します。</p>
-<p>1.クラスターの Red Hat OpenShift for IBM Cloud Web コンソールにログインします。ヘッダーの自分のユーザー名をクリックして、<strong>Copy Login Command</strong>をクリックします。Display Token**をクリックし、<code>oc login</code>コマンドをコピーしてターミナルに貼り付けます。</p>
-<p><img alt="ログイン" src="イメージ/イメージ1.jpg" /></p>
-<p>1.以下のコマンドをターミナルにコピーして、2つのプロジェクトを作成します（例では各ユーザーに1つずつ）。</p>
-<p><code>oc create namespace my-first-project</code></p>
-<p>my-first-project` が作成されたというメッセージが表示されます。</p>
-<p><code>oc create namespace my-second-project</code></p>
-<p>my-second-project` が作成されたというメッセージが表示されます。</p>
+<ol>
+<li>クラスターの Red Hat OpenShift for IBM Cloud Web コンソールにログインします。ヘッダーの自分のユーザー名をクリックして、<strong>Copy Login Command</strong>をクリックします。<strong>Display Token</strong>をクリックし、<code>oc login</code>コマンドをコピーしてターミナルに貼り付けます。</li>
+</ol>
+<p><img alt="ログイン" src="images/イメージ1.jpg" /></p>
+<ol>
+<li>以下のコマンドをターミナルにコピーして、2つのプロジェクトを作成します（例では各ユーザーに1つずつ）。</li>
+</ol>
+<p><code>my-first-project</code> が作成されたというメッセージが表示されます。</p>
+<p><code>my-second-project</code> が作成されたというメッセージが表示されます。</p>
 <h2 id="_5">ユーザーの作成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>1.以下のコマンドをコマンドラインにコピー＆ペーストして、2人のユーザーを作成します。</p>
-<p><code>oc create user first-user --full-name="first user"</code></p>
-<p>first-user」が作成されたというメッセージが表示されます。</p>
-<p><code>oc create user second-user --full-name="second user"</code></p>
-<p>second-user`が作成されたというメッセージが表示されます。</p>
+<ol>
+<li>以下のコマンドをコマンドラインにコピー＆ペーストして、2人のユーザーを作成します。</li>
+</ol>
+<p>「  first-user」が作成されたというメッセージが表示されます。</p>
+<p><code>second-user</code>が作成されたというメッセージが表示されます。</p>
 <p>管理者として、クラスターに関連するすべてのユーザー、プロジェクト、ポッドを確認することができます。</p>
-<p>1.Webコンソールで、<strong>User Management</strong> &gt; <strong>Users</strong>をクリックして、新しいユーザーの一覧を表示します。</p>
+<ol>
+<li>Webコンソールで、<strong>User Management</strong> &gt; <strong>Users</strong>をクリックして、新しいユーザーの一覧を表示します。</li>
+</ol>
 <p><img alt="ユーザー" src="images/image3.jpg" /></p>
-<p>1.Home &gt; Projects**をクリックして、クラスタ内のすべてのプロジェクトを表示します。</p>
+<ol>
+<li><strong>Home &gt; Projects</strong>をクリックして、クラスタ内のすべてのプロジェクトを表示します。</li>
+</ol>
 <p><img alt="すべてのプロジェクト" src="image/image4.jpg" /></p>
-<p>1.Workloads &gt; Pods<strong>をクリックして、すべてのポッドを表示します（すべてのプロジェクトを一覧表示するには、</strong>Project<strong> &gt; </strong>all projects**をクリックしていることを確認してください）。</p>
+<ol>
+<li><strong>Workloads &gt; Pods</strong>をクリックして、すべてのポッドを表示します（すべてのプロジェクトを一覧表示するには、<strong>Project</strong> &gt; <strong>all projects</strong>をクリックしていることを確認してください）。</li>
+</ol>
 <p><img alt="すべてのポッド" src="images/image5.jpg" /></p>
 <p>OpenShiftのWebコンソールUIのバージョン4.3では、<a href="https://www.openshift.com/blog/openshift-4-3-spoofing-a-user">spoof other users and groups</a>という機能が追加されました。ユーザーの一人になりすまして、そのユーザーが現時点で何にアクセスできるかを確認してみましょう。</p>
-<p>User Management &gt; Users<strong>をクリックして、</strong>first-user<strong>の縦の省略記号ボタンをクリックします。Impersonate User first-user</strong>をクリックします。</p>
-<p><img alt="ユーザーになりすます" src="イメージ/image6.jpg" /></p>
-<p>Home &gt; Projects**をクリックすると、<code>first-user</code>がプロジェクト/ポッドを閲覧したり、新しいプロジェクト/ポッドを作成したりできないことがわかります。これは、<code>first-user</code>がまだロールバインディングを持っていないためです。つまり、<code>first-user</code>は、プロジェクトやポッドを作成、表示、管理するための特権やパーミッションを持っていないということです。</p>
+<p><strong>User Management &gt; Users</strong>をクリックして、<strong>first-user</strong>の縦の省略記号ボタンをクリックします。<strong>Impersonate User first-user</strong>をクリックします。</p>
+<p><img alt="ユーザーになりすます" src="images/image6.jpg" /></p>
+<p><strong>Home &gt; Projects</strong>をクリックすると、<code>first-user</code>がプロジェクト/ポッドを閲覧したり、新しいプロジェクト/ポッドを作成したりできないことがわかります。これは、<code>first-user</code>がまだロールバインディングを持っていないためです。つまり、<code>first-user</code>は、プロジェクトやポッドを作成、表示、管理するための特権やパーミッションを持っていないということです。</p>
 <p><img alt="ファーストユーザープロジェクト" src="images/image7.jpg" /></p>
 <p><img alt="ファーストユーザーのポッド" src="images/image8.png" /></p>
 <p>Impersonating Userヘッダーの<strong>Stop Impersonation</strong>をクリックすると、<code>first-user</code>へのなりすましが止まり、Administratorに戻ります。</p>
-<p><img alt="なりすまし停止" src="イメージ/image9.jpg" /></p>
+<p><img alt="なりすまし停止" src="images/image9.jpg" /></p>
 <h2 id="_6">ロールバインディングの作成<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>このステップでは、ユーザーがそれぞれのプロジェクトにアクセスできるように、ロールバインディングを作成します。ロールバインディングは、ウェブコンソールから簡単に作成できます。</p>
-<p>1.User Management &gt; Role Bindings<strong>をクリックします。
-1.バインディングの作成]をクリックします。
-1.Role Binding</strong>の作成画面で、以下のフォームに必要事項を入力し、<strong>Create</strong>をクリックします。</p>
-<ul>
-<li><strong>Binding Type</strong>:名前空間ロールバインディング(RoleBinding)</li>
+<ol>
+<li><strong>User Management &gt; Role Bindings</strong>をクリックします。</li>
+<li>[バインディングの作成]をクリックします。</li>
+<li>
+<p><strong>Role Binding</strong>の作成画面で、以下のフォームに必要事項を入力し、<strong>Create</strong>をクリックします。</p>
+</li>
+<li>
+<p><strong>Binding Type</strong>:名前空間ロールバインディング(RoleBinding)</p>
+</li>
 <li><strong>名前</strong>: first-user-rb</li>
 <li><strong>名前空間</strong>: my-first-project</li>
 <li><strong>Role Name</strong>: cluster-admin</li>
 <li><strong>Subject</strong>：ユーザー</li>
 <li><strong>Subject Name</strong>: first-user</li>
-</ul>
+</ol>
 <p><img alt="ファーストユーザー rb" src="images/image10.jpg" /></p>
-<p>1.User Management &gt; Users<strong>をクリックして、</strong>first-user<strong>をクリックします。Role Bindings</strong>タブをクリックすると、名前空間<code>my-first-project</code>に対する<code>first-user-rb</code>ロールバインディングによって、ロール<code>cluster-admin</code>が<code>first-user</code>に正常に関連付けられていることがわかります。</p>
+<ol>
+<li><strong>User Management &gt; Users</strong>をクリックして、<strong>first-user</strong>をクリックします。<strong>Role Bindings</strong>タブをクリックすると、名前空間<code>my-first-project</code>に対する<code>first-user-rb</code>ロールバインディングによって、ロール<code>cluster-admin</code>が<code>first-user</code>に正常に関連付けられていることがわかります。</li>
+</ol>
 <p><img alt="ファーストユーザーの詳細" src="images/image11.jpg" /></p>
 <h2 id="_7">ユーザーになりすましてアプリケーションをデプロイ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>このステップでは、先ほどと同じように <code>first-user</code> になりすましますが、今回は <code>first-user</code> が <code>my-first-project</code> の管理者権限を持っているので、<code>first-user</code> はその名前空間で管理者ができるすべてのことができることになります。</p>
-<p>1.1. <strong>ユーザー管理&gt;ユーザー</strong>をクリックし、<strong>first-user</strong>をクリックします。Actions &gt; Impersonate Users first-user**をクリックします。</p>
+<ol>
+<li>
+<ol>
+<li><strong>ユーザー管理&gt;ユーザー</strong>をクリックし、<strong>first-user</strong>をクリックします。<strong>Actions &gt; Impersonate Users first-user</strong>をクリックします。</li>
+</ol>
+</li>
+</ol>
 <p>これで<code>first-user</code>が<code>my-first-project</code>ネームスペースを閲覧できることに注目してください。これは、<code>first-user</code>が<code>my-first-project</code>ネームスペースに限定されていたため、このユーザーが閲覧できる唯一のプロジェクトです。</p>
 <p><img alt="ファーストユーザプロジェクト1" src="images/image12.jpg" /></p>
-<p>1.Workloads &gt; Pods**をクリックすると、<code>first-user</code>がポッドにもアクセスできる(ポッドを作成できる)ことがわかりますが、まだポッドは作成されていません。</p>
-<p><img alt="ポッドのファーストユーザー1" src="画像/image13.jpg" /></p>
+<ol>
+<li><strong>Workloads &gt; Pods</strong>をクリックすると、<code>first-user</code>がポッドにもアクセスできる(ポッドを作成できる)ことがわかりますが、まだポッドは作成されていません。</li>
+</ol>
+<p><img alt="ポッドのファーストユーザー1" src="images/image13.jpg" /></p>
 <h2 id="_8">ポッドの作成とデプロイ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>このステップでは、<code>my-first-project</code>の名前空間に<code>first-user</code>という名前のポッドを作成します。</p>
-<p>1.WebコンソールでDeveloper Perspectiveに切り替えます。
-1.Topology」をクリックして、「Container Image」をクリックします。</p>
-<p><img alt="トポロジー" src="イメージ/image14.jpg" /></p>
-<p>1.Deploy Image<strong>ページで、</strong>Image name from external registry<strong>欄に<code>ibmcom/guestbook:v1</code>と入力します。(すると、</strong>Validated<strong>というメッセージが表示されます。デフォルトの設定のまま、</strong>Create**をクリックします。</p>
+<ol>
+<li>WebコンソールでDeveloper Perspectiveに切り替えます。</li>
+<li>「Topology」をクリックして、「Container Image」をクリックします。</li>
+</ol>
+<p><img alt="トポロジー" src="images/image14.jpg" /></p>
+<ol>
+<li><strong>Deploy Image</strong>ページで、<strong>Image name from external registry</strong>欄に<code>ibmcom/guestbook:v1</code>と入力します。(すると、<strong>Validated</strong>というメッセージが表示されます。デフォルトの設定のまま、<strong>Create</strong>をクリックします。</li>
+</ol>
 <p><img alt="ibmimagedeploy" src="images/image15.jpg" /></p>
-<p>ポッドを作成すると、<strong>Topology</strong>ビューにリダイレクトされ、ポッドが表示されます。ビルドに成功すると、ポッドを囲む水色の円が濃紺に変わります。first-user<code>として、プロジェクト</code>my-first-project`にコンテナ化されたアプリケーション(guestbook:v1)のデプロイに成功し、アプリケーションに関連するポッドやデプロイメントリソースを確認することができます。</p>
+<p>ポッドを作成すると、<strong>Topology</strong>ビューにリダイレクトされ、ポッドが表示されます。ビルドに成功すると、ポッドを囲む水色の円が濃紺に変わります。<code>first-user</code>として、プロジェクト<code>my-first-project</code>にコンテナ化されたアプリケーション(guestbook:v1)のデプロイに成功し、アプリケーションに関連するポッドやデプロイメントリソースを確認することができます。</p>
 <p><img alt="ポッドトポロジー" src="images/image16.jpg" /></p>
 <p>デプロイされたアプリケーションにアクセスするには、ポッドの上隅にある小さな四角をクリックすると、Guestbook-v1が新しいウィンドウで開きます。</p>
-<p><img alt="ゲストブックのURL" src="イメージ/image17.jpg" /></p>
+<p><img alt="ゲストブックのURL" src="images/image17.jpg" /></p>
 <p>Webコンソールで、Administratorの視点に戻します。新しいポッドが、プロジェクト <code>my-first-project</code> のポッドのリストに追加されていることに注目してください。</p>
 <p><img alt="pods added" src="images/image18.jpg" /></p>
 <h2 id="_9">別のユーザーに切り替える<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>では、<code>first-user</code>のなりすましを止めて、<code>second-user</code>に切り替えて、<code>second-user</code>が<code>first-user</code>が作成したポッドを見られるかどうかを検証してみましょう。</p>
-<p>1.Impersonating Userヘッダーの<strong>Stop Impersonation</strong>をクリックして、<code>first-user</code>へのなりすましを停止し、Administratorに戻ります。
-1.1. <strong>User Management &gt; Users</strong> をクリックして、<strong>second-user</strong> の縦の省略記号をクリックします。Impersonate Users second-user**をクリックします。</p>
+<ol>
+<li>Impersonating Userヘッダーの<strong>Stop Impersonation</strong>をクリックして、<code>first-user</code>へのなりすましを停止し、Administratorに戻ります。</li>
+<li>
+<ol>
+<li><strong>User Management &gt; Users</strong> をクリックして、<strong>second-user</strong> の縦の省略記号をクリックします。<strong>Impersonate Users second-user</strong>をクリックします。</li>
+</ol>
+</li>
+</ol>
 <p>予想通り、<code>second-user</code>には権限がないため、<code>my-first-project</code>のプロジェクトを見ることができません。</p>
 <p><img alt="second user pods" src="https://user-images.githubusercontent.com/36239840/97107793-d496ba80-16e2-11eb-8ca8-71bf673a7b8d.JPG" /></p>
 <h2 id="_10">まとめ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>

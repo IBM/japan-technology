@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -2068,20 +2068,6 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     サービスアカウント
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scc" class="md-nav__link">
-    サービスアカウントへのSCCの割り当て
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    まとめ
   </a>
   
 </li>
@@ -4468,20 +4454,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#scc" class="md-nav__link">
-    サービスアカウントへのSCCの割り当て
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    まとめ
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -4515,59 +4487,6 @@
 <h2 id="_1">サービスアカウント<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>サービスアカウント_は、クラスタで動作するコンポーネントがクラスタのAPIに直接アクセスできるようにするものです。これはユーザーアカウントに似ていますが、単一のプロジェクトにスコープされ、通常のユーザーの認証情報を共有する必要はありません。配置はサービスアカウントを介してSCCにアクセスするため、どのユーザが配置したかに関わらずSCCへのアクセスが可能になります。</p>
 <p>各サービスアカウントのユーザ名は、そのプロジェクトと名前に由来します。</p>
-<p>``bash
-system:serviceaccount:<project>:<name> (サービスアカウント)</p>
-<pre><code>
-次のコマンドで、現在のプロジェクトに新しいサービスアカウントを作成します。
-
-```bash
-oc create sa my-custom-sa
-</code></pre>
-<p>つまり、すべてのデプロイメントにはデフォルトで<code>restricted</code> SCCが割り当てられます。SCC を追加で割り当てるなどして、<code>default</code> サービスアカウントを変更しないでください。これは、そのプロジェクトにデプロイされたすべてのデプロイメントのデフォルトを変更することになります。むしろ、新しいサービスアカウントを作成して、そこにSCCを割り当てるようにしてください。</p>
-<h2 id="scc">サービスアカウントへのSCCの割り当て<a class="headerlink" href="#scc" title="Permanent link">&para;</a></h2>
-<p>SCCへのアクセスをサービスアカウントに与える最も簡単な方法は、SCCをサービスアカウントに直接割り当てることです。</p>
-<p>以下は、カスタムSCCをサービスアカウントに割り当てるためのコマンドです。</p>
-<p>``bash
-oc adm policy add-scc-to-user my-custom-scc -z my-custom-sa</p>
-<pre><code>
-my-custom-sa`がユーザーではなくサービスアカウントの名前であることをコマンドに伝える`-z`フラグに注目してください。
-
-これで、サービスアカウントがSCCに直接アクセスできるようになりました。
-
-_**Note:** 推奨される方法は、RBACロールを介してSCCをサービスアカウントに関連付けることです。ロールを作成し、SCCをそのロールに割り当てて、サービスアカウントをそのロールにバインドします。この方法の詳細については、[Role-based access to security context constraints](https://docs.openshift.com/container-platform/4.7/authentication/managing-security-context-constraints.html#role-based-access-to-ssc_configuring-internal-oauth)を参照してください。
-
-SCCがサービスアカウントに割り当てられたので、クラスタはSCCをどのように使用してデプロイできるものを制御しますか？
-
-## Admission
-
-SCCを使った_[Admission Control](https://docs.openshift.com/container-platform/4.6/authentication/managing-security-context-constraints.html#admission_configuring-internal-oauth)_では、ユーザーに付与された能力に基づいてリソースの作成を制御することができます。クラスタはこれを利用して、ポッドが要求した権限とSCCが付与した権限を比較して、リソースを作成するかどうかを決定します。
-
-ポッドが複数のSCCにアクセスできる場合はどうなりますか？これは、ポッドのユーザーアカウントとサービスアカウント、およびそれらが属するグループとロールに、複数のSCCが割り当てられている場合に発生します。
-
-Admissionは、一致するものが見つかるまで、ポッドのセキュリティコンテキストを各SCCと比較します。要求されたすべてのパーミッションを許可するSCCが1つもない場合、ポッドは拒否されます。
-
-## 優先順位付け
-
-SCCには優先度フィールドがあり、ポッドの要求が検証される際の順序に影響します。優先度の高いSCCは、ソートの際にセットの前の方に移動します。
-
-以下は、優先度を「11」に設定したSCCです。
-
-``yaml
-apiVersion: security.openshift.io/v1
-kind: SecurityContextConstraints
-メタデータを表示します。
-  名前: scc-priority-sample
-# priorityフィールド
-優先度: 11
-...
-</code></pre>
-<p>利用可能なSCCの完全なセットが決定すると、それらは次のように順序付けられます。</p>
-<p>1.優先度の高いものから順に並べる -- nilは優先度0（最低）とみなす。
-1.優先順位が同じ場合、SCCは最も制限の厳しいものから順に並べられます。
-1.優先度と制限の両方が等しい場合、SCCはアルファベット順に並べられます。</p>
-<p>アドミッションコントロールでは、一致するものが見つかるまで、または見つからないまで、セキュリティコンテキストをすべてのSCC（優先順位順）と比較することに注意してください。優先順位付けは、SCC を検討する順番を変えるだけで、承認結果を変えるものではない。</p>
-<h2 id="_2">まとめ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>管理者がSCCをデプロイメントで利用できるようにする方法がわかったところで、SCCが実際にどのように使用されているかを学ぶ準備ができました。具体的には、次の記事では、<a href="/learningpaths/secure-context-constraints-openshift/deployment-specify-permissions/">デプロイメントがパーミッションをどのように指定するか、SCCの承認プロセスがどのように動作するか</a>を紹介します。</p>
                 
                   
                 

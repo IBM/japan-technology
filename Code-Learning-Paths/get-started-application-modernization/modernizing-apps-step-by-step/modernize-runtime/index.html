@@ -1277,14 +1277,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1351,7 +1351,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1365,7 +1365,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1408,14 +1408,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1440,7 +1440,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1454,7 +1454,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1468,7 +1468,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1482,7 +1482,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1496,7 +1496,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4481,12 +4481,11 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>このラーニングパスのチュートリアルで使用している <a href="/learningpaths/get-started-application-modernization/modernizing-apps-step-by-step/architecture-sample-app/">サンプル例</a> を確認しておいてください。</p>
 <p>次に、まだやっていなければ、サンプルアプリケーションの完全なソースコードを取得するために、リポジトリをクローンします。</p>
-<pre><code>$ git clone https://github.com/ibm/application-modernization-javaee-quarkus.git &amp;&amp; cd application-modernization-javaee-quarkus
-$ ROOT_FOLDER=$(pwd)
-</code></pre>
 <h2 id="_2">ステップ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>1.WebSphere Libertyへの移行
-2.オープンリバティへの移行</p>
+<ol>
+<li>WebSphere Libertyへの移行
+2.オープンリバティへの移行</li>
+</ol>
 <h3 id="1websphere-liberty">ステップ1：WebSphere Libertyへの移行<a class="headerlink" href="#1websphere-liberty" title="Permanent link">&para;</a></h3>
 <p>ランタイムの近代化は WebSphere Liberty への移行から始めます。既存のプロジェクト構造はそのままで、EARファイルのzipファイルを含む4つのサブプロジェクトがあります。  まず、Dockerfileとpom.xmlファイルを更新することで、ランタイムの定義と構成を行います。モノリスをコンテナ化したときにTransformation Adviserから生成されたファイル(/learningpaths/get-started-application-modernization/modernizing-apps-step-by-step/containerize-app/)から始めることもできますが、Dockerfileを手動で定義するだけでも十分に簡単です。</p>
 <h3 id="step-1a">Step 1a:アプリケーションのランタイムの定義と設定<a class="headerlink" href="#step-1a" title="Permanent link">&para;</a></h3>
@@ -4496,69 +4495,13 @@ $ ROOT_FOLDER=$(pwd)
 <li><a href=" https://hub.docker.com/_/websphere-liberty " target="_blank" rel="noopener noreferrer nofollow"><em>websphere-liberty</em></a></li>
 </ul>
 <p>ここでは、私のサンプルアプリケーションの<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/monolith-websphere-liberty/Dockerfile" target="_blank" rel="noopener noreferrer"><em>Dockerfile</em></a>をご紹介します。</p>
-<pre><code>FROM ibmcom/websphere-liberty:20.0.0.12-kernel-java8-openj9-ubi
-ユーザーroot
-COPY ./liberty/server.xml /config
-COPY ./liberty/server.env /config
-COPY .liberty/jvm.options /config
-
-ARG SSL=false
-ARG MP_MONITORING=false
-ARG HTTP_ENDPOINT=false
-
-COPY ./CustomerOrderServicesApp/target/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear /config/apps/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear
-.resources/ /opt/ibm/wlp/usr/shared/resources/ をCOPYします。
-RUN chown -R 1001.0 /config /opt/ibm/wlp/usr/servers/defaultServer /opt/ibm/wlp/usr/shared/resources &amp;&amp; chmod -R g+rw /config /opt/ibm/wlp/usr/servers/defaultServer /opt/ibm/wlp/usr/shared/resources
-
-USER 1001
-configure.shを実行します。
-</code></pre>
 <p>最後の行（<code>RUN configure.sh</code>）は、キャッシングなどの最適化を実行するため、開発環境では無視して構いません。この行をコメントアウトすることで、イメージの構築やコンテナの再起動がより速くなります。</p>
-<p>次のステップでは、pom.xmlファイルを定義する必要があります。実際には、ここでは異なるpom.xmlファイルを定義します。昔のJavaプロジェクトでは、さまざまなアーティファクトを生成するために、さまざまな<a href="https://github.com/IBM/application-modernization-javaee-quarkus/tree/master/monolith-websphere-liberty" target="_blank" rel="noopener noreferrer"><em>sub-projects</em></a>を使用していました。.ear<code>、</code>.war<code>、</code>.jar`といったファイルです。</p>
-<p>pom.xml`では、Java EEまたは現在のJakarta EEへの依存を宣言する必要があります。多くの場合、これで必要な依存関係のほとんどをカバーできます。</p>
-<pre><code>&lt;dependency&gt; (依存関係)
-   &lt;groupid&gt;javaee&lt;/groupid&gt;
-   &lt;artifactId&gt;javaee-api&lt;/artifactId&gt;
-   &lt;バージョン&gt;8&lt;/バージョン&gt;
-   &lt;scope&gt;provided&lt;/scope&gt;
-&lt;/dependency&gt; &lt;/dependency
-</code></pre>
+<p>次のステップでは、pom.xmlファイルを定義する必要があります。実際には、ここでは異なるpom.xmlファイルを定義します。昔のJavaプロジェクトでは、さまざまなアーティファクトを生成するために、さまざまな<a href="https://github.com/IBM/application-modernization-javaee-quarkus/tree/master/monolith-websphere-liberty" target="_blank" rel="noopener noreferrer"><em>sub-projects</em></a>を使用していました。<code>.ear</code>、<code>.war</code>、<code>.jar</code>といったファイルです。</p>
+<p><code>pom.xml</code>では、Java EEまたは現在のJakarta EEへの依存を宣言する必要があります。多くの場合、これで必要な依存関係のほとんどをカバーできます。</p>
 <p>次に、<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/monolith-websphere-liberty/liberty/server.xml" target="_blank" rel="noopener noreferrer"><em>WebSphere Liberty server configuration</em> (the server.xml file)</a>を定義する必要があります。このファイルには、どの機能を使用するか、データベースへのアクセス方法、HTTPエンドポイントなどが記述されています。  ここでは、私が使用したものを紹介します。</p>
-<pre><code>&lt;server&gt;(サーバー)
-  &lt;featureManager&gt;（フィーチャーマネージャー
-      &lt;feature&gt;appSecurity-2.0&lt;/feature&gt;
-      &lt;feature&gt;ldapRegistry-3.0&lt;/feature&gt;
-      &lt;feature&gt;localConnector-1.0&lt;/feature&gt;
-      &lt;feature&gt;ejb-Lite-3.1&lt;/feature&gt; &lt;/feature
-      &lt;feature&gt;jaxrs-1.1&lt;/feature&gt; (日本語)
-      &lt;feature&gt;jdbc-4.1&lt;/feature&gt; (日本語)
-      &lt;feature&gt;jpa-2.0&lt;/feature&gt; &lt;/feature
-      &lt;feature&gt;jsp-2.3&lt;/feature&gt; (日本語)
-      &lt;feature&gt;servlet-3.1&lt;/feature&gt; &lt;/feature
-  &lt;/featureManager&gt;
-
-  &lt;ライブラリ id=&quot;DB2Lib&quot;&gt;
-    &lt;fileset dir=&quot;/opt/ibm/wlp/usr/shared/resources/db2&quot; includes=&quot;db2jcc4.jar db2jcc_license_cu.jar&quot;/&gt;。
-  &lt;/library&gt;
-
-  &lt;dataSource id=&quot;OrderDS&quot; jndiName=&quot;jdbc/orderds&quot; type=&quot;javax.sql.XADataSource&quot;&gt;
-    &lt;jdbcDriver libraryRef=&quot;DB2Lib&quot;/&gt;。
-    &lt;properties.db2.jcc databaseName=&quot;${env.DB2_DBNAME}&quot; password=&quot;${env.DB2_PASSWORD}&quot; portNumber=&quot;${env.DB2_PORT}&quot; serverName=&quot;${env.DB2_HOST}&quot; user=&quot;${env.DB2_USER}&quot;/&gt;。
-    &lt;connectionManager agedTimeout=&quot;0&quot; connectionTimeout=&quot;180&quot; maxIdleTime=&quot;1800&quot; maxPoolSize=&quot;10&quot; minPoolSize=&quot;1&quot; reapTime=&quot;180&quot;/&gt;。
-  &lt;/dataSource&gt;
-
-  &lt;httpEndpoint host=&quot;*&quot; httpPort=&quot;9080&quot; httpsPort=&quot;9443&quot; id=&quot;defaultHttpEndpoint&quot;&gt;
-    &lt;tcpOptions soReuseAddr=&quot;true&quot;/&gt;。
-  &lt;/httpEndpoint&gt;
-
-  &lt;application id=&quot;customerOrderServicesApp&quot; name=&quot;CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear&quot; type=&quot;ear&quot; location=&quot;CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear&quot;&gt;
-    &lt;classloader apiTypeVisibility=&quot;spec, ibm-api, third-party&quot; /&gt;。
-  &lt;/application&gt;
-&lt;/server&gt;
-</code></pre>
 <h3 id="step-1b">Step 1b:必要なコードの変更<a class="headerlink" href="#step-1b" title="Permanent link">&para;</a></h3>
 <p><sidebar>
-<a href="https://developer.ibm.com/learningpaths/app-mod-liberty/" target="_blank" rel="noopener noreferrer"><em>Modernizing your applications to use WebSphere Liberty</em></a>」のラーニング・パスを完了し、WebSphere ユーザーが利用できるすべての移行ツールについて詳しく学びます。
+「<a href="https://developer.ibm.com/learningpaths/app-mod-liberty/" target="_blank" rel="noopener noreferrer"><em>Modernizing your applications to use WebSphere Liberty</em></a>」のラーニング・パスを完了し、WebSphere ユーザーが利用できるすべての移行ツールについて詳しく学びます。
 </sidebar></p>
 <p>ここでは、WebSphere Application Server Migration Toolkit を使用してコードの変更を行います。</p>
 <p>WebSphere Application Server Migration Toolkitの使用方法については、次のビデオをご覧ください。</p>
@@ -4589,54 +4532,12 @@ configure.shを実行します。
 <h3 id="step-2a">Step 2a:アプリケーションのランタイムの定義と設定<a class="headerlink" href="#step-2a" title="Permanent link">&para;</a></h3>
 <p>WebSphere LibertyはOpen Libertyをベースにしているため、必要な変更点はそれほど多くありませんが、いくつかの違いがあります。</p>
 <p>まず、変更が必要なのはDockerfileです。<a href=" https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/monolith-websphere-liberty/Dockerfile.multistage" target="_blank" rel="noopener noreferrer"><em>WebSphere Liberty Dockerfile</em></a>は、<a href=" https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/monolith-open-liberty-cloud-native/Dockerfile.multistage" target="_blank" rel="noopener noreferrer"><em>Open Liberty version</em></a>と似ているので、手動で作成する必要があります。</p>
-<pre><code>FROM adoptopenjdk/maven-openjdk11 as BUILD
-COPY ./usr/src/app/src
-作業ディレクトリ /usr/src/app/src/CustomerOrderServicesProject
-RUN mvn clean package
-
-FROM open-liberty:kernel-slim-java11-openj9
-ユーザーroot
-COPY --chown=1001:0 ./liberty/server.xml /config
-コピー --chown=1001:0 ./liberty/server.env /config
-COPY --chown=1001:0 ./liberty/jvm.options /config
-
-ARG SSL=false
-ARG HTTP_ENDPOINT=false
-
-RUN features.sh
-
-COPY --from=build --chown=1001:0 /usr/src/app/src/CustomerOrderServicesApp/target/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear /config/apps/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear
-COPY --from=build --chown=1001:0 /usr/src/app/src/resources/ /opt/ol/wlp/usr/shared/resources/
-RUN chown -R 1001.0 /config /opt/ol/wlp/usr/servers/defaultServer /opt/ol/wlp/usr/shared/resources &amp;&amp; chmod -R g+rw /config /opt/ol/wlp/usr/servers/defaultServer /opt/ol/wlp/usr/shared/resources
-
-USER 1001
-configure.shを実行します。
-</code></pre>
 <p>Javaアプリケーションの場合、私は常に多段の<code>Dockerfile</code>を使用して、どこでコードをビルドしても、Mavenのビルドが常に同じ結果を返すようにしています。これにより、JVM、Mavenのバージョン、JDKのバージョンなどが異なる場合の問題が解消されます。</p>
 <p>正しいOpen Libertyのイメージを選ぶには、<a href="https://github.com/OpenLiberty/ci.docker#container-images" target="_blank" rel="noopener noreferrer nofollow"><em>Open Liberty documentation</em></a>をチェックしてください。DockerHubには様々なOpen Libertyプロジェクトがありますが、推奨されるイメージはDocker Officialイメージ（<a href="https://hub.docker.com/_/open-liberty" target="_blank" rel="noopener noreferrer nofollow"><em>open-libty</em></a>）ではなく、Universal Base Image (UBI) (<a href="https://hub.docker.com/r/openliberty/open-liberty" target="_blank" rel="noopener noreferrer nofollow"><em>openliberty/open-libty</em></a>)になります。</p>
 <p>オープンリバティを使い始めるには、<code>full</code>というタグのついたイメージから始めるのがいいでしょう。これらのイメージにはフルランタイムが含まれているので、サイズは大きくなりますが、最初は使いやすいでしょう。その後、<code>slim</code>バージョンを使用したり、'features.sh'スクリプトを実行して必要な機能だけを取り出したりすることで、イメージを最適化することができます。</p>
 <p>また、最後の行（<code>RUN configure.sh</code>）をコメントアウトすることで、イメージの構築とコンテナの再起動がより高速になります。</p>
 <p>次に、手動で単一の<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/monolith-open-liberty-cloud-native/pom.xml" target="_blank" rel="noopener noreferrer"><em>pom.xml</em></a>ファイルを作成し、ファイル内のいくつかの依存関係を変更する必要があります。移行をできるだけ簡単にするために、<code>umbrella</code>の依存関係であるJakartaとMicroProfileを使い、最新のバージョンを選ぶようにします。また、<code>pom.xml</code>ファイルでJavaのコンパイルバージョンを変更することもできます。</p>
-<pre><code>&lt;dependency&gt;(依存関係)
-   &lt;groupId&gt;jakarta.platform&lt;/groupid&gt;
-   &lt;artifactId&gt;jakarta.jakartaee-api&lt;/artifactId&gt;
-   &lt;バージョン&gt;8.0.0&lt;/バージョン
-   &lt;scope&gt;provided&lt;/scope&gt;
-&lt;/dependency&gt; &lt;/dependency
-&lt;dependency&gt; (依存関係)
-   &lt;groupId&gt;org.eclipse.microprofile&lt;/groupId&gt;
-   &lt;artifactId&gt;microprofile&lt;/artifactId&gt;
-   &lt;バージョン&gt;3.3&lt;/バージョン&gt;
-   &lt;type&gt;pom&lt;/type&gt;
-   &lt;scope&gt;provided&lt;/scope&gt;
-&lt;/dependency&gt; &lt;/dependency
-</code></pre>
 <p>次に、手動で作成する<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/monolith-open-liberty-cloud-native/src/main/liberty/config/server.xml" target="_blank" rel="noopener noreferrer"><em>server.xmlファイル</em></a>に、Open Libertyが使用する機能を定義する必要があります。  server.xmlでは、再び「アンブレラ」機能を使用します。MicroProfile reactive featureはMicroProfile coreに含まれていないため、別途定義する必要があります。</p>
-<pre><code>&lt;feature&gt;microProfile-3.3&lt;/feature&gt; (マイクロプロファイル-3.3)
-&lt;feature&gt;jakartaee-8.0&lt;/feature&gt; (日本語)
-&lt;feature&gt;mpReactiveStreams-1.0&lt;/feature&gt; (日本語)
-&lt;feature&gt;mpReactiveMessaging-1.0&lt;/feature&gt; &lt;feature&gt;mpReactiveStreams-1.0&lt;/feature&gt;
-</code></pre>
 <h3 id="step-2b">Step 2b:必要なコードを変更する<a class="headerlink" href="#step-2b" title="Permanent link">&para;</a></h3>
 <p>最近の開発者は、最新のフレームワークを使ってコードを書く際に、特定の機能を利用することに慣れています。例えば、次のようなことが考えられます。</p>
 <ul>
@@ -4665,50 +4566,9 @@ configure.shを実行します。
 <p>左側のプロジェクト構造は、元のマルチモジュール構造を示し、右側は簡略化した新しい構造を示しています。</p>
 <p><img alt="簡易プロジェクト構造" src="images/simplified-project-structure.png" /></p>
 <p>コードを単純化するために、EJB（Enterprise Java Beans）をCDI（Contexts and Dependency Injection）に置き換えました。例えば、これは元々のEJBのコードです。</p>
-<pre><code>ステートレス
-public class ProductSearchServiceImpl implements ProductSearchService {...
-   ...
-}
-public class CategoryResource {...
-   @EJB ProductSearchService productSearch;
-   ...
-   productSearch = (ProductSearchService) new InitialContext().lookup(&quot;java:app/CustomerOrderServices/ProductSearchServiceImpl!org.pwte.example.service.ProductSearchService&quot;);
-   ...
-}
-</code></pre>
 <p>これがCDIを使った変換後のコードです。</p>
-<pre><code>@ApplicationScoped
-public class ProductSearchServiceImpl implements ProductSearchService {...
-   ...
-}
-@ApplicationScoped
-public class CategoryResource {.
-   @Inject
-   ProductSearchServiceImpl productSearch;
-   ...
-}
-</code></pre>
 <p>トランザクションを処理するには、Java/Jakarta EE標準のJava Transaction API (JTA)の一部である<code>@Transactional</code>を使用できます。最も簡単な方法は、メソッドにこのアノテーションを使用することです。</p>
-<pre><code>@Transactional
-public void updateLineItem(String productId, String newPrice) {...
-   ...
-}  
-</code></pre>
 <p>さらにコントロールが必要な場合は、トランザクションを手動で管理することもできます。</p>
-<pre><code>@PersistenceContext
-protected EntityManager em;
-
-リソース
-UserTransaction utx;
-
-トランザクショナル
-public void updateLineItem(String productId, String newPrice) {.
-   utx.begin();
-   em.persist(lineItem);
-   utx.commit();
-   ...
-}
-</code></pre>
 <h2 id="_3">まとめと次のステップ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、サンプルアプリケーションの近代化の次のステップとして、ランタイムの近代化を行いました。まず、WebSphere Liberty を使用するように移行し、次に、Open Liberty を使用するように移行しました。</p>
 <p>アプリケーションのモダナイゼーションの次のステップは、モノリシックなアプリをマイクロサービスにリファクタリングすることです。</p>

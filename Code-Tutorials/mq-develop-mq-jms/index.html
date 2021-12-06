@@ -1360,14 +1360,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1434,7 +1434,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1448,7 +1448,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1491,14 +1491,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1523,7 +1523,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1537,7 +1537,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1551,7 +1551,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1565,7 +1565,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1579,7 +1579,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4575,100 +4575,45 @@
 <p>すでに JMS アプリケーションを持っていて、パフォーマンスやデバッグについて助けが必要な場合は、<a href="https://developer.ibm.com/articles/mq-best-practices/" target="_blank" rel="noopener noreferrer"><em>this article</em></a>をご覧ください。</p>
 <h2 id="_2">環境を整える<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>この最初のステップでは、前提条件のインストールと設定を説明します。  </p>
-<p>1.ホームディレクトリなどに、サンプルに必要なファイルを保存するディレクトリを作成します。</p>
-<pre class="codehilite"><code class="linenums">```
-mkdir MQClient
-```
-</code></pre>
-
-<p>2.MQClient」フォルダから「com.ibm.mq.allclient.jar」ファイルを「curl」を使ってダウンロードします。</p>
-<pre class="codehilite"><code class="linenums">```
-curl -o com.ibm.mq.allclient-9.2.3.0.jar https://repo1.maven.org/maven2/com/ibm/mq/com.ibm.mq.allclient/9.2.3.0/com.ibm.mq.allclient-9.2.3.0.jar
-```
-</code></pre>
-
+<ol>
+<li>ホームディレクトリなどに、サンプルに必要なファイルを保存するディレクトリを作成します。</li>
+</ol>
+<p>「2.MQClient」フォルダから「com.ibm.mq.allclient.jar」ファイルを「curl」を使ってダウンロードします。</p>
 <p>3.3. <code>MQClient</code> フォルダから <code>curl</code> を使って JMS API ファイルをダウンロードします。</p>
-<pre class="codehilite"><code class="linenums">```
-curl -o javax.jms-api-2.0.1.jar https://repo1.maven.org/maven2/javax/jms/javax.jms-api/2.0.1/javax.jms-api-2.0.1.jar
-```
-</code></pre>
-
 <p>4.Java JDKバージョン8をまだお持ちでない方は、<a href="https://www.ibm.com/support/pages/java-sdk-downloads-version-80" target="_blank" rel="noopener noreferrer nofollow"><em>here</em></a>からダウンロードすることができます。お使いのプラットフォームに適したダウンロードを選択し、インストールしてください。</p>
 <h2 id="jms">ポイントツーポイントJMSサンプルアプリケーションのダウンロード<a class="headerlink" href="#jms" title="Permanent link">&para;</a></h2>
 <p>サンプルをGitHubから入手してローカルマシンに保存し、主要なJMSの構造や、サンプルがキュー・マネージャーに接続できるようにホスト、ポート、チャンネル、キューの詳細を追加する箇所に目を通してみましょう。</p>
-<p>1.MQClient<code>のディレクトリに、以下のようなディレクトリ構造を作成します。
-com/ibm/mq/samples/jms</code>とします。</p>
-<pre class="codehilite"><code class="linenums">Windowsの場合です。
-```
-mkdir -p com\ibm/mq\samples\jms
-```
-
-Linuxの場合
-```
-mkdir -p com/ibm/mq/samples/jms に移動します。
-```
-</code></pre>
-
-<p>2.MQClient/com/ibm/mq/samples/jms<code>ディレクトリから、</code>curl`を使ってGitHubからJmsPutGet.javaサンプルをダウンロードします。</p>
-<pre class="codehilite"><code class="linenums">```
-curl -o JmsPutGet.java https://raw.githubusercontent.com/ibm-messaging/mq-dev-samples/master/gettingStarted/jms/com/ibm/mq/samples/jms/JmsPutGet.java
-```
-</code></pre>
-
+<ol>
+<li>
+<p><code>MQClient</code>のディレクトリに、以下のようなディレクトリ構造を作成します。
+<code>com/ibm/mq/samples/jms</code>とします。</p>
+<p>Windowsの場合です。</p>
+<p>Linuxの場合</p>
+</li>
+</ol>
+<p><code>2.MQClient/com/ibm/mq/samples/jms</code>ディレクトリから、<code>curl</code>を使ってGitHubからJmsPutGet.javaサンプルをダウンロードします。</p>
 <p>3.3. <code>JMSPutGet.java</code> ファイルを編集します。ホスト、ポート、アプリのパスワード変数をキューマネージャーの構成に合わせて変更します。</p>
-<pre class="codehilite"><code class="linenums">```
-// MQへの接続用の変数を作成
-private static final String HOST = &quot;_YOUR_HOSTNAME_&quot;; // ホスト名またはIPアドレス
-private static final int PORT = 1414; // キューマネージャーのリスナーポート
-private static final String CHANNEL = &quot;DEV.APP.SVRCONN&quot;; // チャンネル名
-private static final String QMGR = &quot;QM1&quot;; // キュー・マネージャー名
-private static final String APP_USER = &quot;app&quot;; // アプリケーションがMQへの接続に使用するユーザー名
-private static final String APP_PASSWORD = &quot;_APP_PASSWORD_&quot;; // アプリケーションがMQに接続する際に使用するパスワード
-private static final String QUEUE_NAME = &quot;DEV.QUEUE.1&quot;; // アプリケーションがメッセージの出し入れに使用するキュー
-```
-</code></pre>
-
 <p>これで、アプリケーションをコンパイルして実行できるようになります。</p>
 <h2 id="jms_1">JMSアプリケーションのコンパイルと実行<a class="headerlink" href="#jms_1" title="Permanent link">&para;</a></h2>
 <p>ここでようやく、アプリケーションをキュー・マネージャに接続し、キューとの間でメッセージの送受信を行うことができます。</p>
 <p>サンプルをコンパイルするには、MQClientのディレクトリに移動します。</p>
 <p>javacを使ってアプリケーションをコンパイルします。</p>
-<p>1.MQClient "ディレクトリから、"javac "を使用してアプリケーションをコンパイルします。</p>
-<pre class="codehilite"><code class="linenums">Windowsの場合
-```
-javac -cp .com.ibm.mq.allclient-9.2.3.0.jar;.javax.jms-api-2.0.1.jar com\\mq\samples˶Jms˶JmsPutGet.java
-```
-
-Linuxの場合
-```
-javac -cp ./com.ibm.mq.allclient-9.2.3.0.jar:./javax.jms-api-2.0.1.jar com/ibm/mq/samples/jms/JmsPutGet.java
-```
-
-サンプルがコンパイルされたことを確認するために、これらのコマンドのいずれかを実行します。  これで、`.java`ファイルに付随する`.class`ファイルが表示されるはずです。
-
-Windowsでは、`dir`コマンドを実行してください。
-```
-dir comibm\mq\samples\jms\
-```
-
-Linuxの場合は、「ls」コマンドを実行します。
-```
-ls -l com/ibm/mq/samples/jms/
-```
-これで、`.java`ファイルに付随する`.class`ファイルが表示されるはずです。
-![lsコマンドの出力](images/jms-compiled-2020.png)
-</code></pre>
-
+<ol>
+<li>
+<p>MQClient "ディレクトリから、"javac "を使用してアプリケーションをコンパイルします。</p>
+<p>Windowsの場合</p>
+<p>Linuxの場合</p>
+<p>サンプルがコンパイルされたことを確認するために、これらのコマンドのいずれかを実行します。  これで、<code>.java</code>ファイルに付随する<code>.class</code>ファイルが表示されるはずです。</p>
+<p>Windowsでは、<code>dir</code>コマンドを実行してください。</p>
+<p>Linuxの場合は、「ls」コマンドを実行します。
+これで、<code>.java</code>ファイルに付随する<code>.class</code>ファイルが表示されるはずです。
+<img alt="lsコマンドの出力" src="images/jms-compiled-2020.png" /></p>
+</li>
+</ol>
 <p>2.作成したアプリケーションを実行します。</p>
 <pre class="codehilite"><code class="linenums">Windowsの場合
-```
-java -cp .com.ibm.mq.allclient-9.2.3.0.jar;.javax.jms-api-2.0.1.jar;. com.ibm.mq.samples.jms.JmsPutGet
-```
 
 Linuxの場合
-```
-java -cp ./com.ibm.mq.allclient-9.2.3.0.jar:./javax.jms-api-2.0.1.jar:. com.ibm.mq.samples.jms.JmsPutGet
-```
 このような出力が表示されるはずです。
 </code></pre>
 

@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4664,96 +4664,101 @@
 <p>線形回帰は、連続的な値を推定するのには適していますが（例えば、住宅価格や製品の売上高の推定など）、観測されたデータポイントが属するクラスを予測するのには最適なツールではありません。分類を推定するためには、そのデータポイントがどのクラスに属している可能性が最も高いのかという指針が必要です。これには、ロジスティック回帰を使用します。</p>
 <h3 id="_2">線形回帰<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>線形回帰は、連続的な従属変数<code>y</code>をいくつかの予測変数（例えば、独立変数<code>x1</code>や<code>x2</code>）に関連付ける関数を求めます。単純な線形回帰では、次のような形の関数を想定しています。</p>
-<pre><code>y = w0 + w1 x x1 + w2 x2 + ...
-</code></pre>
-<p>これは、<code>w0</code>, <code>w1</code>, <code>w2</code> の値を求めるものです。w0<code>は *切片* または *定数項* です (次の式では</code>b` と表示されています)。</p>
-<pre><code> Y = W X + b
-</code></pre>
+<p>これは、<code>w0</code>, <code>w1</code>, <code>w2</code> の値を求めるものです。<code>w0</code> は <em>切片</em> または <em>定数項</em> です (次の式では <code>b</code> と表示されています)。</p>
 <h3 id="_3">ロジスティック回帰<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>ロジスティック回帰は、線形回帰の一種であり、観測される従属変数 <code>y</code> がカテゴリー型である場合に有効です。これは、クラスラベルの確率を独立変数の関数として予測する式を作成します。</p>
 <p>ロジスティック回帰という名前がついていますが，実際には<em>確率的分類</em>モデルです。ロジスティック回帰は、線形回帰をとって、数値の推定値を次の関数で確率に変換することで、特別なS字型の曲線にフィットします。</p>
-<pre><code> 𝑃𝑟𝑜𝑏𝑎𝑖𝑙𝑖𝑡𝑦𝑂𝑓𝑎𝐶𝑙𝑎𝑠𝑠=𝑡ℎ𝑒𝑡𝑎(𝑦)=𝑓𝑟𝑎𝑐𝑒𝑦1+𝑒𝑦=𝑒𝑥𝑝(𝑦)/(1+𝑒𝑥𝑝(𝑦))=𝑝
-</code></pre>
 <p>これにより、p値は0（<code>y</code>がマイナス無限大に近づくにつれて）と1（<code>y</code>がプラス無限大に近づくにつれて）の間になります。これで特別なタイプの非線形回帰になりました。</p>
 <p>この式で、<code>y</code>は回帰結果（係数で重み付けされた変数の合計）、<code>exp</code>は指数関数、<code>theta(y)</code>は<a href="http://en.wikipedia.org/wiki/Logistic_function">ロジスティック関数</a>で、ロジスティック曲線とも呼ばれます。一般的な「S」字型（シグモイド曲線）で、人口増加のモデル化のために最初に開発されたものです。</p>
 <p>この関数は別の設定で見たことがあるかもしれません。</p>
-<pre><code>𝑃𝑟𝑜𝑏𝑎𝑖𝑙𝑖𝑡𝑦𝑂𝑓𝑎𝐶𝑙𝑎𝑠𝑠=𝑡ℎ𝑒𝑡𝑎(𝑦)=𝑓𝑟𝑎𝑐11+𝑒-𝑦
-</code></pre>
 <p>つまり、ロジスティック回帰では、入力をロジスティック/シグモイド関数に通しますが、その結果を確率として扱います。</p>
-<p><img alt="確率の結果" src="画像/figure1.png" /></p>
+<p><img alt="確率の結果" src="images/figure1.png" /></p>
 <h2 id="_4">前提条件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルに参加するためには、以下の前提条件が必要です。</p>
 <ul>
 <li><a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud アカウント</a></li>
-<li><a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data</a> または <a href="https://www.ibm.com/cloud/watson-studio">IBM Watson&reg; Studio</a></li>
-<li><a href="https://www.ibm.com/cloud/machine-learning">IBM Watson Machine Learning Service</a></li>
+<li><a href="https://www.ibm.com/jp-ja/products/cloud-pak-for-data">IBM Cloud Pak for Data</a> または <a href="https://www.ibm.com/jp-ja/cloud/watson-studio">IBM Watson&reg; Studio</a></li>
+<li><a href="https://www.ibm.com/jp-ja/cloud/machine-learning">IBM Watson Machine Learning Service</a></li>
 </ul>
 <h2 id="_5">見積もり時間<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルを完了するには、約 60 分かかります。</p>
 <h2 id="_6">手順<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>1.<a href="#create-ibm-cloud-account">IBM Cloud Account を作成し、Data as a Service の IBM Cloud Pak にアクセスします</a>
-1.<a href="#create-a-new-project">新しいプロジェクトを作成する</a>
-1.<a href="#Associate-the-Watson-Machine-Learning-service-with-the-project">Watson Machine Learning Service をプロジェクトに関連付ける</a>
-1.<a href="#add-notebook-to-project">プロジェクトにノートブックを追加する</a>
-1.<a href="#run-the-notebook">ノートブックを実行する。</a></p>
+<ol>
+<li><a href="#create-ibm-cloud-account">IBM Cloud Account を作成し、Data as a Service の IBM Cloud Pak にアクセスします</a></li>
+<li><a href="#create-a-new-project">新しいプロジェクトを作成する</a></li>
+<li><a href="#Associate-the-Watson-Machine-Learning-service-with-the-project">Watson Machine Learning Service をプロジェクトに関連付ける</a></li>
+<li><a href="#add-notebook-to-project">プロジェクトにノートブックを追加する</a></li>
+<li>[ノートブックを実行する。<a href="#run-the-notebook"></a></li>
+</ol>
 <h3 id="1ibm">ステップ 1.IBM クラウドアカウントの作成<a class="headerlink" href="#1ibm" title="Permanent link">&para;</a></h3>
-<p>1.IBM Cloud アカウント](https://cloud.ibm.com/registration?cm_sp=ibmdev-<em>-developer-tutorials-</em>-cloudreg)にサインインします。
-1.Watson Studio」を検索します。
-1.地域と料金プランを選択してサービスを作成します。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio を検索する](images/Searchforcpd.png)
-</code></pre>
-
-<p>1.Create**」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio サービスの作成](images/createcpd.png)をクリックします。
-</code></pre>
-
+<ol>
+<li><a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud アカウント</a>にサインインします。</li>
+<li>「Watson Studio」を検索します。</li>
+<li>
+<p>地域と料金プランを選択してサービスを作成します。</p>
+<p><img alt="Watson Studio を検索する" src="images/Searchforcpd.png" /></p>
+</li>
+<li>
+<p>「<strong>Create</strong>」をクリックします。</p>
+<p><img alt="Watson Studio サービスの作成" src="images/createcpd.png" />をクリックします。</p>
+</li>
+</ol>
 <h3 id="2">ステップ 2.新しいプロジェクトを作成します。<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>1.Get started**」をクリックして、Watson Studio サービスを開始します。</p>
-<p>1.Create a project** をクリックして、空のプロジェクトを作成します。</p>
-<pre class="codehilite"><code class="linenums">![Starting Watson Studio](images/createaproject.png)
-</code></pre>
-
-<p>1.プロジェクトに名前を付けて、ストレージサービスを追加します。</p>
-<pre class="codehilite"><code class="linenums">![プロジェクトの作成](images/createnewproject.png)
-</code></pre>
-
-<p>1.Create**をクリックします。プロジェクトが作成されると、プロジェクトのダッシュボードが表示されます。</p>
+<ol>
+<li>
+<p>「<strong>Get started</strong>」をクリックして、Watson Studio サービスを開始します。</p>
+</li>
+<li>
+<p><strong>Create a project</strong> をクリックして、空のプロジェクトを作成します。</p>
+<p><img alt="Starting Watson Studio" src="images/createaproject.png" /></p>
+</li>
+<li>
+<p>プロジェクトに名前を付けて、ストレージサービスを追加します。</p>
+<p><img alt="プロジェクトの作成" src="images/createnewproject.png" /></p>
+</li>
+<li>
+<p><strong>Create</strong>をクリックします。プロジェクトが作成されると、プロジェクトのダッシュボードが表示されます。</p>
+</li>
+</ol>
 <h3 id="3watson-machine-learning-service">ステップ 3.Watson Machine Learning Service をプロジェクトに関連付けます。<a class="headerlink" href="#3watson-machine-learning-service" title="Permanent link">&para;</a></h3>
-<p>1.Settings<strong>」タブをクリックします。
-1.Associated services</strong>までスクロールダウンして、<strong>Add service</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Watson サービスの追加](images/settingsandassociate.png)
-</code></pre>
-
-<p>1.ドロップダウンメニューで <strong>Watson</strong> を選択します。
-1.<strong>Machine Learning</strong> を選択します。</p>
-<pre class="codehilite"><code class="linenums">![機械学習の選択](画像/selectmlservice.png)
-</code></pre>
-
-<p>1.<strong>Associate service</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![サービスの関連付け](images/associatemlservice.png)をクリックします。
-</code></pre>
-
+<ol>
+<li>「<strong>Settings</strong>」タブをクリックします。</li>
+<li>
+<p><strong>Associated services</strong>までスクロールダウンして、<strong>Add service</strong>をクリックします。</p>
+<p><img alt="Watson サービスの追加" src="images/settingsandassociate.png" /></p>
+</li>
+<li>
+<p>ドロップダウンメニューで <strong>Watson</strong> を選択します。</p>
+</li>
+<li>
+<p><strong>Machine Learning</strong> を選択します。</p>
+<p><img alt="機械学習の選択" src="images/selectmlservice.png" /></p>
+</li>
+<li>
+<p><strong>Associate service</strong>をクリックします。</p>
+<p><img alt="サービスの関連付け" src="images/associatemlservice.png" />をクリックします。</p>
+</li>
+</ol>
 <h3 id="4">ステップ 4.プロジェクトへのノートブックの追加<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>1.Add to Project<strong>、 </strong>Notebook**の順にクリックして、Jupyter Notebookをプロジェクトに追加します。</p>
-<pre class="codehilite"><code class="linenums">![プロジェクトへのJupyterノートブックの追加](images/addjupyter.png)
-</code></pre>
-
-<p>1.From URL**を選択して、Notebook URL欄に以下のURLを入力します。</p>
-<pre class="codehilite"><code class="linenums">```
-https://github.com/IBM/dl-learning-path-assets/tree/main/fundamentals-of-deeplearning/notebooks/Logistic_Regression_with_TensorFlow.ipynb
-```
-</code></pre>
-
-<p>1.ノートブックの名前を決めて、「Create」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ノートブックの作成](images/pasteurl.png)
-</code></pre>
-
+<ol>
+<li>
+<p><strong>Add to Project</strong>、 <strong>Notebook</strong>の順にクリックして、Jupyter Notebookをプロジェクトに追加します。</p>
+<p><img alt="プロジェクトへのJupyterノートブックの追加" src="images/addjupyter.png" /></p>
+</li>
+<li>
+<p><strong>From URL</strong>を選択して、Notebook URL欄に以下のURLを入力します。</p>
+</li>
+<li>
+<p>ノートブックの名前を決めて、「Create」をクリックします。</p>
+<p><img alt="ノートブックの作成" src="images/pasteurl.png" /></p>
+</li>
+</ol>
 <h3 id="5">ステップ 5.ノートブックの実行<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>ノートブックが読み込まれたら、<strong>Cell</strong>をクリックし、<strong>Run All</strong>を選択してノートブックを実行します。</p>
 <p><img alt="ノートブックの実行" src="images/runnotebook.png" /></p>
 <h4 id="_7">ノートブックに目を通す<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>ノートブックには、すべての詳細が記載されています。ノートブックの各セクションに目を通し、ノートブックの概要を把握してください。ノートブックは、テキスト（マークダウンまたは見出し）セルとコードセルで構成されています。マークダウンセルには、コードが何をするために設計されているかのコメントが書かれています。</p>
-<p>セルを個別に実行するには、各セルをハイライトしてから、ノートブックの上部にある「<strong>実行</strong>」をクリックするか、キーボードのショートカット（<strong>Shift + Enter</strong>、ただしプラットフォームによって異なる）を使ってセルを実行します。セルが実行されている間は、セルの左にアスタリスク（<code>[*]</code>）が表示されます。そのセルの実行が終了すると、連番が表示されます（例：<code>[17]</code>）。</p>
+<p>セルを個別に実行するには、各セルをハイライトしてから、ノートブックの上部にある「<strong>実行</strong>」をクリックするか、キーボードのショートカット（<strong>Shift + Enter</strong>、ただしプラットフォームによって異なる）を使ってセルを実行します。*セルが実行されている間は、セルの左にアスタリスク（<code>[*]</code>）が表示されます。そのセルの実行が終了すると、連番が表示されます（例：<code>[17]</code>）。</p>
 <p>ノートブックでは、TensorFlowの基本的な仕組みを理解するために、ロジスティック関数の簡単な例を紹介している。</p>
 <h2 id="_8">まとめ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、ロジスティック回帰の基本と、TensorFlow が機械学習アルゴリズムの実装にどのように使用されているかを学びました。また、IBM Cloud Pak for Data as a Service 上の Watson Studio を使用して Jupyter Notebook を実行する方法と、IBM Cloud Pak for Data as a Service プラットフォームでオープンソース・フレームワークを使用する方法を学びました。</p>

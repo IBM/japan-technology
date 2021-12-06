@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4882,30 +4882,42 @@
 <p>ここで注意したいのは、データを可視化しようとすると、最も簡単にプロットできる2次元や3次元のデータを使いがちだということです。しかし、ここで紹介する手法は、多次元や超次元のデータにも適用できます。視覚化するのは難しいですが、クラスター内のデータの数学的な分布を測定したり、発見されたグループ化や外れ値をほぼ同じように使用することができます。</p>
 <h2 id="lets-get-started">Let's get started<a class="headerlink" href="#lets-get-started" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルは、一般的な読者と実践的な開発者の両方にとって有益なものになるようにデザインされています。自分でコードを実行した方がより多くのことを得られますが、時間がない方（またはコーディングが苦手な方）は、十分な例を挙げていますので、いずれにしてもアイデアを得ることができるでしょう。このチュートリアルには、Pythonで書かれたJupyter Notebookが含まれています。このノートブックは、Watson Studio を使用して IBM Cloud 上で実行できます。</p>
-<p>1.サインアップまたはログインしてください。</p>
-<pre class="codehilite"><code class="linenums">* [Try IBM Watson](https://dataplatform.cloud.ibm.com/registration/stepone?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg)ページから IBM Cloud アカウントにログインして、Watson Studio を起動します。
-* [https://dataplatform.cloud.ibm.com](https://dataplatform.cloud.ibm.com?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg)でログインして、Watson Studio にアクセスします。
-</code></pre>
-
-<p>1.空のプロジェクトを作成します。</p>
-<pre class="codehilite"><code class="linenums">* **Create a project** または **New project** のいずれかをクリックします。
-* 空のプロジェクトを作成する」を選択します。
-* プロジェクトに名前を付けます。
-* 既存のObject Storageサービス・インスタンスを選択するか、新しいインスタンスを作成します。
-* Create**をクリックします。
-</code></pre>
-
-<p>1.Notebookを追加します。</p>
+<ol>
+<li>
+<p>サインアップまたはログインしてください。</p>
 <ul>
-<li><strong>+Add to project</strong> をクリックします。</li>
+<li><a href="https://dataplatform.cloud.ibm.com/registration/stepone?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">Try IBM Watson</a>ページから IBM Cloud アカウントにログインして、Watson Studio を起動します。</li>
+<li><a href="https://dataplatform.cloud.ibm.com?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">https://dataplatform.cloud.ibm.com</a>でログインして、Watson Studio にアクセスします。</li>
+</ul>
+</li>
+<li>
+<p>空のプロジェクトを作成します。</p>
+<ul>
+<li><strong>Create a project</strong> または <strong>New project</strong> のいずれかをクリックします。</li>
+<li>「空のプロジェクトを作成する」を選択します。</li>
+<li>プロジェクトに名前を付けます。</li>
+<li>既存のObject Storageサービス・インスタンスを選択するか、新しいインスタンスを作成します。</li>
+<li><strong>Create</strong>をクリックします。</li>
+</ul>
+</li>
+<li>
+<p>Notebookを追加します。</p>
+</li>
+<li>
+<p><strong>+Add to project</strong> をクリックします。</p>
+</li>
 <li><strong>Notebook</strong>をクリックします。</li>
 <li><strong>From URL</strong> をクリックします。</li>
 <li><strong>名前</strong> を入力します。</li>
 <li><strong>Select runtime</strong> で <strong>Default Python 3.6 Free</strong> を選択します。</li>
 <li><strong>Notebook URL</strong> に <code>https://raw.githubusercontent.com/IBM/ml-learning-path-assets/master/notebooks/clustering_with_scikit-learn.ipynb</code> と入力します。</li>
-<li>ノートブックを作成する」をクリックします。</li>
-</ul>
-<p>1.ノートブックを実行します。</p>
+<li>
+<p>「ノートブックを作成する」をクリックします。</p>
+</li>
+<li>
+<p>ノートブックを実行します。</p>
+</li>
+</ol>
 <p>開いたノートブックで、<strong>実行</strong>をクリックして、セルを1つずつ実行します。このチュートリアルの残りの部分は、ノートブックの順序に従います。</p>
 <h3 id="_1">ビジュアル化ツール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>予測されたクラスターを示すために、データセットの2つまたは3つの特徴を、常に色を使ってプロットします。ほとんどのグラフでは、matplotlibライブラリとseabornデータ可視化ライブラリをスタイルに合わせて使用しています。また、場合によってはPlotlyのインタラクティブなチャートを追加しています。Plotlyのチャートは、チャートを回転させて3Dクラスターを様々な角度から見たい場合に特に便利です。</p>
@@ -4961,7 +4973,7 @@
 <p>リスクラベルと比較すると、これらのグループ化が元の3つのグループ（k-meansから）よりも有意に有用であるかどうかは明らかではありませんが、孤児やエッジ上のミニクラスタが、より密にクラスタ化された顧客と一致する可能性が低いことは納得できるでしょう。これらを分離することで、グループ分けを明確にすることができます。</p>
 <p><img alt="mean_shift_risk.png" src="images/mean_shift_risk.png" /></p>
 <h4 id="_6">ミーンシフトムーン<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p>mean shiftは少なくとも密度を考慮しているので、k-meansよりも月のデータセットをうまく処理できると思うかもしれませんが、実際には、2つのクラスタを認識するまでに、パラメータをかなりカスタマイズしなければなりませんでした。それでも、セントロイドベースのアプローチでは、笑顔としかめっ面を分けるのにはうまくいかないことがわかります。cluster_all=False`の設定で得られた、孤児の長い尾に注目してください。</p>
+<p>mean shiftは少なくとも密度を考慮しているので、k-meansよりも月のデータセットをうまく処理できると思うかもしれませんが、実際には、2つのクラスタを認識するまでに、パラメータをかなりカスタマイズしなければなりませんでした。それでも、セントロイドベースのアプローチでは、笑顔としかめっ面を分けるのにはうまくいかないことがわかります。<code>cluster_all=False</code>の設定で得られた、孤児の長い尾に注目してください。</p>
 <p><img alt="mean_shift_moons.png" src="images/mean_shift_moons.png" /></p>
 <p>幸いなことに、このような問題に取り組むための密度ベースのアルゴリズムがあります。</p>
 <h3 id="dbscan">DBSCAN<a class="headerlink" href="#dbscan" title="Permanent link">&para;</a></h3>
@@ -4987,7 +4999,7 @@
 <p>階層型クラスタリングには2つの方向性、2つのアプローチがあります。1つはボトムアップ型、もう1つはトップダウン型です。ボトムアップの場合、各点は個々のクラスタとしてスタートします。次に、最も近い2つのクラスターを結合して2点のクラスターを形成します。このプロセスは、すべてのポイントを含む1つのクラスターができるまで、最も近いクラスターの結合を続けます。トップダウン方式は、その逆です。すべての点を含む単一のクラスターから始まり、各クラスターが個々の点になるまで分割します。</p>
 <p>いずれにしても、階層型クラスタリングでは、<em>n</em>個のデータポイントについて、クラスタの可能性を示すツリーが作成されます。ツリーができたら、クラスターを得るためのレベルを選びます。</p>
 <h4 id="_8">凝集型クラスタリング<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
-<p>ノートブックでは、scikit-learnによる凝集型クラスタリングの実装を使用しています。凝集型クラスタリングはボトムアップ式の階層型クラスタリングアルゴリズムです。答え」となるレベルを選ぶには、<code>n_clusters</code>または<code>distance_threshold</code>パラメータを使用します。私たちは<code>n_clusters</code>を選ばないようにしたかったのですが（k-meansではそれが嫌だったので）、気に入ったクラスタ数になるまで<code>distance_threshold</code>を調整しなければなりませんでした。パラメータを調整することで、結果を大きく変えることができます。</p>
+<p>ノートブックでは、scikit-learnによる凝集型クラスタリングの実装を使用しています。凝集型クラスタリングはボトムアップ式の階層型クラスタリングアルゴリズムです。「答え」となるレベルを選ぶには、<code>n_clusters</code>または<code>distance_threshold</code>パラメータを使用します。私たちは<code>n_clusters</code>を選ばないようにしたかったのですが（k-meansではそれが嫌だったので）、気に入ったクラスタ数になるまで<code>distance_threshold</code>を調整しなければなりませんでした。パラメータを調整することで、結果を大きく変えることができます。</p>
 <p>凝集型クラスタリングの面白いところは、異なるクラスタサイズが得られることです。凝集型クラスタリングを使った顧客データのデモでは、さまざまな形や大きさの14個のクラスタができあがったことが興味深いです。</p>
 <p><img alt="ac_customers.png" src="images/ac_customers.jpg" /></p>
 <p>もう一度言いますが、低リスクのお客様と高リスクのお客様を分けるのに、この方法がうまく機能していることがわかります。クラスタの数を増やす必要はないように見えますが、顧客グループをより細かく分けるのに役立ちます。最小のクラスターはあまり意味がないように見えますが、他の顧客グループを明確にするのに役立ちます。</p>
@@ -5029,9 +5041,11 @@
 <li>パンダスのデータフレーム</li>
 </ul>
 <p>クラスタリングについては、3つの異なるアプローチについて学びました。</p>
-<p>1.セントロイドベースのクラスタリング
-1.密度ベースのクラスタリング
-1.階層型クラスタリング（Hierarchical clustering</p>
+<ol>
+<li>セントロイドベースのクラスタリング</li>
+<li>密度ベースのクラスタリング</li>
+<li>階層型クラスタリング（Hierarchical clustering</li>
+</ol>
                 
                   
                 

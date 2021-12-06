@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4701,89 +4701,29 @@
 <p>このチュートリアルを完了するには、約30分かかります。</p>
 <h2 id="_4">手順<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="openshift_1">OpenShiftクラスターの作成<a class="headerlink" href="#openshift_1" title="Permanent link">&para;</a></h3>
-<p>OpenShift クラスターのインスタンスを作成します。IBM Cloud Catalog](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift)のプロンプトに従って、IBM Cloud にホストされたクラスターを作成します。</p>
+<p>OpenShift クラスターのインスタンスを作成します。<a href="https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift">IBM Cloud Catalog</a>のプロンプトに従って、IBM Cloud にホストされたクラスターを作成します。</p>
 <h3 id="_5">レポをクローンする<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>以下のコマンドを実行して、レポをクローンします。</p>
-<pre><code>git clone https://github.com/IBM/multitenant-network-isolation-tutorial.git
-</code></pre>
 <p>これで，<code>multitenant-network-isolation-tutorial</code>という名前のフォルダができました．このフォルダには、<code>App1</code>と<code>App2</code>という2つのアプリケーションのソースコードと、ネットワークポリシーの設定ファイルが入っています。</p>
 <h3 id="ibm-cloud-openshift">IBM Cloud 上の OpenShift クラスターにログインします。<a class="headerlink" href="#ibm-cloud-openshift" title="Permanent link">&para;</a></h3>
 <p>先ほど作成したクラスタの OpenShift Web コンソールを開きます。右上のログインしているユーザーIDをクリックし、<strong>Copy Login Command</strong>を選択します。</p>
 <p>ターミナルウィンドウを開きます。先ほどコピーしたログインコマンドを使って、OpenShift にログインします。</p>
 <h3 id="_6">プロジェクトの作成<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>以下のコマンドを実行して、サンプルアプリケーションごとに2つのプロジェクトを作成します。</p>
-<pre><code>oc 新規プロジェクト prj1
-oc 新規プロジェクト prj2
-</code></pre>
 <h3 id="_7">アプリケーションのデプロイ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>ここでは、アプリケーション <code>App1</code> をプロジェクト <code>prj1</code> に、<code>App2</code> をプロジェクト <code>prj2</code> にデプロイします。</p>
 <p>以下のコマンドを実行して、アプリケーション <code>App1</code> をプロジェクト <code>prj1</code> にデプロイします。</p>
-<pre><code>oc プロジェクト prj1
-cd multitenant-network-isolation-tutorial
-cd app1
-odo create app1
-odo push
-cd ...
-</code></pre>
 <p>デプロイされたアプリケーション <code>App1</code> の URL を取得します。</p>
-<pre><code>ODOのURLリスト
-</code></pre>
 <p>App1 "にアクセスするためのURLが返されます。そのURLをメモしておいてください。</p>
-<pre><code>コンポーネントapp1に関する以下のURLが見つかりました。
-name state url port secure kind
-ep1 Pushed http://ep1-app1-prj1.xxxx.containers.appdomain.cloud 9080 false route
-</code></pre>
 <p>次に、以下のコマンドを実行して、アプリケーション <code>app2</code> をプロジェクト <code>prj2</code> にデプロイします。</p>
-<pre><code>oc プロジェクト prj2
-cd app2
-odo create app2
-odo push
-cd ...
-</code></pre>
 <p>デプロイされたアプリケーションのURLを取得します。</p>
-<pre><code>ODO URLリスト
-</code></pre>
 <p>App2 "にアクセスするためのURLを返します。URLをメモしておいてください。</p>
-<pre><code>コンポーネントapp2に関する以下のURLが見つかりました。
-name state url port secure kind
-ep1 Pushed http://ep1-app2-prj2.xxxx.containers.appdomain.cloud 9080 false route
-</code></pre>
 <h3 id="app1">App1のエンドポイントを呼び出す<a class="headerlink" href="#app1" title="Permanent link">&para;</a></h3>
-<p>App1<code>で公開されているエンドポイント</code>getdata<code>を呼び出すには、以下のCURLコマンドを使用します。内部的には、</code>App2`のエンドポイントを呼び出し、その結果を返します。</p>
-<pre><code>curl http://ep1-app1-prj1.xxxx.containers.appdomain.cloud/app1/getdata
-</code></pre>
+<p><code>App1</code>で公開されているエンドポイント <code>getdata</code> を呼び出すには、以下のCURLコマンドを使用します。内部的には、<code>App2</code>のエンドポイントを呼び出し、その結果を返します。</p>
 <p>上記で呼び出されたURLは、[先ほどのApp1のURL]/app1/getdataです。</p>
-<p>.../multitenant-network-isolation-tutorial/app1/src/main/java/com/example/GetData.java<code>にあるソースJavaファイル</code>GetData.java<code>の</code>getRequest` メソッドを見てみましょう。</p>
+<p><code>.../multitenant-network-isolation-tutorial/app1/src/main/java/com/example/GetData.java</code> にあるソースJavaファイル <code>GetData.java</code> の <code>getRequest</code> メソッドを見てみましょう。</p>
 <p>ここでは、getRequestメソッドで、<code>App2</code>のエンドポイント<code>http://app2.prj2.svc.cluster.local:9080/app2/resource</code>を呼び出しています。</p>
-<pre><code>GET
-  public String getRequest() {
-    URL url;
-    StringBuffer content = new StringBuffer();
-    Try {
-      url = new URL(&quot;http://app2.prj2.svc.cluster.local:9080/app2/resource&quot;);
-      HttpURLConnection con = (HttpURLConnection) url.openConnection();
-      con.setRequestMethod(&quot;GET&quot;);
-      con.connect();
-      BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-      文字列 inputLine;
-
-      while ((inputLine = in.readLine()) != null) {
-        content.append(inputLine)。
-      }
-      in.close();
-
-    } catch (Exception e) {
-      // TODO 自動生成されたキャッチブロック
-      e.printStackTrace();
-      return &quot;java.net.UnknownHostException encountered - Could not invoke App2!&quot;;
-    }
-
-    return content.toString();
-  }
-</code></pre>
-<p>App1」が「App2」のエンドポイントを呼び出すことができれば、以下のような出力が得られるはずです。</p>
-<pre><code>呼び出し成功 - これはApp2からのリソースです!
-</code></pre>
+<p>「App1」が「App2」のエンドポイントを呼び出すことができれば、以下のような出力が得られるはずです。</p>
 <h3 id="prj2">ネットワークポリシーを使ってprj2にマルチテナントモードを設定する<a class="headerlink" href="#prj2" title="Permanent link">&para;</a></h3>
 <p>ここでは、プロジェクト <code>prj2</code> に対し、<code>App2</code> を <code>prj2</code> 内で隔離するためのネットワークポリシーを設定します。</p>
 <p>マルチテナントモードの一環として、3つのネットワークポリシーを作成します。</p>
@@ -4797,98 +4737,29 @@ ep1 Pushed http://ep1-app2-prj2.xxxx.containers.appdomain.cloud 9080 false route
 <li><strong>OpenShift Ingressからの許可</strong> - Ingressは、クラスタの外からKubernetesサービスへのアクセスを可能にするオブジェクトです。</li>
 </ul>
 <p>このポリシーでは、Ingressを通じてプロジェクト<code>prj2</code>に入ってくるリクエストを許可し、<code>App2</code>で公開されているエンドポイントを呼び出すことができるようにします。以下で説明するポリシーは、プロジェクト内のすべてのポッドに適用されます。しかし、<code>podSelector</code>を使用して、サービスを公開する必要があるポッドにこのポリシーを制限することができます。</p>
-<pre><code>apiVersion: networking.k8s.io/v1
-kind:ネットワークポリシー
-メタデータです。
-  name: allow-from-openshift-ingress
-仕様です。
-  ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-          network.openshift.io/policy-group: ingress
-  podSelectorです。{}
-  policyTypes:
-  - イングレス
-</code></pre>
 <ul>
-<li><strong>Allow from same namespace</strong> - このポリシーは、プロジェクト内のポッドからの接続のみを受け入れます。これを設定すると、<code>prj1</code> の <code>App1</code> は <code>prj2</code> の <code>App2</code> にリクエストを送ることができなくなります。以下のネットワークポリシーを設定すると、<code>App1</code> の URL <code>http://app2.prj2.svc.cluster.local:9080/app2/resource</code> への呼び出しは失敗します。</li>
+<li>
+<p><strong>Allow from same namespace</strong> - このポリシーは、プロジェクト内のポッドからの接続のみを受け入れます。これを設定すると、<code>prj1</code> の <code>App1</code> は <code>prj2</code> の <code>App2</code> にリクエストを送ることができなくなります。以下のネットワークポリシーを設定すると、<code>App1</code> の URL <code>http://app2.prj2.svc.cluster.local:9080/app2/resource</code> への呼び出しは失敗します。</p>
+</li>
+<li>
+<p><strong>Allow from OpenShift monitoring</strong> - このポリシーでは、OpenShift monitoringを使用してサービスのメトリクスを監視することを許可します。</p>
+</li>
 </ul>
-<pre><code>kind:ネットワークポリシー
-apiVersion: networking.k8s.io/v1
-メタデータです。
-  name: 同じ名前のスペースを許可する
-仕様です。
-  podSelectorです。
-  ingress:
-  - from:
-    - podSelectorです。{}
-</code></pre>
-<ul>
-<li><strong>Allow from OpenShift monitoring</strong> - このポリシーでは、OpenShift monitoringを使用してサービスのメトリクスを監視することを許可します。</li>
-</ul>
-<pre><code>apiVersion: networking.k8s.io/v1
-kind:ネットワークポリシー
-メタデータを表示します。
-  name: allow-from-openshift-monitoring
-spec:
-  ingress:
-  - from
-    - namespaceSelector:
-        matchLabels:
-          network.openshift.io/policy-group: モニタリング
-  podSelectorです。{}
-  policyTypes:
-  - イングレス
-</code></pre>
 <p>次に、以下のコマンドを実行して、プロジェクト <code>prj2</code> にマルチテナントモードを設定します。</p>
-<pre><code>oc プロジェクト prj2
-cd resources
-oc create -f allow-from-openshift-ingress.yaml -n prj2
-oc create -f allow-same-namespace -n prj2
-oc create -f allow-from-openshift-monitoring.yaml -n prj2
-</code></pre>
 <p>以下のコマンドを実行して、ネットワークポリシーが正しく設定されていることを確認します。</p>
-<pre><code>oc get networkpolicy
-</code></pre>
 <p>以下のような出力が表示されます。</p>
-<pre><code>名前 ポッドセレクター 年齢
-オープンシフトからの入室を許可する &lt;none&gt; 43s
-allow-from-openshift-monitoring &lt;none&gt; 20s
-同じ名前のスペースを許可する &lt;none&gt; 30s
-</code></pre>
 <h3 id="prj2app1">prj2のマルチテナントモード設定後にApp1のエンドポイントを起動する<a class="headerlink" href="#prj2app1" title="Permanent link">&para;</a></h3>
-<p>App1」が公開しているエンドポイント「getdata」を再び呼び出すには、以下のコマンドを使用します。</p>
-<pre><code>curl http://ep1-app1-prj1.xxxx.containers.appdomain.cloud/app1/getdata
-</code></pre>
+<p>「App1」が公開しているエンドポイント「getdata」を再び呼び出すには、以下のコマンドを使用します。</p>
 <p>以下の出力からわかるように、<code>App1</code>は<code>App2</code>のエンドポイントを呼び出すことができません。</p>
-<pre><code>java.net.UnknownHostException encountered - Could not invoke App2!
-</code></pre>
 <p>OpenShiftのウェブコンソールで<code>App1</code>のポッドログにアクセスすると、以下のようなエラーが表示されます。</p>
-<pre><code>[INFO] [err] java.net.UnknownHostException: app2.project2.svc.cluster.local
-[INFO] [err] at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-[INFO] [err] at java.base/java.net.Socket.connect(Socket.java:609)
-[INFO] [err] at java.base/java.net.Socket.connect(Socket.java:558)
-[INFO] [err] at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-[INFO] [err] at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-[INFO] [err] at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-[INFO] [err] at java.base/sun.net.www.http.HttpClient.&lt;init&gt;(HttpClient.java:242)
-[INFO] [err] at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
-[INFO] [err] at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
-[INFO] [err] at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
-[INFO] [err] at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-[INFO] [err] at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-[INFO] [err] at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
-[INFO] [err] at com.example.GetData.getRequest(GetData.java:36)
-</code></pre>
 <h3 id="ibmcalico">IBMクラウドのCalicoネットワークプラグイン<a class="headerlink" href="#ibmcalico" title="Permanent link">&para;</a></h3>
 <p>Red Hat® OpenShift® on IBM Cloud™クラスターには、<a href="https://cloud.ibm.com/docs/openshift?topic=openshift-network_policies">Calico</a>というネットワークプラグインが設定されています。デフォルトのネットワークポリシーが設定されており、クラスター内の各ワーカーノードのパブリックネットワークインターフェースを保護します。CalicoとKubernetesを使って、クラスターのネットワークポリシーを作成することができます。Kubernetesのネットワークポリシーでは、クラスター内のポッドとの間で許可またはブロックしたいネットワークトラフィックを指定できます。ネットワークロードバランサー（NLB）サービスへのインバウンド（入口）トラフィックをブロックするなど、より高度なネットワークポリシーを設定するには、Calicoのネットワークポリシーを使用できます。</p>
 <h3 id="_8">概要<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>このチュートリアルでは、Kubernetesのネットワークポリシーを使用して、プロジェクトのマルチテナント分離モードを設定しました。また、OpenShiftのネットワークポリシーと、それを使ってクラスタを隔離するための設定方法についても学びました。</p>
 <p>詳しくは以下のリンクをご参照ください。
-- Controlling traffic with network policies for OpenShift on IBM Cloud](https://cloud.ibm.com/docs/openshift?topic=openshift-network_policies)
-- OpenShift でのネットワーキング](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html)
-- Using odo for OpenShift](https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html)</p>
+- <a href="https://cloud.ibm.com/docs/openshift?topic=openshift-network_policies">Controlling traffic with network policies for OpenShift on IBM Cloud</a>
+- <a href="https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html">OpenShift でのネットワーキング</a>
+- <a href="https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html">Using odo for OpenShift</a></p>
                 
                   
                 

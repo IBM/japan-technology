@@ -1277,14 +1277,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1351,7 +1351,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1365,7 +1365,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1408,14 +1408,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1440,7 +1440,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1454,7 +1454,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1468,7 +1468,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1482,7 +1482,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1496,7 +1496,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4507,95 +4507,98 @@
 <h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルに参加するためには、以下の前提条件が必要です。</p>
 <ul>
-<li>IBM Cloud Account](https://cloud.ibm.com/registration?cm_sp=ibmdev-<em>-developer-tutorials-</em>-cloudreg)が必要です。</li>
-<li><a href="https://www.ibm.com/products/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
+<li><a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud Account</a>が必要です。</li>
+<li><a href="https://www.ibm.com/jp-ja/products/cloud-pak-for-data">IBM Cloud Pak for Data</a></li>
 </ul>
 <h2 id="_3">見積もり時間<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルを完了するには、約30分かかります。</p>
 <h2 id="_4">ステップ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>1.<a href="#set-up-ibm-cloud-pak-for-data-as-a-service">IBM Cloud Pak for Data as a Service をセットアップする</a>
-1.<a href="#create-a-new-project-and-import-the-notebook">新しいプロジェクトを作成し、ノートブックをインポートする</a>
-1.<a href="#read-through-the-notebook">ノートブックに目を通す</a>
-1.<a href="#run-the-first-half-of-the-notebook">ノートブックの前半部分を実行する</a>
-1.<a href="#restart-the-kernel">カーネルを再起動する</a>
-1.<a href="#run-the-second-half-of-the-notebook">ノートブックの後半を実行する</a></p>
-<h3 id="data-as-a-serviceibm-cloud-pak">Data as a ServiceのIBM Cloud Pakの設定<a class="headerlink" href="#data-as-a-serviceibm-cloud-pak" title="Permanent link">&para;</a></h3>
-<p>1.ブラウザを開き、IBM Cloudの認証情報で<a href="https://cloud.ibm.com/login?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>にログインします。</p>
-<pre class="codehilite"><code class="linenums"> ![IBM Cloud にログイン](images/log-into-ibm-cloud.png)
-</code></pre>
-
-<p>1.上部にある検索バーに「Watson Studio」と入力します。すでに Watson Studio のインスタンスを持っている場合は、それが表示されているはずです。表示されている場合は、それをクリックします。ない場合は、「Catalog Results」の下にある「<strong>Watson Studio</strong>」をクリックして、新しいサービスインスタンスを作成します。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio サービスの選択](images/select-watson-studio-service.jpg)
-</code></pre>
-
-<p>1.新しいサービスインスタンスを作成する場合、作成するプランの種類を選択します。このチュートリアルでは、Lite（無料）プランで十分です）。Create**（作成）」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Watson Studio Liteプラン](images/watson-studio-lite-plan.png)
-</code></pre>
-
-<p>1.サービスインスタンスのランディングページで <strong>Get Started</strong> をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Get Started - Watson Studio](images/get-started-watson-studio.png)をクリックします。
-
-これにより、IBM Cloud Pak for Data as a Service のランディングページが表示されます。
-</code></pre>
-
 <ol>
+<li><a href="#set-up-ibm-cloud-pak-for-data-as-a-service">IBM Cloud Pak for Data as a Service をセットアップする</a></li>
+<li><a href="#create-a-new-project-and-import-the-notebook">新しいプロジェクトを作成し、ノートブックをインポートする</a></li>
+<li><a href="#read-through-the-notebook">ノートブックに目を通す</a></li>
+<li><a href="#run-the-first-half-of-the-notebook">ノートブックの前半部分を実行する</a></li>
+<li><a href="#restart-the-kernel">カーネルを再起動する</a></li>
+<li><a href="#run-the-second-half-of-the-notebook">ノートブックの後半を実行する</a></li>
+</ol>
+<h3 id="data-as-a-serviceibm-cloud-pak">Data as a ServiceのIBM Cloud Pakの設定<a class="headerlink" href="#data-as-a-serviceibm-cloud-pak" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>ブラウザを開き、IBM Cloudの認証情報で<a href="https://cloud.ibm.com/login?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>にログインします。</p>
+<p><img alt="IBM Cloud にログイン" src="images/log-into-ibm-cloud.png" /></p>
+</li>
+<li>
+<p>上部にある検索バーに「Watson Studio」と入力します。すでに Watson Studio のインスタンスを持っている場合は、それが表示されているはずです。表示されている場合は、それをクリックします。ない場合は、「Catalog Results」の下にある「<strong>Watson Studio</strong>」をクリックして、新しいサービスインスタンスを作成します。</p>
+<p><img alt="Watson Studio サービスの選択" src="images/select-watson-studio-service.jpg" /></p>
+</li>
+<li>
+<p>新しいサービスインスタンスを作成する場合、作成するプランの種類を選択します。このチュートリアルでは、Lite（無料）プランで十分です）。「<strong>Create</strong>（作成）」をクリックします。</p>
+<p><img alt="Watson Studio Liteプラン" src="images/watson-studio-lite-plan.png" /></p>
+</li>
+<li>
+<p>サービスインスタンスのランディングページで <strong>Get Started</strong> をクリックします。</p>
+<p><img alt="Get Started - Watson Studio" src="images/get-started-watson-studio.png" />をクリックします。</p>
+<p>これにより、IBM Cloud Pak for Data as a Service のランディングページが表示されます。</p>
+</li>
 <li>
 <p>右上隅にある自分のアバターをクリックし、名前の下にある<strong>Profile and settings</strong>をクリックします。</p>
 <p><img alt="CPDaaS - profile and settings" src="images/cpdaas-profile-and-settings.jpg" />をクリックします。</p>
 </li>
+<li>
+<p>[Services] タブに切り替えます。Your Cloud Pak for Data サービスの下に Watson Studio サービスインスタンスが表示されているはずです。</p>
+<p>また、Watson Knowledge Catalog や Watson Machine Learning などの他のサービスを IBM Cloud Pak for Data as a Service アカウントに関連付けることもできます。これらは「Try our available services」の下に表示されます。</p>
+<p>ここに示す例では、Watson Knowledge Catalog サービス・インスタンスがすでに IBM Cloud アカウントに存在しているため、自動的に IBM Cloud Pak for Data as a Service アカウントに関連付けられています。その他のサービス（この例では Watson Machine Learning）を追加するには、「Try our available services」の下にあるサービスのタイル内で「<strong>Add</strong>」をクリックします。</p>
+<p><img alt="CPDaaS - 関連サービス" src="images/cpdaas-associated-services.png" /></p>
+</li>
+<li>
+<p>作成するプランの種類を選択して（Liteプランで十分です）、<strong>Create</strong>をクリックします。</p>
+<p><img alt="Machine Learning Liteプラン" src="images/machine-learning-lite-plan.png" /></p>
+</li>
 </ol>
-<p>1.Services] タブに切り替えます。Your Cloud Pak for Data サービスの下に Watson Studio サービスインスタンスが表示されているはずです。</p>
-<pre class="codehilite"><code class="linenums">また、Watson Knowledge Catalog や Watson Machine Learning などの他のサービスを IBM Cloud Pak for Data as a Service アカウントに関連付けることもできます。これらは「Try our available services」の下に表示されます。
-
-ここに示す例では、Watson Knowledge Catalog サービス・インスタンスがすでに IBM Cloud アカウントに存在しているため、自動的に IBM Cloud Pak for Data as a Service アカウントに関連付けられています。その他のサービス（この例では Watson Machine Learning）を追加するには、「Try our available services」の下にあるサービスのタイル内で「**Add**」をクリックします。
-
-![CPDaaS - 関連サービス](images/cpdaas-associated-services.png)
-</code></pre>
-
-<p>1.作成するプランの種類を選択して（Liteプランで十分です）、<strong>Create</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Machine Learning Liteプラン](images/machine-learning-lite-plan.png)
-</code></pre>
-
 <p>サービス・インスタンスが作成されると、IBM Cloud Pak for Data as a Service インスタンスに戻ります。サービスが IBM Cloud Pak for Data as a Service アカウントに関連付けられたことが確認できます。</p>
 <p><img alt="CPDaas - all services associated" src="images/cpdaas-all-services-associated.png" /></p>
 <h3 id="_5">新しいプロジェクトを作成し、ノートブックをインポートする<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>1.左側のハンバーガーメニュー(☰)に移動し、<strong>すべてのプロジェクトを表示</strong>を選択します。画面が読み込まれたら、「<strong>新規作成 +</strong>」または「<strong>新規プロジェクト +</strong>」をクリックして、新しいプロジェクトを作成します。</p>
-<pre class="codehilite"><code class="linenums">![CPDaas - 新規プロジェクト](images/cpdaas-new-project.png)
-</code></pre>
-
-<p>1.空のプロジェクトを作成する**を選択します。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - 空のプロジェクト](images/cpdaas-empty-project.png)
-</code></pre>
-
-<p>1.プロジェクトの名前を入力します。IBM Cloud Object Storage インスタンスをプロジェクトに関連付ける必要があります。IBM Cloud アカウントに IBM Cloud Object Storage サービス・インスタンスがすでにある場合は、自動的にここに入力されます。そうでない場合は、<strong>Add</strong> をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - プロジェクト名](images/cpdaas-project-name.png)
-</code></pre>
-
-<p>1.作成するプランの種類を選択し（このチュートリアルではLiteプランで十分です）、<strong>Create</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![COS Liteプラン](images/cos-lite-plan.png)
-</code></pre>
-
-<p>1.プロジェクトの作成画面で、<strong>Refresh</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - refresh COS](images/cpdaas-refresh-cos.png)
-</code></pre>
-
-<p>1.Storage」に作成したIBM Cloud Object Storageインスタンスが表示されたら、<strong>Create</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - create project](images/cpdaas-create-project.png)をクリックします。
-</code></pre>
-
-<p>1.プロジェクトが作成されたら、ノートブックをプロジェクトに追加することができます。Add to project +<strong>をクリックして、</strong>Notebook**を選択します。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - add notebook to project](images/cpdaas-add-notebook-to-project.png)
-</code></pre>
-
-<p>1.From URL]タブに切り替えます。ノートブックの名前を<code>Eager_Execution_in_TensorFlow_2.x</code>とし、ノートブックのURLを<code>https://raw.githubusercontent.com/IBM/dl-learning-path-assets/main/fundamentals-of-deeplearning/notebooks/Eager_Execution_in_TensorFlow_2.x.ipynb</code>とします。</p>
-<p>1.ランタイムの選択」ドロップダウンメニューで、「<strong>Default Python 3.7 XXS (1 vCPU 4 GB RAM)</strong>」（リストの最初のオプション）を選択します。このランタイムは、利用可能なランタイムの中で最も小さく、1時間あたりの容量ユニットの消費量も0.5と最も少ない。このチュートリアルでは、このランタイムで十分です。Create**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - create notebook](images/cpdaas-create-notebook.png)
-</code></pre>
-
-<p>1.Jupyter Notebookが読み込まれ、カーネルの準備ができたら、ノートブック内のセルの実行を開始します。</p>
-<pre class="codehilite"><code class="linenums">![CPDaaS - notebook loaded](images/cpdaas-notebook-loaded.png)
-</code></pre>
-
+<ol>
+<li>
+<p>左側のハンバーガーメニュー(☰)に移動し、<strong>すべてのプロジェクトを表示</strong>を選択します。画面が読み込まれたら、「<strong>新規作成 +</strong>」または「<strong>新規プロジェクト +</strong>」をクリックして、新しいプロジェクトを作成します。</p>
+<p><img alt="CPDaas - 新規プロジェクト" src="images/cpdaas-new-project.png" /></p>
+</li>
+<li>
+<p><strong>空のプロジェクトを作成する</strong>を選択します。</p>
+<p><img alt="CPDaaS - 空のプロジェクト" src="images/cpdaas-empty-project.png" /></p>
+</li>
+<li>
+<p>プロジェクトの名前を入力します。IBM Cloud Object Storage インスタンスをプロジェクトに関連付ける必要があります。IBM Cloud アカウントに IBM Cloud Object Storage サービス・インスタンスがすでにある場合は、自動的にここに入力されます。そうでない場合は、<strong>Add</strong> をクリックします。</p>
+<p><img alt="CPDaaS - プロジェクト名" src="images/cpdaas-project-name.png" /></p>
+</li>
+<li>
+<p>作成するプランの種類を選択し（このチュートリアルではLiteプランで十分です）、<strong>Create</strong>をクリックします。</p>
+<p><img alt="COS Liteプラン" src="images/cos-lite-plan.png" /></p>
+</li>
+<li>
+<p>プロジェクトの作成画面で、<strong>Refresh</strong>をクリックします。</p>
+<p><img alt="CPDaaS - refresh COS" src="images/cpdaas-refresh-cos.png" /></p>
+</li>
+<li>
+<p>「Storage」に作成したIBM Cloud Object Storageインスタンスが表示されたら、<strong>Create</strong>をクリックします。</p>
+<p><img alt="CPDaaS - create project" src="images/cpdaas-create-project.png" />をクリックします。</p>
+</li>
+<li>
+<p>プロジェクトが作成されたら、ノートブックをプロジェクトに追加することができます。<strong>Add to project +</strong>をクリックして、<strong>Notebook</strong>を選択します。</p>
+<p><img alt="CPDaaS - add notebook to project" src="images/cpdaas-add-notebook-to-project.png" /></p>
+</li>
+<li>
+<p>[From URL]タブに切り替えます。ノートブックの名前を<code>Eager_Execution_in_TensorFlow_2.x</code>とし、ノートブックのURLを<code>https://raw.githubusercontent.com/IBM/dl-learning-path-assets/main/fundamentals-of-deeplearning/notebooks/Eager_Execution_in_TensorFlow_2.x.ipynb</code>とします。</p>
+</li>
+<li>
+<p>「ランタイムの選択」ドロップダウンメニューで、「<strong>Default Python 3.7 XXS (1 vCPU 4 GB RAM)</strong>」（リストの最初のオプション）を選択します。このランタイムは、利用可能なランタイムの中で最も小さく、1時間あたりの容量ユニットの消費量も0.5と最も少ない。このチュートリアルでは、このランタイムで十分です。<strong>Create</strong>をクリックします。</p>
+<p><img alt="CPDaaS - create notebook" src="images/cpdaas-create-notebook.png" /></p>
+</li>
+<li>
+<p>Jupyter Notebookが読み込まれ、カーネルの準備ができたら、ノートブック内のセルの実行を開始します。</p>
+<p><img alt="CPDaaS - notebook loaded" src="images/cpdaas-notebook-loaded.png" /></p>
+</li>
+</ol>
 <blockquote>
 <p><strong>大切なこと</strong>:<em>メモリ資源を節約するために、用が済んだらノートブックのカーネルを停止するようにしてください</em>。</p>
 </blockquote>
@@ -4605,7 +4608,7 @@
 </blockquote>
 <h3 id="_6">ノートブックに目を通す<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>ノートブックの各セクションに目を通し、概要を把握します。ノートブックは、テキスト（マークダウンや見出し）のセルとコードのセルで構成されています。マークダウンセルには、コードが何をするために設計されているかのコメントが書かれています。</p>
-<p>セルを個別に実行するには、各セルをハイライト表示し、ノートブックの上部にある「<strong>実行</strong>」をクリックするか、セルを実行するためのキーボードショートカット（<strong>Shift + Enter </strong>、ただしプラットフォームによって異なる）を使用します。セルが実行されている間は、セルの左にアスタリスク（<code>[*]</code>）が表示されます。そのセルの実行が終了すると、連番が表示されます（例：<code>[17]</code>）。</p>
+<p>セルを個別に実行するには、各セルをハイライト表示し、ノートブックの上部にある「<strong>実行</strong>」をクリックするか、セルを実行するためのキーボードショートカット（<strong>Shift + Enter </strong>、ただしプラットフォームによって異なる）を使用します。*セルが実行されている間は、セルの左にアスタリスク（<code>[*]</code>）が表示されます。そのセルの実行が終了すると、連番が表示されます（例：<code>[17]</code>）。</p>
 <blockquote>
 <p><strong>Note</strong>:ノートブックに記載されているコメントの中には，コードの特定の部分を修正するように指示しているものがあります．セルを実行する前に、指示通りに変更してください。</p>
 </blockquote>
@@ -4624,22 +4627,28 @@
 <p><img alt="Eager execution disabled created tensor object" src="images/eager-execution-disabled-creates-tensor-object.png" /></p>
 <h3 id="_8">カーネルを再起動する<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>次に、Eager Executionを有効にして同じコードを実行します。ただし、Eager Execution の有効化または無効化は、Tensors が作成される前のコードの先頭で行う必要があります。このため、Eager Execution を有効にする前に、カーネルを再起動する必要があります。</p>
-<p>1.カーネルを再起動するには、<strong>Kernel</strong>メニューから<strong>Restart</strong>をクリックします。表示されるオプションで、<strong>Restart</strong>をクリックして、カーネルを再起動することを確認します。</p>
+<ol>
+<li>カーネルを再起動するには、<strong>Kernel</strong>メニューから<strong>Restart</strong>をクリックします。表示されるオプションで、<strong>Restart</strong>をクリックして、カーネルを再起動することを確認します。</li>
+</ol>
 <p><img alt="カーネルの再起動" src="images/restart-kernel.png" /></p>
 <h3 id="_9">後半のノートブックの実行<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>1.カーネルが再起動されたら、セクション4の最初のコードセルを実行します。実行時にコードの左端に表示される連番がリセットされ、セクション4のimport文の連番が<code>[1]</code>になっていることに注意してください。</p>
-<pre class="codehilite"><code class="linenums">![連番がリセットされました](images/sequential-numbers-have-reset.png)
-</code></pre>
-
-<p>1.引き続き、セクション4とセクション5の残りのセルを実行します。セクション 4 では、Eager Execution が有効になっており、以前に実行された同じコードが再実行されています。Eager Execution が有効になっているので、コード全体を <strong><em>Session</em></strong> の一部として実行しなくても、コードをデバッグしたり、中間変数の値をチェックしたりすることができます。</p>
-<pre class="codehilite"><code class="linenums">![Can debug with Eager Execution](images/can-debug-with-eager-execution.png)
-</code></pre>
-
-<p>1.また、Eager Executionが有効になっている場合、コード <code>a = tf.constant(np.array([1., 2., 3.]))</code> は、代わりに <code>tensorflow.python.framework.ops.EagerTensor</code> 型のオブジェクトを作成することに注意してください。つまり、Eager Executionを有効にしたり無効にしたりしても、同じコードを再利用することができるのです。</p>
-<pre class="codehilite"><code class="linenums">![Eager execution creates EagerTensor](images/eager-execution-creates-eager-tensor.png)
-</code></pre>
-
-<p>1.セクション5のコードセルを実行する。セクション5のコードでは、Eager Executionを有効にすると、Tensorがホスト言語の他の変数のように動作し、Tensorの制御フローで<code>if</code>、<code>while</code>、<code>for</code>などのホスト言語の制御文やループを使用することもできることを示している。</p>
+<ol>
+<li>
+<p>カーネルが再起動されたら、セクション4の最初のコードセルを実行します。実行時にコードの左端に表示される連番がリセットされ、セクション4のimport文の連番が<code>[1]</code>になっていることに注意してください。</p>
+<p><img alt="連番がリセットされました" src="images/sequential-numbers-have-reset.png" /></p>
+</li>
+<li>
+<p>引き続き、セクション4とセクション5の残りのセルを実行します。セクション 4 では、Eager Execution が有効になっており、以前に実行された同じコードが再実行されています。Eager Execution が有効になっているので、コード全体を <strong><em>Session</em></strong> の一部として実行しなくても、コードをデバッグしたり、中間変数の値をチェックしたりすることができます。</p>
+<p><img alt="Can debug with Eager Execution" src="images/can-debug-with-eager-execution.png" /></p>
+</li>
+<li>
+<p>また、Eager Executionが有効になっている場合、コード <code>a = tf.constant(np.array([1., 2., 3.]))</code> は、代わりに <code>tensorflow.python.framework.ops.EagerTensor</code> 型のオブジェクトを作成することに注意してください。つまり、Eager Executionを有効にしたり無効にしたりしても、同じコードを再利用することができるのです。</p>
+<p><img alt="Eager execution creates EagerTensor" src="images/eager-execution-creates-eager-tensor.png" /></p>
+</li>
+<li>
+<p>セクション5のコードセルを実行する。セクション5のコードでは、Eager Executionを有効にすると、Tensorがホスト言語の他の変数のように動作し、Tensorの制御フローで<code>if</code>、<code>while</code>、<code>for</code>などのホスト言語の制御文やループを使用することもできることを示している。</p>
+</li>
+</ol>
 <h2 id="_10">まとめ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、Eager Execution の影響と、TensorFlow 2.x で Eager Execution をデフォルトで有効にすることのメリットを見ていきました。また、IBM Cloud Pak for Data as a Service 上の Watson Studio を使用して Jupyter Notebook を実行する方法、Eager Execution を無効にしたり有効にしたりする方法、Eager Execution のメリットを学びました。</p>
                 

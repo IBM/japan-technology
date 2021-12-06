@@ -1333,14 +1333,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1407,7 +1407,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1421,7 +1421,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1464,14 +1464,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1496,7 +1496,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1510,7 +1510,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1524,7 +1524,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1538,7 +1538,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1552,7 +1552,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4488,7 +4488,7 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>この課題を達成するには、ローカル環境に以下のものが必要となります。</p>
 <ul>
-<li>Gradle](https://gradle.org/)</li>
+<li><a href="https://gradle.org/">Gradle</a></li>
 <li><a href="https://adoptopenjdk.net/">JDK</a></li>
 <li><a href="https://www.eclipse.org/downloads/packages/">Eclipse</a> または <a href="https://www.jetbrains.com/idea/download/">IntelliJ IDEA</a></li>
 <li><a href="https://www.docker.com/get-started">Docker</a></li>
@@ -4497,16 +4497,14 @@
 <p>用意されたプロデューサー・バイナリ・アプリケーションを実行してメッセージを生成し、コンシューマー・アプリケーションを修正して秘密のメッセージを見つけることが課題です。</p>
 <p>プロデューサアプリケーションは <code>event-streams-coding-challenge</code> という名前のトピックを作成し、秘密のメッセージを含むレコードを送信します。次のステップでは、サンプルアプリケーションの <code>App.java</code> を編集して、秘密のメッセージを見つけるまでレコードを消費し続けるためのポーリングループを追加します。秘密のメッセージは、次のキーを持つレコードの値です: <code>coding-challenge</code>.</p>
 <p>以下の手順でチャレンジを完了させます。</p>
-<p>1.チャレンジコードをダウンロードします。このコードは <a href="https://github.com/ibm-messaging/eventstreams-badge-sample">ibm-messaging/eventstreams-badge-sample</a> の GitHub リポジトリに格納されています。</p>
-<pre class="codehilite"><code class="linenums">GitHubの[ibm-messaging/eventstreams-badge-sample](https://github.com/ibm-messaging/eventstreams-badge-sample)リポジトリにアクセスして、cloneまたはdownloadボタンをクリックします。Clone with SSH」、「Use HTTPS」、「Download a ZIP with the code」のいずれかを選択できます。.ZIPファイルをダウンロードした場合は、リポジトリを解凍します。
-</code></pre>
-
+<ol>
+<li>
+<p>チャレンジコードをダウンロードします。このコードは <a href="https://github.com/ibm-messaging/eventstreams-badge-sample">ibm-messaging/eventstreams-badge-sample</a> の GitHub リポジトリに格納されています。</p>
+<p>GitHubの<a href="https://github.com/ibm-messaging/eventstreams-badge-sample">ibm-messaging/eventstreams-badge-sample</a>リポジトリにアクセスして、cloneまたはdownloadボタンをクリックします。「Clone with SSH」、「Use HTTPS」、「Download a ZIP with the code」のいずれかを選択できます。.ZIPファイルをダウンロードした場合は、リポジトリを解凍します。</p>
+</li>
+</ol>
 <p>2.Event Streams Serviceの認証情報から得たブローカーアドレスとAPIキーを入力して、プロデューサーアプリケーションを実行します。</p>
-<pre class="codehilite"><code class="linenums">```
-java -jar coding-challenge-setup.jar &lt;kafka_broker_sasl&gt; &lt;api_key&gt;
-```
-
-出力に「`Congratulations!You have successfully set up the topic for the coding challenge.`&quot; が出力され、秘密のメッセージが正しくトピックに書き込まれたことを確認します。
+<pre class="codehilite"><code class="linenums">出力に「`Congratulations!You have successfully set up the topic for the coding challenge.`&quot; が出力され、秘密のメッセージが正しくトピックに書き込まれたことを確認します。
 
 さて、いよいよ秘密のメッセージを復元してみましょう。
 </code></pre>
@@ -4514,9 +4512,6 @@ java -jar coding-challenge-setup.jar &lt;kafka_broker_sasl&gt; &lt;api_key&gt;
 <p>3.サンプルのコンシューマ・アプリケーションのプロジェクトを設定します。</p>
 <pre class="codehilite"><code class="linenums">まず，`coding-challenge-consumer`ディレクトリに移動します．
 
-```
-cd coding-challenge-consumer
-```
 
 次に、お好みの IDE である `gradle eclipse` または `gradle idea` 用のプロジェクトを作成します。
 
@@ -4525,31 +4520,14 @@ cd coding-challenge-consumer
 
 <p>4.4. IDE で <code>App.java</code> を開き、<code>TODO</code> コメントが表示されている部分のコードを修正します。</p>
 <pre class="codehilite"><code class="linenums">4 つの `TODO` コメントがあり、課題を達成するために必要な Consumer ロジックが強調されています。
-
-```
-// TODO 位置をパーティションの最初に移動する
-// TODO: コンシューマのポーリングループを追加する
-// TODO: キーが KEY (&quot;coding-challenge&quot;)と等しいレコードを探す。
-// TODO: レコードの値を表示して、秘密のメッセージを発見する。
-```
 </code></pre>
 
 <p>5.コンシューマコードの修正が終わったら、アプリケーションをビルドします。</p>
-<pre class="codehilite"><code class="linenums">```
-gradle clean &amp;&amp; gradle build
-```
-</code></pre>
-
 <p>6.コンシューマ・アプリケーションを実行します。</p>
-<pre class="codehilite"><code class="linenums">```
-java -jar ./build/libs/coding-challenge-consumer.jar &lt;kafka_broker_sasl&gt; &lt;api_key&gt;
-```
-</code></pre>
-
 <p>もし、コードがうまくいかなくても、慌てないでください。ステップ4に戻って、変更を加えた後にステップ5と6を再実行すればいいのです。  </p>
 <p>行き詰まったら、<a href="/tutorials/event-streams-hands-on-java-sample/">Get hands on experience with Event Streams Java sample</a>のイベント・ストリーム・サンプルの説明を確認してください。このサンプルには、課題を完了するために必要なロジックがすべて含まれています。</p>
 <h1 id="_3">まとめと次のステップ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<p>おめでとうございます。あなたは初めてのKafkaアプリケーションを書き、コーディングチャレンジを完了しました。Event Streamsチートシート](/learningpaths/ibm-event-streams-badge/event-streams-developer-cheat-sheet/)をチェックしたことを確認してください。なぜなら、イベントストリームのユーザーが知っておくべき忍者の動きが満載だからです。</p>
+<p>おめでとうございます。あなたは初めてのKafkaアプリケーションを書き、コーディングチャレンジを完了しました。<a href="/learningpaths/ibm-event-streams-badge/event-streams-developer-cheat-sheet/">Event Streamsチートシート</a>をチェックしたことを確認してください。なぜなら、イベントストリームのユーザーが知っておくべき忍者の動きが満載だからです。</p>
                 
                   
                 

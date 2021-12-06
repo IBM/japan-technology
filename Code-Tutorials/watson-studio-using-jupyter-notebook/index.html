@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -3059,22 +3059,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#spss" class="md-nav__link">
-    SPSSモデルノートブック)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    結論
-  </a>
   
 </li>
       
@@ -4641,22 +4627,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#spss" class="md-nav__link">
-    SPSSモデルノートブック)
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    結論
-  </a>
   
 </li>
       
@@ -4677,45 +4649,69 @@
                 
                 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、IBM&reg; Watson&trade; Studio 内から Jupyter Notebooks をセットアップして実行する方法を説明します。まず、<a href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer">Kaggle</a>で提供されている顧客の解約に関するデータセットを使用します。このデータセットには、対応する<a href="https://www.kaggle.com/sandipdatta/customer-churn-analysis/" target="_blank" rel="noopener noreferrer">Customer Churn Analysis Jupyter Notebook</a>（元々は<a href="https://www.kaggle.com/sandipdatta" target="_blank" rel="noopener noreferrer">Sandip Datta</a>が開発したもので、以下のような本質的なステップを経て、機械学習モデルを開発する際の典型的な手順を示しています。</p>
-<p>1.データセットをインポートする。</p>
-<p>1.データの可視化や基本的な統計パラメータ（平均値や標準偏差など）を確認し、データを分析します。</p>
-<p>1.機械モデル構築のためにデータを準備する（カテゴライズされた特徴を数値特徴に変換したり、データを正規化したりするなど）。</p>
-<p>1.データを学習データとテストデータに分割し、モデルの学習とモデルの検証に使用する。</p>
-<p>1.様々な機械学習アルゴリズムを用いてモデルを学習し、二値分類を行う。</p>
-<p>1.混同行列を使って、様々なモデルの精度と正確さを評価する。</p>
-<p>1.与えられたデータセットに最も適合するモデルを選択し、予測の結果にどの特徴が低くかつ大きな影響を与えるかを分析する。</p>
-<p>1.Watson Machine Learning を使用してモデルを保存・展開し、ノートブックの外からもアクセスできるようにします。
+<ol>
+<li>
+<p>データセットをインポートする。</p>
+</li>
+<li>
+<p>データの可視化や基本的な統計パラメータ（平均値や標準偏差など）を確認し、データを分析します。</p>
+</li>
+<li>
+<p>機械モデル構築のためにデータを準備する（カテゴライズされた特徴を数値特徴に変換したり、データを正規化したりするなど）。</p>
+</li>
+<li>
+<p>データを学習データとテストデータに分割し、モデルの学習とモデルの検証に使用する。</p>
+</li>
+<li>
+<p>様々な機械学習アルゴリズムを用いてモデルを学習し、二値分類を行う。</p>
+</li>
+<li>
+<p>混同行列を使って、様々なモデルの精度と正確さを評価する。</p>
+</li>
+<li>
+<p>与えられたデータセットに最も適合するモデルを選択し、予測の結果にどの特徴が低くかつ大きな影響を与えるかを分析する。</p>
+</li>
+<li>
+<p>Watson Machine Learning を使用してモデルを保存・展開し、ノートブックの外からもアクセスできるようにします。
 ノートブックの外からアクセスできるようにします。</p>
+</li>
+</ol>
 <p>ノートブックは 40 個の Python セルで定義されており、使用する主なライブラリに精通している必要があります。機械学習用の Python <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer">scikit-learn</a>、科学計算用の Python <a href="http://www.numpy.org/" target="_blank" rel="noopener noreferrer">numpy</a>、Python <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">pandas</a>でデータ構造の管理と分析を行い、データの可視化のために<a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">matplotlib</a>と<a href="https://seaborn.pydata.org/" target="_blank" rel="noopener noreferrer">seaborn</a>を使用しています。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>このラーニングパスのチュートリアルを完了するには、<a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg" target="_blank" rel="noopener noreferrer">IBM Cloud アカウント</a>が必要です。このアカウントでは、<a href="https://cloud.ibm.com?cm_sp=ibmdev-_-developer-tutorials-_cloudreg" target="_blank" rel="noopener noreferrer">IBM Cloud</a>、<a href="https://www.ibm.com/cloud/watson-studio" target="_blank" rel="noopener noreferrer">IBM Watson Studio</a>、<a href="https://www.ibm.com/cloud/machine-learning" target="_blank" rel="noopener noreferrer">IBM Watson Machine Learning Service</a>へのアクセスが可能になります。</p>
+<p>このラーニングパスのチュートリアルを完了するには、<a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg" target="_blank" rel="noopener noreferrer">IBM Cloud アカウント</a>が必要です。このアカウントでは、<a href="https://cloud.ibm.com?cm_sp=ibmdev-_-developer-tutorials-_cloudreg" target="_blank" rel="noopener noreferrer">IBM Cloud</a>、<a href="https://www.ibm.com/jp-ja/cloud/watson-studio" target="_blank" rel="noopener noreferrer">IBM Watson Studio</a>、<a href="https://www.ibm.com/jp-ja/cloud/machine-learning" target="_blank" rel="noopener noreferrer">IBM Watson Machine Learning Service</a>へのアクセスが可能になります。</p>
 <h2 id="_2">見積もり時間<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルを完了するには、約 30 分かかります。</p>
 <h2 id="_3">手順<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ラーニングパスのために環境をセットアップする手順は、<a href="/tutorials/watson-studio-data-visualization-preparation-transformation/">Data visualization, preparation, and transformation using IBM Watson Studio</a>チュートリアルで説明されています。これらのステップは、以下の方法を示しています。</p>
-<p>1.IBM Cloud Object Storage サービスを作成します。
-1.IBM Watson Studio プロジェクトを作成します。
-1.IBM Cloud サービスをプロビジョニングします。
-1.データセットをアップロードします。</p>
+<ol>
+<li>IBM Cloud Object Storage サービスを作成します。</li>
+<li>IBM Watson Studio プロジェクトを作成します。</li>
+<li>IBM Cloud サービスをプロビジョニングします。</li>
+<li>データセットをアップロードします。</li>
+</ol>
 <p>学習パスを続行する前に、これらのステップを完了する必要があります。環境のセットアップが完了している場合は、次のステップであるノートブックの作成に進みます。</p>
 <blockquote>
 <p><strong>NOTE</strong>:ノートブックを実行するには、Watson Machine Learning サービスが必要です。</p>
 </blockquote>
 <p>以下の Jupyter ノートブックを実行するには、まず、Watson Machine Learning サービスにアクセスするための API キーを作成し、モデルをデプロイするためのデプロイメントスペースを作成する必要があります。</p>
 <h3 id="api">API キーの作成<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
-<p>1.Watson Machine Learning サービスにアクセスするために、IBM Cloud コンソールから API キーを作成します。メイン・ダッシュボードから「<strong>Manage</strong>」メニュー・オプションをクリックし、「<strong>Access (IAM)</strong>」を選択します。</p>
-<pre class="codehilite"><code class="linenums">![manage-api-keys](画像/manage-api-keys.png)
-</code></pre>
-
-<p>1.Create an IBM Cloud API key<strong>をクリックします。キーの名前を入力して、</strong>Create**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![create-api-key](images/create-api-key.png)
-</code></pre>
-
-<p>1.APIキーは、ノートブックを実行する際に必要となるため、コピーしてください。</p>
+<ol>
+<li>
+<p>Watson Machine Learning サービスにアクセスするために、IBM Cloud コンソールから API キーを作成します。メイン・ダッシュボードから「<strong>Manage</strong>」メニュー・オプションをクリックし、「<strong>Access (IAM)</strong>」を選択します。</p>
+<p><img alt="manage-api-keys" src="images/manage-api-keys.png" /></p>
+</li>
+<li>
+<p><strong>Create an IBM Cloud API key</strong>をクリックします。キーの名前を入力して、<strong>Create</strong>をクリックします。</p>
+<p><img alt="create-api-key" src="images/create-api-key.png" /></p>
+</li>
+<li>
+<p>APIキーは、ノートブックを実行する際に必要となるため、コピーしてください。</p>
+</li>
+</ol>
 <blockquote>
 <p><strong>important</strong>:生成されたAPIキーは一時的なもので、数分後には消えてしまいますので、ノートブックにインポートする必要があるときのために、値をコピーして保存しておくことが重要です。</p>
 </blockquote>
-<p>また、Watson Machine Learning サービスの場所を決定する必要があります。これを決定する 1 つの方法は、IBM Cloud ダッシュボードのリソースリストからサービスをクリックすることです。Manage<strong>」から「</strong>Details**」をクリックします。</p>
+<p>また、Watson Machine Learning サービスの場所を決定する必要があります。これを決定する 1 つの方法は、IBM Cloud ダッシュボードのリソースリストからサービスをクリックすることです。「<strong>Manage</strong>」から「<strong>Details</strong>」をクリックします。</p>
 <p>このケースでは、サービスはダラスにあり、これは US-South リージョンに相当します。</p>
 <p><img alt="wml-instance-location" src="images/wml-instance-location.png" /></p>
 <blockquote>
@@ -4727,40 +4723,43 @@
 <p><strong>NOTE</strong>。以下のスクリーンショットには、"IBM Watson Studio" ではなく "IBM Cloud Pak for Data" というバナーが表示されていることに気づくかもしれません。このバナーは、IBM Cloud アカウントで作成したサービスの数に依存しています。ある閾値に達すると、バナーは「IBM Cloud Pak for Data」に切り替わります。</p>
 </blockquote>
 <p><img alt="デプロイメント-スペース" src="images/deployment-spaces.png" /></p>
-<p>1.New Deployment Space +**] をクリックして、デプロイメント スペースを作成します。</p>
-<pre class="codehilite"><code class="linenums">![create-deployment-space](images/create-deployment-space.png)をクリックします。
-</code></pre>
-
-<p>1.ストレージと機械学習サービスがスペースに割り当てられていることを確認します。</p>
-<p>1.スペースが作成されたら、<strong>Manage</strong>タブをクリックして<strong>Space GUID</strong>を表示します。この値は、ノートブックにインポートする必要があります。</p>
-<pre class="codehilite"><code class="linenums">![deployment-space-settings](images/deployment-space-settings.png)
-</code></pre>
-
+<ol>
+<li>
+<p>[<strong>New Deployment Space +</strong>] をクリックして、デプロイメント スペースを作成します。</p>
+<p><img alt="create-deployment-space" src="images/create-deployment-space.png" />をクリックします。</p>
+</li>
+<li>
+<p>ストレージと機械学習サービスがスペースに割り当てられていることを確認します。</p>
+</li>
+<li>
+<p>スペースが作成されたら、<strong>Manage</strong>タブをクリックして<strong>Space GUID</strong>を表示します。この値は、ノートブックにインポートする必要があります。</p>
+<p><img alt="deployment-space-settings" src="images/deployment-space-settings.png" /></p>
+</li>
+</ol>
 <h3 id="_5">ノートブックの作成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>顧客の解約を予測するためのJupyterノートブックを作成し、プロジェクトにアップロードしたデータセットを使用するように変更します。</p>
-<p>1.Asset<strong>タブで、</strong>Add to Project**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![プロジェクトに追加](images/add-to-project.png)
-</code></pre>
-
-<p>1.アセットタイプとして <strong>Notebook</strong> を選択します。</p>
-<p>1.New Notebook」のページで、ノートブックを以下のように設定します。</p>
-<pre class="codehilite"><code class="linenums">1.From URL**」タブを選択します。
-
-    ![create-notebook](images/create-notebook.png)
-
-2.ノートブックの名前を入力します（例：「customer-churn-kaggle」）。
-
-3.3. **Python 3.7** ランタイムシステムを選択します。
-
-4.ノートブックのURLを以下のように入力します。
-
-    ```
-    https://github.com/IBM/watson-studio-learning-path-assets/blob/master/notebooks/customer-churn-kaggle.ipynb
-    ```
-
-5.Create**」をクリックします。これにより、IBM Watson Studio 内でノートブックの読み込みと実行が開始されます。
-</code></pre>
-
+<ol>
+<li>
+<p><strong>Asset</strong>タブで、<strong>Add to Project</strong>をクリックします。</p>
+<p><img alt="プロジェクトに追加" src="images/add-to-project.png" /></p>
+</li>
+<li>
+<p>アセットタイプとして <strong>Notebook</strong> を選択します。</p>
+</li>
+<li>
+<p>「New Notebook」のページで、ノートブックを以下のように設定します。</p>
+<ol>
+<li>
+<p>「<strong>From URL</strong>」タブを選択します。</p>
+<p><img alt="create-notebook" src="images/create-notebook.png" /></p>
+</li>
+</ol>
+<p>2.ノートブックの名前を入力します（例：「customer-churn-kaggle」）。</p>
+<p>3.3. <strong>Python 3.7</strong> ランタイムシステムを選択します。</p>
+<p>4.ノートブックのURLを以下のように入力します。</p>
+</li>
+</ol>
+<p>「<strong>    5.Create</strong>」をクリックします。これにより、IBM Watson Studio 内でノートブックの読み込みと実行が開始されます。</p>
 <h3 id="_6">ノートブックの実行<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>ノートブックのページが表示されます。</p>
 <p>ノートブックが開かれていない場合は、プロジェクトのアセットページでノートブックの横に表示されている［編集］アイコンをクリックすると、ノートブックを起動できます。</p>
@@ -4769,19 +4768,23 @@
 <p><strong>NOTE</strong>:ノートブックの実行手順に問題がある場合は、出力付きの完成したノートブックを以下の URL で参照できます。<a href="https://github.com/IBM/watson-studio-learning-path-assets/blob/master/examples/customer-churn-kaggle-with-output.ipynb" target="_blank" rel="noopener noreferrer">https://github.com/IBM/watson-studio-learning-path-assets/blob/master/examples/customer-churn-kaggle-with-output.ipynb</a>。</p>
 </blockquote>
 <p>ノートブックのページから、以下の変更を行います。</p>
-<p>1.3つ目のセルまでスクロールして、セルの中央にある空の行を選択します。まだ開いていない場合は、ページ上部にある「<strong>1001</strong>データ」アイコンをクリックして「ファイル」サブパネルを開きます。</p>
-<pre class="codehilite"><code class="linenums">![insert-pandas-dataframe](images/insert-pandas-dataframe.png)
-</code></pre>
-
-<p>1.ページの右側の部分で、<strong>Customer Churn</strong>データセットを選択します。Insert to code<strong>をクリックし、</strong>pandas DataFrame**を選択します。これにより、データセットをpandas DataFrameに読み込むためのコードがデータセルに追加されます。</p>
-<pre class="codehilite"><code class="linenums">![notebook-with-dataframe](images/notebook-with-dataframe.png)
-</code></pre>
-
-<p>1.生成されたデータフレームの変数名を、ノートブックの残りの部分で使用される <strong>df</strong> に割り当てます。ノートブックに表示すると、データフレームは以下のように表示されます。</p>
-<pre class="codehilite"><code class="linenums">![データセット](images/data-set.png)
-</code></pre>
-
-<p>1.File &gt; Save**を選択し、ノートブックを保存します。</p>
+<ol>
+<li>
+<p>3つ目のセルまでスクロールして、セルの中央にある空の行を選択します。まだ開いていない場合は、ページ上部にある「<strong>1001</strong>データ」アイコンをクリックして「ファイル」サブパネルを開きます。</p>
+<p><img alt="insert-pandas-dataframe" src="images/insert-pandas-dataframe.png" /></p>
+</li>
+<li>
+<p>ページの右側の部分で、<strong>Customer Churn</strong>データセットを選択します。<strong>Insert to code</strong>をクリックし、<strong>pandas DataFrame</strong>を選択します。これにより、データセットをpandas DataFrameに読み込むためのコードがデータセルに追加されます。</p>
+<p><img alt="notebook-with-dataframe" src="images/notebook-with-dataframe.png" /></p>
+</li>
+<li>
+<p>生成されたデータフレームの変数名を、ノートブックの残りの部分で使用される <strong>df</strong> に割り当てます。ノートブックに表示すると、データフレームは以下のように表示されます。</p>
+<p><img alt="データセット" src="images/data-set.png" /></p>
+</li>
+<li>
+<p><strong>File &gt; Save</strong>を選択し、ノートブックを保存します。</p>
+</li>
+</ol>
 <p>ノートブックのセルを1つずつ実行して、その効果とノートブックの定義を確認します。</p>
 <h4 id="_7">ノートブック実行の背景<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>ノートブックが実行されると、ノートブック内の各コードセルが上から下に向かって順に実行されます。</p>
@@ -4794,8 +4797,8 @@
 <p>ノートブックのコードセルを実行するには、いくつかの方法があります。</p>
 <ul>
 <li>セルを 1 つずつ実行する。セルを選択して、ツールバーの <strong>Play</strong> を押してください。</li>
-<li>バッチモードで連続して実行する。Cell** メニューでは、いくつかのオプションが用意されています。例えば、ノートブック内のすべてのセルを実行する<code>Run All</code>や、現在選択されているセルの下の最初のセルから実行を開始し、それに続くすべてのセルを継続して実行する<code>Run All Below</code>などがあります。</li>
-<li>スケジュールされた時間に。ノートブックページの右上にある「Schedule**」ボタンを押してください。ここでは、ノートブックを将来のある時点で1回だけ実行する、または指定した間隔で繰り返し実行するようにスケジュールすることができます。</li>
+<li>バッチモードで連続して実行する。<strong>Cell</strong> メニューでは、いくつかのオプションが用意されています。例えば、ノートブック内のすべてのセルを実行する<code>Run All</code>や、現在選択されているセルの下の最初のセルから実行を開始し、それに続くすべてのセルを継続して実行する<code>Run All Below</code>などがあります。</li>
+<li>スケジュールされた時間に。<strong>ノートブックページの右上にある「Schedule</strong>」ボタンを押してください。ここでは、ノートブックを将来のある時点で1回だけ実行する、または指定した間隔で繰り返し実行するようにスケジュールすることができます。</li>
 </ul>
 <h3 id="_8">データの理解と可視化<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>データ理解のフェーズでは、最初のデータセットを収集します。このフェーズでは、データに慣れ親しみ、データ品質の問題を特定し、データに関する最初の洞察を発見するための活動が行われます。Jupyter Notebookでは、これらの活動はpandasとpandasの具現化された<code>matplotlib</code>関数を使って行われます。pandasの<code>describe</code>関数は特徴量の記述統計を生成し、<code>plot</code>関数はデータの分布を示す図を生成するのに使用されます。</p>
@@ -4812,7 +4815,7 @@
 <h3 id="watson-machine-learning">Watson Machine Learning にモデルをデプロイする<a class="headerlink" href="#watson-machine-learning" title="Permanent link">&para;</a></h3>
 <p>ノートブックの最後のセクションでは、モデルを保存して Watson Machine Learning サービスにデプロイします。</p>
 <p>前のステップでは、Watson Machine Learning サービスに接続するために使用する API キーを作成しました。Watson Machine Learning サービスの使用を承認するために、API キーと場所をコピーします。</p>
-<p><img alt="wml-creds" src="画像/wml-creds.png" /></p>
+<p><img alt="wml-creds" src="images/wml-creds.png" /></p>
 <p>モデルをデプロイするには、使用するデプロイメントスペースを定義する必要があります。先に作成した <strong>デプロイメントスペース ID</strong> をコピーします。</p>
 <p><img alt="set-deployment-space" src="images/set-deployment-space.png" /></p>
 <p>モデルが保存され、Watson Machine Learning にデプロイされると、さまざまな方法でモデルにアクセスできるようになります。</p>
@@ -4820,28 +4823,13 @@
 <p><img alt="score-model" src="images/score-model.png" /></p>
 <p>Watson Studio コンソールに戻ると、<strong>Deployment Space</strong> の <strong>Assets</strong> タブで、<strong>Models</strong> セクションに新しいモデルが表示されていることがわかります。</p>
 <p><img alt="assets-model" src="images/assets-model.png" /></p>
-<p>Deployments**タブをクリックすると、モデルが正常にデプロイされたことがわかります。</p>
+<p><strong>Deployments</strong>タブをクリックすると、モデルが正常にデプロイされたことがわかります。</p>
 <p><img alt="deploy-list" src="images/deploy-list.png" /></p>
-<p>デプロイをクリックすると、詳細が表示されます。API reference<strong>タブをクリックすると、scoringエンドポイントが表示されます。Code Snippets</strong>セクションでは、プログラムでscoringエンドポイントにアクセスする方法の例を見ることができます。</p>
+<p>デプロイをクリックすると、詳細が表示されます。<strong>API reference</strong>タブをクリックすると、scoringエンドポイントが表示されます。<strong>Code Snippets</strong>セクションでは、プログラムでscoringエンドポイントにアクセスする方法の例を見ることができます。</p>
 <p><img alt="deploy-api-reference" src="images/deploy-api-reference.png" /></p>
-<p>Test<strong>タブでは、モデルをスコアリングするためのスコアリングペイロードJSONオブジェクトを渡すことができます（ノートブックで行ったことと同様です）。データを入力した後、</strong>Predict**を押してモデルをスコアリングします。</p>
+<p><strong>Test</strong>タブでは、モデルをスコアリングするためのスコアリングペイロードJSONオブジェクトを渡すことができます（ノートブックで行ったことと同様です）。データを入力した後、<strong>Predict</strong>を押してモデルをスコアリングします。</p>
 <p><img alt="deploy-test" src="images/deploy-test.png" /></p>
 <p>ここでは、入力データ本体に入力された値を示します。</p>
-<p>``json
-{ "input_data":[{"fields":["state", "account length", "area code", "international plan", "voice mail plan", "number vmail messages", "total day minutes", "total day calls", "total day charge", "total eve minutes", "total eve calls", "total eve charge", "total night minutes", "total night calls", "total night charge", "total intl minutes", "total intl calls", "total intl charge", "customer service calls"], "values":[["2","162","415","0","0","0","70.7","108","12.02","157.5","87","13.39","154.8","82","6.97","9.1","3","2.46","4" ]]}]}
-```</p>
-<h3 id="spss"><strong>SPSSモデルノートブック</strong>)<a class="headerlink" href="#spss" title="Permanent link">&para;</a></h3>
-<p>Watson Studio で Jupyter Notebook を作成して実行する方法を学んだので、<a href="/tutorials/watson-studio-spss-modeler-flow/">SPSS Modeler Flow</a> チュートリアルの <code>Scoring machine learning models using the API</code> セクションを再訪してみましょう。このセクションには、Watson Studio にデプロイした SPSS モデルにアクセスしてスコアリングするノートブックを実行する手順が記載されています。</p>
-<h2 id="_11">結論<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>このチュートリアルでは、Watson Studio で Jupyter Notebook を実行するための基本的な事項を説明しました。</p>
-<ul>
-<li>プロジェクトの作成</li>
-<li>プロジェクトへのサービスのプロビジョニングと割り当て</li>
-<li>プロジェクトにデータセットなどのアセットを追加する</li>
-<li>Jupyter Notebooks をプロジェクトにインポートする</li>
-<li>ノートブックの読み込みと実行</li>
-</ul>
-<p>このノートブックの目的は、Jupyter Notebookを使って、顧客の解約を予測する機械学習モデルを構築することです。この[ラーニングパス]（/learningpaths/get-started-watson-studio/）の他のチュートリアルでは、Watson Studio に組み込まれたツールと機能を使用して同じ目的を達成するための、プログラムを使用しない代替方法について説明しています。</p>
                 
                   
                 

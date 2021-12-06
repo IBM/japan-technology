@@ -1388,14 +1388,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1462,7 +1462,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1476,7 +1476,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1519,14 +1519,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1551,7 +1551,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1565,7 +1565,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1579,7 +1579,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1593,7 +1593,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1607,7 +1607,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4612,32 +4612,38 @@
 <p>このチュートリアルを完了するには、約 45 分かかります。</p>
 <h2 id="_4">手順<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、以下の方法を学びます。</p>
-<p>1.<a href="#provision-a-watson-openscal-service">Watson OpenScale サービスをプロビジョニングする</a>
-1.<a href="#use-the-insights-dashboard">Insights ダッシュボードを使用する</a>
-1.<a href="#using the analytics-tools">アナリティクスツールの使用</a></p>
+<ol>
+<li><a href="#provision-a-watson-openscal-service">Watson OpenScale サービスをプロビジョニングする</a></li>
+<li><a href="#use-the-insights-dashboard">Insights ダッシュボードを使用する</a></li>
+<li><a href="#using the analytics-tools">アナリティクスツールの使用</a></li>
+</ol>
 <h2 id="watson-openscale">Watson OpenScale サービスをプロビジョニングする<a class="headerlink" href="#watson-openscale" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>注：Watson OpenScale では、サービスの複数のインスタンスをプロビジョニングできるようになりました。以下の手順では、デフォルトのサービスインスタンス（インストール後に自動的にプロビジョニングされる）を構成することを想定しています。</p>
 </blockquote>
 <h4 id="ibm-cloud-pak-for-data">IBM Cloud Pak for Data プラットフォーム上で<a class="headerlink" href="#ibm-cloud-pak-for-data" title="Permanent link">&para;</a></h4>
 <p>このセクションでは、IBM Cloud Pak for Data プラットフォーム上で Watson OpenScale をプロビジョニングする方法を説明します。IBM Cloud を使用している場合は、<a href="#on-ibm-cloud">On IBM Cloud</a> のセクションにスキップしてください。</p>
-<p>1.Cloud Pak for Data インスタンスで、(☰)メニューを開き、「<strong>Services</strong>」で「<strong>Instances</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![サービス](images/services.png)
-</code></pre>
-
-<p>1.InstancesのテーブルからOpenScale-defaultインスタンスを探し、3つの縦のドットをクリックしてアクションメニューを開きます。次に、「<strong>Open</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-instance.png)
-</code></pre>
-
-<p>1.OpenScale を初めて起動するため、自動セットアッププロセスを開始するためのウェルカムメッセージが表示されます。Auto setup**」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Openscale自動セットアップ起動](images/openscale-autosetup-start.png)
-</code></pre>
-
-<p>1.Connect to Watson Machine Learning] パネルで、同じクラスターにデプロイされた Watson Machine Learning インスタンスを使用しているため、デフォルトのままにします。<strong>Next</strong> をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Openscale Auto Setup WML](images/openscalee-autosetup-wml.png)
-</code></pre>
-
-<p>1.Connect to your database]パネルで、ローカルDb2データベース（管理者ガイドの前のセクションでプロビジョニングしたデータベース）の接続詳細を入力し、[<strong>Next</strong>]をクリックします。</p>
+<ol>
+<li>
+<p>Cloud Pak for Data インスタンスで、(☰)メニューを開き、「<strong>Services</strong>」で「<strong>Instances</strong>」をクリックします。</p>
+<p><img alt="サービス" src="images/services.png" /></p>
+</li>
+<li>
+<p>InstancesのテーブルからOpenScale-defaultインスタンスを探し、3つの縦のドットをクリックしてアクションメニューを開きます。次に、「<strong>Open</strong>」をクリックします。</p>
+<p><img alt="Openscale Tile" src="images/services-wos-instance.png" /></p>
+</li>
+<li>
+<p>OpenScale を初めて起動するため、自動セットアッププロセスを開始するためのウェルカムメッセージが表示されます。「<strong>Auto setup</strong>」をクリックします。</p>
+<p><img alt="Openscale自動セットアップ起動" src="images/openscale-autosetup-start.png" /></p>
+</li>
+<li>
+<p>[Connect to Watson Machine Learning] パネルで、同じクラスターにデプロイされた Watson Machine Learning インスタンスを使用しているため、デフォルトのままにします。<strong>Next</strong> をクリックします。</p>
+<p><img alt="Openscale Auto Setup WML" src="images/openscalee-autosetup-wml.png" /></p>
+</li>
+<li>
+<p>[Connect to your database]パネルで、ローカルDb2データベース（管理者ガイドの前のセクションでプロビジョニングしたデータベース）の接続詳細を入力し、[<strong>Next</strong>]をクリックします。</p>
+</li>
+</ol>
 <p><img alt="Openscale Auto Setup DB" src="images/openscalee-autosetup-db.png" /></p>
 <pre class="codehilite"><code class="linenums">**Note:** Db2 Warehouse on Cloudを使用した場合、Use SSLのチェックボックスを選択する必要があります。ただし、証明書を用意する必要はありません。
 
@@ -4650,121 +4656,137 @@
 ![Openscale Auto Setup Completed](images/openscale-autosetup-complete.png)
 </code></pre>
 
-<p>1.デプロイしたモデルの Insights ダッシュボードをクリックして、ページが読み込まれることを確認します。</p>
-<p>1.他のユーザーに OpenScale インスタンスへのアクセスを許可する必要がある場合は、(☰)メニューの「<strong>サービス</strong>」で「<strong>インスタンス</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![サービス](images/services.png)
-</code></pre>
-
-<p>1.InstancesテーブルからOpenScale-defaultインスタンスを探し、3つの縦のドットをクリックしてアクションメニューを開きます。次に、「<strong>アクセスの管理</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-manageaccess.png)
-</code></pre>
-
-<p>1.サービスインスタンスにユーザーを追加するには、「<strong>ユーザーの追加</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-addusers.png)をクリックします。
-</code></pre>
-
-<p>1.すべてのユーザーアカウントについて、各ユーザーの役割として<strong>Editor</strong>を選択し、<strong>Add</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Openscale Tile](images/services-wos-userrole.png)を参照してください。
-</code></pre>
-
+<ol>
+<li>
+<p>デプロイしたモデルの Insights ダッシュボードをクリックして、ページが読み込まれることを確認します。</p>
+</li>
+<li>
+<p>他のユーザーに OpenScale インスタンスへのアクセスを許可する必要がある場合は、(☰)メニューの「<strong>サービス</strong>」で「<strong>インスタンス</strong>」をクリックします。</p>
+<p><img alt="サービス" src="images/services.png" /></p>
+</li>
+<li>
+<p>InstancesテーブルからOpenScale-defaultインスタンスを探し、3つの縦のドットをクリックしてアクションメニューを開きます。次に、「<strong>アクセスの管理</strong>」をクリックします。</p>
+<p><img alt="Openscale Tile" src="images/services-wos-manageaccess.png" /></p>
+</li>
+<li>
+<p>サービスインスタンスにユーザーを追加するには、「<strong>ユーザーの追加</strong>」をクリックします。</p>
+<p><img alt="Openscale Tile" src="images/services-wos-addusers.png" />をクリックします。</p>
+</li>
+<li>
+<p>すべてのユーザーアカウントについて、各ユーザーの役割として<strong>Editor</strong>を選択し、<strong>Add</strong>をクリックします。</p>
+<p><img alt="Openscale Tile" src="images/services-wos-userrole.png" />を参照してください。</p>
+</li>
+</ol>
 <h4 id="on-ibm-cloud">On IBM Cloud<a class="headerlink" href="#on-ibm-cloud" title="Permanent link">&para;</a></h4>
-<p>1.IBM Cloud のアカウントを持っていない場合は、<a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">アカウント</a>に登録します。</p>
-<p>1.<a href="https://cloud.ibm.com/catalog/services/watson-openscale?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">カタログ</a>からWatson OpenScaleインスタンスを作成します。</p>
-<p>1.Lite プランを選択し、サービス名を入力して、「<strong>Create</strong>」をクリックします。</p>
-<p>1.Launch Application** をクリックして、Watson OpenScale を起動します。</p>
-<p>1.Auto setup**をクリックして、サンプルデータを使ってWatson OpenScaleインスタンスを自動的にセットアップします。</p>
-<pre class="codehilite"><code class="linenums">![デモ歓迎](images/cloud-auto-setup.png)
-</code></pre>
-
-<p>1.Start tour** をクリックして、Watson OpenScale ダッシュボードを見学します。</p>
+<ol>
+<li>
+<p>IBM Cloud のアカウントを持っていない場合は、<a href="https://cloud.ibm.com/registration?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">アカウント</a>に登録します。</p>
+</li>
+<li>
+<p><a href="https://cloud.ibm.com/catalog/services/watson-openscale?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">カタログ</a>からWatson OpenScaleインスタンスを作成します。</p>
+</li>
+<li>
+<p>Lite プランを選択し、サービス名を入力して、「<strong>Create</strong>」をクリックします。</p>
+</li>
+<li>
+<p><strong>Launch Application</strong> をクリックして、Watson OpenScale を起動します。</p>
+</li>
+<li>
+<p><strong>Auto setup</strong>をクリックして、サンプルデータを使ってWatson OpenScaleインスタンスを自動的にセットアップします。</p>
+<p><img alt="デモ歓迎" src="images/cloud-auto-setup.png" /></p>
+</li>
+<li>
+<p><strong>Start tour</strong> をクリックして、Watson OpenScale ダッシュボードを見学します。</p>
+</li>
+</ol>
 <h2 id="insights">Insights ダッシュボードを使う<a class="headerlink" href="#insights" title="Permanent link">&para;</a></h2>
 <p>OpenScale サービスを起動する。</p>
-<p>1.(☰)ナビゲーションメニューに移動し、<strong>Services -&gt; Instances</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Services Instances](images/services.png)
-</code></pre>
-
-<p>1.管理者がプロビジョニングしたOpenScaleインスタンスの横にある3つの縦のドットをクリックして、<strong>Open</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScaleインスタンス](images/openscale-instance-open.png)
-</code></pre>
-
+<ol>
+<li>
+<p>(☰)ナビゲーションメニューに移動し、<strong>Services -&gt; Instances</strong>をクリックします。</p>
+<p><img alt="Services Instances" src="images/services.png" /></p>
+</li>
+<li>
+<p>管理者がプロビジョニングしたOpenScaleインスタンスの横にある3つの縦のドットをクリックして、<strong>Open</strong>をクリックします。</p>
+<p><img alt="OpenScaleインスタンス" src="images/openscale-instance-open.png" /></p>
+</li>
+</ol>
 <p>それでは、ツールを使ってみましょう。</p>
-<p>1.OpenScaleはInsights Dashboardをロードし、監視しているすべてのモデルのタイルを含みます。GermanCreditRiskModelICP」タイルが、このチュートリアルで使用するタイルです。このタイルはAuto setupスクリプトを使って設定しました。</p>
-<p>1.左側の［洞察］アイコンをクリックし、［モデルモニター］タブにいることを確認してから、GermanCreditRiskModelICPモデルタイルを開きます。3ドットメニューをクリックして、「<strong>詳細を見る</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Insight Dashboard Tile Open](images/openscale-model-view-details.png)
-</code></pre>
-
-<p>1.各種モニター（Fairness、Quality、Drift）に表示されている赤色の警告インジケータに注目します。Fairness」の下に赤いインジケータが表示されているはずです。Fairness score**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![モデル概要](images/openscale-fairness-score.png)
-</code></pre>
-
-<p>1.公正さ」→「性別」の下にある「！」の付いた三角形をクリックします。これは、Fairnessモニターでこの属性に対するアラートが発生したことを示します。アラートは、フェアネスの結果のしきい値に基づいて設定可能で、必要に応じて設定・変更できます。</p>
-<pre class="codehilite"><code class="linenums">トレンドチャートの上にマウスポインタを移動させると、値が変化するのがわかります。グラフが赤いしきい値ラインを下回っているタイムスライスを見つけてクリックしてください。これは、公平性のレベルが所定の最小値を下回っており、その時間帯の取引の一部に偏りがあることを示しています。
-
-![OpenScale Fairness Monitor](images/openscale-fairness-details.png)
-</code></pre>
-
-<p>1.期間のいずれかをクリックすると、「ノーリスク」の結果を得た女性の数と男性の数を示す棒グラフなど、フェアネスモニターの詳細が表示されます。計算を見る<strong>をクリックすると、フェアネススコアの計算方法が表示されます。View payload transactions</strong>（ペイロードトランザクションの表示）をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Fairness Monitor chart](images/openscale-fairness-chart.png)
-
-トランザクションのリストが表示されます。Group Bias」にチェックマークが付いていて、「Risk」という予測が付いている「Group - Female」という監視対象グループの1つを探します。Explain prediction**をクリックします。公平性監視のグラフの期間にこの要素が含まれていない場合、見つかるまで戻って別の期間を選択します。これにより、説明がより面白くなります。
-
-![OpenScale Fairness Detail](images/openscale-fairness-detail-page.png)
-
-**Note:** 個々のトランザクションは、その詳細を見るために調べることができます。これを行うと、後で見るようにそのトランザクションがキャッシュされます。Explainability機能では、わずかに乱れたデータのバリエーションを使用してエンドポイントに何千回ものRESTコールを行う必要があることに注意してください。この処理には数秒かかることがあります。
-</code></pre>
-
-<p>1.個々のトランザクションの「説明」タブで、この予測にとって最も重要な機能の相対的な重みを確認します。データを調べて、「<strong>Inspect</strong>」タブをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale View Transaction](images/openscale-explain-relative-weight.png)
-</code></pre>
-
-<p>1.このトランザクションのInspectビューでは、この予測を導いた元の機能に加えて、各機能を変更する機能を提供する一連のドロップダウンメニューと入力ボックスが表示されています。どの機能が結果（この場合は「リスク」から「ノーリスク」）を変えるかは、「<strong>ラン分析</strong>」をクリックして確認できます。これには、データにわずかな摂動を加えたエンドポイントへの何千回ものRESTコールが必要なため、実行には数分かかることに注意してください。分析の実行」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Inspect Transaction](images/openscale-inspect-transaction.png)
-
-この特定の取引では、ローンの保証人の存在が、結果を「リスク」から「ノーリスク」に変えるために必要な唯一の要素であることがわかります。他の取引では、異なる分析結果が得られる可能性があります。この例では、「Others on Loan」のドロップダウンメニューをクリックし、guarantorに変更することができます。
-
-![OpenScale choose new value](images/openscale-different-outcome.png)
-</code></pre>
-
-<p>1.保証人にこの新しい値を選択すると、新しい値をスコアするためのボタンが表示されます。このボタンをクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Scoreの新しい値](images/openscale-score-new-values.png)
-
-この例では、結果が &quot;Risk &quot;から &quot;No Risk &quot;に変わっていることがわかります。
-
-![OpenScale flip outcome](images/openscale-outcome-flipped.png)
-</code></pre>
-
-<p>1.Insights」メニューのアイコンをクリックして、「Insights Dashboard」ページに戻ります。モデルモニター」タブにいることを確認します。ここで、タイル上の3点メニューをクリックして、GermanCreditRiskModelICPモデルのモニター設定を開き、「<strong>モニターの設定</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Insight Dashboard Tile Open](images/openscale-configure-monitors.png)
-</code></pre>
-
-<p>1.エンドポイント」メニューをクリックし、「エンドポイント」タブをクリックします。Endpoints」ドロップダウンメニューを使用して、「<strong>Debiased transactions</strong>」を選択します。これは、設定された機能（つまり、SexとAge）に基づいて、信用リスク機械学習モデルのデバイアスされたバージョンを提供するRESTエンドポイントです。検出されたバイアスを除去しようとする推論を提示します。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Monitors Endpoints](images/openscale-endpoints.png)
-</code></pre>
-
+<ol>
+<li>
+<p>OpenScaleはInsights Dashboardをロードし、監視しているすべてのモデルのタイルを含みます。「GermanCreditRiskModelICP」タイルが、このチュートリアルで使用するタイルです。このタイルはAuto setupスクリプトを使って設定しました。</p>
+</li>
+<li>
+<p>左側の［洞察］アイコンをクリックし、［モデルモニター］タブにいることを確認してから、GermanCreditRiskModelICPモデルタイルを開きます。3ドットメニューをクリックして、「<strong>詳細を見る</strong>」をクリックします。</p>
+<p><img alt="OpenScale Insight Dashboard Tile Open" src="images/openscale-model-view-details.png" /></p>
+</li>
+<li>
+<p>各種モニター（Fairness、Quality、Drift）に表示されている赤色の警告インジケータに注目します。「Fairness」の下に赤いインジケータが表示されているはずです。<strong>Fairness score</strong>をクリックします。</p>
+<p><img alt="モデル概要" src="images/openscale-fairness-score.png" /></p>
+</li>
+<li>
+<p>「公正さ」→「性別」の下にある「！」の付いた三角形をクリックします。これは、Fairnessモニターでこの属性に対するアラートが発生したことを示します。アラートは、フェアネスの結果のしきい値に基づいて設定可能で、必要に応じて設定・変更できます。</p>
+<p>トレンドチャートの上にマウスポインタを移動させると、値が変化するのがわかります。グラフが赤いしきい値ラインを下回っているタイムスライスを見つけてクリックしてください。これは、公平性のレベルが所定の最小値を下回っており、その時間帯の取引の一部に偏りがあることを示しています。</p>
+<p><img alt="OpenScale Fairness Monitor" src="images/openscale-fairness-details.png" /></p>
+</li>
+<li>
+<p>期間のいずれかをクリックすると、「ノーリスク」の結果を得た女性の数と男性の数を示す棒グラフなど、フェアネスモニターの詳細が表示されます。<strong>計算を見る</strong>をクリックすると、フェアネススコアの計算方法が表示されます。<strong>View payload transactions</strong>（ペイロードトランザクションの表示）をクリックします。</p>
+<p><img alt="OpenScale Fairness Monitor chart" src="images/openscale-fairness-chart.png" /></p>
+<p>トランザクションのリストが表示されます。「Group Bias」にチェックマークが付いていて、「Risk」という予測が付いている「Group - Female」という監視対象グループの1つを探します。<strong>Explain prediction</strong>をクリックします。公平性監視のグラフの期間にこの要素が含まれていない場合、見つかるまで戻って別の期間を選択します。これにより、説明がより面白くなります。</p>
+<p><img alt="OpenScale Fairness Detail" src="images/openscale-fairness-detail-page.png" /></p>
+<p><strong>Note:</strong> 個々のトランザクションは、その詳細を見るために調べることができます。これを行うと、後で見るようにそのトランザクションがキャッシュされます。Explainability機能では、わずかに乱れたデータのバリエーションを使用してエンドポイントに何千回ものRESTコールを行う必要があることに注意してください。この処理には数秒かかることがあります。</p>
+</li>
+<li>
+<p>個々のトランザクションの「説明」タブで、この予測にとって最も重要な機能の相対的な重みを確認します。データを調べて、「<strong>Inspect</strong>」タブをクリックします。</p>
+<p><img alt="OpenScale View Transaction" src="images/openscale-explain-relative-weight.png" /></p>
+</li>
+<li>
+<p>このトランザクションのInspectビューでは、この予測を導いた元の機能に加えて、各機能を変更する機能を提供する一連のドロップダウンメニューと入力ボックスが表示されています。どの機能が結果（この場合は「リスク」から「ノーリスク」）を変えるかは、「<strong>ラン分析</strong>」をクリックして確認できます。これには、データにわずかな摂動を加えたエンドポイントへの何千回ものRESTコールが必要なため、実行には数分かかることに注意してください。「分析の実行」をクリックします。</p>
+<p><img alt="OpenScale Inspect Transaction" src="images/openscale-inspect-transaction.png" /></p>
+<p>この特定の取引では、ローンの保証人の存在が、結果を「リスク」から「ノーリスク」に変えるために必要な唯一の要素であることがわかります。他の取引では、異なる分析結果が得られる可能性があります。この例では、「Others on Loan」のドロップダウンメニューをクリックし、guarantorに変更することができます。</p>
+<p><img alt="OpenScale choose new value" src="images/openscale-different-outcome.png" /></p>
+</li>
+<li>
+<p>保証人にこの新しい値を選択すると、新しい値をスコアするためのボタンが表示されます。このボタンをクリックします。</p>
+<p><img alt="OpenScale Scoreの新しい値" src="images/openscale-score-new-values.png" /></p>
+<p>この例では、結果が "Risk "から "No Risk "に変わっていることがわかります。</p>
+<p><img alt="OpenScale flip outcome" src="images/openscale-outcome-flipped.png" /></p>
+</li>
+<li>
+<p>「Insights」メニューのアイコンをクリックして、「Insights Dashboard」ページに戻ります。「モデルモニター」タブにいることを確認します。ここで、タイル上の3点メニューをクリックして、GermanCreditRiskModelICPモデルのモニター設定を開き、「<strong>モニターの設定</strong>」をクリックします。</p>
+<p><img alt="OpenScale Insight Dashboard Tile Open" src="images/openscale-configure-monitors.png" /></p>
+</li>
+<li>
+<p>「エンドポイント」メニューをクリックし、「エンドポイント」タブをクリックします。「Endpoints」ドロップダウンメニューを使用して、「<strong>Debiased transactions</strong>」を選択します。これは、設定された機能（つまり、SexとAge）に基づいて、信用リスク機械学習モデルのデバイアスされたバージョンを提供するRESTエンドポイントです。検出されたバイアスを除去しようとする推論を提示します。</p>
+<p><img alt="OpenScale Monitors Endpoints" src="images/openscale-endpoints.png" /></p>
+</li>
+</ol>
 <p>cURL、Java言語、Pythonを使用したコードスニペットを見ることができ、スクリプトやアプリケーションで使用することができます。</p>
 <p>同様に、フィードバックロギングのエンドポイントを選択すると、フィードバックロギング用のコードを入手できます。これは、継続的な品質評価のための新鮮なテストデータを送信するためのエンドポイントを提供します。ここにフィードバックデータをアップロードするか、開発者と協力して提供されたコードスニペットを統合し、Watson OpenScale データベースにフィードバックデータを公開することができます。</p>
 <h2 id="_5">アナリティクスツールの使用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>Analytics ツールを使用するには、以下の手順に従います。</p>
-<p>1.左側の「インサイト」アイコンをクリックし、「モデルモニター」タブにいることを確認してから、GermanCreditRiskModelICPモデルタイルを開きます。3ドットメニューをクリックして、「<strong>詳細を見る</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![OpenScale Insight Dashboard Tile Open](images/openscale-model-view-details.png)
-</code></pre>
-
-<p>1.各種モニター（Fairness、Quality、Drift）に表示されている赤色の警告インジケータに注目します。Fairness」の下に赤いインジケータが表示されているはずです。Fairness score**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![モデル概要](images/openscale-fairness-score.png)
-</code></pre>
-
-<p>1.Analytics -&gt; Predictions by Confidence**をクリックします。チャートの作成には少し時間がかかります。ここでは、信頼度と "Risk "と "No Risk "の予測を示す棒グラフが表示されています。</p>
-<pre class="codehilite"><code class="linenums">![Analytics Predictions by Confidence](images/openscale-prediction-by-confidence.png)
-</code></pre>
-
-<p>1.このダッシュボードから、<strong>Analytics -&gt; Chart Builder</strong>をクリックします。ここでは、機械学習モデルのさまざまな測定値、特徴、およびディメンションを使用してチャートを作成することができます。ここでは、信頼度別に予測値を分類したチャートをご覧いただけます。</p>
-<pre class="codehilite"><code class="linenums">**注意：**データを読み込むために、「Past Week」や「Yesterday」の日付範囲をクリックする必要があるかもしれません。
-</code></pre>
-
-<p>1.値を変更して、作成されたチャートを試してみてください。</p>
-<pre class="codehilite"><code class="linenums">![Analytics Chart builder](images/openscale-chart-builder.png)
-</code></pre>
-
+<ol>
+<li>
+<p>左側の「インサイト」アイコンをクリックし、「モデルモニター」タブにいることを確認してから、GermanCreditRiskModelICPモデルタイルを開きます。3ドットメニューをクリックして、「<strong>詳細を見る</strong>」をクリックします。</p>
+<p><img alt="OpenScale Insight Dashboard Tile Open" src="images/openscale-model-view-details.png" /></p>
+</li>
+<li>
+<p>各種モニター（Fairness、Quality、Drift）に表示されている赤色の警告インジケータに注目します。「Fairness」の下に赤いインジケータが表示されているはずです。<strong>Fairness score</strong>をクリックします。</p>
+<p><img alt="モデル概要" src="images/openscale-fairness-score.png" /></p>
+</li>
+<li>
+<p><strong>Analytics -&gt; Predictions by Confidence</strong>をクリックします。チャートの作成には少し時間がかかります。ここでは、信頼度と "Risk "と "No Risk "の予測を示す棒グラフが表示されています。</p>
+<p><img alt="Analytics Predictions by Confidence" src="images/openscale-prediction-by-confidence.png" /></p>
+</li>
+<li>
+<p>このダッシュボードから、<strong>Analytics -&gt; Chart Builder</strong>をクリックします。ここでは、機械学習モデルのさまざまな測定値、特徴、およびディメンションを使用してチャートを作成することができます。ここでは、信頼度別に予測値を分類したチャートをご覧いただけます。</p>
+<p><strong>注意：</strong>データを読み込むために、「Past Week」や「Yesterday」の日付範囲をクリックする必要があるかもしれません。</p>
+</li>
+<li>
+<p>値を変更して、作成されたチャートを試してみてください。</p>
+<p><img alt="Analytics Chart builder" src="images/openscale-chart-builder.png" /></p>
+</li>
+</ol>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、Watson OpenScale ツールを使用して、多くの GUI 機能のウォークスルーを行います。自動セットアップのデプロイメントでは、機械学習モデルを作成してデプロイし、過去のデータを挿入して、本番で長期間使用されているモデルをシミュレートします。OpenScale モニターが構成され、その後、様々なメトリクスやデータを探索することができます。</p>
                 

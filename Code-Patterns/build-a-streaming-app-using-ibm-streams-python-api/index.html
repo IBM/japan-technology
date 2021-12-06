@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4503,21 +4503,25 @@
 <p>Python API streamsxを使用すると、IBM Cloud Pak for Data上で動作するサービスであるIBM Streamsを使用するストリーミング・アプリケーションを構築することができます。IBM Cloud Pak for Data プラットフォームは、複数のデータ・ソースとの統合、組み込みのアナリティクス、Jupyter Notebooks、機械学習などの追加サポートを提供します。複数のコンピューティングリソースにプロセスを分散させることで、スケーラビリティが向上します。</p>
 <p>このコードパターンでは、 streamsx Python APIを使用してJupyter Notebookを作成し、ストリーミングアプリケーションを構築します。このアプリは、ユーザーがショッピングサイトを閲覧する際のマウスクリックイベントを含むデータのストリームを処理します。</p>
 <h2 id="_3">フロー<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><img alt="フロー" src="画像/flow.png" /></p>
-<p>1.ユーザーは、IBM Cloud Pak for Data で Jupyter Notebook を実行します。
-1.クリックストリームのデータがストリーミングアプリに挿入される。
-1.streamsx Python APIを使用したストリーミング・アプリがIBM Streamsサービスで実行される。
-1.ユーザーがIBM Streamsサービスのジョブにアクセスしてイベントを閲覧する。</p>
+<p><img alt="フロー" src="images/flow.png" /></p>
+<ol>
+<li>ユーザーは、IBM Cloud Pak for Data で Jupyter Notebook を実行します。</li>
+<li>クリックストリームのデータがストリーミングアプリに挿入される。</li>
+<li>streamsx Python APIを使用したストリーミング・アプリがIBM Streamsサービスで実行される。</li>
+<li>ユーザーがIBM Streamsサービスのジョブにアクセスしてイベントを閲覧する。</li>
+</ol>
 <h2 id="_4">指示<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>このパターンの詳細な手順は、<a href="https://github.com/IBM/ibm-streams-with-python-api/blob/master/README.md">README</a>ファイルに記載されています。手順では、以下の方法を説明しています。</p>
-<p>1.レポをクローンする。
-1.IBM Streams サービスを IBM Cloud Pak for Data に追加します。
-1.IBM Cloud Pak for Data で新しいプロジェクトを作成します。
-1.データ・アセットをプロジェクトに追加します。
-1.プロジェクトにノートブックを追加します。
-1.ノートブックを実行します。
-1.IBM Streamsのサービスパネルでジョブのステータスを確認する。
-1.ジョブをキャンセルする。</p>
+<ol>
+<li>レポをクローンする。</li>
+<li>IBM Streams サービスを IBM Cloud Pak for Data に追加します。</li>
+<li>IBM Cloud Pak for Data で新しいプロジェクトを作成します。</li>
+<li>データ・アセットをプロジェクトに追加します。</li>
+<li>プロジェクトにノートブックを追加します。</li>
+<li>ノートブックを実行します。</li>
+<li>IBM Streamsのサービスパネルでジョブのステータスを確認する。</li>
+<li>ジョブをキャンセルする。</li>
+</ol>
                 
                   
                 

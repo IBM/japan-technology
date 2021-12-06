@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4541,111 +4541,135 @@
                 
                 <p>Watson Assistantは、自然言語を用いたインテリジェントなインターフェースを提供することで、お客様の問題解決をサポートします。アシスタントサービスが提供するツールを、お客様に直接役立つスキルで使用することができます。GUIツールとAPIの柔軟性を組み合わせることで、AIを使ったアプリケーションやツールをシンプルかつパワフルにパワーアップすることができます。</p>
 <h2 id="_1">あなたが学ぼうとしていること<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>1.<a href="#create-the-assistant-service-and-first-assistant">アシスタントサービスと最初のアシスタントの作成</a>
-1.<a href="#create-an-action">アクションの作成</a>
-1.<a href="#条件付きアクションの追加">条件付きアクションの追加</a>
-1.<a href="#add-actions-with-variables">変数付きアクションの追加</a>
-1.<a href="#publish the changes">変更を公開する</a>
-1.<a href="#conclusion">結論</a></p>
+<ol>
+<li><a href="#create-the-assistant-service-and-first-assistant">アシスタントサービスと最初のアシスタントの作成</a></li>
+<li><a href="#create-an-action">アクションの作成</a></li>
+<li><a href="#条件付きアクションの追加">条件付きアクションの追加</a></li>
+<li><a href="#add-actions-with-variables">変数付きアクションの追加</a></li>
+<li><a href="#publish the changes">変更を公開する</a></li>
+<li><a href="#conclusion">結論</a></li>
+</ol>
 <h2 id="_2">アシスタントサービスの作成と最初のアシスタント<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>1.Watson Assistant を使用するための最初のステップは、サービスのインスタンスを作成することです。これは<a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>を使って行います。インスタンスに意味のある名前を付けます。所属したいリソースグループを選択し、必要に応じてタグを追加して、「<strong>Create</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![アシスタントインスタンスの作成](images/create-assistant-instance.png)
-</code></pre>
-
-<p>1.<strong>Launch Watson Assistant</strong> をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Launch Watson Assistant](images/launch-watson-assistant.png)をクリックします。
-</code></pre>
-
-<p>1.上部のドロップダウンメニューから、<strong>Create new +</strong> をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Click create new](images/click-create-new.png)をクリックします。
-</code></pre>
-
-<p>1.インスタンスに名前と任意の説明を付けて、<strong>Create Assistant</strong>をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![名前を付けてアシスタントを作成](images/name-and-create-assistant.png)
-</code></pre>
-
+<ol>
+<li>
+<p>Watson Assistant を使用するための最初のステップは、サービスのインスタンスを作成することです。これは<a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">IBM Cloud</a>を使って行います。インスタンスに意味のある名前を付けます。所属したいリソースグループを選択し、必要に応じてタグを追加して、「<strong>Create</strong>」をクリックします。</p>
+<p><img alt="アシスタントインスタンスの作成" src="images/create-assistant-instance.png" /></p>
+</li>
+<li>
+<p><strong>Launch Watson Assistant</strong> をクリックします。</p>
+<p><img alt="Launch Watson Assistant" src="images/launch-watson-assistant.png" />をクリックします。</p>
+</li>
+<li>
+<p>上部のドロップダウンメニューから、<strong>Create new +</strong> をクリックします。</p>
+<p><img alt="Click create new" src="images/click-create-new.png" />をクリックします。</p>
+</li>
+<li>
+<p>インスタンスに名前と任意の説明を付けて、<strong>Create Assistant</strong>をクリックします。</p>
+<p><img alt="名前を付けてアシスタントを作成" src="images/name-and-create-assistant.png" /></p>
+</li>
+</ol>
 <h2 id="_3">アクションの作成<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>1.新しいホームページでは、ナビゲーションの手順に従い、<strong>Watson Assistantについて学ぶ</strong>をクリックして1分間のビデオを見ることができます。続けて<strong>Create your first action</strong>をクリックするか、左のナビゲーションパネルを使って<em>Actions</em>のアイコンを選択します。</p>
-<pre class="codehilite"><code class="linenums">![Create your first action](images/create-first-action.png)
-</code></pre>
-
+<ol>
+<li>
+<p>新しいホームページでは、ナビゲーションの手順に従い、<strong>Watson Assistantについて学ぶ</strong>をクリックして1分間のビデオを見ることができます。続けて<strong>Create your first action</strong>をクリックするか、左のナビゲーションパネルを使って<em>Actions</em>のアイコンを選択します。</p>
+<p><img alt="Create your first action" src="images/create-first-action.png" /></p>
+</li>
+</ol>
 <p><em>"What does your customer say to start this interaction? "</em>と聞かれます。このチュートリアルでは、「What are your store hours?」と入力し、<strong>Save</strong>をクリックします。</p>
 <pre class="codehilite"><code class="linenums">![営業時間の表示](images/store-hours-action.png)
 </code></pre>
 
-<p>1."We are open from 8:00 AM to 9:00 PM every day. "などの文言を入力します。お客様は何も入力する必要がなく、質問にも答えているので、<em>Define customer response</em>セクションを空にして、デフォルトの<em>Continue to next step</em>のままにしておきます。</p>
-<pre class="codehilite"><code class="linenums">![Assitant says store hours](images/asst-says-store-hours.png)
-</code></pre>
-
-<p>1.それでは、今までの成果を試してみましょう。右下の<strong>Preview</strong>をクリックします。チャットボットは "Welcome, how can I assist you? "と始まります。What are your store hours?」というテキストを入力し、矢印をクリックするか、キーボードの<strong>Enter/Return</strong>を押してください。入力した "We are open from 8:00 AM to 9:00 PM every day. "という回答が返ってくるはずです。</p>
-<pre class="codehilite"><code class="linenums">![店舗営業時間の初回テスト](images/first-test-store-hours.png)
-</code></pre>
-
-<p>1.反時計回りの矢印をクリックして、ボットをリセットします。今度は、「When are you open?」と入力します。今度は、ボットが「I'm afraid I don't understand.Please rephase your question." と答えます。ボットが理解できるように、お客様の質問にいくつかの選択肢を追加する必要があります。左上の<strong>Customer starts with</strong>ボックスをクリックして、ここに戻り、質問の別の言い回しを追加します。</p>
-<pre class="codehilite"><code class="linenums">![質問の代替フレーズ](images/alternate-phrases-for-hours.png)
-</code></pre>
-
-<p>1.プレビューウィジェットを使用するには、保存する必要があるため、右上の保存アイコンをクリックします。アシスタント設定の歯車アイコンをクリックすると、自動保存がオンになっていることがわかりますが、この保存は、ステップを切り替えたときに実行されます。次に、プレビューウィンドウで、フレーズのリストにある「開く」などと入力して、再度テストしてみてください。正しい反応が得られるはずです。</p>
-<p>1.プレビューウィンドウで、ボットが「There are no additional steps for this action.新しいステップを追加するか、アクションを終了してください。" と表示されていることに注意してください。アクションを終了しましょう。左上のConversationステップをクリックして戻り、「<em>And then</em>」のドロップダウンを「<strong>End the action</strong>」に変更します。</p>
-<pre class="codehilite"><code class="linenums">![アクションの終了に変更](images/change-to-end-the-action.png)
-</code></pre>
-
-<p>1.変更を保存して、プレビューをリセットします。これで、店舗の営業時間が指定された後にアクションが完了するはずです。</p>
+<ol>
+<li>
+<p>"We are open from 8:00 AM to 9:00 PM every day. "などの文言を入力します。お客様は何も入力する必要がなく、質問にも答えているので、<em>Define customer response</em>セクションを空にして、デフォルトの<em>Continue to next step</em>のままにしておきます。</p>
+<p><img alt="Assitant says store hours" src="images/asst-says-store-hours.png" /></p>
+</li>
+<li>
+<p>それでは、今までの成果を試してみましょう。右下の<strong>Preview</strong>をクリックします。チャットボットは "Welcome, how can I assist you? "と始まります。「What are your store hours?」というテキストを入力し、矢印をクリックするか、キーボードの<strong>Enter/Return</strong>を押してください。入力した "We are open from 8:00 AM to 9:00 PM every day. "という回答が返ってくるはずです。</p>
+<p><img alt="店舗営業時間の初回テスト" src="images/first-test-store-hours.png" /></p>
+</li>
+<li>
+<p>反時計回りの矢印をクリックして、ボットをリセットします。今度は、「When are you open?」と入力します。今度は、ボットが「I'm afraid I don't understand.Please rephase your question." と答えます。ボットが理解できるように、お客様の質問にいくつかの選択肢を追加する必要があります。左上の<strong>Customer starts with</strong>ボックスをクリックして、ここに戻り、質問の別の言い回しを追加します。</p>
+<p><img alt="質問の代替フレーズ" src="images/alternate-phrases-for-hours.png" /></p>
+</li>
+<li>
+<p>プレビューウィジェットを使用するには、保存する必要があるため、右上の保存アイコンをクリックします。アシスタント設定の歯車アイコンをクリックすると、自動保存がオンになっていることがわかりますが、この保存は、ステップを切り替えたときに実行されます。次に、プレビューウィンドウで、フレーズのリストにある「開く」などと入力して、再度テストしてみてください。正しい反応が得られるはずです。</p>
+</li>
+<li>
+<p>プレビューウィンドウで、ボットが「There are no additional steps for this action.新しいステップを追加するか、アクションを終了してください。" と表示されていることに注意してください。アクションを終了しましょう。左上のConversationステップをクリックして戻り、「<em>And then</em>」のドロップダウンを「<strong>End the action</strong>」に変更します。</p>
+<p><img alt="アクションの終了に変更" src="images/change-to-end-the-action.png" /></p>
+</li>
+<li>
+<p>変更を保存して、プレビューをリセットします。これで、店舗の営業時間が指定された後にアクションが完了するはずです。</p>
+</li>
+</ol>
 <h2 id="_4">条件付きアクションの追加<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>1.今度は、"Where are you located? "という質問に答えるアクションを追加します。ホーム画面から「<strong>新しいアクション+</strong>」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![新しいアクションの作成](images/new-action.png)
-</code></pre>
-
-<p>1.What does your customer say to start this interaction? "に対して、<code>Where are you located?</code>と入力します。
-1.アシスタントの発言<em>」の項目に、「ダウンタウンとリバーサイドの2つの場所があります。あなたはどちらに近いですか？
-1.顧客の反応」の項目で、「オプション」を選択し、「ダウンタウン」と「リバーサイド」を入力してください。この情報は前のステップから保存されているので、</em>Allow skipping or always ask?<em>のデフォルトを</em>Skip if the customer already given this information<em>にしておくことができます。購入前の確認のような場合には、</em>Always ask for this information, regardless of earlier messages<em>を選択するとよいでしょう。
-1.Apply</em>*をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![ロケーションオプションの追加](images/location-choose-options.png)
-</code></pre>
-
-<p>1.別のステップを追加し、今度はプルダウンメニューを使用して、<em>Step 2 is taken</em>を<em>with conditions</em>に変更します。条件には、<em>「1.このすべてが真である：</em>We have 2 locations...」<em>が<code>Downtown</code>であることがあらかじめ登録されているはずです。クリックしてみると、</em>is<em> から </em>is not<em> へ、あるいは </em>All<em> of this is true から </em>Any* へと、さまざまな方法でロジックを変更できることがわかります。さらに条件を追加したり、条件のグループ全体を追加することもできます。ここで、「アシスタントの発言」に、「ダウンタウンの店舗は3210 Main St.で、電話番号は303-867-5309です」というような回答を追加することができます。</p>
-<pre class="codehilite"><code class="linenums">![場所の条件を追加](images/location-conditions.png)
-</code></pre>
-
-<p>1.If <code>We have 2 locations</code> is <code>Riverside</code>」と同様の条件を追加することができます。保存後、プレビューウィジェットでボットをテストし、期待通りに動作することを確認します。次の例では、「あなたのロケーションは何ですか」と尋ねていますが、代替案は追加していません。Watson Assistant の曖昧さ回避機能は、私の行動のためのオプションとともに、「Did you mean?私は "Where are you located? "をクリックするか、テキストを入力して希望の回答を得ることができます。また、元の質問にいくつかの代替フレーズを追加する必要があることも分かりました。</p>
-<pre class="codehilite"><code class="linenums">![曖昧な質問に対する明確化](images/location-did-you-mean.png)
-</code></pre>
-
+<ol>
+<li>
+<p>今度は、"Where are you located? "という質問に答えるアクションを追加します。ホーム画面から「<strong>新しいアクション+</strong>」をクリックします。</p>
+<p><img alt="新しいアクションの作成" src="images/new-action.png" /></p>
+</li>
+<li>
+<p>What does your customer say to start this interaction? "に対して、<code>Where are you located?</code>と入力します。</p>
+</li>
+<li><em>アシスタントの発言</em>」の項目に、「ダウンタウンとリバーサイドの2つの場所があります。あなたはどちらに近いですか？</li>
+<li>「顧客の反応」の項目で、「オプション」を選択し、「ダウンタウン」と「リバーサイド」を入力してください。この情報は前のステップから保存されているので、<em>Allow skipping or always ask?</em>のデフォルトを<em>Skip if the customer already given this information</em>にしておくことができます。購入前の確認のような場合には、<em>Always ask for this information, regardless of earlier messages</em>を選択するとよいでしょう。</li>
+<li>
+<p><strong>Apply</strong>をクリックします。</p>
+<p><img alt="ロケーションオプションの追加" src="images/location-choose-options.png" /></p>
+</li>
+<li>
+<p>別のステップを追加し、今度はプルダウンメニューを使用して、<em>Step 2 is taken</em>を<em>with conditions</em>に変更します。<em>条件には、</em>「1.このすべてが真である：<em>We have 2 locations...」</em>が<code>Downtown</code>であることがあらかじめ登録されているはずです。クリックしてみると、<em>is</em> から <em>is not</em> へ、あるいは <em>All</em> of this is true から <em>Any</em> へと、さまざまな方法でロジックを変更できることがわかります。さらに条件を追加したり、条件のグループ全体を追加することもできます。ここで、「アシスタントの発言」に、「ダウンタウンの店舗は3210 Main St.で、電話番号は303-867-5309です」というような回答を追加することができます。</p>
+<p><img alt="場所の条件を追加" src="images/location-conditions.png" /></p>
+</li>
+<li>
+<p>「If <code>We have 2 locations</code> is <code>Riverside</code>」と同様の条件を追加することができます。保存後、プレビューウィジェットでボットをテストし、期待通りに動作することを確認します。次の例では、「あなたのロケーションは何ですか」と尋ねていますが、代替案は追加していません。Watson Assistant の曖昧さ回避機能は、私の行動のためのオプションとともに、「Did you mean?私は "Where are you located? "をクリックするか、テキストを入力して希望の回答を得ることができます。また、元の質問にいくつかの代替フレーズを追加する必要があることも分かりました。</p>
+<p><img alt="曖昧な質問に対する明確化" src="images/location-did-you-mean.png" /></p>
+</li>
+</ol>
 <h2 id="_5">変数を使ったアクションの追加<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>ここで、変数の仕組みを見てみましょう。Watson Assistant が設定する変数には、<em>Now</em> (現在の時刻と日付)、<em>Current time</em>、Current date* などがあります。</p>
+<p>ここで、変数の仕組みを見てみましょう。<em>Watson Assistant が設定する変数には、</em>Now<em> (現在の時刻と日付)、</em>Current time<em>、Current date</em> などがあります。</p>
 <p><img alt="アシスタントが設定する変数" src="images/variables-set-by-assistant.png" /></p>
-<p>1.自分で作成した変数<strong>と</strong>新規変数+<strong>をクリックします。username`という名前を入力すると、変数IDに同じ名前があらかじめ入力されていることに気がつきます。これは、APIで読み取ったり設定したりすることができる名前で、必要に応じて異なる名前にすることができます。任意の説明を入力して、</strong>Save**をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![セッション変数の作成](images/create-session-variable.png)
-</code></pre>
-
-<p>1.アクション→Created by you<strong>と</strong>New action +<em><em>をクリックし、インタラクションの開始位置に<code>I have a question about my account</code>と入力します。Assistant says</em>には "What is your username? "と入力し、Customer Responseには</em>Free text*を選択します。</p>
-<p>1.New step +<strong>をクリックして、</strong>Fx<strong>アイコンをクリックして変数を追加します。新しい値を設定する」をクリックし、「セッション変数」→「ユーザー名」を選択し、「宛先」には*1.あなたのユーザー名は何ですか？</strong>.</p>
-<pre class="codehilite"><code class="linenums">![ユーザー名の変数を設定](images/set-username-variable.png)
-</code></pre>
-
-<p>1.Assistant says<em>のレスポンスを編集し、<code>Hello.Welcome back</code>と入力し、</em><em>01-0</em><em>アイコンをクリックして変数を挿入します。ドロップダウンメニューから </em><em>セッション変数-&gt;ユーザー名</em>* を選択します。</p>
-<pre class="codehilite"><code class="linenums">![変数の挿入](images/insert-a-variable.png)
-</code></pre>
-
-<p>1.これをテストすると、アシスタントのレスポンスにユーザー名が挿入されていることがわかります。</p>
-<pre class="codehilite"><code class="linenums">![レスポンスに変数を使用](images/test-username-variable.png)
-</code></pre>
-
-<p>1.Where are you located? "のアクションに戻って、最後（3番目）のステップをクリックし、次に<strong>New step +</strong>をクリックすると、アクション変数を使用できます。Assistant says<em>のボックス内に、テスト「We hope to see you soon at our`」を追加し、</em><em>01-0</em><em>アイコンをクリックして変数を挿入します。01-0</em><em>アイコンをクリックして変数を挿入します。</em>Action variables<em>の下にある</em><em>"1. We have two locations... "</em>*を選択すると、挿入されます。</p>
-<pre class="codehilite"><code class="linenums">![ロケーション用アクション変数の挿入](images/insert-action-variable-for-location.png)
-</code></pre>
-
-<p>1.レスポンスをスムーズにするために、テキスト <code>location.</code> を追加し、<em>And then</em> の部分を <strong>End the action</strong> に変更します。これで、テスト時にダイアログで使用されているロケーションが表示されます。</p>
-<pre class="codehilite"><code class="linenums">![Test action variable for location](images/test-action-variable-for-location.png)
-</code></pre>
-
+<ol>
+<li>
+<p><strong>自分で作成した変数</strong>と<strong>新規変数+</strong>をクリックします。<code>username</code>という名前を入力すると、変数IDに同じ名前があらかじめ入力されていることに気がつきます。これは、APIで読み取ったり設定したりすることができる名前で、必要に応じて異なる名前にすることができます。任意の説明を入力して、<strong>Save</strong>をクリックします。</p>
+<p><img alt="セッション変数の作成" src="images/create-session-variable.png" /></p>
+</li>
+<li>
+<p><strong>アクション→Created by you</strong>と<strong>New action +</strong>をクリックし、インタラクションの開始位置に<code>I have a question about my account</code>と入力します。<em>Assistant says</em>には "What is your username? "と入力し、Customer Responseには<em>Free text</em>を選択します。</p>
+</li>
+<li>
+<p><strong>New step +</strong>をクリックして、<strong>Fx</strong>アイコンをクリックして変数を追加します。「新しい値を設定する」をクリックし、「セッション変数」→「ユーザー名」を選択し、「宛先」には<strong>1.あなたのユーザー名は何ですか？</strong>.</p>
+<p><img alt="ユーザー名の変数を設定" src="images/set-username-variable.png" /></p>
+</li>
+<li>
+<p><em>Assistant says</em>のレスポンスを編集し、<code>Hello.Welcome back</code>と入力し、<strong>01-0</strong>アイコンをクリックして変数を挿入します。ドロップダウンメニューから <strong>セッション変数-&gt;ユーザー名</strong> を選択します。</p>
+<p><img alt="変数の挿入" src="images/insert-a-variable.png" /></p>
+</li>
+<li>
+<p>これをテストすると、アシスタントのレスポンスにユーザー名が挿入されていることがわかります。</p>
+<p><img alt="レスポンスに変数を使用" src="images/test-username-variable.png" /></p>
+</li>
+<li>
+<p>Where are you located? "のアクションに戻って、最後（3番目）のステップをクリックし、次に<strong>New step +</strong>をクリックすると、アクション変数を使用できます。<code>*Assistant says*のボックス内に、テスト「We hope to see you soon at our</code>」を追加し、<strong>01-0</strong>アイコンをクリックして変数を挿入します。<strong>01-0</strong>アイコンをクリックして変数を挿入します。<em>Action variables</em>の下にある<strong>"1. We have two locations... "</strong>を選択すると、挿入されます。</p>
+<p><img alt="ロケーション用アクション変数の挿入" src="images/insert-action-variable-for-location.png" /></p>
+</li>
+<li>
+<p>レスポンスをスムーズにするために、テキスト <code>location.</code> を追加し、<em>And then</em> の部分を <strong>End the action</strong> に変更します。これで、テスト時にダイアログで使用されているロケーションが表示されます。</p>
+<p><img alt="Test action variable for location" src="images/test-action-variable-for-location.png" /></p>
+</li>
+</ol>
 <h2 id="_6">変更点の公開<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>変更を最終的に公開することができます。</p>
-<p>1.左側のナビゲーションにある "ロケット "アイコンをクリックして、自分の更新内容を確認します。次に、「公開」をクリックします。</p>
-<pre class="codehilite"><code class="linenums">![Publish changes](images/publish-changes.png)
-</code></pre>
-
-<p>1.説明を追加して、<strong>Publish</strong>をクリックします。変更内容が新しいバージョンとして公開され、デプロイされたチャットボットに表示されます。</p>
+<ol>
+<li>
+<p>左側のナビゲーションにある "ロケット "アイコンをクリックして、自分の更新内容を確認します。次に、「公開」をクリックします。</p>
+<p><img alt="Publish changes" src="images/publish-changes.png" /></p>
+</li>
+<li>
+<p>説明を追加して、<strong>Publish</strong>をクリックします。変更内容が新しいバージョンとして公開され、デプロイされたチャットボットに表示されます。</p>
+</li>
+</ol>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、初めてAssistantを搭載したチャットボットを作成する手順を説明しました。Assistant サービスの作成、いくつかのアクションの追加、条件付きロジックと応答内の変数の使用について説明しました。探索して使用する他の Watson Assistant 機能があり、これらは Watson Assistant ラーニングパスの他のチュートリアルで説明されています。</p>
                 

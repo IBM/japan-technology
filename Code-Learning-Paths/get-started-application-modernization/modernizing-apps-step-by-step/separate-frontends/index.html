@@ -1277,14 +1277,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1351,7 +1351,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1365,7 +1365,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1408,14 +1408,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1440,7 +1440,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1454,7 +1454,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1468,7 +1468,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1482,7 +1482,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1496,7 +1496,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4474,17 +4474,16 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>このラーニングパスのチュートリアルで使用している<a href="/learningpaths/get-started-application-modernization/modernizing-apps-step-by-step/architecture-sample-app/">サンプル例</a>を確認してください。</p>
 <p>次に、まだやっていなければ、サンプルアプリケーションの完全なソースコードを取得するために、リポジトリをクローンします。</p>
-<pre><code>$ git clone https://github.com/ibm/application-modernization-javaee-quarkus.git &amp;&amp; cd application-modernization-javaee-quarkus
-$ ROOT_FOLDER=$(pwd)
-</code></pre>
 <h2 id="_2">ステップ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>1.Webアプリケーションのモジュール化
+<ol>
+<li>
+<p>Webアプリケーションのモジュール化
 2.マイクロフロントエンドの構築</p>
-<pre class="codehilite"><code class="linenums">a. シェルの構築
+<p>a. シェルの構築
 b. UIフロントエンドの構築
-c. メッセージングの構築
-</code></pre>
-
+c. メッセージングの構築</p>
+</li>
+</ol>
 <h2 id="step-1-web">Step 1.  Webアプリケーションのモジュール化<a class="headerlink" href="#step-1-web" title="Permanent link">&para;</a></h2>
 <p>このラーニングパスで扱ってきた<a href="https://github.com/IBM/application-modernization-javaee-quarkus/tree/master/frontend-monolith" target="_blank" rel="noopener noreferrer"><em>sample e-commerce application</em></a>には、ショップの閲覧、ショッピングカートの表示、アカウント情報の管理など、さまざまなページがあります。そして、そのフロントエンドはモノリスでした。</p>
 <p>左の列にはナビゲーターがあります。ナビゲーターでの選択に基づいて、異なる情報がウィンドウのメインエリアに表示されます。</p>
@@ -4514,82 +4513,7 @@ c. メッセージングの構築
 <li>グローバルな依存関係が読み込まれる</li>
 <li>アプリケーションのコア・レイアウトが定義される</li>
 </ul>
-<pre><code>&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt; (英語)
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-  &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br /&gt; &lt;br
-  &lt;meta name=&quot;importmap-type&quot; content=&quot;systemjs-importmap&quot; /&gt;。
-  &lt;script type=&quot;systemjs-importmap&quot;&gt;
-    {
-      &quot;import&quot;:{
-        &quot;single-spa&quot;:&quot;https://cdn.jsdelivr.net/npm/single-spa@5.5.1/lib/system/single-spa.min.js&quot;
-        &quot;vue&quot;:&quot;https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js&quot;,
-        &quot;vue-router&quot;:&quot;https://cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js&quot;,
-        &quot;rxjs&quot;:&quot;http://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js&quot;,
-        &quot;@vue-app-mod/shell&quot;:&quot;http://localhost:8080/vue-app-mod-shell.js&quot;,
-        &quot;＠vue-app-mod/messaging&quot;: &quot;0&quot;:&quot;http://localhost:9001/vue-app-mod-messaging.js&quot;,
-        &quot;@vue-app-mod/navigator&quot;: &quot;0.1&quot;:&quot;http://localhost:8501/js/app.js&quot;,
-        &quot;@vue-app-mod/order&quot;: &quot;&quot;:&quot;http://localhost:8504/js/app.js&quot;,
-        &quot;@vue-app-mod/catalog&quot;: &quot;0.1%&quot;:&quot;http://localhost:8503/js/app.js&quot;,
-        &quot;@vue-app-mod/account&quot;:&quot;http://localhost:8502/js/app.js&quot;
-      }
-    }
-  &lt;/script&gt; (英語)
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js&quot;&gt;&lt;/script&gt; &lt;/script
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/systemjs/dist/system.js&quot;&gt;&lt;/script&gt; &lt;/script
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.js&quot;&gt;&lt;/script&gt;
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.js&quot;&gt;&lt;/script&gt;
-  &lt;link href=&quot;https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css&quot; rel=&quot;stylesheet&quot;&gt;
-  &lt;script src=&quot;https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js&quot;&gt;&lt;/script&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;
-&lt;/head&gt; （英語
-
-&lt;body&gt;（ボディ
-  &lt;div style=&quot;display: flex;flex-direction: row;&quot;&gt;
-    &lt;div id=&quot;navigator&quot; style=&quot;order:1;flex-grow: 2;max-width: 300px;width:300px&quot;&gt;&lt;/div&gt; &lt;/div
-    &lt;div id=&quot;catalog&quot; style=&quot;order:2; flex-grow:10;left: 320px;position: fixed;&quot;&gt;&lt;/div&gt; &lt;/div
-    &lt;div id=&quot;order&quot; style=&quot;order:2; flex-grow:10;left: 320px;position: fixed;&quot;&gt;&lt;/div&gt; &lt;/div
-    &lt;div id=&quot;account&quot; style=&quot;order:2; flex-grow:10;left: 320px;position: fixed;&quot;&gt;&lt;/div&gt; &lt;/div
-  &lt;/div&gt; &lt;/div
-  &lt;script&gt;（スクリプト
-    System.import('@vue-app-mod/shell')を使用しています。
-  &lt;/script&gt;
-&lt;/body&gt;
-
-&lt;/html&gt; (英語)
-</code></pre>
 <p>さらに、アプリケーションのさまざまなユーザーインターフェースコンポーネントを登録するために、<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/frontend-single-spa/shell/src/vue-app-mod-shell.js" target="_blank" rel="noopener noreferrer"><em>a JavaScript file</em></a>が必要です。</p>
-<pre><code>import { registerApplication, start } from &quot;single-spa&quot;;
-
-registerApplication({
-  name: &quot;@vue-app-mod/navigator&quot;,
-  app:() =&gt; System.import(&quot;@vue-app-mod/navigator&quot;),
-  activeWhen:[&quot;/&quot;],
-});
-
-registerApplication({
-  name: &quot;@vue-app-mod/order&quot;,
-  app:() =&gt; System.import(&quot;@vue-app-mod/order&quot;),
-  activeWhen:[&quot;/&quot;, &quot;/catalog&quot;, &quot;/order&quot;],
-});
-
-registerApplication({
-  name: &quot;@vue-app-mod/account&quot;,
-  app:() =&gt; System.import(&quot;@vue-app-mod/account&quot;),
-  activeWhen:&quot;/account&quot; です。
-});
-
-registerApplication({
-  name: &quot;@vue-app-mod/catalog&quot;,
-  app:() =&gt; System.import(&quot;@vue-app-mod/catalog&quot;),
-  activeWhen:[&quot;/&quot;, &quot;/catalog&quot;],
-});
-
-start()をクリックします。
-</code></pre>
 <h3 id="ui">UIの構築<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h3>
 <p>マイクロフロントエンドは、一般的なWebフレームワーク、バニラJavaScript、Webコンポーネントのいずれでも実装できます。私は、<a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer"><em>Vue.js</em></a>フレームワークを使って、UIのマイクロフロントエンドを実装しました。</p>
 <ul>
@@ -4600,41 +4524,7 @@ start()をクリックします。
 </ul>
 <p>ここでは、Vue.jsを使ってナビゲーター・マイクロフロントエンドを構築した例を紹介します。</p>
 <p>ここでは、<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/frontend-single-spa/navigator/src/set-public-path.js" target="_blank" rel="noopener noreferrer"><em>public path</em></a>ファイルの定義を示しています。</p>
-<pre><code>import { setPublicPath } from &quot;systemjs-webpack-interop&quot;;
-setPublicPath(&quot;@vue-app-mod/navigator&quot;);
-
-</code></pre>
 <p>ここでは、Vue.jsのナビゲーターアプリケーションの<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/frontend-single-spa/navigator/src/main.js" target="_blank" rel="noopener noreferrer"><em>main.js</em></a>ファイルを紹介します。</p>
-<pre><code>import &quot;./set-public-path&quot;;
-import Vue from &quot;vue&quot;;
-インポート singleSpaVue from &quot;single-spa-vue&quot;;
-
-import App from &quot;./App.vue&quot;;
-import router from &quot;./router&quot;;
-
-Vue.config.productionTip = falseとします。
-
-import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'
-インポート 'vue-material/dist/theme/default.css'
-
-Vue.use(VueMaterial)
-
-const vueLifecycles = singleSpaVue({
-  Vue,
-  appOptions:{
-    el: '#navigator',
-    render(h) {
-      return h(App, { props: { githubLink: this.githubLink } });
-    },
-    ルーターです。
-  },
-});
-
-export const bootstrap = vueLifecycles.bootstrap;
-export const mount = vueLifecycles.mount;
-export const unmount = vueLifecycles.unmount;
-</code></pre>
 <p>Webアプリケーションの他のモジュールのために、他のマイクロフロントエンドをどのように実装したかは、サンプルアプリケーションの<a href="https://github.com/IBM/application-modernization-javaee-quarkus/tree/master/frontend-single-spa" target="_blank" rel="noopener noreferrer"><em>GitHub repo</em></a>で見ることができます。</p>
 <h3 id="_4">メッセージングの構築<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>他のマイクロフロントエンドのメッセージングは、UIマイクロフロントエンドとは大きく異なります（このマイクロフロントエンドの詳細はこちら。  実際のところ、この点についてだけでも別のチュートリアルを書くことができます。  しかし今は、<a href="https://github.com/IBM/application-modernization-javaee-quarkus/blob/master/frontend-single-spa/messaging/src/messaging.js" target="_blank" rel="noopener noreferrer"><em>messaging.js</em></a> ファイルを見ることで、マイクロフロントエンドのメッセージングをどのように実装したのか、その詳細を知ることができます。</p>

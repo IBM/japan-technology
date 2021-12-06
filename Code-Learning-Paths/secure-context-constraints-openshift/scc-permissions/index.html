@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Code-Tutorials/iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4540,7 +4540,7 @@
                 <p>Red Hat OpenShift クラスタでは、セキュリティコンテキスト制約 (SCC) を使用して、保護された Linux 機能にアクセスするポッドの権限を制限しています。この記事では、SCC が保護された機能にアクセスする権限をポッドに付与する方法を詳しく見ていきます。</p>
 <p>この記事は、アプリケーションを OpenShift クラスターにデプロイする方法と、クラスターがワークロードを管理する方法について一般的な理解をしていることを前提としています。</p>
 <h2 id="_1">セキュリティコンテキスト制約の概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Overview of security context constraints](/learningpaths/secure-context-constraints-openshift/intro/)の記事のキーポイントは以下の通りです。</p>
+<p><a href="/learningpaths/secure-context-constraints-openshift/intro/">Overview of security context constraints</a>の記事のキーポイントは以下の通りです。</p>
 <ul>
 <li>デフォルトでは、OpenShift は、Linux の保護された機能へのアクセスを制限することで、コンテナを隔離します。SCC では、一部のポッドが保護された機能の一部またはすべてにアクセスすることができます。</li>
 <li>開発者が保護された機能へのアクセス許可を必要とするアプリケーションを作成する場合、デプロイ担当者はそのセキュリティコンテキスト（SC）でそれらの許可を要求するデプロイメントマニフェストを作成し、管理者はそれらの許可を与えるSCCを割り当てる必要があります。</li>
@@ -4562,8 +4562,6 @@
 <li><code>allowPrivilegeEscalation</code> -- 子プロセスが親プロセスよりも多くの特権を得られるかどうかを指定します。</li>
 </ul>
 <p>ディプロイメントマニフェストでは、これらの特権をコンテナに対して要求することができます。例えば、以下のようになります。</p>
-<pre><code>securityContext.privileged: true
-</code></pre>
 <p>_<strong>important</strong>:SCCでは<a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">特権コンテナ</a>の実行やエスカレーションを許可することができますが、そうするとホストの安全性が大幅に低下します。特権コンテナは、コンテナ内で実行されているプロセスに、"コンテナの外でホスト上で実行されているプロセスとほぼ同じアクセス "を許可します。議論の余地はありますが、コンテナがプロセスを含むことでホストを保護できないのであれば、コンテナを使用することの重要な利点が無効になります。また、「<a href="https://phoenixnap.com/kb/docker-privileged#htoc-why-running-privileged-containers-is-not-secure">Should You Run Privileged Docker Containers?</a>」_もご覧ください。</p>
 <h3 id="_3">アクセス制御<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>アクセスコントロールでは、ポッドが実行する特定のユーザーIDやグループIDの値を管理します。</p>
@@ -4587,16 +4585,16 @@
 <li><code>securityContext.fsGroup</code> -- ストレージボリュームにアクセスするために、特定のグループIDの下で実行することを要求する。</li>
 <li><code>securityContext.seLinuxOptions</code> -- 特定の SELinux コンテキストのラベルセットを使用して実行するように要求する。</li>
 </ul>
-<p>**SELinuxとは？</p>
+<p>****SELinuxとは？</p>
 <p><a href="https://www.redhat.com/en/topics/linux/what-is-selinux">Security-Enhanced Linux (SELinux)</a>は、追加のアクセス制御セキュリティを提供するLinuxカーネルモジュールで、以下のようなメリットがあります。</p>
 <ul>
 <li><strong>すべてのプロセスとファイルにラベルを付ける：</strong> SELinuxのポリシールールは、プロセスとファイルの相互作用や、プロセス同士の相互作用を定義します。SELinuxポリシールールは、プロセスとファイル、およびプロセス同士の相互作用を定義します。</li>
 <li>SELinuxのアクセス決定は、SELinuxのユーザ、ロール、タイプ、そしてオプションとしてセキュリティレベルなど、利用可能なすべての情報に基づいて行われます。</li>
 <li><strong>SELinuxポリシー</strong>は、管理者によって定義され、システム全体に適用されます。
-SELinuxポリシー<strong>は、管理者によって定義され、システム全体に適用されます。 * </strong>特権昇格攻撃に対する改善された緩和策** プロセスはネームスペースで実行されるため、互いに分離されています。SELinuxのポリシールールは、プロセスがファイルや他のプロセスにアクセスする方法を定義します。</li>
+<strong>SELinuxポリシー</strong>は、管理者によって定義され、システム全体に適用されます。<em> * </em><em>特権昇格攻撃に対する改善された緩和策</em>* プロセスはネームスペースで実行されるため、互いに分離されています。SELinuxのポリシールールは、プロセスがファイルや他のプロセスにアクセスする方法を定義します。</li>
 </ul>
 <h3 id="_4">機能概要<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Linux capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html)へのアクセスを制御します。これは、システム時刻へのアクセスやネットワーク設定など、スーパーユーザの個別権限です。これらの機能はポッド内で動作する個々のコンテナに割り当てられ、ポッドの設定よりも優先されます。</p>
+<p><a href="https://man7.org/linux/man-pages/man7/capabilities.7.html">Linux capabilities</a>へのアクセスを制御します。これは、システム時刻へのアクセスやネットワーク設定など、スーパーユーザの個別権限です。これらの機能はポッド内で動作する個々のコンテナに割り当てられ、ポッドの設定よりも優先されます。</p>
 <p>ケイパビリティの例を以下に示します。</p>
 <ul>
 <li><code>CHOWN</code> -- ファイルの所有権やグループの所有権を変更できます。</li>

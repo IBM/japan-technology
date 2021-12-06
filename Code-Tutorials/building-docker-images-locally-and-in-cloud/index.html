@@ -1279,14 +1279,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1353,7 +1353,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1367,7 +1367,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1410,14 +1410,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1442,7 +1442,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1456,7 +1456,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1470,7 +1470,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1484,7 +1484,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1498,7 +1498,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4564,104 +4564,26 @@
 <p>このチュートリアルを書いている時点では、Dockerには主に2つのエディションがあります。ここでは、それぞれのバージョンについて少し触れてみたいと思います。Docker Community Edition (docker-ce<code>)とDocker Enterprise Edition (docker-ee</code>)です。どちらも利点があり、異なるユースケースを対象としています。このチュートリアルを一通り終えたら、<code>docker-ce</code>と<code>docker-ee</code>のどちらが自分に合っているかを再検討することを強くお勧めします。</p>
 <p>以下の手順とコマンドは、どちらのバージョンでも動作するはずですので、進めていきましょう。</p>
 <h3 id="docker-cli">Docker CLI<a class="headerlink" href="#docker-cli" title="Permanent link">&para;</a></h3>
-<p>docker`のインストールが完了したら、コマンドプロンプトを立ち上げます。インストール中に、ドキュメントで実行を求められることがあるサニティチェックがあります。ここでは、すべてが期待通りに動作していることを確認するために、再度以下を実行してみます。</p>
-<pre><code>docker run hello-world
-</code></pre>
+<p><code>docker</code>のインストールが完了したら、コマンドプロンプトを立ち上げます。インストール中に、ドキュメントで実行を求められることがあるサニティチェックがあります。ここでは、すべてが期待通りに動作していることを確認するために、再度以下を実行してみます。</p>
 <p>以下のような出力が表示されるはずです。(もしエラーが出たり、以下のようなものではない場合は、インストールが正しく設定されていないので、先に進む前に解決する必要があります)。</p>
-<pre><code>Hello from Docker!
-このメッセージは、あなたのインストールが正しく動作しているように見えることを示しています。
-
-このメッセージを生成するために、Docker社は次のようなステップを踏みました。
- 1.1.DockerクライアントがDockerデーモンに連絡しました。
- 2.2. Docker daemonがDocker Hubから「hello-world」イメージを引き出す。
-    (amd64)
- 3.Docker daemonは、そのイメージから、現在読んでいる出力を生成する実行ファイルを実行する新しいコンテナを作成しました。
-    実行ファイルを実行し、今読んでいる出力を生成します。
- 4.4. Dockerデーモンがその出力をDockerクライアントにストリームし、Dockerクライアントはそれをあなたのターミナルに送ります。
-    あなたの端末に送信します。
-
-もっと野心的なことを試すには、Ubuntuコンテナを次のように実行します。
- $ docker run -it ubuntu bash
-
-無料のDocker IDを使って、イメージの共有やワークフローの自動化などを行うことができます。
- https://hub.docker.com/
-
-その他の例やアイデアについては、以下をご覧ください。
- https://docs.docker.com/get-started/
-</code></pre>
 <p>おめでとうございます。これで<code>docker</code>インスタンスが動き出しました。早速、遊んでみましょう。</p>
 <p>次に試していただきたいのは、以下のコマンドです。インターネットのアクセス状況によっては、実行に少し時間がかかるかもしれませんが、幸いにもあなたのマシンにキャッシュされますので、その後、少しずつ見直していきましょう。</p>
-<pre><code>docker run -it centos:latest /bin/bash
-</code></pre>
-<p>これが実行されると、何が起こっているのかを説明しましょう。docker<code>コマンドを実行すると。公開されているDockerハブから最新のコピーを取得し、それを</code>/bin/bash<code>というシェルで実行することをDockerに伝えています。
+<p>これが実行されると、何が起こっているのかを説明しましょう。<code>docker</code>コマンドを実行すると。公開されているDockerハブから最新のコピーを取得し、それを <code>/bin/bash</code> というシェルで実行することをDockerに伝えています。
 このコマンドはインターネットに接続し、あなたが持っているバージョンを確認し、キャッシュイメージのSHAと照合し、もし持っていなければDocker Hubからダウンロードします。
-わかりやすくするために、</code>-it<code>は</code>interactive<code>として実行し、コンテナの</code>tty`を作成します。
+わかりやすくするために、<code>-it</code>は<code>interactive</code>として実行し、コンテナの<code>tty</code>を作成します。
 これで以下のように表示されるはずです。</p>
-<pre><code>Unable to find image 'centos:latest' local
-latest:library/centosから取得しています。
-a02a4930cb5d:引上げ完了
-Digest: sha256:184e5f35598e333bfa7de10d8fb1cebb5ee4df5bc0f970bf2b1e7c7345136426
-Status:centos:latestの新しいイメージをダウンロードしました。
-[root@2de726a5fcb8 /]#.
-</code></pre>
 <p>おめでとうございます。これで、2つ目のDockerコンテナが起動しました。先に進んで <code>exit</code> と入力し、もう一度 <code>docker</code> コマンドを実行してください。</p>
-<pre><code>[root@2de726a5fcb8 /]# exit
-exit
-$ docker run -it centos:latest /bin/bash
-[root@583c6cec5d41 /]# 以下のようになります。
-</code></pre>
 <p>ルートが <code>@2de726a5fcb8</code> と <code>@583c6cec5d41</code> で異なることに気付きましたか？これは、この方法でコンテナをスピンアップすると、それらがエフェメラルになるからです。エフェメラルとは、実行している間だけ生き続けるという意味で、終了するとすぐに消えてしまいます。長寿命のコンテナを作る方法は、もう少し後にご紹介します。</p>
 <p>それでは、コンテナの中でちょっと遊んでみましょう。<a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer">CentOSマシン</a>では、<code>yum</code>がありますので、何かをインストールしてみましょう。</p>
-<pre><code>[root@583c6cec5d41 /]# yum install vim
-
-[-- スニップ --] 。
-
-トランザクションの概要
-=======================================================================================================
-1つのパッケージのインストール (+32の依存パッケージ)
-
-合計ダウンロードサイズ: 19 M
-インストールされたサイズ: 63 M
-Is this ok [y/d/N]: y
-
-[--スニップ--]
-
-  perl-podlators.noarch 0:2.5.1-3.el7 perl-threads.x86_64 0:1.87-4.el7
-  perl-threads-shared.x86_64 0:1.43-6.el7 vim-common.x86_64 2:7.4.160-5.el7
-  vim-filesystem.x86_64 2:7.4.160-5.el7 which.x86_64 0:2.20-7.el7
-
-完成!
-[root@583c6cec5d41 /]#.
-</code></pre>
 <p>これで、コンテナ内で <code>vim</code> を実行できるようになりました!ぜひ試してみてください。</p>
-<pre><code>[root@583c6cec5d41 /]# vim
-</code></pre>
 <p>もし、<code>vim</code>を終了する方法がわからない場合は、<code>:q</code>と入力してください。と入力すると、コマンドプロンプトが再び表示されます。</p>
 <p>ここでもう一度 <code>exit</code> と入力してください。</p>
-<pre><code>[root@583c6cec5d41 /]# exit
-終了
-$ docker run -it centos:latest /bin/bash
-[ルート@86f1f3872cbe /]# vim
-bash: vim: コマンドが見つかりません
-[root@86f1f3872cbe /]# exit
-終了
-$
-</code></pre>
 <p>念のために言っておきますが、コンテナがなくなると、その中のすべての変更も消えてしまいます。</p>
 <h3 id="dockerfile">Dockerfile<a class="headerlink" href="#dockerfile" title="Permanent link">&para;</a></h3>
 <p>さて、コンテナを起動して変更を加えることはできましたが、変更を維持するにはどうすればよいのでしょうか？いくつかの方法がありますので、ご自身で調べてみることをお勧めします。しかし、ここでは最も一般的な方法である、<code>Dockerfile</code>を使った方法を説明します。</p>
 <p>コマンドプロンプトに戻って、新しいディレクトリを作り、お好みの<code>$EDITOR</code>を使って、<code>Dockerfile</code>という新しいファイルを開いて、ディレクトリを変更します。</p>
-<pre><code>$ mkdir docker-tutorial
-$ cd ドッカーチュートリアル(docker-tutorial)
-$ EDITOR ドッカーファイル
-</code></pre>
 <p>ここでは<code>Dockerfiles</code>のハイライトを紹介しますが、そのパワーに触れるためには、<a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" target="_blank" rel="noopener noreferrer nofollow">Best practices for writing Dockerfiles</a>のドキュメントに目を通すことを強くお勧めします。</p>
 <p>あなたの<code>Dockerfile</code>に、以下のように書き出します。</p>
-<pre><code>FROM centos:latest
-RUN yum install vim -y &amp;&amp; mkdir /vim
-作業ディレクトリ /vim
-ENTRYPOINT [&quot;vim&quot;] です。
-</code></pre>
 <p>ファイルを保存し、ファイル名が <code>Dockerfile</code> であることを確認してください。</p>
 <p>前の4行の意味を説明しましょう。</p>
 <ul>
@@ -4670,113 +4592,29 @@ ENTRYPOINT [&quot;vim&quot;] です。
 <li><code>WORKDIR</code> : コンテナの作業ディレクトリを通知します。</li>
 <li><code>ENTRYPOINT</code> : コンテナの起動時に実行されるコマンドで、上記のように <code>/bin/bash</code> の代わりに実行されます。</li>
 </ul>
-<p>では、これをローカルにビルドしてみましょう。Dockerfile`があるディレクトリで以下を実行して、これが完成するのを見てみましょう。
+<p>では、これをローカルにビルドしてみましょう。<code>Dockerfile</code>があるディレクトリで以下を実行して、これが完成するのを見てみましょう。
 を実行してみましょう。</p>
-<pre><code>$ docker build .
-ビルドコンテキストをDockerデーモンに送信する 2.048kB
-Step 1/4 : FROM centos:latest
- ---&gt; 1e1148e4cc2c
-Step 2/4 : RUN yum install vim -y &amp;&amp; mkdir /vim
- ---&gt; ebd37633ab31で実行中
-ロードされたプラグイン: fastestmirror, ovl
-最速ミラーの決定
- * ベース: mirror.fileplanet.com
- * エキストラ: ミラー.灰.fastserv.com
- * アップデート: www.gtlib.gatech.edu
-依存関係の解消
-
-[--スニップ--]
-
-Step 4/4 : ENTRYPOINT [&quot;vim&quot;].
- ---&gt; 82618eb1e891で実行中
-中間コンテナの削除 82618eb1e891
- ---&gt; EDA2652AA25E
-ビルドに成功しました eda2652aa25e
-$
-</code></pre>
 <p><strong>注意</strong>:ハッシュが異なる <code>eda2652aa25e</code> になっているはずなので、その点に注意してください。</p>
 <p>おめでとうございます。最初の <code>Dockerfile</code> とカスタマイズされた Docker コンテナを構築しました。</p>
 <p>では、実際に動かしてみましょう。次のコマンドを実行してください。</p>
-<pre><code>$ docker run -it eda2652aa25e
-</code></pre>
 <p>すると、<code>vim</code> が起動するのがわかるはずです!そして、再びコマンドプロンプトが表示されます。これは何度でも実行することができ、毎回新しい <code>vim</code> のインスタンスが作成されますが、コンテナなので実際には何も保存できませんし、何も読むことができませんよね？これを修正しましょう。</p>
 <p>ローカルディレクトリをコンテナにマウントするために、bind mountとvolumeを追加しましょう。マウントとボリュームについてもっと詳しく知りたい方は、<a href="https://docs.docker.com/storage/volumes/" target="_blank" rel="noopener noreferrer nofollow">Docker documentation about how to use volumes</a>から始めることをお勧めします。難しい概念の1つですが、時間をかける価値はあります。</p>
 <p>コマンドラインで <code>hello</code> という名前のファイルを作成し、その中に <code>hello world</code> という言葉を保存します。</p>
-<pre><code>エディター hello
-</code></pre>
 <p>それでは、ローカルディレクトリをコンテナにマウントしてみましょう。</p>
-<pre><code>$ docker run -it -v ${PWD}:/vim eda2652aa25e
-</code></pre>
-<p>vim」の中で、「:e hello」と入力します。すると、<code>hello world</code>と表示されるはずです。ご覧のように、ホストマシンで作成したファイルを開き、<code>vim</code>の入ったコンテナを作成し、ディレクトリをマウントして、ファイルを開くことができました!</p>
+<p>「vim」の中で、「:e hello」と入力します。すると、<code>hello world</code>と表示されるはずです。ご覧のように、ホストマシンで作成したファイルを開き、<code>vim</code>の入ったコンテナを作成し、ディレクトリをマウントして、ファイルを開くことができました!</p>
 <p>よろしければ、<code>i</code>と入力して何かを打ち出してみてください。そして、終わったら <code>:wq</code> と入力してください。コンテナが終了して、コマンドラインで次のように入力できるようになります。</p>
-<pre><code>$ cat hello
-ハローワールド
-私はコンテナから次の行を追加しました。
-$
-</code></pre>
 <p><strong>注</strong>:明らかに、<code>I added this line from my container</code>は私が書いたものです。あなたが書いたものは何でも表示されます。</p>
 <p>すばらしい!では、このコンテナを世界に向けて発信する方法を考えてみましょう。</p>
 <h2 id="_3">コンテナ登録<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Red Hatが提供しているQuay.ioというものを紹介しましょう。これはクラウドベースでオープンソースのパブリックコンテナレジストリで、いくつかの優れた機能が組み込まれています。必要であれば自分でホストすることもできますが、この例では公開されているものを使用します。</p>
 <p>まず、<a href="https://quay.io/" target="_blank" rel="noopener noreferrer nofollow">Quay.io</a>にアクセスし、アカウントを作成します。</p>
 <p>では、ログインして、環境を整えましょう。</p>
-<pre><code>$ docker login quay.io
-ユーザー名: jjasghar
-パスワード
-Login Succeeded
-</code></pre>
 <p>私のユーザ名は <code>jjasghar</code> です。ユーザー名をあなたのものに変更してください。素晴らしい！これでログインできました。</p>
 <p>コンテナを作成してQuayにプッシュしたい場合は、実はとても簡単です。コマンドを見せてから説明しましょう。</p>
-<pre><code>$ docker build -t quay.io/jjasghar/vim .  
-ビルドコンテキストのDockerデーモンへの送信 2.048kB
-Step 1/4 : FROM centos:latest
-latest:library/centosからの取り込み
-Digest: sha256:76d24f3ba3317fa945743bb3746fbaf3a0b752f10b10376960de01da70685fbd
-状態です。centos:latest の新しいイメージをダウンロードしました。
- ---&gt; 0d120b6ccaa8
- Step 2/4 : RUN yum install vim -y &amp;&amp; mkdir /vim
-  ---&gt; 4818f1e81f74で実行中
-  CentOS-8 - AppStream 3.2 MB/s | 5.8 MB 00:01
-  CentOS-8 - Base 1.2 MB/s | 2.2 MB 00:01
-  CentOS-8 - エクストラ 3.6 kB/s | 8.6 kB 00:02
-  依存関係が解消されました。
-  ================================================================================
-   パッケージ Arch バージョン リポジトリサイズ
-
-[-- スニップ --] 。
-
-完了しました。
-中間コンテナの削除 4818f1e81f74
- ---&gt; d566a180f683
-ステップ 3/4 : WORKDIR /vim
- ---&gt; 8b9b16611a82で実行中
-中間コンテナの削除 8b9b16611a82
- ---&gt; 06166d346df4
-Step 4/4 : ENTRYPOINT [&quot;vim&quot;]...
- ---&gt; 63856bad104fで実行中
-中間コンテナの削除 63856bad104f
- ---&gt; dc5de217e843
-dc5de217e843の構築に成功しました。
-Successfully tagged quay.io/jjasghar/vim:latest
-$ docker push quay.io/jjasghar/vim:latest
-このプッシュは、リポジトリ[quay.io/jjasghar/vim]を参照しています。
-10c0147b9d97です。プッシュされました
-291f6e44771a:プッシュされました
-latest: digest: sha256:cf98f2fb8f268020a59363d4ccf2e5963783ce8628478899274485fc7d874bf0 size: 741
-</code></pre>
-<p>ご覧の通り、先ほどと同じようにコンテナを構築しましたが、"タグ "として <code>-t quay.io/jjasghar/vim:latest</code> を追加しています。docker`には、別のレジストリに送り、次にデフォルトのDocker Hubに送り、そして_my_namespaceに送ることを伝えます。</p>
+<p>ご覧の通り、先ほどと同じようにコンテナを構築しましたが、"タグ "として <code>-t quay.io/jjasghar/vim:latest</code> を追加しています。<code>docker</code>には、別のレジストリに送り、次にデフォルトのDocker Hubに送り、そして_my_namespaceに送ることを伝えます。</p>
 <p>ビルドが終わったら、<code>docker push quay.io/jjasghar/vim:latest</code>とするだけで、ビルドが完了します。(デフォルトでは、最初のコンテナをQuay.ioにプッシュする際には、それをパブリックにしなければなりません)。</p>
 <p><a href="https://quay.io/repository/jjasghar/vim?tab=settings" target="_blank" rel="noopener noreferrer nofollow"><code>https://quay.io/repository/jjasghar/vim?tab=settings</code></a>のウェブサイトをチェックして（<code>jjasghar</code>をあなたの名前空間に置き換えてください）、__Make public__をクリックします。これで、インターネットに接続できるあらゆるマシンにプルすることができます。</p>
 <p>次に、以下のコマンドを実行して、コンテナをプルダウンしてみましょう。</p>
-<pre><code>$ docker run -v ${PWD}:/vim -it quay.io/jjasghar/vim:latest
-ローカルでイメージ 'quay.io/jjasghar/vim:latest' が見つかりません。
-1: jjasghar/vimからの引き抜き
-a02a4930cb5dです。すでに存在しています
-209873925a88:引上げ完了
-Digest: sha256:831fcbac319dda1aab3d022c408ecc5cc1c1b825bcd90fc7694c3d4f0ef4eb9a
-状態です。quay.io/jjasghar/vim:latest の新しいイメージをダウンロードしました。
-# これで vim を見ることができます
-</code></pre>
 <p>成功です!これで、コンテナを作成してQuay.ioに公開する方法がわかりました。</p>
 <h2 id="_4">まとめ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>ここまで一緒に見ていただきありがとうございました。一般的な <code>docker</code> コマンドや <code>Dockerfile</code> の動作方法、そして最後にコンテナレジストリの使い方を理解していただけたと思います。ご質問やご意見がありましたら、Twitterで<a href="https://twitter.com/jjasghar/" target="_blank" rel="noopener noreferrer nofollow">@jjasghar</a>までお気軽にお問い合わせください。</p>

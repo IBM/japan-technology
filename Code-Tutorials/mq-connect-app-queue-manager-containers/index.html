@@ -1387,14 +1387,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_9">
-          IoT開発を始めよう
+          IOT開発を始めよう
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発を始めよう" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発を始めよう" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_9">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発を始めよう
+          IOT開発を始めよう
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1461,7 +1461,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp101-why-use-iot-platform/" class="md-nav__link">
-        IoTプラットフォーム
+        IOTプラットフォーム
       </a>
     </li>
   
@@ -1475,7 +1475,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp101-get-started-develop-iot-home-automation/" class="md-nav__link">
-        IoTソリューションの構築
+        IOTソリューションの構築
       </a>
     </li>
   
@@ -1518,14 +1518,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_10">
-          IoT開発の次の一歩
+          IOT開発の次の一歩
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="IoT開発の次の一歩" data-md-level="2">
+      <nav class="md-nav" aria-label="IOT開発の次の一歩" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_10">
           <span class="md-nav__icon md-icon"></span>
-          IoT開発の次の一歩
+          IOT開発の次の一歩
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1550,7 +1550,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-lp201-iot-architectures/" class="md-nav__link">
-        IoTアーキテクチャー
+        IOTアーキテクチャー
       </a>
     </li>
   
@@ -1564,7 +1564,7 @@
   
     <li class="md-nav__item">
       <a href="../../Code-Articles/iot-top-10-iot-security-challenges/" class="md-nav__link">
-        IoTセキュリティ
+        IOTセキュリティ
       </a>
     </li>
   
@@ -1578,7 +1578,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-manage-data/" class="md-nav__link">
-        IoTデータの管理
+        IOTデータの管理
       </a>
     </li>
   
@@ -1592,7 +1592,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp301-iot-device-management/" class="md-nav__link">
-        IoTデバイスの管理
+        IOTデバイスの管理
       </a>
     </li>
   
@@ -1606,7 +1606,7 @@
   
     <li class="md-nav__item">
       <a href="../iot-lp201-build-door-monitoring-system/" class="md-nav__link">
-        次のIoTソリューションを構築する
+        次のIOTソリューションを構築する
       </a>
     </li>
   
@@ -4619,9 +4619,11 @@
 <h2 id="_3">見積もり時間<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルの所要時間は約30分です。</p>
 <h2 id="_4">ステップ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>1.<a href="#step-1-install-docker">Dockerのインストール</a>
+<ol>
+<li><a href="#step-1-install-docker">Dockerのインストール</a>
 2.<a href="#step-2-get-the-mq-in-docker-image">MQのDockerイメージの取得</a>
-3.<a href="#step-3-run-the-container-from-the-image">イメージからコンテナを実行</a></p>
+3.<a href="#step-3-run-the-container-from-the-image">イメージからコンテナを実行</a></li>
+</ol>
 <!-- 4. [メッセージの送信と受信](#step-4-put and get-a-messageusing-the-mq-console) -->
 
 <p>MQをコンテナにインストールする方法をビデオで見たい方は、こちらをご覧ください。</p>
@@ -4629,22 +4631,17 @@
 
 <h3 id="step-1docker">Step 1.Dockerのインストール<a class="headerlink" href="#step-1docker" title="Permanent link">&para;</a></h3>
 <p>すでにDockerをシステムにインストールしている場合は、どのバージョンがインストールされているかを確認します。  Docker のバージョンが <code>docker</code> や <code>docker-engine</code> と呼ばれている場合は、これらをアンインストールしてから、最新の <code>docker-ce</code> をインストールしてください。</p>
-<p>1.<a href="https://hub.docker.com/search/?type=edition&offering=community" target="_blank" rel="noopener noreferrer nofollow"><em>Docker Hub</em></a>から、Docker Community Edition（バージョン17.06以降）をダウンロードします。</p>
+<ol>
+<li><a href="https://hub.docker.com/search/?type=edition&offering=community" target="_blank" rel="noopener noreferrer nofollow"><em>Docker Hub</em></a>から、Docker Community Edition（バージョン17.06以降）をダウンロードします。</li>
+</ol>
 <p>2.<a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener noreferrer nofollow"><em>installation documentation</em></a>の指示に従って、Dockerをインストールします。</p>
 <h3 id="2mqdocker">ステップ2.MQをDockerイメージで取得する<a class="headerlink" href="#2mqdocker" title="Permanent link">&para;</a></h3>
 <p>コンテナはイメージから実行され、イメージはDockerfileに記載された仕様から構築されます。ここでは、イメージを構築しなくても、コンテナを実行するだけで済むように、Docker Hubから事前に構築されたIBM MQサーバー・イメージを使用します。  最終的には、MQのインストールと、開発者が作業するためのオブジェクトが事前に設定されたキュー・マネージャーが完成します。</p>
-<p>1.Docker HubからMQサーバの最新バージョンを含むイメージを取り出します。</p>
-<pre class="codehilite"><code class="linenums">```
-docker pull ibmcom/mq:latest
-```
-</code></pre>
-
+<ol>
+<li>Docker HubからMQサーバの最新バージョンを含むイメージを取り出します。</li>
+</ol>
 <p>2.完了したら、どのイメージを持っているか確認します。</p>
-<pre class="codehilite"><code class="linenums">```
-dockerイメージ
-```
-
-このような出力が表示されるはずです。
+<pre class="codehilite"><code class="linenums">このような出力が表示されるはずです。
 </code></pre>
 
 <p><img alt="最新バージョンのMQサーバーを表示するdockerコマンドの出力" src="images/output-step2-2020.png" /></p>
@@ -4652,48 +4649,32 @@ dockerイメージ
 <p>MQサーバーのイメージがローカルのDockerリポジトリに入ったので、コンテナを実行してRHELのMQをコンテナで立ち上げます。</p>
 <p>コンテナを立ち上げる際には、コンテナが削除されると削除されるメモリ内ファイルシステムが使用されます。キューマネージャーとキューのデータはこのファイルシステムに保存されます。キュー・マネージャーとキューのデータを失わないために、Dockerボリュームを使用することができます。</p>
 <p>ボリュームは、コンテナの実行時にコンテナに添付され、コンテナが削除された後も持続します。新しいコンテナを実行するときに、既存のボリュームをアタッチして、後でキュー・マネージャーとキュー・データを再利用することができます。</p>
-<p>1.Dockerを使用してボリュームを作成します。</p>
-<pre class="codehilite"><code class="linenums">```
-docker volume create qm1data
-```
-</code></pre>
-
-<p>2.MQサーバーコンテナを実行します。<strong>このコマンドを編集して、アプリケーションに接続するための独自のパスワードを設定してください。</strong> このパスワードは、後にクライアントのデモアプリケーションと独自のクライアントアプリケーションを実行する際に必要になります。この例では、パスワードを「passw0rd」に設定していますが、任意のパスワードを設定することもできます。</p>
-<pre class="codehilite"><code class="linenums">```
-docker run --env LICENSE=accept --env MQ_QMGR_NAME=QM1 --volume qm1data:/mnt/mqm --publish 1414:1414 --publish 9443:9443 --detach --env MQ_APP_PASSWORD=passw0rd ibmcom/mq:latest
-```
-</code></pre>
-
+<ol>
+<li>Dockerを使用してボリュームを作成します。</li>
+</ol>
+<p>2.MQサーバーコンテナを実行します。<strong><em>*このコマンドを編集して、アプリケーションに接続するための独自のパスワードを設定してください。</em></strong>* このパスワードは、後にクライアントのデモアプリケーションと独自のクライアントアプリケーションを実行する際に必要になります。この例では、パスワードを「passw0rd」に設定していますが、任意のパスワードを設定することもできます。</p>
 <p>キュー・マネージャーには、最初のクライアント・アプリケーションを接続するための簡単なデフォルト設定がなされています。</p>
 <p>例えば、IBM MQ Advanced for developers のライセンスを受け入れることや、キューを常駐させるキューマネージャーの名前を "QM1" とすることなど、パラメータを docker run コマンドに追加しています。</p>
 <p>MQ はコンテナ内で実行されているため、他の世界から隔離されていることになるので、MQ が使用するいくつかのポートを開きました。</p>
 <p>キューマネージャーのリスナーは、ポート 1414 で着信接続を待ち、ポート 9443 は MQ コンソールが使用します。</p>
 <p>MQデモのクライアントアプリケーションは、リスナーポートを使用し、MQコンソールのダッシュボードは、ポート9443でブラウザで見ることができます。</p>
 <p>コンテナが起動するのを待ってから、起動していることを確認します。</p>
-<pre><code>docker ps
-</code></pre>
 <p>このような出力が表示されるはずです。</p>
 <p><img alt="コンテナイメージの実行による出力" src="images/output-step3-1-2020.png" /></p>
 <p>おめでとうございます。あなたは、最初のシンプルなキュー・マネージャーを作成しました。これは QM1 と呼ばれ、コンテナの中で実行されています。</p>
 <p>このキュー・マネージャーにアクセスするためには、TCP/IP で接続することになり、そのためにポート 1414 を公開する必要があります。</p>
 <p>自分のコンテナIDをメモしておいて、それを使ってコンテナ内のコマンドラインにアクセスします。例えば、以下のようになります。</p>
-<pre><code>docker exec -ti &lt;your container id&gt; /bin/bash
-</code></pre>
 <p>このような出力が表示されるはずです。</p>
 <p><img alt="コンテナ内でCLIアクセスを得るための出力" src="images/output-step3-2-2020.png" /></p>
 <p>コマンドラインインターフェイスで<code>dspmqver</code>コマンド（MQのバージョンを表示）を実行すると、MQのインストールとデータパスを表示することができます。  </p>
-<pre><code>dspmqver
-</code></pre>
 <p>このような出力が表示されるはずです。</p>
 <p><img alt="MQバージョン表示用出力" src="images/output-step3-3-2020.png" /></p>
-<p>dspmq`コマンドを使って、実行中のキューマネージャーを表示することができます。  </p>
-<pre><code>dspmq
-</code></pre>
+<p><code>dspmq</code>コマンドを使って、実行中のキューマネージャーを表示することができます。  </p>
 <p>このような出力が表示されるはずです。</p>
 <p><img alt="実行中のキュー・マネージャーを表示するための出力" src="images/output-step3-4-2021.png" /></p>
 <p>Dockerコンテナから出てコマンドラインに戻るには、<code>exit</code>と入力して<strong>Enter</strong>を押します。</p>
 <h4 id="_5">これまでに行ってきたこと<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>事前に構築されたDockerイメージ<strong>をダウンロードし、</strong>コンテナ<strong>を実行して、RHEL上でMQを動作させました。クライアントアプリケーションがキューマネージャーに接続し、キューとの間でメッセージを送受信するために必要なIBM </strong>MQオブジェクトとパーミッション<strong>は自動的に作成されます</strong>。DockerとMQはあなたのホストコンピュータのリソースと接続性を使用しています。</p>
+<p><strong>事前に構築されたDockerイメージ</strong>をダウンロードし、<strong>コンテナ</strong>を実行して、RHEL上でMQを動作させました。<strong>クライアントアプリケーションがキューマネージャーに接続し、キューとの間でメッセージを送受信するために必要なIBM </strong>MQオブジェクトとパーミッション<strong>は自動的に作成されます</strong>。DockerとMQはあなたのホストコンピュータのリソースと接続性を使用しています。</p>
 <p>コンテナの中では、RHEL上のMQインストールは以下のオブジェクトを持っています。</p>
 <ul>
 <li><code>キューマネジャ QM1</code></li>
@@ -4701,8 +4682,8 @@ docker run --env LICENSE=accept --env MQ_QMGR_NAME=QM1 --volume qm1data:/mnt/mqm
 <li>Channel:チャンネル: <code>dev.app.svrconn</code></li>
 <li>リスナーです。ポート1414の<code>SYSTEM.LISTENER.TCP.1</code>。</li>
 </ul>
-<p>使用する<strong>キュー</strong>、<strong>DEV.QUEUE.1</strong>は、<strong>キューマネージャーQM1</strong>に「住んで」います。QM1<strong>にはリスナー</strong>があり、例えばポート1414<strong>への接続を監視します。</strong>クライアント・アプリケーションはキュー・マネージャに接続することができ、 <strong>メッセージをオープン、プット、ゲットしたり、キューをクローズしたりすることができます</strong>。</p>
-<p>アプリケーションは、キューイングマネージャに接続するために <strong>MQチャンネル</strong> を使用します。これらの3つのオブジェクトへのアクセスは、異なる方法で制限されています。例えば、<strong>グループ "mqclient "のメンバーである</strong>ユーザー "app "は、チャンネル<code>DEV.APP.SVRCONN</code>を使用してキューマネージャー<code>QM1</code>に接続することが許可されており、キュー<code>DEV.QUEUE.1</code>**にメッセージを入れたり、キューからメッセージを取得することが許可されています。</p>
+<p>使用する<strong>キュー</strong>、<strong>DEV.QUEUE.1</strong>は、<strong>キューマネージャーQM1</strong>に「住んで」います。<strong>QM1</strong>にはリスナー<strong>があり、例えばポート1414</strong>への接続を監視します。<strong><em>*クライアント・アプリケーションはキュー・マネージャに接続することができ、 </em>*メッセージをオープン、プット、ゲットしたり、キューをクローズしたりすることができます</strong>。</p>
+<p>アプリケーションは、キューイングマネージャに接続するために <strong>MQチャンネル</strong> を使用します。これらの3つのオブジェクトへのアクセスは、異なる方法で制限されています。<strong>例えば、</strong>グループ "mqclient "のメンバーである<strong>ユーザー "app "は、チャンネル<code>DEV.APP.SVRCONN</code>を使用してキューマネージャー<code>QM1</code>に接続することが許可されており、キュー<code>DEV.QUEUE.1</code></strong>にメッセージを入れたり、キューからメッセージを取得することが許可されています。</p>
 <p>クライアントアプリケーションが必要とするすべてのMQオブジェクトとパーミッションは、MQサーバコンテナの実行時に作成および構成されます。</p>
 <p><img alt="MQ用Dockerイメージのオブジェクトとパーミッション" src="images/rsc_docker_diagram.png" /></p>
 <!--STEP4は別のチュートリアルで取り上げられるようになりました....-->
@@ -4718,8 +4699,8 @@ MQコンソールは、MQオブジェクトを操作するためのWebブラウ�
 
 では、MQコンソールを使って、キューにメッセージを入れたり、取得したりしてみましょう。
 
-1.ユーザー「admin」、パスワード「passw0rd」でMQコンソールにログインします。
-2.Home」アイコンの下にある「**Manage**」をクリックします。QM1のリソースを表示するページが開きます。
+1. ユーザー「admin」、パスワード「passw0rd」でMQコンソールにログインします。
+「2.Home」アイコンの下にある「**Manage**」をクリックします。QM1のリソースを表示するページが開きます。
 3.QM1リソースのページで、`DEV.QUEUE.1`をクリックします。
 4.Local queue `DEV.QUEUE.1` ページで **Create** ボタンをクリックすると、キューにメッセージが入ります。
 5.5. メッセージインターフェースの **Application data** フィールドに `Hello World` と入力します。そして，**Create**をクリックする．
@@ -4730,15 +4711,21 @@ MQコンソールは、MQオブジェクトを操作するためのWebブラウ�
 <h2 id="_6">まとめ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>このチュートリアルでは、MQキュー・マネージャーをコンテナ内に立ち上げました。このコンテナには、クライアントからの接続を許可するための開発者用設定がプリセットされています。</p>
 <p>キュー・マネージャーに接続する独自のクライアント・アプリケーションを開発する際には、以下の手順に従ってください。</p>
-<p>1.1. キュー・マネージャーへの接続を設定する。
+<ol>
+<li>
+<ol>
+<li>キュー・マネージャーへの接続を設定する。
 2.キューを開く。
 3.メッセージをキューに入れる。
 4.キューからメッセージを取得する。
-5.キュー・マネージャーへの接続を閉じる。</p>
+5.キュー・マネージャーへの接続を閉じる。</li>
+</ol>
+</li>
+</ol>
 <p>このプロセスは、<strong>ポイントツーポイントスタイルのメッセージング</strong>を示しています。</p>
-<p>IBM MQでは、キュー・マネージャーはシステムの実質的なサーバー<strong>であり、キュー・マネージャーに接続する</strong>アプリケーションはクライアント**です。</p>
+<p><strong>IBM MQでは、キュー・マネージャーはシステムの実質的なサーバー</strong>であり、キュー・マネージャーに接続する<strong>アプリケーションはクライアント</strong>です。</p>
 <p>通常、すべてのMQオブジェクトが定義され、メッセージのルーティングが行われるMQサーバーを管理するのは、管理者です。クライアント・アプリケーションは開発者によって作成され、IBM MQは開発者がアプリケーションに組み込む必要のあるクライアント・ライブラリーを提供します。これらのライブラリはMQクライアントとも呼ばれ、管理者がMQサーバー側で設定したMQオブジェクトをアドレスして使用します。より複雑なシナリオでは、MQライブラリが重いメッセージング作業のほとんどを代行してくれるので、使い方を覚えるだけで十分です。</p>
-<p>**メッセージングを動作させるためには、サーバー側とクライアント側の両方で設定が必要です。</p>
+<p>****メッセージングを動作させるためには、サーバー側とクライアント側の両方で設定が必要です。</p>
 <p>MQクライアントアプリケーションの開発を始めたばかりの頃は、クライアントアプリケーションをテストするために、自分のキューマネージャとキューにアクセスする必要があります。事前に設定されたMQ in Dockerイメージと、そこから簡単に実行できるコンテナにより、キュー・マネージャへのアクセスが可能になり、独自のMQアプリケーションの開発を始める際に、MQオブジェクトを設定するための多くのオプションが提供されます。</p>
                 
                   
