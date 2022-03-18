@@ -14,7 +14,7 @@
     
     
       
-        <title>Index en - IBM Developer Learning Paths 日本語サイト</title>
+        <title>Linux basics: Prerequisites to learning about containers - IBM Developer Learning Paths 日本語サイト</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#related-publishing-issue-httpsgithubibmcomibmcodecode-tutorialsissues574" class="md-skip">
+        <a href="#files-and-directories" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index en
+              Linux basics: Prerequisites to learning about containers
             
           </span>
         </div>
@@ -4384,8 +4384,218 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#files-and-directories" class="md-nav__link">
+    Files and directories
+  </a>
+  
+    <nav class="md-nav" aria-label="Files and directories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-directories-with-cd" class="md-nav__link">
+    Changing directories with cd
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing directories with cd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#absolute-path" class="md-nav__link">
+    Absolute path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relative-path" class="md-nav__link">
+    Relative path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tilde-expansions" class="md-nav__link">
+    Tilde expansions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-inodes" class="md-nav__link">
+    Special inodes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-directories-with-pushdpopd" class="md-nav__link">
+    Changing directories with pushd/popd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-directories" class="md-nav__link">
+    Creating directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-files-and-directories" class="md-nav__link">
+    Viewing Files and Directories
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing Files and Directories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-directory-contents-with-ls" class="md-nav__link">
+    Viewing directory contents with ls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-files-with-cat" class="md-nav__link">
+    Viewing files with cat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-files-with-moreless" class="md-nav__link">
+    Viewing files with more/less
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-text-editors-vimemacspico" class="md-nav__link">
+    Terminal text editors (vim/emacs/pico)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-permissions" class="md-nav__link">
+    File permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="File permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-permissions-with-chmod" class="md-nav__link">
+    Changing permissions with chmod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-docker-commands" class="md-nav__link">
+    Basic Docker commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Docker commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-docker-images" class="md-nav__link">
+    Building Docker images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-docker-images" class="md-nav__link">
+    Running Docker images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shipping-docker-images" class="md-nav__link">
+    Shipping Docker images
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-kubernetes-commands" class="md-nav__link">
+    Basic Kubernetes commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Kubernetes commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-kubernetes-resources" class="md-nav__link">
+    Listing Kubernetes resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulating-kubernetes-resources" class="md-nav__link">
+    Manipulating Kubernetes resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4398,49 +4608,9 @@
               
                 
                 
-                <hr />
-<h1 id="related-publishing-issue-httpsgithubibmcomibmcodecode-tutorialsissues574">Related publishing issue: https://github.ibm.com/IBMCode/Code-Tutorials/issues/574<a class="headerlink" href="#related-publishing-issue-httpsgithubibmcomibmcodecode-tutorialsissues574" title="Permanent link">&para;</a></h1>
-<p>abstract: "Many of the Kubernetes learning paths assume a base level of knowledge of Linux and this may not be true for all people. If you're coming from a Windows world, then this tutorial is for you. This tutorial also serves to remind others of the basic Linux concepts and commands and as a prerequisite to the Kubernetes learning path."</p>
-<p>authors:
-  - name: "Jason Clark"
-    email: "jason.clark@ibm.com"</p>
-<h1 id="cities-requiredfalse-for-a-full-list-of-options-see-httpsgithubibmcomibmcodedefinitionsblobmastercitiesyml-use-the-slug-value-found-at-the-referenced-link-to-include-it-in-this-content">cities:       # Required=false For a full list of options see https://github.ibm.com/IBMCode/Definitions/blob/master/cities.yml. Use the slug value found at the referenced link to include it in this content.<a class="headerlink" href="#cities-requiredfalse-for-a-full-list-of-options-see-httpsgithubibmcomibmcodedefinitionsblobmastercitiesyml-use-the-slug-value-found-at-the-referenced-link-to-include-it-in-this-content" title="Permanent link">&para;</a></h1>
-<h1 id="collections-requiredfalse">collections:      # Required=false<a class="headerlink" href="#collections-requiredfalse" title="Permanent link">&para;</a></h1>
-<p>completed_date: "2019-03-21"</p>
-<p>components:
-  - "docker"
-  - "kubernetes"
-  - "istio"</p>
-<p>draft: false</p>
-<p>excerpt: "Learn Linux basic concepts and commands to start working with containers."</p>
-<p>last_updated:   "2019-03-21"</p>
-<p>meta_description: "Learn Linux basic concepts and commands in preparation for learning about Kubernetes."</p>
-<p>meta_keywords: "linux, command-line, basics, kubernetes, docker"</p>
-<p>meta_title: "Linux prereqs for diving into Kubernetes and Docker"</p>
-<p>primary_tag: "containers"</p>
-<p>pta:
-  - "cloud, container, and infrastructure"</p>
-<p>pwg:
-  - "containers"</p>
-<p>related_content:
-  - type: "tutorials"
-    slug: "https://developer.ibm.com/tutorials/yaml-basics-and-usage-in-kubernetes/"
-  - type: "series"
-    slug: "kubernetes-learning-path"</p>
-<h1 id="related_links">related_links:<a class="headerlink" href="#related_links" title="Permanent link">&para;</a></h1>
-<p># - title:  <br />
-  #  url:</p>
-<p>subtitle:   "Learn or refresh your memory on Linux basic commands"</p>
-<p>tags:
-  - "linux"</p>
-<p>title: "Linux basics: Prerequisites to learning about containers"</p>
-<h1 id="translators-requiredfalse-the-list-of-persons-who-assisted-in-translation">translators:      # Required=false The list of persons who assisted in translation.<a class="headerlink" href="#translators-requiredfalse-the-list-of-persons-who-assisted-in-translation" title="Permanent link">&para;</a></h1>
-<h1 id="-name">- name:<a class="headerlink" href="#-name" title="Permanent link">&para;</a></h1>
-<h1 id="email">email:<a class="headerlink" href="#email" title="Permanent link">&para;</a></h1>
-<h1 id="-name_1">- name:<a class="headerlink" href="#-name_1" title="Permanent link">&para;</a></h1>
-<h1 id="email_1">email:<a class="headerlink" href="#email_1" title="Permanent link">&para;</a></h1>
-<h2 id="type-tutorial">type: tutorial<a class="headerlink" href="#type-tutorial" title="Permanent link">&para;</a></h2>
-<p>To acquire the skills that you'll need to deploy, administer, and maintain modern cloud technologies, you'll need to know a solid amount of prerequisite information on the topic at hand: Linux&reg; commands and concepts. Since many of the modern cloud technologies leverage the GNU/Linux operating system at their core, this tutorial walks you through a few basics of the Linux Command Line Interface (CLI) and prepares you to use the CLI as you work through several of our <a href="/articles/category/containers/?fa=date%3ADESC&amp;fb=">articles</a> and <a href="/tutorials/category/containers/?fa=date%3ADESC&amp;fb=">tutorials</a> on Docker and Kubernetes and our beginner <a href="/series/kubernetes-learning-path">Kubernetes Learning Path</a>. If you are new to Linux, this tutorial should serve as a short introduction to its use. For the previously initiated, I hope that this tutorial reminds you of a few command concepts, and perhaps introduces you to something new.</p>
+                  <h1>Linux basics: Prerequisites to learning about containers</h1>
+                
+                <p>To acquire the skills that you'll need to deploy, administer, and maintain modern cloud technologies, you'll need to know a solid amount of prerequisite information on the topic at hand: Linux&reg; commands and concepts. Since many of the modern cloud technologies leverage the GNU/Linux operating system at their core, this tutorial walks you through a few basics of the Linux Command Line Interface (CLI) and prepares you to use the CLI as you work through several of our <a href="/articles/category/containers/?fa=date%3ADESC&amp;fb=">articles</a> and <a href="/tutorials/category/containers/?fa=date%3ADESC&amp;fb=">tutorials</a> on Docker and Kubernetes and our beginner <a href="/series/kubernetes-learning-path">Kubernetes Learning Path</a>. If you are new to Linux, this tutorial should serve as a short introduction to its use. For the previously initiated, I hope that this tutorial reminds you of a few command concepts, and perhaps introduces you to something new.</p>
 <h2 id="files-and-directories">Files and directories<a class="headerlink" href="#files-and-directories" title="Permanent link">&para;</a></h2>
 <p>We begin with a section that's dedicated to navigating the basic file structure of a standard GNU/Linux operating system. The standard GNU/Linux operating system has a file management hierarchy that organizes the data stored on the computer. Identifying the places where specific data is stored is one of the initial lessons in beginning to understand how the operating system is structured. In an effort to keep from diminishing your existing Linux experience, I'll save the "Introduction to the Linux File System Hierarchy" discussion for another time. Better yet, here's a solid article that covers the <a href="https://www.linux.org/threads/file-hierarchy-standard-fhs.9999/">File System Hierarchy</a> in great detail. Here, we'll assume that you know your way around a bit, so I'll offer you a few tips (or perhaps a few reminders) on how to easily navigate. You'll need this skill when you're asked to edit files, navigate the file system, make changes, or observe configurations.</p>
 <h3 id="changing-directories-with-cd">Changing directories with cd<a class="headerlink" href="#changing-directories-with-cd" title="Permanent link">&para;</a></h3>
@@ -4822,6 +4992,8 @@ $ ls -l script_to_run.sh
 <li>Code pattern:<a href="/patterns/istio-for-multi-clusters-across-iks-and-icp/"> Using Istio across private and public clusters</a></li>
 <li>Code pattern: <a href="/patterns/run-drupal-website-on-kubernetes/">Run a Drupal website on Kubernetes</a></li>
 </ul>
+                
+                  
                 
               
               

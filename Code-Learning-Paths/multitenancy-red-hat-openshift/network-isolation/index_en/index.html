@@ -4610,30 +4610,30 @@ ep1      Pushed     http://ep1-app2-prj2.xxxx.containers.appdomain.cloud     908
 <p>Take a look at the <code>getRequest</code> method in the source Java file <code>GetData.java</code> located at <code>../multitenant-network-isolation-tutorial/app1/src/main/java/com/example/GetData.java</code>. </p>
 <p>Here, you invoke the end point <code>http://app2.prj2.svc.cluster.local:9080/app2/resource</code> on <code>App2</code> in the getRequest method.</p>
 <pre><code>@GET
-    public String getRequest() {
-        URL url;
-        StringBuffer content = new StringBuffer();
-        try {
-            url = new URL(&quot;http://app2.prj2.svc.cluster.local:9080/app2/resource&quot;);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod(&quot;GET&quot;);
-            con.connect();
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
+  public String getRequest() {
+    URL url;
+    StringBuffer content = new StringBuffer();
+    try {
+      url = new URL(&quot;http://app2.prj2.svc.cluster.local:9080/app2/resource&quot;);
+      HttpURLConnection con = (HttpURLConnection) url.openConnection();
+      con.setRequestMethod(&quot;GET&quot;);
+      con.connect();
+      BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+      String inputLine;
 
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-            in.close();
+      while ((inputLine = in.readLine()) != null) {
+        content.append(inputLine);
+      }
+      in.close();
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            return &quot;java.net.UnknownHostException encountered - Could not invoke App2!&quot;;
-        }
-
-        return content.toString();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+      return &quot;java.net.UnknownHostException encountered - Could not invoke App2!&quot;;
     }
+
+    return content.toString();
+  }
 </code></pre>
 <p>You should see output like below if <code>App1</code> is able to invoke the endpoint on <code>App2</code>.</p>
 <pre><code>Successful invocation - This is a resource from App2!
@@ -4720,20 +4720,20 @@ allow-same-namespace              &lt;none&gt;         30s
 </code></pre>
 <p>If you access the pod logs for <code>App1</code> in your OpenShift web console, you can see the following error:</p>
 <pre><code>[INFO] [err] java.net.UnknownHostException: app2.project2.svc.cluster.local
-[INFO] [err]    at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-[INFO] [err]    at java.base/java.net.Socket.connect(Socket.java:609)
-[INFO] [err]    at java.base/java.net.Socket.connect(Socket.java:558)
-[INFO] [err]    at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
-[INFO] [err]    at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
-[INFO] [err]    at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
-[INFO] [err]    at java.base/sun.net.www.http.HttpClient.&lt;init&gt;(HttpClient.java:242)
-[INFO] [err]    at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
-[INFO] [err]    at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
-[INFO] [err]    at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
-[INFO] [err]    at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
-[INFO] [err]    at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
-[INFO] [err]    at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
-[INFO] [err]    at com.example.GetData.getRequest(GetData.java:36)
+[INFO] [err]   at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
+[INFO] [err]   at java.base/java.net.Socket.connect(Socket.java:609)
+[INFO] [err]   at java.base/java.net.Socket.connect(Socket.java:558)
+[INFO] [err]   at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:182)
+[INFO] [err]   at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:474)
+[INFO] [err]   at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:569)
+[INFO] [err]   at java.base/sun.net.www.http.HttpClient.&lt;init&gt;(HttpClient.java:242)
+[INFO] [err]   at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:341)
+[INFO] [err]   at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:362)
+[INFO] [err]   at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1253)
+[INFO] [err]   at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1187)
+[INFO] [err]   at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1081)
+[INFO] [err]   at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1015)
+[INFO] [err]   at com.example.GetData.getRequest(GetData.java:36)
 </code></pre>
 <h3 id="ibm-clouds-calico-network-plug-in">IBM Cloud's Calico network plug-in<a class="headerlink" href="#ibm-clouds-calico-network-plug-in" title="Permanent link">&para;</a></h3>
 <p>Every Red Hat® OpenShift® on IBM Cloud™ cluster is set up with a network plug-in called <a href="https://cloud.ibm.com/docs/openshift?topic=openshift-network_policies">Calico</a>. Default network policies are set up to secure the public network interface of every worker node in the cluster. You can use Calico and Kubernetes to create network policies for a cluster. With Kubernetes network policies, you can specify the network traffic that you want to allow or block to and from a pod within a cluster. To set more advanced network policies such as blocking inbound (ingress) traffic to network load balancer (NLB) services, you can use Calico network policies.</p>

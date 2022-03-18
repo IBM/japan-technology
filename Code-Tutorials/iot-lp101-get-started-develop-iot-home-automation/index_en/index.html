@@ -4870,14 +4870,14 @@ Like the last time, you can figure out the expected message format by first send
 <p>Temperature:</p>
 <pre><code>// Prepare temperature payload
 msg.payload = {
-    CurrentTemperature: parseFloat(msg.payload)
+  CurrentTemperature: parseFloat(msg.payload)
 }
 return msg;
 </code></pre>
 <p>Humidity:</p>
 <pre><code>// Prepare humidity payload
 msg.payload = {
-    CurrentRelativeHumidity: parseInt(msg.humidity)
+  CurrentRelativeHumidity: parseInt(msg.humidity)
 }
 return msg;
 </code></pre>
@@ -4906,7 +4906,6 @@ Created symlink /etc/systemd/system/multi-user.target.wants/nodered.service → 
 * Add a Do Not Disturb mode. You can add a Switch node that you turn On or Off from the Home app. Then you can design a Node-RED flow to let the visitor know that you're unavailable. For example, you can turn on the green LED when it's safe to enter and turn on the red LED when it's not.
 * Add a light sensor and connect it to a smart bulb (via wifi) or directly to the Pi using a relay module.</p>
 <h3 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">&para;</a></h3>
-<!-- anna.m.gerber@gmail.com AND shrividz@gmail.com-->
 <p>This sample and tutorial were originally developed and written by Anna Gerber and then updated by Vidya Madhuvarsu.  </p>
 <p>The authors used the circuit diagrams from these fritzing components to create her own circuit diagrams for this tutorial:</p>
 <ul>

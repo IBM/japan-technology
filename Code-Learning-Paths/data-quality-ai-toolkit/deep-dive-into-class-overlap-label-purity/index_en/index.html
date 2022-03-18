@@ -4614,8 +4614,8 @@
 <p>Create a config.json file with the following API key values in it. The previous tutorial in this learning path explained how to <a href="https://developer.ibm.com/learningpaths/data-quality-ai-toolkit/assessing-quality-of-tabular-data-sets-using-apis/">get the Client ID and Client secret</a>.</p>
 <p><code>json
 {
-    "x-ibm-client-id": "REPLACE_THIS_WITH_YOUR_CLIENT_ID",
-    "x-ibm-client-secret": "REPLACE_WITH_YOUR_CLIENT_SECRET"
+  "x-ibm-client-id": "REPLACE_THIS_WITH_YOUR_CLIENT_ID",
+  "x-ibm-client-secret": "REPLACE_WITH_YOUR_CLIENT_SECRET"
 }</code></p>
 </li>
 <li>
@@ -4640,19 +4640,19 @@ import requests
 credentials_headers = json.load(open(&quot;config.json&quot;, &quot;r&quot;))
 
 with open('adult.csv', 'r') as fp:
-    response = requests.post(
-        'https://api.ibm.com/dataquality4ai/run/data_quality/structured/class_overlap',
-        headers=credentials_headers,
-        files={'data_file': fp}
-    )
+  response = requests.post(
+    'https://api.ibm.com/dataquality4ai/run/data_quality/structured/class_overlap',
+    headers=credentials_headers,
+    files={'data_file': fp}
+  )
 print(&quot;Response JSON -&quot;, response.json())
 </code></pre>
 <h4 id="response-json">Response JSON<a class="headerlink" href="#response-json" title="Permanent link">&para;</a></h4>
 <p>You receive a job ID as a response, and you can use this job ID to fetch the results of the data sets after the analysis is complete.</p>
 <pre><code class="language-json">{
-    &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
-    &quot;message&quot;: &quot;Job Submitted&quot;,
-    &quot;response&quot;: null
+  &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
+  &quot;message&quot;: &quot;Job Submitted&quot;,
+  &quot;response&quot;: null
 }
 </code></pre>
 <h3 id="step-2-get-your-class-overlap-result-using-job-id">Step 2. Get your class overlap result using job ID<a class="headerlink" href="#step-2-get-your-class-overlap-result-using-job-id" title="Permanent link">&para;</a></h3>
@@ -4665,54 +4665,54 @@ import requests
 credentials_headers = json.load(open(&quot;config.json&quot;, &quot;r&quot;))
 
 response = requests.post(
-    'https://api.ibm.com/dataquality4ai/run/get_result',
-    headers=credentials_headers,
-    data={&quot;job_id&quot;: &quot;YOUR_JOB_ID&quot;}
+  'https://api.ibm.com/dataquality4ai/run/get_result',
+  headers=credentials_headers,
+  data={&quot;job_id&quot;: &quot;YOUR_JOB_ID&quot;}
 )
 print(response.json())
 </code></pre>
 <h4 id="response-json_1">Response JSON<a class="headerlink" href="#response-json_1" title="Permanent link">&para;</a></h4>
 <p>The following code shows a shortened example code of a job that is complete.</p>
 <pre><code class="language-json">{
-    &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
-    &quot;message&quot;: &quot;Job Finished&quot;,
-    &quot;response&quot;: {
-        &quot;results&quot;: {
-            &quot;title&quot;: &quot;Class Overlap&quot;,
-            &quot;score&quot;: 0.68,
-            &quot;explanation&quot;: &quot;Total overlapping fraction present in dataset: 0.32&quot;,
-            &quot;details&quot;: {
-                &quot;total_overlap_fraction&quot;: {
-                    &quot;definition&quot;: &quot;Total number of points in all overlapping regions / Total number of points in the dataset&quot;,
-                    &quot;value&quot;: 0.32
-                },
-                &quot;overlapping_regions&quot;: {
-                    &quot;definition&quot;: &quot;Region wise features/columns ranges and points which are overlapping&quot;,
-                    &quot;regions&quot;: [{
-                            &quot;points&quot;: [1,3,7,10],
-                            &quot;feature_ranges&quot;: {}
-                        }
-                    ]
-                },
-                &quot;class_overlap_statistic&quot;: {
-                    &quot;definition&quot;: &quot;Number of data points for a given class in overlap region / Total number of points in the given class&quot;,
-                    &quot;value&quot;: {
-                                &quot;&lt;=50K&quot;: 0.22,
-                                &quot;&gt;50K&quot;: 0.62
-                        }
-                },
-                &quot;overlap_distribution_in_classes&quot;: {
-                    &quot;definition&quot;: &quot;Number of data points for a given class in overlap region / Total overlapping points in dataset&quot;,
-                    &quot;value&quot;: {
+  &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
+  &quot;message&quot;: &quot;Job Finished&quot;,
+  &quot;response&quot;: {
+    &quot;results&quot;: {
+      &quot;title&quot;: &quot;Class Overlap&quot;,
+      &quot;score&quot;: 0.68,
+      &quot;explanation&quot;: &quot;Total overlapping fraction present in dataset: 0.32&quot;,
+      &quot;details&quot;: {
+        &quot;total_overlap_fraction&quot;: {
+          &quot;definition&quot;: &quot;Total number of points in all overlapping regions / Total number of points in the dataset&quot;,
+          &quot;value&quot;: 0.32
+        },
+        &quot;overlapping_regions&quot;: {
+          &quot;definition&quot;: &quot;Region wise features/columns ranges and points which are overlapping&quot;,
+          &quot;regions&quot;: [{
+              &quot;points&quot;: [1,3,7,10],
+              &quot;feature_ranges&quot;: {}
+            }
+          ]
+        },
+        &quot;class_overlap_statistic&quot;: {
+          &quot;definition&quot;: &quot;Number of data points for a given class in overlap region / Total number of points in the given class&quot;,
+          &quot;value&quot;: {
+                      &quot;&lt;=50K&quot;: 0.22,
+                      &quot;&gt;50K&quot;: 0.62
+                  }
+        },
+        &quot;overlap_distribution_in_classes&quot;: {
+          &quot;definition&quot;: &quot;Number of data points for a given class in overlap region / Total overlapping points in dataset&quot;,
+          &quot;value&quot;: {
                                 &quot;&lt;=50K&quot;: 0.53,
                                 &quot;&gt;50K&quot;: 0.47
-                        }
-                },
-                &quot;overlapping_indices&quot;: [1, 3, 7, 8, 10, 11, 14, 23, 25]
-            }
+                  }
         },
-        &quot;metadata&quot;: {}
-    }
+        &quot;overlapping_indices&quot;: [1, 3, 7, 8, 10, 11, 14, 23, 25]
+      }
+    },
+    &quot;metadata&quot;: {}
+  }
 }
 </code></pre>
 <h3 id="step-3-interpret-the-class-overlap-json-output">Step 3. Interpret the class overlap JSON output<a class="headerlink" href="#step-3-interpret-the-class-overlap-json-output" title="Permanent link">&para;</a></h3>
@@ -4740,19 +4740,19 @@ import requests
 credentials_headers = json.load(open(&quot;config.json&quot;, &quot;r&quot;))
 
 with open('adult.csv', 'r') as fp:
-    response = requests.post(
-        'https://api.ibm.com/dataquality4ai/run/data_quality/structured/label_purity',
-        headers=credentials_headers,
-        files={'data_file': fp}
-    )
+  response = requests.post(
+    'https://api.ibm.com/dataquality4ai/run/data_quality/structured/label_purity',
+    headers=credentials_headers,
+    files={'data_file': fp}
+  )
 print(&quot;Response JSON -&quot;, response.json())
 </code></pre>
 <h4 id="response-json_2">Response JSON<a class="headerlink" href="#response-json_2" title="Permanent link">&para;</a></h4>
 <p>You receive a job ID as a response. You can use this job ID to fetch the results of the data sets after the analysis is complete.</p>
 <pre><code class="language-json">{
-    &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
-    &quot;message&quot;: &quot;Job Submitted&quot;,
-    &quot;response&quot;: null
+  &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
+  &quot;message&quot;: &quot;Job Submitted&quot;,
+  &quot;response&quot;: null
 }
 </code></pre>
 <h3 id="step-2-get-your-label-purity-result-using-the-job-id">Step 2. Get your label purity result using the job ID<a class="headerlink" href="#step-2-get-your-label-purity-result-using-the-job-id" title="Permanent link">&para;</a></h3>
@@ -4765,42 +4765,42 @@ import requests
 credentials_headers = json.load(open(&quot;config.json&quot;, &quot;r&quot;))
 
 response = requests.post(
-    'https://api.ibm.com/dataquality4ai/run/get_result',
-    headers=credentials_headers,
-    data={&quot;job_id&quot;: &quot;YOUR_JOB_ID&quot;}
+  'https://api.ibm.com/dataquality4ai/run/get_result',
+  headers=credentials_headers,
+  data={&quot;job_id&quot;: &quot;YOUR_JOB_ID&quot;}
 )
 print(response.json())
 </code></pre>
 <h4 id="response-json_3">Response JSON<a class="headerlink" href="#response-json_3" title="Permanent link">&para;</a></h4>
 <p>The following code shows a shortened example code snipped of a job that is complete.</p>
 <pre><code class="language-json">{
-    &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
-    &quot;message&quot;: &quot;Job Finished&quot;,
-    &quot;response&quot;: {
-        &quot;results&quot;: {
-            &quot;title&quot;: &quot;Label Purity&quot;,
-            &quot;score&quot;: 0.99,
-            &quot;explanation&quot;: &quot;Noisy labels detected in 466 / 48842 rows giving a quality of 0.99.&quot;,
-            &quot;details&quot;: {
-                &quot;confusing_noisy_samples&quot;: {
-                    &quot;reason&quot;: &quot;Noisy samples lying in confusion region.&quot;,
-                    &quot;samples_list&quot;: []
-                },
-                &quot;noisy_samples&quot;: [
-                    {
-                        &quot;actual_label&quot;: 0,
-                        &quot;row&quot;: 345,
-                        &quot;suggested_label&quot;: 1
-                    }
-                ],
-                &quot;non_processed_classes&quot;: {
-                    &quot;class_list&quot;: {},
-                    &quot;reason&quot;: &quot;Classes have less than minimum 5 samples&quot;
-                }
-            }
+  &quot;job_id&quot;: &quot;b07096f9-aaaa-xxx-xxx-015cf309f89&quot;,
+  &quot;message&quot;: &quot;Job Finished&quot;,
+  &quot;response&quot;: {
+    &quot;results&quot;: {
+      &quot;title&quot;: &quot;Label Purity&quot;,
+      &quot;score&quot;: 0.99,
+      &quot;explanation&quot;: &quot;Noisy labels detected in 466 / 48842 rows giving a quality of 0.99.&quot;,
+      &quot;details&quot;: {
+        &quot;confusing_noisy_samples&quot;: {
+          &quot;reason&quot;: &quot;Noisy samples lying in confusion region.&quot;,
+          &quot;samples_list&quot;: []
         },
-        &quot;metadata&quot;: {}
-    }
+        &quot;noisy_samples&quot;: [
+          {
+            &quot;actual_label&quot;: 0,
+            &quot;row&quot;: 345,
+            &quot;suggested_label&quot;: 1
+          }
+        ],
+        &quot;non_processed_classes&quot;: {
+          &quot;class_list&quot;: {},
+          &quot;reason&quot;: &quot;Classes have less than minimum 5 samples&quot;
+        }
+      }
+    },
+    &quot;metadata&quot;: {}
+  }
 }
 </code></pre>
 <h3 id="step-3-interpret-the-label-purity-json-output">Step 3. Interpret the label purity JSON output<a class="headerlink" href="#step-3-interpret-the-label-purity-json-output" title="Permanent link">&para;</a></h3>

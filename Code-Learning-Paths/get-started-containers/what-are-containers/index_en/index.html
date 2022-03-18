@@ -14,7 +14,7 @@
     
     
       
-        <title>Index en - IBM Developer Learning Paths 日本語サイト</title>
+        <title>What are containers and why do you need them? - IBM Developer Learning Paths 日本語サイト</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#related-publishing-issue-httpsgithubibmcomibmcodecode-blogsissues574" class="md-skip">
+        <a href="#why-should-i-care-about-containers" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index en
+              What are containers and why do you need them?
             
           </span>
         </div>
@@ -4384,8 +4384,98 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-should-i-care-about-containers" class="md-nav__link">
+    Why should I care about containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-containers" class="md-nav__link">
+    What are containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#are-containers-the-same-thing-as-microservices" class="md-nav__link">
+    Are containers the same thing as microservices?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-example-of-a-microservices-application" class="md-nav__link">
+    What is an example of a microservices application?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-docker-container" class="md-nav__link">
+    What is a Docker container?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-container-orchestration-and-kubernetes" class="md-nav__link">
+    What are container orchestration and Kubernetes?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-difference-between-containers-and-virtual-machine-images" class="md-nav__link">
+    What is the difference between containers and virtual machine images?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-get-started-with-containers" class="md-nav__link">
+    How to get started with containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-ibm-cloud-paks-help" class="md-nav__link">
+    How IBM Cloud Paks help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-can-i-run-my-containers" class="md-nav__link">
+    Where can I run my containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-red-hat-openshift-on-ibm-cloud" class="md-nav__link">
+    What is Red Hat OpenShift on IBM Cloud?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4398,34 +4488,9 @@
               
                 
                 
-                <hr />
-<h1 id="related-publishing-issue-httpsgithubibmcomibmcodecode-blogsissues574">Related publishing issue: https://github.ibm.com/IBMCode/Code-Blogs/issues/574<a class="headerlink" href="#related-publishing-issue-httpsgithubibmcomibmcodecode-blogsissues574" title="Permanent link">&para;</a></h1>
-<h1 id="original-content-planning-issue-httpsgithubibmcomibmcodeibmcodecontentissues2115">Original content planning issue: https://github.ibm.com/IBMCode/IBMCodeContent/issues/2115<a class="headerlink" href="#original-content-planning-issue-httpsgithubibmcomibmcodeibmcodecontentissues2115" title="Permanent link">&para;</a></h1>
-<h1 id="related-ibmcodecontent-issue-for-2020-update-httpsgithubibmcomibmcodeibmcodecontentissues5101">Related IBMCodeContent issue for 2020 update: https://github.ibm.com/IBMCode/IBMCodeContent/issues/5101<a class="headerlink" href="#related-ibmcodecontent-issue-for-2020-update-httpsgithubibmcomibmcodeibmcodecontentissues5101" title="Permanent link">&para;</a></h1>
-<h1 id="moved-into-learning-path-content-type-as-part-of-getting-started-pages-migration-since-blog-posts-dont-render-well-in-learning-paths-httpsgithubibmcomibm-degeditorialissues571">Moved into learning path content type as part of getting started pages migration since blog posts don't render well in learning paths: https://github.ibm.com/IBM-DEG/Editorial/issues/571<a class="headerlink" href="#moved-into-learning-path-content-type-as-part-of-getting-started-pages-migration-since-blog-posts-dont-render-well-in-learning-paths-httpsgithubibmcomibm-degeditorialissues571" title="Permanent link">&para;</a></h1>
-<p>draft: false</p>
-<p>menu_order: 1</p>
-<p>title: "What are containers and why do you need them?"
-subtitle: "Why you should care about containers as a developer"
-meta_title: "What are containers and why should you care? What is a Docker container?"</p>
-<p>excerpt: "Why you should care about containers and how they interact with microservices and the cloud."
-meta_description: "What are containers, why you should care about them, and how they interact with microservices and the cloud."</p>
-<p>authors:
-  - name: "Robert (Bob) Spory"
-    email: "spory@us.ibm.com"
-  - name: "Rafi Afzal"
-    email: "rafi@us.ibm.com"</p>
-<p>completed_date: "2019-01-31"
-last_updated: "2020-09-24"
-check_date: "2021-09-02"</p>
-<p>meta_keywords: "what are containers, what is container orchestration"</p>
-<p>primary_tag: containers</p>
-<p>tags:
-  - microservices</p>
-<p>components:
-  - kubernetes</p>
-<hr />
-<p><em>"Awww, come on guys, it's so simple. Maybe you need a refresher course. ... It's all ball bearings nowadays." - Fletch, 1985 movie</em></p>
+                  <h1>What are containers and why do you need them?</h1>
+                
+                <p><em>"Awww, come on guys, it's so simple. Maybe you need a refresher course. ... It's all ball bearings nowadays." - Fletch, 1985 movie</em></p>
 <p>Sadly, it is not all about ball bearings nowadays. It's all about containers. If you heard about containers, but are not sure what they are, you've come to the right place. This blog post addresses the following questions:</p>
 <ul>
 <li>Why should I care about containers?</li>
@@ -4496,6 +4561,8 @@ check_date: "2021-09-02"</p>
 <p><a href="https://www.ibm.com/cloud/openshift" target="_blank" rel="noopener noreferrer">Get the details</a> of capabilities such as dashboards with a native OpenShift experience, continuous availability with multi-zone clusters, and moving workloads and data more securely. And learn the <a href="https://developer.ibm.com/videos/kubernetes-plus-openshift-video/" target="_blank" rel="noopener noreferrer">difference between Kubernetes and OpenShift</a> in this video.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>Containers are building blocks for the future. More than a new "bright shiny object," they are here to stay. From delivering applications more quickly, to supercharging development to deployment, to reducing infrastructure and software costs, containers provide both small and large organizations with real business results.</p>
+                
+                  
                 
               
               

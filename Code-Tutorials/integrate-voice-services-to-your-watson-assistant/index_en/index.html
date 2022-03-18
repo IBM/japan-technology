@@ -14,7 +14,7 @@
     
     
       
-        <title>Index en - IBM Developer Learning Paths 日本語サイト</title>
+        <title>Integrate voice services into your Watson Assistant - IBM Developer Learning Paths 日本語サイト</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#replacing-the-create-a-web-based-chatbot-pattern" class="md-skip">
+        <a href="#prerequisites" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index en
+              Integrate voice services into your Watson Assistant
             
           </span>
         </div>
@@ -4384,8 +4384,69 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-speech-to-text-service" class="md-nav__link">
+    Create a Speech to Text service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-text-to-speech-service" class="md-nav__link">
+    Create a Text to Speech service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-free-phone-number-with-intelepeer" class="md-nav__link">
+    Generate a free phone number with IntelePeer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link-the-assistant-to-watson-speech-to-text-and-text-to-speech" class="md-nav__link">
+    Link the Assistant to Watson Speech to Text and Text to Speech
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4398,30 +4459,9 @@
               
                 
                 
-                <hr />
-<h1 id="replacing-the-create-a-web-based-chatbot-pattern">Replacing the create a web-based chatbot pattern<a class="headerlink" href="#replacing-the-create-a-web-based-chatbot-pattern" title="Permanent link">&para;</a></h1>
-<h1 id="httpsgithubibmcomibmcodeibmcodecontentissues943">https://github.ibm.com/IBMCode/IBMCodeContent/issues/943<a class="headerlink" href="#httpsgithubibmcomibmcodeibmcodecontentissues943" title="Permanent link">&para;</a></h1>
-<p>authors:
-- email: "mohammad.fawaz.siddiqi@ibm.com"
-  name: 'Fawaz Siddiqi'</p>
-<p>completed_date: "2021-10-08"
-check_date: "2022-10-10"</p>
-<p>components:
-  - watson-assistant</p>
-<p>draft: false</p>
-<p>excerpt:    "Enable voice conversations with your Watson Assistant by linking your Assistant to IBM Watson Speech to Text and IBM Text to Speech services."
-meta_description:   "Enable voice conversations with your Watson Assistant by linking your Assistant to IBM Watson Speech to Text and IBM Text to Speech services."</p>
-<p>primary_tag: "artificial-intelligence"</p>
-<p>subtitle: "Enable voice conversations by linking your Assistant to Watson speech services"
-title:  "Integrate voice services into your Watson Assistant"
-meta_title: "Integrate voice services into your Watson Assistant"</p>
-<p>meta_keywords:  "Watson Assistant, Artificial intelligence, chatbot"</p>
-<p>tags:
-  - "conversation"
-also_found_in:
-  - "learningpaths/get-started-watson-assistant/"</p>
-<hr />
-<p>Giving your Watson Assistant a voice lets users interact with it through speech. This option makes it easy for the Assistant to respond to a user's voice and answer their questions or do a task for them. After the Assistant is published, you can link it through various voice services. This tutorial uses SIP trunk integrations by <a href="https://www.genesys.com">Genesys</a>, <a href="https://intelepeer.com">IntelePeer</a> and <a href="https://www.twilio.com">Twilio</a>. The tutorial explains how to generate a free number with IntelePeer and link your Watson Assistant to IBM Watson Speech to Text and IBM Text to Speech services to enable the voice conversations. However, you can also integrate the Watson Assistant with your own voice services.</p>
+                  <h1>Integrate voice services into your Watson Assistant</h1>
+                
+                <p>Giving your Watson Assistant a voice lets users interact with it through speech. This option makes it easy for the Assistant to respond to a user's voice and answer their questions or do a task for them. After the Assistant is published, you can link it through various voice services. This tutorial uses SIP trunk integrations by <a href="https://www.genesys.com">Genesys</a>, <a href="https://intelepeer.com">IntelePeer</a> and <a href="https://www.twilio.com">Twilio</a>. The tutorial explains how to generate a free number with IntelePeer and link your Watson Assistant to IBM Watson Speech to Text and IBM Text to Speech services to enable the voice conversations. However, you can also integrate the Watson Assistant with your own voice services.</p>
 <p><strong>Note:</strong> To follow the tutorial, you must have a <a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">Plus Plan of Watson Assistant</a>. You can get a free 30-day trial by selecting the trial plan when <a href="https://cloud.ibm.com/catalog/services/watson-assistant?cm_sp=ibmdev-_-developer-tutorials-_-cloudreg">creating the Watson Assistant service</a>.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>To follow the tutorial, you need:</p>
@@ -4514,6 +4554,8 @@ also_found_in:
 </ol>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>With a few steps and clicks, you created a free phone number and attached it to your Watson Assistant to give your Assistant users a better experience. Now, they can call the provided number and get the answers they need from your Assistant.</p>
+                
+                  
                 
               
               
