@@ -1,0 +1,174 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="yes" layout="ArticleStandard18" skill-level="3" toc="auto"><id cma-id="1048931" original="yes"/><keywords content="neural network, deep learning, back-propagation, DSN, RNN, DBN,          CNN, LSTM, M. Tim Jones"/><meta-last-updated day="21" initials="jjamaya@us.ibm.com" month="02" year="2018"/><!-- CONTENT-AREA-PRIMARY - REQUIRED --><content-area-primary name="cognitive"/><title>Deep learning architectures</title><subtitle>The rise of artificial intelligence</subtitle><pdf pages="11" paperSize="common" size="606 KB" url="cc-machine-learning-deep-learning-architectures-pdf.pdf"/><author email="mtj@mtjones.com" email-cc="" jobtitle="Firmware architect" publish-email="no"><author-level>none</author-level><bio>TK</bio><img alt="M. Tim Jones" height="60" src="http://www.ibm.com/developerworks/i/p-mtjones60.jpg" width="60"/><name>M. Tim Jones</name><company-name>Cogito LLC</company-name><social-networks><social-network><social-network-name>dW author profile</social-network-name><social-network-url>https://developer.ibm.com/author/mtj/</social-network-url></social-network></social-networks></author><date-published day="08" month="09" year="2017"/><!-- SOCIAL-MEDIA-META - OPTIONAL BUT RECOMMENDED 
+The twitter-summary-card elements enable you to override the default values for the title, abstract, 
+or image that make up the twitter card. The title for the card is truncated at 70 characters. 
+The abstract is truncated at 200 characters. (The truncation values can be less depending on the type 
+of device Twitter is being viewed on.) The src attribute of the twitter-card-img element must be a 
+fully-qualified URL. If the twitter-card-img width is equal to or greater than 280 and the height is 
+equal to or greater than 150, then the Twitter Card will be generated with the large image
+format. --><social-media-meta><twitter-summary-card><twitter-card-title>Deep learning and Caffe, Deeplearning4j, TensorFlow, and
+					DDL</twitter-card-title><!-- <twitter-card-abstract>
+		The twitter card abstract is truncated at 200 characters. If your abstract
+		is long, you may want to include a more concise version here.
+        </twitter-card-abstract>--><twitter-card-img height="440" src="http://dw1.s81c.com/developerworks/i/twitterdw-32304-deeplearning.png" width="880"/></twitter-summary-card></social-media-meta><abstract>Discover the range and types of deep learning neural architectures and networks,
+			including RNNs, LSTM/GRU networks, CNNs, DBNs, and DSN, and the frameworks to help get
+			your neural network working quickly and well. </abstract><docbody><p>Connectionist architectures have existed for more than 70 years, but new
+				architectures and graphical processing units (GPUs) brought them to the forefront of
+				artificial intelligence. The last two decades gave us deep learning architectures,
+				which greatly expanded the number and type of problems neural networks can address.
+				This article introduces five of the most popular deep learning
+				architectures<mdash/>recurrent neural networks (RNNs), long short-term memory
+				(LSTM)/gated recurrent unit (GRU), convolutional neural networks (CNNs), deep belief
+				networks (DBN), and deep stacking networks (DSNs)<mdash/>and then explores open
+				source software options for deep learning. </p><p>Deep learning isn't a single approach but rather a class of algorithms and topologies
+				that you can apply to a broad spectrum of problems. While deep learning is certainly
+				not new, it is experiencing explosive growth because of the intersection of deeply
+				layered neural networks and the use of GPUs to accelerate their execution. Big data
+				has also fed this growth. Because deep learning relies on supervised learning
+				algorithms (those that train neural networks with example data and reward them based
+				on their success), the more data, the better to build these deep learning
+				structures. </p><heading refname="rise" type="h2">Deep learning and the rise of the GPU</heading><p>Deep learning consists of deep networks of varying topologies. Neural networks have
+				been around for quite a while, but the development of numerous layers of networks
+				(each providing some function, such as feature extraction) made them more practical
+				to use. Adding layers means more interconnections and weights between and within the
+				layers. This is where GPUs benefit deep learning, making it possible to train and
+				execute these deep networks (where raw processors are not as efficient). </p><p>GPUs differ from traditional multicore processors in a few key ways. First, a
+				traditional processor might contain 4 - 24 general-purpose CPUs, but a GPU might
+				contain 1,000 - 4,000 specialized data processing cores. </p><figure><!--<heading refname="fig01">Multicore processor vs. a GPU</heading>--><img alt="Side-by-side images comparing the number of CPUs in a      multicore processor versus the number of cores in a GPU" height="439" src="figure01.png" width="700"/></figure><p>The high density of cores makes the GPU highly parallel (that is, it can perform many
+				computations at once) compared with traditional CPUs. This makes GPUs ideal for
+				large neural networks in which many neurons can be computed at once (where a
+				traditional CPU could parallelize a considerably smaller number in parallel). GPUs
+				also excel at floating-point vector operations because neurons are nothing more than
+				vector multiplication and addition. All of these characteristics make neural
+				networks on GPUs what's called <em>embarrassingly parallel</em> (that is, perfectly
+				parallel, where little or no effort is required to parallelize the task). </p><heading refname="dl_architectures" type="h2">Deep learning architectures</heading><p>The number of architectures and algorithms that are used in deep learning is wide and
+				varied. This section explores five of the deep learning architectures spanning the
+				past 20 years. Notably, LSTM and CNN are two of the oldest approaches in this list
+				but also two of the most used in various applications. </p><figure><!--<heading refname="fig02">A timeline of deep learning architecture
+				    development</heading>--><img alt="Graphical timeline showing the development of the five major deep learning      architectures by date, from 1990 to 2015" height="235" src="figure02.png" width="900"/></figure><p>These architectures are applied in a wide range of scenarios, but the following table
+				lists some of their typical applications. </p><table border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" data-widget="datatable" summary=""><!--<heading refname="table1">Applications by architecture</heading>--><thead><tr><th class="ibm-background-neutral-white-30">Architecture</th><th class="ibm-background-neutral-white-30">Application</th></tr></thead><tbody><tr><td>RNN</td><td>Speech recognition, handwriting recognition</td></tr><tr><td>LSTM/GRU networks</td><td>Natural language text compression, handwriting
+							recognition, speech recognition, gesture recognition, image captioning
+						</td></tr><tr><td>CNN</td><td>Image recognition, video analysis, natural language
+							processing</td></tr><tr><td>DBN</td><td>Image recognition, information retrieval, natural language
+							understanding, failure prediction </td></tr><tr><td>DSN</td><td>Information retrieval, continuous speech
+						recognition</td></tr></tbody></table><p>Now, let's explore these architectures and the methods that are used to train
+				them.</p><heading refname="rnn" type="h3">Recurrent neural networks</heading><p>The RNN is one of the foundational network architectures from which other deep
+				learning architectures are built. The primary difference between a typical
+				multilayer network and a recurrent network is that rather than completely
+				feed-forward connections, a recurrent network might have connections that feed back
+				into prior layers (or into the same layer). This feedback allows RNNs to maintain
+				memory of past inputs and model problems in time. </p><p>RNNs consist of a rich set of architectures (we'll look at one popular topology
+				called LSTM next). The key differentiator is feedback within the network, which
+				could manifest itself from a hidden layer, the output layer, or some combination
+				thereof. </p><figure><!--<heading refname="fig03">Typical RNN</heading>--><img alt="Image with circles and arrows demonstrating the interrelationship        among network input, output, hidden, and context layers" height="725" src="figure03.png" width="473"/></figure><p>RNNs can be unfolded in time and trained with standard back-propagation or by using a
+				variant of back-propagation that is called back-propagation in time (BPTT). </p><heading refname="gru" type="h3">LSTM/GRU networks</heading><p>The LSTM was created in 1997 by Hochreiter and Schimdhuber, but it has grown in
+				popularity in recent years as an RNN architecture for various applications. You'll
+				find LSTMs in products that you use every day, such as smartphones. IBM applied
+				LSTMs in IBM Watson<reg/> for milestone-setting conversational speech recognition. </p><p>The LSTM departed from typical neuron-based neural network architectures and instead
+				introduced the concept of a memory cell. The memory cell can retain its value for a
+				short or long time as a function of its inputs, which allows the cell to remember
+				what's important and not just its last computed value. </p><p>The LSTM memory cell contains three gates that control how information flows into or
+				out of the cell. The input gate controls when new information can flow into the
+				memory. The forget gate controls when an existing piece of information is forgotten,
+				allowing the cell to remember new data. Finally, the output gate controls when the
+				information that is contained in the cell is used in the output from the cell. The
+				cell also contains weights, which control each gate. The training algorithm,
+				commonly BPTT, optimizes these weights based on the resulting network output error. </p><figure><!--<heading refname="fig04">An LSTM memory cell</heading>--><img alt="Image with circles and arrows showing the LSTM memory cell       and the flow of information through the various gates" height="511" src="figure04.png" width="817"/></figure><p>In 2014, a simplification of the LSTM was introduced called the gated recurrent unit.
+				This model has two gates, getting rid of the output gate present in the LSTM model.
+				For many applications, the GRU has performance similar to the LSTM, but being
+				simpler means fewer weights and faster execution. </p><p>The GRU includes two gates: an update gate and a reset gate. The update gate
+				indicates how much of the previous cell contents to maintain. The reset gate defines
+				how to incorporate the new input with the previous cell contents. A GRU can model a
+				standard RNN simply by setting the reset gate to 1 and the update gate to 0. </p><figure><!--<heading refname="fig05">A typical GRU cell</heading>--><img alt="Diagram of a typical GRU cell" height="252" src="figure05.png" width="330"/></figure><p>The GRU is simpler than the LSTM, can be trained more quickly, and can be more
+				efficient in its execution. However, the LSTM can be more expressive and with more
+				data, can lead to better results. </p><heading refname="cnn" type="h3">Convolutional neural networks</heading><p>A CNN is a multilayer neural network that was biologically inspired by the animal
+				visual cortex. The architecture is particularly useful in image-processing
+				applications. The first CNN was created by Yann LeCun; at the time, the architecture
+				focused on handwritten character recognition, such as postal code interpretation. As
+				a deep network, early layers recognize features (such as edges), and later layers
+				recombine these features into higher-level attributes of the input. </p><p>The LeNet CNN architecture is made up of several layers that implement feature
+				extraction, and then classification (see the following image). The image is divided
+				into receptive fields that feed into a convolutional layer, which then extracts
+				features from the input image. The next step is pooling, which reduces the
+				dimensionality of the extracted features (through down-sampling) while retaining the
+				most important information (typically through max pooling). Another convolution and
+				pooling step is then performed that feeds into a fully connected multilayer
+				perceptron. The final output layer of this network is a set of nodes that identify
+				features of the image (in this case, a node per identified number). You train the
+				network by using back-propagation. </p><figure><!--<heading refname="fig06">A typical LeNet CNN</heading>--><img alt="Diagram of a typical LeNet CNN architecture" height="227" src="figure06.png" width="886"/></figure><p>The use of deep layers of processing, convolutions, pooling, and a fully connected
+				classification layer opened the door to various new applications of deep learning
+				neural networks. In addition to image processing, the CNN has been successfully
+				applied to video recognition and various tasks within natural language processing. </p><p>Recent applications of CNNs and LSTMs produced image and video captioning systems in
+				which an image or video is summarized in natural language. The CNN implements the
+				image or video processing, and the LSTM is trained to convert the CNN output into
+				natural language. </p><heading refname="dbn" type="h3">Deep belief networks</heading><p>The DBN is a typical network architecture but includes a novel training algorithm.
+				The DBN is a multilayer network (typically deep, including many hidden layers) in
+				which each pair of connected layers is a restricted Boltzmann machine (RBM). In this
+				way, a DBN is represented as a stack of RBMs. </p><p>In the DBN, the input layer represents the raw sensory inputs, and each hidden layer
+				learns abstract representations of this input. The output layer, which is treated
+				somewhat differently than the other layers, implements the network classification.
+				Training occurs in two steps: unsupervised pretraining and supervised fine-tuning. </p><figure><!--<heading refname="fig07">A typical DBN</heading>--><img alt="Diagram of a typical DBN, with circles and arrows indicating the flow       of information among layers" height="441" src="figure07.png" width="527"/></figure><p>In unsupervised pretraining, each RBM is trained to reconstruct its input (for
+				example, the first RBM reconstructs the input layer to the first hidden layer). The
+				next RBM is trained similarly, but the first hidden layer is treated as the input
+				(or visible) layer, and the RBM is trained by using the outputs of the first hidden
+				layer as the inputs. This process continues until each layer is pretrained. When the
+				pretraining is complete, fine-tuning begins. In this phase, the output nodes are
+				applied labels to give them meaning (what they represent in the context of the
+				network). Full network training is then applied by using either gradient descent
+				learning or back-propagation to complete the training process. </p><heading refname="dsn" type="h3">Deep stacking networks</heading><p>The final architecture is the DSN, also called a deep convex network. A DSN is
+				different from traditional deep learning frameworks in that although it consists of
+				a deep network, it's actually a deep set of individual networks, each with its own
+				hidden layers. This architecture is a response to one of the problems with deep
+				learning: the complexity of training. Each layer in a deep learning architecture
+				exponentially increases the complexity of training, so the DSN views training not as
+				a single problem but as a set of individual training problems. </p><p>The DSN consists of a set of modules, each of which is a subnetwork in the overall
+				hierarchy of the DSN. In one instance of this architecture, three modules are
+				created for the DSN. Each module consists of an input layer, a single hidden layer,
+				and an output layer. Modules are stacked one on top of another, where the inputs of
+				a module consist of the prior layer outputs and the original input vector. This
+				layering allows the overall network to learn more complex classification than would
+				be possible given a single module. </p><figure><!--<heading refname="fig08">A typical DSN</heading>--><img alt="Diagram of a typical DSN showing how the stacked layers       facilitate learning" height="494" src="figure08.png" width="442"/></figure><p>The DSN permits training of individual modules in isolation, making it efficient
+				given the ability to train in parallel. Supervised training is implemented as
+				back-propagation for each module rather than back-propagation over the entire
+				network. For many problems, DSNs can perform better than typical DBNs, making them a
+				popular and efficient network architecture. </p><heading refname="open" type="h2">Open source frameworks</heading><p>Implementing these deep learning architectures is certainly possible, but starting
+				from scratch can be time-consuming, and they also need time to optimize and mature.
+				Luckily, you can take advantage of several open source frameworks to more easily
+				implement and deploy deep learning algorithms. These frameworks support languages
+				like Python, C/C++, and the Java<reg/> language. Let's explore three of the most
+				popular frameworks and their strengths and weaknesses. </p><heading refname="caffe" type="h3">Caffe</heading><p>One of the most popular deep learning frameworks is Caffe. Caffe was originally
+				developed as part of a Ph.D. dissertation but is now released under the Berkeley
+				Software Distribution license. Caffe supports a wide range of deep learning
+				architectures, including CNN and LSTM, but notably does not support RBMs or DBMs
+				(although the coming release of Caffe2 will include such support). </p><p>Caffe has been used for image classification and other vision applications, and it
+				supports GPU-based acceleration with the NVIDIA CUDA Deep Neural Network library.
+				Caffe supports Open Multi-Processing (OpenMP) for parallelizing deep learning
+				algorithms over a cluster of systems. Caffe and Caffe2 are written in C++ for
+				performance and offer a Python and MATLAB interface for deep learning training and
+				execution. </p><heading refname="deeplearning4j" type="h3">Deeplearning4j</heading><p>Deeplearning4j is a popular deep learning framework that is focused on Java
+				technology, but it includes application programming interfaces for other languages,
+				such as Scala, Python, and Clojure. The framework is released under the Apache
+				license and includes support for RBMs, DBNs, CNNs, and RNNs. Deeplearning4j also
+				includes distributed parallel versions that work with Apache Hadoop and Spark (big
+				data processing frameworks). </p><p>Deeplearning4j has been applied to various problems, including fraud detection in the
+				financial sector, recommender systems, image recognition, and cybersecurity (network
+				intrusion detection). The framework integrates with CUDA for GPU optimization and
+				can be distributed with OpenMP or Hadoop. </p><heading refname="tensorflow" type="h3">TensorFlow</heading><p>TensorFlow was developed by Google as an open source library and descendent of the
+				closed source DistBelief. You can use TensorFlow to train and deploy various neural
+				networks (CNNs, RBMs, DBNs, and RNNs) and is released under the Apache 2.0 license.
+				TensorFlow has been applied to various problems, such as image captioning, malware
+				detection, speech recognition, and information retrieval. An Android-focused stack
+				called TensorFlow Lite was recently released. </p><p>You can develop applications with TensorFlow in Python, C++, the Java language, Rust,
+				or Go (although Python is the most stable) and distribute their execution with
+				Hadoop. TensorFlow supports CUDA, as well, in addition to specialized hardware
+				interfaces. </p><heading refname="dll" type="h3">Distributed Deep Learning</heading><p>Dubbed the "jet engine of deep learning," IBM Distributed Deep Learning (DDL) is a
+				library that links into leading frameworks such as Caffe and TensorFlow. DDL can be
+				used to accelerate deep learning algorithms over clusters of servers and hundreds of
+				GPUs. DDL optimizes the communication of neuron calculations by defining optimal
+				paths that the resulting data must take between GPUs. Resolving the bottleneck of a
+				deep learning cluster was demonstrated by beating a prior image recognition task
+				Microsoft had recently set. </p><heading refname="further" type="h2">Going further</heading><p>Deep learning is represented by a spectrum of architectures that can build solutions
+				for a range of problem areas. These solutions can be feed-forward focused or
+				recurrent networks that permit consideration of previous inputs. Although building
+				these types of deep architectures can be complex, various open source solutions,
+				such as Caffe, Deeplearning4j, TensorFlow, and DDL, are available to get you up and
+				running quickly. </p><p>Go deeper into neural networks in this developerWorks <a href="https://www.ibm.com/developerworks/library/cc-cognitive-recurrent-neural-networks/index.html" target="new">tutorial</a> on recurrent neural networks.</p><related-topics-block><link><text>Deep learning fast</text><url>https://developer.ibm.com/dwblog/2017/deep-learning-fast/</url></link></related-topics-block></docbody><link-to-english/></dw-article><!-- PUB_TO_MAV --></dw-document>

@@ -1,0 +1,434 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="yes" layout="ArticleStandard18" skill-level="3" toc="auto"><id cma-id="1038760" original="yes"/><keywords content="blockchain, mark parzygnat"/><meta-last-updated day="22" initials="gemoore@us.ibm.com" month="06" year="2018"/><content-area-primary name="blockchain"/><content-area-secondary name="cloud"/><title>IBM Blockchain 101: Quick-start guide for developers</title><subtitle>Build a kick-starter blockchain network and start coding with the IBM
+            Blockchain Platform Starter Plan</subtitle><pdf pages="8" paperSize="common" size="206 KB" url="cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs-pdf.pdf"/><author email="markparz@us.ibm.com" email-cc="" jobtitle="IBM Blockchain Release Manager" publish-email="yes"><author-level>none</author-level><bio><nbsp/></bio><img align="left" alt="Author photo - Mark Parzygnat" height="60" name="Author photo - Mark Parzygnat" src="https://www.ibm.com/developerworks/i/p-mparzygnat60.jpg" valign="top" width="60"/><author-name><GivenName>Mark</GivenName><FamilyName>Parzygnat</FamilyName></author-name><company-name> IBM</company-name><social-networks><social-network><social-network-name>LinkedIn</social-network-name><social-network-url>https://www.linkedin.com/in/mark-parzygnat-4a691a14/</social-network-url></social-network></social-networks></author><author email="Donald.Thibeau@ibm.com" email-cc="" jobtitle="IBM Blockchain Offering Manager" publish-email="yes"><author-level>none</author-level><bio><nbsp/></bio><img alt="Author photo - Don Thibeau" height="60" src="https://www.ibm.com/developerworks/i/p-dthibeau60.jpg" width="60"/><author-name><GivenName>Don</GivenName><FamilyName>Thibeau</FamilyName></author-name><company-name> IBM</company-name><social-networks><social-network><social-network-name>LinkedIn</social-network-name><social-network-url>https://www.linkedin.com/in/donald-thibeau-34880467/</social-network-url></social-network></social-networks></author><!--<author email="negupta@us.ibm.com" email-cc=""
+            jobtitle="IBM Blockchain Business Development Strategist" publish-email="yes">
+            <author-level>none</author-level>
+            <bio><nbsp/></bio>
+            <img align="left" alt="Author photo - Nikhil Gupta" height="60"
+                src="http://www.ibm.com/developerworks/i/p-ngupta60.jpg" valign="top"
+                width="60"/>
+            <author-name>
+                <GivenName>Nikhil</GivenName>
+                <FamilyName>Gupta</FamilyName>
+            </author-name>
+            <company-name> IBM</company-name>
+            <social-networks>
+                <social-network>
+                    <social-network-name>LinkedIn</social-network-name>
+                    <social-network-url>https://www.linkedin.com/in/nikhil-gupta-42274597</social-network-url>
+                </social-network>
+            </social-networks>
+        </author>--><!--<date-published day="23" month="10" year="2016"/>
+        <date-updated day="18" month="03" year="2018"/>--><date-published day="22" month="06" year="2018"/><social-media-meta><twitter-summary-card><twitter-card-title>IBM Blockchain 101: Quick-start guide for application
+                    developers</twitter-card-title><twitter-card-abstract>Join the blockchain revolution! This developerWorks
+                    quick-start guide is for application developers who are exploring
+                    blockchain technology and want to quickly spin up a pre-production
+                    blockchain network, deploy sample applications, and develop and deploy
+                    client applications.</twitter-card-abstract><twitter-card-img height="440" src="http://www.ibm.com/developerworks/i/twitterdw-31269-blockchainstart.png" width="880"/></twitter-summary-card></social-media-meta><abstract>Join the blockchain revolution! This developerWorks quick-start guide is
+            for application developers who are exploring blockchain technology and want to
+            quickly spin up a blockchain pre-production network, deploy sample
+            applications, and develop and deploy client applications. Simple instructions
+            show you how to activate a blockchain network based on the latest Hyperledger
+            Fabric framework, write and install chaincode (business logic for the
+            network), and develop client applications to streamline business processes and
+            digital interactions.</abstract><docbody><!--<sidebar>
+                <heading>Model your first blockchain network, fast!</heading>
+                <p>With the IBM Blockchain Platform's free developer environment, you can
+                    quickly prototype a blockchain network your preferred way: online,
+                    locally, or in the cloud. See how to <a
+                        href="https://www.ibm.com/blockchain/getting-started" target="_blank" rel="noopener noreferrer nofollow"><strong>
+                            define and test your business network</strong></a>.</p>
+            </sidebar>--><p>Join the blockchain revolution! If you're exploring distributed ledger
+                technology for business use and want to build a business blockchain for
+                demos, pilots, or pre-production staging, this guide is for you. We'll
+                introduce you to several ways to <a href="#start"><strong>get started now</strong></a>, 
+                including the IBM
+                Blockchain Platform <strong>Starter Plan</strong>.</p><button-link><text>Kick-start your blockchain network now with the Starter Plan</text><url>http://www.ibm.com/blockchain/getting-started.html</url></button-link><p>This guide shows you how to spin up a blockchain network based on the
+                latest open source Hyperledger Fabric framework using either the <a href="#sp">Starter Plan</a> or <a href="#other">alternative
+                    methods</a>. But let's first review key concepts around developing a
+                business blockchain network.
+                <!--Links in this section guide you to deeper dives.--><!--the
+                open source Hyperledger Fabric framework that powers a business
+                blockchain, and IBM's blockchain software-as-a-service that runs on
+                Hyperledger Fabric and integrates the Hyperledger Composer tool
+                suite.--></p><heading type="h2">Business blockchain concepts</heading><heading type="h3">What is a business blockchain network?</heading><!--<sidebar>
+                <img align="left" alt="Blockchain newsletter signup" height="75"
+                    src="//www.ibm.com/developerworks/i/newsletter-icon-blockchain.png"
+                    width="75"/>
+                <!-\-<heading>Sign up for the Blockchain newsletter</heading>-\->
+                <p>Get a monthly roundup of the best free tools, training, and community
+                    resources to put IBM Blockchain to work.<br/><a
+                        href="http://ibm.biz/blockchain-newsletter" target="new"
+                            ><strong>Current issue</strong></a> | <a
+                        href="http://ibm.biz/blockchain-newsletter-signup" target="new"
+                            ><strong>Subscribe</strong></a></p>
+            </sidebar>--><!--<sidebar>
+                <heading>Learning the lingo as you go?</heading>
+                <p>Check out the extensive <a
+                        href="http://hyperledger-fabric.readthedocs.io/en/latest/glossary.html"
+                        target="new"><strong>Glossary</strong></a> of blockchain and
+                    Hyperledger Fabric terminology.</p>
+            </sidebar>--><p>A <strong><em>business blockchain network</em></strong> is a decentralized
+                network that uses distributed ledger technology for the efficient and
+                secure transfer of business assets between member organizations in the
+                network. Assets can be physical or digital, such as vehicles, diamonds,
+                fresh produce, or insurance records. A shared, <strong><em>distributed
+                        ledger</em></strong> records an immutable history of all asset
+                transactions between participants in the network, and catalogs the current
+                state (world state) of those assets. The business rules that govern
+                transactions
+                <!--(who can order a car from whom, how much it costs, where it
+                will be manufactured, for example)-->
+                are agreed upon by members and encapsulated in
+                    <strong><em>chaincode</em></strong>, also known as smart
+                contracts.</p><p>Instead of relying on a central authority or trusted intermediary, such as
+                a bank or brokerage firm, to validate transactions, members of a
+                blockchain network use a <strong><em>consensus</em></strong> mechanism to
+                improve transaction processing speed, transparency, and accountability
+                across the network. For additional confidentiality, members join one or
+                more <strong><em>channels</em></strong> that allow for data isolation; a
+                channel-specific ledger is shared by the authenticated peers in that
+                channel.</p><p>A blockchain network for business is collectively owned and operated by a
+                group of identifiable and verifiable institutions, such as businesses,
+                universities, or hospitals<!--, or government organizations-->. In such a
+                        <strong><em>permissioned network</em></strong>, the participants
+                are known to each other, and transactions are processed much faster than
+                in an non-permissioned, public network, like the Bitcoin network. In the
+                Bitcoin network, members are anonymous, forcing the reliance on
+                "proof-of-work" and other types of consensus mechanisms that require
+                time-consuming computations to confirm identities and validate
+                transactions.</p><p>Need more background?</p><ul><li>Check out our <a href="https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-intro-bluemix-trs/" target="new"><strong>Introduction to distributed
+                        ledgers</strong></a>.</li><!--<li><a
+                        href="https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-glossary-bluemix-trs/"
+                        target="new"><strong>Blockchain glossary and use
+                        cases</strong></a></li>--><li>Take the <a href="https://developer.ibm.com/courses/all/blockchain-essentials/" target="new"><strong>Blockchain essentials course</strong></a>. In
+                    this free 2-hour course, you'll learn about blockchain for business
+                    and explore key ways the technology sparks innovation. Take a quiz for
+                    a badge when you complete the videos and lab exercise.</li><li>Take the <a href="https://developer.ibm.com/courses/all/ibm-blockchain-foundation-developer/" target="new"><strong>IBM Blockchain foundation developer
+                            course</strong></a>. This free 6-hour course expands on
+                    "Blockchain essentials" and shows you how to model, build, and test a
+                    business network and create an application that can query a ledger.
+                    Take a quiz for a badge when you complete the videos and lab
+                    exercises.</li></ul><heading type="h3">The open source engine of business blockchains: Hyperledger
+                Fabric</heading><!--000 add jerry's 60 mill solution?
+                <sidebar>
+                <heading>Protecting the supply chain</heading>
+                <p>Everledger uses Hyperledger Fabric to 
+                    <a href="https://www.ibm.com/blogs/blockchain/2018/02/leveraging-blockchain-from-transactions-to-returns/"
+                        >track 
+                        conflict diamonds 
+                        through the supply
+                    chain</a> to protect suppliers, buyers, and shippers from theft and counterfeiting.</p>
+            </sidebar>--><p>To meet modern business demands, IBM has joined with other companies to
+                collaboratively develop an open source, production-ready, business
+                blockchain framework, called <strong><em>Hyperledger
+                Fabric</em></strong><trade/>, one of the Hyperledger<reg/> projects hosted
+                by The Linux Foundation<reg/>. Hyperledger Fabric supports distributed
+                ledger solutions on permissioned networks for a wide range of industries.
+                Its modular architecture maximizes the confidentiality, resilience, and
+                flexibility of blockchain solutions. 159 engineers from 27 organizations
+                contributed to Hyperledger Fabric v1.0.</p><p>Dive deeper:</p><ul><li><a href="https://www.hyperledger.org/projects/fabric" target="new"><strong>Hyperledger Fabric project overview</strong></a></li><!--<li><a
+                        href="https://developer.ibm.com/blockchain/2018/03/07/hyperledger-fabric-v1-1-new-features/"
+                            ><strong>Preview of coming attractions: Hyperledger Fabric
+                            v1.1</strong></a></li>--><li><a href="https://www.ibm.com/developerworks/cloud/library/cl-top-technical-advantages-of-hyperledger-fabric-for-blockchain-networks/index.html" target="new"><strong>Top 6 technical advantages of Hyperledger
+                            Fabric for business blockchains</strong></a></li></ul><heading type="h3">IBM's enterprise-ready platform: The IBM Blockchain
+                Platform</heading><sidebar><heading>Platform overview</heading><!--https://www.youtube.com/watch?v=Xgz5JrmLpHM--><p>Build your blockchain with our proven tools and experience.</p><!--https://www.youtube.com/watch?v=ZRgWvJ6eTiY--><video-container><video-id>ZRgWvJ6eTiY</video-id><!--<thumbnail-image-url>http://www.ibm.com/developerworks/library/iot-mobile-phone-iot-device-bluemix-apps-trs/videothumbnail.jpg</thumbnail-image-url>--><video-title display="yes">Develop. Govern. Operate an enterprise
+                        blockchain with IBM Blockchain Platform</video-title><!--<video-transcript-url></video-transcript-url>--><video-length><minutes>1</minutes><seconds>36</seconds></video-length></video-container></sidebar><p>The <strong><em><a href="https://www.ibm.com/blockchain/platform/">IBM
+                            Blockchain Platform</a></em></strong> is a blockchain
+                software-as-a-service offering on the IBM Cloud. It's the only fully
+                integrated, enterprise-ready blockchain platform designed to simplify the
+                development, governance, and operation of a decentralized,
+                multi-institution business network. The IBM Blockchain Platform
+                accelerates collaboration in this decentralized world by leveraging open
+                source technology from the Hyperledger Fabric framework and Hyperledger
+                Composer tooling.</p><p>The IBM Blockchain Platform makes it fast and easy for network members to
+                get started developing and quickly move to a collaborative environment
+                with the performance, privacy, and security for even the most demanding
+                use cases and regulated industries.</p><p>Different membership plans are available to fit different ecosystem needs.
+                You can migrate from proof-of-concept to pilot to production on a secure,
+                high-performance, and fully scalable network that you can't outgrow. The
+                newest membership plan, designed as an easy and economical on-ramp to
+                developing and testing pre-production applications, is the <a href="#sp"><strong>Starter Plan</strong></a>.</p><p>Discover the IBM Blockchain Platform:</p><ul><li><a href="https://www.ibm.com/blockchain/platform" target="new"><strong>IBM Blockchain Platform overview</strong></a></li><li><a href="https://www.ibm.com/developerworks/cloud/library/cl-ibm-blockchain-platform-develop-govern-operate-your-business-network/index.html"><strong>Develop, govern, and operate your business network
+                            with the IBM Blockchain Platform</strong></a></li></ul><heading refname="sp" type="h2">What's in the Starter Plan</heading><p>The easiest and most economical way for developers to get started with
+                blockchain development is the <a href="https://console.bluemix.net/catalog/services/blockchain?cm_sp=dw-bluemix-_-cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs-_-article" target="new"><strong>IBM Blockchain Platform Starter Plan</strong></a>. This
+                development and testing environment is ideal for developers who are
+                exploring blockchain technology and want to build a business blockchain
+                for demos, pilots, or pre-production staging.</p><!-- 4/4/18 Kyle pulled this video down, so I'm removing the heading 
+               and the video 
+               <heading type="h3">Starter Plan overview</heading>
+                <p>In this video, Mark hits the highlights of the new Starter Plan and
+                    contrasts it with the Enterprise plans available for the IBM
+                    Blockchain Platform.</p>--><!--Original: https://www.youtube.com/watch?v=fTLypikzhzs--><!--<video-container>
+                    <video-id>fTLypikzhzs</video-id>
+                    <thumbnail-image-url>video-starter-plan-overview.jpg</thumbnail-image-url>
+                    <video-title display="yes">Overview of the IBM Blockchain Platform
+                        Starter Plan</video-title>
+                    <!-\-<video-transcript-url></video-transcript-url>-\->
+                    <video-length>
+                        <minutes>2</minutes>
+                        <seconds>07</seconds>
+                    </video-length>
+                </video-container>--><!--<sidebar>
+                <heading>Starter Plan overview</heading>
+                <p>In this video, Mark hits the highlights of the new Starter Plan and
+                    contrasts it with the Enterprise plans available for the IBM
+                    Blockchain Platform.</p>
+                
+                <!-\-Original: https://www.youtube.com/watch?v=fTLypikzhzs-\->
+                <video-container>
+                    <video-id>fTLypikzhzs</video-id>
+                    <!-\-<thumbnail-image-url>http://www.ibm.com/developerworks/library/iot-mobile-phone-iot-device-bluemix-apps-trs/videothumbnail.jpg</thumbnail-image-url>-\->
+                    <video-title display="yes">Overview of the IBM Blockchain Platform
+                        Starter Plan</video-title>
+                    <!-\-<video-transcript-url></video-transcript-url>-\->
+                    <video-length>
+                        <minutes>2</minutes>
+                        <seconds>07</seconds>
+                    </video-length>
+                </video-container>
+            </sidebar>--><p>Any developer <mdash/> whether enterprise, start-up, academic, novice, or
+                experienced <mdash/> can experience and deploy code to a full-function,
+                multi-organization blockchain network with the Starter Plan.</p><button-link><text>Kick-start your blockchain network now with the Starter Plan</text><url>http://www.ibm.com/blockchain/getting-started.html</url></button-link><!--<heading type="h2">The Starter Plan features</heading>--><!--<sidebar>
+                <heading>Starter Plan demo</heading>
+                <p>In this video, Don and Mark walk you through how to launch your Starter
+                    Plan network, show you cool features that you won't find elsewhere,
+                    and let you know where to get additional help if you need it.</p>
+                
+                <!-\-Original: https://www.youtube.com/watch?v=fTsyGbl5wcg-\->
+                <!-\-Updated: https://www.youtube.com/watch?v=Xgz5JrmLpHM-\->
+                <!-\-3/26: Updated: https://www.youtube.com/watch?v=fTsyGbl5wcg-\->
+                <video-container>
+                    <video-id>fTsyGbl5wcg</video-id>
+                    <!-\-<thumbnail-image-url>http://www.ibm.com/developerworks/library/iot-mobile-phone-iot-device-bluemix-apps-trs/videothumbnail.jpg</thumbnail-image-url>-\->
+                    <video-title display="yes">Demo of the IBM Blockchain Platform
+                        Starter Plan features</video-title>
+                    <!-\-<video-transcript-url></video-transcript-url>-\->
+                    <video-length>
+                        <minutes>16</minutes>
+                        <seconds>50</seconds>
+                    </video-length>
+                </video-container>
+            </sidebar>--><!--000 a terminology sidebar would be good here.--><p>The Starter Plan provides one-click setup of a <strong>pre-configured,
+                    kick-starter network</strong> consisting of an <em>ordering
+                    service</em> to sequence transactions for the shared ledger, a default
+                    <em>channel</em> for communication between the member companies, and
+                    <em>two companies</em>, each with a <em>certificate authority</em> and
+                    <em>peer node</em> to validate and commit transactions to the ledger.
+                The Starter Plan integrates all Hyperledger Fabric capabilities and the
+                Hyperledger Composer development toolset (called <em>IBM Blockchain
+                    Platform: Develop</em>), with the added benefit of an intuitive UI
+                that cuts network administration and governance time.</p><p>With the Starter Plan, you can:</p><ul><li>Immediately deploy and demo sample applications (via IBM Cloud
+                    toolchains for continuous delivery), and see asset transfers in
+                    action.</li><li>Iteratively develop and test your own applications and chaincode in a
+                    pre-production staging environment.</li><li>Interact with your network by using APIs in the Swagger UI. Network
+                    credentials are provided so you can integrate the APIs into your own
+                    applications.</li><li>Invite other organizations to join your network and set up their own
+                    peers.</li><li>Add other member organizations to your IBM Cloud account to simulate
+                    multi-organization transaction scenarios.
+                    <!--the on-boarding of additional member organizations for
+                    practice collaborative tasks like adding channels and chaincode--></li><!--<li>Create chaincode (business logic) that you can easily migrate to an
+                    Enterprise plan</li>--><li>Develop valuable network governance and operation skills that you can
+                    seamlessly transfer to an Enterprise plan. The Starter Plan offers the
+                    same experience as the Enterprise plans, so there's no learning curve
+                    when migrating to your full production network.</li></ul><!--000 not sure this is needed or true; dup? move down?--><!--<p>Once your kick-starter network is spun up, you can model your own network
+                define your participants, assets, and
+                transactions in an easy-to-use modelling language. From that model (called
+                a <em>business network archive</em>, or .bna file), all the code you need
+                to import and deploy your model is generated, including GoLang or
+                JavaScript chaincode to encode the business logic, and a REST-based API
+                for application development.</p>--><p>You can use the Starter Plan's <strong>sample applications</strong> for
+                demo purposes and for developing your own applications. To automatically
+                deploy and run a sample application, just select, deploy, and launch it
+                via the IBM Cloud toolchain. Or learn how to develop your own
+                applications, step by step, by deploying and customizing the sample
+                applications manually.</p><!--help you collaborate 
+                with your business owner to create chaincode
+                and blockchain applications to solve business problems.--><p>Several sample applications are available for you to experiment with and
+                run in the default channel. For example:</p><ul><li>The <strong>Marbles sample</strong> is a colorful demonstration of how
+                    a front-end application interacts with chaincode, as members on a
+                    network transfer virtual marbles to other members. The application is
+                    written in Node.js, and the chaincode is written in Go.</li><li>The <strong>Vehicle Manufacture sample</strong> is both an Angular web
+                    application and a tutorial that steps you through using Hyperledger
+                    Composer to model a simple network that tracks a new car from order to
+                    delivery.</li><li>The <strong>Perishable Goods sample</strong> tracks a shipment in a
+                    supply chain, stores sensor data on the blockchain, and demonstrates
+                    the use of a smart legal contract.</li><!--<li>The <strong>Fabcar sample</strong> shows you how to perform queries and ledger
+                    updates on car records in the ledger. Fabcar is written in Node.js,
+                    and the chaincode is written in Go.</li>--></ul><!--<li>Generate a complete sample application from your .bna file. You can
+                    easily create a sample web application from your .bna file by running
+                    the <a target="new"
+                        href="https://github.com/hyperledger/composer/wiki/Composer-Angular-Generator"
+                        >Composer Angular Generator demo</a> in the Starter Plan. The
+                    generated Angular app interfaces with a REST server, which you can
+                    either point to or create when running the demo. You can then demo the
+                    app as is, or customize it for your use case.</li>--><p>The Starter Plan's <strong>intuitive UI</strong> helps you govern and
+                monitor your network. For example, you can view your peer nodes, add
+                organizations to your network, create new channels for data isolation and
+                privacy for a subset of members, install chaincode on a peer and
+                instantiate it on a channel, and set up notifications for activities that
+                need member approval.</p><!--<p>Take a look:</p>--><heading type="h2">Starter Plan demo (video)</heading><p>In this video, Don and Mark walk you through how to launch your Starter
+                Plan network, show you cool features that you won't find elsewhere, and
+                let you know where to get additional help if you need it.</p><!--Original: https://www.youtube.com/watch?v=fTsyGbl5wcg--><!--Updated: https://www.youtube.com/watch?v=Xgz5JrmLpHM--><!--3/26: Updated: https://www.youtube.com/watch?v=fTsyGbl5wcg--><video-container><video-id>fTsyGbl5wcg</video-id><thumbnail-image-url>video-starter-plan-demo.jpg</thumbnail-image-url><video-title display="yes">Demo of the IBM Blockchain Platform Starter
+                    Plan features</video-title><!--<video-transcript-url></video-transcript-url>--><video-length><minutes>16</minutes><seconds>50</seconds></video-length></video-container><!--<p>Learn more about the open source tooling that is fully integrated into the
+                Starter Plan:</p>
+            <ul>
+                <li><a href="https://www.hyperledger.org/projects/composer"><strong>Hyperledger Composer
+                    project overview</strong></a></li>
+                <li><a href="https://developer.ibm.com/blockchain/2017/06/30/get-going-quickly-blockchain-using-hyperledger-composer/"
+                    >"<strong>Get going quickly with blockchain using Hyperledger Composer</strong>"</a></li>
+            </ul>--><p>In short, the Starter Plan
+                <!--is an entry-level option that enables organizations
+                to simulate multi-organization blockchain networks, quickly develop
+                applications, and work with supplied examples. It also boasts the same UI
+                experience as other membership options, helping to eliminate any learning
+                curve. See below for more information and uses of Starter Plan.-->
+                makes it easier than ever to get hands-on experience with business
+                blockchain development, governance, and operation in a collaborative,
+                pre-production environment. And because the same easy-to-use UI extends
+                through the other membership plans, your learning curve is flattened when
+                you move to production deployment.</p><heading type="h2">What's NOT in the Starter Plan</heading><p>The Starter Plan is optimized for getting started with pre-production
+                development and testing. It differs from the Enterprise plans in several
+                ways:</p><ul><li>In the Starter Plan, the certificate authority and ordering service
+                    are not fault tolerant. Each company in the Starter Plan network has
+                    only one certificate authority, and the network has only one ordering
+                    service, which performs SOLO consensus.</li><li>In the Starter Plan, the Hardware Security Module (HSM) is not
+                    available to safeguard and manage digital keys for strong
+                    authentication and cryptoprocessing.</li><li>In the Starter Plan, during maintenance and network updates (performed
+                    weekly on Tuesday mornings), you may experience brief outages.</li><li>The Starter Plan does not guarantee data retention with release
+                    upgrades.
+                    <!--Migrating your data from a Starter Plan network to
+                    Enterprise plans is not currently supported.-->
+                    However, you <em>can migrate</em> your Starter Plan .bna files,
+                    chaincode, and applications to Enterprise plans.</li></ul><heading type="h2">What's beyond the Starter Plan</heading><p>When you're ready to grow your network further and deploy your network
+                definition, chaincode, and applications to a production environment with
+                added layers of hardened security and premium support, you'll want an
+                Enterprise plan.</p><p>In an Enterprise plan, you get all of the Starter Plan features, plus a
+                crash-tolerant, production-level infrastructure running in a secure cloud
+                container on an IBM z<reg/> mainframe, complete with runtime/data
+                isolation, high availability for the ordering service and certificate
+                authority, and the ability to use HSM cards for secure key storage.</p><!--000 IBM Z or LinuxONE<trade/>?--><heading alttoc="The Starter Plan vs. open source CLI" type="h2">Why not just
+                use open source technologies directly on your own computer?</heading><p>A locally deployed blockchain based on the Hyperledger Fabric framework and
+                built with Hyperledger Composer tools will be a terrific simulation. But
+                without access to other member organizations, you can't experience or test
+                the scalability and power of a multi-organization network. Furthermore,
+                using the open source technologies locally requires a bit more patience
+                and dexterity with command-line coding.</p><p>Conversely, with the Starter Plan, you get a scalable, reliable, fully
+                integrated IDE that guides you through network creation, deployment,
+                monitoring, and governance with simple clicks, easy instructions, and
+                extensible samples. The code and skills you develop on the Starter Plan
+                are easily transferable to Enterprise plans, when you're ready for a
+                full-scale network in production.</p><!-- 000 move this to upcoming 201 on using the Enterprise Plan
+               <heading type="h3">What is the migration path from the Starter Plan to the
+                Enterprise Plan?</heading>
+            <p>?? Mark, do you want to discuss what can be migrated (chaincode, channels,
+                apps) here?</p>--><heading refname="start" type="h2">Start now! Kick-start your blockchain network using the
+                Starter Plan</heading><p>The easiest, most economical way to learn your way around a real business
+                blockchain and start developing blockchain skills <em>and</em>
+                applications now is to sign up for the IBM Blockchain Platform Starter
+                Plan.</p><sidebar><heading>Deploy a sample business network to the Starter Plan</heading><p>Step-by-step, learn how to <a href="https://www.ibm.com/developerworks/cloud/library/cl-deploy-blockchain-starter-plan-network/index.html" target="new">deploy a sample network</a> (the Car Auction
+                    network) to the Starter Plan. Then you can start developing, demoing,
+                    and staging your blockchain applications on a simulated
+                    multi-organization network.</p></sidebar><ol><li><a href="http://www.ibm.com/blockchain/getting-started.html">Sign
+                        up</a> for the Starter Plan.</li><!--000 this is the only ref to the bluemix catalog--><li>You'll be directed to the <a href="https://console.bluemix.net/catalog/services/blockchain?cm_sp=dw-bluemix-_-cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs-_-article">Blockchain catalog page</a> in the IBM Cloud. Select the
+                        <strong>Starter Membership Plan</strong> and click <strong>Sign up
+                        to Create</strong> to launch your Starter Plan network. You'll
+                    supply a <strong>Service name</strong> for your network. Under Pricing
+                    Plans, select <strong>Starter Membership Plan</strong>, and then click
+                        <strong>Create</strong>.</li><li>When you see the Welcome screen, choose whether you want to begin by
+                    watching <a href="https://www.youtube.com/watch?v=Xgz5JrmLpHM">Don and
+                        Mark's introductory video</a>, by deploying sample applications,
+                    or by developing and deploying your own applications.</li><li>If you select <strong>Develop apps</strong>, you'll be guided through
+                    a series of easy steps to install the "IBM Blockchain Platform:
+                    Develop" tools to model and deploy your network definitions to the
+                    Starter Plan. Complete details are in the Starter Plan documentation.
+                    Here's a preview of what you'll be guided to do: <ol type="a"><li><strong>Install</strong> the development tools (npm modules)
+                            to create and test your business network.</li><li><strong>Create</strong> a directory containing all the
+                            components that you'll need to define for your business
+                            network, including assets, participants, and
+                            transactions.</li><li><strong>Model</strong> your business network by defining the
+                            asset classes, participant classes, transaction classes, event
+                            classes, and access control rules.</li><li><strong>Package</strong> your new business network into a
+                            single deployable file called a business network archive
+                            (.bna) file.</li><li><strong>Deploy</strong> the .bna file to the IBM Blockchain
+                            Platform Starter Plan network. When the .bna file is deployed,
+                            a REST server can be generated and build RESTful API calls so
+                            that external applications can interact with your blockchain
+                            network.</li></ol></li></ol><heading refname="other" type="h2">Or start building your blockchain network
+                using other options</heading><p>If you prefer to build and run a <strong>local network</strong>, check out
+                these <a href="https://hyperledger.github.io/composer/installing/development-tools.html">instructions for setting up Hyperledger Composer and Hyperledger
+                    Fabric using Docker Compose</a>. For a detailed walk-through of how to
+                deploy the network locally, see the IBM Code pattern <a href="https://developer.ibm.com/code/patterns/build-a-blockchain-network/" target="new">Build a blockchain network</a>.</p><p>If you'd like to set up a network that developers can interact with, you
+                need a network that is exposed to the internet. You can create a
+                blockchain <strong>network that runs on a Kubernetes cluster within IBM
+                    Cloud</strong> by following these IBM Blockchain <a href="https://ibm-blockchain.github.io/">instructions for setting up
+                    Hyperledger Composer on Kubernetes</a>. You'll also see how to create
+                a REST server that exposes API endpoints so developers can interact with
+                your blockchain network.</p><p>If you're a total <strong>open source, do-it-yourselfer</strong> and prefer
+                command-line coding, check out the <a href="https://hyperledger-fabric.readthedocs.io/en/latest/">docs for
+                    creating a Hyperledger Fabric network</a> at Hyperledger.org.</p><!--000 Get help  --><heading type="h2">Get help and support</heading><p>There are lots of ways to get support and answers to your questions. </p><ol><li>For general blockchain questions: <br/> Search <a href="https://developer.ibm.com/answers/smart-spaces/261/blockchain.html"><strong>dW Answers</strong></a>. Browse questions that have
+                    already been asked, or submit a new question (include the keyword
+                        <strong>blockchain</strong>).<br/><nbsp/><br/></li><li>For help with the IBM Blockchain Platform Starter Plan: <br/> The
+                        <strong>Support</strong> section in the UI provides many resources
+                    for self-help as well as release notes. For software defects or a
+                    problem that eludes the given resources, you'll find instructions to
+                    submit a support case in the IBM Cloud Service Portal. When you submit
+                    a support case, you get an email response within
+                    minutes.<br/><nbsp/><br/></li><li>For specific Hyperledger Fabric implementation questions: <br/> The <a href="https://chat.hyperledger.org/home"><strong>Hyperledger
+                            Rocket.Chat channels</strong></a> and <a href="https://stackoverflow.com/questions/tagged/hyperledger-fabric"><strong>Stack Overflow</strong></a> are your best
+                    bets.<br/><nbsp/><br/></li><li>For more help with Hyperledger: <br/> Browse the <a href="https://wiki.hyperledger.org/community/chat_channels" target="new"><strong>Hyperledger Channel Guide</strong></a> and
+                    join the discussion group suited to your question.</li></ol><heading type="h2">Next steps</heading><!--<p>We hope you'll try the Starter Plan, have fun with it, and let us know
+                in the <strong>Comments</strong> section below anything you'd like to see
+                in it.</p>--><p>We'll conclude with 5 great ways to build your blockchain
+                skills:</p><ul><li>Stay in the know with the Blockchain Newsletter from developerWorks.
+                    Check out the <a href="http://ibm.biz/blockchain-newsletter" target="new"><strong>current issue</strong></a> and <a href="http://ibm.biz/blockchain-newsletter-signup" target="new"><strong>subscribe</strong></a>.<br/><nbsp/><br/></li><li>Stop by the <a href="https://developer.ibm.com/blockchain" target="new"><strong>Blockchain Developer Center</strong></a> on
+                    developerWorks. It's your source for tools and tutorials, along with
+                    code and community support, for developing and deploying blockchain
+                    solutions for business.<br/><nbsp/><br/></li><li>Take the <a href="https://developer.ibm.com/courses/all/blockchain-essentials/" target="new"><strong>Blockchain essentials course for
+                            developers</strong></a> to learn the ins and outs of asset
+                    transfers. At the end of this free, self-paced, 2-hour course, take a
+                    quiz, get a badge, and start planning useful blockchain applications
+                    for your business network.<br/><nbsp/><br/></li><li>Advance to the <a href="https://developer.ibm.com/courses/all/ibm-blockchain-foundation-developer/" target="new"><strong>IBM Blockchain foundation developer
+                            course</strong></a>, a free 6-hour course that expands on
+                    "Blockchain essentials" and provides a more detailed picture of the
+                    components and architecture of blockchain business networks, as well
+                    as experience building a network and creating an
+                    application.<br/><nbsp/><br/></li><li>Check out the many <a href="https://developer.ibm.com/code/technologies/blockchain/"><strong>blockchain code patterns</strong></a>, which provide
+                    roadmaps for solving complex problems, and include overviews,
+                    architecture diagrams, process flows, repo pointers, and additional
+                    reading.</li></ul><!--<related-topics-block>
+                <link>
+                    <text>Blockchain Developer Center</text>
+                    <url>https://developer.ibm.com/blockchain</url>
+                </link>
+                <link>
+                    <text>Blockchain basics: Introduction to distributed ledgers</text>
+                    <url>https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-intro-bluemix-trs/</url>
+                </link>
+                <link>
+                    <text>Blockchain basics: Glossary and use cases</text>
+                    <url>https://www.ibm.com/developerworks/cloud/library/cl-blockchain-basics-glossary-bluemix-trs/</url>
+                </link>
+                <link>
+                    <text>Blockchain essentials (free course for developers)</text>
+                    <url>https://developer.ibm.com/courses/all/blockchain-essentials/</url>
+                </link>
+                <link>
+                    <text>Blockchain Explained (29 sequential videos)</text>
+                    <url>https://www.youtube.com/watch?v=DmsJlcUtSvk&amp;list=PL7LSy0eQMvjtKNLpZAJWOZQV5op1LQEvn</url>
+                </link>
+                <link>
+                    <text>Blockchain Solutions (3 sequential videos)</text>
+                    <url>https://www.youtube.com/watch?v=RKb3D66Akv4&amp;list=PL7LSy0eQMvjtorQQPSNX3iYPB0iCCfhNO</url>
+                </link>
+                <link>
+                    <text>Blockchain Composed (4 sequential videos)</text>
+                    <url>https://www.youtube.com/watch?v=U6AhpNV_P74&amp;list=PL7LSy0eQMvju942bF-L8f7JxUlSoaliRe</url>
+                </link>
+                <link>
+                    <text>Blockchain solutions and services from IBM</text>
+                    <url>https://www.ibm.com/blockchain/offerings.html</url>
+                </link>
+                <link>
+                    <text>Hyperledger community</text>
+                    <url>https://www.hyperledger.org/community</url>
+                </link>
+            </related-topics-block>--></docbody></dw-article><!-- PUB_TO_MAV --></dw-document>

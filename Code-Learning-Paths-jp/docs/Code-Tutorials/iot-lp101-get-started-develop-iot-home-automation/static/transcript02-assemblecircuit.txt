@@ -1,0 +1,19 @@
+
+
+Let's start by assembling our circuit.
+
+We're attaching our sensors and our buzzer to the GPIO pins (General Purpose Input Output pins) on the Raspberry Pi.
+
+Let's start with the PIR sensor. 
+
+So there are 3 pins on the PIR sensor which are attached to jumper wires.  There's a signal pin which is marked with an S, plus, and there's minus.  The signal pin has a yellow jumper wire attached, plus which is 5 volts is red, and our negative pin or ground pin is attached to a black jumper wire.
+
+So we attach the sensor to the GPIO pins on the Raspberry Pi of which there are 40 by plugging those jumper wires on to the pins. So let's start with 5 volts, a plus, so we take our red jumper wire that is coming from the PIR sensor and we plug it straight into pin number 2 which is a 5 volt pin on the Raspberry Pi GPIO header.  And then our ground jumper wire, the black jumper wire, goes on to pin number 6 which is two below on the right-hand side of the pin headers.  And, finally, our [ dotta?? ] pin for the sensor, our yellow jumper wire, attaches to pin number 7, which is also known as GPIO pin number 4 on the Raspberry Pi. So, there we have our sensor attached on to pin number 7 on the GPIO headers.
+
+Now if we take our buzzer, you'll see that it has two pins.  If you take a look at the top of the buzzer, you'll see a plus symbol.  This is a polarized component, so there's a positive side and a negative side.  The longer pin is the positive pin.  So we'll attach our jumper wires with the black jumper wire on negative and we'll use the other jumper wire for the positive pin.  And then we'll plug those jumper wires on to the GPIO headers. So there is a ground pin immediately beneath the IO pin we used for the signal on the other sensor, so on pin number 9 there is a ground pin.  And we'll use pin number 11 for our [ dotta?? ] pin for the buzzer.  So there we have our buzzer attached to pin number 11 and we have our PIR sensor attached to pin number 7 on the GPIO headers.
+
+If we take a look at the circuit diagram that's what we have here - the PIR sensor and the buzzer.  And we also have a third component - its a DHT11 temperature and humidity sensor.
+
+So let's have a look at plugging that in to our Raspberry Pi. We already have our PIR sensor and buzzer attached. Let's take the DHT11 temperature and humidity sensor and you'll see it has 3 pins just like the PIR sensor.  So there is a ground pin which is attached with a black jumper wire, in the middle we have 5 volts which is the red jumper wire, and finally signal which is the green jumper wire. So we'll attach those jumper wires, starting with the 5 volts, on to the GPIO headers on the Raspberry Pi. And there is a second 5 volt pin on the Raspberry Pi headers which is between the 5 volts and the ground that we've already used.  So it's pin number 4 which you can see it a little bit more easily if we look at it from this side. Pin number 4 is right there between 5 volts and ground. So the red jumper wire from our temperature and humidity sensor goes on to pin number 4.  For the ground and signal pin for this sensor, we're going to use these two pins right at the bottom of the GPIO headers.  So our signal pin or our [dotta??] pin will be attached to pin number 40, that's our green jumper wire, attached on to pin number 40. And our ground jumper wire will be attached to pin number 39.
+
+So, there we have it.  We have our DHT11 temperature and humidity sensor attached on to the Raspberry Pi headers, and we'll be using pin number 40 to program it.
