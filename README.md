@@ -1,8 +1,9 @@
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5799/badge)](https://bestpractices.coreinfrastructure.org/projects/5799)
+
 # japan-technology
 IBM Related Japanese technical documents - Code Patterns, Learning Path, Tutorials, etc.
 Please open new issue/pull requests in either English or Japanese if you would have any feedback or you would like to contribute this repo.  We provide mainly "Japanese contents" by markdown text.
 
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5799/badge)](https://bestpractices.coreinfrastructure.org/projects/5799)
 
 IBM Developerの最新情報は https://developer.ibm.com/ にアクセスし、英語のコンテンツを参照してください。
 
