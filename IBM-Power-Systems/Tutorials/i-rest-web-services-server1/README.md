@@ -6,7 +6,7 @@ English Version: https://developer.ibm.com/tutorials/i-rest-web-services-server1
 
 ###### 最新の英語版コンテンツは上記URLを参照してください。
 
-###　Author: Nadir Amra
+### Author: Nadir Amra
 last_updated: 2015-05-08
 
 
