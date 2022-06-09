@@ -2,9 +2,19 @@
 
 旧developerWorks 日本語版に掲載されていたJava関連の日本語資料を，このgithubリポジトリで再掲載しています。掲載されている情報は，原則として公開された当時のものであり，現在の情報とは異なっている場合がありますのでご注意ください。
 
-同じく WebSphere Application Server 関連の日本語資料は [Japan WebSphere User Group (日本WebSphereユーザーグループ)](https://ibm.biz/JapanWebSphereUG) にある [旧developerWorks 日本語版 転載文章一覧リンク](https://community.ibm.com/community/user/wasdevops/blogs/takakiyo-tanaka1/2021/05/14/developerworks?CommunityKey=d6c93aa2-6e10-48da-96dc-3831da8ee185) より参照することができます。
+旧developerWorks Japanで公開されていたその他の資料については、一部が以下のサイトで公開されています
 
-修正依頼、ご要望等はgithub issueに登録ください。
+- Java Technologyの日本語資料(本ページ)
+  - https://github.com/IBM/japan-technology/tree/main/developerWorks/java
+- WebSphere Application Server関連の日本語資料
+  - https://ibm.biz/JapanWebSphereUG (IBM Community: Japan WebSphere User Group)
+- Integration製品の日本語資料
+  - [Cloud Pak for Integration 日本語版 転載文章一覧](https://community.ibm.com/community/user/integration/blogs/momoko-furukawa/2022/02/18/cloud-pak-for-integration?CommunityKey=fe1b09d3-7042-4a5f-bce0-6bcc19aa0ed9&tab=recentcommunityblogsdashboard)
+- Business Automation製品の技術文章
+  - http://ibm.biz/JPBizAutomationUG (BM Community: Japan Business Automation User Group)
+
+
+修正依頼、ご要望等は[github issues](https://github.com/IBM/japan-technology/issues)に登録ください。
 
 | タイトル | 概要 | PDF | キーワード | 著者 | 公開日 |
 ----|----|----|----|----|----
