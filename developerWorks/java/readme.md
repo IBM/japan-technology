@@ -11,7 +11,7 @@
 - Integration製品の日本語資料
   - [Cloud Pak for Integration 日本語版 転載文章一覧](https://community.ibm.com/community/user/integration/blogs/momoko-furukawa/2022/02/18/cloud-pak-for-integration?CommunityKey=fe1b09d3-7042-4a5f-bce0-6bcc19aa0ed9&tab=recentcommunityblogsdashboard)
 - Business Automation製品の技術文章
-  - http://ibm.biz/JPBizAutomationUG (BM Community: Japan Business Automation User Group)
+  - http://ibm.biz/JPBizAutomationUG (IBM Community: Japan Business Automation User Group)
 
 
 修正依頼、ご要望等は[github issues](https://github.com/IBM/japan-technology/issues)に登録ください。
