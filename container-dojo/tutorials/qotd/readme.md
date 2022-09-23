@@ -62,9 +62,9 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
    
    ![図2](images/fig2.jpg)
 
-   <a href="images/fig2_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>をクリックします。
+   <a href="images/fig2_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
 
-1. プロジェクトの作成ダイアログボックスで、新しいプロジェクトの名前を入力し、**Create**をクリックします。このコンテンツでは、**tutorial**という名前で新しいプロジェクトを作成します。
+1. [プロジェクトの作成] ダイアログボックスで、新しいプロジェクトの名前を入力し、**作成/Create**をクリックします。このコンテンツでは、**tutorial**という名前で新しいプロジェクトを作成します。
 
    ![図3](images/fig3.jpg)
 
@@ -78,24 +78,24 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
    ![図4](images/fig4.jpg)
 
-1. **Gitからのインポートする(Import from Git)**をクリックします。
+1. **Gitからのインポート/Import from Git**をクリックします。
 
    ![図5](images/fig5.jpg)
 
    **注**:OpenShiftの古いバージョンでは、別途 **From Dockerfile** というオプションがある場合があり、これを代わりに選択する必要があります。
 
-1. Import from Git ダイアログボックスで、以下のフィールドに指定された値を入力します。
+1. [Gitからのインポート/Import from Git] ダイアログボックスで、以下のフィールドに指定された値を入力します。
 
-   * **Git リポジトリー URL(Git Repo URL)**: <a href="https://github.com/dpkshetty/qod-db" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-db</a>
+   * **Git リポジトリー URL/Git Repo URL**: <a href="https://github.com/dpkshetty/qod-db" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-db</a>
        *(Tabキーを押して、'Validated'と表示されるのを待ちます)*。
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリに存在する<a href="https://github.com/dpkshetty/qod-db/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、Dockerfileからのインポートを自動検出します。
-   * **アプリケーション名**:QOD
+   * **アプリケーション名**: QOD
    * **Name**: qod-db (この名前は、DBマイクロサービスにアクセスするためのDNSエントリーを含む、OpenShiftが作成するすべてのリソースに使用されます)
    * **Deployment** (デフォルト) を選択しておいてください。
-   * **ターゲットポート**:3306 (DB サービスが接続をリッスンするように設計されているポートを見つけるために、<a href="https://github.com/dpkshetty/qod-db/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルを参照してください)。
+   * **ターゲットポート**: 3306 (DB サービスが接続をリッスンするように設計されているポートを見つけるために、<a href="https://github.com/dpkshetty/qod-db/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルを参照してください)。
    * **Create a route to the Application** のチェックボックスをオフにします。  
    **注意**: DBサービスを外部に公開する必要はないため、DBサービスへのルートは必要ありません。クラスタ内部からしかアクセスされませんし、外部ルートを持たないことでDBサービスも外部からの攻撃からより安全になります。
-   * **作成 (Create)** をクリックします。
+   * **作成/Create** をクリックします。
 
    ![図6](images/fig6.jpg)
    ![図7](images/fig7.jpg)
@@ -103,7 +103,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
    **次に起こること**は、OpenShiftがGitHubリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからデータベース用のマイクロサービスアプリケーション（バックエンド層）となるPod（アプリケーションとも呼ばれる）を作成することです。このアプリケーションはMariaDBを起動し、quotes, genres, authorsという3つのテーブルを持ち、それぞれ異なるquotes, genres, authorがあらかじめ入力された**qod**という名前のDBを作成します。
 
-1. トポロジーのページに戻ります。デプロイメント・オブジェクトを表す **D qod-db**をクリックします。ビルドプロセスが終了し、ポッドが **Running** 状態になるのを待ちます。このポッドは、ポート 3306 で利用可能な DB マイクロサービスであり (サービス情報から確認できます)、ルートがないため、このサービスはクラスタの外側からアクセスできません。
+1. トポロジーのページに戻ります。デプロイメント・オブジェクトを表す **D qod-db**をクリックします。ビルドプロセスが終了し、Podが **Running** 状態になるのを待ちます。このPodは、ポート 3306 で利用可能な DB マイクロサービスであり (サービス情報から確認できます)、ルートがないため、このサービスはクラスタの外側からアクセスできません。
    
    **注意**: ビルドの実行中に大きな円の左下にあるアイコンをクリックすると、実行中のビルドプロセスのログを見ることができます。
 
@@ -226,11 +226,11 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
    1. 新しいエントリを追加するために**+キー/値の追加**をクリックし、以下の値を入力します。
         * **キー**：DB_PASS
         * **値**：pass
-   1.**作成**をクリックします。
+   1. **作成**をクリックします。
 
    **注意**:これらは、<a href="https://github.com/dpkshetty/qod-api/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルに記述されているように、APIサービスがDBサービスにアクセスするために必要な環境変数です。
 
-   [図25](images/fig25.jpg)
+   ![図25](images/fig25.jpg)
 
 1. **シークレットのワークロードへの追加**をクリックします。シークレットのワークロードへの追加 ページで、ドロップダウン リストから **qod-api** Deploymentオプションを選択し、 **環境変数** オプションを選択して **保存** をクリックします。
 
