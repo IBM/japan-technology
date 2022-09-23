@@ -28,7 +28,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 この3層アプリケーションをデプロイする前に、以下の前提条件が満たされていることを確認してください。
 
-* Red Hat OpenShift Container Platform クラスターにアクセスできること。私は、**IBM Power Virtual Server上の OpenShift バージョン 4.10.xx**を使用しています。このチュートリアルで説明する手順は、他の OpenShift プラットフォームでも同様に動作するはずですが、GUI 画面やダイアログボックスの一部が若干異なって見えるかもしれません。
+* Red Hat OpenShift Container Platform クラスターにアクセスできること。このコンテンツの画像は、**IBM Power Virtual Server上の OpenShift バージョン 4.10.xx**を使用しています。このチュートリアルで説明する手順は、他の OpenShift プラットフォームでも同様に動作するはずですが、GUI 画面やダイアログボックスの一部が若干異なって見えるかもしれません。
 * Red Hat OpenShift Container Platform クラスターにアクセスできない場合は、Red Hat の <a href="https://developers.redhat.com/developer-sandbox" target="_blank" rel="noopener noreferrer">developer sandbox for Red Hat OpenShift</a> を通じてアクセスすることができます。あるいは、お持ちのコンピューター上に<a href="https://developers.redhat.com/products/openshift-local/overview" target="_blank" rel="noopener noreferrer">Red Hat OpenShift Local</a>開発環境を構築することも可能です。
 
 ## 想定される時間
@@ -144,7 +144,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 ## 3.API 層をデプロイする
 
-API 層はアプリケーションのビジネスロジック層 (最も単純な意味での) を提供します。ユーザーからリクエストを受け取り (通常はフロントエンドのウェブ層から)、DB に対して SQL クエリを実行してリクエストを処理し、ウェブインタフェースを通じてユーザーにレスポンスを返します。私たちのQODアプリケーションの場合、API層は、正しいSQLクエリを形成し、qod-dbマイクロサービスを使用してデータベースから名言を取得することによって、毎日とランダムな名言のリクエストを処理するように設計されています。
+API 層はアプリケーションのビジネスロジック層 (最も単純な意味での) を提供します。ユーザーからリクエストを受け取り (通常はフロントエンドのウェブ層から)、DB に対して SQL クエリを実行してリクエストを処理し、ウェブインタフェースを通じてユーザーにレスポンスを返します。このQODアプリケーションの場合、API層は、正しいSQLクエリを形成し、qod-dbマイクロサービスを使用してデータベースから名言を取得することによって、毎日とランダムな名言のリクエストを処理するように設計されています。
 
 1. **+追加/+Add** をクリックしてから、**Gitからのインポート/Import from Git** をクリックします。
    
@@ -170,7 +170,7 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
    ![図17](images/fig17.jpg)
    ![図18](images/fig18.jpg)
 
-   **次に起こること**は、OpenShiftがGitリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからPod（アプリケーションとしても知られています）を作成することで、私たちのAPIマイクロサービスアプリケーションであるミドル層が作られます。
+   **次に起こること**は、OpenShiftがGitリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからPod（アプリケーションとしても知られています）を作成することで、このAPIマイクロサービスアプリケーションであるミドル層が作られます。
 
 1. Topology ページに戻ります。デプロイメント・オブジェクトを表す **D qod-api** をクリックします。ビルドプロセスが終了し、ポッドが **Running** 状態になるのを待ちます。このポッドは、ポート8080で利用可能なAPIマイクロサービスであり（サービス情報から分かるように）、ルートがないため、このサービスはクラスタの外からアクセスできないことが保証されます。
    
@@ -342,38 +342,38 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 このセクションでは、フロントエンドの Web 層をデプロイします。Web 層は外部ルートを持ちます。なぜなら、この層はユーザーとやりとりするサービスだからです。ユーザーのリクエストに応じて、毎日の気配値かランダムな気配値を表示します。
 
-1. **Developer** パースペクティブに切り替え、プロジェクトが選択されていることを確認し (私の場合は **tutorial**) 、 **+Add** をクリックします。
+1. **Developer** パースペクティブに切り替え、プロジェクトが選択されていることを確認し (このコンテンツの場合は **tutorial**) 、 **+追加/+Add** をクリックします。
 
-    図45](images/fig45.jpg)
+    ![図45](images/fig45.jpg)
 
 1.Gitからインポートする**をクリックします。
 
-    図46](images/fig.46.jpg)
+    ![図46](images/fig46.jpg)
 
 1.Import from Git ページで、以下のフィールドに必要な値を入力します。
    * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>.
        (**Tab**を押して、**Validated**と表示されるのを待ちます)
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリにDockerfileが存在するため、インポート戦略を<a href="https://github.com/dpkshetty/qod-web/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> として自動検出します。
-   * **アプリケーション**:QOD
+   * **アプリケーション**: QOD
    * **Name**: qod-web (この名前は、WebマイクロサービスにアクセスするためのDNSエントリを含む、OpenShiftが作成するすべてのリソースに使用されます)
    * デプロイメント(デフォルト)を選択したままにする
-   * **ターゲットポート**:8080 (<a href="https://github.com/dpkshetty/qod-web/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルには、ウェブサービスを実行するためのポートが記載されています)
+   * **ターゲットポート**: 8080 (<a href="https://github.com/dpkshetty/qod-web/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルには、ウェブサービスを実行するためのポートが記載されています)
    * **Create a route to the Application** チェックボックスを選択します。
   
-     **Note**:私のクラスタは HTTPS ルートを必須としています。注**：私のクラスタはHTTPSルートを必須としています。クラスタがそうでない場合は、HTTPSルートの作成に使用する以下のステップをスキップできます。
+     **注**：クラスタの構成によってはHTTPSルートを必須としています。クラスタがそうでない場合は、HTTPSルートの作成に使用する以下のステップをスキップできます。
    * **Secure Route** チェックボックスを選択し、他のフィールドに次の値を入力します。
-      * **TLS Termination**:エッジ
-      * **TLS Termination**: Edge **Insecure Traffic**:なし
+      * **TLS Termination**: Edge 
+      * **Insecure Traffic**: なし
    * 残りのフィールドはデフォルト値のままにしておきます。
 
-     **注意**:**Do not** **Create** をまだクリックしないでください!次のステップに進みます。
+     **注意**: この時点では、**作成/Create** をクリックしないでください!次のステップに進みます。
 
     ![図47](images/fig47.jpg)
     ![図48](images/fig48.jpg)
     ![図48a](images/fig48a.jpg)
     ![図49](images/fig49.jpg)
 
-<a id='step4a'/>の場合
+<a id='step4a'/>
 
 ### 4a.ポッド作成時に環境変数を注入する
 
@@ -392,7 +392,7 @@ API層で行ったように、Web層が正常に動作するためには、API�
 
    ![図52](images/fig52.jpg)
 
-   **次に起こること**は、OpenShiftがGitリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからポッド（アプリケーションとしても知られています）を作成することで、それがWebマイクロサービスアプリケーション（ブラウザーに対するフロントエンド層）になるのです。HTTPS (またはHTTP) URLは、ユーザーに対して私たちのWebアプリケーションを提供します。
+   **次に起こること**は、OpenShiftがGitリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからポッド（アプリケーションとしても知られています）を作成することで、それがWebマイクロサービスアプリケーション（ブラウザーに対するフロントエンド層）になるのです。HTTPS (またはHTTP) URLは、ユーザーに対してWebアプリケーションを提供します。
 
 1. Topology ページで、デプロイメント・オブジェクトを表す **D qod-web** をクリックします。ビルドが完了し、ポッドが **Running** 状態になるのを待ちます。このポッドは、ポート8080で利用可能なWebマイクロサービスであり（サービス情報から分かる）、外部HTTPS（またはHTTP、該当する場合）ルートが作成されています。
 
