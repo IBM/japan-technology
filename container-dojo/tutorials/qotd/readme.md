@@ -12,7 +12,7 @@
 
 今回導入するアプリケーションは、「Quote of the Day」（QOD:今日の名言）と呼ばれるものです。
 
-このアプリケーションは、完全な形でデプロイされると、毎日異なる「今日の名言」、または名言データベースからの「ランダムな名言」を取得する機能を備えたシンプルなウェブページが提供されます。
+このアプリケーションは、完全な形でデプロイされると、毎日異なる「今日の名言」、または名言(quotes)データベースからの「ランダムな名言」を取得する機能を備えたシンプルなウェブページが提供されます。
 
 QODアプリケーションの以下の3つの層のソースコードは、GitHubでホストされています。
 
@@ -20,7 +20,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 * <a href="https://github.com/dpkshetty/qod-api" target="_blank" rel="noopener noreferrer">API サービス層</a> 
 * <a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">Web アプリ層</a> 
 
-デプロイ完了後、3層アプリケーションは以下の図1のようになります。
+デプロイ完了後、3層アプリケーションは以下の図のようになります。
 
 ![図1](images/fig1new.jpg)
 
