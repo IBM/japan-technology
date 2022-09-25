@@ -152,9 +152,9 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
 
 1. Import from Gitダイアログボックスで、必須フィールドに以下の値を入力します。
 
-   * **Git リポジトリー URL(Git Repo URL)**: <a href="https://github.com/dpkshetty/qod-api" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-api</a>.
-   *(Tabキーを押して、**Validated**と表示されるのを待ちます)*。
-   OpenShiftはGitリポジトリを調べ、qod-apiリポジトリに存在する<a href="https://github.com/dpkshetty/qod-api/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、Dockerfileからのインポートと自動検出します。
+   * **Git リポジトリー URL/Git Repo URL**: <a href="https://github.com/dpkshetty/qod-api" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-api</a>
+   *(Tabキーを押して、**Validated**と表示されるのを待ちます)*
+   OpenShiftはGitリポジトリを調べ、qod-apiリポジトリに存在する<a href="https://github.com/dpkshetty/qod-api/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、このリポジトリからは「Dockerfileからのインポート」と自動検出します。
 
      **注意**:また、ソースコードから直接イメージをビルドするオプションなど、独自のビルド戦略を選択することもできます。これは Red Hat の Source to Image 機能を使用し、開発者が独自の Dockerfile を記述する必要性をなくします。
    * **アプリケーション名**: ドロップダウンリストを使用して、既存のアプリケーショングループからQODを選択します。
