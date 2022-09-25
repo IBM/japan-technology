@@ -351,7 +351,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
     ![図46](images/fig46.jpg)
 
 1. Import from Git ページで、以下のフィールドに必要な値を入力します。
-   * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>.
+   * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>
        (**Tab**を押して、**Validated**と表示されるのを待ちます)
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリにDockerfileが存在するため、インポート戦略を<a href="https://github.com/dpkshetty/qod-web/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> として自動検出します。
    * **アプリケーション**: QOD
