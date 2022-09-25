@@ -109,7 +109,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
    ![図9](images/fig9.jpg)
 
-**おめでとうございます！** あなたは、qod という名前のデータベースを持ち、quotes, authors, genre テーブルがあらかじめ入力された DB層を正常にデプロイしました。
+**おめでとうございます！** この段階で、qod という名前のデータベースを持ち、quotes, authors, genre テーブルがあらかじめ入力された DB層を正常にデプロイしました。
 
 <a id='step2a' />
 
@@ -245,7 +245,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
    <a href="images/fig28_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
 
 
-<a id='step3c'(ステップ3c)/>
+<a id='step3c'/>
 
 ### 3c.APIサービスをテストする - 動作することの確認
 
@@ -340,17 +340,17 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 ## 4.Web 層をデプロイする
 
-このセクションでは、フロントエンドの Web 層をデプロイします。Web 層は外部ルートを持ちます。なぜなら、この層はユーザーとやりとりするサービスだからです。ユーザーのリクエストに応じて、毎日の気配値かランダムな気配値を表示します。
+このセクションでは、フロントエンドの Web 層をデプロイします。Web 層は外部ルートを持ちます。なぜなら、この層はユーザーとやりとりするサービスだからです。ユーザーのリクエストに応じて、毎日の名言かランダムな名言を表示します。
 
 1. **Developer** パースペクティブに切り替え、プロジェクトが選択されていることを確認し (このコンテンツの場合は **tutorial**) 、 **+追加/+Add** をクリックします。
 
     ![図45](images/fig45.jpg)
 
-1.Gitからインポートする**をクリックします。
+1. **Gitからのインポート**をクリックします。
 
     ![図46](images/fig46.jpg)
 
-1.Import from Git ページで、以下のフィールドに必要な値を入力します。
+1. Import from Git ページで、以下のフィールドに必要な値を入力します。
    * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>.
        (**Tab**を押して、**Validated**と表示されるのを待ちます)
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリにDockerfileが存在するため、インポート戦略を<a href="https://github.com/dpkshetty/qod-web/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> として自動検出します。
