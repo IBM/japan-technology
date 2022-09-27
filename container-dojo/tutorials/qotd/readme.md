@@ -152,7 +152,7 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
    *(Tabキーを押して、**検証済み/Validated**と表示されるのを待ちます)*
    OpenShiftはGitリポジトリを調べ、qod-apiリポジトリに存在する<a href="https://github.com/dpkshetty/qod-api/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、このリポジトリからは「Dockerfileからのインポート」と自動検出します。
 
-     **注意**:また、ソースコードから直接イメージをビルドするオプションなど、独自のビルド戦略を選択することもできます。これは Red Hat の Source to Image 機能を使用し、開発者が独自の Dockerfile を記述する必要性をなくします。
+     **注意**:また、ソースコードから直接イメージをビルドするオプションなど、独自のビルドストラテジーを選択することもできます。これは Red Hat の Source to Image 機能を使用し、開発者が独自の Dockerfile を記述する必要性をなくします。
    * **アプリケーション名**: ドロップダウンリストを使用して、既存のアプリケーショングループからQODを選択します。
    * **名前**: qod-api (この名前は、APIマイクロサービスにアクセスするためのDNSエントリーを含む、OpenShiftが作成するすべてのリソースに使用されます).
    * **Deployment** (デフォルト) を選択したままにしてください。
@@ -326,7 +326,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 1. Import from Git ページで、以下のフィールドに必要な値を入力します。
    * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>
        (**Tab**を押して、**検証済み/Validated**と表示されるのを待ちます)
-      OpenShiftはGitリポジトリを調べ、qod-dbリポジトリにDockerfileが存在するため、インポート戦略を<a href="https://github.com/dpkshetty/qod-web/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> として自動検出します。
+      OpenShiftはGitリポジトリを調べ、qod-dbリポジトリにDockerfileが存在するため、インポートストラテジーを<a href="https://github.com/dpkshetty/qod-web/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> として自動検出します。
    * **アプリケーション**: QOD
    * **Name**: qod-web (この名前は、WebマイクロサービスにアクセスするためのDNSエントリを含む、OpenShiftが作成するすべてのリソースに使用されます)
    * デプロイメント(デフォルト)を選択したままにする
