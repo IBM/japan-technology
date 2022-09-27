@@ -6,7 +6,7 @@
 * データベースに接続し、いくつかのビジネスロジックを提供する Node.js コードに基づくアプリケーションプログラミングインターフェース (API) 層
 * Node.jsコードをベースにした、ユーザーが操作するWebフロントエンド
 
-このチュートリアルは、**OpenShift Container Platform の概念と用語を学ぶように、シンプルに設計されているので、OpenShift Container Platform のグラフィカルインターフェース (OpenShift Web コンソール)** のみを使用します。これは、アプリケーションコンポーネントの視覚的な表現を提供し、コマンドラインインターフェイスの使用や、YAMLのような言語を使用して構成ファイルを作成する必要はありません。
+このチュートリアルは、**OpenShift Container Platform の概念と用語を学ぶように、シンプルに設計されているので、OpenShift Container Platform のグラフィカルインターフェース (Web コンソールとしても知られています)** のみを使用します。これは、アプリケーションコンポーネントの視覚的な表現を提供し、コマンドラインインターフェイスの使用や、YAMLのような言語を使用して構成ファイルを作成する必要はありません。
 
 グラフィカルなツールを使用することで、ハイブリッドクラウドアプリケーションのさまざまなコンポーネントがどのように配置され、接続されているかを確認することができるようになります。また、従来の仮想マシン（VM）ベースの環境では経験したことのない複雑さが、このプラットフォームでは取り除かれているため、個別のマイクロサービスをいかに簡単に接続できるかを体験することができます。これには、コンポーネントを接続するために必要なネットワークの設定とルーティング、およびデータベースへのアクセス認証情報をユーザーから切り離すことによるセキュリティ上の利点が含まれます。
 
@@ -22,7 +22,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 デプロイ完了後、3層アプリケーションは以下の図のようになります。
 
-![図1](images/fig1new.jpg)
+![図1](images_ja/fig1.jpg)
 
 ## 前提条件
 
@@ -60,13 +60,11 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 1. 3層アプリケーションをデプロイする新しい OpenShift プロジェクトを作成します。**Administrator** ビューで、**プロジェクト**をクリックし、**プロジェクトの作成** をクリックします。
    
-   ![図2](images/fig2.jpg)
+   ![図2](images_ja/fig2.png)
 
-   <a href="images/fig2_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
+2. [プロジェクトの作成] ダイアログボックスで、新しいプロジェクトの名前を入力し、**作成/Create**をクリックします。このコンテンツでは、**tutorial**という名前で新しいプロジェクトを作成します。
 
-1. [プロジェクトの作成] ダイアログボックスで、新しいプロジェクトの名前を入力し、**作成/Create**をクリックします。このコンテンツでは、**tutorial**という名前で新しいプロジェクトを作成します。
-
-   ![図3](images/fig3.jpg)
+   ![図3](images_ja/fig3.png)
 
 <a id='step2' />
 
@@ -76,11 +74,11 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 1. **Developer**パースペクティブに切り替え、プロジェクトが選択されていることを確認し (このコンテンツでは 'tutorial') 、 **+追加**をクリックします。
 
-   ![図4](images/fig4.jpg)
+   ![図4](images_ja/fig4.png)
 
 1. **Gitからのインポート/Import from Git**をクリックします。
 
-   ![図5](images/fig5.jpg)
+   ![図5](images_ja/fig5.png)
 
    **注**:OpenShiftの古いバージョンでは、別途 **From Dockerfile** というオプションがある場合があり、これを代わりに選択する必要があります。
 
@@ -97,9 +95,9 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
    **注意**: DBサービスを外部に公開する必要はないため、DBサービスへのルートは必要ありません。クラスタ内部からしかアクセスされませんし、外部ルートを持たないことでDBサービスも外部からの攻撃からより安全になります。
    * **作成/Create** をクリックします。
 
-   ![図6](images/fig6.jpg)
-   ![図7](images/fig7.jpg)
-   ![図8](images/fig8.jpg)
+   ![図6](images_ja/fig6.png)
+   ![図7](images_ja/fig7.png)
+   ![図8](images_ja/fig8.png)
 
    **次に起こること**は、OpenShiftがGitHubリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからデータベース用のマイクロサービスアプリケーション（バックエンド層）となるPod（アプリケーションとも呼ばれる）を作成することです。このアプリケーションはMariaDBを起動し、quotes, genres, authorsという3つのテーブルを持ち、それぞれ異なるquotes, genres, authorがあらかじめ入力された**qod**という名前のDBを作成します。
 
@@ -107,7 +105,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
    
    **注意**: ビルドの実行中に大きな円の左下にあるアイコンをクリックすると、実行中のビルドプロセスのログを見ることができます。
 
-   ![図9](images/fig9.jpg)
+   ![図9](images_ja/fig9.png)
 
 **おめでとうございます！** この段階で、qod という名前のデータベースを持ち、quotes, authors, genre テーブルがあらかじめ入力された DB層を正常にデプロイしました。
 
@@ -120,25 +118,23 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 1. **ログの表示/View Logs**をクリックしてPodビューに移動し、**ターミナル/Terminal**をクリックしてPod内に入り、以下のスクリーンキャプチャに示すようにMySQL CLIを実行します。
   
-   ![図10](images/fig10.jpg)
-   ![図11](images/fig11.jpg)
-   ![図12](images/fig12.jpg)
+   ![図10](images_ja/fig10.png)
+   ![図11](images_ja/fig11.png)
+   ![図12](images_ja/fig12.png)
 
    MySQL CLI（上記画面キャプチャ）では、ユーザー名をuser、パスワードを*pass*（Dockerfileから取得）、ホスト名を*qod-db*（DBサービス導入時の名前と同じ）としています。
 
-   ![図12a](images/fig12a.jpg)
-   ![図12b](images/fig12b.jpg)
+   ![図12a](images_ja/fig12a.png)
+   ![図12b](images_ja/fig12b.png)
 
 1. authors、genres、quotesのテーブルがあらかじめ作成されていることに注目する。
 1. 必要に応じて、以下の画面キャプチャーに示すように、これらのテーブルに問い合わせるSQLコマンドを実行します。
 
-   ![図13](images/fig13.jpg)
+   ![図13](images_ja/fig13.png)
 
    SQLクエリーコマンドは、約500行をリストアップし、各行にはそれぞれ異なる名言が登録されていることに注意してください。
 
-   ![図14](images/fig14.jpg)
-
-   <a href="images/fig14_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
+   ![図14](images_ja/fig14.png)
 
 <a id='step3'/>
 
@@ -148,7 +144,7 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
 
 1. **+追加/+Add** をクリックしてから、**Gitからのインポート/Import from Git** をクリックします。
    
-   ![図15](images/fig15.jpg)
+   ![図15](images_ja/fig15.png)
 
 1. Import from Gitダイアログボックスで、必須フィールドに以下の値を入力します。
 
@@ -166,15 +162,15 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
      **注意**: APIサービスを外部に公開する必要はないため、APIサービスへのルート(Route)は必要ありません。このAPIサービスはOpenShiftクラスタ内部からしかアクセスされません。また外部ルートを持たないことで、APIサービスもクラスタ外部からの攻撃からより安全になります!
 1. **Create** をクリックします。
 
-   ![図16](images/fig16.jpg)
-   ![図17](images/fig17.jpg)
-   ![図18](images/fig18.jpg)
+   ![図16](images_ja/fig16.png)
+   ![図17](images_ja/fig17.png)
+   ![図18](images_ja/fig18.png)
 
    **次に起こること**は、OpenShiftがGitリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからPod（アプリケーションとしても知られています）を作成することで、このAPIマイクロサービスアプリケーションであるミドル層が作られます。
 
 1. Topology ページに戻ります。デプロイメント・オブジェクトを表す **D qod-api** をクリックします。ビルドプロセスが終了し、ポッドが **Running** 状態になるのを待ちます。このポッドは、ポート8080で利用可能なAPIマイクロサービスであり（サービス情報から分かるように）、ルートがないため、このサービスはクラスタの外からアクセスできないことが保証されます。
    
-   ![図19](images/fig19.jpg)
+   ![図19](images_ja/fig19.png)
 
 <a id='ステップ3a' />
 
@@ -182,16 +178,14 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
 
 1. 早速、APIサービスが期待通りに動作するかどうか確認してみましょう。qod-api podをクリックしてPodビューに入り、**Terminal**をクリックします。これにより、APIサービスポッド内にログオンし、Linuxシェルが表示されます。
 
-   ![図20](images/fig20.jpg)
-   ![図21](images/fig21.jpg)
+   ![図20](images_ja/fig20.png)
+   ![図21](images_ja/fig21.png)
 
 2. このAPIサービスでは、多くのREST APIエンドポイントを公開しており、そのうちの一つが `/daily` エンドポイントです。もし興味があれば、<a href="https://github.com/dpkshetty/qod-api/blob/master/app.js" target="_blank" rel="noopener noreferrer">ソースコード</a>を参照してください。このエンドポイントは、今日の日付に基づいた今日の名言を返します。API サービスはポート 8080 で実行されていることが分かっています。curl ユーティリティを使用して、`/daily` エンドポイントが期待通りに動作するかどうかテストしてください。ターミナルで以下のコマンドを入力し、レスポンスを確認してください。エラーがスローされます!
 
    `curl http://localhost:8080/daily`
 
-   ![図22](images/fig22.jpg)
-
-   <a href="images/fig22_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>をクリックすると、拡大表示されます。
+   ![図22](images_ja/fig22.png)
 
    このエラーは、APIサービスが受信したリクエストを処理するためにDBサービスと通信する必要があるため、予期されるものです。APIサービスには、DBサービスに接続する方法を指示する設定情報を提供していません。APIサービスの<a href="https://github.com/dpkshetty/qod-api/blob/master/app.js#:~:text=host%20%20%20%203A%20process,.DB_PASS%2C" target="_blank" rel="noopener noreferrer">app.js</a> コードを見てみると、DBサービスに接続するには以下の環境変数が必要であることが分かります。APIサービスの<a href="https://github.com/dpkshetty/qod-api/blob/master/README.md" target="_blank" rel="noopener noreferrer">README</a>ファイルにも同じことが書かれています!
 
@@ -207,43 +201,35 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 1. 左のナビゲーションメニューの **Secrets** をクリックし、**Create** をクリックします。次に、**Key/Value secret**をクリックします。
 
-   ![図23](images/fig23.jpg)
+   ![図23](images_ja/fig23.png)
 
-   <a href="images/fig23_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
+   ![図24](images_ja/fig24.png)
 
-   ![図24](images/fig24.jpg)
-
-   <a href="images/fig24_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
-
-
-1. Key/ValueのSecret作成ページで、必須フィールドに以下の値を入力します。
+2. Key/ValueのSecret作成ページで、必須フィールドに以下の値を入力します。
    * **シークレット名**: qod-db-credentials
    * **キー**:DB_HOST
    * **値**: qod-db
    1. 新しいエントリを追加するために**+キー/値の追加**をクリックし、以下の値を入力します。
         * **キー**：DB_USER
         * **値**：user
-   1. 新しいエントリを追加するために**+キー/値の追加**をクリックし、以下の値を入力します。
+   2. 新しいエントリを追加するために**+キー/値の追加**をクリックし、以下の値を入力します。
         * **キー**：DB_PASS
         * **値**：pass
-   1. **作成**をクリックします。
+   3. **作成**をクリックします。
 
    **注意**:これらは、<a href="https://github.com/dpkshetty/qod-api/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルに記述されているように、APIサービスがDBサービスにアクセスするために必要な環境変数です。
 
-   ![図25](images/fig25.jpg)
+   ![図25](images_ja/fig25.png)
 
-1. **シークレットのワークロードへの追加**をクリックします。シークレットのワークロードへの追加 ページで、ドロップダウン リストから **qod-api** Deploymentオプションを選択し、 **環境変数** オプションを選択して **保存** をクリックします。
+3. **シークレットのワークロードへの追加**をクリックします。シークレットのワークロードへの追加 ページで、ドロップダウン リストから **qod-api** Deploymentオプションを選択し、 **環境変数** オプションを選択して **保存** をクリックします。
 
-   ![図26](images/fig26.jpg)
-   ![図27](images/fig27.jpg)
+   ![図26](images_ja/fig26.png)
+   ![図27](images_ja/fig27.png)
 
    **次に起こること**は、OpenShiftがこれらの環境変数を注入した状態で**qod-api** Podを再起動し、これによりAPIサービスがDBサービスと通信できるようになることです。
-1. 左側のナビゲーションペインのトポロジーをクリックし、**D qod-api**をクリックして**Resources**タブを開き、新しいポッドが**Running**の状態になるのを待ちます。
+4. 左側のナビゲーションペインのトポロジーをクリックし、**D qod-api**をクリックして**Resources**タブを開き、新しいポッドが**Running**の状態になるのを待ちます。
 
-   ![図28](images/fig28.jpg)
-
-   <a href="images/fig28_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
-
+   ![図28](images_ja/fig28.png)
 
 <a id='step3c'/>
 
@@ -251,14 +237,14 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 1. **qod-api** PodをクリックしてPodビューに入り、**Terminal**をクリックします。これにより、APIサービス・ポッド内にログオンし、Linuxシェルが開かれます。
 
-   ![図29](images/fig29.jpg)
-   ![図30](images/fig30.jpg)
+   ![図29](images_ja/fig29.png)
+   ![図30](images_ja/fig30.png)
 
 1. `curl`コマンドを実行すると、今度は正常に実行され、毎日の名言とその明言ID、著者、ジャンル情報が返されるはずです。
    
    `curl http://localhost:8080/daily`
 
-   ![図31](images/fig31.jpg)
+   ![図31](images_ja/fig31.png)
 
    **おめでとうございます！** API 層をデプロイし、DB 層とリンクさせることに成功しました。APIサービスの出力はJSON形式ですが、これはあまりユーザーフレンドリーではありません。そこで、APIサービスの出力を加工し、人にとって直感的な方法で表示するWeb層(チュートリアルで後述)の出番です。
 
@@ -272,10 +258,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 1.APIサービスのルートを作成するには、**Administrator**パースペクティブに切り替えて、**Networking -> Routes**をクリックします。次に、**ルートの作成 (Create Route)**をクリックします。
 
-   ![図32](images/fig32.jpg)
-
-   <a href="images/fig32_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
-
+   ![図32](images_ja/fig32.png)
 
 1. 「ルートの作成」ページで、必須項目に以下の値を入力します。
    
@@ -285,7 +268,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
    **注意**：クラスターの設定によっては、HTTPSのセキュアなルートを使用することが義務付けられている場合がありますが、必要に応じてHTTP (非セキュア) ルートを作成することもできます。
 
-   ![図33](images/fig33.jpg)
+   ![図33](images_ja/fig33.png)
 
    * **セキュアなルート (Secure Route)** チェックボックスを選択します (任意、HTTPSを利用する場合のみ)。
    * **以下のオプションの値を指定します**。
@@ -293,48 +276,38 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
      * **安全でないトラフィック (Insecure Traffic)**:なし(任意、HTTPSを利用する場合のみオプション)
    * 残りのフィールドのデフォルト値を保持し、**作成 (Create)**をクリックします。
 
-    ![図34](images/fig34.jpg)
+    ![図34](images_ja/fig34.png)
 
-1. ルートの詳細ページで、ロケーションURL（https://...で始まるもの）をクリックします。新しいブラウザのタブが開き、APIサーバーのバージョンが表示されます。
+2. ルートの詳細ページで、ロケーションURL（https://...で始まるもの）をクリックします。新しいブラウザのタブが開き、APIサーバーのバージョンが表示されます。
 
-    ![図35](images/fig35.jpg)
-    ![図36](images/fig36.jpg)
+    ![図35](images_ja/fig35.png)
+    ![図36](images_ja/fig36.png)
 
-1. 同様に、URLを編集し、/versionを/dailyや/randomに置き換えることで、それぞれ日毎の名言やランダムな名言を取得することができます。
+3. 同様に、URLを編集し、/versionを/dailyや/randomに置き換えることで、それぞれ日毎の名言やランダムな名言を取得することができます。
 
-    ![図37](images/fig37.jpg)
+    ![図37](images_ja/fig37.png)
 
-    <a href="images/fig37_larger.jpg" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
+   ![図38](images_ja/fig38.png)
 
-   ![図38](images/fig38.jpg)
+4. もし興味があれば、特定の名言やジャンルをIDから取得することもできます。
 
-    <a href="images/fig38_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>.
+    ![図39](images_ja/fig39.png)
 
-1. もし興味があれば、特定の名言やジャンルをIDから取得することもできます。
-
-    ![図39](images/fig39.jpg)
-
-    <a href="images/fig39_larger.jpg" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
-
-    ![図40](images/fig40.jpg)
+    ![図40](images_ja/fig40.png)
 
    **おめでとうございます！** これで、APIサービスにルートを追加し、そのRESTエンドポイントにクラスタ外からアクセスできるようにすることに成功しました。この方法は、任意の API レベルのテスト自動化を実行するために使用できます。その後、ルート (Route)を削除して API サービスをクラスタ外部からの攻撃から保護することができます。
 
    ルート (Route)を削除する必要がある場合は、**Administrator** ビューで **Routes** をクリックし、**qod-api-route** (必要な場合) を検索してください。
  
-    ![図41](images/fig41.jpg)
+    ![図41](images_ja/fig41.png)
 
-1. 縦３点リーダーのアイコン(3つの点がある)をクリックし、**ルートの削除 (Delete Route)**をクリックし、**削除 (Delete)**をクリックするとルートが削除されます。
+5. 縦３点リーダーのアイコン(3つの点がある)をクリックし、**ルートの削除 (Delete Route)**をクリックし、**削除 (Delete)**をクリックするとルートが削除されます。
 
-    ![図42](images/fig42.jpg)
+    ![図42](images_ja/fig42.png)
 
-    <a href="images/fig42_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>
+    ![図43](images_ja/fig43.png)
 
-    ![図43](images/fig43.jpg)
-
-    <a href="images/fig43_larger.JPG" target="_blank" rel="noopener noreferrer">大きい画像を見る</a>.
-
-    ![図44](images/fig44.jpg)
+    ![図44](images_ja/fig44.png)
 
 <a id='step4'/>
 
@@ -344,11 +317,11 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 1. **Developer** パースペクティブに切り替え、プロジェクトが選択されていることを確認し (このコンテンツの場合は **tutorial**) 、 **+追加/+Add** をクリックします。
 
-    ![図45](images/fig45.jpg)
+    ![図45](images_ja/fig45.png)
 
 1. **Gitからのインポート**をクリックします。
 
-    ![図46](images/fig46.jpg)
+    ![図46](images_ja/fig46.png)
 
 1. Import from Git ページで、以下のフィールドに必要な値を入力します。
    * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>
@@ -368,10 +341,10 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
      **注意**: この時点では、**作成/Create** をクリックしないでください!次のステップに進みます。
 
-    ![図47](images/fig47.jpg)
-    ![図48](images/fig48.jpg)
-    ![図48a](images/fig48a.jpg)
-    ![図49](images/fig49.jpg)
+    ![図47](images_ja/fig47.png)
+    ![図48](images_ja/fig48.png)
+    ![図48a](images_ja/fig48a.png)
+    ![図49](images_ja/fig49.png)
 
 <a id='step4a'/>
 
@@ -381,8 +354,8 @@ API層で行ったように、Web層が正常に動作するためには、API�
 
 1.フォームを一番下までスクロールして、**Deployment**をクリックすると、環境変数オプションが表示されます。
    
-   ![図50](images/fig50.jpg)
-   ![図51](images/fig51.jpg)
+   ![図50](images_ja/fig50.png)
+   ![図51](images_ja/fig51.png)
 
 1.Deploymentページで、環境変数に以下の値を設定します。
    * **Name**: QOD_API_URL
@@ -390,25 +363,25 @@ API層で行ったように、Web層が正常に動作するためには、API�
   
    次に、**作成/Create**をクリックします。
 
-   ![図52](images/fig52.jpg)
+   ![図52](images_ja/fig52.png)
 
    **次に起こること**は、OpenShiftがGitリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからポッド（アプリケーションとしても知られています）を作成することで、それがWebマイクロサービスアプリケーション（ブラウザーに対するフロントエンド層）になるのです。HTTPS (またはHTTP) URLは、ユーザーに対してWebアプリケーションを提供します。
 
 1. Topology ページで、デプロイメント・オブジェクトを表す **D qod-web** をクリックします。ビルドが完了し、ポッドが **Running** 状態になるのを待ちます。このポッドは、ポート8080で利用可能なWebマイクロサービスであり（サービス情報から分かる）、外部HTTPS（またはHTTP、該当する場合）ルートが作成されています。
 
-   ![図53](images/fig53.jpg)
-   ![図54](images/fig54.jpg)
+   ![図53](images_ja/fig53.png)
+   ![図54](images_ja/fig54.png)
 
 1. HTTPS (またはHTTP) URLをクリックし、Webアプリケーションが正常に実行され、今日の名言が表示されていることを確認します。
 
-   ![図55](images/fig55.jpg)
-   ![図56](images/fig56.jpg)
+   ![図55](images_ja/fig55.png)
+   ![図56](images_ja/fig56.png)
 
 1. **Random Quote**をクリックすると、毎回DBからランダムに名言を表示します。
 
-   ![図57](images/fig57.jpg)
-   ![図58](images/fig58.jpg)
-   ![図59](images/fig59.jpg)
+   ![図57](images_ja/fig57.png)
+   ![図58](images_ja/fig58.png)
+   ![図59](images_ja/fig59.png)
 
    これで、Pod作成時に Deployment フィールド (advanced options) を使って初期化した `QOD_API_URL` 環境変数が機能し、ウェブ層が API 層と正常に通信できるようになったことが確認できました。この環境変数を使用すると、ウェブ層が API 層と正常に通信できるようになります。
 
@@ -416,7 +389,7 @@ API層で行ったように、Web層が正常に動作するためには、API�
 
 1. (**オプション この手順は任意です**) OpenShift は、異なるサービスが互いにどのように接続するかを示すために、Topology ビューでビジュアルコネクタを提供します。Topology ビューで、矢印がポップアップするまで各サービスにカーソルを置き、それをドラッグして他のサービスに接続します。次のスクリーンキャプチャに示すように、アプリケーションを構成するさまざまなサービス間のトラフィックの流れをよりよく視覚化するのに役立ちます。
 
-   ![図60](images/fig60.jpg)
+   ![図60](images_ja/fig60.png)
 
 ## まとめ
 
