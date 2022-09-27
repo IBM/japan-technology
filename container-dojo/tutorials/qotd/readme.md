@@ -85,7 +85,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 1. [Gitからのインポート/Import from Git] ダイアログボックスで、以下のフィールドに指定された値を入力します。
 
    * **Git リポジトリー URL/Git Repo URL**: <a href="https://github.com/dpkshetty/qod-db" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-db</a>
-       *(Tabキーを押して、'Validated'と表示されるのを待ちます)*。
+       *(Tabキーを押して、'検証済み/Validated'と表示されるのを待ちます)*。
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリに存在する<a href="https://github.com/dpkshetty/qod-db/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、Dockerfileからのインポートを自動検出します。
    * **アプリケーション名**: QOD
    * **Name**: qod-db (この名前は、DBマイクロサービスにアクセスするためのDNSエントリーを含む、OpenShiftが作成するすべてのリソースに使用されます)
@@ -149,7 +149,7 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
 1. Import from Gitダイアログボックスで、必須フィールドに以下の値を入力します。
 
    * **Git リポジトリー URL/Git Repo URL**: <a href="https://github.com/dpkshetty/qod-api" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-api</a>
-   *(Tabキーを押して、**Validated**と表示されるのを待ちます)*
+   *(Tabキーを押して、**検証済み/Validated**と表示されるのを待ちます)*
    OpenShiftはGitリポジトリを調べ、qod-apiリポジトリに存在する<a href="https://github.com/dpkshetty/qod-api/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、このリポジトリからは「Dockerfileからのインポート」と自動検出します。
 
      **注意**:また、ソースコードから直接イメージをビルドするオプションなど、独自のビルド戦略を選択することもできます。これは Red Hat の Source to Image 機能を使用し、開発者が独自の Dockerfile を記述する必要性をなくします。
@@ -325,7 +325,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 1. Import from Git ページで、以下のフィールドに必要な値を入力します。
    * **Git Repo URL**:<a href="https://github.com/dpkshetty/qod-web" target="_blank" rel="noopener noreferrer">https://github.com/dpkshetty/qod-web</a>
-       (**Tab**を押して、**Validated**と表示されるのを待ちます)
+       (**Tab**を押して、**検証済み/Validated**と表示されるのを待ちます)
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリにDockerfileが存在するため、インポート戦略を<a href="https://github.com/dpkshetty/qod-web/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> として自動検出します。
    * **アプリケーション**: QOD
    * **Name**: qod-web (この名前は、WebマイクロサービスにアクセスするためのDNSエントリを含む、OpenShiftが作成するすべてのリソースに使用されます)
