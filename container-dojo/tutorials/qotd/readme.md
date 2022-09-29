@@ -28,7 +28,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 この3層アプリケーションをデプロイする前に、以下の前提条件が満たされていることを確認してください。
 
-* Red Hat OpenShift Container Platform クラスターにアクセスできること。このコンテンツの画像は、**IBM Power Virtual Server上の OpenShift バージョン 4.10.xx**を使用しています。このチュートリアルで説明する手順は、他の OpenShift プラットフォームでも同様に動作するはずですが、GUI 画面やダイアログボックスの一部が若干異なって見えるかもしれません。
+* Red Hat OpenShift Container Platform クラスターにアクセスできること。このコンテンツの画像は、Red Hat OpenShift Local 4.11.3(日本語コンソール）を使用しています。このチュートリアルで説明する手順は、他の OpenShift プラットフォームでも同様に動作するはずですが、ブラウザーの言語設定やマイナーバージョンの違いにより、GUI 画面やダイアログボックスの一部が若干異なって見えるかもしれませんので、ご注意ください。
 * Red Hat OpenShift Container Platform クラスターにアクセスできない場合は、Red Hat の <a href="https://developers.redhat.com/developer-sandbox" target="_blank" rel="noopener noreferrer">developer sandbox for Red Hat OpenShift</a> を通じてアクセスすることができます。あるいは、お持ちのコンピューター上に<a href="https://developers.redhat.com/products/openshift-local/overview" target="_blank" rel="noopener noreferrer">Red Hat OpenShift Local</a>開発環境を構築することも可能です。
 
 ## 想定される時間
@@ -58,7 +58,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
 
 ## 1.新しいプロジェクトを作成する
 
-1. 3層アプリケーションをデプロイする新しい OpenShift プロジェクトを作成します。**Administrator** ビューで、**プロジェクト**をクリックし、**プロジェクトの作成** をクリックします。
+1. 3層アプリケーションをデプロイする新しい OpenShift プロジェクトを作成します。**Administrator** パースペクティブで、**プロジェクト**をクリックし、**プロジェクトの作成** をクリックします。
    
    ![図2](images_ja/fig2.png)
 
@@ -89,9 +89,9 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
       OpenShiftはGitリポジトリを調べ、qod-dbリポジトリに存在する<a href="https://github.com/dpkshetty/qod-db/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile</a> により、Dockerfileからのインポートを自動検出します。
    * **アプリケーション名**: QOD
    * **Name**: qod-db (この名前は、DBマイクロサービスにアクセスするためのDNSエントリーを含む、OpenShiftが作成するすべてのリソースに使用されます)
-   * **Deployment** (デフォルト) を選択しておいてください。
+   * **デプロイメント/Deployment** (デフォルト) を選択しておいてください。
    * **ターゲットポート**: 3306 (DB サービスが接続をリッスンするように設計されているポートを見つけるために、<a href="https://github.com/dpkshetty/qod-db/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルを参照してください)。
-   * **Create a route to the Application** のチェックボックスをオフにします。  
+   * **routeを作成します。/Create a route to the Application** のチェックボックスをオフにします。  
    **注意**: DBサービスを外部に公開する必要はないため、DBサービスへのルートは必要ありません。クラスタ内部からしかアクセスされませんし、外部ルートを持たないことでDBサービスも外部からの攻撃からより安全になります。
    * **作成/Create** をクリックします。
 
@@ -99,7 +99,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
    ![図7](images_ja/fig7.png)
    ![図8](images_ja/fig8.png)
 
-   **次に起こること**は、OpenShiftがGitHubリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからデータベース用のマイクロサービスアプリケーション（バックエンド層）となるPod（アプリケーションとも呼ばれる）を作成することです。このアプリケーションはMariaDBを起動し、quotes, genres, authorsという3つのテーブルを持ち、それぞれ異なるquotes, genres, authorがあらかじめ入力された**qod**という名前のDBを作成します。
+   **次に起こること**は、OpenShiftがGitHubリポジトリからソースコードを取得し、Dockerfileを使用してDockerイメージを作成し、そのイメージをOpenShift内部のイメージレジストリに保存し、そのDockerイメージからデータベース用のマイクロサービスアプリケーション（バックエンド層）となるPod（アプリケーションとも呼ばれる）を作成することです。このアプリケーションはMariaDBを起動し、quotes, genres, authorsという3つのテーブルを持ち、それぞれ異なる名言, ジャンル, 著者があらかじめ入力された**qod**という名前のDBを作成します。
 
 1. トポロジーのページに戻ります。デプロイメント・オブジェクトを表す **D qod-db**をクリックします。ビルドプロセスが終了し、Podが **Running** 状態になるのを待ちます。このPodは、ポート 3306 で利用可能な DB マイクロサービスであり (サービス情報から確認できます)、ルートがないため、このサービスはクラスタの外側からアクセスできません。
    
@@ -127,7 +127,7 @@ QODアプリケーションの以下の3つの層のソースコードは、GitH
    ![図12a](images_ja/fig12a.png)
    ![図12b](images_ja/fig12b.png)
 
-1. authors、genres、quotesのテーブルがあらかじめ作成されていることに注目する。
+1. authors、genres、quotesのテーブルがあらかじめ作成されていることを確認します。
 1. 必要に応じて、以下の画面キャプチャーに示すように、これらのテーブルに問い合わせるSQLコマンドを実行します。
 
    ![図13](images_ja/fig13.png)
@@ -155,9 +155,9 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
      **注意**:また、ソースコードから直接イメージをビルドするオプションなど、独自のビルドストラテジーを選択することもできます。これは Red Hat の Source to Image 機能を使用し、開発者が独自の Dockerfile を記述する必要性をなくします。
    * **アプリケーション名**: ドロップダウンリストを使用して、既存のアプリケーショングループからQODを選択します。
    * **名前**: qod-api (この名前は、APIマイクロサービスにアクセスするためのDNSエントリーを含む、OpenShiftが作成するすべてのリソースに使用されます).
-   * **Deployment** (デフォルト) を選択したままにしてください。
+   * **デプロイメント/Deployment** (デフォルト) を選択したままにしてください。
    * **ターゲットポート**:8080 (<a href="https://github.com/dpkshetty/qod-api/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルは、APIサービスを実行するために設計されているポートを記載しています).
-   * **Create a route to the Application** のチェックボックスをオフにします。
+   * **routeを作成します。/Create a route to the Application** のチェックボックスをオフにします。
 
      **注意**: APIサービスを外部に公開する必要はないため、APIサービスへのルート(Route)は必要ありません。このAPIサービスはOpenShiftクラスタ内部からしかアクセスされません。また外部ルートを持たないことで、APIサービスもクラスタ外部からの攻撃からより安全になります!
 1. **Create** をクリックします。
