@@ -219,7 +219,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
    **注意**:これらは、<a href="https://github.com/dpkshetty/qod-api/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルに記述されているように、APIサービスがDBサービスにアクセスするために必要な環境変数です。
 
-   ![図25](images_ja/fig25.png)
+   ![図25](images_ja/fig25-1.png)
 
 3. **シークレットのワークロードへの追加**をクリックします。シークレットのワークロードへの追加 ページで、ドロップダウン リストから **qod-api** Deploymentオプションを選択し、 **環境変数** オプションを選択して **保存** をクリックします。
 
