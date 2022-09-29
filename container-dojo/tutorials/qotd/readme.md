@@ -199,13 +199,13 @@ API 層はアプリケーションのビジネスロジック層 (最も単純�
 
 OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数を注入する巧妙な方法を提供しています。シークレットを作成して、API Podに環境変数を設定してみましょう。
 
-1. 左のナビゲーションメニューの **Secrets** をクリックし、**Create** をクリックします。次に、**Key/Value secret**をクリックします。
+1. 左のナビゲーションメニューの **シークレット/Secrets** をクリックし、**Create** をクリックします。次に、**キーと値のシークレット / Key/Value secret**をクリックします。
 
    ![図23](images_ja/fig23.png)
 
    ![図24](images_ja/fig24.png)
 
-2. Key/ValueのSecret作成ページで、必須フィールドに以下の値を入力します。
+2. [キー/値のシークレットの作成]ページで、必須フィールドに以下の値を入力します。
    * **シークレット名**: qod-db-credentials
    * **キー**:DB_HOST
    * **値**: qod-db
@@ -256,7 +256,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 テスト目的のために、クラスタの外部からアクセスできるように、APIサービスのためにHTTPまたはHTTPS（クラスタに適用）ルートを作成することができます。そして、APIテスト自動化スクリプトのターゲットとしてルートURLを使用することができます。
 
-1.APIサービスのルートを作成するには、**Administrator**パースペクティブに切り替えて、**Networking -> Routes**をクリックします。次に、**ルートの作成 (Create Route)**をクリックします。
+1.APIサービスのルートを作成するには、**Administrator**パースペクティブに切り替えて、**ネットワーク->ルート / Networking -> Routes**をクリックします。次に、**ルートの作成 (Create Route)**をクリックします。
 
    ![図32](images_ja/fig32.png)
 
@@ -297,11 +297,11 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
    **おめでとうございます！** これで、APIサービスにルートを追加し、そのRESTエンドポイントにクラスタ外からアクセスできるようにすることに成功しました。この方法は、任意の API レベルのテスト自動化を実行するために使用できます。その後、ルート (Route)を削除して API サービスをクラスタ外部からの攻撃から保護することができます。
 
-   ルート (Route)を削除する必要がある場合は、**Administrator** ビューで **Routes** をクリックし、**qod-api-route** (必要な場合) を検索してください。
+   ルート (Route)を削除する必要がある場合は、**Administrator** パースペクティブで **ルート/Routes** をクリックし、**qod-api-route** (必要な場合) を検索してください。
  
     ![図41](images_ja/fig41.png)
 
-5. 縦３点リーダーのアイコン(3つの点がある)をクリックし、**ルートの削除 (Delete Route)**をクリックし、**削除 (Delete)**をクリックするとルートが削除されます。
+5. 縦３点リーダーのアイコン(3つの点がある)をクリックし、**ルートの削除 /Delete Route**をクリックし、**削除 /Delete**をクリックするとルートが削除されます。
 
     ![図42](images_ja/fig42.png)
 
@@ -331,7 +331,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
    * **Name**: qod-web (この名前は、WebマイクロサービスにアクセスするためのDNSエントリを含む、OpenShiftが作成するすべてのリソースに使用されます)
    * デプロイメント(デフォルト)を選択したままにする
    * **ターゲットポート**: 8080 (<a href="https://github.com/dpkshetty/qod-web/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルには、ウェブサービスを実行するためのポートが記載されています)
-   * **Create a route to the Application** チェックボックスを選択します。
+   * **routeを作成します。/Create a route to the Application** チェックボックスを選択します。
   
      **注**：クラスタの構成によってはHTTPSルートを必須としています。クラスタがそうでない場合は、HTTPSルートの作成に使用する以下のステップをスキップできます。
    * **Secure Route** チェックボックスを選択し、他のフィールドに次の値を入力します。
@@ -352,7 +352,7 @@ OpenShiftは、シークレット(Secret)機能を使って、Podに環境変数
 
 API層で行ったように、Web層が正常に動作するためには、API層と連携する必要があります。<a href="https://github.com/dpkshetty/qod-web/blob/master/README.md" target="_blank" rel="noopener noreferrer">README.md</a> ファイルから、環境変数 `QOD_API_URL` を定義する必要があることが分かります。OpenShiftでは、Pod作成時に環境変数を指定する方法が用意されています。
 
-1.フォームを一番下までスクロールして、**Deployment**をクリックすると、環境変数オプションが表示されます。
+1.フォームを一番下までスクロールして、**デプロイメント/Deployment**をクリックすると、環境変数オプションが表示されます。
    
    ![図50](images_ja/fig50.png)
    ![図51](images_ja/fig51.png)
