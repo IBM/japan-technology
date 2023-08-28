@@ -1,0 +1,26 @@
+{
+    // devcontainer を作るのにつかう　Dockerfile
+    "build": {
+      "dockerfile": "Dockerfile"
+    }
+  
+    // 後で説明する Docker-in-Docker の設定
+    // ref. https://github.com/microsoft/vscode-dev-containers/blob/main/containers/docker-in-docker/README.md
+//    "runArgs": ["--init", "--privileged"],
+//    "mounts": ["source=dind-var-lib-docker,target=/var/lib/docker,type=volume"],
+//    "overrideCommand": false,
+  
+    // Visual studio code の Remote [Codespaces]-scoped settings の設定 codespace
+//    "settings": {
+//    },
+  
+    // Add the IDs of extensions you want installed when the container is created.
+//    "extensions": [
+//    ],
+  
+    // prebuild
+//   "onCreateCommand": "cd /workspaces/drobe && sh script/codespace/prebuilt.sh", // 後で説明する prebuild される時に実行されるコマンド
+  
+    // post build
+//    "postCreateCommand": "service redis-server start" // devcontainer が作られた後に実行されるコマンド
+  }
