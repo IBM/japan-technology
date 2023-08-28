@@ -1,7 +1,7 @@
 ## シンプルHelloWorldサンプル
 ### 当プロジェクトについて
-このプロジェクトは、OpenLibertyを使用したHelloWorldをクイックに体験する目的で作成されています。
-作成内容は、OpenLibertyのサイトにある「Get started」で取得できるものとほぼ同じです。
+このプロジェクトは、OpenLibertyを使用したHelloWorldをクイックに体験する目的で作成されています。  
+作成内容は、OpenLibertyのサイトにある「Get started」で取得できるものとほぼ同じです。  
 ローカルのJava環境で実行するパターンと、GitHub Codespacesで実行するパターンの2つが選べます。
 
 ### ローカル環境準備
@@ -22,7 +22,9 @@
 こちらはCodespaces上にJavaが自動でインストールされるため、ローカルでの準備は不要です。
 - 利用者のGitHubアカウントに、当リポジトリの内容をフォークする。
 - GitHubのWeb画面で、フォークしたリポジトリの右上にある「Code」から、「Create codespace on main」を選択する。
-- 起動するVScodeのターミナルから ./mvnw liberty:dev を実行する。
+- 起動するVScodeのターミナルから、次のコマンドを実行する。
+- cd liberty-sample/hello-world
+- ./mvnw liberty:dev
 
 ### アプリ実行確認（Codespaces）
 動作確認は、ローカルブラウザから[アプリのURL](http://localhost:9080/ghcs/api/hello)にアクセスします。
