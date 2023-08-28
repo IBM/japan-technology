@@ -16,17 +16,21 @@
 
 ### アプリ実行確認（ローカル）
 動作確認は、ローカルブラウザから[アプリのURL](http://localhost:9080/ghcs/api/hello)にアクセスします。
-「Hello World」と出力されれば正常です。
+「Hello World!!」と出力されれば正常です。
 
 ### アプリ起動（Codespaces）
 こちらはCodespaces上にJavaが自動でインストールされるため、ローカルでの準備は不要です。
 - 利用者のGitHubアカウントに、当リポジトリの内容をフォークする。
+- japan-technology/liberty-sample/hello-world/.devcontainer のフォルダを、2階層上（japan-technologyの下）に移動する。GitHub上で完結させる場合、リポジトリを表示させた状態で「.」を押してVScode相当の編集画面を起動し、ここから編集（移動とコミットプッシュ）を行なう。
 - GitHubのWeb画面で、フォークしたリポジトリの右上にある「Code」から、「Create codespace on main」を選択する。
 - 起動するVScodeのターミナルから、次のコマンドを実行する。
 - cd liberty-sample/hello-world
 - ./mvnw liberty:dev
 
 ### アプリ実行確認（Codespaces）
-動作確認は、ローカルブラウザから[アプリのURL](http://localhost:9080/ghcs/api/hello)にアクセスします。
+次の手順で、開発コンテナ上のポートをローカルブラウザからアクセスできるようにします。
+- ターミナル画面横の「ポート」を開く。
+- 「ポートの追加」をクリックし、9080を入力する。
+動作確認は、ポート画面の「ローカルアドレス」列に表示されたURLに「/ghcs/api/hello」を追加してアクセスします（例：https://xxx-9080.app.github.dev/ghcs/api/hello）。
 「Hello World」と出力されれば正常です。
 
