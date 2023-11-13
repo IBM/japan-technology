@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 import sys
 import traceback
 import ibm_boto3
