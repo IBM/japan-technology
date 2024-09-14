@@ -1,5 +1,13 @@
 # プロンプト・ラボの利用
+このハンズオンは、次のことを体験します。
+* [日本語での質問]というサンプル・プロンプトから、IBM granite-8b-japaneseを使って、日本語のプロンプトを実行する
+* プロンプト・ラボから呼び出せるモデル パラメーターの設定画面を確認する
+* 作成しているプロンプトを呼び出すための[コードの表示]画面を使い、Pythonコードをコピーする
+* IBM CloudのAPIキーを作成する
+* curl コマンドを使って、IBM watsonxを呼び出すためのアクセス・トークンを取得する
+* 取得したアクセス・トークンと、プロンプトを呼び出すためのPythonコードを使って、プロンプトを実行する
 
+##
 1. プロジェクトの[概要]タブを開きます。
 <img width="1429" alt="wxai-plst-01-projOverview" src="https://github.com/user-attachments/assets/2eeb7dad-35fa-44aa-ae14-0fa956c602e1">
 
@@ -107,7 +115,7 @@ if response.status_code != 200:
 
 data = response.json()
 ```
-このPythonコードは、"Bearer YOUR_ACCESS_TOKEN" という部分にIBM CloudのAPIキーを入力すれば、実行できます。
+このPythonコードは、"YOUR_ACCESS_TOKEN" という部分にIBM CloudのAPIキーから生成できるアクセス・トークンを入力すれば、実行できます。
 
 14. Webブラウザーから新しいタブ、あるいは新しいウィンドウを開き、 https://cloud.ibm.com/iam/overview へアクセスします。
 <img width="1548" alt="wxai-plst-13-CloudIAM" src="https://github.com/user-attachments/assets/6d35dc25-6c76-4310-92f5-4090f600271e">
@@ -133,7 +141,58 @@ data = response.json()
 }
 ```
 
-19. 
+19. Ubuntuあるいはターミナルへ戻り、curlコマンドを使って、アクセス・トークンを取得します。
+```
+curl -X POST 'https://iam.cloud.ibm.com/identity/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<ここに上記のapikeyから値をコピーします>'
+```
+IBM Cloudと通信できていて、APIキーを正しく指定してあれば、JSON文字列が表示されます。"access_token"のペアとなっている文字列がアクセス・トークンなので、コピーして利用します。
 
+```
+{"access_token":"この部分がアクセス・トークンで、とても長い文字列が表示されます","refresh_token":"not_supported","ims_user_id":<ユーザーID>,"token_type":"Bearer","expires_in":3600,"expiration":1726342370,"scope":"ibm openid"}
+
+```
+
+20. Visual Studio Codeに戻り、pl01.pyに含まれている	"Authorization": "Bearer YOUR_ACCESS_TOKEN" のコードを書き換えます。YOUR_ACCESS_TOKENのところを上記19でコピーしたアクセス・トークンと置き換えます。pl01.pyを保存します。
+```
+"Authorization": "Bearer eyJraWx....(長い文字列)"
+```
+
+注意: 手順19と手順20は、あくまでもcurlコマンドを使って、アクセス・トークンを取得する体験を目的としています。IBM watsonx.aiを使ったPythonアプリを業務で利用する際には、アクセス・トークンの取得をPythonコードで行います。
+
+参考リソース: ([プログラム言語からのアクセスにおける認証](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html?context=wx#rest-api))
+
+```
+import requests
+
+# Paste your Watson Machine Learning service apikey here
+
+apikey = "<ここにAPIキーを指定します>"
+
+# Get an IAM token from IBM Cloud
+url     = "https://iam.cloud.ibm.com/identity/token"
+headers = { "Content-Type" : "application/x-www-form-urlencoded" }
+data    = "apikey=" + apikey + "&grant_type=urn:ibm:params:oauth:grant-type:apikey"
+response  = requests.post( url, headers=headers, data=data, auth=apikey )
+iam_token = response.json()["access_token"]
+
+```
+
+
+21. Ubuntuあるいはターミナルへ戻り、Pythonのvenv仮想環境を有効にします。
+```
+cd ~/wxai
+source venv/bin/activate
+```
+
+22. pythonコマンドを使って、pl01.pyを実行します。
+```
+python pl01.py
+```
+
+実行例:
+```
+(venv) oniak3@oniak3imac wxai % python pl01.py
+{'model_id': 'ibm/granite-8b-japanese', 'created_at': '2024-09-14T18:41:38.932Z', 'results': [{'generated_text': 'AIの技術革新は、私たちが働き、暮らし、学び、他者と交流する方法を改善する新しい機会を生み出しています。', 'generated_token_count': 25, 'input_token_count': 94, 'stop_reason': 'eos_token', 'seed': 1259553121}]}
+```
 
 
