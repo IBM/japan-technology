@@ -1,5 +1,5 @@
 # 文書と言語モデルを利用したチャット
-このハンズオンでは、IBM watsonx.aiのプロンプト・ラボを利用し、検索したい文書をアップロードすることで、文書に含まれる内容についてチャットできることを体験します。
+このハンズオンでは、IBM watsonx.aiのプロンプト・ラボを利用し、検索したい文書をアップロードすることで、文書に含まれる内容についてチャットできることを体験します。日本語と英語、それぞれに対応している言語モデルを使って、英語の文書に対して、日本語で質問し、日本語で回答を得るという体験もします。（下記の免責事項をよくお読みください）
 
 事前準備:
 * IBM Redbooksのサイトから [Transitioning to Quantum-Safe Cryptography on IBM Z](https://www.redbooks.ibm.com/abstracts/sg248525.html "Q-Safe on Z at IBM Redbooks") の[PDFをダウンロード](https://www.redbooks.ibm.com/redbooks/pdfs/sg248525.pdf "Q-Safe on IBM z")し、PDFをローカル・コンピューター上に保存します。
@@ -45,7 +45,7 @@
 
 11. ここからは、耐量子計算機暗号 (Quantum Safe Cryptography)について、チャットで聞いてみましょう。
 
-プロンプトの例を示しておきます。
+   プロンプトの例を示しておきます。
 
 * Summarize the document.
 * What are key features of Quantum Safe Security on IBM Z16?
@@ -64,6 +64,12 @@
 参考リソース: 
 * [IBMが開発したアルゴリズムが、NISTが初めて公開した耐量子計算機暗号標準に](https://jp.newsroom.ibm.com/2024-08-16-ibm-developed-algorithms-announced-as-worlds-first-post-quantum-cryptography-standards "PQC-NIST-IBM")
 * [IBM Quantum Safe Security](https://www.ibm.com/quantum/quantum-safe "IBM Q-Safe")
+* [NIST’s post-quantum cryptography standards are here](https://research.ibm.com/blog/nist-pqc-standards "NIST PQC standard")
+
+12. プロンプト・セッションを保存します。名前をQ-Safeとしてください。
+
+<img width="1548" alt="wxai-chat2-11-SaveAsQSafe" src="https://github.com/user-attachments/assets/2a95d7f3-61d9-4eb4-9903-772879342265">
+
 
 
 
