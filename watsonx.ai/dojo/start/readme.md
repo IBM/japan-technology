@@ -6,7 +6,7 @@
 
 https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp
 
-このページの手順を正しく実行した後は、IBM watsonxのサービスに直接ログインできます。手順は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme2.md, "login to watsonx")です。
+このページの手順を正しく実行した後は、IBM watsonxのサービスに直接ログインできます。手順は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme2.md , "login to watsonx")です。
 
 免責事項: 表示されているIBM CloudコンソールやIBM watsonx as a Serviceのコンソールの画像は、講師が 2024/9/14時点で利用している環境をキャプチャーしたものです。アカウントの名前やリソースの名前は、皆さんがお使いの環境とは異なっていますので、ご注意ください。
 
