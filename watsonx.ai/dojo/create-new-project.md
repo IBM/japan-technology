@@ -21,7 +21,8 @@
 2. [プロジェクトの作成]ページが表示されます。プロジェクトを識別するための名前を入力してください。日本語でも英語でも構いません。この名前は、単にユーザーがプロジェクトを識別するためのものです。このため、皆さんは後からいつでも自由にプロジェクトの名前を変更できます。IBM watsonxのシステム側から見ると、プロジェクトごとにGUIDを使って固有の番号を割り当てています。これを「プロジェクト ID」と呼んでいます。IBM watsonx APIを利用する場合は、プロジェクトの名前ではなく、プロジェクトIDを使います。
 <img width="1548" alt="wxai-newproject-02-blankproject" src="https://github.com/user-attachments/assets/3a484948-d6ff-4931-bc80-ebbe3e01b0b6">
 IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日無料体験版を利用している場合は、[ストレージ]のところに、Cloud Object Storageの名前が自動的に割り当てられます。
-通常のIBM CloudアカウントからIBM watsonxを初めて利用する場合は、ストレージの関連付けが必要です。
+もし次の図のように、表示されている場合は、[追加]をクリックして、ストレージの関連付けが必要です。
+※ IBM Technology Zoneをお使いで、この図のようになった場合は、選択しているアカウントをご確認ください。予約した環境ではないアカウントを選択している可能性があります。
 
 <img width="2302" alt="wxai-newproject-03-AddICOS" src="https://github.com/user-attachments/assets/1c56114c-5602-4e28-95ee-65178a5604df">
 
