@@ -1,4 +1,4 @@
-# プロンプト・ラボ、構造化モード、フリーモードの利用
+# プロンプト・ラボの利用
 
 1. プロジェクトの[概要]タブを開きます。
 <img width="1429" alt="wxai-plst-01-projOverview" src="https://github.com/user-attachments/assets/2eeb7dad-35fa-44aa-ae14-0fa956c602e1">
@@ -44,4 +44,62 @@ AI advancements are leading to new opportunities that can improve how we work, l
 11. [デコード]を[Sampling]に切り替えます。設定できるパラメータが増えたことを確認します。
 <img width="384" alt="wxai-plst-11-Sampling" src="https://github.com/user-attachments/assets/acd71e8f-ac77-4b07-b5b1-08d674d0377c">
 
-参考リソース: [Foundation model parameters: decoding and stopping criteria] (https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&locale=en "Model Parameters")
+参考リソース: [Foundation model parameters -- decoding and stopping criteria](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&locale=en)
+
+12. 画面右上にある </> をクリックし、[コードの表示]を確認します。[Python]タブをクリックします。
+    <img width="1548" alt="wxai-plst-12-Python" src="https://github.com/user-attachments/assets/17f0f027-2921-4d7e-bb84-b8be242be26c">
+
+13. コードの表示から、[クリップボードにコピー]をクリックします。
+
+```pl01.py
+import requests
+
+url = "https://jp-tok.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
+
+body = {
+	"input": """以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。
+### 指示:
+
+与えられた質問に対して、文脈がある場合はそれも利用し、回答してください。
+
+### 入力:
+
+次の英語を日本語に翻訳してください
+
+AI advancements are leading to new opportunities that can improve how we work, live, learn and interact with one another.
+
+### 応答:
+
+""",
+	"parameters": {
+		"decoding_method": "sample",
+		"max_new_tokens": 200,
+		"min_new_tokens": 1,
+		"stop_sequences": ["</s>"],
+		"temperature": 0.7,
+		"top_k": 50,
+		"top_p": 1,
+		"repetition_penalty": 1
+	},
+	"model_id": "ibm/granite-8b-japanese",
+	"project_id": "28c668ac-c138-47f3-9dbf-b34e7e9ebe7b"
+}
+
+headers = {
+	"Accept": "application/json",
+	"Content-Type": "application/json",
+	"Authorization": "Bearer YOUR_ACCESS_TOKEN"
+}
+
+response = requests.post(
+	url,
+	headers=headers,
+	json=body
+)
+
+if response.status_code != 200:
+	raise Exception("Non-200 response: " + str(response.text))
+
+data = response.json()
+```
+
