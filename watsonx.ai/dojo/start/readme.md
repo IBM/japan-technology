@@ -1,4 +1,4 @@
-# watsonx.aiの起動
+# watsonx.aiの起動 (IBM Cloudコンソール)
 このパートでは、次の操作を学びます。
 * watsonx.aiの起動
 
