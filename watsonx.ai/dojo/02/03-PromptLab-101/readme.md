@@ -1,0 +1,47 @@
+# プロンプト・ラボ、構造化モード、フリーモードの利用
+
+1. プロジェクトの[概要]タブを開きます。
+<img width="1429" alt="wxai-plst-01-projOverview" src="https://github.com/user-attachments/assets/2eeb7dad-35fa-44aa-ae14-0fa956c602e1">
+
+2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックし、プロンプト・ラボを開きます。チャットの画面が表示されていることを確認します。
+<img width="1548" alt="wxai-plst-02-chat" src="https://github.com/user-attachments/assets/08f87063-ee45-4bac-a90a-d62377cac3b5">
+
+3. 画面左上にある[サンプル・プロンプト]のアイコンをクリックします。
+<img width="359" alt="wxai-plst-03-samplePrompt" src="https://github.com/user-attachments/assets/f344e264-4087-4084-8b5d-cf12d823e55b">
+
+4. [質問への回答]に含まれている[すべてを表示]をクリックします。
+<img width="1548" alt="wxai-plst-04-sampleList-QandA" src="https://github.com/user-attachments/assets/c58403dd-867f-4c23-9761-a3c98be59207">
+
+5. [日本語での質問]をクリックします。
+<img width="280" alt="wxai-plst-05-japanese" src="https://github.com/user-attachments/assets/e16a0c4a-7983-4cd6-a096-f9af7257baa4">
+
+6. [フリー・フォーム]が表示されるのを確認します。
+<img width="1548" alt="wxai-plst-06-freeform" src="https://github.com/user-attachments/assets/592b5ad2-21d5-4d4d-bcb1-f022693cdb8b">
+
+フォーム内に、次のプロンプトが表示されていることを確認して、画面右下にある[生成]をクリックします。
+```
+以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。
+### 指示:
+与えられた質問に対して、文脈がある場合はそれも利用し、回答してください。
+### 入力:
+次の英語を日本語に翻訳してください
+AI advancements are leading to new opportunities that can improve how we work, live, learn and interact with one another.
+### 応答:
+```
+
+7. 応答が表示されます。この例では「AIの進歩は、私たちが働き、暮らし、学び、他者と交流する方法を改善する新しい機会をもたらしています。」という結果になっています。
+<img width="1548" alt="wxai-plst-07-generated" src="https://github.com/user-attachments/assets/61fcb139-4834-44c7-a6e4-01371a8ff683">
+
+8. 画面右下、[生成]の左隣にある[出力のクリア]をクリックして、生成された内容を消去します。[### 応答:]の下に表示された内容が消えたことを確認します。
+<img width="1548" alt="wxai-plst-08-clear" src="https://github.com/user-attachments/assets/2d2f48fd-0231-4cb8-8dbe-bc648efb1939">
+
+9. 画面右上の方にある[モデル・パラメータ]のアイコンをクリックします。
+<img width="438" alt="wxai-plst-09-parameters" src="https://github.com/user-attachments/assets/a6461ef3-6d70-4f77-8b29-e0962bd4192a">
+
+10. [モデル パラメータ]の設定画面が表示されたのを確認します。
+<img width="394" alt="wxai-plst-10-ModelParams" src="https://github.com/user-attachments/assets/91a04dbc-1440-43b2-afff-eeeef59e9316">
+
+11. [デコード]を[Sampling]に切り替えます。設定できるパラメータが増えたことを確認します。
+<img width="384" alt="wxai-plst-11-Sampling" src="https://github.com/user-attachments/assets/acd71e8f-ac77-4b07-b5b1-08d674d0377c">
+
+参考リソース: [Foundation model parameters: decoding and stopping criteria] (https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&locale=en "Model Parameters")
