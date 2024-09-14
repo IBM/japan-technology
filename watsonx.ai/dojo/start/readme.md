@@ -6,7 +6,7 @@
 
 https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp
 
-このページの手順を正しく実行した後は、IBM watsonxのサービスに直接ログインできます。手順は[こちら](https://github.com/IBM/japan-technology/watsonx.ai/dojo/start/readme2.md, "login to watsonx")です。
+このページの手順を正しく実行した後は、IBM watsonxのサービスに直接ログインできます。手順は[こちら](https://github.com/IBM/japan-technology/watsonx.ai/dojo/start/readme2.md "login to watsonx")です。
 
 免責事項: 表示されているIBM CloudコンソールやIBM watsonx as a Serviceのコンソールの画像は、講師が 2024/9/14時点で利用している環境をキャプチャーしたものです。アカウントの名前やリソースの名前は、皆さんがお使いの環境とは異なっていますので、ご注意ください。
 
@@ -15,11 +15,11 @@ https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main
 * IBM Cloudのアカウントが使えること
 * IBM Cloudのリソースリスト上に、Cloud Object Storage, Watson Studio, Watson Machine Learningが登録されていること
 
-* 上記２つの前提条件を満たせていない場合は、[こちらの資料](https://speakerdeck.com/oniak3ibm/watsonx-ai-dojo-prereq, "watsonx.ai Prerequisite")を参考にしながら、準備してください。
+* 上記２つの前提条件を満たせていない場合は、[こちらの資料](https://speakerdeck.com/oniak3ibm/watsonx-ai-dojo-prereq "watsonx.ai Prerequisite")を参考にしながら、準備してください。
 
 IBM Cloudは、IBM watsonx as a Serviceという、watsonx.aiを利用して言語モデルや機械学習モデルを操作、デプロイするサービスを提供しています。
 
-![watsonx as a Service](https://dataplatform.cloud.ibm.com/docs/api/content/wsj/getting-started/images/arch-1.svg?context=wx&locale=ja, "watsonx as a service")
+![watsonx as a Service](https://dataplatform.cloud.ibm.com/docs/api/content/wsj/getting-started/images/arch-1.svg?context=wx&locale=ja "watsonx as a service")
 
 注意: watsonx.ai Dojoの勉強会では、watsonx.governanceは利用しません。
 
