@@ -3,7 +3,10 @@
 * watsonx.aiの起動
 
 参考URL: IBM watsonx as a Service の資料
+
 https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp
+
+免責事項: 表示されているIBM CloudコンソールやIBM watsonx as a Serviceのコンソールの画像は、講師が 2024/9/14時点で利用している環境をキャプチャーしたものです。アカウントの名前やリソースの名前は、皆さんがお使いの環境とは異なっていますので、ご注意ください。
 
 ## watsonx.aiの起動
 ### 前提条件:
@@ -19,6 +22,7 @@ IBM Cloudは、IBM watsonx as a Serviceという、watsonx.aiを利用して言�
 注意: watsonx.ai Dojoの勉強会では、watsonx.governanceは利用しません。
 
 ### 起動までの手順
+
 1. Webブラウザーから https://cloud.ibm.com を開き、IBM IDあるいはGoogle アカウントを利用して、IBM Cloudへログインします
 <img width="1430" alt="ibmcloud-login" src="https://github.com/user-attachments/assets/71a89ab1-64ea-4f63-a501-c0e2682725fb">
 
@@ -26,7 +30,7 @@ IBM Cloudは、IBM watsonx as a Serviceという、watsonx.aiを利用して言�
    リソース・リストはIBM Cloudのアカウントで使われているIBM Cloudのサービスの一覧です。
    もし複数のIBM Cloudアカウントをご利用されている場合は、適切なアカウントが選択されているかどうかをご確認ください。特にIBM Technology Zoneをご利用の場合、複数のアカウントに参加する場合があります。予約情報をご確認の上、正しいアカウントを選択してください。
 
-3. IBM Cloudのリソース・リストからWatson Studioのサービスを見つけて、表示されている名前をクリックします。
+3. IBM Cloudのリソース・リストから[AI/機械学習]のグループを見つけて、その中に含まれている Watson Studio のサービスを見つけて、表示されている名前をクリックします。
 <img width="1377" alt="wxai-start-02-resourcelist" src="https://github.com/user-attachments/assets/2839bd02-4ccf-4064-bfda-928a3cc78a23">
 
 4. Watson Studioのリソースが表示されます。
@@ -48,14 +52,17 @@ IBM Cloudは、IBM watsonx as a Serviceという、watsonx.aiを利用して言�
 
 
 8. [ツアーの実行→]をクリックし、ガイドに従って、画面を進めます。
-   1つ目:
+   
+   8-1:タスクを開始する方法
 <img width="1548" alt="wxai-tour01" src="https://github.com/user-attachments/assets/ca078f0d-179c-4901-b3fb-f0595386aa83">
 
-   2つ目:
+   8-2:その他のタスクを参照する方法
 <img width="1548" alt="wxai-tour02" src="https://github.com/user-attachments/assets/bc596461-2821-4482-a9e0-c1691a0f9d7c">
 
-   3つ目:
+   8-3:作業またはサンプルの選択
 <img width="1548" alt="wxai-tour03" src="https://github.com/user-attachments/assets/385a0ed0-5024-4c75-9807-20576dadff40">
 
 9. これで IBM watsonx.ai を利用する準備が整いました。
+
+watsonx.ai Dojoにオンラインで参加していて、ここまでの流れがうまく進まない場合は、チャットからお知らせください。
 
