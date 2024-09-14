@@ -22,6 +22,7 @@
 <img width="1548" alt="wxai-newproject-02-blankproject" src="https://github.com/user-attachments/assets/3a484948-d6ff-4931-bc80-ebbe3e01b0b6">
 IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日無料体験版を利用している場合は、[ストレージ]のところに、Cloud Object Storageの名前が自動的に割り当てられます。
 もし次の図のように、表示されている場合は、[追加]をクリックして、ストレージの関連付けが必要です。
+
 ※ IBM Technology Zoneをお使いで、この図のようになった場合は、選択しているアカウントをご確認ください。予約した環境ではないアカウントを選択している可能性があります。
 
 <img width="2302" alt="wxai-newproject-03-AddICOS" src="https://github.com/user-attachments/assets/1c56114c-5602-4e28-95ee-65178a5604df">
