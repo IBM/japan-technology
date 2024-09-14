@@ -2,9 +2,7 @@
 このパートでは、次の操作を学びます。
 * watsonx.aiの起動
 
-参考URL: IBM watsonx as a Service の資料
-
-https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp
+参考URL: [IBM watsonx as a Service の資料](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/welcome-main.html?context=wx&audience=wdp "IBM watsonx SaaS document")
 
 このページの手順を正しく実行した後は、IBM watsonxのサービスに直接ログインできます。手順は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme2.md "login to watsonx")です。
 
