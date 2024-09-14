@@ -11,4 +11,4 @@
 * [言語モデルを使ったチャットを試す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/01-chat-with-llm/readme.md "Chat with LLM")
 * [文書と言語モデルを使ったチャット](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/02-chat-with-document/readme.md "Chat with Doc")
 ## プロンプト・ラボ
-[プロンプト・ラボの利用とPythonによるプロンプトの実行](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md "Prompt Lab and Python") 
+* [プロンプト・ラボの利用とPythonによるプロンプトの実行](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md "Prompt Lab and Python") 
