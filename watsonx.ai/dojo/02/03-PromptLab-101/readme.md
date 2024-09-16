@@ -145,37 +145,35 @@ data = response.json()
 ```
 curl -X POST 'https://iam.cloud.ibm.com/identity/token' -H 'Content-Type: application/x-www-form-urlencoded' -d 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=<ここに上記のapikeyから値をコピーします>'
 ```
-IBM Cloudと通信できていて、APIキーを正しく指定してあれば、JSON文字列が表示されます。"access_token"のペアとなっている文字列がアクセス・トークンなので、コピーして利用します。
+IBM Cloudと通信できていて、APIキーを正しく指定してあれば、JSON文字列が表示されます。"access_token"のペアとなっている文字列がアクセス・トークンです。これは、IBM CloudのAPIキーが正しく機能しているかどうかの確認に利用できるので、覚えておきましょう。IBM watsonx.aiを使ったPythonアプリを開発する際には、アクセス・トークンの取得をPythonコードで行います。
 
 ```
 {"access_token":"この部分がアクセス・トークンで、とても長い文字列が表示されます","refresh_token":"not_supported","ims_user_id":<ユーザーID>,"token_type":"Bearer","expires_in":3600,"expiration":1726342370,"scope":"ibm openid"}
 
 ```
 
-20. Visual Studio Codeに戻り、pl01.pyに含まれている	"Authorization": "Bearer YOUR_ACCESS_TOKEN" のコードを書き換えます。YOUR_ACCESS_TOKENのところを上記19でコピーしたアクセス・トークンと置き換えます。pl01.pyを保存します。
+20. Visual Studio Codeに戻り、pl01.pyを修正します。
+* 1行目のimport requestsを次のコードで置き換えます。APIキーは、上の手順18で手に入れたものを指定します。
+
 ```
-"Authorization": "Bearer eyJraWx....(長い文字列)"
+import requests, json 
+from ibm_cloud_sdk_core import IAMTokenManager
+api_key = "<ここに皆さんが取得したAPIキーを入れてください>"
+
+def get_auth_token():
+
+    # Access token is required for REST invocation of the LLM
+    access_token = IAMTokenManager(apikey=api_key,url="https://iam.cloud.ibm.com/identity/token").get_token()
+    return access_token
 ```
 
-注意: 手順19と手順20は、あくまでもcurlコマンドを使って、アクセス・トークンを取得する体験を目的としています。IBM watsonx.aiを使ったPythonアプリを業務で利用する際には、アクセス・トークンの取得をPythonコードで行います。
+* "Authorization": "Bearer YOUR_ACCESS_TOKEN" のコードを次のコードで置き換えます。Bearerという単語の後に半角の空白文字が1つ入っていることを確認してください。
+```
+	"Authorization": "Bearer "+get_auth_token()
+```
+* pl01.pyを保存します。
 
 参考リソース: ([プログラム言語からのアクセスにおける認証](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html?context=wx#rest-api))
-
-```
-import requests
-
-# Paste your Watson Machine Learning service apikey here
-
-apikey = "<ここにAPIキーを指定します>"
-
-# Get an IAM token from IBM Cloud
-url     = "https://iam.cloud.ibm.com/identity/token"
-headers = { "Content-Type" : "application/x-www-form-urlencoded" }
-data    = "apikey=" + apikey + "&grant_type=urn:ibm:params:oauth:grant-type:apikey"
-response  = requests.post( url, headers=headers, data=data, auth=apikey )
-iam_token = response.json()["access_token"]
-
-```
 
 
 21. Ubuntuあるいはターミナルへ戻り、Pythonのvenv仮想環境を有効にします。
@@ -184,7 +182,12 @@ cd ~/wxai
 source venv/bin/activate
 ```
 
-22. pythonコマンドを使って、pl01.pyを実行します。
+22. pipコマンドからIBM Cloud SDK Coreをインストールします。
+```
+pip install ibm_cloud_sdk_core
+```
+
+23. pythonコマンドを使って、pl01.pyを実行します。
 ```
 python pl01.py
 ```
@@ -194,5 +197,13 @@ python pl01.py
 (venv) oniak3@oniak3imac wxai % python pl01.py
 {'model_id': 'ibm/granite-8b-japanese', 'created_at': '2024-09-14T18:41:38.932Z', 'results': [{'generated_text': 'AIの技術革新は、私たちが働き、暮らし、学び、他者と交流する方法を改善する新しい機会を生み出しています。', 'generated_token_count': 25, 'input_token_count': 94, 'stop_reason': 'eos_token', 'seed': 1259553121}]}
 ```
+
+Windows (Ubuntu)の実行例:
+<img width="1667" alt="wxai-plst-17-Ubuntu" src="https://github.com/user-attachments/assets/5385d3fd-74fe-4e5d-b255-9e63ab895938">
+Mac (Intel CPU)の実行例:
+<img width="1521" alt="wxai-plst-18-IntelMac" src="https://github.com/user-attachments/assets/a21a7780-0bec-4ab4-b604-0f8c1c6e1eca">
+
+
+
 
 
