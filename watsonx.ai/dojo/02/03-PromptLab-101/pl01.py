@@ -1,6 +1,8 @@
 # プロンプト・ラボで作ったプロンプトの実行サンプルコード
-# 体験を目的としているため、例外へ対応するためのコードは入っていませんので、ご注意ください
-# IBM Cloud SDK Coreのインストール
+# ご注意: 
+# 1. APIキー、Project IDについては、皆さんがご利用の環境から取得してください
+# 2. 体験を目的としているため、例外へ対応するためのコードは入っていません
+# 3. Python用のIBM Cloud SDK Coreのインストールが必要です。
 # pip install ibm_cloud_sdk_core
 import requests, json 
 from ibm_cloud_sdk_core import IAMTokenManager
