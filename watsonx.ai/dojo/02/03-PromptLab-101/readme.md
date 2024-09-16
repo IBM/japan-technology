@@ -192,17 +192,26 @@ pip install ibm_cloud_sdk_core
 python pl01.py
 ```
 
-実行例:
+* 実行例:
 ```
 (venv) oniak3@oniak3imac wxai % python pl01.py
 {'model_id': 'ibm/granite-8b-japanese', 'created_at': '2024-09-14T18:41:38.932Z', 'results': [{'generated_text': 'AIの技術革新は、私たちが働き、暮らし、学び、他者と交流する方法を改善する新しい機会を生み出しています。', 'generated_token_count': 25, 'input_token_count': 94, 'stop_reason': 'eos_token', 'seed': 1259553121}]}
 ```
 
-Windows (Ubuntu)の実行例:
+* Windows (Ubuntu)の実行例:
 <img width="1667" alt="wxai-plst-17-Ubuntu" src="https://github.com/user-attachments/assets/5385d3fd-74fe-4e5d-b255-9e63ab895938">
-Mac (Intel CPU)の実行例:
+* Mac (Intel CPU)の実行例:
 <img width="1521" alt="wxai-plst-18-IntelMac" src="https://github.com/user-attachments/assets/a21a7780-0bec-4ab4-b604-0f8c1c6e1eca">
 
+トラブル・シューティング
+* ModuleNotFoundError: No module named 'requests' と表示される場合
+  → ibm_cloud_sdk_core のインストールを実行してください。
+```
+pip install ibm_cloud_sdk_core
+```
+* ibm_cloud_sdk_core.api_exception.ApiException: Error: Provided API key could not be found., Status code: 400 と表示される場合
+  → APIキーの指定が間違っていますので、ご確認ください。
+    よくある間違い "<...>" APIキーには "<" や ">" の記号は含まれていません。
 
 
 
