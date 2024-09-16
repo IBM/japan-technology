@@ -1,4 +1,9 @@
 # プロンプト・ラボの利用とPythonによるプロンプトの実行
+前提条件:
+* Windowsの場合、Windows Subsystem Linuxを有効にし、Ubuntu あるいは Ubuntu 22.04.3 LTSが実行できること
+* Windows, Mac 共通: Python 3.10.14がインストールされていること, Python 仮想環境 venv を作ってあること
+* このハンズオンは、Python 3.12系でも動作することを確認しています
+
 このハンズオンは、次のことを体験します。
 * [日本語での質問]というサンプル・プロンプトから、IBM granite-8b-japaneseを使って、日本語のプロンプトを実行する
 * プロンプト・ラボから呼び出せるモデル パラメーターの設定画面を確認する
@@ -200,19 +205,24 @@ python pl01.py
 
 * Windows (Ubuntu)の実行例:
 <img width="1667" alt="wxai-plst-17-Ubuntu" src="https://github.com/user-attachments/assets/5385d3fd-74fe-4e5d-b255-9e63ab895938">
+
 * Mac (Intel CPU)の実行例:
 <img width="1521" alt="wxai-plst-18-IntelMac" src="https://github.com/user-attachments/assets/a21a7780-0bec-4ab4-b604-0f8c1c6e1eca">
 
-トラブル・シューティング
+## Pythonコードのトラブル・シューティング
 * ModuleNotFoundError: No module named 'requests' と表示される場合
+  
   → ibm_cloud_sdk_core のインストールを実行してください。
 ```
 pip install ibm_cloud_sdk_core
 ```
 * ibm_cloud_sdk_core.api_exception.ApiException: Error: Provided API key could not be found., Status code: 400 と表示される場合
-  → APIキーの指定が間違っていますので、ご確認ください。
-    よくある間違い "<...>" APIキーには "<" や ">" の記号は含まれていません。
 
+  → APIキーの指定が間違っていますので、ご確認ください。
+    よくある間違いとして、APIキーには "<" や ">" の記号は含まれていません。下記のようなコードに対してAPIキーを入れる際には、"<" や ">" の記号は削除してください。
+```
+api_key = "<ここに皆さんが取得したAPIキーを入れてください>"
+```
 
 
 
