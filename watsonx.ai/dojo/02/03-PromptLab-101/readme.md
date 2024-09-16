@@ -224,5 +224,7 @@ pip install ibm_cloud_sdk_core
 api_key = "<ここに皆さんが取得したAPIキーを入れてください>"
 ```
 
+* Exception: Non-200 response: {"errors":[{"code":"invalid_request_entity","message":"Missing either space_id or project_id or wml_instance_crn" と表示される場合
 
+  → Project IDの指定が間違っていますので、ご確認ください。例えば、[コード例](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/pl01.py "pl01 python sample")をコピー＆ペーストした場合に発生します。
 
