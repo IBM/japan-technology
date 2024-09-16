@@ -51,7 +51,9 @@
 
 * Summarize the document.
 * What are key features of Quantum Safe Security on IBM Z16?
+* What is the objective of this document?
 * 今の内容を日本語で説明してください。
+* この文書に含まれている目次を表示してください。
 * 耐量子計算機暗号アルゴリズムとは何ですか？
 * 企業が耐量子計算機暗号を導入するためには、どのような準備が必要でしょうか？
 * DSAとは何ですか？
@@ -61,7 +63,7 @@
 * IBM ADDIは耐量子計算機暗号化の実装にどう役立ちますか？
 * ハードウェア暗号化の観点で、IBM Z16がサポートしている耐量子計算機暗号化の技術を教えてください。
 * 耐量子計算機暗号化を利用するにあたり、鍵の管理はどのように行うと良いでしょうか？
-* セキュアな鍵保管システムについて紹介してください。
+* IBM Z16のセキュアな鍵保管システムについて紹介してください。
 
 参考リソース: 
 * [IBMが開発したアルゴリズムが、NISTが初めて公開した耐量子計算機暗号標準に](https://jp.newsroom.ibm.com/2024-08-16-ibm-developed-algorithms-announced-as-worlds-first-post-quantum-cryptography-standards "PQC-NIST-IBM")
