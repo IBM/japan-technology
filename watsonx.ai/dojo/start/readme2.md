@@ -1,4 +1,5 @@
-## IBM watsonx.ai 起動、別の方法
+## IBM watsonx.ai 起動、IBM watsonx セットアップ済みの場合
+
 IBM watsonx as a Serviceを一度でも起動したことがあれば、直接 IBM watsonx へログインできます。
 
 1. Webブラウザーを開き、https://jp-tok.dataplatform.cloud.ibm.com/login?context=wx へアクセスします。
