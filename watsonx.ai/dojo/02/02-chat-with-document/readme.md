@@ -53,9 +53,13 @@
 * What are key features of Quantum Safe Security on IBM Z16?
 * What is the objective of this document?
 * 今の内容を日本語で説明してください。
+* What kind of resources are available for the quantum protection journey?英語と日本語で教えてください。
 * この文書に含まれている目次を表示してください。
+* What is the IBM Z cryptographic component? 英語と日本語で回答してください。
 * 耐量子計算機暗号アルゴリズムとは何ですか？
 * 企業が耐量子計算機暗号を導入するためには、どのような準備が必要でしょうか？
+* "Example C-1"について説明してください。
+* REXXとは何ですか?
 * DSAとは何ですか？
 * ML-KEMとは何ですか？
 * FALCONとは何ですか？
