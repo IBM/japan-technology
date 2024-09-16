@@ -210,7 +210,7 @@ python pl01.py
 <img width="1521" alt="wxai-plst-18-IntelMac" src="https://github.com/user-attachments/assets/a21a7780-0bec-4ab4-b604-0f8c1c6e1eca">
 
 ## Pythonコードのトラブル・シューティング
-* ModuleNotFoundError: No module named 'requests' と表示される場合
+* ModuleNotFoundError: No module named 'requests' と表示される場合、あるいは ModuleNotFoundError: No module named 'ibm_cloud_sdk_core' と表示される場合
   
   → ibm_cloud_sdk_core のインストールを実行してください。
 ```
