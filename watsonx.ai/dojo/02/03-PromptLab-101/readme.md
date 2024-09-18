@@ -1,5 +1,6 @@
 # プロンプト・ラボの利用とPythonによるプロンプトの実行
 前提条件:
+* IBM watsonx のプロジェクトが作成できていること (全くない場合: [作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
 * Windowsの場合、Windows Subsystem Linuxを有効にし、Ubuntu あるいは Ubuntu 22.04.3 LTSが実行できること
 * Windows, Mac 共通: Python 3.10.14がインストールされていること, Python 仮想環境 venv を作ってあること
 * このハンズオンは、Python 3.12系でも動作することを確認しています
@@ -22,7 +23,7 @@
 3. 画面左上にある[サンプル・プロンプト]のアイコンをクリックします。
 <img width="359" alt="wxai-plst-03-samplePrompt" src="https://github.com/user-attachments/assets/f344e264-4087-4084-8b5d-cf12d823e55b">
 
-4. [質問への回答]に含まれている[すべてを表示]をクリックします。
+4. [質問への回答]に含まれている[すべて表示]をクリックします。
 <img width="1548" alt="wxai-plst-04-sampleList-QandA" src="https://github.com/user-attachments/assets/c58403dd-867f-4c23-9761-a3c98be59207">
 
 5. [日本語での質問]をクリックします。
