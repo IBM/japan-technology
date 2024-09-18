@@ -1,6 +1,9 @@
 # 文書と言語モデルを利用したチャット
 このハンズオンでは、IBM watsonx.aiのプロンプト・ラボを利用し、検索したい文書をアップロードすることで、文書に含まれる内容についてチャットできることを体験します。日本語と英語、それぞれに対応している言語モデルを使って、英語の文書に対して、日本語で質問し、日本語で回答を得るという体験もします。（下記の免責事項をよくお読みください）
 
+前提条件:
+* IBM watsonx 上に新規プロジェクトを作ってあること (全くない場合:[作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
+
 事前準備:
 * IBM Redbooksのサイトから [Transitioning to Quantum-Safe Cryptography on IBM Z](https://www.redbooks.ibm.com/abstracts/sg248525.html "Q-Safe on Z at IBM Redbooks") の[PDFをダウンロード](https://www.redbooks.ibm.com/redbooks/pdfs/sg248525.pdf "Q-Safe on IBM z")し、PDFをローカル・コンピューター上に保存します。
 
@@ -10,7 +13,9 @@
 
 * この演習で利用しているIBM Redbooksの文書は2023年5月に更新されたものです。言語モデルmixtral-8x7bは2023年12月にリリースされたものです。従って、2024年9月時点での耐量子計算機暗号の標準化についての最新情報は含まれていません。日本語のプロンプトを指定した場合、言語モデル内で英語に翻訳されたプロンプトが実行され、その結果が日本語に翻訳して表示されます。このため、日本語として不自然な結果が出力される可能性があります。プロンプトの中で、文書に含まれていない「英文による省略形」の表現を指定した場合、「ハルシネーション」により事実と異なる間違った結果が出力される場合がありますので、特にご注意ください。
 
-* この演習は、多くのトークンを利用します。IBM watsonx.ai 30日無料体験版やWatson Machine Learningのライト・プランをお使いの場合、トークンの消費量にご注意ください。(プロジェクトの概要ページから確認できます）
+* この演習は、多くのトークンを利用します。IBM watsonx.ai 30日無料体験版やWatson Machine Learningのライト・プランをお使いの場合、トークンの消費量にご注意ください。利用したトークン数は、プロジェクトの概要ページから確認できます。2024年9月18日時点で、Watson Machine Learning ライト・プランを使うと、50,000トークンまで利用できます。(注意：日本語のカタログ・ページには記載されておりません。ブラウザーの言語設定を「英語」にしてWatson Machine Learningの[カタログ・ページ](https://cloud.ibm.com/catalog/services/watson-machine-learning "Watson Machine Learning Catalog")で確認できます)
+* トークンは文字数とは異なります。
+  参考: [トークンとトークン化](https://www.ibm.com/docs/ja/watsonx/saas?topic=solutions-tokens "token")
 
 ## 
 
