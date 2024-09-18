@@ -122,7 +122,9 @@ if response.status_code != 200:
 
 data = response.json()
 ```
-このPythonコードは、"YOUR_ACCESS_TOKEN" という部分にIBM CloudのAPIキーから生成できるアクセス・トークンを入力すれば、実行できます。
+* 参考: [Infer Text API](https://cloud.ibm.com/apidocs/watsonx-ai#text-generation "text-generation API") 
+
+このPythonコードは、"YOUR_ACCESS_TOKEN" という部分にIBM Cloudのアクセス・トークンを入力すれば、実行できます。アクセス・トークンはIBM Cloud のAPIキーから生成できますが、APIキーそのものではないことにご注意ください。生成後3,600秒で無効化されます。アクセス・トークンをPythonから生成する方法は、この後の手順20に書いてあります。
 
 14. Webブラウザーから新しいタブ、あるいは新しいウィンドウを開き、 https://cloud.ibm.com/iam/overview へアクセスします。
 <img width="1548" alt="wxai-plst-13-CloudIAM" src="https://github.com/user-attachments/assets/6d35dc25-6c76-4310-92f5-4090f600271e">
@@ -215,6 +217,9 @@ python pl01.py
 
 * Mac (Intel CPU)の実行例:
 <img width="1521" alt="wxai-plst-18-IntelMac" src="https://github.com/user-attachments/assets/a21a7780-0bec-4ab4-b604-0f8c1c6e1eca">
+
+* 参考: ローカル・コンピューターとIBM watsonx as a Serviceとの関係 (主要なコンポーネントのつながりを理解する目的なので、精密な表現ではありません）
+<img width="1801" alt="wxai-Python-SaaS" src="https://github.com/user-attachments/assets/d80627fa-310e-4296-985f-04e02092ea59">
 
 ## Pythonコードのトラブル・シューティング
 * ModuleNotFoundError: No module named 'requests' と表示される場合、あるいは ModuleNotFoundError: No module named 'ibm_cloud_sdk_core' と表示される場合
