@@ -2,7 +2,8 @@
 前提条件:
 * IBM watsonx のプロジェクトが作成できていること (全くない場合: [作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
 * Windowsの場合、Windows Subsystem Linuxを有効にし、Ubuntu あるいは Ubuntu 22.04.3 LTSが実行できること
-* Windows, Mac 共通: Python 3.10.14がインストールされていること, Python 仮想環境 venv を作ってあること
+* Ubuntu (Windows), Mac 共通: Python 3.10.14がインストールされていること, Python 仮想環境 venv を作ってあること
+* Python環境構築の参考資料: [watsonx.ai Dojo #1準備編](https://speakerdeck.com/oniak3ibm/wxaidojo01-20240821 "watsonx.ai Dojo #1")
 * このハンズオンは、Python 3.12系でも動作することを確認しています
 
 このハンズオンは、次のことを体験します。
