@@ -178,6 +178,11 @@ def get_auth_token():
 ```
 	"Authorization": "Bearer "+get_auth_token()
 ```
+* 最終行に結果を出力するコードを追加します。
+```
+print(data)
+```
+
 * pl01.pyを保存します。上記の作業をうまく進めない場合は、[コード例](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/pl01.py "pl01 python sample")を参考にしてください。
 
 参考リソース: ([プログラム言語からのアクセスにおける認証](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-authentication.html?context=wx#rest-api))
