@@ -2,6 +2,11 @@
 IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 
+前提条件:
+* IBM watsonx 上に新規プロジェクトを作ってあること ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
+
+##
+
 1. 作成したプロジェクトの[概要]タブを開きます。
 <img width="1548" alt="wxai-chat-01-proj-overview" src="https://github.com/user-attachments/assets/0d1e2ea8-a580-480a-94a4-0a9a6a10edd6">
 
