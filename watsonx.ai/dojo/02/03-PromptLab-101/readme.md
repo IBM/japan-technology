@@ -72,6 +72,7 @@ code pl01.py
 コマンドを使って、Visual Studio Codeを起動し、pl01.pyファイルを開いたら、クリップボードの内容を貼り付けて、保存します。
 
 ```pl01.py
+# このコードは参考例であり、皆さんの環境では正しく実行できません。皆さんがお使いのプロンプト・ラボからコードをコピーしてください。
 import requests
 
 url = "https://jp-tok.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
