@@ -202,7 +202,7 @@ source venv/bin/activate
 pip install ibm_cloud_sdk_core
 ```
 
-23. pythonコマンドを使って、pl01.pyを実行します。もしエラーが表示された場合は、こちらの[トラブルシューティング](https://github.com/IBM/japan-technology/edit/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md#python%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0 "pl01.py trouble shooting")を参考にしてください。
+23. pythonコマンドを使って、pl01.pyを実行します。もしエラーが表示された場合は、こちらの[トラブルシューティング](https://github.com/IBM/japan-technology/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md#pythonコードのトラブルシューティング "pl01.py trouble shooting")を参考にしてください。
 ```
 python pl01.py
 ```
