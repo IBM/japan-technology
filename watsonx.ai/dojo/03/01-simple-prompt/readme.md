@@ -2,6 +2,8 @@
 IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 
+免責事項: 生成AIは事前学習したデータを活用しながらテキストを生成しますが、事実と異なる結果を生成する場合があります。このハンズオンでは、意図しない結果を得ることも含んでいます。
+
 前提条件:
 * IBM watsonx 上に新規プロジェクト「Dojo #3」を作ってあること ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
 
@@ -54,9 +56,48 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 
 <img width="1521" alt="wxai03-01-08-newResult" src="https://github.com/user-attachments/assets/62f93932-241d-4209-b99c-4afc2ff819ca">
 
-9. モデル・パラメータ <img width="54" alt="wxai03-01-09-modelParameters" src="https://github.com/user-attachments/assets/ac1843cb-9473-4f17-9b4d-fae32a3e0ae7">
-を開きます。
+9. 画面の右上側にあるモデル・パラメータ <img width="54" alt="wxai03-01-09-modelParameters" src="https://github.com/user-attachments/assets/ac1843cb-9473-4f17-9b4d-fae32a3e0ae7">
+をクリックして、開きます。
 
+<img width="1521" alt="wxai03-01-10-openedParmeters" src="https://github.com/user-attachments/assets/2cb2d4f6-ef8b-46a4-80a8-5841edf30083">
+
+10. プロンプト・テキストを上記手順7の内容に戻します。モデル・パラメータの小さなウィンドウ内にある最小トークン数を「200」、最大トークン数を「1000」に変更します。
+<img width="1521" alt="wxai03-01-11-modifiedParameters" src="https://github.com/user-attachments/assets/c99c666b-6952-40f8-aa27-27400ec8e795">
+
+
+11. 画面右下の[生成]をクリックして、結果を確認します。内容の妥当性は無視して、手順8より、もっと多くのテキストが生成されたことがわかります。
+<img width="1521" alt="wxai03-01-12-resultWithMoreText" src="https://github.com/user-attachments/assets/c444313a-f9a1-49d5-9baa-1378a0700ad2">
+
+12. [出力のクリア]をクリックして、生成されたテキストを消去します。モデル・パラメータにある[反復ペナルティ]を「2」に変更して、画面右下の[生成]をクリックします。
+<img width="1521" alt="wxai03-01-13-resultWithPenelty2" src="https://github.com/user-attachments/assets/d1dfd080-e817-4793-8b61-5c476a4e6605">
+
+この時点で、まだ出力内容に不安が残りますが、手順11と文体が変わったことを確認します。
+
+13. プロンプト・テキストの中に、テキストを生成する上でのヒントを文脈として追加します。プロンプト・テキストをすべて消去し、新しいプロンプト・テキストを貼り付けます。
+
+```
+以下は、タスクを説明する指示と、文脈のある入力の組み合わせです。要求を適切に満たす応答を書きなさい。
+
+### 指示:
+与えられた質問に対して、文脈がある場合はそれも利用し、回答してください。知識にないことは答えないでください。
+
+文脈:
+- 静岡県の人気のレストランは「さわやか」です。さわやかには、美味しいハンバーグがあります。
+- 静岡市の名所は、「三保の松原」です。海岸から富士山が見えます。
+- 静岡県は、令和3年にきはだ・マグロの水揚げで日本一でした。
+- 静岡県の県庁所在地は、「静岡市」です。浜松市ではありません。
+- 浜松市には世界で有名な企業が複数あります。スズキ、ヤマハ、カワイといった企業は世界で有名です。カワイのピアノは、YOSHIKIさんが使っていることで有名です。
+- アニメ作品「ラブライブ！サンシャイン！！」の聖地は、静岡県沼津市が中心です。伊豆・三津シーパラダイスも有名です。
+- アニメ作品「ちびまる子ちゃん」の話は、静岡県静岡市清水区（旧清水市）がモデルになっています。
+
+### 入力:
+静岡県を知らない人に、有名なアーティスト、 アニメの話、美味しい食事、名所、生産品などを含めて、楽しく静岡の魅力を伝えてください。
+
+### 応答:
+
+```
+
+14. 
 
 
 
