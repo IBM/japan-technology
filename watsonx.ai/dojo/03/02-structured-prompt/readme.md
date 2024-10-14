@@ -280,7 +280,7 @@ Samplingの場合、ランダム・シードを固定にすると、[生成]を�
 
 35. [デプロイメントの作成]ウインドウが開くので、次の項目を設定してから、最後に[作成]をクリックします。
 * 名前: ```depWS```
-* サービス提供名: ```wst01```
+* サービス提供名: ```wst01``` この文字の後に、皆さんの英数字を組み合わせて、ユニークな名前にしてください。
 
 <img width="1521" alt="wxai03-02-35-createDeployment" src="https://github.com/user-attachments/assets/c24bb236-14b6-41a4-ab29-55172eb2d187">
 
@@ -288,6 +288,7 @@ Samplingの場合、ランダム・シードを固定にすると、[生成]を�
 
   <img width="1521" alt="wxai03-02-36-deployed" src="https://github.com/user-attachments/assets/ce59ff46-2898-42dd-982c-c858ac003e48">
 
+この演習2はここまでです。続けて、[演習3](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md)に進んでください。
 
  
 
