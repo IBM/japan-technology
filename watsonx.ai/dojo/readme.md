@@ -15,3 +15,8 @@
 ## プロンプト・ラボ (watsonx.ai Dojo #2)
 この演習は、プロンプト・ラボのサンプル・プロンプトを利用して、日本語の質問に回答するプロンプトを試します。IBM watsonx APIを利用して、Pythonのスクリプトからプロンプトを実行し、JSON文字列として結果を受け取る体験を行います。生成AIアプリ開発の入り口に立ちましょう。
 * [プロンプト・ラボの利用とPythonによるプロンプトの実行](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md "Prompt Lab and Python") 
+
+## プロンプト・エンジニアリング (watsonx.ai Dojo #3)
+* [granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md "Prompt Lab - freeform")
+* [granite-8b-japanese 言語モデルを使い、構造化されたプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する] (https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "Prompt Lab - Structured")
+* [watsonx.ai にデプロイ済みのWebサービスを呼び出す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md "Invoke WebAPI")
