@@ -189,4 +189,106 @@ Samplingの場合、ランダム・シードを固定にすると、[生成]を�
 
 魅力あふれる静岡県にお越しください！
 ```
-12. 
+12. 「プロンプトのテスト」で入力項目にしていた内容を次のもので置き換えます
+入力: ```{your_input}```
+<img width="1521" alt="wxai03-02-12-promptTemplate" src="https://github.com/user-attachments/assets/a95b3125-72ab-454b-b8cc-c155679d80a5">
+
+13. 画面の右上にある「プロンプト変数」と表示される[{#}]をクリックします。
+<img width="474" alt="wxai03-02-13-promptVariables" src="https://github.com/user-attachments/assets/06a08e90-3a32-465f-a6b7-d6a7906c0459">
+
+14. 「プロンプト変数」という小さなウィンドウが開いたら、[新規変数 +]をクリックします。
+<img width="284" alt="wxai03-02-14-promptVariablesWindow" src="https://github.com/user-attachments/assets/a88c155c-5d17-4440-86fd-666526635147">
+
+15. [変数]と[デフォルト値]を入力します。
+* 変数: ```your_input```
+* デフォルト値: 
+```
+静岡県を知らない人に向けて、静岡県への旅行をお勧めする文章を作ってください。例があればその例を参考にして、次の「見出し一覧」にある項目を含めて書いてください。文章の最後は「魅力あふれる静岡県にお越しください！」としてください。同じ内容を繰り返さないでください。
+
+「見出し一覧」:
+- 静岡県にある観光名所3ヶ所
+- 静岡県出身の有名人、芸能人4人
+- 静岡県で有名なレストラン3つ
+- 静岡県がモデルとなっているアニメ作品3つ
+```
+<img width="1521" alt="wxai03-02-15-defaultVariables" src="https://github.com/user-attachments/assets/1b851b97-bac0-4b88-9930-8e31992820a1">
+
+16. モデル・パラメータを開き、デコードをGreedyに戻します。画面右下の[生成]をクリックして、手順10と同じ結果が得られるを確認します。
+<img width="1521" alt="wxai03-02-16-runByVariable" src="https://github.com/user-attachments/assets/2133d6c4-821f-4d81-a878-4d0e69743ad3">
+
+17. [出力のクリア]をクリックして、生成内容を消去します。
+18. 画面上側の[名前をつけて保存]をクリックします。
+<img width="590" alt="wxai03-03-18-SaveAsMenu" src="https://github.com/user-attachments/assets/dfe65844-3181-4895-af3d-be374019a66c">
+
+19. 資産タイプと名前を指定して、[保存]をクリックします。
+* 資産タイプ: [プロンプト・テンプレート]
+* 名前: ```Welcome-Shizuoka-template```
+<img width="1521" alt="wxai03-02-19-AssetType" src="https://github.com/user-attachments/assets/f0ac9207-7115-4b58-906c-ab3affa2b5f2">
+  
+20. 画面左上の [プロジェクト / Dojo #3] と表示されている [Dojo #3]をクリックします。
+
+<img width="539" alt="wxai03-02-20-toDojo03Oveview" src="https://github.com/user-attachments/assets/a8c15fc7-4b31-43f5-aaac-d45af309a034">
+
+21. Dojo #03のプロジェクトページから[アセット]をクリックします。
+<img width="851" alt="wxai03-02-21-overview2Asset" src="https://github.com/user-attachments/assets/8845d5a3-d452-4124-8349-047a9b9644df">
+
+22. [すべての資産]から[Welcome-Shizuoka-template]を見つけ、右端にある[⋮] (オーバーフロー・メニューを開く/閉じる)をクリックし、開いたメニューから[スペースへのプロモート]をクリックします。
+
+<img width="1521" alt="wxai03-02-22-promote2Space-Menu" src="https://github.com/user-attachments/assets/e7b3a14a-b3a4-4e68-b6ce-6d32934d6fec">
+
+23. [スペースへのプロモート]ウィンドウが表示されます。[ターゲット・スペース]にある[スペースの選択または作成]をクリックします。
+<img width="1521" alt="wxai03-02-23-createNewSpace" src="https://github.com/user-attachments/assets/5cef1478-3104-4c2c-8ab4-91d04ef29b57">
+
+24. [デプロイメント・スペースの作成]ウィンドウが表示されます。次の内容を設定し、最後に[作成]をクリックします。
+* 名前: ```wxaiSpace```
+* デプロイメント・ステージ: 開発
+* 機械学習サービスの選択(オプション): [機械学習サービスの新規作成]の下に表示されている、既存のWatson Machine Learningのサービス名を選択
+  
+<img width="1148" alt="wxai03-02-24-deploymentSpaceSettings" src="https://github.com/user-attachments/assets/e490c8c9-b239-4cef-8720-6afef826c774">
+
+25. [スペースを準備しています]という表示になるので、しばらく待ちます。
+<img width="1521" alt="wxai03-02-25-provisioningSpace" src="https://github.com/user-attachments/assets/86cf7f15-105e-4235-9b77-c0240e639c42">
+
+26. [スペースの準備が完了しました]を確認します。右上の[x]ボタンをクリックします。
+<img width="1521" alt="wxai03-02-25-spaceReady" src="https://github.com/user-attachments/assets/3f662170-3d35-4af1-b0a1-8d2a99425367">
+
+27. [スペースへのプロモート]ウィンドウに戻ります。[☑️][プロモート後、スペース内のプロンプト・テンプレートに移動]にチェックを入れて、[プロモート]をクリックします。
+<img width="1521" alt="wxai03-02-27-promote2Space" src="https://github.com/user-attachments/assets/56535f92-c053-4238-9b80-0236a1c950ad">
+
+28. [プロモーションが進行中です]の表示が出るので、しばらく待ちます。
+<img width="1521" alt="wxai03-02-28-promoting" src="https://github.com/user-attachments/assets/edbc0868-1741-4119-af9b-6aa9874a0cd3">
+
+29. [デプロイメント / wxaiSpace / Welcome-Shizuoka-template] の画面になったことを確認し、[新規デプロイメント]をクリックします。
+<img width="1521" alt="wxai03-02-29-deployment" src="https://github.com/user-attachments/assets/919077cf-c8e8-412a-8f87-72d174208ad3">
+
+30. [スペースに関連付けられた機械学習サービス・インスタンスはありません]と表示されるので、[スペース設定に移動]をクリックします。
+<img width="1521" alt="wxai03-02-30-noMLInstances" src="https://github.com/user-attachments/assets/848967cd-3f20-43d5-a71d-433fb90a64fe">
+
+
+31. wxaiSpaceという名前のデプロイメント・スペースが表示されます。画面右下にある[インスタンスの関連付け +]をクリックします。
+<img width="1521" alt="wxai03-02-31-wxaiSpace" src="https://github.com/user-attachments/assets/dab31df5-8bd5-46c6-9d8d-96901d27f865">
+
+32. 表示されたWatson Machine Learningを選択して、最後に[保存]をクリックします。
+<img width="1521" alt="wxai03-02-32-setML" src="https://github.com/user-attachments/assets/646fb9f3-c5c7-40ce-9398-e061db9f761a">
+
+33. wxaiSpaceの画面から[資産]タブをクリックし、資産の一覧を表示します。
+<img width="1521" alt="wxai03-02-33-assets" src="https://github.com/user-attachments/assets/c9905090-e305-4b80-9095-d98b414b8a84">
+
+34. [Welcome-Shizuoka-template]というプロンプト・テンプレートを見つけ、[⋮]をクリックして、[デプロイ]をクリックします。
+<img width="1521" alt="wxai03-02-34-deployMenu" src="https://github.com/user-attachments/assets/bdf6480a-7b34-46f4-8aef-3a0aba31a61f">
+
+35. [デプロイメントの作成]ウインドウが開くので、次の項目を設定してから、最後に[作成]をクリックします。
+* 名前: ```depWS```
+* サービス提供名: ```wst01```
+
+<img width="1521" alt="wxai03-02-35-createDeployment" src="https://github.com/user-attachments/assets/c24bb236-14b6-41a4-ab29-55172eb2d187">
+
+36. depWsが[デプロイ済み]であることを確認します。
+
+  <img width="1521" alt="wxai03-02-36-deployed" src="https://github.com/user-attachments/assets/ce59ff46-2898-42dd-982c-c858ac003e48">
+
+
+ 
+
+
+
