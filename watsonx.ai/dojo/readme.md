@@ -17,6 +17,12 @@
 * [プロンプト・ラボの利用とPythonによるプロンプトの実行](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md "Prompt Lab and Python") 
 
 ## プロンプト・エンジニアリング (watsonx.ai Dojo #3)
+この演習は、プロンプト・ラボのフリー・フォームから出発して、指定された内容を含む文章を生成するプロンプトを試します。
 * [granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md "Prompt Lab - freeform")
-* [granite-8b-japanese 言語モデルを使い、構造化されたプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する] (https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "Prompt Lab - Structured")
-* [watsonx.ai にデプロイ済みのWebサービスを呼び出す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md "Invoke WebAPI")
+
+この演習は、プロンプト・ラボの[構造化]から出発して、プロンプト内の例示により言語モデルが持っていない知識を補いながら、指定された内容を含む文章を生成するプロンプトを試します。出来上がったプロンプトを、プロンプト・テンプレートとして保存し、そのテンプレートをWeb APIとしてデプロイします。Web APIをデプロイする前に、デプロイメント・スペースの作成、スペースのプロモートなど、慣れない手順が入ってきますが、順を追って進めていきましょう。
+
+* [granite-8b-japanese 言語モデルを使い、構造化されたプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "Prompt Lab - Structured")
+
+この演習は、デプロイ済みのWeb APIを呼び出す方法について、テスト環境を含めて体験します。
+* [watsonx.ai にデプロイ済みのWeb APIを呼び出す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md "Invoke WebAPI")
