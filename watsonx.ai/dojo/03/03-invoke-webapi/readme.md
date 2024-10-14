@@ -23,6 +23,8 @@
 5. [depWS]の画面が表示されます。これまでの手順を確認して、デプロイ済みのサービスを見つける方法を覚えておきましょう。
 <img width="1521" alt="wxai03-03-05-depWS-detail" src="https://github.com/user-attachments/assets/8d51b673-526f-42f5-83b6-2889ee0478bf">
 * パブリック・エンドポイントURLの例: https://jp-tok.ml.cloud.ibm.com/ml/v1/deployments/wst01/text/generation?version=2021-05-01
+* wst01のところは、皆さんが指定したwst01で始まる文字列が表示されるはずです。
+
 6. 続けて、[テスト]タブをクリックします。テスト画面が表示されるので、右下の[生成]をクリックします。
 <img width="1521" alt="wxai03-03-06-depWS-test" src="https://github.com/user-attachments/assets/1b16f92b-8d9f-4b2c-9f55-fcc4b61efdff">
 
