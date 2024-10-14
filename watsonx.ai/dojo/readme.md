@@ -23,7 +23,7 @@
 watsonx.ai Dojo #3の演習は、Dojo #2の演習結果との依存関係はありません。
 
 IBM watsonxがセットアップ済みであれば、順番に進めることができます。このセットアップ済みとは、次の何れかを示します。
-* IBM watsonxの30日無料体験版を使っている
+* IBM watsonxの30日無料評価版を使っている
 * IBM Cloudのアカウントを使いWatson Studio, Watson Machine Learning, Cloud Object Storageがセットアップ済みである
 * IBM Technology Zoneからwatsonxの環境を予約している
 
