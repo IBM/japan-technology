@@ -20,7 +20,7 @@
 [スペース]タグをクリックします。
 <img width="1521" alt="wxai03-03-01-deployments" src="https://github.com/user-attachments/assets/ff3d0cf1-a801-4cdc-b0bc-5dcc83f84423">
 
-2. [wxaiSpace]というデプロイメント・スペースが一覧に表示されていることを確認し、[wxaiSpace]をクリックします。
+2. [wxaiSpace]というスペースが一覧に表示されていることを確認し、[wxaiSpace]をクリックします。
 <img width="1521" alt="wxai03-03-02-wxaiSpace" src="https://github.com/user-attachments/assets/e17e2892-7b97-4165-a4da-1ce66fd02fea">
 
 3. [wxaiSpace]の画面が表示されます。資産の中に[Welcome-Shizuoka-template]が表示されていることを確認します。
