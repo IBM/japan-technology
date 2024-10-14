@@ -17,6 +17,18 @@
 * [プロンプト・ラボの利用とPythonによるプロンプトの実行](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/03-PromptLab-101/readme.md "Prompt Lab and Python") 
 
 ## プロンプト・エンジニアリング (watsonx.ai Dojo #3)
+watsonx.ai Dojo #3の演習は、Dojo #2の演習結果との依存関係はありません。
+
+IBM watsonxがセットアップ済みであれば、順番に進めることができます。このセットアップ済みとは、次の何れかを示します。
+* IBM watsonxの30日無料体験版を使っている
+* IBM Cloudのアカウントを使いWatson Studio, Watson Machine Learning, Cloud Object Storageがセットアップ済みである
+* IBM Technology Zoneからwatsonxの環境を予約している
+
+もし、これらの条件を満たしていない場合は、[事前準備](https://speakerdeck.com/oniak3ibm/watsonx-ai-dojo-prereq "prereq") をご覧の上、必要な環境をご準備ください。
+watsonx.ai Dojoのセッション中は、環境セットアップについてサポートすることができませんのでご注意ください。
+
+[watsonx.aiの起動方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme2.md "Launch watsonx directly")や[新規プロジェクトの作成方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/create-new-project/readme.md "Create New Project")がわからない場合は、それぞれリンクを辿って確認してください。
+
 この演習は、プロンプト・ラボのフリー・フォームから出発して、指定された内容を含む文章を生成するプロンプトを試します。
 * [granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md "Prompt Lab - freeform")
 
@@ -24,5 +36,5 @@
 
 * [granite-8b-japanese 言語モデルを使い、構造化されたプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "Prompt Lab - Structured")
 
-この演習は、デプロイ済みのWeb APIを呼び出す方法について、テスト環境を含めて体験します。
+この演習は、デプロイ済みのWeb APIを呼び出す方法について、テスト環境を含めて体験します。上述の「構造化されたプロンプト」の演習結果を利用しますので、ご注意ください。
 * [watsonx.ai にデプロイ済みのWeb APIを呼び出す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md "Invoke WebAPI")
