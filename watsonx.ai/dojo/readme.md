@@ -34,6 +34,7 @@ watsonx.ai Dojoのセッション中は、環境セットアップについて�
 
 ## 演習1: プロンプト・ラボのフリー・フォームを使ってプロンプトを作る
 この演習は、プロンプト・ラボのフリー・フォームから出発して、指定された内容を含む文章を生成するプロンプトを試します。
+こちらは後続の演習との依存関係がありません。
 * [granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md "Prompt Lab - freeform")
 
 ## 演習2: プロンプト・ラボの構造化フォームを使ってプロンプトを作り、Web APIとしてデプロイする
@@ -42,5 +43,5 @@ watsonx.ai Dojoのセッション中は、環境セットアップについて�
 * [granite-8b-japanese 言語モデルを使い、構造化されたプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "Prompt Lab - Structured")
 
 ## 演習3: デプロイ済みのWeb APIへアクセスする
-この演習は、デプロイ済みのWeb APIを呼び出す方法について、テスト環境を含めて体験します。上述の「構造化されたプロンプト」の演習結果を利用しますので、ご注意ください。
+この演習は、デプロイ済みのWeb APIを呼び出す方法について、テスト環境を含めて体験します。上述の演習2の結果を利用しますので、ご注意ください。
 * [watsonx.ai にデプロイ済みのWeb APIを呼び出す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md "Invoke WebAPI")
