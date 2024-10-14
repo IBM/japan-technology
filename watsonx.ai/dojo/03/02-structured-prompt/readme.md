@@ -2,7 +2,10 @@
 IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝えるための文章を作ってみましょう。
 出来上がったプロンプトは、プロンプト・テンプレートとして保存し、その後、Watson Machine Learningを使って、Webサービスとしてデプロイします。
 
-参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
+参考URL: 
+* [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
+* [プロンプト・テンプレートのデプロイ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/prompt-template-deploy.html?context=wx&locale=ja "Deploy prompt template")
+
 
 免責事項: 生成AIは事前学習したデータを活用しながらテキストを生成します。言語モデルに含まれている言葉が確率で選択されるため、生成AIは事実と異なる結果を生成する場合があります。このハンズオンでは、段階的にプロンプトを改善するため、途中、意図しない結果を敢えて得ることも行います。生成AIのハルシネーションから間違った内容が伝わらないよう、生成された内容をそのまま利用するのではなく、必ず、事実確認を行なってください。
 
