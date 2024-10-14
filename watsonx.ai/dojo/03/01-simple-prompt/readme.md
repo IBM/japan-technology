@@ -155,3 +155,4 @@ IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝え
 
 18. [名前を付けて保存]をクリックし、任意の名前をつけて、プロンプト・セッションを保存します。
 
+演習1はここまでです。続けて[演習2](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "structured Form & Deployment") に進んでください。
