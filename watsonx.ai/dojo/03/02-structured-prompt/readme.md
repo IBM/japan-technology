@@ -221,6 +221,7 @@ Samplingの場合、ランダム・シードを固定にすると、[生成]を�
 <img width="1521" alt="wxai03-02-16-runByVariable" src="https://github.com/user-attachments/assets/2133d6c4-821f-4d81-a878-4d0e69743ad3">
 
 17. [出力のクリア]をクリックして、生成内容を消去します。
+
 18. 画面上側の[名前をつけて保存]をクリックします。
 <img width="590" alt="wxai03-03-18-SaveAsMenu" src="https://github.com/user-attachments/assets/dfe65844-3181-4895-af3d-be374019a66c">
 
@@ -235,6 +236,12 @@ Samplingの場合、ランダム・シードを固定にすると、[生成]を�
 
 21. Dojo #03のプロジェクトページから[アセット]をクリックします。
 <img width="851" alt="wxai03-02-21-overview2Asset" src="https://github.com/user-attachments/assets/8845d5a3-d452-4124-8349-047a9b9644df">
+
+ここからの手順は、Watson Machine Learningを使って、プロジェクト内の資産をスペースへプロモートして、スペース内に移した資産をWeb APIとしてデプロイします。それぞれの繋がりがわかりづらいので、図で整理しておきます。理解すべき点は、２つあります。
+* スペースとプロジェクトは独立した関係であり、１つのスペースには、複数のプロジェクトから資産をプロモートすることができます
+* スペースにプロモートされた資産のみがデプロイメントできます（プロジェクトから直接デプロイメントはできません）
+<img width="2107" alt="wxai03-02-project-space-deployment" src="https://github.com/user-attachments/assets/d980f3f8-6ebe-455c-8fe9-f5e8e71177fd">
+
 
 22. [すべての資産]から[Welcome-Shizuoka-template]を見つけ、右端にある[⋮] (オーバーフロー・メニューを開く/閉じる)をクリックし、開いたメニューから[スペースへのプロモート]をクリックします。
 
