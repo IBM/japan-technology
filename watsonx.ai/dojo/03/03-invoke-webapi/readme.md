@@ -1,5 +1,11 @@
+## watsonx.ai にデプロイ済みのWebサービスを呼び出す
 
-前提条件: watsonx.ai Dojo #3 パート2を完了し、depWSがデプロイできていること
+
+前提条件: [watsonx.ai Dojo #3 パート2](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/03/02-structured-prompt) を完了し、depWSがデプロイできていること。
+
+免責事項: 生成AIは事前学習したデータを活用しながらテキストを生成します。言語モデルに含まれている言葉が確率で選択されるため、生成AIは事実と異なる結果を生成する場合があります。このハンズオンでは、段階的にプロンプトを改善するため、途中、意図しない結果を敢えて得ることも行います。生成AIのハルシネーションから間違った内容が伝わらないよう、生成された内容をそのまま利用するのではなく、必ず、事実確認を行なってください。
+
+#
 
 1. Webブラウザーから https://jp-tok.dataplatform.cloud.ibm.com/ml-runtime/dashboard?context=wx へアクセスし、[デプロイメント]のページを開きます。
 [スペース]タグをクリックします。
@@ -41,5 +47,7 @@
 14. [JSON]タブをクリックして、手順6や手順10と同様に、右下の[生成]をクリックします。
 <img width="1521" alt="wxai03-03-14-json" src="https://github.com/user-attachments/assets/042ca88d-8062-4637-8999-848bc7a8f89d">
 
+15. しばらく待つと、[プロンプト結果]が表示されます。手順7と同じ結果が得られていることを確認します。
+<img width="1521" alt="wxai03-03-15-jsonResult" src="https://github.com/user-attachments/assets/f900230b-bcb0-44d4-88bf-e8d56e4525e6">
 
 
