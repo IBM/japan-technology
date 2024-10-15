@@ -141,7 +141,8 @@ print("prompt_var = "+json.dumps(prompt_var, indent=2))
 resString = invoke_prompt_template(wml_url, api_key, space_id, deployment_id, prompt_var)
 
 ```
-19. ターミナル(Mac)またはUbuntu(Windows)に戻り、次のコマンドを実行します。
+19. ターミナル(Mac)またはUbuntu(Windows)に戻り、次のコマンドを実行します。エラーが表示される場合は、後述の[Pythonコードのトラブルシューティング](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md#python%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0 "Python Trouble shooting")を参考にしてください。
+
 ```
 python shizchat.py 
 ```
@@ -180,6 +181,10 @@ Response:  静岡県は、富士山や伊豆半島などの豊かな自然と、
 3. シュート！：静岡県掛川市が舞台。作品内の掛川高校は、掛川西高校がモデルと言われています。
 -------------------------------------------
 ```
+
+PythonコードとIBM watsonx (Watson Machine Learning)との関係を図にまとめましたので、参考にしてください。
+<img width="1700" alt="wxaiDojo03-03-python-services" src="https://github.com/user-attachments/assets/4679f893-508c-46ef-9bbe-4082f8f150c3">
+
 
 ## Pythonコードのトラブルシューティング
 * ModuleNotFoundError: No module named 'ibm_watsonx_ai' が表示される場合
