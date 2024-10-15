@@ -22,6 +22,8 @@
 
 2. [wxaiSpace]というスペースが一覧に表示されていることを確認し、[wxaiSpace]をクリックします。
 <img width="1521" alt="wxai03-03-02-wxaiSpace" src="https://github.com/user-attachments/assets/e17e2892-7b97-4165-a4da-1ce66fd02fea">
+[管理]タブをクリックします。[詳細]欄に[スペース GUID]が表示されているので、メモ帳などに控えておきます。後述の(param2)となります。
+<img width="1552" alt="wxaiDojo03-03-02-01-spaceGuid" src="https://github.com/user-attachments/assets/1c76325a-3a67-4f4f-adfc-a1655aacc750">
 
 3. [wxaiSpace]の画面が表示されます。資産の中に[Welcome-Shizuoka-template]が表示されていることを確認します。
 <img width="1521" alt="wxai03-03-03-promptTemplate" src="https://github.com/user-attachments/assets/84b16606-1631-41bf-a119-43554c3439cd">
@@ -29,7 +31,7 @@
 4. [デプロイメント]タブをクリックし、[depWS]がデプロイ済みであることを確認します。[depWS]をクリックします。
 <img width="1521" alt="wxai03-03-04-depWS" src="https://github.com/user-attachments/assets/b719ed01-58d0-4235-be4d-583e26591e13">
 
-5. [depWS]の画面が表示されます。これまでの手順を確認して、デプロイ済みのサービスを見つける方法を覚えておきましょう。
+5. [depWS]の画面が表示されます。これまでの手順を確認して、デプロイ済みのサービスを見つける方法を覚えておきましょう。[デプロイメントID:]の右側にあるIDをクリックして、メモ帳などに控えておきましょう。後述の(param3)となります。
 <img width="1521" alt="wxai03-03-05-depWS-detail" src="https://github.com/user-attachments/assets/8d51b673-526f-42f5-83b6-2889ee0478bf">
 * パブリック・エンドポイントURLの例: https://jp-tok.ml.cloud.ibm.com/ml/v1/deployments/wst01/text/generation?version=2021-05-01
 * wst01のところは、皆さんが指定したwst01で始まる文字列が表示されるはずです。
@@ -63,6 +65,9 @@
 
 16. Pythonのコードを使って、デプロイ済みのプロンプト・テンプレートを呼び出します。
 * (param1) IBM CloudのAPIキー: ```XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXX```
+
+
+
 * (param2) wxaiSpaceのスペース GUID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
 * (param3) depWSのデプロイメントID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
 
