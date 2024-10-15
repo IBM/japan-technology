@@ -65,14 +65,20 @@
 
 16. Pythonのコードを使って、デプロイ済みのプロンプト・テンプレートを呼び出します。
 * (param1) IBM CloudのAPIキー: ```XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXX```
+  
 [IBM CloudのAPIキーの取得方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme3-API-Key.md "API Key")を参考にして、APIキーを取得してください。APIキーは安全な場所に保管し、皆さんと関係のない人には決して共有しないでください。
 
 * (param2) wxaiSpaceのスペース GUID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
+上記の手順2を確認してください。
+
 * (param3) depWSのデプロイメントID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
+
+上記の手順5を確認してください。
 
 17. ターミナル(Mac)またはUbuntu(Windows)を開き、次のコマンドを実行します。
 ```
 cd ~/wxai
+source venv/bin/activate
 pip install ibm_watsonx_ai
 code shizchat.py
 ```
@@ -175,8 +181,33 @@ Response:  静岡県は、富士山や伊豆半島などの豊かな自然と、
 -------------------------------------------
 ```
 
+## トラブルシューティング
+* ModuleNotFoundError: No module named 'ibm_watsonx_ai' が表示される場合
 
+  → 手順17を確認してください。ibm_watsonx_ai パッケージのインストールを実行してください。
+```
+cd ~/wxai
+source venv/bin/activate
+pip install ibm_watsonx_ai
+```
+* ModuleNotFoundError: No module named 'requests' と表示される場合、あるいは ModuleNotFoundError: No module named 'ibm_cloud_sdk_core' と表示される場合
+  
+  → ibm_cloud_sdk_core のインストールを実行してください。
+```
+pip install ibm_cloud_sdk_core
+```
+* ibm_cloud_sdk_core.api_exception.ApiException: Error: Provided API key could not be found., Status code: 400 と表示される場合
 
+  → APIキーの指定が間違っていますので、ご確認ください。
+    よくある間違いとして、APIキーには "<" や ">" の記号は含まれていません。APIキーを入れる際には、"<" や ">" の記号は削除してください。
 
+* ibm_watsonx_ai.wml_client_error.CannotSetProjectOrSpace: Cannot set Project or Space
+Reason: Space with id '<XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX>' does not exist と表示される場合
 
+  → スペース GUIDの指定が間違っていますので、ご確認ください。
+    よくある間違いとして、APIキーには "<" や ">" の記号は含まれていません。下記のようなコードに対してAPIキーを入れる際には、"<" や ">" の記号は削除してください。
 
+* ibm_watsonx_ai.wml_client_error.ApiRequestFailure: Failure during getting deployments details. (GET https://jp-tok.ml.cloud.ibm.com/ml/v4/deployments/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX?version=2024-10-01&space_id=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)
+Status code: 404, body: {"trace":"7c593149a718dcaeaf87d1e288736654","errors":[{"code":"deployment_does_not_exist","message":"Deployment with id 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX' does not exist. Re-try with a valid deployment id."}]} のようなエラーが表示される場合
+
+  → デプロイメントIDの指定が間違っていますので、ご確認ください。
