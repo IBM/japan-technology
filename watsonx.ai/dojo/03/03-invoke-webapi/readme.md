@@ -65,8 +65,7 @@
 
 16. Pythonのコードを使って、デプロイ済みのプロンプト・テンプレートを呼び出します。
 * (param1) IBM CloudのAPIキー: ```XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXX```
-
-
+[IBM CloudのAPIキーの取得方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme3-API-Key.md "API Key")を参考にして、APIキーを取得してください。APIキーは安全な場所に保管し、皆さんと関係のない人には決して共有しないでください。
 
 * (param2) wxaiSpaceのスペース GUID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
 * (param3) depWSのデプロイメントID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
