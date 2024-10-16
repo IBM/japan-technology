@@ -35,36 +35,48 @@ wxaiSpace-という名前の画面が表示されます。続けて[管理]タ�
 <img width="1397" alt="wxai03-03-04-deployedWS" src="https://github.com/user-attachments/assets/e70df30c-493a-4ba7-8a5d-eddcf5cf240c">
 
 5. [depWS]の画面が表示されます。これまでの手順を確認して、デプロイ済みのサービスを見つける方法を覚えておきましょう。[デプロイメントID:]の右側にあるIDをクリックして、メモ帳などに控えておきましょう。後述の(param3)となります。
-<img width="1521" alt="wxai03-03-05-depWS-detail" src="https://github.com/user-attachments/assets/8d51b673-526f-42f5-83b6-2889ee0478bf">
-* パブリック・エンドポイントURLの例: https://jp-tok.ml.cloud.ibm.com/ml/v1/deployments/wst01/text/generation?version=2021-05-01
-* wst01のところは、皆さんが指定したwst01で始まる文字列が表示されるはずです。
+
+<img width="1399" alt="wxai03-03-05-detail-depWS" src="https://github.com/user-attachments/assets/29ffa3ff-fb4f-4c06-a41b-f891f4d698dc">
+
+* パブリック・エンドポイントURLの例: https://jp-tok.ml.cloud.ibm.com/ml/v1/deployments/wst01_ao_20241016/text/generation?version=2021-05-01
+
+* wst01_のところは、皆さんが指定したwst01_で始まる文字列が表示されるはずです。
 
 6. 続けて、[テスト]タブをクリックします。テスト画面が表示されるので、右下の[生成]をクリックします。
-<img width="1521" alt="wxai03-03-06-depWS-test" src="https://github.com/user-attachments/assets/1b16f92b-8d9f-4b2c-9f55-fcc4b61efdff">
+<img width="1400" alt="wxai03-03-06-test-depWS" src="https://github.com/user-attachments/assets/0e0b0770-1936-41b7-8eca-ea099f7ca706">
+
 
 7. しばらく待つと、[プロンプト結果]が表示されます。
-<img width="1521" alt="wxai03-03-07-promptResults" src="https://github.com/user-attachments/assets/bb78ac00-a7d9-42f8-ba50-d5c6ae9ad06d">
 
-8. [JSONビュー]をクリックして、結果をJSON形式で確認しましょう。[JSONファイルのダウンロード]をクリックして、ローカル・コンピュータに保存します。
-<img width="1521" alt="wxai03-03-08-jsonView" src="https://github.com/user-attachments/assets/f0a007b9-7b6a-4315-a4e5-22e23f41bb3d">
+<img width="1272" alt="wxai03-03-07-promptResultV3" src="https://github.com/user-attachments/assets/7a6f26d3-0a15-42f2-ba77-98b3a5509b89">
+
+8. [JSONビュー]をクリックして、結果をJSON形式で確認しましょう。[JSONファイルのダウンロード]をクリックして、ファイルをローカル・コンピュータに保存します。
+
+<img width="1275" alt="wxai03-03-08-viewJson" src="https://github.com/user-attachments/assets/09d7bab4-151c-4e08-9460-d928b5c6dc1c">
+
 
 9. 右上の[x]をクリックして、結果を閉じます。
+
 10. [ストリーム]タブをクリックし、手順6と同様に、右下の[生成]をクリックします。
-<img width="1521" alt="wxai03-03-09-stream-test" src="https://github.com/user-attachments/assets/fb1dc074-845e-4a21-b082-ae353943dadf">
+
+<img width="1401" alt="wxai03-03-10-test-Stream" src="https://github.com/user-attachments/assets/8afd1138-d25b-4ff7-b04c-686456c5d834">
 
 11. しばらく待つと、[プロンプト結果]が表示されます。手順7や手順8とは異なり、文章が細かく分割されて送られてきているのを確認できます。
-<img width="1521" alt="wxai03-03-11-streamedResult" src="https://github.com/user-attachments/assets/69a5096f-5602-44ff-8697-5e66502516f7">
+<img width="1275" alt="wxai03-03-11-streamingResult" src="https://github.com/user-attachments/assets/209c958f-c00b-476e-a341-ebf71d1259c5">
 
-12. [テキスト・ビュー]をクリックして、右下にある[テキスト・ファイルのダウンロード]を選びましょう。
 
-<img width="1521" alt="wxai03-03-12-streamedTextResults" src="https://github.com/user-attachments/assets/0b65696b-8377-474e-8daf-e0e3244f570c">
+12. [テキスト・ビュー]をクリックして、内容を確認します。右下にある[テキスト・ファイルのダウンロード]をクリックして、ファイルをローカル・コンピュータに保存します。
+
+<img width="1276" alt="wxai03-03-12-streamTextView" src="https://github.com/user-attachments/assets/7eb8f890-a598-4266-8f6c-d9eb6f8c377c">
+
 
 13. 右上の[x]をクリックして、結果を閉じます。
 14. [JSON]タブをクリックして、手順6や手順10と同様に、右下の[生成]をクリックします。
-<img width="1521" alt="wxai03-03-14-json" src="https://github.com/user-attachments/assets/042ca88d-8062-4637-8999-848bc7a8f89d">
+<img width="1401" alt="wxai03-03-14-json-input" src="https://github.com/user-attachments/assets/3648b59d-64d9-440a-a02f-a2d9e6b242e6">
 
 15. しばらく待つと、[プロンプト結果]が表示されます。手順7と同じ結果が得られていることを確認します。
-<img width="1521" alt="wxai03-03-15-jsonResult" src="https://github.com/user-attachments/assets/f900230b-bcb0-44d4-88bf-e8d56e4525e6">
+
+<img width="1275" alt="wxai03-03-15-result-json" src="https://github.com/user-attachments/assets/fbdef6a8-4f44-4061-9d89-b291c78ee10c">
 
 16. Pythonのコードを使って、デプロイ済みのプロンプト・テンプレートを呼び出します。
 * (param1) IBM CloudのAPIキー: ```XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXX```
