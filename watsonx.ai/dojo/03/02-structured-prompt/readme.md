@@ -206,7 +206,8 @@ Samplingの場合、ランダム・シードを固定の値にすると、[生�
 * ランダム・シード: ```65534```
 * 反復ペナルティ: ```1```
 * 最小トークン数: ```530```
-* 最大トークン数: ```600```  
+* 最大トークン数: ```600```
+  
 生成例: 
 ```
 はじめまして。静岡県は伊豆や富士山、浜名湖などの美しい自然に囲まれ、美味しい海の幸や山の幸にも恵まれています。温暖な気候で、一年を通して過ごしやすく、春には桜、夏には海水浴や花火、秋には紅葉、冬にはスキーなど、多彩なアクティビティが楽しめます。
@@ -245,8 +246,9 @@ Samplingの場合、ランダム・シードを固定の値にすると、[生�
 自然
 グルメ
 ```
-12. 「プロンプトのテスト」で入力項目にしていた内容を次のもので置き換えます
-入力: ```{your_input}```
+12. [出力のクリア]をクリックして生成結果を消去し、[プロンプトのテスト]で入力項目にしていた内容を次のもので置き換えます。
+* 入力: ```{your_input}```
+
 <img width="1521" alt="wxai03-02-12-promptTemplate" src="https://github.com/user-attachments/assets/a95b3125-72ab-454b-b8cc-c155679d80a5">
 
 13. 画面の右上にある「プロンプト変数」と表示される[{#}]をクリックします。
@@ -269,10 +271,15 @@ Samplingの場合、ランダム・シードを固定の値にすると、[生�
 ```
 <img width="1521" alt="wxai03-02-15-defaultVariables" src="https://github.com/user-attachments/assets/1b851b97-bac0-4b88-9930-8e31992820a1">
 
-16. モデル・パラメータを開き、デコードをGreedyに戻します。画面右下の[生成]をクリックして、手順10と同じ結果が得られるを確認します。
-<img width="1521" alt="wxai03-02-16-runByVariable" src="https://github.com/user-attachments/assets/2133d6c4-821f-4d81-a878-4d0e69743ad3">
+16. モデル・パラメータを開き、デコードをGreedyに戻します。停止基準のトークン数も変更します。
+* 最小トークン数: ```450```
+* 最大トークン数: ```500```
 
-17. [出力のクリア]をクリックして、生成内容を消去します。
+<img width="1402" alt="wxai03-02-15-greedy" src="https://github.com/user-attachments/assets/1ad3c27d-2014-4dd7-9f33-841d9fe976ee">
+
+
+17. 画面右下の[生成]をクリックして、手順10と同じ結果が得られることを確認します。
+<img width="1401" alt="wxai03-02-17-generated" src="https://github.com/user-attachments/assets/ab213d36-e0da-41f0-a157-230acbf91501">
 
 18. 画面上側の[名前をつけて保存]をクリックします。
 <img width="590" alt="wxai03-03-18-SaveAsMenu" src="https://github.com/user-attachments/assets/dfe65844-3181-4895-af3d-be374019a66c">
