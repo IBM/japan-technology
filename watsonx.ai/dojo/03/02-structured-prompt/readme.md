@@ -310,17 +310,20 @@ Samplingの場合、ランダム・シードを固定の値にすると、[生�
 <img width="1521" alt="wxai03-02-23-createNewSpace" src="https://github.com/user-attachments/assets/5cef1478-3104-4c2c-8ab4-91d04ef29b57">
 
 24. [デプロイメント・スペースの作成]ウィンドウが表示されます。次の内容を設定し、最後に[作成]をクリックします。
-* 名前: ```wxaiSpace```
-* デプロイメント・ステージ: 開発
+* 名前: ```wxaiSpace-``` この後ろに皆さんのイニシャルや好きな英数字を入れてください。
+* デプロイメント・ステージ: 実動
 * 機械学習サービスの選択(オプション): [機械学習サービスの新規作成]の下に表示されている、既存のWatson Machine Learningのサービス名を選択
   
-<img width="1148" alt="wxai03-02-24-deploymentSpaceSettings" src="https://github.com/user-attachments/assets/e490c8c9-b239-4cef-8720-6afef826c774">
+<img width="1145" alt="wxai03-02-24-wxaiSpace" src="https://github.com/user-attachments/assets/cb66c81c-45a6-412c-b23f-b942a59a928a">
+
 
 25. [スペースを準備しています]という表示になるので、しばらく待ちます。
-<img width="1521" alt="wxai03-02-25-provisioningSpace" src="https://github.com/user-attachments/assets/86cf7f15-105e-4235-9b77-c0240e639c42">
+<img width="706" alt="wxai03-02-25-prepareSpace" src="https://github.com/user-attachments/assets/c071c793-f994-4229-9fb6-7f6699e793db">
+
 
 26. [スペースの準備が完了しました]を確認します。右上の[x]ボタンをクリックします。
-<img width="1521" alt="wxai03-02-25-spaceReady" src="https://github.com/user-attachments/assets/3f662170-3d35-4af1-b0a1-8d2a99425367">
+
+<img width="695" alt="wxai03-02-26-spaceReady" src="https://github.com/user-attachments/assets/c0e009b6-f0a8-41b3-afbc-ab3ee50292d7">
 
 27. [スペースへのプロモート]ウィンドウに戻ります。[☑️][プロモート後、スペース内のプロンプト・テンプレートに移動]にチェックを入れて、[プロモート]をクリックします。
 <img width="1521" alt="wxai03-02-27-promote2Space" src="https://github.com/user-attachments/assets/56535f92-c053-4238-9b80-0236a1c950ad">
