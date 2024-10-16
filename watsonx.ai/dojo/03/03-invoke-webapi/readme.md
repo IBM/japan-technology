@@ -83,7 +83,7 @@ wxaiSpace-という名前の画面が表示されます。続けて[管理]タ�
   
 [IBM CloudのAPIキーの取得方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme3-API-Key.md "API Key")を参考にして、APIキーを取得してください。APIキーは安全な場所に保管し、皆さんと関係のない人には決して共有しないでください。
 
-* (param2) wxaiSpaceのスペース GUID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
+* (param2) wxaiSpace-で始まる名前のスペース GUID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
 上記の手順2を確認してください。
 
 * (param3) depWSのデプロイメントID:　```XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX```
