@@ -21,7 +21,7 @@ IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝え
 2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。
 <img width="1524" alt="wxai03-01-02-promptLab" src="https://github.com/user-attachments/assets/bbd2d8fe-07df-4255-8179-24344b98bd95">
 
-3. Prompt Labの[フリー・フォーム]をクリックします。
+3. Prompt Labの[フリー・フォーム]をクリックします。モデル: [granite-8b-japanese]を選択します。
 <img width="1521" alt="wxai03-01-03-Freeform" src="https://github.com/user-attachments/assets/86562be9-7e2e-4363-825a-4b5a51d6e078">
 
 4. プロンプト・テキストとして、次の文字列をコピーして、貼り付けます。
