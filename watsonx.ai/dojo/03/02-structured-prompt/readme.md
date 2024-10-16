@@ -28,7 +28,7 @@ IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝え
 3. 「Dojo #3」の概要ページから、作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。
   <img width="1521" alt="wxai03-02-03-toPromptLab" src="https://github.com/user-attachments/assets/f818db7a-40f1-4c38-9bcb-f091b883f6e3">
 
-4. プロンプト・ラボが開いたら、[構造化」をクリックします。（ご注意：最後にプロンプト・ラボを操作した時にチャット、構造化、フリー・フォームのどの画面で利用していたかによって状況が変わります。）
+4. プロンプト・ラボが開いたら、[構造化」をクリックします。（ご注意：最後にプロンプト・ラボを操作した時にチャット、構造化、フリー・フォームのどの画面で利用していたかによって状況が変わります。）モデル: [granite-8b-japanese] を選択してください。
 
   <img width="1521" alt="wxai03-02-04-Structured" src="https://github.com/user-attachments/assets/fc8924bd-56c0-44d4-8c22-61adf8e04d8c">
 
