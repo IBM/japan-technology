@@ -355,20 +355,24 @@ Samplingの場合、ランダム・シードを固定の値にすると、[生�
 
 
 33. wxaiSpace- で始まる名前の画面から[資産]タブをクリックし、資産の一覧を表示します。
-<img width="1521" alt="wxai03-02-33-assets" src="https://github.com/user-attachments/assets/c9905090-e305-4b80-9095-d98b414b8a84">
+
+<img width="1399" alt="wxai03-02-33-v3Assets" src="https://github.com/user-attachments/assets/427ca3c4-da1d-43b0-95d8-cf09f4524ad6">
+
 
 34. [Welcome-Shizuoka-template]というプロンプト・テンプレートを見つけ、[⋮]をクリックして、[デプロイ]をクリックします。
-<img width="1521" alt="wxai03-02-34-deployMenu" src="https://github.com/user-attachments/assets/bdf6480a-7b34-46f4-8aef-3a0aba31a61f">
+
+<img width="1395" alt="wxai03-02-24-DeployMenu" src="https://github.com/user-attachments/assets/99da8c7a-9d8b-42ff-920c-00a69d279c84">
 
 35. [デプロイメントの作成]ウインドウが開くので、次の項目を設定してから、最後に[作成]をクリックします。
 * 名前: ```depWS```
-* サービス提供名: ```wst01``` この文字の後に、皆さんの英数字を組み合わせて、ユニークな名前にしてください。
+* サービス提供名: ```wst01_``` この文字の後に、皆さんの英数字を組み合わせて、ユニークな名前にしてください。
 
-<img width="1521" alt="wxai03-02-35-createDeployment" src="https://github.com/user-attachments/assets/c24bb236-14b6-41a4-ab29-55172eb2d187">
+<img width="1274" alt="wxai03-02-35-createDeploymentV3" src="https://github.com/user-attachments/assets/b1e2058e-955f-42cb-b4f6-d8b60da46767">
 
-36. depWsが[デプロイ済み]であることを確認します。
+36. depWSが[デプロイ済み]であることを確認します。
 
-  <img width="1521" alt="wxai03-02-36-deployed" src="https://github.com/user-attachments/assets/ce59ff46-2898-42dd-982c-c858ac003e48">
+<img width="1398" alt="wxai03-02-36-v3Deployed" src="https://github.com/user-attachments/assets/bd56ff0c-0374-4f21-9e84-08f726443304">
+
 
 この演習2はここまでです。続けて、[演習3](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md)に進んでください。
 
