@@ -163,11 +163,16 @@ python shizchat.py
 ```
 
 実行例: (アクセス・トークンの表示は省略します）
+* Ubuntu + Python 3.10.14
+<img width="1578" alt="wxai03-03-ubuntu-Python310" src="https://github.com/user-attachments/assets/f9f5cacb-84f4-4071-9a78-b2d88a80e1ed">
+
 * Ubuntu + Python 3.12
-<img width="1679" alt="wxaiDojo03-ResultsWithPython3-12" src="https://github.com/user-attachments/assets/a2e99cff-e34e-4838-8485-9384e33220f8">
+<img width="1615" alt="wxai03-03-ubunts-Python312" src="https://github.com/user-attachments/assets/73b95a8b-9a78-4f5c-ba02-2e9f3cc1c710">
+
 
 * mac (Intel) + Python 3.10
-<img width="2222" alt="wxaiDojo03-ResultsWithPython3-10-mac" src="https://github.com/user-attachments/assets/de0a6b5d-d9f9-46b3-be70-61d28f1966f0">
+<img width="1550" alt="wxai03-03-mac-Intel" src="https://github.com/user-attachments/assets/90c47415-8b24-4a79-9176-19aca2025044">
+
 
 * 生成例:
 ```
