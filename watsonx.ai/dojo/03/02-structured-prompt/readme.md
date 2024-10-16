@@ -326,25 +326,35 @@ Samplingの場合、ランダム・シードを固定の値にすると、[生�
 <img width="695" alt="wxai03-02-26-spaceReady" src="https://github.com/user-attachments/assets/c0e009b6-f0a8-41b3-afbc-ab3ee50292d7">
 
 27. [スペースへのプロモート]ウィンドウに戻ります。[☑️][プロモート後、スペース内のプロンプト・テンプレートに移動]にチェックを入れて、[プロモート]をクリックします。
-<img width="1521" alt="wxai03-02-27-promote2Space" src="https://github.com/user-attachments/assets/56535f92-c053-4238-9b80-0236a1c950ad">
+
+<img width="1275" alt="wxai03-02-27-v3Promote2Space" src="https://github.com/user-attachments/assets/7f8d183a-153b-4cf2-8d32-0b31c1dafc7e">
 
 28. [プロモーションが進行中です]の表示が出るので、しばらく待ちます。
+    
 <img width="1521" alt="wxai03-02-28-promoting" src="https://github.com/user-attachments/assets/edbc0868-1741-4119-af9b-6aa9874a0cd3">
 
 29. [デプロイメント / wxaiSpace / Welcome-Shizuoka-template] の画面になったことを確認し、[新規デプロイメント]をクリックします。
-<img width="1521" alt="wxai03-02-29-deployment" src="https://github.com/user-attachments/assets/919077cf-c8e8-412a-8f87-72d174208ad3">
+
+<img width="1402" alt="wxai03-02-29-noDeploymentsYet" src="https://github.com/user-attachments/assets/68e746fb-7520-42c3-80b9-258537590bcb">
 
 30. [スペースに関連付けられた機械学習サービス・インスタンスはありません]と表示されるので、[スペース設定に移動]をクリックします。
 <img width="1521" alt="wxai03-02-30-noMLInstances" src="https://github.com/user-attachments/assets/848967cd-3f20-43d5-a71d-433fb90a64fe">
 
 
-31. wxaiSpaceという名前のデプロイメント・スペースが表示されます。画面右下にある[インスタンスの関連付け +]をクリックします。
-<img width="1521" alt="wxai03-02-31-wxaiSpace" src="https://github.com/user-attachments/assets/dab31df5-8bd5-46c6-9d8d-96901d27f865">
+31. wxaiSpace-で始まる名前のデプロイメント・スペースが表示されます。画面右下にある[インスタンスの関連付け +]をクリックします。
+
+<img width="1402" alt="wxai03-02-31-wxaiSpaceAO" src="https://github.com/user-attachments/assets/e2c2ca15-446e-4b2f-aad1-73b6d9ec5737">
 
 32. 表示されたWatson Machine Learningを選択して、最後に[保存]をクリックします。
-<img width="1521" alt="wxai03-02-32-setML" src="https://github.com/user-attachments/assets/646fb9f3-c5c7-40ce-9398-e061db9f761a">
+* 機械学習サービスの選択
+<img width="417" alt="wxai03-02-31-ChooseML" src="https://github.com/user-attachments/assets/54c64b10-6ddc-45b4-8ca9-aa142ddc4878">
 
-33. wxaiSpaceの画面から[資産]タブをクリックし、資産の一覧を表示します。
+* 保存できた状態
+
+<img width="1402" alt="wxai03-02-32-MLSaved" src="https://github.com/user-attachments/assets/87c7842e-22f3-46ab-91e8-d4a9bde182dc">
+
+
+33. wxaiSpace- で始まる名前の画面から[資産]タブをクリックし、資産の一覧を表示します。
 <img width="1521" alt="wxai03-02-33-assets" src="https://github.com/user-attachments/assets/c9905090-e305-4b80-9095-d98b414b8a84">
 
 34. [Welcome-Shizuoka-template]というプロンプト・テンプレートを見つけ、[⋮]をクリックして、[デプロイ]をクリックします。
