@@ -58,7 +58,8 @@ IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝え
 
 * 最小トークン数: ```300```
 * 最大トークン数: ```800```
-<img width="1521" alt="wxai03-02-07-parametersV2" src="https://github.com/user-attachments/assets/ce688946-9a8c-4e69-abc7-f59e60690365">
+
+<img width="282" alt="wxai03-02-modelparam" src="https://github.com/user-attachments/assets/3962c951-b0a9-4f73-a2e7-9d720be61cd6">
 
 
 8. 画面右下の[生成]をクリックします。
