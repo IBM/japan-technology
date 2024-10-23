@@ -6,7 +6,7 @@
 DRAFTです：
 
 - 00: [ワークショップ環境の事前準備](00_techzone_environments_preparation.md)
-- 01: [ークショップ環境へのアクセス](00_techzone_environments_preparation.md)
+- 01: [ワークショップ環境へのアクセス](00_techzone_environments_preparation.md)
 
 
 
