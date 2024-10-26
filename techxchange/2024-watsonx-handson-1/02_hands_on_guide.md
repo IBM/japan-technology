@@ -14,13 +14,17 @@ wastonx.dataのMilvusの接続情報を取得します
 wastonx.aiのWatson Studioを立ち上げ、サンドボックスプロジェクトを開きます
 - [wastonx.ai: Watson Studioの立ち上げ](watsonx_ai_open_watson_studio.md)<br>
 
-### 3. notebook実行
+### 3. NotebookをJupyter Notebookエディター・ツールで開いて実行
 以下T.B.D.
 #### 1. Excelをベクトル化してベクトルDB Milvusに入れよう<br>
 TechXchange Japanの情報が入ったExcelファイルをベクトル化してベクトルDB Milvusに入れます
-- [notebookを新規作成して開く](open_notebook_01.md)
+- [Notebookを新規作成して開く](open_notebook_01.md)
 
-もし既に作成済みの場合は、「アセット」タブから、
+もし既に作成済みの場合は、「アセット」タブから、「`techxchange_handson_01_vectordb.ipynb`」を選択し、右側の︙をクリックし、「編集」を選択してください。<br>
+![alt text](images/open_notebook_from_asset01.jpg)
+
+2に進む際、Notebookを開いたままにするには、上部のプロジェクト名を右クリックし、「新しいタブで開く」でプロジェクトを新しいタブで開いてください。<br>
+![alt text](images/open_project_from_notebook.jpg)
 
 #### 2. ベクトルDB Milvusに入ったデータで類似検索してみよう!<br>
 - 1で準備したベクトルDBのデータでLangChainを使用して類似検索してみます
