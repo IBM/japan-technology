@@ -75,3 +75,7 @@ cookieの許可の画面が下部に表示されますので、「Accept all」�
 
 ログインが成功するとIBM Cloudのダッシュボードが表示されます
 <img width="800" alt="" src="images/01_2-5-ibmcloud.jpg"><br>
+
+---
+[watsonxハンズオン1 さわってみようベクトル・データベース watsonx.dataでRAG体験 - トップページに戻る](README.md)
+

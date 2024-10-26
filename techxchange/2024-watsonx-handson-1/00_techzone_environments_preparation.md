@@ -32,3 +32,6 @@ https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform#browsers-pla
 
 
 以上です。
+
+---
+[watsonxハンズオン1 さわってみようベクトル・データベース watsonx.dataでRAG体験 - トップページに戻る](README.md)

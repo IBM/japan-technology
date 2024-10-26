@@ -6,7 +6,7 @@
 
 ## 1. wastonx.dataへのアクセス
 ### 1-1. リソースリストの表示
-左上のナビゲーション・メニューをクリック後、「リソース・リスト」をクリックし、IBM Cloudのリソース・リストを開きます。
+左上のナビゲーション・メニューをクリック後、「リソース・リスト」をクリックし、IBM Cloudのリソース・リストを開きます。<br>
 <img alt="" src="images/resource_list_01.jpg"><br>
 <img alt="" src="images/resource_list_02.jpg"><br>
 
@@ -33,3 +33,6 @@ IBM watsonx のトップページから、[最近の作業]欄にある[プロ�
 &nbsp;<br>
 `notsetのサンドボックス`プロジェクトが開きました。
 <img width="800" alt="" src="images/watsonx.ai_openws_05.jpg"><br>
+
+---
+[ハンズオンの実施 - トップページに戻る](02_hands_on_guide.md)<br>
