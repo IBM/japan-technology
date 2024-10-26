@@ -20,20 +20,28 @@ wastonx.aiのWatson Studioを立ち上げ、サンドボックスプロジェク
 TechXchange Japanの情報が入ったExcelファイルをベクトル化してベクトルDB Milvusに入れます
 - [Notebookを新規作成して開く](open_notebook_01.md)
 
-もし既に作成済みの場合は、「アセット」タブから、「`techxchange_handson_01_vectordb.ipynb`」を選択し、右側の︙をクリックし、「編集」を選択してください。<br>
-![alt text](images/open_notebook_from_asset01.jpg)
-
-2に進む際、Notebookを開いたままにするには、上部のプロジェクト名を右クリックし、「新しいタブで開く」でプロジェクトを新しいタブで開いてください。<br>
-![alt text](images/open_project_from_notebook.jpg)
-
 #### 2. ベクトルDB Milvusに入ったデータで類似検索してみよう!<br>
-- 1で準備したベクトルDBのデータでLangChainを使用して類似検索してみます
+1で準備したベクトルDBのデータでLangChainを使用して類似検索してみます
+- [Notebookを新規作成して開く](open_notebook_02.md)
 
 #### 3. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、質問をしてみよう!<br>
--  1で準備したベクトルDBのデータとwatsonx.ai LLMでLangChainを使用してRAGを構成し、質問をしてみます
+1で準備したベクトルDBのデータとwatsonx.ai LLMでLangChainを使用してRAGを構成し、質問をしてみます
+- [Notebookを新規作成して開く](open_notebook_03.md)
 
 #### 4. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、チャットアプリを作成してみよう!<br>
-- 3の仕組みを利用してチャットアプリを作成します
+3で実行した仕組みを利用してチャットアプリを作成します
+- [Notebookを新規作成して開く](open_notebook_04.md)
+
+
+以上でハンズオンは完了です。お疲れ様でした！
+
+### Tips:
+- 別のNotebookに進む際、Notebookを開いたままにするには、上部のプロジェクト名を右クリックし、「新しいタブで開く」でプロジェクトを新しいタブで開いてください。<br>
+![alt text](images/open_project_from_notebook.jpg)
+<br>
+
+- もし既に対象のNotenookが作成済みの場合は、「アセット」タブから、対象のファイル名の右側の︙をクリックし、「編集」を選択すると保存したNotenookが開きます。<br>
+![alt text](images/open_notebook_from_asset01.jpg)
 
 ---
 [watsonxハンズオン1 さわってみようベクトル・データベース watsonx.dataでRAG体験 - トップページに戻る](README.md)
