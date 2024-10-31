@@ -11,7 +11,7 @@
 <img alt="" src="images/resource_list_02.jpg"><br>
 
 ### 1-2. watsonx.aiのリソースの表示
-リソース・リストから[AI/機械学習]のグループを見つけて、その中に含まれている Watson Studio のサービスを見つけて、表示されている名前をクリックします。
+リソース・リストから[AI/機械学習]のグループを見つけて、その中に含まれている Watson Studio のサービスを見つけて、表示されている名前をクリックします。<br>
 <img width="800"　alt="" src="images/watsonx.ai_openws_01.jpg"><br>
 
 ### 1-3. watsonx.ai トップページの表示
@@ -19,7 +19,7 @@ watsonx.aiのリソースが表示されるので、[Launch in][v]の[v]をク�
 <img width="800" alt="" src="images/watsonx.ai_openws_02.jpg"><br>
 &nbsp;<br>
 &nbsp;<br>
-watsonx.dataのトップページが開きます。「watsonxへようこそ」というウィンドウが表示された場合は右上の[X]をクリックして閉じてください。
+watsonx.dataのトップページが開きます。「watsonxへようこそ」というウィンドウが表示された場合は右上の[X]をクリックして閉じてください。<br>
 <img width="800" alt="" src="images/watsonx.ai_openws_03.jpg"><br>
 
 ### 1-4. サンドボックス・プロジェクトを開く
@@ -27,7 +27,7 @@ watsonx.dataのトップページが開きます。「watsonxへようこそ」�
 
 今回使用するサンドボックス・プロジェクトは最初のwatson.ai利用時に自動的に作成されるプロジェクトです。
 
-IBM watsonx のトップページから、[最近の作業]欄にある[プロジェクト]のタイルを見つけ、 その中にある`notsetのサンドボックス`(`notset`は違う文字列になる可能性があります)をクリックします。
+IBM watsonx のトップページから、[最近の作業]欄にある[プロジェクト]のタイルを見つけ、 その中にある`notsetのサンドボックス`(`notset`は違う文字列になる可能性があります)をクリックします。<br>
 <img width="800" alt="" src="images/watsonx.ai_openws_04.jpg"><br>
 &nbsp;<br>
 &nbsp;<br>
