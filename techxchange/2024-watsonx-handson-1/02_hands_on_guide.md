@@ -6,31 +6,31 @@
 ## ハンズオン
 以下の順序で各リンクにアクセスし、実施してください
 
-### 1. wastonx.data: Milvus 情報の取得
+### 1. wastonx.data: Milvus 接続情報の取得
 wastonx.dataのMilvusの接続情報を取得します
-- [wastonx.data: Milvus 情報の取得](watsonx_data_get_milvus_info.md)
+- [wastonx.data: Milvus 接続情報の取得](watsonx_data_get_milvus_info.md)
 
 ### 2. wastonx.ai: Watson Studioの立ち上げ
 wastonx.aiのWatson Studioを立ち上げ、サンドボックスプロジェクトを開きます
 - [wastonx.ai: Watson Studioの立ち上げ](watsonx_ai_open_watson_studio.md)<br>
 
 ### 3. NotebookをJupyter Notebookエディター・ツールで開いて実行
-以下T.B.D.
+
 #### 1. Excelをベクトル化してベクトルDB Milvusに入れよう<br>
 TechXchange Japanの情報が入ったExcelファイルをベクトル化してベクトルDB Milvusに入れます
-- [Notebookを新規作成して開く](open_notebook_01.md)
+- [Notebook1を新規作成して開く](open_notebook_01.md)
 
 #### 2. ベクトルDB Milvusに入ったデータで類似検索してみよう!<br>
 1で準備したベクトルDBのデータでLangChainを使用して類似検索してみます
-- [Notebookを新規作成して開く](open_notebook_02.md)
+- [Notebook2を新規作成して開く](open_notebook_02.md)
 
 #### 3. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、質問をしてみよう!<br>
 1で準備したベクトルDBのデータとwatsonx.ai LLMでLangChainを使用してRAGを構成し、質問をしてみます
-- [Notebookを新規作成して開く](open_notebook_03.md)
+- [Notebook4を新規作成して開く](open_notebook_03.md)
 
 #### 4. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、チャットアプリを作成してみよう!<br>
 3で実行した仕組みを利用してチャットアプリを作成します
-- [Notebookを新規作成して開く](open_notebook_04.md)
+- [Notebook5を新規作成して開く](open_notebook_04.md)
 
 
 以上でハンズオンは完了です。お疲れ様でした！

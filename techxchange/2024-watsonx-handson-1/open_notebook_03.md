@@ -30,6 +30,4 @@ https://github.com/IBM/japan-technology/blob/main/techxchange/2024-watsonx-hands
 その後は開いたNotebookの記載に従って、実行してください。
 
 ---
-[ハンズオンの実施 - トップページに戻る](02_hands_on_guide.md)<br>
-
-
+[ハンズオンの実施 - 「4. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、チャットアプリを作成してみよう!」に進む](02_hands_on_guide.md#4-ベクトルdb-milvusとwatsonxai-llmでragを構成してチャットアプリを作成してみよう)<br>

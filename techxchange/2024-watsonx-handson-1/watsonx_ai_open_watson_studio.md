@@ -35,4 +35,4 @@ IBM watsonx のトップページから、[最近の作業]欄にある[プロ�
 <img width="800" alt="" src="images/watsonx.ai_openws_05.jpg"><br>
 
 ---
-[ハンズオンの実施 - トップページに戻る](02_hands_on_guide.md)<br>
+[ハンズオンの実施 - 「3. NotebookをJupyter Notebookエディター・ツールで開いて実行」に進む](02_hands_on_guide.md#3-notebookをjupyter-notebookエディターツールで開いて実行)<br>

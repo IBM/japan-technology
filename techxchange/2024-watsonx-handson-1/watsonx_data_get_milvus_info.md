@@ -1,4 +1,4 @@
-# wastonx.data: Milvus 情報の取得
+# wastonx.data: Milvus 接続情報の取得
 前提：
 [ワークショップ環境へのアクセス](01_techzone_use_environments.md)が完了し、IBM CloudのダッシュボードがWebブラウザーに表示されていることが前提です。
 <img width="800" alt="" src="images/01_2-5-ibmcloud.jpg"><br>
@@ -64,7 +64,7 @@ GRPC ホストおよびGRPC ポートの値はハンズオンで使用します�
 詳細画面を閉じるには、下の「Close」　ボタンをクリックします。
 
 ---
-[ハンズオンの実施 - トップページに戻る](02_hands_on_guide.md)<br>
+[ハンズオンの実施 - 「2. wastonx.ai: Watson Studioの立ち上げ」に進む](02_hands_on_guide.md#2-wastonxai-watson-studioの立ち上げ)<br>
 
 
 
