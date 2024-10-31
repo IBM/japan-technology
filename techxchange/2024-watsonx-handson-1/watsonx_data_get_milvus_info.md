@@ -5,15 +5,15 @@
 
 ## 1. wastonx.dataへのアクセス
 ### 1-1. リソースリストの表示
-左上のナビゲーション・メニューをクリック後、「リソース・リスト」をクリックし、IBM Cloudのリソース・リストを開きます。
+左上のナビゲーション・メニューをクリック後、「リソース・リスト」をクリックし、IBM Cloudのリソース・リストを開きます。<br>
 <img alt="" src="images/resource_list_01.jpg"><br>
 <img alt="" src="images/resource_list_02.jpg"><br>
 
 
 
 ### 1-2. watsonx.dataのリソースの表示
-リソース・リストから[データベース]のグループを見つけて、その中に含まれている watsonx.data のサービスを見つけて、表示されている名前をクリックします。
-<img width="800"　alt="" src="images/watsonx.data_01.jpg"><br>
+リソース・リストから[データベース]のグループを見つけて、その中に含まれている watsonx.data のサービスを見つけて、表示されている名前をクリックします。<br>
+<img width="800" alt="" src="images/watsonx.data_01.jpg"><br>
 
 
 ### 1-3. watsonx.dataのコンソールの表示
