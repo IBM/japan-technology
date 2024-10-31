@@ -12,7 +12,7 @@
 
 ### 1-2. watsonx.aiのリソースの表示
 リソース・リストから[AI/機械学習]のグループを見つけて、その中に含まれている Watson Studio のサービスを見つけて、表示されている名前をクリックします。<br>
-<img width="800"　alt="" src="images/watsonx.ai_openws_01.jpg"><br>
+<img width="800" alt="" src="images/watsonx.ai_openws_01.jpg"><br>
 
 ### 1-3. watsonx.ai トップページの表示
 watsonx.aiのリソースが表示されるので、[Launch in][v]の[v]をクリックして、表示されたメニューから[watsonx]を選びます。
