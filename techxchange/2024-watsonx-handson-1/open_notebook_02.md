@@ -14,7 +14,7 @@
 名前:<br>
 以下の名前をコピーし、ペーストして入力します。
 ```
-techxchange_handson_02_similarity_search.ipynb
+techxchange_handson_02_similarity_search
 ```
 
 

@@ -15,7 +15,7 @@
 名前:<br>
 以下の名前をコピーし、ペーストして入力します。
 ```
-techxchange_handson_01_vectordb.ipynb
+techxchange_handson_01_vectordb
 ```
 
 

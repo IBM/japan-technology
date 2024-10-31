@@ -14,7 +14,7 @@
 名前:<br>
 以下の名前をコピーし、ペーストして入力します。
 ```
-techxchange_handson_04_chatbot.ipynb
+techxchange_handson_04_chatbot
 ```
 
 
