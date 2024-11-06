@@ -26,11 +26,11 @@ TechXchange Japanの情報が入ったExcelファイルをベクトル化して�
 
 #### 3. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、質問をしてみよう!<br>
 1で準備したベクトルDBのデータとwatsonx.ai LLMでLangChainを使用してRAGを構成し、質問をしてみます
-- [Notebook4を新規作成して開く](open_notebook_03.md)
+- [Notebook3を新規作成して開く](open_notebook_03.md)
 
 #### 4. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、チャットアプリを作成してみよう!<br>
 3で実行した仕組みを利用してチャットアプリを作成します
-- [Notebook5を新規作成して開く](open_notebook_04.md)
+- [Notebook4を新規作成して開く](open_notebook_04.md)
 
 
 以上でハンズオンは完了です。お疲れ様でした！
