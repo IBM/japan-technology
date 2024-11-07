@@ -26,7 +26,14 @@ https://github.com/IBM/japan-technology/blob/main/techxchange/2024-watsonx-hands
 ```
 
 入力後、「作成」をクリックし、Jupyter Notebookエディター・ツールで開きます。
-![image](images/open_notebook_03.jpg)
+![image](images/open_notebook_03.jpg)<br>
+
+以下のような画面が表示されたら「Maybe Later」をクリックして消します。
+![image](images/open_notebook_04.jpg)<br>
+
+以下のような画面が表示されたら「Done」をクリックして消します。
+![image](images/open_notebook_05.jpg)<br>
+
 
 その後は開いたNotebookの記載に従って、実行してください。
 
