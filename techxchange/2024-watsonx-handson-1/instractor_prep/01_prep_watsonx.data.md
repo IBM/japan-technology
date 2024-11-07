@@ -66,7 +66,7 @@ watsonx.dataのリソースが表示されるので、「Webコンソールを�
 &nbsp;<br>
 &nbsp;<br>
 インフラストラクチャー・マネージャーが表示されます。<br>
-右上の「コンポーネントの追加」をクリックします。
+右上の「コンポーネントの追加」をクリックします。<br>
 <img  width="800" src="images/wxd09.jpg"><br>
 &nbsp;<br>
 &nbsp;<br>
