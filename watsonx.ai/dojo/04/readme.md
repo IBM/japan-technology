@@ -11,7 +11,6 @@ IBM watsonxがセットアップ済みであれば、順番に進めることが
 もし、これらの条件を満たしていない場合は、[事前準備](https://speakerdeck.com/oniak3ibm/watsonx-ai-dojo-prereq "prereq") をご覧の上、必要な環境をご準備ください。
 watsonx.ai Dojoのセッション中は、環境セットアップについてサポートすることができませんのでご注意ください。
 
-[watsonx.aiの起動方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/start/readme2.md "Launch watsonx directly")や[新規プロジェクトの作成方法](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/create-new-project/readme.md "Create New Project")がわからない場合は、それぞれリンクを辿って確認してください。
 
 ## 演習1: 事前準備
 この演習では、ローカル・コンピューター上のPython仮想環境の確認、Pythonパッケージのインストールあるいはアップデート、watsonx.aiのプロジェクト作成、プロジェクトIDの取得を行います。
