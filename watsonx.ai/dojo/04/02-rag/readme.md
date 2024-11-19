@@ -9,6 +9,8 @@
 
 利用モデル: [IBM granite-8b-japanese](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-granite-8b-japanese.html?context=wx&locale=ja)  
 
+この演習で使うlcqa.pyとknowledge.txtを改造することで、言語モデルに備わっていない知識を使った質疑応答アプリを開発できます。スクリプトやテキストの改変は自由ですが、スクリプト内には例外処理を実装していませんので、それを理解し、実験用途で活用してください。
+
 ##
 1. （すでにvenv環境を開いている場合はスキップしてください)Windowsの場合はUbuntu、Macの場合はターミナルを開きます。Python仮想環境 venvに入ります。以降の手順でコマンドはこのvenv環境下、~/wxaiディレクトリーで実行します。
 
