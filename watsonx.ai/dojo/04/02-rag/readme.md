@@ -240,7 +240,7 @@ step = 5
 ```
 python lcqa.py
 ```
-21. 出力結果を確認します。
+21. 出力結果を確認します。watsonx.ai Dojo #3でフリーフォームや構造化フォームを使って、例を含めたプロンプトを実行した時のように、knowledge.txt内の文書を使って、granite-8b-japaneseが回答を生成していることがわかります。
 
 ```
 (venv) oniak3.ai@AkiranoMacBook-Pro wxai % python lcqa.py
@@ -275,6 +275,7 @@ IBM TechXchange Japan は、IBM 製品とテクノロジーに関する最新情
 LangChainは、LLMアプリケーションのプログラミングを効率化する開発環境です。抽象化によって、1つ以上の複雑なプロセスの構成ステップをすべてカプセル化した名前付きコンポーネントとみなすことでコードを簡素化します。</s>
 ```
 
+<img width="2560" alt="スクリーンショット 2024-11-20 0 29 50" src="https://github.com/user-attachments/assets/ac326c49-f8a9-48d6-b96d-692200c609b0">
 
 
 
