@@ -275,8 +275,30 @@ IBM TechXchange Japan は、IBM 製品とテクノロジーに関する最新情
 LangChainは、LLMアプリケーションのプログラミングを効率化する開発環境です。抽象化によって、1つ以上の複雑なプロセスの構成ステップをすべてカプセル化した名前付きコンポーネントとみなすことでコードを簡素化します。</s>
 ```
 
+22. 全体像を振り返りましょう。
+
+```
+rag_chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
+    | myPromptTemplate
+    | custom_llm
+)
+result = rag_chain.invoke(query_shizuoka)
+```
+
+* rag_chain.invokeメソッドを通じて、問い合わせが実行される。
+* プロンプトの中に追加するための「文脈」は、このコードにおいては、retrieverを通じて、Chromaデータベースへ問い合わせた結果が渡される。
+* "question"のところには、invokeメソッドの引数が渡される。
+* {context}、{question}はプロンプト・テンプレート内のパラメーターとなっている。
+* {context}の中身は、Chromaデータベースへ問い合わせた結果が入り、{question}は、rag_chain.invokeメソッドの引数が渡される。
+* プロンプト・テンプレートのパラメーターが指定されると、プロンプトが完成する。
+* 完成したプロンプトをcustom_llm、この演習ではIBM watsonx.ai上のgranite-8b-japaneseに渡し、生成結果が result として返ってくる。
+
 <img width="2560" alt="スクリーンショット 2024-11-20 0 29 50" src="https://github.com/user-attachments/assets/ac326c49-f8a9-48d6-b96d-692200c609b0">
 
+23. プロンプト・テンプレートが質疑応答に使える汎用的なものなので、knowledge.txtに好きな知識を追加し、rag_chain.invokeメソッドで好きな質問を実行してみましょう。
+* 知識の追加をする際は、一つ前の文書の最後から3つ改行した場所から始める
+* 追加した知識の文書の最後から3つ改行しておく
 
 
 
