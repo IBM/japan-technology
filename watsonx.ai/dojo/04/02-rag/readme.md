@@ -8,7 +8,7 @@
 免責事項: 生成AIは事前学習したデータを活用しながらテキストを生成します。言語モデルに含まれている言葉が確率で選択されるため、生成AIは事実と異なる結果を生成する場合があります。生成AIのハルシネーションから間違った内容が伝わらないよう、生成された内容をそのまま利用するのではなく、必ず、事実確認を行なってください。
 
 ##
-1. （すでにvenv環境を開いている場合はスキップしてください)Windowsの場合はUbuntu、Macの場合はターミナルを開きます。Python仮想環境 venvに入ります。
+1. （すでにvenv環境を開いている場合はスキップしてください)Windowsの場合はUbuntu、Macの場合はターミナルを開きます。Python仮想環境 venvに入ります。以降の手順でコマンドはこのvenv環境下、~/wxaiディレクトリーで実行します。
 
 ```
 cd ~/wxai
@@ -65,4 +65,14 @@ LangChainの中核をなすのは、抽象化によってLLMアプリケーシ�
 
 ```
 
-5. 
+5. このハンズオンで使うPythonスクリプトをダウンロードします。
+
+```
+wget https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonx.ai/dojo/04/02-rag/lcqa.py
+```
+
+6. Visual Studio Codeからダウンロードした lcqa.py を開きます。
+```
+code lcqa.py
+```
+
