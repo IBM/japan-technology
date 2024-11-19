@@ -303,14 +303,16 @@ result = rag_chain.invoke(query_shizuoka)
 知識の例:
 ```
 2024年11月19日の静岡市の天気はどうでしたか。
-天気は晴れのち曇り。静岡の最低気温は11.0℃、最高気温は16.4℃。秋らしい気温でした。
-これまでの暖かさから肌寒さを感じる日に変わりました。
+天気は晴れのち曇り。静岡市の最低気温は11.0℃、最高気温は16.4℃。
+静岡市では、これまでの暖かさから肌寒さを感じる天気に変わりました。
+
+
 ```
 
 Pythonスクリプトの例:
 ```
 start = time.perf_counter()
-query = "2024年11月19日、静岡市の天気を教えてください"
+query = "2024年11月19日、静岡市はどんな1日でしたか？"
 result = rag_chain.invoke(query)
 end = time.perf_counter()
 print("\n>>>RAG completed:"+str(end-start))
