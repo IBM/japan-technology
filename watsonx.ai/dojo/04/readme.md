@@ -12,7 +12,7 @@ IBM watsonxがセットアップ済みであれば、順番に進めることが
 watsonx.ai Dojoのセッション中は、環境セットアップについてサポートすることができませんのでご注意ください。
 
 
-## 演習1: [事前準備](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/04/01-new-project/readme.md)
+## 演習1: [LangChainによるRAG、演習準備](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/04/01-new-project/readme.md)
 この演習では、ローカル・コンピューター上のPython仮想環境の確認、Pythonパッケージのインストールあるいはアップデート、watsonx.aiのプロジェクト作成、プロジェクトIDの取得を行います。
 
 ## 演習2: [テキストファイルに知識を書いておき、granite-8b-japanese、Chroma、LangChainを利用して、RAGを実行する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/04/02-rag/readme.md)
