@@ -12,5 +12,5 @@ IBM watsonxがセットアップ済みであれば、順番に進めることが
 watsonx.ai Dojoのセッション中は、環境セットアップについてサポートすることができませんのでご注意ください。
 
 
-## 演習1: 事前準備
+## 演習1: [事前準備](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/04/01-new-project/readme.md)
 この演習では、ローカル・コンピューター上のPython仮想環境の確認、Pythonパッケージのインストールあるいはアップデート、watsonx.aiのプロジェクト作成、プロジェクトIDの取得を行います。
