@@ -1,4 +1,4 @@
-# 演習準備
+# LangChainによるRAG、演習準備
 watsonx.ai Dojo #4の演習は、ローカル・コンピューター上でPythonコードを動かし、IBM watsonx.ai APIを利用して、言語モデルへアクセスします。
 過去のwatsonx Dojo #2, #3に参加していない人もすぐに取り掛かれるよう、必要なセットアップを記します。
 
