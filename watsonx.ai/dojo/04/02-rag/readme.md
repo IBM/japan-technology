@@ -300,5 +300,25 @@ result = rag_chain.invoke(query_shizuoka)
 * 知識の追加をする際は、一つ前の文書の最後から3つ改行した場所から始める
 * 追加した知識の文書の最後から3つ改行しておく
 
+知識の例:
+```
+2024年11月19日の静岡市の天気はどうでしたか。
+天気は晴れのち曇り。静岡の最低気温は11.0℃、最高気温は16.4℃。秋らしい気温でした。
+これまでの暖かさから肌寒さを感じる日に変わりました。
+```
+
+Pythonスクリプトの例:
+```
+start = time.perf_counter()
+query = "2024年11月19日、静岡市の天気を教えてください"
+result = rag_chain.invoke(query)
+end = time.perf_counter()
+print("\n>>>RAG completed:"+str(end-start))
+print(result)
+exit(0)
+```
+
+
+
 
 
