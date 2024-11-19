@@ -1,5 +1,5 @@
 # LangChainを使った、RAG実装
-# Special Thanks to Kyoko Nishito
+# Special Thanks to kyokonishito
 import ibm_watsonx_ai
 import os
 import time
