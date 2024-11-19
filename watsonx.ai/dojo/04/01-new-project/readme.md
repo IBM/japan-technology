@@ -4,7 +4,7 @@ watsonx.ai Dojo #4の演習は、ローカル・コンピューター上でPytho
 
 前提条件:
 * Windowsの場合、Windows Subsystem Linuxを有効にし、Ubuntu あるいは Ubuntu 22.04.3 LTSが実行できること
-* Ubuntu (Windows), Mac 共通: Python 3.10.14がインストールされていること, Python 仮想環境 venv を作ってあること
+* Ubuntu (Windows), Mac 共通: Python 3.10.14がインストールされていること, Python 仮想環境 venv を作ってあること (念の為、Python 3.12.6でも動作を確認しています)
 * Python環境構築の参考資料: [watsonx.ai Dojo #1準備編](https://speakerdeck.com/oniak3ibm/wxaidojo01-20240821 "watsonx.ai Dojo #1") スライド28からスライド31を参照
 
 ##
