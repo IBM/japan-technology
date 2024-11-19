@@ -25,9 +25,9 @@ MacOSでwgetコマンドが見つからない場合は、wgetをインストー�
 brew install wget
 ```
 
-3. Visual Studio Codeでテキストファイルの内容を確認します。
+3. catコマンドでテキストファイルの内容を確認します。途中で表示が止まったら、Enterキーを続けて押して進みます。
 ```
-code knowledge.txt
+cat knowledge.txt | more
 ```
 
 4. 開いたknowledge.txtに、次の内容が表示されていることを確認します。最初の３つの質疑応答は、watsonx.ai Dojo #3で利用したものと同じです。
@@ -64,7 +64,5 @@ LangChainの中核をなすのは、抽象化によってLLMアプリケーシ�
 
 
 ```
-
-
 
 5. 
