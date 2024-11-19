@@ -17,7 +17,7 @@ source venv/bin/activate
 2. このハンズオンで利用するテキストファイルをダウンロードします。
 
 ```
-wget https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/04/02-rag/knowledge.txt
+wget https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonx.ai/dojo/04/02-rag/knowledge.txt
 ```
 
 MacOSでwgetコマンドが見つからない場合は、wgetをインストールしてから、上のコマンドを実行します。
