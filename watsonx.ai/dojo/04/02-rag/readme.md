@@ -120,7 +120,7 @@ step1: 知識を与えないで、LLMに対する質問を実行します。
  '- 静岡県での交通3つ\n')
 ```
 
-10. Visual Studio Codeに戻り、lcqa.py の9行目を書き換えます。lcqa.pyを保存します。Visual Studio Codeはそのままにしてください。
+10. Visual Studio Codeに戻り、lcqa.py の9行目を step = 2 と書き換えます。lcqa.pyを保存します。Visual Studio Codeはそのままにしてください。
 ```
 step = 2
 ```
@@ -152,6 +152,97 @@ Document(metadata={'source': './knowledge.txt'}, page_content='LangChainとは\n
 ```
 
 エラーが発生する場合の対処方法
-* Pythonパッケージのインストールを確認してください
+* [演習準備](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/04/01-new-project) を確認し、Pythonパッケージのインストールを確認してください
+
+13. Visual Studio Codeに戻り、lcqa.py の9行目を step = 3 と書き換えます。lcqa.pyを保存します。Visual Studio Codeはそのままにしてください。
+```
+step = 3
+```
+14. Ubuntuまたはターミナルに戻り、次のコマンドを実行します。
+```
+python lcqa.py
+```
+15. 出力結果を確認します。ベクトル・データベースに対して、2つの検索を実行しています。検索内容に類似している文書が適切に見つかっていることを確認してください。
+* 一つは、長いプロンプト
+```
+「静岡県を知らない人に向けて、静岡県への旅行をお勧めする文章を作ってください。例があればその例を参考にして、次の「見出し一覧」にある項目を含めて書いてください。文章の最後は「魅力あふれる静岡県にお越しください！」としてください。同じ内容を繰り返さないでください。
+
+「見出し一覧」:
+- 静岡県にある観光名所3ヶ所
+- 静岡県出身の有名人、芸能人4人
+- 静岡県で有名なレストラン3つ
+- 静岡県がモデルとなっているアニメ作品3つ」
+```
+* もう一つは「IBM TechXchangeとは何ですか」 
+```
+(venv) oniak3.ai@AkiranoMacBook-Pro wxai % python lcqa.py
+>>>watsonx startup:1.5865725000039674
+Created a chunk of size 239, which is longer than the specified 110
+Created a chunk of size 179, which is longer than the specified 110
+
+>>>Added documents:0.24551295800483786
+vector_store.similarity_search_with_scoreを実行
+[(Document(metadata={'source': './knowledge.txt'}, page_content='静岡県がモデルとなっているアニメ作品を３つ教えてください。\n・「ラブライブ！サンシャイン！！」聖地は、静岡県沼津市が中心です。伊豆・三津シーパラダイスも有名で、多くのファンが訪れています。\n・「ちびまる子ちゃん」静岡県静岡市清水区（旧清水市）がモデルになっています。エスパルス・ドリームプラザ内に「ちびまる子ちゃんランド」があり、多くのファンが訪れています。\n・「シュート！」静岡県掛川市がモデルとなったサッカー漫画です。作品内の掛川高校は、掛川西高校がモデルと言われています。'),
+  0.1308116912841797),
+ (Document(metadata={'source': './knowledge.txt'}, page_content='静岡県の有名なレストランを３つ教えてください。\n・炭焼きレストランさわやか (げんこつハンバーグ料理が大人気)\n・中華ファミリーレストラン五味八珍（中華料理、浜松餃子が大人気）\n・元祖丁子屋（とろろ汁が大人気）'),
+  0.14588618278503418),
+ (Document(metadata={'source': './knowledge.txt'}, page_content='静岡県出身の有名人、芸能人を4人教えてください。\n・広瀬すず （静岡県静岡市清水区出身）\n・長澤まさみ （静岡県磐田市出身）\n・百田夏菜子  （静岡県浜松市出身）\n・久保田利伸 (静岡県静岡市清水区、旧清水市出身)'),
+  0.1476191282272339),
+ (Document(metadata={'source': './knowledge.txt'}, page_content='IBM TechXchangeについて教えてください。\nIBM製品とテクノロジーに関する最新情報をお届けし、体感いただけます。\n最新技術のセッション、デモ、ハンズオンの場を提供します。 \nまた、コミュニティー・イベント、技術者の皆様との交流の場を通じて、技術者同士が学び、繋がるネットワーキングの機会もご提供します。\n全てのセッションは日本語で実施されます。'),
+  0.21900337934494019)]
+
+>>>search completed:0.09456425000098534
+vector_store.similarity_search_with_scoreを実行
+[(Document(metadata={'source': './knowledge.txt'}, page_content='IBM TechXchangeについて教えてください。\nIBM製品とテクノロジーに関する最新情報をお届けし、体感いただけます。\n最新技術のセッション、デモ、ハンズオンの場を提供します。 \nまた、コミュニティー・イベント、技術者の皆様との交流の場を通じて、技術者同士が学び、繋がるネットワーキングの機会もご提供します。\n全てのセッションは日本語で実施されます。'),
+  0.1097368597984314),
+ (Document(metadata={'source': './knowledge.txt'}, page_content='LangChainとは\nLangChainの中核をなすのは、抽象化によってLLMアプリケーションのプログラミングを効率化する開発環境です。\n抽象化とは、1つ以上の複雑なプロセスの構成ステップをすべてカプセル化した名前付きコンポーネントとみなすことでコードを簡素化することです。'),
+  0.22967010736465454),
+ (Document(metadata={'source': './knowledge.txt'}, page_content='静岡県がモデルとなっているアニメ作品を３つ教えてください。\n・「ラブライブ！サンシャイン！！」聖地は、静岡県沼津市が中心です。伊豆・三津シーパラダイスも有名で、多くのファンが訪れています。\n・「ちびまる子ちゃん」静岡県静岡市清水区（旧清水市）がモデルになっています。エスパルス・ドリームプラザ内に「ちびまる子ちゃんランド」があり、多くのファンが訪れています。\n・「シュート！」静岡県掛川市がモデルとなったサッカー漫画です。作品内の掛川高校は、掛川西高校がモデルと言われています。'),
+  0.2913072109222412),
+ (Document(metadata={'source': './knowledge.txt'}, page_content='静岡県の有名なレストランを３つ教えてください。\n・炭焼きレストランさわやか (げんこつハンバーグ料理が大人気)\n・中華ファミリーレストラン五味八珍（中華料理、浜松餃子が大人気）\n・元祖丁子屋（とろろ汁が大人気）'),
+  0.30055153369903564)]
+
+>>>search completed:0.05972337498678826
+```
+
+16. Visual Studio Codeに戻り、lcqa.py の9行目を step = 4 と書き換えます。lcqa.pyを保存します。Visual Studio Codeはそのままにしてください。
+```
+step = 4
+```
+17. Ubuntuまたはターミナルに戻り、次のコマンドを実行します。
+```
+python lcqa.py
+```
+18. 出力結果を確認します。手順16に似ていますが、[LangChainのRetriever](https://python.langchain.com/docs/concepts/retrievers/)に対して問い合わせを実行した結果が出力されています。
+
+
+```
+(venv) oniak3.ai@AkiranoMacBook-Pro wxai % python lcqa.py
+>>>watsonx startup:1.2307520830072463
+Created a chunk of size 239, which is longer than the specified 110
+Created a chunk of size 179, which is longer than the specified 110
+
+>>>Added documents:0.21615833300165832
+retriver.invokeから問い合わせを実行
+[Document(metadata={'source': './knowledge.txt'}, page_content='静岡県がモデルとなっているアニメ作品を３つ教えてください。\n・「ラブライブ！サンシャイン！！」聖地は、静岡県沼津市が中心です。伊豆・三津シーパラダイスも有名で、多くのファンが訪れています。\n・「ちびまる子ちゃん」静岡県静岡市清水区（旧清水市）がモデルになっています。エスパルス・ドリームプラザ内に「ちびまる子ちゃんランド」があり、多くのファンが訪れています。\n・「シュート！」静岡県掛川市がモデルとなったサッカー漫画です。作品内の掛川高校は、掛川西高校がモデルと言われています。'),
+ Document(metadata={'source': './knowledge.txt'}, page_content='静岡県の有名なレストランを３つ教えてください。\n・炭焼きレストランさわやか (げんこつハンバーグ料理が大人気)\n・中華ファミリーレストラン五味八珍（中華料理、浜松餃子が大人気）\n・元祖丁子屋（とろろ汁が大人気）'),
+ Document(metadata={'source': './knowledge.txt'}, page_content='静岡県出身の有名人、芸能人を4人教えてください。\n・広瀬すず （静岡県静岡市清水区出身）\n・長澤まさみ （静岡県磐田市出身）\n・百田夏菜子  （静岡県浜松市出身）\n・久保田利伸 (静岡県静岡市清水区、旧清水市出身)')]
+
+>>>retriver invoked:0.08563570800470188
+```
+
+19. Visual Studio Codeに戻り、lcqa.py の9行目を step = 5 と書き換えます。lcqa.pyを保存します。Visual Studio Codeはそのままにしてください。
+```
+step = 5
+```
+
+20. Ubuntuまたはターミナルに戻り、次のコマンドを実行します。
+```
+python lcqa.py
+```
+21. 出力結果を確認します。
+
+
+
 
 
