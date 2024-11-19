@@ -7,6 +7,9 @@ Instructor URLはメールか、　TechzoneのMy workshopsメニューから取�
 
 ## 2. 担当のIDのIBM Cloud LoginのURL, Username, Passwordを使ってIBM Cloudにログイン
 Environmentsセクションの　担当番号のセクションを開き、そこに書いてあるIBM Cloud LoginのURL,　Username, Passwordを使ってIBM Cloudにログインします。<br>
+尚、自分のIBMIDでのIBM SSOログインと混ざらないように、シークレットウィンドウ(プライベートウィンドウ)を推奨します。
+<br>
+
 <img width="800" alt="" src="images/i01-02.jpg">
 <img width="800" alt="" src="images/01_2-5.jpg"><br>
 
