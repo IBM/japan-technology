@@ -109,7 +109,7 @@ pip install -U langchain_community
 
 <img width="1193" alt="wxai04-01-06-associatedWML" src="https://github.com/user-attachments/assets/44d20a10-1872-42aa-9a0e-429b0917cb61">
 
-12. ブラウザーから別のタブを開いて、https://cloud.ibm.com/apikeys へアクセスします。ページが開いたら、[作成 +]をクリックします。
+12. ブラウザーから別のタブを開いて、[https://cloud.ibm.com/apikeys](https://cloud.ibm.com/iam/apikeys) へアクセスします。ページが開いたら、[作成 +]をクリックします。
 
 <img width="1193" alt="wxai04-01-08-APIKey" src="https://github.com/user-attachments/assets/81dcde8d-1c74-49b2-b3fd-d40061974db3">
 
