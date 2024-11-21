@@ -1,0 +1,815 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab1/">
+      
+      
+        <link rel="next" href="../lab3/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>Lab2 Generative AI - wxoHandson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab2-generative-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="wxoHandson" class="md-header__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            wxoHandson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab2 Generative AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="wxoHandson" class="md-nav__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    wxoHandson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成AIを作成してみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      プロンプトを作成してみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#training-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      (オプション) Training examples の追加
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      生成AIを公開してみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      観光地のお勧めメールを生成して、スキルをテストしてみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 Decision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab5_AIAssistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 AI Assistant Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab2-generative-ai">Lab2 Generative AI</h1>
+<p>watsonx Orchestrate では、生成AIをカスタムスキルとして外部から呼び出すことが可能ですが、Project(旧 Automation Builder)で生成AIのプロンプトを作成し、スキルとして使用することができます。
+このLabでは、顧客の特性に応じてメールを生成するプロンプトを作成します。</p>
+<h2 id="ai">生成AIを作成してみよう</h2>
+<p>Skill studioで、まず Project を作成し、そのコンポーネントの1つとして 生成AI のプロンプトを作成することができます。</p>
+<ol>
+<li>
+<p>メニュー(≣)から <strong>Skill studio</strong> を選択します。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-0.png" /></a> </p>
+</li>
+<li>
+<p>右上にある <strong>Create</strong> ボタンをクリック、<strong>Project</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-1.png" /></a></p>
+</li>
+<li>
+<p>New project のウィンドウで <strong>Create project</strong> を選択し、Name の欄に <strong><em>YourInitials</em>_recommendation</strong> と入力して <strong>Create</strong> をクリックします。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-2.png" /></a></p>
+</li>
+<li>
+<p><strong>Generative AI</strong> (生成AI)を選択します。
+ <a class="glightbox" href="../lab2_GenAI_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-3.png" /></a></p>
+</li>
+<li>
+<p>Name の欄に <strong><em>YourInitials</em> generate recommendation mail</strong> と入力して、<strong>Create</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-4.png" /></a></p>
+</li>
+<li>
+<p>Project と 生成AIのコンポーネント が作成されました。生成AIのコンポーネントが作成されると、プロンプト・エディターが開きます。
+ <a class="glightbox" href="../lab2_GenAI_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-5.png" /></a></p>
+</li>
+</ol>
+<h2 id="_1">プロンプトを作成してみよう</h2>
+<p>プロンプト・エディターを用いて、プロンプトを作成し、出力を生成することができます。</p>
+<ol>
+<li>
+<p><strong>Prompt</strong> にある <strong>Model:</strong> のプルダウンメニューから、使いたいモデルを選択します。今回は、<strong>mixtral-8x7b-instruct-v01</strong> を選択します。
+ <a class="glightbox" href="../lab2_GenAI_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-20.png" /></a></p>
+</li>
+<li>
+<p>プロンプトを作成します。</p>
+<ol>
+<li>
+<p><strong>Context</strong> にモデルへの命令文を入力します。今回は、「顧客の特性に応じて、おすすめの観光地を紹介するメール」を生成するプロンプトを作成します。以下の文章を参考に入力します。 (一文ごとに改行してください) <br />
+<strong><em>あなたは、優秀な観光業のマーケターです。</em></strong><br />
+<strong><em>観光地のPRをするため、お客様に興味を持ってもらえるメールを送ろうとしています。</em></strong><br />
+<strong><em>お客様の特性に合わせて、おすすめの観光地を紹介するメールを日本語で作成してください。</em></strong>
+<a class="glightbox" href="../lab2_GenAI_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-21.png" /></a></p>
+</li>
+<li>
+<p><strong>Prompt input</strong> には、モデルに応答してほしい文章を入力します。以下の文章を参考に入力します。<br />
+<strong><em>お客様は、20代で、写真撮影が好きです。</em></strong>
+<a class="glightbox" href="../lab2_GenAI_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-22.png" /></a></p>
+</li>
+<li>
+<p>変数を追加します。
+ 変数は、生成AIの入力として使用されます。変数を使用しない場合も、少なくとも1つの変数を定義する必要があります。</p>
+<ol>
+<li>
+<p>今回は、以下の３つの変数を作成します。変数の名前と値は String (文字列) でなければなりません。(topic は既存の変数のデフォルト値のみ変更してください。)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Variable</th>
+<th style="text-align: center;">Default value</th>
+<th>(意味)</th>
+<th>(挿入先)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">topic</td>
+<td style="text-align: center;">観光地</td>
+<td>おすすめしたいトピック</td>
+<td>Context</td>
+</tr>
+<tr>
+<td style="text-align: center;">age</td>
+<td style="text-align: center;">20</td>
+<td>お客様の年代</td>
+<td>Prompt input</td>
+</tr>
+<tr>
+<td style="text-align: center;">hobby</td>
+<td style="text-align: center;">写真撮影</td>
+<td>お客様の趣味</td>
+<td>Prompt input</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>変数を追加する場合は、<strong>Variables</strong> の欄で <strong>New variable</strong> をクリックします。
+<a class="glightbox" href="../lab2_GenAI_images/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-23.png" /></a></p>
+</li>
+<li>
+<p>変数に名前を付け、デフォルト値を入力します。設定後は以下のようになっているはずです。 
+ <a class="glightbox" href="../lab2_GenAI_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-24.png" /></a></p>
+</li>
+<li>
+<p>上の表に従って、<strong>Prompt Input</strong> または <strong>Context</strong> の欄で、プロンプトに変数を挿入します。（文字や数値で書いている部分を変数に置き換えます）</p>
+<ol>
+<li>変数名は、二重の中かっこ {} で囲む必要があります。 (例: {{topic}})</li>
+<li>以下の方法で、変数を自動的に挿入できます。<ul>
+<li><strong>+</strong> アイコン（Add variable）をクリックし、リストから変数を選択します。</li>
+<li>欄内で <strong>Ctrl + スペース</strong> をクリックし、変数を選択します。</li>
+</ul>
+</li>
+<li>完了すると、以下のような文章になります。
+ <a class="glightbox" href="../lab2_GenAI_images/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-25.png" /></a></li>
+<li><strong>Generate</strong> をクリックします。すると、文章が生成されますが、以下のように途中で切れてしまっているかと思います。これは、トークンが小さいためです。
+<a class="glightbox" href="../lab2_GenAI_images/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-26.png" /></a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Parameters</strong> の欄でトークンを設定し、生成される出力の長さを制限します。
+ トークンは、モデルに対して意味を持つ文字の集合です。プロンプトのテキストは、LLMによって処理される前にトークンに変換されます。
+ (<strong>Parameters</strong> および <strong>Variables</strong> のオプション欄は、右上の <strong>×</strong> をクリックして閉じることができます。また、歯車(⚙)マークをクリックして再表示することができます。)</p>
+<ul>
+<li>デフォルトでは、最小値と最大値はそれぞれ 1 と 50 に設定されています。</li>
+<li>最小値を 0 にすることはできません。</li>
+<li>最大値の制限は、選択したモデルによって異なります。</li>
+</ul>
+<p>今回は、トークンの最大値 <strong>Max generated tokens</strong> を 1000 に設定します。
+<a class="glightbox" href="../lab2_GenAI_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-27.png" /></a></p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Generate</strong> をクリックし、<strong>Generated output</strong> の欄で結果を確認します。今回は、文章を最後まで生成できていることが確認できます。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-29.png" /></a><br />
+ 未加工のプロンプトを確認することもできます。<strong>Raw prompt</strong> のアイコン (<a class="glightbox" href="../lab2_GenAI_images/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-28.png" /></a>) をクリックすると、
+ <strong>View raw prompt</strong> が開き、生成された出力を取得するために使用された context や prompt input、training examples を確認できます。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-30.png" /></a>  </p>
+</li>
+<li>必要に応じて、より良い結果を得るためにプロンプトを調整します。</li>
+</ol>
+<h2 id="training-examples">(オプション) Training examples の追加</h2>
+<p>プロンプトが生成する出力の精度や品質、安定性を高めるため、プロンプトに例を追加することができます。</p>
+<p>入力と対応する出力のペアを1つ以上指定します。</p>
+<ol>
+<li>ページ下部にある <strong>Training examples</strong> の欄で、<strong>New example</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-40.png" /></a></li>
+<li>
+<p>入力と期待される出力を記入します。以下はトレーニングサンプルの例です。</p>
+<p>input:</p>
+<blockquote>
+<p>お客様は30代で、食べ歩きが好きです。</p>
+</blockquote>
+<p>Expected output:  </p>
+<blockquote>
+<p>こんにちは。
+今回は、食べ歩きがお好きなあなたへ、国内で食べ歩きできるおすすめの観光地を3つご紹介します！</p>
+<ol>
+<li>
+<p>小樽<br />
+小樽は、レンガ造りの倉庫が並ぶノスタルジックな街です。<br />
+北海道の新鮮な海鮮類や、生乳を使ったスイーツを楽しめます！</p>
+</li>
+<li>
+<p>川越<br />
+川越は、江戸時代の街並みが広がり、着物を着て風情を楽しむこともできます。<br />
+名産品であるサツマイモを使ったスイーツが豊富で、食べ歩きしやすい街です！  </p>
+</li>
+<li>
+<p>伊勢<br />
+伊勢神宮へ参拝する道にある「おかげ横丁」は、日本最大の食べ歩きスポットと言われています。<br />
+伊勢名物「赤福」や、松阪牛、伊勢うどんなど、名産品にあふれた食べ歩きスポットです！  </p>
+</li>
+</ol>
+<p>弊社では、ご紹介した観光地をはじめとして、食べ歩きにおすすめの観光地を巡るツアーを多数ご用意しております！<br />
+弊社サイトでも、様々な観光地の魅力や訪問者の声などを掲載しておりますので、ぜひ参考になさってください。<br />
+この機会にぜひ、旅行を検討されてみてはいかがでしょうか？</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Generate</strong> をクリックしてプロンプトをテストします。生成された出力の精度が向上しているか確認してみましょう。トレーニングサンプルに基づいた、よりマーケティングのメールらしい文章が生成されています。
+ <a class="glightbox" href="../lab2_GenAI_images/image-41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-41.png" /></a></p>
+</li>
+</ol>
+<p><strong>ヒント:</strong> 一般に、指定する入出力のペアが多いほど、結果は良くなります。ただし、例が多すぎる場合は、モデルで許可されている入力の最大トークンと入出力全体の最大トークンのスペースが減ってしまう可能性があります。</p>
+<h2 id="ai_1">生成AIを公開してみよう</h2>
+<p>生成AIのコンポーネントの作成が完了したら、変更を共有し、プロジェクトのバージョンを作成し、スキルとして利用できるように公開します。</p>
+<ol>
+<li>
+<p>リストのスキル名の横にあるアイコン<a class="glightbox" href="../lab2_GenAI_images/image-47_skill_private.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-47_skill_private.png" /></a>をクリックし、スキルを非公開(Private)から公開(Public)にします。
+ 公開状態になるとアイコンが<a class="glightbox" href="../lab2_GenAI_images/image-48_skill_public.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-48_skill_public.png" /></a>になります。 
+ <a class="glightbox" href="../lab2_GenAI_images/image-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-49.png" /></a></p>
+</li>
+<li>
+<p><strong>Share changes</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-50.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-50.png" /></a></p>
+</li>
+<li>
+<p><strong>Share</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-51.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-51.png" /></a>
+ ポップアップが出てきたら再度 <strong>Share</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-52.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-52.png" /></a></p>
+</li>
+<li>
+<p>シェアが完了したら、<strong>Back to <em>YourInitials</em>_recommendation</strong>をクリックし、元のプロンプト・エディターの画面に戻ります。
+ <a class="glightbox" href="../lab2_GenAI_images/image-53.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-53.png" /></a></p>
+</li>
+<li>
+<p>次に <strong>History</strong> のタブをクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-54.png" /></a></p>
+</li>
+<li>
+<p>一番上の行の <strong>Version +</strong> をクリックします。
+  <a class="glightbox" href="../lab2_GenAI_images/image-55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-55.png" /></a></p>
+</li>
+<li>
+<p>ポップアップが出てきたら、バージョンの名前の欄に <strong>1.0.0</strong> と入力して、<strong>Create</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-56.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-56.png" /></a></p>
+</li>
+<li>
+<p>バージョン 1.0.0 が作成されたので、これをスキルとして公開します。<strong>Publish</strong> というタブをクリックします。 
+ <a class="glightbox" href="../lab2_GenAI_images/image-57.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-57.png" /></a></p>
+</li>
+<li>
+<p>バージョン 1.0.0 をクリックすると、下に詳細が表示されます。<strong>Publish</strong> をクリックします。
+ <a class="glightbox" href="../lab2_GenAI_images/image-58.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-58.png" /></a>
+ 確認画面が出てくるので、もう一度 <strong>Publish</strong> をクリックします。  </p>
+</li>
+<li>
+<p>正常に公開されると、以下のように <strong>Published</strong> と表示されます。
+ <a class="glightbox" href="../lab2_GenAI_images/image-59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-59.png" /></a></p>
+</li>
+<li>
+<p>左上のメニュー (≣) から<strong>Skill studio</strong>をクリックして Skill studio に移動し、 <strong>Skills and apps</strong> タブ、<strong>Skills</strong> タブを順にクリックします。
+ 公開した生成AIのスキルが <strong>Published</strong> の状態で表示されます。右端の ⁝ から<strong>Enhance this skill</strong>を選択します。
+ <a class="glightbox" href="../lab2_GenAI_images/image-60.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-60.png" /></a></p>
+</li>
+<li>
+<p>複数のタブがある画面が表示されます。左端の<strong>Name</strong>タブはスキルの名前を表しています。
+ <a class="glightbox" href="../lab2_GenAI_images/image-61.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-61.png" /></a></p>
+</li>
+<li>
+<p><strong>Input</strong>タブをクリックします。この画面は、インポートしたスキルを実行する際の入力項目を表しています。  表示項目を日本語にしてみましょう。
+ <a class="glightbox" href="../lab2_GenAI_images/image-62.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-62.png" /></a></p>
+</li>
+<li>
+<p><strong>Phrases</strong>タブは、チャットからスキルを呼び出すためのフレーズを入力します。多くのフレーズを入力するほど、自然言語からスキルを判断する精度が向上します。日本語で例文を次の３つの文を追加します。</p>
+<ul>
+<li><code>観光地のお勧め文を作成して</code></li>
+<li><code>おすすめ観光スポット</code></li>
+<li><code>お勧め観光地</code></li>
+</ul>
+<p><strong>Enter(return)</strong> を押すと次の入力域が表示されます。 </p>
+<p><a class="glightbox" href="../lab2_GenAI_images/image-63.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-63.png" /></a></p>
+<p>また、<strong>Auto-generate phrases</strong> をクリックすると、生成AIが自動でフレーズを生成してくれます。  </p>
+</li>
+<li>
+<p>他のタブも同様に動作を確認できます。</p>
+<ul>
+<li><strong>Output</strong>タブは、スキルの出力を設定できます。スキルの実行結果を表やテキストの形式で出力することができます。</li>
+<li><strong>Next Best Skill</strong>タブは、このスキルが使用された後に、次に行うべきスキルとして watsonx Orchestrate が提案するスキルを設定できます。 </li>
+</ul>
+</li>
+<li>
+<p>最後に右下の<strong>Publish</strong>を押します。</p>
+</li>
+<li>
+<p>スキルが公開（publish）できたというメッセージが表示されます。</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../lab2_GenAI_images/image-64.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-64.png" /></a></p>
+<h2 id="_2">観光地のお勧めメールを生成して、スキルをテストしてみよう</h2>
+<p>このセクションでは、作成したスキルをテストする方法について説明します。 スキルをテストするには、カタログからスキルを追加して実行する必要があります。 このための手順は、以下のとおりです。</p>
+<ol>
+<li>
+<p>左上にあるメニュー (≣) をクリックし、<strong>Chat</strong>を選択して、チャット画面に移動します。</p>
+</li>
+<li>
+<p><strong>Add skills from the catalog</strong> を選択し、前のステップで作成したスキルを選択します。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-70.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-70.png" /></a></p>
+</li>
+<li>
+<p>検索バーで、<code>recommendation</code> を検索します。先ほど作成した<strong><em>YourInitials</em>-Recommendation</strong> というAppsを開きます。
+  <a class="glightbox" href="../lab2_GenAI_images/image-71.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-71.png" /></a></p>
+</li>
+<li>
+<p>スキルを追加するためには、<strong>Add skill+</strong>をクリックします。
+  <a class="glightbox" href="../lab2_GenAI_images/image-72.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-72.png" /></a></p>
+</li>
+<li>
+<p>スキルが追加された (<code>Added</code>) というメッセージが表示されます。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-73.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-73.png" /></a></p>
+</li>
+<li>
+<p><strong>Chat</strong> 画面に戻ります。追加したスキルが表示されています。
+  <a class="glightbox" href="../lab2_GenAI_images/image-74.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-74.png" /></a></p>
+</li>
+<li>
+<p>スキルをテストするには、先ほどフレーズとして登録した <strong>おすすめ観光地</strong> をチャット欄に入力します。（該当のスキルをクリックしても実行できます）<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-75.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-75.png" /></a></p>
+</li>
+<li>
+<p>トピック の欄に<code>観光地</code>、年齢層の欄に<code>20</code>、趣味の欄に<code>写真撮影</code>を入力します。
+ 入力が完了したら、<strong>Apply</strong> をクリックします。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-76.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-76.png" /></a></p>
+</li>
+<li>
+<p>スキルが実行されると、進行状況が表示され、<code>working on it</code> というメッセージが表示されます。 最後に、観光地のお勧めメールのコンテンツが生成されます。<br />
+<a class="glightbox" href="../lab2_GenAI_images/image-77.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab2_GenAI_images/image-77.png" /></a></p>
+</li>
+<li>
+<p>以上で、メールのコンテンツを生成するテストは完了です。</p>
+</li>
+</ol>
+<h2 id="_3">お疲れさまでした！</h2>
+<p>このLabでは、Skill studioのProjectで生成AIのプロンプトを作成しました。
+Context や Prompt input を記入したり、変数を設定したりして、出力を生成しました。
+また、トークンや Training examples の調整を行うことで、出力の精度を向上させることができました。</p>
+<p><strong>ご参考：</strong> <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/current?topic=projects-creating-generative-ai" target="_blank" rel="noopener noreferrer">生成AIについて</a>
+       <br /> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

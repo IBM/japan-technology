@@ -1,0 +1,727 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../lab2_GenAI/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>Lab1 Hello world - wxoHandson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab1-hello-world" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="wxoHandson" class="md-header__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            wxoHandson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab1 Hello world
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="wxoHandson" class="md-nav__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    wxoHandson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#watsonx-orchestrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      watsonx Orchestrateの画面を確認してみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      スキルの追加
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Skillへのスキルの追加
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      スキルの動作確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2_GenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 Decision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab5_AIAssistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 AI Assistant Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab1-hello-world">Lab1 Hello world</h1>
+<p>このLabでは、watsonx Orchestrateにログインし、カスタム・スキルを追加します。</p>
+<h2 id="watsonx-orchestrate">watsonx Orchestrateの画面を確認してみよう</h2>
+<p>このセクションでは、watsonx Orchestrateの主な画面構成について学びます。</p>
+<ol>
+<li>watsonx Orchestrateにログインします。</li>
+<li>IBM-idを入力して、<strong>Continue</strong> ボタンをクリックします。</li>
+<li>
+<p>複数テナントに所属する場合には、テナント選択画面が表示されるので、適切なテナント名を選択してください。<br />
+<a class="glightbox" href="../lab1_images/image-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-0.png" /></a></p>
+</li>
+<li>
+<p>以下のような画面が表示されます。（ツアーのダイアログが表示された場合にはスキップしてください。）<br />
+<a class="glightbox" href="../lab1_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-1.png" /></a></p>
+</li>
+<li>
+<p>詳細は以下の通りです。</p>
+<p>1.メニュー<br />
+各画面へ遷移するためのメニューが表示されます。    </p>
+<p>2.チャット画面<br />
+watsonx Orchestrateへ様々な処理を依頼するためのチャット画面    </p>
+<p>3.AI assistant builder 
+外部のWebサイトなどに組みこんだり、Slackなどのチャネルと統合可能なAIアシスタントの構成が可能です。  </p>
+<p>4.Skill studio 
+スキルの追加やスキルフローの作成、意思決定、ワークフロー、生成AIに関する処理をローコードで実装し、スキル(Automations)として公開が可能です。  </p>
+<p>5.ヘルプ<br />
+各種ヘルプへのリンクが表示されます。複数アカウントに所属する場合には、Swtich Accountからアカウントの切り替えが可能です。  </p>
+<p>6.タスク・リスト<br />
+ワークフローを使用している場合に、自分に割り当てられたタスクが表示されます。  </p>
+<p>7.プロファイル/設定<br />
+ユーザーのプロファイル設定が可能です。</p>
+</li>
+<li>
+<p>テナントIDを取得するには、右上のイニシャルが表示されているアイコンをクリックし、Aboutを選択します。<br />
+<a class="glightbox" href="../lab1_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-2.png" /></a></p>
+</li>
+<li>
+<p>以下のようなダイアログが表示されます。crnからはじまる文字列がIDです。サポートに問い合わせる際にはこのIDを伝える必要があるため、覚えておきましょう。<br />
+<a class="glightbox" href="../lab1_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-3.png" /></a></p>
+</li>
+</ol>
+<h2 id="_1">スキルの追加</h2>
+<p>watsonx Orchestrateには、プリビルド・スキルと呼ばれる1000以上の様々なスキルが付属し、すぐに使用することが可能ですが、以下の方法でスキルを追加することも可能です。：</p>
+<ul>
+<li>Open APIの定義ファイル(json/yaml)をインポートする。</li>
+<li>既存スキル(ワークフローやRPA)のディスカバリー</li>
+<li>スキルフローの作成</li>
+<li>Automation Builderによるスキルの実装</li>
+</ul>
+<p>このLabでは、OpenAPI定義をインポートしてスキルをカタログに追加する方法について学びます。では、始めましょう！</p>
+<ol>
+<li>
+<p>まず<a href="https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default/hellowatonx">こちらのリンク</a>をクリックして、Hello world OpenAPIが利用可能であることを確認してください。 {"message":"Missing Authentication Token"}と表示されればOKです。このAPIはAWS上で動作するシンプルなAPIです。</p>
+</li>
+<li>
+<p><a href="../files/helloworld-watsonx.yaml">こちらのリンク</a>を右クリックしてファイルに保存してください。このファイルは先ほどのAPIの定義情報です。</p>
+</li>
+<li>
+<p>notepad, VSCode, vi/vimといったお好みのエディタでファイルを開き編集します。
+<div class="highlight"><pre><span></span><code>openapi: 3.0.3
+info:
+  title: YourInitials-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-YourInitials-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: YourInitials Hello World WatsonX
+      operationId: Hello-YourInitials-watsonx
+</code></pre></div></p>
+</li>
+<li>
+<p>インポート時に他のハンズオン実施者とスキルが重複しないように、ファイルの中の、x-ibm-application-id, title,summaryとoperationIdをユニークにする必要があります。これらの値のYourInitialsの部分をあなたのイニシャルに置き換えてファイルを保存してください。更新後のファイルは以下のようになるはずです。(イニシャルの置き換え箇所は、4か所あります。)
+<div class="highlight"><pre><span></span><code>openapi: 3.0.3
+info:
+  title: XX-helloworld-watsonx
+  description: Hello world WatsonX
+  version: 1.0.0
+  x-ibm-annotations: true
+  x-ibm-application-name: IBM Watsonx - Training
+  x-ibm-application-id: watsonxai-XX-training
+  x-ibm-skill-type: imported
+  x-ibm-application-icon: &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; 
+servers:
+  - url: https://n28bf9mpmg.execute-api.us-west-2.amazonaws.com/default
+security:
+  - passwordGrant: [ ]
+paths:
+  /hellowatsonx:
+    post:
+      summary: XX Hello World WatsonX
+      operationId: Hello-XX-watsonx
+</code></pre></div></p>
+</li>
+<li>
+<p>メニューからSkill studio を選択します。<br />
+<a class="glightbox" href="../lab1_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-4.png" /></a></p>
+</li>
+<li>
+<p>右上にあるCreateボタンをクリック、Import APIをクリックします。<br />
+<a class="glightbox" href="../lab1_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-5.png" /></a></p>
+</li>
+<li>
+<p>From a fileを選択してください。<br />
+<a class="glightbox" href="../lab1_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-6.png" /></a></p>
+</li>
+<li>
+<p>先ほど保存したファイルをドラッグ＆ドロップするか、クリックして選択してください。</p>
+</li>
+<li>
+<p>ファイルの検証が実施され、問題無ければ以下の様に表示されます。<br />
+<a class="glightbox" href="../lab1_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-7.png" /></a></p>
+</li>
+<li>
+<p>右下のNextをクリックしてください。追加するAPIの内容が表示されます。</p>
+</li>
+<li>
+<p>Hello World WatsonXのチェックボックスをチェックし、右下のAddボタンをクリックしてください。<br />
+<a class="glightbox" href="../lab1_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-8.png" /></a></p>
+</li>
+<li>
+<p>スキル一覧にインポートしたスキルが表示されるので、右側のメニューを展開し、<strong>Enhance this skill</strong>を選択してください。<br />
+<a class="glightbox" href="../lab1_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-9.png" /></a></p>
+</li>
+<li>
+<p>スキルの詳細が表示されます。スキルのEnhance画面から、スキルの入出力の表示、スキルを呼び出すためのフレーズ、watsonx Orchestrateが次に実行するスキルの提案を行うNext Best Skillsの設定などを行うことが可能です。<br />
+<a class="glightbox" href="../lab1_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-10.png" /></a></p>
+</li>
+<li>
+<p><strong>Input</strong>タブをクリックしてください。Inputタブでは、スキルの入力について確認することができます。スキルの入力パラメータに<strong>name</strong>があり、必須のパラメータで無いことが分かります。<br />
+<a class="glightbox" href="../lab1_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-11.png" /></a></p>
+</li>
+<li>
+<p><strong>Output</strong>タブをクリックしてください。Outputタブでは、スキルの出力について確認することが可能です。スキルの出力パラメータとして<strong>greeting</strong>が定義されていることが分かります。<br />
+<a class="glightbox" href="../lab1_images/image-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-12.png" /></a></p>
+</li>
+<li>
+<p><strong>Security</strong>タブをクリックしてください。Securityタブでは、認証情報や、URLを確認することができます。また、接続のテストを行うことができます。<br />
+<a class="glightbox" href="../lab1_images/image-13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-13.png" /></a></p>
+</li>
+<li>
+<p>接続のテストを実行してみましょう。Usernameに test@acme.com、Passwordにtestを入力します。今回使用するAPIについては認証不要のため、どんな値を入力しても問題ありません。</p>
+</li>
+<li>
+<p>Submitボタンをクリックし、Authentication Successfulと表示されることを確認します。<br />
+<a class="glightbox" href="../lab1_images/image-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-14.png" /></a></p>
+</li>
+<li>
+<p><strong>Phrases</strong>タブをクリックしてください。Phrasesタブでは、スキルを呼び出す際に使用するフレーズを登録します。ユーザーがここに登録した例文にマッチした文章をチャットから入力することでこのスキルが呼び出されます。複数のスキルがマッチした場合にはwatsonx Orchestrateは実行するスキルを確認してきます。既にフレーズが登録済みのはずですが、いくつかのフレーズを追加してみてください。また、入力フィールドにカーソルを移動させると表示される、<strong>Auto-generate phrases</strong>ボタンをクリックすることで生成AIを用いてフレーズのサンプルを自動生成することも可能です。<br />
+<a class="glightbox" href="../lab1_images/image-15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-15.png" /></a></p>
+</li>
+<li>
+<p><strong>Next best skills</strong>タブをクリックしてください。このタブでは、スキルを実行した後に次に実行すべきスキルの選択肢として表示される複数のスキルを定義することが可能です。
+<a class="glightbox" href="../lab1_images/image-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-16.png" /></a></p>
+<ul>
+<li>Next best skillsは10個まで登録することが可能です。</li>
+<li>Next best skillsに追加した各スキルに対して明示的に変数のマッピングを行うことが可能です。  </li>
+</ul>
+</li>
+<li>
+<p><strong>Publish</strong>ボタンをクリックして、スキルをPublishしてください。<br />
+<a class="glightbox" href="../lab1_images/image-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-17.png" /></a></p>
+</li>
+</ol>
+<h2 id="personal-skill">Personal Skillへのスキルの追加</h2>
+<p>ここまでの作業で、カタログにスキルを追加することができました。次のステップとしてPersonal Skillにカタログからスキルを追加します。</p>
+<ol>
+<li>
+<p>左上のメニューから<strong>Chat</strong>を選択してチャット画面を表示します。<br />
+<a class="glightbox" href="../lab1_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-31.png" /></a></p>
+</li>
+<li>
+<p>以下のような画面が表示されるはずです。左下のAdd skills from the catalogをクリックします。<br />
+<a class="glightbox" href="../lab1_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-32.png" /></a></p>
+</li>
+<li>
+<p>検索フォームに先ほど作成したスキルの名前(hello world)を入力して検索を実行してください。表示されたAppsをクリックします。
+<a class="glightbox" href="../lab1_images/image-33.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-33.png" /></a></p>
+</li>
+<li>
+<p>スキルを選択して、add skillをクリックしてスキルを追加します。<br />
+<a class="glightbox" href="../lab1_images/image-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-34.png" /></a></p>
+</li>
+<li>
+<p>右上の<strong>Connect app</strong>をクリックしてアプリケーションと接続します。
+<a class="glightbox" href="../lab1_images/image-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-35.png" /></a></p>
+</li>
+<li>
+<p>username,passwordに任意の値を入力し、Connect appボタンをクリックします。<br />
+今回は、username は<strong>test@acme.com</strong>、passwordは<strong>test</strong>となります。
+<a class="glightbox" href="../lab1_images/image-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-36.png" /></a></p>
+</li>
+<li>
+<p>アプリケーションとの接続が完了しました！なお、接続はカタログからではなく、チャットからスキルを呼び出した際に実行することも可能です。<br />
+<a class="glightbox" href="../lab1_images/image-37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-37.png" /></a></p>
+</li>
+<li>
+<p>メニューからチャット画面に戻ります。スキルが追加されていることが分かります。<br />
+<a class="glightbox" href="../lab1_images/image-38.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-38.png" /></a></p>
+</li>
+</ol>
+<h2 id="_2">スキルの動作確認</h2>
+<p>カタログから追加したスキルは以下の2つの方法で実行可能です:<br />
+- チャット画面下部に表示されているスキルをクリックする<br />
+- スキルをEnhanceした際に指定したフレーズ(watsonx Orchestrateが指定されたフレーズを元に学習するため、完全一致する必要はありません)を入力する</p>
+<ol>
+<li>
+<p>チャットの入力欄に、<strong>Hello World WatsonX</strong>と入力してみてください。<br />
+<a class="glightbox" href="../lab1_images/image-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-40.png" /></a></p>
+</li>
+<li>
+<p>先ほど追加したスキルが呼び出され、入力フォームが表示されます。<br />
+<a class="glightbox" href="../lab1_images/image-42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-42.png" /></a></p>
+</li>
+<li>
+<p>自分の名前を入力し、<strong>Apply</strong>ボタンをクリックしてください。 
+<a class="glightbox" href="../lab1_images/image-43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-43.png" /></a></p>
+</li>
+<li>
+<p>結果が表示されるはずです。
+<a class="glightbox" href="../lab1_images/image-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-45.png" /></a></p>
+</li>
+<li>
+<p>チャットの内容は右上のホウキアイコンをクリックすることで削除することが可能です。<br />
+<a class="glightbox" href="../lab1_images/image-46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab1_images/image-46.png" /></a></p>
+</li>
+</ol>
+<h2 id="_3">お疲れさまでした！</h2>
+<p>このハンズオンでは、watsonx Orchestrateにログインし、カスタムスキルを追加、EnhanceしてからPublishし、カタログに追加しました。そしてカタログからスキルを追加し、チャット画面から呼び出しました。　</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

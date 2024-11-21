@@ -1,0 +1,706 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab2_GenAI/">
+      
+      
+        <link rel="next" href="../lab4/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>Lab3 Skill flow - wxoHandson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab3-skill-flow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="wxoHandson" class="md-header__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            wxoHandson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab3 Skill flow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="wxoHandson" class="md-nav__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    wxoHandson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2_GenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gmail" class="md-nav__link">
+    <span class="md-ellipsis">
+      カタログからスキルを追加し、Gmailでメールを送ろう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      自身のメールアドレスへメールを送り、スキルをテストしてみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2つのスキルを組み合わせてスキルフローを作成しよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      メールを生成し、自身のメールアドレスに送信して、スキルをテストしてみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      ご参考
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 Decision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab5_AIAssistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 AI Assistant Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenAPI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab3-skill-flow">Lab3 Skill flow</h1>
+<p>このLabでは、Lab2で作成したコンテンツ生成のスキルと、Gmailでメールを送信するプリビルドスキルを組み合わせて、スキルフローを作成します。</p>
+<h2 id="_1">前提条件</h2>
+<ul>
+<li>Gmailのアカウント（メールアドレスとパスワード）が必要です。</li>
+</ul>
+<h2 id="gmail">カタログからスキルを追加し、Gmailでメールを送ろう</h2>
+<p>Gmail でメールを送信するスキルは、プリビルドスキルとして既に watsonx Orchestrate にインポートされています。<br />
+このスキルを追加し、Gmail に接続してテストする必要があります。  </p>
+<ol>
+<li>
+<p>いずれかの方法で<strong>Skill catalog</strong>に移動します。</p>
+<ul>
+<li><strong>Chat</strong> に移動し <strong>Add skills from the catalog</strong> をクリックする。</li>
+<li>左上のメニューから <strong>Skill catalog</strong> を選択する。</li>
+</ul>
+</li>
+<li>
+<p>Skill catalog において <strong>Gmail</strong> を検索します。
+ <a class="glightbox" href="../lab3_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-1.png" /></a></p>
+</li>
+<li>
+<p><strong>Gmail</strong> のAppsをクリックし、<strong>Send an email from Gmail</strong> の <strong>Add skill</strong> をクリックします。<br />
+<a class="glightbox" href="../lab3_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-2.png" /></a></p>
+</li>
+<li>
+<p>表示が <strong>Added</strong> に変わります。
+ <a class="glightbox" href="../lab3_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-3.png" /></a></p>
+</li>
+<li>
+<p><strong>Chat</strong> 画面に移動すると (<strong>Menu</strong> -&gt; <strong>Chat</strong>) 、<strong>Send an email</strong>のスキルが追加されていることが確認できます。
+ <a class="glightbox" href="../lab3_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-4.png" /></a></p>
+</li>
+<li>
+<p>これで、<strong>Send an emaill</strong> スキルを追加するセクションは完了です。</p>
+</li>
+</ol>
+<h2 id="_2">自身のメールアドレスへメールを送り、スキルをテストしてみよう</h2>
+<p>このステップでは、スキルを Gmail に接続します。この資格情報(Gmailのアカウント)は、各自で用意してください。</p>
+<ol>
+<li>
+<p><strong>Chat</strong> 画面にいおて、<strong>Send an email</strong> スキルをの右下にリンク切れのマークが表示されていることが確認できます。これは、スキルがどのメールシステムにも接続されていないことを意味します。<br />
+<a class="glightbox" href="../lab3_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-5.png" /></a></p>
+</li>
+<li>
+<p><strong>Send an email</strong> スキルを選択すると、Gmail に接続されていないことが通知されます。 <strong>Connect app</strong> をクリックして Gmail に接続します。<br />
+<a class="glightbox" href="../lab3_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-6.png" /></a></p>
+</li>
+<li>
+<p>Googleのログイン画面に遷移しますので、アカウント情報を入力してください。
+ <a class="glightbox" href="../lab3_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-7.png" /></a></p>
+</li>
+<li>
+<p><strong>ユーザー本人に代わってメールを送信</strong> にチェックを入れて <strong>続行</strong> をクリックします。
+ <a class="glightbox" href="../lab3_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-8.png" /></a>  </p>
+</li>
+<li>
+<p>アプリが接続されたことが確認できます。
+ <a class="glightbox" href="../lab3_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-9.png" /></a></p>
+</li>
+<li>
+<p><strong>To:</strong> の欄はご自身のメールアドレスを使用します。<strong>Subject</strong> の欄に件名を記入します。（例: <code>Test send email skill</code>）<strong>Content</strong> 欄はメール本文を入力します。（例: <code>Hello and welcome!</code>）<strong>Apply</strong> ボタンをクリックします。（Gmail接続に使用したアカウントに送信いただいても構いません。）
+ <a class="glightbox" href="../lab3_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-10.png" /></a></p>
+</li>
+<li>
+<p><code>Here are the results of the Send an email skill.</code> というメッセージが表示されます。ご自身のメールボックスにメールが送信されているか確認してみてください。
+ <a class="glightbox" href="../lab3_images/image-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-11.png" /></a></p>
+</li>
+<li>
+<p>これで <strong>Send email</strong> スキルをテストするステップは完了です。</p>
+</li>
+</ol>
+<h2 id="2">2つのスキルを組み合わせてスキルフローを作成しよう</h2>
+<p>これまでは、個々のスキルを作成、追加、テストを行いました。watsonx Orchestrate では、個々のスキルだけでなく、2つ以上のスキルを組み合わせて、スキルフローを作成することができます。 手順は以下のとおりです。</p>
+<ol>
+<li>
+<p>左上のメニューから <strong>Skill studio</strong> を選択し、<strong>Skill studio</strong> に移動します。</p>
+</li>
+<li>
+<p>右上にある<strong>Create</strong>ボタンをクリックし、<strong>Skill Flow</strong>をクリックします。<br />
+<a class="glightbox" href="../lab3_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-20.png" /></a>  </p>
+</li>
+<li>
+<p><strong>鉛筆</strong> アイコンをクリックします。</p>
+<ol>
+<li>スキルフローの名前(Name)を設定します。 例: <em>YourInitials</em> Generate content and send email</li>
+<li>説明(Description)を設定します。　例: <em>YourName's</em> generate content and send email</li>
+<li><strong>Save</strong> をクリックします。
+<a class="glightbox" href="../lab3_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-21.png" /></a></li>
+</ol>
+</li>
+<li>
+<p>スキルを追加するには、<strong>+</strong> をクリックします。<strong><em>YourInitials</em>_recommendation</strong> を選択します。
+ <a class="glightbox" href="../lab3_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-22.png" /></a></p>
+</li>
+<li>
+<p><strong><em>YourInitials</em>GenerateRecommendationMail</strong> の <strong>Add skill</strong> をクリックします。
+ <a class="glightbox" href="../lab3_images/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-23.png" /></a></p>
+</li>
+<li>
+<p>このスキルがフローに追加されます。追加したスキルの下にある <strong>+</strong> をクリックし、<strong>Send an email</strong> を追加します。
+ <a class="glightbox" href="../lab3_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-24.png" /></a></p>
+</li>
+<li>
+<p>これで、スキルフローが作成されました。全体像は以下のようになります。
+ <a class="glightbox" href="../lab3_images/image-25.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-25.png" /></a></p>
+</li>
+<li>
+<p>生成されたコンテンツをメールで送信するために、1 つ目のスキルの出力を 2 つ目のスキルの入力にマップします。</p>
+<ol>
+<li><strong><em>YourInitials</em>GenerateRecommendationMail</strong>をクリックし、Output タブをクリックし、<strong>text</strong> 形式で出力される<strong>generated_text</strong> があることを確認します。
+<a class="glightbox" href="../lab3_images/image-26.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-26.png" /></a></li>
+<li><strong>Send an email</strong> の <strong>richTextBody.Content</strong> に先ほどの<strong><em>YourInitials</em>GenerateRecommendationMail</strong> の <strong>generated_text</strong>をマップします。<ol>
+<li><strong>Send an email</strong> をクリックして Input タブのを下へスクロールして <strong>richTextBody.Content</strong> を表示させます。
+  <a class="glightbox" href="../lab3_images/image-27.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-27.png" /></a></li>
+<li><strong>richTextBody.Content</strong> の下の入力エリアをクリックすると、マップできるスキルの候補が表示されます。さらにスキルをクリックすると設定できる項目が表示されます。
+  ここでは、<strong><em>YourInitials</em>GenerateRecommendationMail</strong>、<strong>generated_text</strong> の順にクリックして設定します。
+  <a class="glightbox" href="../lab3_images/image-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-28.png" /></a></li>
+</ol>
+</li>
+<li><strong>Actions</strong> -&gt; <strong>Enhance</strong> をクリックして、スキルフローを保存します。確認画面が表示されたら <strong>Save and close</strong> をクリックします。 <strong>Enhance the “<em>YourInitials</em> Generate content and send email” skill</strong>の画面が表示されます。
+<a class="glightbox" href="../lab3_images/image-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-29.png" /></a></li>
+</ol>
+<p><strong>ご参考：</strong> <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/current?topic=flows-mapping-values-input-fields" target="_blank" rel="noopener noreferrer">マッピングについて</a>
+   <br /> 
+   <br />
+ 9. スキルを呼び出すフレーズを登録するために、<strong>Enhance the “<em>YourInitials</em> Generate content and send email” skill</strong> 画面で <strong>Phrases</strong>をクリックします。
+ <a class="glightbox" href="../lab3_images/image-30.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-30.png" /></a></p>
+</li>
+<li>
+<p>空の欄に <strong>Generate content and send email to YourName</strong> (<strong>YourName</strong> はご自身の名前に変更してください。例: TaroYamada) を入力し、Enter を押します。（<strong>必ず Enter を押す必要があります</strong>）<br />
+ 任意でさらにフレーズを追加し、<strong>Publish</strong> ボタンをクリックします。
+ <a class="glightbox" href="../lab3_images/image-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-31.png" /></a></p>
+</li>
+<li>
+<p>スキルフローを公開すると、スキルが正常に公開されたというメッセージが表示されます。<br />
+<a class="glightbox" href="../lab3_images/image-32.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-32.png" /></a>  </p>
+</li>
+<li>
+<p>これで、ここで作成したスキルフローがスキルカタログで表示されるようになっています。以上でこのステップは完了です。</p>
+</li>
+</ol>
+<h2 id="_3">メールを生成し、自身のメールアドレスに送信して、スキルをテストしてみよう</h2>
+<p>最後に、先ほど組み合わせたスキルフローをテストしてみます。</p>
+<ol>
+<li>
+<p><strong>Menu</strong> -&gt; <strong>Skills Catalog</strong> に移動します。</p>
+</li>
+<li>
+<p>検索欄にご自身のイニシャルや <strong>'<em>YourInitials</em> generate content'</strong> などを入力して <strong>Skill flows</strong> が表示されるのでクリックして開きます。
+ <a class="glightbox" href="../lab3_images/image-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-40.png" /></a></p>
+</li>
+<li>
+<p>作成したスキルフローの <strong>Add skill</strong> をクリックし、自身のスキルセットに追加します。<strong>Added</strong> と表示されたら、<strong>Chat</strong> 画面に移動します。
+ <a class="glightbox" href="../lab3_images/image-41.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-41.png" /></a>
+ <strong>注釈:</strong> 複数のスキルが表示される場合は、ご自身の名前のスキルを選択してください。（必要に応じて検索機能を使ってください）</p>
+</li>
+<li>
+<p><strong>Add skill</strong> をクリックし、自身のスキルセットに追加します。<strong>Added</strong> と表示されたら、<strong>Chat</strong> 画面に移動します。
+ <a class="glightbox" href="../lab3_images/image-42.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-42.png" /></a></p>
+</li>
+<li>
+<p>以下のいずれかの方法でスキルを実行します。</p>
+<ul>
+<li>
+<p>スキルをクリックして実行します。
+<a class="glightbox" href="../lab3_images/image-43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-43.png" /></a></p>
+</li>
+<li>
+<p>スキルを Enhance する際に設定したフレーズの一部(例：<strong>generate content</strong>) を入力して入力します。
+<a class="glightbox" href="../lab3_images/image-44.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-44.png" /></a>
+表示された候補から適切な文章を選択します。もし選択した文章と複数のスキルが合致していたら、watsonx Orchestrate はそれらのスキルを候補として提示します。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>観光地のお勧めメール文面を生成するために、<strong>input</strong> に値(例: 観光地、20、写真撮影)を入力しし、<strong>Apply</strong> ボタンをクリックします。
+ <a class="glightbox" href="../lab3_images/image-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-45.png" /></a></p>
+</li>
+<li>
+<p>生成された文章が次のスキルの Content の欄にコピーされていることが確認できます。宛先(To)にご自身のメールアドレスを、Subjectに適切なタイトルを入力して <strong>Apply</strong> ボタンをクリックします。
+ <a class="glightbox" href="../lab3_images/image-46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../lab3_images/image-46.png" /></a> </p>
+</li>
+<li>
+<p>メールが送られているか、ご自身のメールボックスを確認してください。</p>
+</li>
+</ol>
+<h2 id="_4">お疲れさまでした！</h2>
+<p>以上で Lab3 は完了です。このラボでは、 プリビルドスキルを自身のスキルセットに追加し、テストを行いました。  </p>
+<p>最後に、それら2つのスキルを組み合わせ、1 つ目のスキルの出力を 2 つ目のスキルの入力にマッピングして、スキルフローを作成しました。</p>
+<h2 id="_5">ご参考</h2>
+<p>他にも以下のような設定ができますので、
+ <a href="https://www.ibm.com/docs/ja/watsonx/watson-orchestrate/current?topic=skills-combining-into-skill-flows" target="_blank" rel="noopener noreferrer">こちら</a>
+ をご参照ください。</p>
+<ul>
+<li>スキル・フローの使用中に、各スキルの入力フォームや出力フォームをチャットに表示されないようにする。 </li>
+<li>カスタム・フォームを使用して、入力フォームと出力フォームを定義する。 </li>
+<li>入力フォームへのマッピングにおけるデフォルト値の設定、マッピングデータの変換など。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
