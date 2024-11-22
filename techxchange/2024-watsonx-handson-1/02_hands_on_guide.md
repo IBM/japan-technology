@@ -16,17 +16,22 @@ wastonx.aiのWatson Studioを立ち上げ、サンドボックスプロジェク
 
 ### 3. NotebookをJupyter Notebookエディター・ツールで開いて実行
 
+このハンズオンはpythoを実行できるJupyter notebnookというwatsonx.ai Studioで使えるツールを使用します。<br>
+pythonでRAG構成を簡単に実現できるライブラリ　LangChainを使用して以下の4つをやってみます。
+
 #### 1. Excelをベクトル化してベクトルDB Milvusに入れよう<br>
 TechXchange Japanの情報が入ったExcelファイルをベクトル化してベクトルDB Milvusに入れます
 - [Notebook1を新規作成して開く](open_notebook_01.md)
 
 #### 2. ベクトルDB Milvusに入ったデータで類似検索してみよう!<br>
 1で準備したベクトルDBのデータでLangChainを使用して類似検索してみます
-- [Notebook2を新規作成して開く](open_notebook_02.md)
-
 #### 3. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、質問をしてみよう!<br>
-1で準備したベクトルDBのデータとwatsonx.ai LLMでLangChainを使用してRAGを構成し、質問をしてみます
-- [Notebook3を新規作成して開く](open_notebook_03.md)
+2で準備したベクトルDBのデータとwatsonx.ai LLMでLangChainを使用してRAGを構成し、質問をしてみます
+<br>
+
+2と3は1つのNotebookに入っています:
+- [Notebook2_3を新規作成して開く](open_notebook_02_03.md)
+
 
 #### 4. ベクトルDB Milvusとwatsonx.ai LLMでRAGを構成して、チャットアプリを作成してみよう!<br>
 3で実行した仕組みを利用してチャットアプリを作成します
