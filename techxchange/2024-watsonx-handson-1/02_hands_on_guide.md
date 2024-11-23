@@ -11,12 +11,12 @@ wastonx.dataのMilvusの接続情報を取得します
 - [wastonx.data: Milvus 接続情報の取得](watsonx_data_get_milvus_info.md)
 
 ### 2. wastonx.ai: Watson Studioの立ち上げ
-wastonx.aiのWatson Studioを立ち上げ、サンドボックスプロジェクトを開きます
-- [wastonx.ai: Watson Studioの立ち上げ](watsonx_ai_open_watson_studio.md)<br>
+watsonx.ai Studioを立ち上げ、サンドボックスプロジェクトを開きます
+- [watsonx.ai Studioの立ち上げ](watsonx_ai_open_watson_studio.md)<br>
 
 ### 3. NotebookをJupyter Notebookエディター・ツールで開いて実行
 
-このハンズオンはpythoを実行できるJupyter notebnookというwatsonx.ai Studioで使えるツールを使用します。<br>
+このハンズオンはpythoを実行できるjupyter notebnookというwatsonx.ai Studioで使えるツールを使用します。<br>
 pythonでRAG構成を簡単に実現できるライブラリ　LangChainを使用して以下の4つをやってみます。
 
 #### 1. Excelをベクトル化してベクトルDB Milvusに入れよう<br>
