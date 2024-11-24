@@ -62,7 +62,7 @@ cookieの許可の画面が下部に表示されますので、「Accept all」�
 
 `IBM Cloud Login`のURLがログインページです。<br>
 `Username`と`Password`の値を使用してログインします。<br>
-`IBM Cloud Service API key`はハンズオン中に使いますので、このページを表示させたままにしておいてください。<br>
+`IBM Cloud Service API key`はハンズオン中に数回使いますので、メモ帳などのテキストエディター等にコピー＆ペーストするか、このページを表示させたままにしておいてください。<br>
 <img width="800" alt="" src="images/01_2-3-01.jpg"><br>
 <img width="800" alt="" src="images/01_2-3-02.jpg"><br>
 
