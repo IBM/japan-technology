@@ -64,7 +64,7 @@ GRPC ホストおよびGRPC ポートの値はハンズオンで数回使用し�
 詳細画面を閉じるには、下の「Close」　ボタンをクリックします。ただしコピー＆ペースト用に表示させたままにする場合は閉じないようにしてください。<br>
 
 ---
-[ハンズオンの実施 - 「2. wastonx.ai: Watson Studioの立ち上げ」に進む](02_hands_on_guide.md#2-wastonxai-watson-studioの立ち上げ)<br>
+[ハンズオンの実施 - 「2. wastonx.ai: wastonx.ai Studioの立ち上げ」に進む](02_hands_on_guide.md#2-wastonxai-watson-studioの立ち上げ)<br>
 
 
 

@@ -15,7 +15,7 @@
 <img width="800" alt="" src="images/watsonx.ai_openws_01.jpg"><br>
 
 ### 1-3. watsonx.ai Studio トップページの表示
-watsonx.ai Studioのリソースが表示されるので、[Launch in][v]の[v]をクリックして、表示されたメニューから[watsonx]を選びます。
+watsonx.ai Studioのリソースが表示されるので、[Launch in][v]の[v]をクリックして、表示されたメニューから[IBM watsonx]を選びます。
 <img width="800" alt="" src="images/watsonx.ai_openws_02.jpg"><br>
 &nbsp;<br>
 &nbsp;<br>
