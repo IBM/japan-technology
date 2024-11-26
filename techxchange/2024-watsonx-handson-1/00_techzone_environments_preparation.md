@@ -22,7 +22,7 @@ IBM idの確認は以下のLinkより、ログインして確認してみてく�
 パスワードをお忘れの場合は、以下よりリセットして再発行お願いします:
 - [IBM id パワスワード リセット](https://www.ibm.com/account/reg/jp-ja/reset-password?formid=urx-19776)
 
-## 準備3: IBM Cloudにで使用できるWebブラウザーを使用するPCに導入してください。
+## 準備3: IBM Cloudで使用できるWebブラウザーを使用するPCに導入してください。
 
 Chrome, Firefox, エッジ, Safariが対応していますが、古すぎるバージョンは対応していませんので、下記の記載を参考にご準備ください。
 - [IBM Cloudに最小限必要なブラウザー・ソフトウェア](
@@ -34,4 +34,4 @@ https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform#browsers-pla
 以上です。
 
 ---
-[watsonxハンズオン1 さわってみようベクトル・データベース watsonx.dataでRAG体験 - トップページに戻る](README.md)
+[watsonxハンズオン1 さわってみようベクトル・データベース watsonx.dataでRAG体験 - 「01. ワークショップ環境へのアクセス」に進む](README.md#01-ワークショップ環境へのアクセス)
