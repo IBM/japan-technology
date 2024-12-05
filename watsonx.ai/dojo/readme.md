@@ -47,7 +47,7 @@ watsonx.ai Dojoのセッション中は、環境セットアップについて�
 * [watsonx.ai にデプロイ済みのWeb APIを呼び出す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/03-invoke-webapi/readme.md "Invoke WebAPI")
 
 
-# watsonx.ai Dojo #4 生成AIを使ったアプリ開発、応用編
+# watsonx.ai Dojo #4 生成AIを使ったアプリ開発、応用編 (LangChainとChromaによるRAGの基本実装) 
 
 watsonx.ai Dojo #4の演習は、Dojo #2やDojo #3の演習結果との依存関係はありません。
 Dojo #3で利用したプロンプトを再利用しますが、新しいプロジェクト内に展開するので、Dojo #4の演習のみで進めることができます。
