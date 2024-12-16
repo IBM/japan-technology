@@ -63,6 +63,8 @@ pip install packaging wheel setuptools-scm
 ```
 pip install .[cuda]
 ```
-
+```
+pip install vllm@git+https://github.com/opendatahub-io/vllm@v0.6.2
+```
 
 
