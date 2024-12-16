@@ -37,10 +37,6 @@ sudo dpkg -i cuda-keyring_1.1-1_all.deb
 ```
 
 ```
-sudo apt install cmake
-```
-
-```
 sudo apt-get update
 ```
 
@@ -54,6 +50,10 @@ git clone https://github.com/instructlab/instructlab.git
 ```
 
 6. Ubuntu環境で、次のコマンドを実行します。 
+
+```
+sudo apt install cmake
+```
 
 ```
 cd instructlab
