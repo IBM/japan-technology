@@ -9,6 +9,7 @@
 cd ~/wxai
 python -m venv --upgrade-deps ienv
 source ienv/bin/activate
+pip install --upgrade pip
 ```
 2. 続けて、次のコマンドを実行します。
 ```
