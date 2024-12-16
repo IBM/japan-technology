@@ -37,6 +37,10 @@ sudo dpkg -i cuda-keyring_1.1-1_all.deb
 ```
 
 ```
+sudo apt install cmake
+```
+
+```
 sudo apt-get update
 ```
 
