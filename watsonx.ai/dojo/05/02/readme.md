@@ -24,11 +24,8 @@ pip install instructlab
 ここまでの手順で、Apple M1/M2/M3プロセッサーを搭載したmacであれば、AI推論にMetalを利用します。それ以外の環境の場合、CPUで推論処理を実行します。
 
 以下、ハンズオンとしては、必須ではありませんが、Ubuntu(Windows)でNVIDIA GPUが使える場合のオプションとして書いておきます。一部モジュールに[問題](https://github.com/instructlab/instructlab/issues/1864)があり、InstructLab CLIの公式文書通りだとうまくセットアップができないようです。加えて、NVIDIA GPUのサポートについては、データセンター用のプロファイルを想定しており、コンシューマー向けGPUの利用は十分に考慮されていません。
-4. UbuntuにPytorchをインストールします。
-```
-pip install torch torchvision torchaudio
-```
-5. UbuntuからCUDA 12.4をインストールします。公式手順は[こちら](https://developer.nvidia.com/cuda-12-4-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_network)
+
+4. UbuntuからCUDA 12.4をインストールします。公式手順は[こちら](https://developer.nvidia.com/cuda-12-4-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_network)
 
  
 ```
