@@ -8,5 +8,8 @@
 ![ilab](https://github.com/user-attachments/assets/3edcea99-7b89-4225-a1a0-fcfceb456d07)
 
 ### taxonomyフォルダの確認
-
+```
 code ../.local/share/instructlab/taxonomy
+```
+
+
