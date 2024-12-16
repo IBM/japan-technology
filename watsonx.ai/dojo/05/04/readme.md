@@ -1,14 +1,14 @@
 # InstructLab CLI体験その2 (モデルのサーブとチャット)
 
 このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書はこちら。
-* 注意事項: GPUの機能が使えないコンピューターにおいて、データの生成や学習の実行はかなりの時間を要します。
-* 体験を目的としてコマンドの実行方法は示しますが、本当に実行するかどうかについては、ご自身で判断してください。
+
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
 ## 全体像
 ![ilab](https://github.com/user-attachments/assets/3edcea99-7b89-4225-a1a0-fcfceb456d07)
 
 ### モデルのサーブ
+* 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#-serving-the-model)
 1. 次のコマンドを実行します。
 ```
 ilab model serve
@@ -35,6 +35,7 @@ INFO 2024-12-16 22:04:29,343 instructlab.model.backends.llama_cpp:233: After app
 * 注意: Webサービスが起動して、Ubuntuまたはターミナルから入力ができなくなります。
 
 ### InstructLabのチャット機能
+* 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#-chat-with-the-model-optional)
 1. Ubuntuまたはターミナルの新しいウィンドウを開いてください。コマンドが入力できるようになったら、Python ienv 仮想環境へ切り替えます。
 ```
 cd ~/wxai
