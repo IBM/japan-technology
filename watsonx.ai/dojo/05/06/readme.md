@@ -8,6 +8,9 @@
 * 体験を目的としてコマンドの実行方法は示しますが、本当に実行するかどうかについては、ご自身で判断してください。
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
+## 全体像
+![ilab](https://github.com/user-attachments/assets/3edcea99-7b89-4225-a1a0-fcfceb456d07)
+
 ### 学習データの生成
 * 公式文書は[こちら](https://github.com/instructlab/instructlab?tab=readme-ov-file#-generate-a-synthetic-dataset)
 
