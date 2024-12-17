@@ -122,6 +122,8 @@ After I reviewed my credit report, I am still seeing information that is reporti
 <img width="1533" alt="wxai05-01-t4-overview" src="https://github.com/user-attachments/assets/2445b995-7387-44e0-87b5-4e12d893b2ad" />
 
 2. [ラベル付きデータを使用した基盤モデルのチューニング]のウィンドウが開くので、名前を[Summarize customer complaints tuned model]と入力して、[作成]をクリックします。
+* もしTask credentials are missing.と表示された場合は、画面の指示に従って、ユーザーAPI 鍵を作成してください。
+* API鍵を作成した後、[再ロード]を実行してください。
 <img width="1533" alt="wxai05-01-t4-labeledData" src="https://github.com/user-attachments/assets/d2e3950b-2370-4742-9f44-5d36b3472575" />
 
 ### Task 5: Tuning Studioの構成
@@ -242,6 +244,10 @@ After I reviewed my credit report, I am still seeing information that is reporti
 <img width="1533" alt="wxai05-01-t7-promptLab" src="https://github.com/user-attachments/assets/fc191360-90cf-4a66-8118-d289b507f2f9" />
 
 3. [生成]をクリックします。
+<img width="1533" alt="wxai05-01-t7-generated" src="https://github.com/user-attachments/assets/1f47e7d2-453c-4d84-9a0c-5a2103350437" />
+
+
+
 
 
 
