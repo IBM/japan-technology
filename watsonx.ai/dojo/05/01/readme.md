@@ -167,6 +167,84 @@ Summarize the complaint provided into one sentence.
 <img width="1533" alt="wxai05-01-t5-started" src="https://github.com/user-attachments/assets/a19fa886-6730-456c-a627-eda7cd3f8ed2" />
 
 ### Task 6: チューニングしたモデルのデプロイ
+1. [チューニング・エクスペリメント]の画面で[チューニング完了]を確認します。この結果を得るには34分かかりました。
+* 損失関数は、右下がりになる程、モデルの精度が向上していることを表します。
+
+<img width="1533" alt="wxai05-01-t6-tuning-completed" src="https://github.com/user-attachments/assets/63f0034f-b559-4693-aa34-8ab0b2cd78ab" />
+
+2. [新規デプロイメント]をクリックします。表示された[チューニング済みモデルのデプロイ]で次の3つを設定します。
+* デプロイメント・コンテナー: このプロジェクト
+* デプロイメント・サービス提供名: ユニークになるように名前を工夫してください
+
+```
+mymodel_20241218_cct
+```
+
+* ☑️ 作成後、プロジェクトで展開を表示する
+<img width="1533" alt="wxai05-01-t6-readytodeploy" src="https://github.com/user-attachments/assets/4f868d07-5d2c-4862-8702-e78ac2dafafb" />
+
+
+3. [作成]をクリックします。しばらく待つとデプロイメントが進行します。
+<img width="1533" alt="wxai05-01-t6-deploying" src="https://github.com/user-attachments/assets/a6dcabdb-e542-41c0-8337-9dfad43374f8" />
+
+4. デプロイ済みになったことを確認し、[Summarize customer complaints tuned model] をクリックします。
+   <img width="1533" alt="wxai05-01-t6-deployed" src="https://github.com/user-attachments/assets/6ccf7573-e3e8-4e13-b69b-e6c8ef936190" />
+
+### Task 7: チューニングしたモデルのテスト
+1. Task 6の手順4の後、デプロイされたモデルが表示されたのを確認し、[Prompt Labで開く]をクリックします。
+
+<img width="1533" alt="wxai05-01-t7-model" src="https://github.com/user-attachments/assets/17b4967a-4994-40a5-ab86-69b505f90375" />
+
+2. Prompt Labが開いたら、[構造化]をクリックし、下記の内容を入力します。(Task 2の作業と同じです)
+
+* 命令（オプション)に次の文字列を入力します。
+
+```
+Summarize customer complaints
+```
+
+* 例(オプション)に入力と出力、２つの例を加えます。
+
+1つ目:
+
+入力:
+
+```
+I forgot in my initial date I was using Capital One and this debt was in their hands and never was done.
+```
+
+出力:
+
+```
+Debt collection, sub-product: credit card debt, issue: took or threatened to take negative or legal action sub-issue
+```
+
+2つ目: [例の追加+]をクリックして、入力欄を増やしてください。
+
+入力:
+
+```
+I am a victim of identity theft and this debt does not belong to me. Please see the identity theft report and legal affidavit.
+```
+
+出力:
+
+```
+Debt collection, sub-product, I do not know, issue. attempts to collect debt not owed. sub-issue debt was a result of identity theft
+```
+
+* 試行の[入力:]欄にプロンプトを入力します。
+   
+```
+After I reviewed my credit report, I am still seeing information that is reporting on my credit file that is not mine. please help me in getting these items removed from my credit file.
+```
+
+<img width="1533" alt="wxai05-01-t7-promptLab" src="https://github.com/user-attachments/assets/fc191360-90cf-4a66-8118-d289b507f2f9" />
+
+3. [生成]をクリックします。
+
+
+
 
 
 
