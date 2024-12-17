@@ -4,8 +4,9 @@
 内容としては、InstructLabの学習データの生成、モデルの学習を体験していきます。
 
 * 前提条件: [InstructLab CLI体験その3](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/05/05/readme.md)が完了していること
-* 注意事項: GPUの機能が使えないコンピューターにおいて、データの生成や学習の実行はかなりの時間を要します。
+* 注意事項: GPUの機能が使えないコンピューターにおいて、データの生成や学習の実行はかなりの時間を要します。CPUコア数や利用できるメモリ容量にもよりますが、長時間コンピューターを使えなくなります。
 * 体験を目的としてコマンドの実行方法は示しますが、本当に実行するかどうかについては、ご自身で判断してください。
+* InstructLab CLIはオープンソースで公開されています。何か問題を見つけた場合は、[New Issue](https://github.com/instructlab/instructlab/issues)からInstructLabのプロジェクト関係者に連絡してください。
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
 ## 全体像
@@ -54,7 +55,7 @@ ilab model download --repository instructlab/granite-7b-lab
 2. 作成された合成データを利用して学習を実行します。
 * skills_train_msgs_2024-12-17T13_59_03.jsonl のファイル名はデータセット一覧で表示されているものに置き換えてください。
 
-GPU機能が使えないデバイスの場合
+GPU機能が使えないデバイスの場合（CPUのみでの計算は現実的ではありませんので、コマンド入力方法の参考にしてください。）
 ```
 ilab model train --pipeline full --device cpu --data-path ~/.local/share/instructlab/datasets/skills_train_msgs_2024-12-17T13_59_03.jsonl
 ```
