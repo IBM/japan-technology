@@ -164,6 +164,10 @@ Summarize the complaint provided into one sentence.
 
 10. [チューニングの開始]をクリックします。
 
+<img width="1533" alt="wxai05-01-t5-started" src="https://github.com/user-attachments/assets/a19fa886-6730-456c-a627-eda7cd3f8ed2" />
+
+### Task 6: チューニングしたモデルのデプロイ
+
 
 
 
