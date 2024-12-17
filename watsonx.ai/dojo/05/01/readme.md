@@ -49,6 +49,7 @@ Summarize customer complaints
 6. 例(オプション)に入力と出力、２つの例を加えます。
 
 1つ目:
+
 入力:
 
 ```
@@ -62,6 +63,7 @@ Debt collection, sub-product: credit card debt, issue: took or threatened to tak
 ```
 
 2つ目: [例の追加+]をクリックして、入力欄を増やしてください。
+
 入力:
 
 ```
@@ -84,6 +86,10 @@ After I reviewed my credit report, I am still seeing information that is reporti
 
 <img width="1533" alt="wxai05-01-t2-07-PromptTest" src="https://github.com/user-attachments/assets/1c4a7e3e-d30a-4c79-9fe5-ee5543b7bd92" />
 
+8. [生成]をクリックします。
+<img width="1533" alt="wxai05-01-t2-08-generate" src="https://github.com/user-attachments/assets/a8b990dc-20eb-4473-8c3a-8535e70cf4f8" />
+
+9. 
 
 
 
