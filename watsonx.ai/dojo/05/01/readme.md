@@ -8,7 +8,9 @@ watsonx.ai Dojo #5の最初の演習は、Tuning Studioの体験です。
 ### Task 1: 新規プロジェクトの作成
 
 1. Webブラウザーを開き、https://jp-tok.dataplatform.cloud.ibm.com/login?context=wx へアクセスします。
-<img width="1548" alt="スクリーンショット 2024-09-14 16 28 14" src="https://github.com/user-attachments/assets/a0420116-4506-4917-bf70-1a08c8e67bc4">
+<img width="1533" alt="wxai05-01-login" src="https://github.com/user-attachments/assets/33e9ed75-312d-4f06-bf0a-fe2b20c05412" />
+
+
 2. お使いのIBM IDを入力して[続行] をクリックします。
 
 3. IBM watsonx が起動します。
