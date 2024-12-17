@@ -113,8 +113,57 @@ After I reviewed my credit report, I am still seeing information that is reporti
 4.[プロジェクトの表示]をクリックします。
 <img width="437" alt="wxai05-01-t3-showProject" src="https://github.com/user-attachments/assets/96f2dc10-85a2-434e-8fb2-6e22357bad86" />
 
-5. Dojo #05のプロジェクト概要が表示されるので、[資産]タブをクリックします。手順3で追加したデータが資産として登録されていることを確認します。
+5. Dojo #5のプロジェクト概要が表示されるので、[資産]タブをクリックします。手順3で追加したデータが資産として登録されていることを確認します。
 <img width="1533" alt="wxai05-01-t3-Assets" src="https://github.com/user-attachments/assets/3a005580-8a3d-4f8e-b264-653ff09fdb4f" />
+
+### Task 4: Tuning Studioの準備
+
+1. Dojo #5のプロジェクト概要タブに戻り、[ラベル付きデータを使用した基盤モデルの調整]をクリックします。
+<img width="1533" alt="wxai05-01-t4-overview" src="https://github.com/user-attachments/assets/2445b995-7387-44e0-87b5-4e12d893b2ad" />
+
+2. [ラベル付きデータを使用した基盤モデルのチューニング]のウィンドウが開くので、名前を[Summarize customer complaints tuned model]と入力して、[作成]をクリックします。
+<img width="1533" alt="wxai05-01-t4-labeledData" src="https://github.com/user-attachments/assets/d2e3950b-2370-4742-9f44-5d36b3472575" />
+
+### Task 5: Tuning Studioの構成
+
+1. [チューニング済みモデルの構成]のウィンドウが表示されます。[基盤モデルの選択]をクリックします。
+   
+<img width="1533" alt="wxai05-01-t4-TuningDetail-selectLLM" src="https://github.com/user-attachments/assets/2df72211-6e1a-4f2f-963c-9a079b4e5e68" />
+
+2.[基盤モデルの選択]から[granite-13b-instruct-v2]をクリックします。
+<img width="1533" alt="wxai05-01-t4-Granite13b" src="https://github.com/user-attachments/assets/ddb3f79c-08ff-4ac5-be57-9d1a254ca6cf" />
+
+3. [granite-13b-instruct-v2]のModel Sheetが表示されるので、[選択]をクリックします。
+<img width="1533" alt="wxai05-01-t4-Granite-ModelSheet" src="https://github.com/user-attachments/assets/d62bde56-847b-4d4d-a33f-327f59959f77" />
+
+4. [プロンプトをどのように初期化しますか]の設定で、[テキスト]をクリックし、[タスクの説明および指示]に次の内容を入力します。
+
+```
+Summarize the complaint provided into one sentence.
+```
+
+<img width="1533" alt="wxai05-01-t5-task" src="https://github.com/user-attachments/assets/c299d545-3269-4bb1-9bec-6560b0d55af7" />
+
+5. [どのタスクが目標に適合していますか?]の設定で、[要約]をクリックします。
+   
+<img width="1533" alt="wxai05-01-5-Summarization" src="https://github.com/user-attachments/assets/481dceee-7467-40d0-9547-f44287233207" />
+
+6. [トレーニング・データの追加]から[プロジェクトから選択]をクリックします。
+<img width="1533" alt="wxai05-01-6-projectData" src="https://github.com/user-attachments/assets/7bddb6d8-d284-4fde-b7ed-59aa43be14ac" />
+
+7. [プロジェクトからデータを選択します]の画面から、[データアセット]をクリックし、[データ資産]から[Customer complaints training data]を選びます。最後に[アセットの選択]をクリックします。
+<img width="1533" alt="wxai05-01-t5-chooseData" src="https://github.com/user-attachments/assets/dfffd26a-c567-414b-b9ce-cfb5007a7770" />
+
+8. Tuning Studioを起動するための構成が完了しました。
+<img width="1533" alt="wxai05-01-t5-ready" src="https://github.com/user-attachments/assets/e87d2f45-780a-4246-b2b0-d52c6c5b6805" />
+
+9. ここから先の手順について、注意事項を確認します。問題がなければ、10に進んでください。何か気になる場合は、ここで中断してください。中断した場合、チューニングした結果は確認できませんので、ご理解ください。
+* チューニングを開始するとwatsonx.ai Runtimeが動作し、利用できるコンピュート・リソースが減っていきます。
+* 無料枠で利用している場合、利用可能なコンピュート・リソースが足りなくなる場合があります。
+* チューニングには時間がかかり、30分以上、要する場合があります。
+
+10. [チューニングの開始]をクリックします。
+
 
 
 
