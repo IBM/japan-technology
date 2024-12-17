@@ -86,10 +86,36 @@ After I reviewed my credit report, I am still seeing information that is reporti
 
 <img width="1533" alt="wxai05-01-t2-07-PromptTest" src="https://github.com/user-attachments/assets/1c4a7e3e-d30a-4c79-9fe5-ee5543b7bd92" />
 
-8. [生成]をクリックします。
-<img width="1533" alt="wxai05-01-t2-08-generate" src="https://github.com/user-attachments/assets/a8b990dc-20eb-4473-8c3a-8535e70cf4f8" />
+8. [生成]をクリックします。生成結果を確認します。
+<img width="1533" alt="wxai05-01-t2-08-generated" src="https://github.com/user-attachments/assets/d852dede-dbc6-4c95-a08c-dd949d555294" />
 
-9. 
+
+9. [名前を付けて保存]をクリックします
+<img width="1413" alt="wxai05-01-t2-09-SaveAs" src="https://github.com/user-attachments/assets/0dd289c8-355d-4fd3-8dcc-00d14da27608" />
+
+10. 作業の保存ウィンドウから、以下を入力し、[保存]をクリックします。
+* 資産タイプ: [プロンプト・テンプレート]
+* 名前: ```Base model prompt```
+<img width="1533" alt="wxai05-01-t2-PromptTemplate" src="https://github.com/user-attachments/assets/acec4cdd-50eb-4fd1-a584-1f91a0c35c6d" />
+
+### Task 3: 学習データの追加
+
+1. 画面左上、IBM watsonxのハンバーガー・メニューから[リソース・ハブ]を選択します。
+<img width="1533" alt="wxai05-01-t3-MenuResourceHub" src="https://github.com/user-attachments/assets/d7d86eed-9194-462a-9118-f88fa24cd9fb" />
+
+2. リソース・ハブの[サンプル]タブをクリックし、検索文字列に[customer]と入力します。検索結果から[Customer complaints training data]をクリックします。
+<img width="1533" alt="wxai05-01-t3-CustomerComplaintsData" src="https://github.com/user-attachments/assets/d8f47fa3-efa2-4f0a-a9f4-359321800949" />
+
+3. [Customer complaints training data]の説明画面が表示されたら、[プロジェクトに追加]をクリックします。プロジェクト名は[Dojo #5]を選択します。
+   
+<img width="1533" alt="wxai05-01-t3-addData" src="https://github.com/user-attachments/assets/1734cf12-6727-47c1-b26e-a6621408d3ae" />
+
+4.[プロジェクトの表示]をクリックします。
+<img width="437" alt="wxai05-01-t3-showProject" src="https://github.com/user-attachments/assets/96f2dc10-85a2-434e-8fb2-6e22357bad86" />
+
+5. Dojo #05のプロジェクト概要が表示されるので、[資産]タブをクリックします。手順3で追加したデータが資産として登録されていることを確認します。
+<img width="1533" alt="wxai05-01-t3-Assets" src="https://github.com/user-attachments/assets/3a005580-8a3d-4f8e-b264-653ff09fdb4f" />
+
 
 
 
