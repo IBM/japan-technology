@@ -1,4 +1,4 @@
-# InstructLab CLI体験その2 (モデルのサーブとチャット)
+# InstructLab CLI体験その2 (Webサービスとしてモデルを展開、チャット機能)
 
 このハンズオンでは、InstructLabの主な機能を体験していきます。
 
@@ -7,7 +7,7 @@
 ## 全体像
 ![ilab](https://github.com/user-attachments/assets/3edcea99-7b89-4225-a1a0-fcfceb456d07)
 
-### モデルのサーブ
+### Webサービスとしてモデルを展開
 * 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#-serving-the-model)
 1. Python仮想環境 ienvが有効になっていることを確認します。
 
@@ -43,7 +43,8 @@ INFO 2024-12-16 22:04:29,343 instructlab.model.backends.llama_cpp:233: After app
 
 ### InstructLabのチャット機能
 * 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#-chat-with-the-model-optional)
-1. Ubuntuまたはターミナルの新しいウィンドウを開いてください。コマンドが入力できるようになったら、Python ienv 仮想環境へ切り替えます。
+1. Webサービスが起動した後は、Ubuntuまたはターミナルへの入力ができません。コマンドを入力するために、Ubuntuまたはターミナルの新しいウィンドウを開いてください。コマンドが入力できるようになったら、Python ienv 仮想環境へ切り替えます。
+
 ```
 cd ~/wxai
 source ienv/bin/activate
