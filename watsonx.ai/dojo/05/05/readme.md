@@ -1,6 +1,6 @@
 # InstructLab CLI体験その3 (Taxonomyの確認とデータ変更)
 
-このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書はこちら。
+このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書は[こちら](https://github.com/instructlab/instructlab?tab=readme-ov-file#-creating-new-knowledge-or-skills-and-training-the-model)。
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 * Visual Studio Codeがインストールされていると想定しています。
 
