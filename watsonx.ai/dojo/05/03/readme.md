@@ -1,6 +1,6 @@
 # InstructLab CLI体験その１ (初期化とモデルのダウンロード)
 
-このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書はこちら。
+このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書は[こちら](https://github.com/instructlab/instructlab?tab=readme-ov-file#instructlab--ilab)。
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
 ## 全体像
