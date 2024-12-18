@@ -17,7 +17,7 @@ pip install --upgrade pip
 pip install instructlab
 ```
 
-ここまでの手順で、Apple M1/M2/M3プロセッサーを搭載したmacであれば、AI推論にMetalを利用します。それ以外の環境の場合、CPUで推論処理を実行します。
+ここまでの手順で、Apple M1/M2/M3/M4プロセッサーを搭載したmacであれば、AI推論にMetalを利用します。それ以外の環境の場合、CPUで推論処理を実行します。
 
 2024/12/17時点で、講師のWindows PC環境において、vLLM 6.2がうまくインストールできず、InstructLabからNVIDIA GPUの動作が確認できませんでした。このため、ハンズオンにおいては、NVIDIA GPUの対応方法は、省略します。後日、コンシューマー向けのGPUでの動作確認が取れたら Connpassを通じて、お知らせします。
 
