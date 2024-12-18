@@ -8,7 +8,13 @@
 
 ### 環境の初期化
 * 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#%EF%B8%8F-initialize-ilab)
-1. Python仮想環境 ilabが有効になっていることを確認します。
+1. Python仮想環境 ienvが有効になっていることを確認します。
+
+```
+cd ~/wxai
+source ienv/bin/activate
+```
+
 2. 次のコマンドを入力して、InstructLabの環境を初期化します。
 ```
 ilab config init
