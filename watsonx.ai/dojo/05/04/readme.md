@@ -9,7 +9,14 @@
 
 ### モデルのサーブ
 * 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#-serving-the-model)
-1. 次のコマンドを実行します。
+1. Python仮想環境 ienvが有効になっていることを確認します。
+
+```
+cd ~/wxai
+source ienv/bin/activate
+```
+
+2. 次のコマンドを実行します。
 ```
 ilab model serve
 ```
