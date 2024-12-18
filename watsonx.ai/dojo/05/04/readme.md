@@ -1,6 +1,6 @@
 # InstructLab CLI体験その2 (モデルのサーブとチャット)
 
-このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書はこちら。
+このハンズオンでは、InstructLabの主な機能を体験していきます。公式文書は[こちら](https://github.com/instructlab/instructlab?tab=readme-ov-file#-serving-the-model)。
 
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
