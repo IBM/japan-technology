@@ -11,13 +11,8 @@ python -m venv --upgrade-deps ienv
 source ienv/bin/activate
 pip install --upgrade pip
 ```
-2. 続けて、次のコマンドを実行します。
-```
-pip cache remove llama_cpp_python
 
-```
-
-3. 次のコマンドを入力して、InstructLab CLIをインストールします。 
+2. 次のコマンドを入力して、InstructLab CLIをインストールします。 
 ```
 pip install instructlab
 ```
