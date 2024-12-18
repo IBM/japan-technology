@@ -5,7 +5,7 @@
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
 ## 全体像
-![ilab](https://github.com/user-attachments/assets/3edcea99-7b89-4225-a1a0-fcfceb456d07)
+![ilab](https://github.com/user-attachments/assets/3a8b5333-14a1-4903-959f-61377fd8264a)
 
 ### Webサービスとしてモデルを展開
 * 公式文書は[こちら](https://github.com/instructlab/instructlab/tree/main?tab=readme-ov-file#-serving-the-model)
