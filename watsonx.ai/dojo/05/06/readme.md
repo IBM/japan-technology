@@ -10,7 +10,7 @@
 * コマンドは、InstructLab CLIをインストール済みのUbuntuまたはターミナル上で操作してください。
 
 ## 全体像
-![ilab](https://github.com/user-attachments/assets/3edcea99-7b89-4225-a1a0-fcfceb456d07)
+![ilab](https://github.com/user-attachments/assets/3a8b5333-14a1-4903-959f-61377fd8264a)
 
 ### 学習データの生成
 * 公式文書は[こちら](https://github.com/instructlab/instructlab?tab=readme-ov-file#-generate-a-synthetic-dataset)
