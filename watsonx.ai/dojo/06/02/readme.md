@@ -201,4 +201,25 @@ if prompt:= st.chat_input("何か入力してください"):
 streamlit run simplechat.py
 ```
 
+5. ブラウザーが立ち上がり、チャットボットが動作します。
+<img width="1241" alt="wxai06-02-simplechat" src="https://github.com/user-attachments/assets/8f76a99c-39ce-4766-a89f-a6e828375b11" />
+
+
+6. 画面下側の入力欄にプロンプトを入力します。
+
+```
+C#を使ってONNXモデルを呼び出すコードを作成してください。
+```
+<img width="1241" alt="wxai06-02-prompt" src="https://github.com/user-attachments/assets/7fdcc8c5-6e46-4ddd-8390-84883bf6cbc7" />
+
+7. [Enter]キーでプロンプトを実行します。結果がストリーミング表示されることを確認します。
+<img width="1281" alt="wxai06-02-generated" src="https://github.com/user-attachments/assets/76ac4d2a-212a-4de0-a0d6-fc6531fe0800" />
+
+* watsonxのModelクラスのgenerate_text_streamメソッドの詳細は[こちら](https://ibm.github.io/watson-machine-learning-sdk/model.html)から確認できます。
+
+8. 他のプロンプトを入力して、実行結果を確認します。
+
+```
+IBM Graniteとは何か教えてください
+```
 
