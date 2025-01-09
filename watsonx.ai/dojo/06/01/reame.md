@@ -1,5 +1,5 @@
-# watsonx AI推論を実行するための最小構成を整える
-watsonx.ai Dojo #6の最初の演習は、新規プロジェクトの作成です。
+# watsonx AI推論を実行するための最低限のコードを確認し、実行する
+watsonx.ai Dojo #6の最初の演習は、最低限のコードでAI推論を実行します。
 新しいプロジェクトを作成し、watsonx.ai Runtimeを関連付けし、プロジェクトIDを取得します。その後、Cloud APIキーを取得します。
 AI推論を実行するための最低限のコードを確認し、Pythonから実行して試します。
 
@@ -97,14 +97,14 @@ from ibm_watsonx_ai.foundation_models import ModelInference
 
 credentials = Credentials(
     url = "https://jp-tok.ml.cloud.ibm.com",
-    api_key = ”<APIキー>"
+    api_key = "<APIキー>"
 )
 
 client = APIClient(credentials)
 model = ModelInference(
     model_id="ibm/granite-3-8b-instruct",
     api_client=client,
-    project_id=”<プロジェクトID>",
+    project_id= "<プロジェクトID>",
     params = {
       "max_new_tokens": 500
     }
@@ -119,8 +119,62 @@ print(model.generate_text(prompt))
 6. ターミナルまたはUbuntuに戻り、Pythonコードを実行します。
 
 ```
-python simple_generate.py
+python simple_generate.py > onnx.md
 ```
 
+7. 出力を確認します。出力トークン数を500に制限しているので、内容が途中までとなりますが、この演習では気にしないでください。
+出力内容はmarkdown形式になっています。
+
+```
+code onnx.md
+```
+
+--- ここから ---
+以下は、C#でONNXモデルを呼び出すコードの例です。
+
+```csharp
+using System;
+using System.IO;
+using System.Runtime.InteropServices;
+using ONNXRuntime;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // ONNXモデルのパスを指定
+        string modelPath = "path/to/your/model.onnx";
+
+        // ONNXRuntimeのセッションを作成
+        SessionOptions sessionOptions = new SessionOptions();
+        sessionOptions.GraphOptimizationLevel = GraphOptimizationLevel.ORT_ENABLE_ALL;
+        Session session = new Session(sessionOptions, modelPath);
+
+        // 入力データを準備
+        float[] inputData = { 1.0f, 2.0f, 3.0f, 4.0f };
+        int[] inputShape = { 1, 4 };
+
+        // 入力データをONNXRuntimeのセッションに提供
+        IRuntimeSession sessionRuntime = session.CreateRuntimeSession();
+        IOutputInfo outputInfo = sessionRuntime.GetOutputInfoByName("output_name");
+        IValue inputValue = IValue.CreateTensor<float>(inputShape, inputData);
+        sessionRuntime.Run(new[] { inputValue });
+
+        // 出力データを取得
+        IValue outputValue = sessionRuntime.GetOutputByName("output_name");
+        float[] outputData = outputValue.GetTensor<float>().ToArray();
+
+        // 出力データを表示
+        Console.WriteLine("Output data: " + string.Join(", ", outputData));
+    }
+}
 
 
+このコードは、ONNXモデルを読み込み、入力データを提供し、出力データを取得し、表示します。ONNXモデルのパスを変更して、自分のモデルを使用してください。また、入力データと出力データの名前を、ONNXモデルに基づいて変更してください。
+
+ONNXRuntimeは、C#でONNXモデルを呼び出すためのライブラリです。ONNXRuntimeのインストール方法については、以下のリンクを参照してください。
+
+- [ONNXRuntime for C#](https://github.com/microsoft/onnxruntime/blob/master/docs/Csharp.md)
+
+このコードは、
+---- ここまで ---
