@@ -123,7 +123,11 @@ python simple_generate.py > onnx.md
 ```
 
 7. 出力を確認します。出力トークン数を500に制限しているので、内容が途中までとなりますが、この演習では気にしないでください。
-出力内容はmarkdown形式になっています。
+出力内容はmarkdown形式になっています。Visual Studio Codeのmarkdownプレビュー機能が使えます。
+
+キーボードショートカット
+* Windowsの場合: [Ctrl]+[k]を押してから[v]
+* MacOSの場合] [Command]+[k]を押してから[v]
 
 ```
 code onnx.md
