@@ -48,7 +48,7 @@ brew install wget
 code st_echo.py
 ```
 
-3. st_echo.py コードを確認します。Visual Stdio Codeは開いたままにしてください。
+3. st_echo.py コードを確認します。この後の作業で使うので、Visual Stdio Codeは開いたままにしてください。
 
 ```st_echo.py
 # st_echo.py
@@ -112,6 +112,20 @@ st.title("エコーボット😃")
 9. ブラウザーに戻り、エコーボット😃 が表示されていることを確認します。Streamlitの環境がst_echo.pyの変更をトリガーにアプリを動的に更新することがわかります。
 <img width="1241" alt="wxai06-02-title-changed" src="https://github.com/user-attachments/assets/e51cc7fc-a579-440e-97ce-027ad88d166d" />
 
+10. Ubuntuまたはターミナルに戻り、[ctrl]+[c]でプロセスを終了します。
 
+### Task 3: watsonxに接続するチャットボットの実行と改造
+
+1. チャットボットのソースコード simplechat.py をダウンロードします。
+
+```
+wget https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonx.ai/dojo/06/simplechat.py
+```
+
+2. Visual Studio Codeで simplechat.pyを開きます。
+
+```
+code simplechat.py
+```
 
 
