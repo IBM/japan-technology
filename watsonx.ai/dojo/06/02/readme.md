@@ -128,7 +128,7 @@ wget https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/wats
 code simplechat.py
 ```
 
-3. simplechat.py のコードを確認します。APIキーとProject IDを書き換えてから、保存します。
+3. simplechat.py のコードを確認します。[演習1](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/06/01/reame.md}で作成した、APIキーとProject IDを利用して、コードを書き換えてから、保存します。
 
 ```simplechat.py
 # simplechat.py
@@ -222,4 +222,6 @@ C#を使ってONNXモデルを呼び出すコードを作成してください�
 ```
 IBM Graniteとは何か教えてください
 ```
+
+
 
