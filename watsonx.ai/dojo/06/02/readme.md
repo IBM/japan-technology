@@ -48,4 +48,70 @@ brew install wget
 code st_echo.py
 ```
 
+3. st_echo.py コードを確認します。Visual Stdio Codeは開いたままにしてください。
+
+```st_echo.py
+# st_echo.py
+# Streamlitを使って、入力内容をそのまま応答するエコーボットの作成
+# 参考: https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps#build-a-bot-that-mirrors-your-input
+import streamlit as st
+
+st.title("Echo bot🚀")
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+# React to user input
+if prompt := st.chat_input("何か入力してください"):
+    # Display user message in chat message container
+    st.chat_message("user").markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    response = f"Echo: {prompt}"
+    # Display assistant response in chat message container
+    with st.chat_message("assistant"):
+
+```
+
+4. 次のコマンドを入力して、Echoボットを起動します。
+
+```
+streamlit run st_echo.py
+```
+
+5. ブラウザーが起動し、Echoボットが動きます。アプリに入力して、内容がそのまま出力されるのを確認します。
+
+<img width="1241" alt="wxai06-02-echobot" src="https://github.com/user-attachments/assets/0258d524-539c-49af-a532-0ddd7d33b8bb" />
+
+6. 右上の３点メニューをクリックし、[Settings]をクリックします。
+<img width="1241" alt="wxai06-02-settings" src="https://github.com/user-attachments/assets/41a15d29-7622-4e4a-9809-08daa5a5038b" />
+
+7. [Run on save]のチェックボックスをオン ☑️ にし、[x]をクリックして、Settings画面を閉じます。
+<img width="1241" alt="wxai06-02-runonsave" src="https://github.com/user-attachments/assets/313f1a4e-63c7-40dc-ae1e-ac3ba3abeae7" />
+
+8. Visual Studio Codeに戻り、st_echo.pyの6行目を変更して、保存します。
+
+変更前:
+
+```
+st.title("Echo bot🚀")
+```
+
+変更後:
+```
+st.title("エコーボット😃")
+```
+
+9. ブラウザーに戻り、エコーボット😃 が表示されていることを確認します。Streamlitの環境がst_echo.pyの変更をトリガーにアプリを動的に更新することがわかります。
+<img width="1241" alt="wxai06-02-title-changed" src="https://github.com/user-attachments/assets/e51cc7fc-a579-440e-97ce-027ad88d166d" />
+
+
+
 
