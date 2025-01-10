@@ -50,6 +50,7 @@ def read_item(q: str = None):
     generated_string = model.generate_text(q)
     end = time.perf_counter()
     logger.info("推論時間:"+str(end-start))
+    # logger.info("generated_text" + generated_string)
     return {"generated_text": generated_string}
 
 
