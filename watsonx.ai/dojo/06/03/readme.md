@@ -24,7 +24,7 @@ pip install fastapi
 1. APIサーバーのソースコード simpleapi.py をダウンロードします。
 
 ```
-wget https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonx.ai/dojo/06/st_echo.py
+wget https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonx.ai/dojo/06/simpleapi.py
 ```
 
 もし、MacOSでwgetコマンドが見つからない場合は、wgetをインストールしてから、上のコマンドを実行します。
