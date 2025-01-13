@@ -89,7 +89,9 @@ if prompt := st.chat_input("何か入力してください"):
 streamlit run st_echo.py
 ```
 
-5. ブラウザーが起動し、Echoボットが動きます。アプリに入力して、内容がそのまま出力されるのを確認します。
+5. ブラウザーからEchoボットの動作を確認します。アプリに入力して、内容がそのまま出力されるのを確認します。
+* Macの場合は、自動的にブラウザーが開きます。
+* Ubuntuの場合は、Windowsのブラウザーから http://localhost:8501 へアクセスします。
 
 <img width="1241" alt="wxai06-02-echobot" src="https://github.com/user-attachments/assets/0258d524-539c-49af-a532-0ddd7d33b8bb" />
 
@@ -204,7 +206,9 @@ if prompt:= st.chat_input("何か入力してください"):
 streamlit run simplechat.py
 ```
 
-5. ブラウザーが立ち上がり、チャットボットが動作します。
+5. ブラウザーからチャットボットの動作を確認します。
+* Macの場合は、自動的にブラウザーが開きます。
+* Ubuntuの場合は、Windowsのブラウザーから http://localhost:8501 へアクセスします。
 <img width="1241" alt="wxai06-02-simplechat" src="https://github.com/user-attachments/assets/8f76a99c-39ce-4766-a89f-a6e828375b11" />
 
 
@@ -225,6 +229,10 @@ C#を使ってONNXモデルを呼び出すコードを作成してください�
 ```
 IBM Graniteとは何か教えてください
 ```
+
+演習2はここまでです。[演習3](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/06/03/readme.md)に進みましょう。
+
+
 
 
 
