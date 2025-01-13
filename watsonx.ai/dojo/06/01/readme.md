@@ -187,4 +187,7 @@ ONNXRuntimeは、C#でONNXモデルを呼び出すためのライブラリです
 - [ONNXRuntime for C#](https://github.com/microsoft/onnxruntime/blob/master/docs/Csharp.md)
 
 このコードは、
+```
 ---- ここまで ---
+
+演習1はここまでです。続いて[演習2](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/06/02/readme.md)に進みましょう。
