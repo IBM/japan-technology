@@ -121,8 +121,14 @@ print(model.generate_text(prompt))
 ```
 python simple_generate.py > onnx.md
 ```
+7. エラーが出る場合は、Pythonパッケージのインストールを行い、再度実行します。
 
-7. 出力を確認します。出力トークン数を500に制限しているので、内容が途中までとなりますが、この演習では気にしないでください。
+```
+pip install ibm_watsonx_ai
+```
+
+
+8. 出力を確認します。出力トークン数を500に制限しているので、内容が途中までとなりますが、この演習では気にしないでください。
 出力内容はmarkdown形式になっています。Visual Studio Codeのmarkdownプレビュー機能が使えます。
 
 キーボードショートカット
