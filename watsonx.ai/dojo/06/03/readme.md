@@ -143,7 +143,7 @@ curl -X 'GET' \
   -H 'accept: application/json'
 ```
 
-10. Visual Studio Codeに戻り、simpleapi.pyの51行目のコメントの　# を削除し、ファイルを保存します。
+10. Visual Studio Codeに戻り、simpleapi.pyの53行目のコメントの　# を削除し、ファイルを保存します。
 変更前:
 ```
 # logger.info("generated_text" + generated_string)
