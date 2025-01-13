@@ -19,11 +19,14 @@ source venv/bin/activate
 pip install streamlit
 ```
 
-3. Streamlitをテスト実行します。ローカルURL: http://localhost:8501 にWebサービスが起動し、自動的にブラウザーが開きます。
+3. Streamlitをテスト実行します。ローカルURL: http://localhost:8501 にWebサービスが起動します。
 
 ```
 streamlit hello
 ```
+
+* Macの場合は、自動的にブラウザーが開きます。
+* Ubuntuの場合は、Windowsのブラウザーから http://localhost:8501 へアクセスします。
 <img width="1241" alt="wxai06-02-streamlit-hello" src="https://github.com/user-attachments/assets/7bb713dc-2df5-46f3-bcb5-413bcf4a42fd" />
 
 4. Ubuntuまたはターミナルに戻り、[ctrl]+[c]でプロセスを終了します。
