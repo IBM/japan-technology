@@ -5,13 +5,34 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 前提条件:
 * IBM watsonx 上に新規プロジェクトを作ってあること ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
 
+参考: 
+* 作成済みのプロジェクトの参照方法: ブラウザーから https://jp-tok.dataplatform.cloud.ibm.com/projects/?context=wx を開きます。
 ##
 
 1. 作成したプロジェクトの[概要]タブを開きます。
-<img width="1548" alt="wxai-chat-01-proj-overview" src="https://github.com/user-attachments/assets/0d1e2ea8-a580-480a-94a4-0a9a6a10edd6">
 
-2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。チャット機能のツアーが表示されますので、[完了]をクリックします。
-<img width="1548" alt="wxai-chat-02-tour" src="https://github.com/user-attachments/assets/3c4356d7-f486-4fdd-815f-d3ca69b9e59c">
+<img width="1144" alt="wxai02-01-01-project-overview" src="https://github.com/user-attachments/assets/3c1d12fa-0ca4-4aed-bced-24d8c0da5b7c" />
+
+
+2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。
+
+<img width="1144" alt="wxai02-01-02-prompt-lab" src="https://github.com/user-attachments/assets/c6430d37-fdf5-4a1e-93aa-73cc9e805e17" />
+
+3. Prompt Labの利用条件にすべて☑️を入れて、[ツアーの開始]をクリックします。
+
+<img width="1144" alt="wxai02-01-03-user-consent" src="https://github.com/user-attachments/assets/25d04fbd-96df-451f-834a-cce870590946" />
+
+
+4. Prompt Labのツアーが表示されますので、[次へ]で進んでいき、最後に[完了]をクリックします。
+
+<img width="1144" alt="wxai02-01-04-tour1" src="https://github.com/user-attachments/assets/399bdea2-4f5e-4d29-93ce-cc31b3b82b9b" />
+
+<img width="1144" alt="wxai02-01-04-tour2" src="https://github.com/user-attachments/assets/d77c4a44-1913-4445-95cc-a5f950d171e3" />
+
+<img width="1144" alt="wxai02-01-04-tour3" src="https://github.com/user-attachments/assets/5c25bfee-4092-439b-89f1-1c11075edcfb" />
+
+<img width="1144" alt="wxai02-01-04-tour4" src="https://github.com/user-attachments/assets/49004d58-0c66-40ec-a68c-b0e48ec6cab8" />
+
 
 3. IBM watsonx.aiのプロンプト・ラボが開き、チャットの準備ができたことを確認します。質問の例に表示されている[What are more efficient alternative to a 'for loop' in Python?]をクリックします。
 <img width="1548" alt="wxai-chat-03-Chat-Toppage" src="https://github.com/user-attachments/assets/4638014c-b940-4e4d-aa0b-b708f1b86ae3">
