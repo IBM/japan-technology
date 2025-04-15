@@ -3,7 +3,7 @@
 
 このパートでは、次の操作を学びます。
 * 新規プロジェクトの作成
-* プロジェクトとWatson Machine Learningサービスの関連付け
+* プロジェクトとWatson Machine Learning (watsonx.ai Runtime) サービスの関連付け
 
 参考URL: IBM watsonx as a Service 、[プロジェクトの作成](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/projects.html?context=wx&audience=wdp, "create new project")
 
