@@ -89,8 +89,8 @@ Watson Machine Learningの画面の右下にある[作成]をクリックしま�
 * ご注意: これまでのIBM Watsonの技術にWatson Machine Learningという機械学習、推論エンジンがありました。IBM watsonx.aiにおいては、このWatson Machine Learningをwatsonx.ai Runtimeと名称変更しています。現時点では、IBM Watson Machine LearningとIBM watsonx.ai Runtimeは同じものです。
 
 10. これで新規プロジェクトの準備が整いました。
-   watsonx.ai Dojoにオンラインで参加している方で、このプロジェクトの準備がうまくできない方は、チャット欄からお知らせください。
-　　ハンズオン会場で参加している方で、この準備がうまくできない方は、近くにいるサポート・スタッフにお声がけください。
+* watsonx.ai Dojoにオンラインで参加している方で、このプロジェクトの準備がうまくできない方は、チャット欄からお知らせください。
+* ハンズオン会場で参加している方で、この準備がうまくできない方は、近くにいるサポート・スタッフにお声がけください。
 
     
 
