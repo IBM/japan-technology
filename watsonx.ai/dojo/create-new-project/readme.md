@@ -18,13 +18,17 @@
 1. IBM watsonx のトップページから、[最近の作業]欄にある[プロジェクト]のタイルを見つけ、[+]をクリックします。マウス・カーソルを[+]に近づけると、[新規プロジェクトの作成]というヒントが表示されます。
 <img width="1328" alt="wxai00-create-new-project-plus" src="https://github.com/user-attachments/assets/2226a6a1-3bd3-4996-acd1-88ba3d7bfc61" />
 
+* 別の方法として、https://jp-tok.dataplatform.cloud.ibm.com/projects/new-project?context=wx をブラウザーで開くと、[プロジェクトの作成]のページを表示できます。
 
 2. [プロジェクトの作成]ページが表示されます。プロジェクトを識別するための名前を入力して[作成]をクリックします。
 
 ※ この手順はハンズオン毎に実行するので、ハンズオンのイベント番号にあわせて、Dojo 02, Dojo 03などと命名するとわかりやすいです。
 
 ポイント: 日本語でも英語でも構いません。この名前は、単にユーザーがプロジェクトを識別するためのものです。このため、皆さんは後からいつでも自由にプロジェクトの名前を変更できます。IBM watsonxのシステム側から見ると、プロジェクトごとにGUIDを使って固有の番号を割り当てています。これを「プロジェクト ID」と呼んでいます。IBM watsonx APIを利用する場合は、プロジェクトの名前ではなく、プロジェクトIDを使います。
-<img width="1548" alt="wxai-newproject-02-blankproject" src="https://github.com/user-attachments/assets/3a484948-d6ff-4931-bc80-ebbe3e01b0b6">
+
+<img width="1328" alt="wxai00-02-newproject" src="https://github.com/user-attachments/assets/38f80216-f9cd-4ab3-a0e3-5d587ee713dc" />
+
+
 IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日無料体験版を利用している場合は、[ストレージ]のところに、Cloud Object Storageの名前が自動的に割り当てられます。
 
 もし次の図のように、表示されている場合は、[追加]をクリックして、ストレージの関連付けが必要です。
