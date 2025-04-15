@@ -52,7 +52,7 @@ IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日�
 
 <img width="1328" alt="wxai00-05-copy-projectid" src="https://github.com/user-attachments/assets/50da09c1-93e7-47ba-ab98-396d27e8169b" />
 
-* ご注意: プロジェクトを作成した段階では、watsonx.aiを使った推論機能は有効になっていません。この後の手順で、watsonx.ai Runtimeをプロジェクトに関連付けして、推論機能を使えるようにします。
+* ご注意: プロジェクトを作成した段階では、watsonx.aiを使った推論機能は有効になっていません。この後の手順で、watsonx.ai Runtime (Watson Machine Learning)をプロジェクトに関連付けして、推論機能を使えるようにします。
 
 5. 左ペインにある[サービスおよび統合]をクリックします。
 
@@ -65,9 +65,11 @@ IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日�
 
 
 7. Watson Machine Learningがサービスの一覧に表示されていることを確認します。
-<img width="1548" alt="wxai-newproj-07-wml" src="https://github.com/user-attachments/assets/d7af39a3-38cf-4bc7-b3ab-bd0264d51177">
 
-(この時点でWatson Machine Learningが見つからない場合）
+<img width="1328" alt="wxai00-08-list-services" src="https://github.com/user-attachments/assets/642caf7d-3afe-4a17-ad88-8189551b96a8" />
+
+
+(この時点で一覧の中にWatson Machine Learningが見つからない場合）
 サービスの関連付けから、[新規サービス +]をクリックし、サービスの画面を表示します。
 <img width="1548" alt="wxai-newproj-08-newservice" src="https://github.com/user-attachments/assets/54682a10-2e54-44da-9273-ab9d9f502d93">
 
@@ -76,13 +78,19 @@ IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日�
 Watson Machine Learningの画面の右下にある[作成]をクリックします。
 
 8. サービスの一覧に表示されている Watson Machine Learning の行にチェック☑️を入れて、画面右下の[アソシエイト]をクリックします。
-<img width="1548" alt="wxai-newproj-10-associateWML" src="https://github.com/user-attachments/assets/65cc4ffb-c511-4be3-a6af-397b193d49f6">
 
-9. サービスおよび統合の[IBMサービス]タブ内に、関連付けたWatson Machine Learningが表示されていることを確認します。
-<img width="1548" alt="wxai-newproj-11-WMLassociated" src="https://github.com/user-attachments/assets/a1263fd2-71e9-4480-8985-5a8b92c939dd">
+<img width="1328" alt="wxai00-09-associate-wml" src="https://github.com/user-attachments/assets/18d7cef4-59ea-4129-88d3-37f53b349944" />
+
+
+9. サービスおよび統合の[IBMサービス]タブ内に、関連付けたWatson Machine Learningが表示されていることを確認します。[サービス・タイプ]がwatsonx.ai Runtime と表示されています。
+
+<img width="1328" alt="wxai00-10-wml-associated" src="https://github.com/user-attachments/assets/186505e5-09e0-4249-81de-defe1791a12f" />
+
+* ご注意: これまでのIBM Watsonの技術にWatson Machine Learningという機械学習、推論エンジンがありました。IBM watsonx.aiにおいては、このWatson Machine Learningをwatsonx.ai Runtimeと名称変更しています。現時点では、IBM Watson Machine LearningとIBM watsonx.ai Runtimeは同じものです。
 
 10. これで新規プロジェクトの準備が整いました。
    watsonx.ai Dojoにオンラインで参加している方で、このプロジェクトの準備がうまくできない方は、チャット欄からお知らせください。
+　　ハンズオン会場で参加している方で、この準備がうまくできない方は、近くにいるサポート・スタッフにお声がけください。
 
     
 
