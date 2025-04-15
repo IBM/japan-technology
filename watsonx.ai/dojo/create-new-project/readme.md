@@ -1,4 +1,6 @@
 # watsonx.ai、新規プロジェクト作成
+最終更新日: 2025/4/15
+
 このパートでは、次の操作を学びます。
 * 新規プロジェクトの作成
 * プロジェクトとWatson Machine Learningサービスの関連付け
@@ -20,11 +22,11 @@
 
 * 別の方法として、https://jp-tok.dataplatform.cloud.ibm.com/projects/new-project?context=wx をブラウザーで開くと、[プロジェクトの作成]のページを表示できます。
 
-2. [プロジェクトの作成]ページが表示されます。プロジェクトを識別するための名前を入力して[作成]をクリックします。
+2. [プロジェクトの作成]ページが表示されます。[詳細の定義]欄で、プロジェクトを識別するための[名前]を入力して[作成]をクリックします。
 
 ※ この手順はハンズオン毎に実行するので、ハンズオンのイベント番号にあわせて、Dojo 02, Dojo 03などと命名するとわかりやすいです。
 
-ポイント: 日本語でも英語でも構いません。この名前は、単にユーザーがプロジェクトを識別するためのものです。このため、皆さんは後からいつでも自由にプロジェクトの名前を変更できます。IBM watsonxのシステム側から見ると、プロジェクトごとにGUIDを使って固有の番号を割り当てています。これを「プロジェクト ID」と呼んでいます。IBM watsonx APIを利用する場合は、プロジェクトの名前ではなく、プロジェクトIDを使います。
+ポイント: プロジェクトの名前は、日本語でも英語でも構いません。この名前は、単にユーザーがプロジェクトを識別するためのものです。このため、皆さんは後からいつでも自由にプロジェクトの名前を変更できます。IBM watsonxのシステム側から見ると、プロジェクトごとにGUID(グローバル 一意識別子)を使って固有の番号を割り当てています。これを「プロジェクト ID」と呼んでいます。IBM watsonx APIを利用する場合は、プロジェクトの名前は利用せず、プロジェクトIDを使います。
 
 <img width="1328" alt="wxai00-02-newproject" src="https://github.com/user-attachments/assets/38f80216-f9cd-4ab3-a0e3-5d587ee713dc" />
 
@@ -38,18 +40,29 @@ IBM Technology Zoneを利用している場合、あるいはIBM watsonx 30日�
 <img width="2302" alt="wxai-newproject-03-AddICOS" src="https://github.com/user-attachments/assets/1c56114c-5602-4e28-95ee-65178a5604df">
 
 3. プロジェクトが作成された後、概要ページが表示されます。
- <img width="1548" alt="wxai-newproj-03-overview" src="https://github.com/user-attachments/assets/c75aef56-5a7d-4b92-aabb-8aa0182bd4ae">
+<img width="1328" alt="wxai00-03-project-overview" src="https://github.com/user-attachments/assets/22f33a66-44fe-4a4b-9808-bcc22cf0fad7" />
+
 
 4. [管理]タブを開きます。
-<img width="1548" alt="wxai-newproj-04-management" src="https://github.com/user-attachments/assets/6f5db7b4-c948-4633-9e42-bf3a80bad790">
+
+<img width="1328" alt="wxai00-04-manage-project" src="https://github.com/user-attachments/assets/8a05a8a2-8f49-4f33-9c69-298c40414931" />
+
 
    ここで、Webブラウザーに表示されているURLをご覧ください。https://jp-tok.dataplatform.cloud.ibm.com/projects/ の後にGUID形式のIDが表示されています。このIDは、[管理]タブの[一般]-[詳細]タイルに表示されている[プロジェクト ID]と同じです。コピー用のアイコンを使って、プロジェクトIDをクリップボードにコピーできます。コピーしたプロジェクトIDをメモ帳などに貼り付けておきましょう。
-   <img width="1548" alt="wxai-newproj-05-projectid" src="https://github.com/user-attachments/assets/925e718b-cba5-47a9-a61a-0dece115f408">
+
+<img width="1328" alt="wxai00-05-copy-projectid" src="https://github.com/user-attachments/assets/50da09c1-93e7-47ba-ab98-396d27e8169b" />
+
+* ご注意: プロジェクトを作成した段階では、watsonx.aiを使った推論機能は有効になっていません。この後の手順で、watsonx.ai Runtimeをプロジェクトに関連付けして、推論機能を使えるようにします。
 
 5. 左ペインにある[サービスおよび統合]をクリックします。
-<img width="1548" alt="wxai-newproje-06-integration" src="https://github.com/user-attachments/assets/2d49d120-2767-4025-b9ec-dd224e1d8d5e">
-6. 画面向かって右上側にある[サービスの関連付け +]という青色のボタンをクリックします。
-<img width="1548" alt="wxai-newproje-06-integration" src="https://github.com/user-attachments/assets/0b6de545-7d0a-4ffb-aa8d-442a3cc0d9f6">
+
+<img width="1328" alt="wxai00-06-service-integration" src="https://github.com/user-attachments/assets/60f3ddae-9c07-464c-87f6-08e698f47659" />
+
+
+6. 画面向かって、右上側にある[サービスの関連付け +]という青色のボタンをクリックします。
+
+<img width="1328" alt="wxai00-07-associate-new-service" src="https://github.com/user-attachments/assets/2062bc1a-ed9e-4316-957f-ec1de178637c" />
+
 
 7. Watson Machine Learningがサービスの一覧に表示されていることを確認します。
 <img width="1548" alt="wxai-newproj-07-wml" src="https://github.com/user-attachments/assets/d7af39a3-38cf-4bc7-b3ab-bd0264d51177">
