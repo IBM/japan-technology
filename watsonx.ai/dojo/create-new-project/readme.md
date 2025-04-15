@@ -16,7 +16,8 @@
 
 ## 新規プロジェクトの作成
 1. IBM watsonx のトップページから、[最近の作業]欄にある[プロジェクト]のタイルを見つけ、[+]をクリックします。マウス・カーソルを[+]に近づけると、[新規プロジェクトの作成]というヒントが表示されます。
-<img width="1548" alt="wxai-newproj-01" src="https://github.com/user-attachments/assets/03d0b453-a1b3-4919-adbf-7f06808ea08d">
+<img width="1328" alt="wxai00-create-new-project-plus" src="https://github.com/user-attachments/assets/2226a6a1-3bd3-4996-acd1-88ba3d7bfc61" />
+
 
 2. [プロジェクトの作成]ページが表示されます。プロジェクトを識別するための名前を入力して[作成]をクリックします。
 
