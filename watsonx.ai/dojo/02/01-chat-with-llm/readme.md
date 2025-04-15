@@ -1,4 +1,7 @@
 ## 言語モデルを使ったチャット機能を試す
+
+最終更新日: 2025/4/15
+
 IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 
