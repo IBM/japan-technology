@@ -20,23 +20,33 @@
 ## 
 
 1. プロジェクトの[概要]タブを開きます。
-   <img width="1548" alt="wxai-chat2-01-projOverview" src="https://github.com/user-attachments/assets/6741085e-fbdb-4c5c-8959-c20dba87e793">
+   
+<img width="1144" alt="wxai02-02-01-project-overview" src="https://github.com/user-attachments/assets/270cbed1-e129-44c9-9bfe-d1b6425bf863" />
+
 
 2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックし、プロンプト・ラボを開きます。
-   <img width="1548" alt="wxai-chat2-02-ChatTop" src="https://github.com/user-attachments/assets/aedfa7e8-d5b4-45ba-8598-a65754d60b53">
+
+<img width="1144" alt="wxai02-02-02-prompt-lab" src="https://github.com/user-attachments/assets/57d13e1d-a5d2-4c20-ab06-2096c7ffcd17" />
+
 
 3. チャット入力欄の左側にある[↑]にマウス・カーソルを近づけて、[文書のアップロード]と表示されることを確認します。
-   <img width="895" alt="wxai-chat2-03-UploadDocIcon" src="https://github.com/user-attachments/assets/85465156-d0c4-4090-ba11-73f0e7f6d49a">
+   
+<img width="767" alt="wxai02-02-03-upload-document" src="https://github.com/user-attachments/assets/baafd038-a106-49a6-aca8-1f8efb4d16db" />
 
 4. [↑]アイコンをクリックし、[ドキュメントの追加]と[Add image]というメニューが表示されることを確認し、[ドキュメントの追加]をクリックします。
    
-   <img width="854" alt="wxai-chat2-04-UploadMenu" src="https://github.com/user-attachments/assets/6c166302-dac8-4609-a2ac-89622ac6e321">
+<img width="716" alt="wxai02-02-04-Add-document" src="https://github.com/user-attachments/assets/f9e6ff76-68f6-4568-bb8c-a2db4b3ed37c" />
+
 
 5. [ベクトル化されたドキュメントを使ったAI]ウィンドウが表示されることを確認し、[ファイルの追加]欄にある[参照]をクリックします。
-   <img width="1548" alt="wxai-chat2-05-CreateVectorDb" src="https://github.com/user-attachments/assets/f000bd0f-16c5-41f2-ae78-3647bf36e864">
+
+<img width="1144" alt="wxai02-02-05-vector-document" src="https://github.com/user-attachments/assets/5276c657-933c-4c4b-8c3f-930ad619b525" />
+
    
-6. OS固有のファイル選択用の機能を利用し、事前準備でダウンロードしたファイルを指定します。[拡張設定]を展開して、[埋め込みモデル]のところに「all-MiniLM-L6-v2」が選択されていることを確認します。パラメータは既定値のままでOKです。最後に[作成]をクリックします。
-   <img width="1548" alt="wxai-chat2-06-AddPDF" src="https://github.com/user-attachments/assets/e6697037-38e5-4953-9875-b0db2bb87029">
+6. OS固有のファイル選択用の機能を利用し、事前準備でダウンロードしたファイルを指定します。[拡張設定]を展開して、[埋め込みモデル]のところに「granite-embedding-107m-multilingual」が選択されていることを確認します。パラメータは既定値のままでOKです。最後に[作成]をクリックします。
+
+<img width="1144" alt="wxai02-02-06-embeddings-granite" src="https://github.com/user-attachments/assets/ba7eda93-cc8e-4d89-84aa-dcd9f3c648ef" />
+
 
 7. ドキュメントが読み込まれ、メモリ上にベクトル・インデックスが作成されます。[モデル:llama-3-8b-insruct][v]と表示されているところをクリックし、[すべての基盤モデルを表示する」をクリックします。
    <img width="1548" alt="wxai-chat2-07-ChatWithRedbook-toppage" src="https://github.com/user-attachments/assets/00d57687-89de-4591-a521-cc909a110d2c">
