@@ -3,7 +3,7 @@
 最終更新日: 2025/4/16
 
 IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の魅力を伝えるための文章を作ってみましょう。
-プロンプト内に何もヒントがない状態から出発し、文脈を与えることで、プロンプトを実行した結果が変わっていくことを確認します。
+プロンプト内に何もヒントがない状態で文章を生成するところから出発し、新しい文脈（ヒント）を与えることで、プロンプトを実行した結果が変わっていくことを確認します。
 
 途中、プロンプト・ラボの画面に入力するための文字列は、コピーしやすいように準備してあります。コピーした文字列を貼り付ける際には、PC/macのショートカット・キー操作を活用しましょう。
 * Windowsの場合: [Ctrl]+[v]
@@ -166,4 +166,8 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 
 18. [名前を付けて保存]をクリックし、任意の名前をつけて、プロンプト・セッションを保存します。
 
-演習1はここまでです。続けて[演習2](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "structured Form & Deployment") に進んでください。
+19. (オプション課題) 手順16で指定しているプロンプトを、お好きな地域や町を題材に書き換えて、結果を生成します。
+
+演習1はここまでです。
+
+このハンズオンを自習されている方へ、続きは[演習2](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/02-structured-prompt/readme.md "structured Form & Deployment") となります。
