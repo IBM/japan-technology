@@ -47,14 +47,22 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 <img width="1144" alt="wxai02-01-06-response-python" src="https://github.com/user-attachments/assets/6b8a9956-8d0d-4d3b-84f9-6b9a52a5bf54" />
 
 
-7. [何かを入力してください]と表示されているテキスト・ボックスに「今の内容を日本語で説明してください。」と入力し、[Enter]キーを押します。
+7. [何かを入力してください]と表示されているテキスト・ボックスに
+
+```今の内容を日本語で説明してください。```
+
+と入力し、[Enter]キーを押します。
 
 <img width="1144" alt="wxai02-01-07-response-japanese" src="https://github.com/user-attachments/assets/58b78619-427f-4854-bf7d-cba1b60a5ee7" />
 
 
 直前に英語で回答された内容が日本語で説明されます。チャット機能は直前のプロンプトや生成内容を覚えているので、気になることがあれば、どんどん質問しましょう。
 
-8. [何かを入力してください]と表示されているテキスト・ボックスに「今の内容を韓国語で説明してください。」と入力し、[Enter]キーを押します。
+8. [何かを入力してください]と表示されているテキスト・ボックスに
+
+```今の内容を韓国語で説明してください。```
+
+と入力し、[Enter]キーを押します。
 
 <img width="1144" alt="wxai02-01-08-response-korean" src="https://github.com/user-attachments/assets/64a8dff8-bee1-4d47-842f-8a5e257b0d29" />
 
