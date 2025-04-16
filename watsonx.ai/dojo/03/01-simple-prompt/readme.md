@@ -1,20 +1,27 @@
 ## granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する
-IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝えるための文章を作ってみましょう。
+
+最終更新日: 2025/4/16
+
+IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の魅力を伝えるための文章を作ってみましょう。
 プロンプト内に何もヒントがない状態から出発し、文脈を与えることで、プロンプトを実行した結果が変わっていくことを確認します。
+
+途中、プロンプト・ラボの画面に入力するための文字列は、コピーしやすいように準備してあります。コピーした文字列を貼り付ける際には、PC/macのショートカット・キー操作を活用しましょう。
+* Windowsの場合: [Ctrl]+[v]
+* macOSの場合: [command]+[v]
 
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 
 免責事項: 
-* 間違った生成結果にご注意ください
-  生成AIは事前学習したデータを活用しながらテキストを生成します。言語モデルに含まれている言葉が確率で選択されるため、生成AIは事実と異なる結果を生成する場合があります。このハンズオンでは、段階的にプロンプトを改善するため、途中、意図しない結果を敢えて得ることも行います。生成AIのハルシネーションから間違った内容が伝わらないよう、生成された内容をそのまま利用するのではなく、必ず、事実確認を行なってください。
+* 言語モデルによる間違った生成結果にご注意ください
+  生成AIは事前学習したデータを活用しながらテキストを生成します。言語モデルに含まれている言葉が確率で選択されるため、生成AIは事実と異なる結果を生成する場合（ハルシネーション）があります。このハンズオンでは、段階的にプロンプトを改善するため、途中、意図しない結果を敢えて得ることも行います。生成AIのハルシネーションから第三者に間違った内容が伝わらないよう、言語モデルで生成された内容をそのまま利用するのではなく、必ず、事実確認を行なってください。
 * 文脈に与えている内容は、インターネットから検索して確認できる情報で、このコンテンツの著者や著者が所属している企業と一切関係がありません。
 
 前提条件:
-* IBM watsonx 上に新規プロジェクト「Dojo #3」を作ってあること ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
+* IBM watsonx 上に新規プロジェクトを作ってあること。直前にプロンプト・ラボを利用したチャットを体験をしていれば、同じプロジェクトを使ってください。 ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
 
 <img width="1524" alt="wxai03-00-newProject" src="https://github.com/user-attachments/assets/3a3a0179-c655-4c57-bc22-b90e15a7da5c">
 
-プロジェクト作成後は、Watson Machine Learningの関連付けを確認してください。
+プロジェクト作成後は、Watson Machine Learningの関連付けを確認してください。すでにプロジェクトを作っている場合は、この関連付けは不要です。
 <img width="1524" alt="wxai03-00-associatedML" src="https://github.com/user-attachments/assets/5b3248b6-9683-454b-9ed6-99e439928eff">
 
 ##
