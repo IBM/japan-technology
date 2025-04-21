@@ -38,6 +38,6 @@
 
 ## 演習3: AIエージェントを試してみる
 演習1、演習2が終わり、時間に余裕がある方は、AIエージェントを試してみましょう。
-https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/07/readme.md
+* [AIエージェントを試してみる](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/07/readme.md)
 
 
