@@ -12,11 +12,12 @@
 
 免責事項: 
 
+* watsonx 30日無料評価版やIBM Cloud からWatson Machine Learning (watsonx.ai Runtime)のライト・プランをお使いの方は、この演習を実行しないでください。PDF文書の登録だけで、無料枠の50,000トークンを使い切ります。
+
 * この演習は、IBM watsonx.aiのチャット機能を使って、英語の文書から情報を得るための方法を紹介するものです。言語モデルに含まれている学習データとベクトル化された文書を使って、回答が生成されています。生成された結果をそのまま正解として捉えず、必ず、元の文書に含まれている情報や、信頼できる公開情報を参考にしながら、判断してください。
 
-* この演習で利用しているIBM Redbooksの文書は2023年5月に更新されたものです。言語モデルmixtral-8x7bは2023年12月にリリースされたものです。従って、2024年9月時点での耐量子計算機暗号の標準化についての最新情報は含まれていません。日本語のプロンプトを指定した場合、言語モデル内で英語に翻訳されたプロンプトが実行され、その結果が日本語に翻訳して表示されます。このため、日本語として不自然な結果が出力される可能性があります。プロンプトの中で、文書に含まれていない「英文による省略形」の表現を指定した場合、「ハルシネーション」により事実と異なる間違った結果が出力される場合がありますので、特にご注意ください。
+* この演習で利用しているIBM Redbooksの文書は2023年5月に更新されたものです。言語モデルGraninte-3.1-8B-Instructは2024年12月にリリースされたものです。従って、2024年9月時点での耐量子計算機暗号の標準化についての最新情報は含まれている可能性が高いです。日本語のプロンプトを指定した場合、言語モデル内で英語に翻訳されたプロンプトが実行され、その結果が日本語に翻訳して表示されます。このため、日本語として不自然な結果が出力される可能性があります。プロンプトの中で、文書に含まれていない「英文による省略形」の表現を指定した場合、「ハルシネーション」により事実と異なる間違った結果が出力される場合がありますので、特にご注意ください。
 
-* この演習は、かなり多くのトークンを利用します。IBM watsonx.ai 30日無料体験版やWatson Machine Learningのライト・プランをお使いの場合は、文書のベクトル化だけで無料のトークン枠を使い切るため、この先の手順を実行することをお勧めしません。利用したトークン数は、プロジェクトの概要ページから確認できます。
 * 2025年4月16日時点で、Watson Machine Learning ライト・プランを使うと、50,000トークンまで利用できます。(注意：日本語のカタログ・ページには記載されておりません。ブラウザーの言語設定を「英語」にしてWatson Machine Learningの[カタログ・ページ](https://cloud.ibm.com/catalog/services/watson-machine-learning "Watson Machine Learning Catalog")で確認できます)
 * トークンは文字数とは異なります。
   参考: [トークンとトークン化](https://www.ibm.com/docs/ja/watsonx/saas?topic=solutions-tokens "token")
@@ -25,12 +26,11 @@
 
 1. プロジェクトの[概要]タブを開きます。
    
-<img width="1144" alt="wxai02-02-01-project-overview" src="https://github.com/user-attachments/assets/270cbed1-e129-44c9-9bfe-d1b6425bf863" />
-
+<img width="1135" alt="wxai02-02-01-projectoverview" src="https://github.com/user-attachments/assets/1e800dc5-7cf1-4587-9a05-99ba8c3200ae" />
 
 2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックし、プロンプト・ラボを開きます。
 
-<img width="1144" alt="wxai02-02-02-prompt-lab" src="https://github.com/user-attachments/assets/57d13e1d-a5d2-4c20-ab06-2096c7ffcd17" />
+<img width="1135" alt="wxai02-02-02-chatmode" src="https://github.com/user-attachments/assets/3ac2f922-6af9-4b68-b8dd-06180b23d62b" />
 
 
 3. チャット入力欄の左側にある[↑]にマウス・カーソルを近づけて、[文書のアップロード]と表示されることを確認します。
@@ -44,27 +44,17 @@
 
 5. [ベクトル化されたドキュメントを使ったAI]ウィンドウが表示されることを確認し、[ファイルの追加]欄にある[参照]をクリックします。
 
-<img width="1144" alt="wxai02-02-05-vector-document" src="https://github.com/user-attachments/assets/5276c657-933c-4c4b-8c3f-930ad619b525" />
-
+<img width="1135" alt="wxai02-02-05-add-document" src="https://github.com/user-attachments/assets/5fb0998d-a191-4dd6-b063-c0770314d802" />
    
 6. OS固有のファイル選択用の機能を利用し、事前準備でダウンロードしたファイルを指定します。[拡張設定]を展開して、[埋め込みモデル]のところに「granite-embedding-107m-multilingual」が選択されていることを確認します。パラメータは既定値のままでOKです。最後に[作成]をクリックします。
 
-<img width="1144" alt="wxai02-02-06-embeddings-granite" src="https://github.com/user-attachments/assets/ba7eda93-cc8e-4d89-84aa-dcd9f3c648ef" />
+<img width="1137" alt="wxai02-02-06-specify-pdf" src="https://github.com/user-attachments/assets/a1696dcd-ebb3-4e66-85d6-f190847a2bee" />
 
+7. ドキュメントが読み込まれ、メモリ上にベクトル・インデックスが作成されます。
 
-7. ドキュメントが読み込まれ、メモリ上にベクトル・インデックスが作成されます。[モデル:llama-3-8b-insruct][v]と表示されているところをクリックし、[すべての基盤モデルを表示する」をクリックします。
-   <img width="1548" alt="wxai-chat2-07-ChatWithRedbook-toppage" src="https://github.com/user-attachments/assets/00d57687-89de-4591-a521-cc909a110d2c">
+<img width="1137" alt="wxai02-02-07-ready-to-chat" src="https://github.com/user-attachments/assets/63313854-3f43-461f-aaf0-dda0de6e1314" />
 
-8. [基盤モデルの選択]ウィンドウが表示されます。[mixtral-8x7b-instruct-v01]モデルをクリックします。
-   <img width="1548" alt="wxai-chat2-08-ChooseMixtral" src="https://github.com/user-attachments/assets/0b2e96ff-14ce-43b9-a629-793ad7dcfbe5">
-
-9. [mixtral-8x7b-instruct-v01]のモデル・カードが表示されます。カード内をスクロールすることで、モデルに含まれている情報を確認できます。最後に[モデルの選択]をクリックします。
-   <img width="1548" alt="wxai-chat2-09-MixtralModelCard" src="https://github.com/user-attachments/assets/212eafdd-d9a9-46ec-abec-8a83bad3ad33">
-
-10. チャットで利用するモデルが[mixtral-8x7b-instruct-v01]に変わったことを確認します。
-   <img width="1548" alt="wxai-chat2-10-MixtralReady" src="https://github.com/user-attachments/assets/2bd634cc-1f95-403c-804c-e6fc72d9c6a8">
-
-11. ここからは、耐量子計算機暗号 (Quantum Safe Cryptography)について、チャットで聞いてみましょう。
+8. ここからは、耐量子計算機暗号 (Quantum Safe Cryptography)について、チャットで聞いてみましょう。
 
    プロンプトの例を示しておきます。
 
@@ -93,10 +83,12 @@
 * [IBM Quantum Safe Security](https://www.ibm.com/quantum/quantum-safe "IBM Q-Safe")
 * [NIST’s post-quantum cryptography standards are here](https://research.ibm.com/blog/nist-pqc-standards "NIST PQC standard")
 
-12. プロンプト・セッションを保存します。名前をQ-Safeとしてください。
+9. プロンプト・セッションを保存します。名前をQ-Safeとしてください。
 
-<img width="1548" alt="wxai-chat2-11-SaveAsQSafe" src="https://github.com/user-attachments/assets/2a95d7f3-61d9-4eb4-9903-772879342265">
+<img width="1137" alt="wxai02-02-08-save-prompt-session" src="https://github.com/user-attachments/assets/9f6ac2bb-ff75-4fa0-a47b-2545b8ea8c6f" />
 
+ハンズオンはここまでです。
+様々な文書をベクトル化して、その情報を利用すると、言語モデルが学習していない内容についても回答ができます。RAG(Retrieval Augmented Generation、検索拡張生成)と呼ばれる手法を、コードを書かないで実験できます。
 
 
 
