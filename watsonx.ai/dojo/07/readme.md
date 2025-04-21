@@ -32,7 +32,7 @@
 
 <img width="1137" alt="aia-04-tour04" src="https://github.com/user-attachments/assets/4dd8b7d0-9db0-4d5a-be48-5a885f04a51e" />
 
-5. エージェントに次のプロンプトを入力し、[Enter] キーを押します。
+5. [何かを入力してください]という入力欄に次のプロンプトを入力し、[Enter] キーを押します。
 
 ```
 Apple Watch, Pixel Watch, Fitbitの比較表を作成してください。
