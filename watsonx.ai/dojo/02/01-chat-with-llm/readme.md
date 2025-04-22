@@ -7,6 +7,7 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 
 前提条件:
 * IBM watsonx 上に新規プロジェクトを作ってあること ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
+* プロジェクトを作成した直後であれば、特に何もしないで、表示されているプロジェクトの画面から作業を継続してください。
 
 参考: 
 * 作成済みのプロジェクトの参照方法: ブラウザーから https://jp-tok.dataplatform.cloud.ibm.com/projects/?context=wx を開きます。
