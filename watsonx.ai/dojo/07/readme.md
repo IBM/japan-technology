@@ -15,8 +15,8 @@
 
 <img width="1093" alt="aia-01-home" src="https://github.com/user-attachments/assets/0f608599-e2ae-4593-ab57-c8a2e2b92987" />
 
-* まだ何もプロジェクトを作っていない場合は、[新規プロジェクトの作成]を参照して、新しいプロジェクトを作ってください。
-* SkillsBuildのAIセミナーのハンズオンに参加している方は、特に作業不要です。これまでの演習で使ってきたプロジェクトを利用してください。
+* まだ何もプロジェクトを作っていない場合は、[新規プロジェクトの作成](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/create-new-project/readme.md)を参照して、新しいプロジェクトを作ってください。
+* SkillsBuildのAIセミナーのハンズオンに参加している方は、特に作業不要です。これまでの演習で使ってきたプロジェクトをそのまま利用してください。
 
 2. [AIエージェントを構築してタスクを自動化する]と書かれたタイルをクリックします。
 
