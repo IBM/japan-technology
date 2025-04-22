@@ -32,8 +32,27 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。
 <img width="1524" alt="wxai03-01-02-promptLab" src="https://github.com/user-attachments/assets/bbd2d8fe-07df-4255-8179-24344b98bd95">
 
-3. Prompt Labの[フリー・フォーム]をクリックします。モデル: [granite-8b-japanese]を選択します。
+3. Prompt Labの[フリー・フォーム]をクリックします。
+
+* 3-1: [モデル: granite-3-8b-instruct]と表示されている右にある[v]をクリックして、[すべての基盤モデルを表示する]をクリックします。
+
+<img width="294" alt="wxai03-01-choose-model" src="https://github.com/user-attachments/assets/3a09c8aa-0d11-44e9-8520-9b05e04f639c" />
+
+* 3-2: 基盤モデルの選択画面の中から[granite-8b-japanese]のタイルを見つけて、クリックします。
+
+<img width="1139" alt="wxai03-01-list-models" src="https://github.com/user-attachments/assets/a4e7debc-3b34-4969-8ae6-98d2ba051118" />
+
+* 3-3: granite-8b-japanese のモデル・データシートが表示されたことを確認し、右下にある[モデルの選択]と書かれた青いボタンをクリックします。
+
+<img width="1164" alt="wxai03-01-granite-model-datasheet" src="https://github.com/user-attachments/assets/02717374-bafb-469c-a1de-a2386f098633" />
+
+* 3-4: フリー・フォームの作業用に[granite-8b-japanese]が選択されたことを確認します。
 <img width="1521" alt="wxai03-01-03-Freeform" src="https://github.com/user-attachments/assets/86562be9-7e2e-4363-825a-4b5a51d6e078">
+
+* 注意: 言語モデルの進化に伴い、granite-8b-japaneseは、2025/8/20に削除されます。2025/8/19までは、問題ありません。(近い将来、この演習内容をアップデートします）
+
+<img width="258" alt="wxai03-01-granite-warning" src="https://github.com/user-attachments/assets/091ebcee-bb29-4174-990b-a41b977ba1d0" />
+
 
 4. プロンプト・テキストとして、次の文字列をコピーして、貼り付けます。
 ```
@@ -73,12 +92,14 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 
 <img width="1521" alt="wxai03-01-10-openedParmeters" src="https://github.com/user-attachments/assets/2cb2d4f6-ef8b-46a4-80a8-5841edf30083">
 
-10. プロンプト・テキストを上記手順7の内容に戻します。モデル・パラメータの小さなウィンドウ内にある最小トークン数を「200」、最大トークン数を「1000」に変更します。
+10. [出力のクリア]をクリックして、プロンプト・テキストを上記手順7の内容に戻します。モデル・パラメータの小さなウィンドウ内にある最小トークン数を「200」、最大トークン数を「1000」に変更します。
 <img width="1521" alt="wxai03-01-11-modifiedParameters" src="https://github.com/user-attachments/assets/c99c666b-6952-40f8-aa27-27400ec8e795">
 
 
 11. 画面右下の[生成]をクリックして、結果を確認します。内容の妥当性は無視して、手順8より、もっと多くのテキストが生成されたことがわかります。
 <img width="1521" alt="wxai03-01-12-resultWithMoreText" src="https://github.com/user-attachments/assets/c444313a-f9a1-49d5-9baa-1378a0700ad2">
+
+* 出力内容は必ずしもスクリーンショットと同じものにならない場合がありますので、ご注意ください。
 
 12. [出力のクリア]をクリックして、生成されたテキストを消去します。モデル・パラメータにある[反復ペナルティ]を「2」に変更して、画面右下の[生成]をクリックします。
 <img width="1521" alt="wxai03-01-13-resultWithPenelty2" src="https://github.com/user-attachments/assets/d1dfd080-e817-4793-8b61-5c476a4e6605">
