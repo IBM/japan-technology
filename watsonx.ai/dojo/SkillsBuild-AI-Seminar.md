@@ -1,5 +1,5 @@
 # watsonx.ai Dojo ハンズオン用資料 (IBM SkillsBuild AIセミナー用) 
-最終更新日: 2025/4/21
+最終更新日: 2025/4/22
 
 このフォルダには、watsonx.ai Dojoで公開している資料から、IBM SkillsBuild AIセミナーで利用するものをまとめています。
 
