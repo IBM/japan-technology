@@ -1,6 +1,6 @@
 ## 言語モデルを使ったチャット機能を試す
 
-最終更新日: 2025/4/15
+最終更新日: 2025/4/22
 
 IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
@@ -16,6 +16,8 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 1. 作成したプロジェクトの[概要]タブを開きます。
 
 <img width="1144" alt="wxai02-01-01-project-overview" src="https://github.com/user-attachments/assets/3c1d12fa-0ca4-4aed-bced-24d8c0da5b7c" />
+
+* [リソース使用量]のタイルにある、[トークン]の数が、現在、watsonx.aiで使ったトークン数の合計となります。watsonx無料評価版、IBM CloudからWatson Machine Learningをライト・プラン（無料枠）で利用している場合、50,000トークンまで利用できます。言語モデルによる推論を実行する度に、トークンが消費されますので、気になる方は、この先の演習を進めながら、プロジェクトの概要ページで確認してください。 
 
 
 2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。
