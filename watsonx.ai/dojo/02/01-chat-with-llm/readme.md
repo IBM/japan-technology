@@ -110,7 +110,8 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 <img width="841" alt="wxai02-01-16-saveas" src="https://github.com/user-attachments/assets/0e20a708-1059-4d16-addd-afd0e86fde27" />
 
 
-17. 作業の保存ウィンドウが表示されます。[資産タイプ]から[プロンプト・セッション]を選択し、[詳細の定義]欄にある[名前]に「chat01」と入力し、最後に[保存]をクリックします。
+17. 作業の保存ウィンドウが表示されます。[資産タイプ]から[プロンプト・セッション]を選択し、[詳細の定義]欄にある[名前]に
+```chat01```と入力し、最後に[保存]をクリックします。
 
 <img width="1144" alt="wxai02-01-17-saveas-promptsession" src="https://github.com/user-attachments/assets/a6c1a27c-6e12-4cfa-827b-04d9680cbacf" />
 
@@ -120,3 +121,8 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデルとチャッ
 <img width="301" alt="wxai02-01-18-prompt-session" src="https://github.com/user-attachments/assets/c85b23a1-1b69-4d92-a7bb-bd11b91863bc" />
 
 このハンズオンでは、IBM watsonx.aiのプロンプト・ラボに含まれているチャット機能を簡単に試して、プロンプト・セッションを保存するところまでを体験しました。
+
+参考: 2025/4/22 に作業した結果では、この演習で5,016トークンを消費しました。
+<img width="1145" alt="wxai02-01-used-numoftoken" src="https://github.com/user-attachments/assets/5d708478-030f-4a3e-8054-ab6b0216fcfe" />
+
+
