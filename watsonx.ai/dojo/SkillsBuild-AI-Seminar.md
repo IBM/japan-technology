@@ -13,7 +13,7 @@
 
 ハンズオンの範囲:
 * 要求されるスキル: 日本語の資料を読めること、Webブラウザーの操作、文字列の入力、文字列のコピー＆ペースト
-* AIや言語モデルを利用した経験やプログラミング経験は不要です。
+* AIや基盤モデルを利用した経験やプログラミング経験は不要です。
 
 ハンズオン中のサポート:
 * 気になることがありましたら、ハンズオン会場内の講師やスタッフにお声がけください。
@@ -38,7 +38,7 @@
 ## 演習1: プロンプト・ラボのチャット機能を体験する
 この演習は、IBM watsonx.aiのプロンプト・ラボに含まれるチャット機能を体験します。
 * [新規プロジェクトの作成](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/create-new-project/readme.md "Create New Project")
-* [言語モデルを使ったチャットを試す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/01-chat-with-llm/readme.md "Chat with LLM")
+* [基盤モデルを使ったチャットを試す](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/02/01-chat-with-llm/readme.md "Chat with LLM")
 
 ## 演習2: プロンプト・ラボのフリー・フォームを使ってプロンプトを作る
 この演習は、プロンプト・ラボのフリー・フォームから出発して、指定された内容を含む文章を生成するプロンプトを試します。
