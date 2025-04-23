@@ -43,7 +43,7 @@
 ## 演習2: プロンプト・ラボのフリー・フォームを使ってプロンプトを作る
 この演習は、プロンプト・ラボのフリー・フォームから出発して、指定された内容を含む文章を生成するプロンプトを試します。
 ハンズオンの文書上は、プロジェクトが別の名前で表現されていますが、上記演習1で作成したプロジェクトをそのまま利用しても構いません。
-* [granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md "Prompt Lab - freeform")
+* [granite-8b-japanese 基盤モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md "Prompt Lab - freeform")
 
 ## 演習3: AIエージェントを試してみる
 演習1、演習2が終わり、時間に余裕がある方は、AIエージェントを試してみましょう。
