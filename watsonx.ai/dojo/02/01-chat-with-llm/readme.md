@@ -3,6 +3,7 @@
 最終更新日: 2025/4/22
 
 IBM watsonx.aiのプロンプト・ラボを使い、基盤モデル(Foundation Model / Large Language Model:大規模言語モデルとも呼ばれる)とチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
+
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 
 前提条件:
