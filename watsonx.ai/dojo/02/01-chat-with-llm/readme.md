@@ -1,8 +1,8 @@
-## 言語モデルを使ったチャット機能を試す
+## 基盤モデルを使ったチャット機能を試す
 
 最終更新日: 2025/4/22
 
-IBM watsonx.aiのプロンプト・ラボを使い、言語モデル（Large Language Model、Foundation Model: 基盤モデルとも呼ばれる)とチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
+IBM watsonx.aiのプロンプト・ラボを使い、基盤モデル(Foundation Model / Large Language Model:大規模言語モデルとも呼ばれる)とチャットしてみましょう。プロンプトは、AIに質問や指示を与えるためにユーザーが入力するものです。
 参考URL: [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 
 前提条件:
@@ -70,7 +70,7 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデル（Large Lan
 <img width="1144" alt="wxai02-01-08-response-korean" src="https://github.com/user-attachments/assets/64a8dff8-bee1-4d47-842f-8a5e257b0d29" />
 
 
-ここで言語モデルの便利な点が体験できました。多言語の生成ができる言語モデルを利用していると、ある自然言語から別の自然言語への翻訳を言語モデル自身に任せることができます。
+ここで基盤モデルの便利な点が体験できました。多言語の生成ができる基盤モデルを利用していると、ある自然言語から別の自然言語への翻訳を基盤モデル自身に任せることができます。
 
 9. チャットのクリア機能を呼び出します。
 <img width="823" alt="wxai-chat-07-ClearChat" src="https://github.com/user-attachments/assets/eb601335-e501-4101-9fbd-e92cc9392de9">
@@ -103,7 +103,7 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデル（Large Lan
 
 <img width="1144" alt="wxai02-01-15-continue-chat" src="https://github.com/user-attachments/assets/a5e3333b-0b07-4a95-b01b-5d92353d9571" />
 
-* プロンプト・ラボを使って、言語モデルとのチャットを試すことができることと、履歴を呼び出すことができることを体験しました。
+* プロンプト・ラボを使って、基盤モデルとのチャットを試すことができることと、履歴を呼び出すことができることを体験しました。
 
 16. [新規プロンプト +]という文字の左側にある💾アイコンをクリックし、[名前を付けて保存]を選びます。
 
@@ -125,6 +125,6 @@ IBM watsonx.aiのプロンプト・ラボを使い、言語モデル（Large Lan
 参考: 2025/4/22 に作業した結果では、この演習で5,016トークンを消費しました。
 <img width="1145" alt="wxai02-01-used-numoftoken" src="https://github.com/user-attachments/assets/5d708478-030f-4a3e-8054-ab6b0216fcfe" />
 
-* SkillsBuildのセミナーに参加されている方は、[granite-8b-japanese 言語モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md)、へ進んでください。
+* SkillsBuildのセミナーに参加されている方は、[granite-8b-japanese 基盤モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md)、へ進んでください。
 
 
