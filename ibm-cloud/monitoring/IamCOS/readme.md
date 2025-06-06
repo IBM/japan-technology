@@ -21,13 +21,13 @@ Please use this app on your machine or hybrid cloud platform with Node.js runtim
 local machine
 * Install [Node.js](https://nodejs.org/en/download) 
 * Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
+* Open your Terminal (macOS), PowerShell/Command Prompt (Windows) , Linux on Windows, or other shell on Linux
 * Type ```npm install``` in the extracted folder.  It installs required Node.js packages in your folder.
 * Set required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).  An easy way to do this, create .env file in your extracted folder by Visual Studio Code or other text editor.
-* Type the following command
-```node --env-file=.env server.js```
+* Type ```node --env-file=.env server.js```
 * Open http://localhost:3001 to run the app
 
-Microsoft Azure App Service
+[Microsoft Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
 * Create a new Web App with Linux OS
 * Deploy [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
 or 
@@ -54,7 +54,7 @@ This repository has no value samples for security reason.
 * COS_HMAC_ACCESS_KEY_ID: [HMAC](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-uhc-hmac-credentials-main) access_key_id
 * COS_HMAC_SECRET_ACCESS_KEY: HMAC secret_access_key
 
-Please use the .env template if you utilize 
+Please use the .env template if you would like.
 ```
 #.env
 IBM_API_KEY = 
