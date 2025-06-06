@@ -30,7 +30,9 @@ local machine
 [Microsoft Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
 * Create a new Web App with Linux OS
 * Deploy [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
-or 
+  
+or
+
 * Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
 * Open the extracted folder with Visual Studio Code
 * Install "Azure App Service" VS Code extension
