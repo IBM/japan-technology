@@ -14,7 +14,6 @@ I confirm it works with Microsoft Azure App Service with Node.js.
 And you can run it on your local machine and/or other server/cloud platform by installing [Node.js](https://nodejs.org/en/download) and related packages with:
 "npm install" command.
 
-
 * [server.js](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/server.js): API server to check the IAM/COS health.
 * [public/default.html](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/public/default.html): Web page to invoke 2 APIs throught status.js
 * [public/status.js](https://github.com/IBM/japan-technology/tree/main/ibm-cloud/monitoring/IamCOS/public/js): JavaScript to connect/invoke API on server.js
