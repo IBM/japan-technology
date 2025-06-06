@@ -5,6 +5,9 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
+// fetch method
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 // Use .env or environment variable
 const PORT = process.env.PORT || 3001;
 const IBM_API_KEY = process.env.IBM_API_KEY;
@@ -28,12 +31,15 @@ const cos = new AWS.S3({
 
 app.use(cors());
 
+// '/' -> default.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'default.html'));
 });
 
+// Set visibility of HTML/JS files in public folder 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// status/iam API: Create access token by IAM
 app.get('/status/iam', async (req, res) => {
   try {
     const params = new URLSearchParams();
@@ -61,6 +67,7 @@ app.get('/status/iam', async (req, res) => {
   }
 });
 
+// status/cos API: Read an image file in COS bucket
 app.get('/status/cos', async (req, res) => {
   try {
     // Try to get the specified file from the bucket
