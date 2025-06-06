@@ -17,12 +17,26 @@ Please use this app on your machine or hybrid cloud platform with Node.js runtim
 * IAM: Try to create new access token via IAM with API key. You see "IAM is working" or an error message.
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
 
-Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
-Please deploy the following files into Node.js enabled environement with required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).
+## How to run this
+local machine
+* Install [Node.js](https://nodejs.org/en/download) 
+* Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
+* Type ```npm install``` in the extracted folder.  It installs required Node.js packages in your folder.
+* Set required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).  An easy way to do this, create .env file in your extracted folder by Visual Studio Code or other text editor.
+* Type the following command
+```node --env-file=.env server.js```
+* Open http://localhost:3001 to run the app
 
-I confirm it works with Microsoft Azure App Service with Node.js.  
-And you can run it on your local machine and/or other server/cloud platform by installing [Node.js](https://nodejs.org/en/download) and related packages with:
-"npm install" command.
+Microsoft Azure App Service
+* Create a new Web App with Linux OS
+* Deploy [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
+or 
+* Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
+* Open the extracted folder with Visual Studio Code
+* Install "Azure App Service" VS Code extension
+* Deploy the folder with the extension
+
+## Files
 
 * [server.js](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/server.js): API server to check the IAM/COS health.
 * [public/default.html](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/public/default.html): Web page to invoke 2 APIs throught status.js
@@ -39,6 +53,17 @@ This repository has no value samples for security reason.
 * FILE_KEY: File name in the COS_BUCKET
 * COS_HMAC_ACCESS_KEY_ID: [HMAC](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-uhc-hmac-credentials-main) access_key_id
 * COS_HMAC_SECRET_ACCESS_KEY: HMAC secret_access_key
+
+Please use the .env template if you utilize 
+```
+#.env
+IBM_API_KEY = 
+COS_BUCKET = 
+COS_REGION = 
+FILE_KEY = 
+COS_HMAC_ACCESS_KEY_ID = 
+COS_HMAC_SECRET_ACCESS_KEY = 
+```
 
 ## API spec (server.js)
 
