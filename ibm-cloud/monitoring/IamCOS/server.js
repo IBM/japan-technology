@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
-// fetchをNode.jsでも使えるように
+// fetch method
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 // Use .env or environment variable
