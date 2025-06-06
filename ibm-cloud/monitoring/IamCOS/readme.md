@@ -1,12 +1,18 @@
 # Simple IAM/COS health checker
 
 As of 6 June 2025: Created by Akira Onishi
-Updated on 7 June 2025:
-Co-worked with Jason McGee, implemented 2 key items.
+
+Updated on 7 June 2025: Co-worked with Jason McGee, implemented 2 key items.
 * Added custom User-Agent name "IamCOS/1.0 (Bee)".
-* Added caching for API result for safeguarding to IAM/COS services.
+* Added caching for API result for safeguarding to invoke IAM/COS services.
 
 This is a simpler Node.js web application to check the IAM/COS health.
+
+Please use this app on your machine or hybrid cloud platform with Node.js runtime.
+
+(Note) Do not change the cache duration less than 10 seconds.
+
+
 
 * IAM: Try to create new access token via IAM with API key. You see "IAM is working" or an error message.
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
