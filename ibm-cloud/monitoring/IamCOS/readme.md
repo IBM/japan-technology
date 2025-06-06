@@ -1,14 +1,17 @@
 # Simple IAM/COS health checker
 
 As of 6 June 2025: Created by Akira Onishi
-Updated on 7 June 2025: Added custom User-Agent name "IamCOS/1.0 (Bee)".
+Updated on 7 June 2025:
+Co-worked with Jason McGee, implemented 2 key items.
+* Added custom User-Agent name "IamCOS/1.0 (Bee)".
+* Added caching for API result for safeguarding to IAM/COS services.
 
 This is a simpler Node.js web application to check the IAM/COS health.
 
 * IAM: Try to create new access token via IAM with API key. You see "IAM is working" or an error message.
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
 
-Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/iamcos20250607.zip).
+Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
 Please deploy the following files into Node.js enabled environement with required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).
 
 I confirm it works with Microsoft Azure App Service with Node.js.  
@@ -43,6 +46,6 @@ This repository has no value samples for security reason.
 
 - /status/cos
     - Return the result after reading a file in Cloud Object Storage by S3 API.
-    - Return value: JSON {status, message, content}
+    - Return value: JSON {status, message}
         - status: OK, Error, Down
 
