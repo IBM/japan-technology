@@ -1,13 +1,14 @@
 # Simple IAM/COS health checker
 
 As of 6 June 2025: Created by Akira Onishi
+Updated on 7 June 2025: Added custom User-Agent name "IamCOS/1.0 (Bee)".
 
 This is a simpler Node.js web application to check the IAM/COS health.
 
 * IAM: Try to create new access token via IAM with API key. You see "IAM is working" or an error message.
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
 
-Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/iamcos20250606.zip).
+Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/iamcos20250607.zip).
 Please deploy the following files into Node.js enabled environement with required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).
 
 I confirm it works with Microsoft Azure App Service with Node.js.  
