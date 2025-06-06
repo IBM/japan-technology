@@ -22,10 +22,10 @@ local machine
 * Install [Node.js](https://nodejs.org/en/download) 
 * Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
 * Open your Terminal (macOS), PowerShell/Command Prompt (Windows) , Linux on Windows, or other shell on Linux
-* Type ```npm install``` in the extracted folder.  It installs required Node.js packages in your folder.
+* Type ```npm install``` in the extracted folder.  It installs "required Node.js packages" in your folder.
 * Set required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).  An easy way to do this, create .env file in your extracted folder by Visual Studio Code or other text editor.
 * Type ```node --env-file=.env server.js```
-* Open http://localhost:3001 to run the app
+* Open http://localhost:3001 in your browser to run the app
 
 [Microsoft Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
 * Create a new Web App with Linux OS
