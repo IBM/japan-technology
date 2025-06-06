@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
-// fetch method
+// fetchをNode.jsでも使えるように
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 // Use .env or environment variable
@@ -17,6 +17,9 @@ const FILE_KEY = process.env.FILE_KEY;
 const COS_HMAC_ACCESS_KEY_ID = process.env.COS_HMAC_ACCESS_KEY_ID;
 const COS_HMAC_SECRET_ACCESS_KEY = process.env.COS_HMAC_SECRET_ACCESS_KEY;
 
+const USER_AGENT = 'IamCOS/1.0 (Bee)';  // Add this request from IBM Cloud team
+
+console.log('USER_AGENT:', USER_AGENT);
 console.log('COS_HMAC_ACCESS_KEY_ID:', COS_HMAC_ACCESS_KEY_ID);
 console.log('COS_HMAC_SECRET_ACCESS_KEY:', COS_HMAC_SECRET_ACCESS_KEY);
 
@@ -27,19 +30,17 @@ const cos = new AWS.S3({
   secretAccessKey: COS_HMAC_SECRET_ACCESS_KEY,
   region: COS_REGION,
   signatureVersion: 'v4',
+  customUserAgent: USER_AGENT
 });
 
 app.use(cors());
 
-// '/' -> default.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'default.html'));
 });
 
-// Set visibility of HTML/JS files in public folder 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// status/iam API: Create access token by IAM
 app.get('/status/iam', async (req, res) => {
   try {
     const params = new URLSearchParams();
@@ -51,6 +52,7 @@ app.get('/status/iam', async (req, res) => {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
+        'User-Agent': USER_AGENT
       },
       body: params
     });
@@ -67,7 +69,6 @@ app.get('/status/iam', async (req, res) => {
   }
 });
 
-// status/cos API: Read an image file in COS bucket
 app.get('/status/cos', async (req, res) => {
   try {
     // Try to get the specified file from the bucket
