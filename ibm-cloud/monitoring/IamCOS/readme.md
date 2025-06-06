@@ -3,17 +3,19 @@
 As of 6 June 2025: Created by Akira Onishi
 
 This is a simpler web application to check the IAM/COS health.
-* IAM: Try to create new access token via IAM with API key
-* COS: Try to read exising file via S3 API
+* IAM: Try to create new access token via IAM with API key. You see "IAM is working" or an error message.
+* COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
 
-Please deploy the following files into Node.js enabled environement.  It works with Microsoft Azure App Service with Node.js.  
+Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/iamcos20250606.zip).
+Please deploy the following files into Node.js enabled environement with required environment variables below. 
+I confirm it works with Microsoft Azure App Service with Node.js.  
 And you can run it on your local machine and/or other server/cloud platform by setting Node.js andrelated packages.
 
-* server.js: API server to check the IAM/COS health.
-* public/default.html: Web page to invoke 2 APIs throught status.js
-* public/status.js: JavaScript to connect/invoke API
-* package.json: Node.js project settings. 
-* package-lock.json: packages list for npm (Node Package Manager)
+* [server.js](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/server.js): API server to check the IAM/COS health.
+* [public/default.html](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/public/default.html): Web page to invoke 2 APIs throught status.js
+* [public/status.js](https://github.com/IBM/japan-technology/tree/main/ibm-cloud/monitoring/IamCOS/public/js): JavaScript to connect/invoke API
+* [package.json](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/package.json): Node.js project settings. 
+* [package-lock.json](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/package-lock.json): packages list for npm (Node Package Manager)
 
 ## Required Environment variables
 This repository has no value samples for security reason.
