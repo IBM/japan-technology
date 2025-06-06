@@ -18,7 +18,7 @@ Please use this app on your machine or hybrid cloud platform with Node.js runtim
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
 
 ## How to run this
-local machine
+### local machine
 * Install [Node.js](https://nodejs.org/en/download) 
 * Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
 * Open your Terminal (macOS), PowerShell/Command Prompt (Windows) , Linux on Windows, or other shell on Linux
@@ -27,7 +27,7 @@ local machine
 * Type ```node --env-file=.env server.js```
 * Open http://localhost:3001 in your browser to run the app
 
-[Microsoft Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
+### [Microsoft Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/)
 * Create a new Web App with Linux OS
 * Deploy [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
   
