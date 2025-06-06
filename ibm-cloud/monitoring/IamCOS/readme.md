@@ -2,7 +2,7 @@
 
 As of 6 June 2025: Created by Akira Onishi
 
-This is a simpler web application to check the IAM/COS health.
+This is a simpler Node.js web application to check the IAM/COS health.
 
 * IAM: Try to create new access token via IAM with API key. You see "IAM is working" or an error message.
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
@@ -30,4 +30,19 @@ This repository has no value samples for security reason.
 * FILE_KEY: File name in the COS_BUCKET
 * COS_HMAC_ACCESS_KEY_ID: [HMAC](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-uhc-hmac-credentials-main) access_key_id
 * COS_HMAC_SECRET_ACCESS_KEY: HMAC secret_access_key
+
+## API spec (server.js)
+
+- /
+    - Send public/default.html to requester
+
+- /status/iam
+    - Return the result after invoking IAM API to create new access token by API key
+    - Return value: JSON {status, message}
+        - status: OK, Error, Down
+
+- /status/cos
+    - Return the result after reading a file in Cloud Object Storage by S3 API.
+    - Return value: JSON {status, message, content}
+        - status: OK, Error, Down
 
