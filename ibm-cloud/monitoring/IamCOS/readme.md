@@ -33,7 +33,7 @@ This repository has no value samples for security reason.
 ## API spec (server.js)
 
 - /
-    - Send public/default.html to requester
+    - Return public/default.html to host the Web UI
 
 - /status/iam
     - Return the result after invoking IAM API to create new access token by API key
