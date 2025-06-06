@@ -11,7 +11,9 @@ Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud
 Please deploy the following files into Node.js enabled environement with required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).
 
 I confirm it works with Microsoft Azure App Service with Node.js.  
-And you can run it on your local machine and/or other server/cloud platform by setting Node.js andrelated packages.
+And you can run it on your local machine and/or other server/cloud platform by installing Node.js and related packages with:
+"npm install" command.
+
 
 * [server.js](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/server.js): API server to check the IAM/COS health.
 * [public/default.html](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/public/default.html): Web page to invoke 2 APIs throught status.js
