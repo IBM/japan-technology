@@ -7,7 +7,7 @@ This is a simpler web application to check the IAM/COS health.
 * COS: Try to read exising file via S3 API.  You get "COS is working" or an error message.
 
 Here is a [zip file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/iamcos20250606.zip).
-Please deploy the following files into Node.js enabled environement with required environment variables below. 
+Please deploy the following files into Node.js enabled environement with required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables). 
 I confirm it works with Microsoft Azure App Service with Node.js.  
 And you can run it on your local machine and/or other server/cloud platform by setting Node.js andrelated packages.
 
