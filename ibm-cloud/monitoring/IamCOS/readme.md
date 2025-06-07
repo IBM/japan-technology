@@ -20,9 +20,36 @@ Please use this app on your machine or hybrid cloud platform with Node.js runtim
 ## How to run this
 ### local machine
 * Install [Node.js](https://nodejs.org/en/download) 
-* Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
-* Open your Terminal (macOS), PowerShell/Command Prompt (Windows) , Linux on Windows, or other shell on Linux
+* Open your Terminal (macOS), PowerShell (Windows) , Linux on Windows, or other shell on Linux
+
+  create a new folder like "cloudtool" or go to your work folder.
+
+Example:
+```
+cd ~
+mkdir cloudtool
+cd cloudtool
+```
+
+* Download [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).
+
+You can download the file from your browser or type the following command in your Terminal/PowerShell or other shell.
+
+```
+wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip
+```
+
+(Windows PowerShell)
+```
+wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip -outfile t.zip
+```
+
+* Unzip the zip file.
+
 * Type ```npm install``` in the extracted folder.  It installs "required Node.js packages" in your folder.
+
+　　(Windows only) If you have an execution policy error to run "npm install", run  ```Set-ExecutionPolicy RemoteSigned``` (Required open PowerShell as Administrator).  Then, ```npm install``` again.
+
 * Set required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).  An easy way to do this, create .env file in your extracted folder by Visual Studio Code or other text editor.
 * Type ```node --env-file=.env server.js```
 * Open http://localhost:3001 in your browser to run the app
