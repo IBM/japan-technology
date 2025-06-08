@@ -19,7 +19,7 @@ It is designed to be easy to deploy on Azure App Service or any Node.js environm
 - (Recommended) Azure App Service or any Node.js hosting
 
 ## How to run this
-### local machine
+### local/server machine
 * Install [Node.js](https://nodejs.org/en/download) 
 * Open your Terminal (macOS), PowerShell (Windows) , Linux on Windows, or other shell on Linux
 
