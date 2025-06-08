@@ -1,13 +1,5 @@
 # IBM Cloud Simple IAM/COS health checker
 
-As of 6 June 2025: Created by Akira Onishi
-
-Updated on 7 June 2025: Co-worked with Jason McGee, implemented 2 key items.
-* Added custom User-Agent name "IamCOS/1.0 (Bee)".
-* Added caching for API result for safeguarding to invoke IAM/COS services.
-Updated on 8 June 2025:
-* Modified some topics in this document.
-
 This Node.js application provides a simple web dashboard and API endpoints to check the status of IBM Cloud IAM and Cloud Object Storage (COS).  
 It is designed to be easy to deploy on Azure App Service or any Node.js environment.
 
@@ -151,4 +143,13 @@ COS_HMAC_SECRET_ACCESS_KEY=<your_cos_hmac_secret_access_key>
   "message": "COS is working"
 }
 ```
+
+### History
+As of 6 June 2025: Created by Akira Onishi
+Updated on 7 June 2025: Co-worked with Jason McGee, implemented 2 key items.
+* Added custom User-Agent name "IamCOS/1.0 (Bee)".
+* Added caching for API result for safeguarding to invoke IAM/COS services.
+Updated on 8 June 2025:
+* Modified some topics in this document.
+
 
