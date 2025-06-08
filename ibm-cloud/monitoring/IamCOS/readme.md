@@ -1,4 +1,4 @@
-# Simple IAM/COS health checker
+# IBM Cloud Simple IAM/COS health checker
 
 As of 6 June 2025: Created by Akira Onishi
 
@@ -34,6 +34,7 @@ It is designed to be easy to deploy on Azure App Service or any Node.js environm
   create a new folder like "cloudtool" or go to your work folder.
 
 Example:
+
 ```
 cd ~
 mkdir cloudtool
@@ -42,22 +43,37 @@ cd cloudtool
 
 * Download [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).  And, Unzip the zip file.
 
-(macOS/Linux)
+macOS/Linux
+
 ```
 wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip
 unzip IamCOS20250607.zip
 ```
+    
+if you work with Windows (PowerShell)
 
-(Windows PowerShell)
 ```
 wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip -outfile t.zip
 Expand-Archive t.zip .
 ```
 
 
-* Type ```npm install``` in the extracted folder.  It installs "required Node.js packages" in your folder.
+* Install required Node.js packages.  Type the following command in the extracted folder.
+```
+npm install
+```
 
-　　(Windows only) If you have an execution policy error to run "npm install", run  ```Set-ExecutionPolicy RemoteSigned``` (Required open PowerShell as Administrator).  Then, ```npm install``` again.
+　　(Windows only) If you have an execution policy error to run "npm install", run
+  ```
+  Set-ExecutionPolicy RemoteSigned
+  ```
+
+(Required open PowerShell as Administrator).  Then,
+
+```
+npm install
+``` 
+again.
 
 * Set required environment variables [below](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/readme.md#required-environment-variables).  An easy way to do this, create .env file in your extracted folder by Visual Studio Code or other text editor.
 * Type ```node --env-file=.env server.js```
