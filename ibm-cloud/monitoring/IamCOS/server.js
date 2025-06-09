@@ -22,7 +22,7 @@ const USER_AGENT = 'IamCOS/1.0 (Bee)';
 
 console.log('USER_AGENT:', USER_AGENT);
 //console.log('COS_HMAC_ACCESS_KEY_ID:', COS_HMAC_ACCESS_KEY_ID);
-console.log('COS_HMAC_SECRET_ACCESS_KEY:', COS_HMAC_SECRET_ACCESS_KEY);
+//console.log('COS_HMAC_SECRET_ACCESS_KEY:', COS_HMAC_SECRET_ACCESS_KEY);
 
 // Configure AWS SDK for IBM COS
 const cos = new AWS.S3({
