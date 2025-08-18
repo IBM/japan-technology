@@ -2,6 +2,8 @@
 IBM watsonx.aiのプロンプト・ラボを使い、静岡県の魅力を伝えるための文章を作ってみましょう。
 出来上がったプロンプトは、プロンプト・テンプレートとして保存し、その後、Watson Machine Learningを使って、Webサービスとしてデプロイします。
 
+ご注意: granite-8b-japanese 基盤モデルは 2025/8/20 に削除されます。2025/8/20以降のハンズオンにおいては、granite-3-8b-instruct (Granite-3.1-8B-Instruct)をお使いください。
+
 参考URL: 
 * [プロンプト・ラボ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-prompt-lab.html?context=wx&locale=ja "Prompt Lab")
 * [プロンプト・テンプレートのデプロイ](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/prompt-template-deploy.html?context=wx&locale=ja "Deploy prompt template")
