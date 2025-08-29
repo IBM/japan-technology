@@ -13,9 +13,9 @@ IBM watsonx Code Assistant for Enterprise Java Applications のオンボーデ�
 
 1. インスタンスを立てる
 
-    1. [IBM Cloudログイン](./01_instance/01_01_ibmcloud_login/)：未記載、船渡さん作成の共通に遷移予定
-    1. [サブスクリプションコードの適用](./01_instance/01_02_subscription_code/)：未記載、船渡さん作成の共通に遷移予定
-    1. [リソース・グループの作成](./01_instance/01_03_resource_group/)：未記載、船渡さん作成の共通に遷移予定
+    1. [IBM Cloudログイン](./01_instance/01_01_ibmcloud_login/)
+    1. [サブスクリプションコードの適用](./01_instance/01_02_subscription_code/)
+    1. [リソース・グループの作成](./01_instance/01_03_resource_group/)
     1. [watsonx Code Assistant サービスインスタンスのプロビジョニング](./01_instance/01_04_create_instance/)
     1. [Cloud Object Storageインスタンスの作成](./01_instance/01_04_create_instance/)
 
