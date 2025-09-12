@@ -22,18 +22,22 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 前提条件:
 * IBM watsonx 上に新規プロジェクトを作ってあること。直前にプロンプト・ラボを利用したチャットを体験をしていれば、同じプロジェクトを使ってください。 ([作成方法](https://github.com/IBM/japan-technology/tree/main/watsonx.ai/dojo/create-new-project "Create New Project"))
 
-<img width="1524" alt="wxai03-00-newProject" src="https://github.com/user-attachments/assets/3a3a0179-c655-4c57-bc22-b90e15a7da5c">
+<img width="1005" height="922" alt="0301-01-NewProject" src="https://github.com/user-attachments/assets/5e87d406-d2a7-466c-a2fa-1a9b3ff97508" />
+
 
 プロジェクト作成後は、Watson Machine Learningの関連付けを確認してください。すでにプロジェクトを作っている場合は、この関連付けは不要です。
-<img width="1524" alt="wxai03-00-associatedML" src="https://github.com/user-attachments/assets/5b3248b6-9683-454b-9ed6-99e439928eff">
+
+<img width="1005" height="922" alt="0301-02-WMLAssociated" src="https://github.com/user-attachments/assets/d9a8c01e-a449-48b8-a65d-6ed668135854" />
 
 ##
 
 1. 作成したプロジェクトの[概要]タブを開きます。
-<img width="1524" alt="wxai03-01-newproject" src="https://github.com/user-attachments/assets/1f96241e-5b48-4bae-9db2-3069d2ddff5e">
 
-2. 作業の開始欄にある[ファウンデーション・モデルを使用したチャットとプロンプトの作成]をクリックします。
-<img width="1524" alt="wxai03-01-02-promptLab" src="https://github.com/user-attachments/assets/bbd2d8fe-07df-4255-8179-24344b98bd95">
+<img width="1005" height="922" alt="0301-03-ProjectOverview" src="https://github.com/user-attachments/assets/d897eacf-320e-492a-9989-7dce13489f89" />
+
+2. 作業の開始欄にある[基盤モデルを使用したチャットとプロンプトの作成]をクリックします。
+
+<img width="1005" height="922" alt="0301-04-NewPromptLab" src="https://github.com/user-attachments/assets/4e5dc855-4b4f-41a8-864c-40e018249d58" />
 
 3. Prompt Labの[フリー・フォーム]をクリックします。
 
