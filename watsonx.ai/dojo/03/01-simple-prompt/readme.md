@@ -41,6 +41,10 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 
 3. Prompt Labの[フリー・フォーム]をクリックします。
 
+<img width="1005" height="922" alt="0301-05-FreeForm" src="https://github.com/user-attachments/assets/963c0804-3d48-40e4-8c72-1a561ca87d85" />
+
+モデルの名前が [granite-3-8b-instruct] となっていることを確認します。
+
 * 3-1: [モデル: granite-3-8b-instruct]と表示されている右にある[v]をクリックして、[すべての基盤モデルを表示する]をクリックします。
 
 <img width="294" alt="wxai03-01-choose-model" src="https://github.com/user-attachments/assets/3a09c8aa-0d11-44e9-8520-9b05e04f639c" />
