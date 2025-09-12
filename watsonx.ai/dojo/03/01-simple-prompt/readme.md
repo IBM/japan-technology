@@ -64,18 +64,23 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 <img width="1005" height="922" alt="0301-09-Granite3Ready" src="https://github.com/user-attachments/assets/8d9d9d20-4d0f-48ef-bcf2-2a432788562d" />
 
 
-4. プロンプト・テキストとして、次の文字列をコピーして、貼り付けます。
+4. 画面右上にある [<img width="33" height="33" alt="0301-10-ModelParams" src="https://github.com/user-attachments/assets/3e61ec49-151f-4f5d-879d-b31bb4ba7ae7" />]をクリックし、プロンプト・テキストとして、次の文字列をコピーして、貼り付けます。
 ```
 静岡県を知らない人に、有名なアーティスト、 アニメの話、美味しい食事、名所、生産品などを含めて、楽しく静岡の魅力を伝えてください。
 ```
 
-<img width="1524" alt="wxai03-01-04-simple-prompt" src="https://github.com/user-attachments/assets/bdf5cbaa-fc6d-41ed-82d9-0021bda04534">
+<img width="1005" height="922" alt="0301-11-Prompt01" src="https://github.com/user-attachments/assets/1d38c372-c52d-4b1e-9558-185129abf3ca" />
+
 
 5. 画面右下にある[生成]をクリックします。しばらく待つと生成結果が表示されます。
-<img width="1524" alt="wxai03-01-05-unexpected-result" src="https://github.com/user-attachments/assets/8eaff4b9-86f4-4f7a-bd57-a5a98171b0ce">
 
-6. 意味不明な結果を見て、ここで諦めないでください。ここから、順番に改善していきます。[出力のクリア]をクリックして、生成した内容を消去しましょう。先ほど生成された文字列が消えたことを確認します。
-<img width="1521" alt="wxai03-01-06-clearOutput" src="https://github.com/user-attachments/assets/8f979ac3-1b2c-49cb-8c2b-f5ffa6daced3">
+<img width="1005" height="922" alt="0301-12-Result01" src="https://github.com/user-attachments/assets/7e2775a3-0100-4b37-94e8-8f9ba2108cf9" />
+
+
+6. 少ない入力から得られた結果なので、順番に改善していきましょう。[出力のクリア]をクリックして、生成した内容を消去しましょう。先ほど生成された文字列が消えたことを確認します。
+
+<img width="1005" height="922" alt="0301-13-Clear01" src="https://github.com/user-attachments/assets/14489981-99d0-4c82-9a08-9d78c8fc839f" />
+
 
 7. プロンプト・テキストをすべて消去し、新しいプロンプト・テキストを貼り付けます。
 ```
