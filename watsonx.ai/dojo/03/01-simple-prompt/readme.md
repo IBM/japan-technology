@@ -1,8 +1,8 @@
-## granite-8b-japanese 基盤モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する
+## granite-3-8b-instruct 基盤モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する
 
-最終更新日: 2025/8/18
+最終更新日: 2025/9/12
+変更点: granite-8b-japanese 基盤モデルは 2025/8/20 に削除されたため、この演習で使う基盤モデルをgranite-3-8b-instructに変更しました。
 
-ご注意: granite-8b-japanese 基盤モデルは 2025/8/20 に削除されます。2025/8/20以降のハンズオンにおいては、granite-3-8b-instruct (Granite-3.1-8B-Instruct)をお使いください。
 
 IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の魅力を伝えるための文章を作ってみましょう。
 プロンプト内に何もヒントがない状態で文章を生成するところから出発し、新しい文脈（ヒント）を与えることで、プロンプトを実行した結果が変わっていくことを確認します。
@@ -44,25 +44,25 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 <img width="1005" height="922" alt="0301-05-FreeForm" src="https://github.com/user-attachments/assets/963c0804-3d48-40e4-8c72-1a561ca87d85" />
 
 モデルの名前が [granite-3-8b-instruct] となっていることを確認します。
+もしモデルの名前が異なっている場合は、3-1からの手順を実行してください。
+* 3-1: [モデル: ]と表示されている右にある[v]をクリックして、[すべての基盤モデルを表示する]をクリックします。
 
-* 3-1: [モデル: granite-3-8b-instruct]と表示されている右にある[v]をクリックして、[すべての基盤モデルを表示する]をクリックします。
+<img width="226" height="146" alt="0301-06-ViewAllModel" src="https://github.com/user-attachments/assets/e869ae40-c588-4627-8964-79b23b5d89a0" />
 
-<img width="294" alt="wxai03-01-choose-model" src="https://github.com/user-attachments/assets/3a09c8aa-0d11-44e9-8520-9b05e04f639c" />
 
-* 3-2: 基盤モデルの選択画面の中から[granite-8b-japanese]のタイルを見つけて、クリックします。
+* 3-2: 基盤モデルの選択画面の中から[granite-3-8b-instruct]のタイルを見つけて、クリックします。
 
-<img width="1139" alt="wxai03-01-list-models" src="https://github.com/user-attachments/assets/a4e7debc-3b34-4969-8ae6-98d2ba051118" />
+<img width="1005" height="922" alt="0303-07-ChooseGranite3" src="https://github.com/user-attachments/assets/2b633785-d565-48c9-8c11-401ca700cc48" />
 
-* 3-3: granite-8b-japanese のモデル・データシートが表示されたことを確認し、右下にある[モデルの選択]と書かれた青いボタンをクリックします。
 
-<img width="1164" alt="wxai03-01-granite-model-datasheet" src="https://github.com/user-attachments/assets/02717374-bafb-469c-a1de-a2386f098633" />
+* 3-3: granite-3-8b-insturct のモデル・データシートが表示されたことを確認し、右下にある[モデルの選択]と書かれた青いボタンをクリックします。
 
-* 3-4: フリー・フォームの作業用に[granite-8b-japanese]が選択されたことを確認します。
-<img width="1521" alt="wxai03-01-03-Freeform" src="https://github.com/user-attachments/assets/86562be9-7e2e-4363-825a-4b5a51d6e078">
+<img width="1005" height="922" alt="0301-08-ChooseModel" src="https://github.com/user-attachments/assets/aedcb1f7-039e-4e3a-9792-643bd5ff5cbb" />
 
-* 注意: 基盤モデルの進化に伴い、granite-8b-japaneseは、2025/8/20に削除されます。2025/8/19までは、問題ありません。(近い将来、この演習内容をアップデートします）
 
-<img width="258" alt="wxai03-01-granite-warning" src="https://github.com/user-attachments/assets/091ebcee-bb29-4174-990b-a41b977ba1d0" />
+* 3-4: フリー・フォームの作業用に[granite-3-8b-instruct]が選択されたことを確認します。
+  
+<img width="1005" height="922" alt="0301-09-Granite3Ready" src="https://github.com/user-attachments/assets/8d9d9d20-4d0f-48ef-bcf2-2a432788562d" />
 
 
 4. プロンプト・テキストとして、次の文字列をコピーして、貼り付けます。
