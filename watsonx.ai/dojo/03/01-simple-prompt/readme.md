@@ -69,7 +69,7 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 静岡県を知らない人に、有名なアーティスト、 アニメの話、美味しい食事、名所、生産品などを含めて、楽しく静岡の魅力を伝えてください。
 ```
 
-<img width="1005" height="922" alt="0301-11-Prompt01" src="https://github.com/user-attachments/assets/1d38c372-c52d-4b1e-9558-185129abf3ca" />
+<img width="1005" height="922" alt="0301-14-Prompt02" src="https://github.com/user-attachments/assets/fb60552d-ebaa-4a16-af0c-ed97789188b8" />
 
 
 5. 画面右下にある[生成]をクリックします。しばらく待つと生成結果が表示されます。
@@ -96,27 +96,28 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 ### 応答:
 
 ```
-<img width="1521" alt="wxai03-01-07-structuredPrompt" src="https://github.com/user-attachments/assets/06b56067-de8c-42e5-afc4-1c1a09e948f8">
+
+<img width="1005" height="922" alt="0301-14-Prompt02" src="https://github.com/user-attachments/assets/4f79c6ce-24a5-4b19-b5fe-ae586cea0501" />
+
 
 8. 画面右下にある[生成]をクリックします。
 
-<img width="1521" alt="wxai03-01-08-newResult" src="https://github.com/user-attachments/assets/62f93932-241d-4209-b99c-4afc2ff819ca">
-
-9. 画面の右上側にあるモデル・パラメータ <img width="54" alt="wxai03-01-09-modelParameters" src="https://github.com/user-attachments/assets/ac1843cb-9473-4f17-9b4d-fae32a3e0ae7">
-をクリックして、開きます。
-
-<img width="1521" alt="wxai03-01-10-openedParmeters" src="https://github.com/user-attachments/assets/2cb2d4f6-ef8b-46a4-80a8-5841edf30083">
-
-10. [出力のクリア]をクリックして、プロンプト・テキストを上記手順7の内容に戻します。モデル・パラメータの小さなウィンドウ内にある最小トークン数を「200」、最大トークン数を「1000」に変更します。
-<img width="1521" alt="wxai03-01-11-modifiedParameters" src="https://github.com/user-attachments/assets/c99c666b-6952-40f8-aa27-27400ec8e795">
+<img width="1005" height="922" alt="0301-15-Result02" src="https://github.com/user-attachments/assets/3be4439d-7931-407c-a88d-eb5c3beebaaf" />
 
 
-11. 画面右下の[生成]をクリックして、結果を確認します。内容の妥当性は無視して、手順8より、もっと多くのテキストが生成されたことがわかります。
-<img width="1521" alt="wxai03-01-12-resultWithMoreText" src="https://github.com/user-attachments/assets/c444313a-f9a1-49d5-9baa-1378a0700ad2">
+
+9. [出力のクリア]をクリックして、プロンプト・テキストを上記手順7の内容に戻します。モデル・パラメータの小さなウィンドウ内にある最小トークン数を「200」、最大トークン数を「1000」に変更します。
+
+<img width="1005" height="922" alt="0301-16-SetParams" src="https://github.com/user-attachments/assets/82a02f6b-65aa-4738-88ed-86455aa522e2" />
+
+
+10. 画面右下の[生成]をクリックして、結果を確認します。内容の妥当性は無視して、手順8より、もっと多くのテキストが生成されたことがわかります。
+
+<img width="1005" height="922" alt="0301-17-Prompt03" src="https://github.com/user-attachments/assets/225892da-2f13-4316-ad0e-e3e01d8c4748" />
 
 * 出力内容は必ずしもスクリーンショットと同じものにならない場合がありますので、ご注意ください。
 
-12. [出力のクリア]をクリックして、生成されたテキストを消去します。モデル・パラメータにある[反復ペナルティ]を「2」に変更して、画面右下の[生成]をクリックします。
+11. [出力のクリア]をクリックして、生成されたテキストを消去します。モデル・パラメータにある[反復ペナルティ]を「2」に変更して、画面右下の[生成]をクリックします。
 <img width="1521" alt="wxai03-01-13-resultWithPenelty2" src="https://github.com/user-attachments/assets/d1dfd080-e817-4793-8b61-5c476a4e6605">
 
 この時点で、まだ出力内容に不安が残りますが、手順11と文体が変わったことを確認します。
