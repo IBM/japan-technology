@@ -189,8 +189,7 @@ IBM watsonx.aiのプロンプト・ラボ (Prompt Lab)を使い、静岡県の�
 
 16. 画面右下の[生成]をクリックします。
 
-
-<img width="1521" alt="wxai03-01-17-improvedOutput" src="https://github.com/user-attachments/assets/6ae31973-5014-41a7-9037-ebb6b76046cd">
+<img width="1016" height="1007" alt="0301-22-Result04" src="https://github.com/user-attachments/assets/e37815f7-dbb9-42ee-94fa-9c6f2c426e03" />
 
 生成例:
 ```
