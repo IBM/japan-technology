@@ -126,6 +126,6 @@ IBM watsonx.aiのプロンプト・ラボを使い、基盤モデル(Foundation 
 参考: 2025/4/22 に作業した結果では、この演習で5,016トークンを消費しました。
 <img width="1145" alt="wxai02-01-used-numoftoken" src="https://github.com/user-attachments/assets/5d708478-030f-4a3e-8054-ab6b0216fcfe" />
 
-* SkillsBuildのセミナーに参加されている方は、[granite-8b-japanese 基盤モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md)、へ進んでください。
+* SkillsBuildのセミナーに参加されている方は、[granite-3-8b-instruct 基盤モデルを使い、フリー・フォームのプロンプトを改良しながら、地方の魅力を伝えるための文章を生成する](https://github.com/IBM/japan-technology/blob/main/watsonx.ai/dojo/03/01-simple-prompt/readme.md)、へ進んでください。
 
 
