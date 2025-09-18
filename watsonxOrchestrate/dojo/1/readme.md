@@ -47,6 +47,8 @@ watsonx Orchestrateのログイン画面が表示されますので、登録し�
 
 ログインが完了すると、https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat が開きます。
 
+<img width="1060" height="976" alt="wxoChat" src="https://github.com/user-attachments/assets/d5581229-4e7a-479b-a0a5-7e79407cc0c7" />
+
 ## IBM Technology Zoneを使った環境の作成
 IBM社員並びにIBM Partner Plus登録済みのパートナー様は、IBM Technology Zoneを利用できます。
 
