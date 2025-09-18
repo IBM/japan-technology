@@ -41,9 +41,11 @@ IBM IDの認証強化に伴い、IBM IDに多要素認証を割り当てる必�
 watsonx Orchestrateのログイン画面が表示されますので、登録したIBM ID (Eメール・アドレス）とパスワードを使ってログインします。
 <img width="1014" height="759" alt="wxoLogin" src="https://github.com/user-attachments/assets/a04fab94-97fe-4eea-ba60-c6d57874681e" />
 
-多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。
+もし、多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。
 
 <img width="1115" height="951" alt="MultifactorAuth" src="https://github.com/user-attachments/assets/b552f1c7-7090-4185-b98f-a9e717d93f80" />
+
+ログインが完了すると、https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat が開きます。
 
 ## IBM Technology Zoneを使った環境の作成
 IBM社員並びにIBM Partner Plus登録済みのパートナー様は、IBM Technology Zoneを利用できます。
