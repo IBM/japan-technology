@@ -47,3 +47,7 @@ watsonx Orchestrateのログイン画面が表示されますので、登録し�
 
 ## IBM Technology Zoneを使った環境の作成
 IBM社員並びにIBM Partner Plus登録済みのパートナー様は、IBM Technology Zoneを利用できます。
+
+Watsonx Orchestrate Trial/Standard
+https://techzone.ibm.com/my/reservations/create/6810e845d4c668424c04f121
+
