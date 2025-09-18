@@ -20,7 +20,7 @@ https://www.ibm.com/account/reg/jp-ja/signup?formid=urx-52753
 
 手順5: 送信後、しばらくすると、[Deply your trial]と書かれたページが表示されます。[Deployment Region]と[インスタンス名]を次のように指定し、最後に[Create Trial Instance]をクリックします。
 * Deployment region: Singapore (ap-southeast-1)
-* インスタンス名: wxoDojoで始まる名前をつけます。
+* インスタンス名: 任意の名前をつけます。他の人と名前が重複しないよう、年月日や色など命名を工夫してください。（重複しているかどうかの確認が取れません）
 
 <img width="1326" height="1043" alt="DeployYourTrial" src="https://github.com/user-attachments/assets/9344cbba-5af3-4fe4-becb-1537bcd2b898" />
 
