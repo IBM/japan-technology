@@ -43,11 +43,40 @@ https://www.ibm.com/account/reg/jp-ja/signup?formid=urx-52753
 手順9: watsonx Orchestrateのログイン画面が表示されますので、登録したIBM ID (Eメール・アドレス）とパスワードを使ってログインします。
 <img width="1014" height="759" alt="wxoLogin" src="https://github.com/user-attachments/assets/a04fab94-97fe-4eea-ba60-c6d57874681e" />
 
-もし、多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。
+
+手順10: もし、IBM IDの多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。
 
 <img width="1115" height="951" alt="MultifactorAuth" src="https://github.com/user-attachments/assets/b552f1c7-7090-4185-b98f-a9e717d93f80" />
 
-手順10: ログインが完了すると、https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat が開きます。
+手順10-1: 確認コードを受け取るEメール・アドレスを入力し、[コードの送信]をクリックします。
+<img width="867" height="519" alt="emailMFA" src="https://github.com/user-attachments/assets/c55f9ea3-9238-4e16-bead-13b19549eb4f" />
+
+手順10-2: お使いのメール環境を確認し、IBM Security (ibmacct@iam.ibm.com)から届いた「IDの確認」という件名のメールを開き、検証コードを見つけます。
+
+手順10-3: 受け取った検証コードを入力します。
+<img width="755" height="704" alt="confirmationCode-email" src="https://github.com/user-attachments/assets/33e0e88e-07db-4dd2-b26e-aea641674467" />
+
+手順10-4: IBM IDの多要素認証の登録が完了したことを確認し、完了をクリックします。
+<img width="894" height="447" alt="MFAregistrationCompleted" src="https://github.com/user-attachments/assets/65f671cb-d085-454b-8e3d-bb0c7df685c8" />
+
+手順10-5: Welcome to the IBM SaaS Console と表示された場合は、[Start tour]をクリックして、進めてください。
+<img width="950" height="958" alt="WelcomeToIBMSaaS" src="https://github.com/user-attachments/assets/b1b7f733-625a-49e8-b46e-84bc8ca59ee4" />
+
+手順10-6: 「サブスクリプション」のページに表示されている [watsonx Orchestrate]をクリックします。
+<img width="950" height="958" alt="SaaSSubscription" src="https://github.com/user-attachments/assets/59856136-300a-4395-acda-798f39f77c61" />
+
+手順10-7: 「watsonx Orchestrate」のインスタンス名を見つけ、[起動]のリンクをコピーします。
+<img width="950" height="958" alt="wxoInstance" src="https://github.com/user-attachments/assets/2932346d-5249-4fc2-9267-ab371f2ba1a1" />
+
+手順10-8: ブラウザーのプライベート・ウィンドウ、シークレット・ウィンドウ、またはInPrivateウィンドウを開き、コピーしたリンクを貼り付けます。
+
+手順10-9: ログイン画面が表示されるので、IBM IDとパスワードを入力します。
+
+手順10-10: お使いのメールを開き、6桁の確認コードを見つけます。
+
+手順10-11: 6桁のコードをブラウザーに入力します。
+
+手順11: ログインが完了すると、https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat が開きます。
 
 <img width="1060" height="976" alt="wxoChat" src="https://github.com/user-attachments/assets/d5581229-4e7a-479b-a0a5-7e79407cc0c7" />
 
