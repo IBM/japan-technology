@@ -30,24 +30,24 @@ https://www.ibm.com/account/reg/jp-ja/signup?formid=urx-52753
 <img width="1326" height="1043" alt="InstanceIsReady" src="https://github.com/user-attachments/assets/c8b2d396-8d61-4edd-bcb2-af108f60066c" />
 
 ご注意：手順6で、ログイン画面がループする問題が発生した場合の対処方法について
-IBM IDの認証強化に伴い、IBM IDに多要素認証を割り当てる必要があります。
+ログイン画面が自動的に再表示される問題が確認されています。手順7から回避方法を実行します。
 
-お使いのメール環境を確認し、IBM SaaS (service@saas.ibm.com) から届いた「Welcome to your IBM watsonx Orchestrate trial!」という件名のメールを開きます。メールの中にある[Access trial]のリンクのアドレスをコピーします。
+手順7: お使いのメール環境を確認し、IBM SaaS (service@saas.ibm.com) から届いた「Welcome to your IBM watsonx Orchestrate trial!」という件名のメールを開きます。メールの中にある[Access trial]のリンクのアドレスをコピーします。
 
 <img width="544" height="777" alt="emailfromIBMSaaS" src="https://github.com/user-attachments/assets/8970ab69-04ba-4b0c-b935-371f0c98067e" />
 
-ブラウザーのプライベート・ウィンドウ、シークレット・ウィンドウ、またはInPrivateウィンドウを開き、コピーしたリンクを貼り付けます。リンクがhttp:で始まっているので、Google ChromeやMicrosoft Edgeの場合、「HTTPS とのセキュリティで保護された接続はサポートされていません」という警告が表示されますが、[サイトに進む]をクリックします。
+手順8: ブラウザーのプライベート・ウィンドウ、シークレット・ウィンドウ、またはInPrivateウィンドウを開き、コピーしたリンクを貼り付けます。リンクがhttp:で始まっているので、Google ChromeやMicrosoft Edgeの場合、「HTTPS とのセキュリティで保護された接続はサポートされていません」という警告が表示されますが、[サイトに進む]をクリックします。
 
 <img width="1014" height="759" alt="SiteWarning" src="https://github.com/user-attachments/assets/2b11369f-07ac-498e-a35c-c30afd3578e3" />
 
-watsonx Orchestrateのログイン画面が表示されますので、登録したIBM ID (Eメール・アドレス）とパスワードを使ってログインします。
+手順9: watsonx Orchestrateのログイン画面が表示されますので、登録したIBM ID (Eメール・アドレス）とパスワードを使ってログインします。
 <img width="1014" height="759" alt="wxoLogin" src="https://github.com/user-attachments/assets/a04fab94-97fe-4eea-ba60-c6d57874681e" />
 
 もし、多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。
 
 <img width="1115" height="951" alt="MultifactorAuth" src="https://github.com/user-attachments/assets/b552f1c7-7090-4185-b98f-a9e717d93f80" />
 
-ログインが完了すると、https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat が開きます。
+手順10: ログインが完了すると、https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat が開きます。
 
 <img width="1060" height="976" alt="wxoChat" src="https://github.com/user-attachments/assets/d5581229-4e7a-479b-a0a5-7e79407cc0c7" />
 
