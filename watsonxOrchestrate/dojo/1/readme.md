@@ -1,9 +1,11 @@
 # watsonx Orchestrate 環境の準備
 
+最終更新日: 2025/9/19
+
 watsonx Orchestrateの環境をお持ちでない場合、次の方法の何れかを用いて、準備します。
 * [30日無償評価版の登録](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#30%E6%97%A5%E7%84%A1%E5%84%9F%E8%A9%95%E4%BE%A1%E7%89%88%E3%81%AE%E7%99%BB%E9%8C%B2)
 * [IBM Technology Zoneを使った環境の作成 (IBM社員並びにIBM Partner Plus登録済みのパートナー様限定）](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-technology-zone%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90)
-* IBM Cloudアカウントを使い、環境の作成（すでにIBM Cloudをお使いのお客様、パートナー様）
+* [IBM Cloudアカウントを使い、環境の作成（すでにIBM Cloudをお使いのお客様、パートナー様）](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-cloud%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%BF%E3%81%84%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%99%E3%81%A7%E3%81%ABibm-cloud%E3%82%92%E3%81%8A%E4%BD%BF%E3%81%84%E3%81%AE%E3%81%8A%E5%AE%A2%E6%A7%98%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC%E6%A7%98)
 
 ## 30日無償評価版の登録
 
