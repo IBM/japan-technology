@@ -86,6 +86,24 @@ https://techzone.ibm.com/my/reservations/create/6810e845d4c668424c04f121
 IBM Technology Zoneで使っているIBM Cloud Enterprise アカウントへの招待メールとなります。
 英文メール内の [Join Now]をクリックして、お使いのIBM IDでユーザーを登録します。
 
-* 
+* Reservation Ready on IBM Technology Zone
+IBM Technology Zoneの環境が準備できたことを通知するメールとなります。
+
+手順8: IBM Cloudのリソースリストへアクセスし、[製品]列に[watsonx Orchestrate]が表示されている行を見つけます。その行をクリックします。
+* URL: https://cloud.ibm.com/resources
+* 画面の一番上の行にある、[管理]の右側に表示されているアカウント番号が、手順7で案内されたアカウントと一致していることを確認してください。
+* 異なるアカウントが表示されている場合は、(？)マークの左にある[v]をクリックし、ドロップ・ダウン・メニューから適切なアカウントに切り替えてください。
+<img width="1218" height="925" alt="CloudResources" src="https://github.com/user-attachments/assets/e8ab3788-c548-46a4-83e7-7fae07c416f3" />
+
+手順9: [watsonx Orchestrateを起動]をクリックします。
+
+<img width="1218" height="925" alt="Launchwxo" src="https://github.com/user-attachments/assets/5af1a1e1-9737-4e16-b7fc-e23847a60b76" />
+
+手順10: watsonx Orchestrateの起動を確認します。https://us-south.watson-orchestrate.cloud.ibm.com/chat が開きます。
+<img width="1218" height="925" alt="wxoIBMCloud" src="https://github.com/user-attachments/assets/d2b0ace3-8d68-4212-8ea8-789ac274707b" />
+
+
+
+
 
 
