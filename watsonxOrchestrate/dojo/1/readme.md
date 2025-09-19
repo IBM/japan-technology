@@ -37,14 +37,14 @@ https://www.ibm.com/account/reg/jp-ja/signup?formid=urx-52753
 
 <img width="544" height="777" alt="emailfromIBMSaaS" src="https://github.com/user-attachments/assets/8970ab69-04ba-4b0c-b935-371f0c98067e" />
 
-手順8: ブラウザーのプライベート・ウィンドウ、シークレット・ウィンドウ、またはInPrivateウィンドウを開き、コピーしたリンクを貼り付けます。リンクがhttp:で始まっているので、Google ChromeやMicrosoft Edgeの場合、「HTTPS とのセキュリティで保護された接続はサポートされていません」という警告が表示されますが、[サイトに進む]をクリックします。
+手順8: ブラウザーのプライベート・ウィンドウ、シークレット・ウィンドウ、またはInPrivateウィンドウを開き、コピーしたリンクを貼り付けます。リンクがhttp:で始まっているので、Google ChromeやMicrosoft Edgeの場合、「HTTPS とのセキュリティで保護された接続はサポートされていません」という警告が表示されますが、問題ないので[サイトに移動]をクリックします。
 
 <img width="1014" height="759" alt="SiteWarning" src="https://github.com/user-attachments/assets/2b11369f-07ac-498e-a35c-c30afd3578e3" />
 
 手順9: watsonx Orchestrateのログイン画面が表示されますので、登録したIBM ID (Eメール・アドレス）とパスワードを使ってログインします。
 <img width="1014" height="759" alt="wxoLogin" src="https://github.com/user-attachments/assets/a04fab94-97fe-4eea-ba60-c6d57874681e" />
 
-手順10: もし、IBM IDの多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。表示がなければ手順11に進んでください。
+手順10: もし、IBM IDの多要素認証の登録が表示された場合は、[Eメール]を選択して、次に進みます。多要素認証についての表示がなければ手順11に進んでください。
 <img width="1115" height="951" alt="MultifactorAuth" src="https://github.com/user-attachments/assets/b552f1c7-7090-4185-b98f-a9e717d93f80" />
 
 手順10-1: 確認コードを受け取るEメール・アドレスを入力し、[コードの送信]をクリックします。
