@@ -1,8 +1,8 @@
 # watsonx Orchestrate 環境の準備
 
 watsonx Orchestrateの環境をお持ちでない場合、次の方法の何れかを用いて、準備します。
-* 30日無償評価版の登録
-* IBM Technology Zoneを使った環境の作成 (IBM社員並びにIBM Partner Plus登録済みのパートナー様限定）
+* [30日無償評価版の登録](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#30%E6%97%A5%E7%84%A1%E5%84%9F%E8%A9%95%E4%BE%A1%E7%89%88%E3%81%AE%E7%99%BB%E9%8C%B2)
+* [IBM Technology Zoneを使った環境の作成 (IBM社員並びにIBM Partner Plus登録済みのパートナー様限定）](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-technology-zone%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90)
 * IBM Cloudアカウントを使い、環境の作成（すでにIBM Cloudをお使いのお客様、パートナー様）
 
 ## 30日無償評価版の登録
@@ -102,7 +102,10 @@ IBM Technology Zoneの環境が準備できたことを通知するメールと�
 手順10: watsonx Orchestrateの起動を確認します。https://us-south.watson-orchestrate.cloud.ibm.com/chat が開きます。
 <img width="1218" height="925" alt="wxoIBMCloud" src="https://github.com/user-attachments/assets/d2b0ace3-8d68-4212-8ea8-789ac274707b" />
 
+## IBM Cloudアカウントを使い、環境の作成（すでにIBM Cloudをお使いのお客様、パートナー様）
+次のガイドを参考に環境を整えてください。
 
+https://github.com/IBM/japan-technology/tree/main/onboarding-docs/watsonx-orchestrate
 
 
 
