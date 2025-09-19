@@ -53,5 +53,39 @@ watsonx Orchestrateのログイン画面が表示されますので、登録し�
 IBM社員並びにIBM Partner Plus登録済みのパートナー様は、IBM Technology Zoneを利用できます。
 
 Watsonx Orchestrate Trial/Standard
+
+手順1: ブラウザーから、次のURLを開きます。IBM IDは、IBM社員の場合はw3 ID、パートナー様の場合は、IBM Technology Zoneアクセスに登録済みのIBM IDを使ってください。
+
 https://techzone.ibm.com/my/reservations/create/6810e845d4c668424c04f121
+
+手順2: IBM Technology Zone Terms and Condtionsが表示された場合、内容を確認し、
+
+☑️ I have read and accept the terms and conditions.
+
+にチェックを入れます。
+
+<img width="1060" height="976" alt="AcceptTermsAndCondition" src="https://github.com/user-attachments/assets/8b783c37-accf-4290-b703-c67334d62e34" />
+
+手順3: Welcome to IBM Technology Zone! Tell us about yourself. と表示された場合、[Skip for now]をクリックします。
+<img width="1060" height="976" alt="TellusAboutYourself" src="https://github.com/user-attachments/assets/17c6da1c-55fc-4219-add3-81175b902a05" />
+
+手順4: Create a reservation のページから、[Request an environment]を選択します。
+<img width="1060" height="976" alt="CreateAreservation" src="https://github.com/user-attachments/assets/43e79a1b-e9e7-47bd-9665-c1ab477f2167" />
+
+手順5: 次のスクリーンショットを参考に必要事項を記入します。
+* Purpose: [Education]
+* Purpose description: To do AI Agent workshop
+* Prefered Geography: [any - AP - jp-tok region -any datacenter]
+
+<img width="1060" height="976" alt="FilloutReservation" src="https://github.com/user-attachments/assets/220afad1-b7a5-4a44-9afb-3c99b3956291" />
+
+手順6: ☑️ I agree to IBM Technology Zone's Terms & Conditions and End User Security Policies. にチェックを入れて、[Submit]をクリックします。
+
+手順7: IBM CloudとIBM Technology Zoneからのメールを確認します。
+* Account: Action required: You are invited to join an account in IBM Cloud
+IBM Technology Zoneで使っているIBM Cloud Enterprise アカウントへの招待メールとなります。
+英文メール内の [Join Now]をクリックして、お使いのIBM IDでユーザーを登録します。
+
+* 
+
 
