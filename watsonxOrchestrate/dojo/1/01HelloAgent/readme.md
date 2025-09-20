@@ -1,4 +1,4 @@
-# watsonx Orchestrate AI エージェント体験
+# watsonx Orchestrate AI エージェント体験 Part 1
 この演習は、IBMについて回答するAIエージェント 'IBMInfo' を作成します。AIエージェントの入り口を体験しましょう。
 
 * Profileの設定
