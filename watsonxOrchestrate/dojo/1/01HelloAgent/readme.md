@@ -57,11 +57,11 @@ URL:
 
 11. しばらく待つと、回答が表示されます。どちらの場合も、AIエージェントは外部のツールが必要であることを説明しますが、適切なツールは指定されていないため、正しい情報は表示されません。
 
-*生成例1:
+*　生成例1:
 
 <img width="391" height="277" alt="11A2StockPrice" src="https://github.com/user-attachments/assets/224a5fd4-b6c4-4c0b-8219-641e5e5089ae" />
 
-*生成例2:
+*　生成例2:
 
 <img width="349" height="637" alt="11-02A2StockPrice" src="https://github.com/user-attachments/assets/a27c7b63-fcdf-4872-a7a4-0eaf6257e657" />
 
