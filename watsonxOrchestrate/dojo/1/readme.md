@@ -82,9 +82,10 @@ https://www.ibm.com/account/reg/jp-ja/signup?formid=urx-52753
 ## IBM Technology Zoneを使った環境の作成
 IBM社員並びにIBM Partner Plus登録済みのパートナー様は、IBM Technology Zoneを利用できます。
 
-Watsonx Orchestrate Trial/Standard
+「Watsonx Orchestrate Trial/Standard」という環境を利用していきます。
 
 手順1: ブラウザーから、次のURLを開きます。IBM IDは、IBM社員の場合はw3 ID、パートナー様の場合は、IBM Technology Zoneアクセスに登録済みのIBM IDを使ってください。
+ご注意: IBM社員、あるいはIBM Technology Zoneの登録があるパートナー企業様のみご利用いただけます。その他のIBM IDからはアクセスできません。
 
 https://techzone.ibm.com/my/reservations/create/6810e845d4c668424c04f121
 
