@@ -27,11 +27,11 @@ https://www.ibm.com/account/reg/jp-ja/signup?formid=urx-52753
 <img width="1326" height="1043" alt="DeployYourTrial" src="https://github.com/user-attachments/assets/9344cbba-5af3-4fe4-becb-1537bcd2b898" />
 
 手順6: しばらく待つと、試用版環境が整います。リンクはクリックしないでください。
-<img width="1326" height="1043" alt="InstanceIsReady" src="https://github.com/user-attachments/assets/c8b2d396-8d61-4edd-bcb2-af108f60066c" />
 
 ※ 重要: ログイン画面がループする問題の対処方法について
 インスタンスの準備が整った後、メールやブラウザーに表示されているリンクをクリックすると、ログイン画面が自動的に再表示される問題が確認されています。
 手順7から回避方法を実行します。
+<img width="1326" height="1043" alt="InstanceIsReady" src="https://github.com/user-attachments/assets/c8b2d396-8d61-4edd-bcb2-af108f60066c" />
 
 手順7: お使いのメール環境を確認し、IBM SaaS (service@saas.ibm.com) から届いた「Welcome to your IBM watsonx Orchestrate trial!」という件名のメールを開きます。メールの中にある[Access trial]のリンクのアドレスをコピーします。決して、リンクをクリックしないでください。
 
