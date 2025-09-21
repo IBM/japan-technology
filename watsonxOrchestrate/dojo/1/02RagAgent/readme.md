@@ -30,7 +30,41 @@
 8. 処理が終わると、[Knowledge source]の[Files]セクションに、Connectedの文字、File nameに2024-annual-report.pdf、Knowledge source descriptionに指定した'これは2024年のIBMの年次報告書です。財務情報とIBMのコア事業戦略を含んでいます。'の文字が見えます。
 <img width="1448" height="997" alt="25FileLoaded" src="https://github.com/user-attachments/assets/936d21c0-da3e-4b4e-8372-1c62a25846d0" />
 
+9. AIエージェントの[Preview]画面を利用して、アップロードした文書に関する質問を送信しましょう。
+* 入力内容: ```IBMの2024 年のフリー・キャッシュ・フローはいくらですか。```
+<img width="537" height="188" alt="27A6CashFlow" src="https://github.com/user-attachments/assets/44261725-02fd-4d57-b3a9-21403ced5e6e" />
 
+10. しばらく待つと、AIエージェントから「$12.7 billion」と回答が表示されます。
 
+<img width="537" height="188" alt="27A6CashFlow" src="https://github.com/user-attachments/assets/09afd159-dee1-41f1-bf30-a916f08e24f0" />
 
+11. 2024-annual-report.pdfを開いて、PDFファイルの3ページ目を開きます。(文書の中に表示されているページ数だと1ページ目です。）
+次の内容が確認できます。
+```
+2024 Performance
+For the year, IBM generated $62.8 billion in revenue, up 3%
+at constant currency, and $12.7 billion in free cash flow — an
+increase of $1.5 billion year-over-year.
+```
+
+12. [IBMInfo]の回答自国の右に表示されている[Show Reasoning v]をクリックします。
+
+<img width="531" height="463" alt="28A6Reasoning" src="https://github.com/user-attachments/assets/9345c974-0654-4bc6-9db7-07905a66a94a" />
+
+* Step 1に [Tool: knowledge_for_agent_IBMInfo] の文字が見えます。質問に対して、先ほど作成したKnowledgeをツールとして利用したことがわかります。
+
+13. IBMInfoに対して、別の質問を実行してみましょう。 
+* 入力内容: ```2024年に前年比でFree cash flowはどれだけ変化しましたか、単位を含めて、金額で答えてください。```
+* 上記手順11で確認した文章に含まれている内容についての質問です。
+
+<img width="540" height="278" alt="29QA7IncreasedFreeCashFlow" src="https://github.com/user-attachments/assets/c738f6dc-b8c8-4916-8ee3-c5621ed4b00d" />
+
+14. 違うページに含まれている情報について、質問してみましょう。
+* 入力内容: ```Management discussionに書かれている2024年のRevenueは、2023年と比べて何％成長しましたか。```
+
+<img width="537" height="220" alt="30QA8-RevenueYoY2024" src="https://github.com/user-attachments/assets/19b0450c-2b67-49e3-9c78-3c939f54838c" />
+
+15. 2024-annual-report.pdfを開いて、PDFの10ページ(文書の8ページ)を確認します。表にある[Revenue]の行を確認しましょう。
+
+<img width="653" height="492" alt="30-02-DocTable" src="https://github.com/user-attachments/assets/29d18bcd-7f4d-471f-ae08-cffacc26f374" />
 
