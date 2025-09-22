@@ -68,18 +68,22 @@ increase of $1.5 billion year-over-year.
 
 <img width="653" height="492" alt="30-02-DocTable" src="https://github.com/user-attachments/assets/29d18bcd-7f4d-471f-ae08-cffacc26f374" />
 
+16. 作成したIBMInfoエージェントをデプロイします。右上の[Deploy]をクリックします。
 <img width="1150" height="997" alt="31Deploy01" src="https://github.com/user-attachments/assets/91cbafb4-d134-4dae-90ef-f08729d10b6b" />
 
+17. [Predeployment Summary]の画面が表示されるので、右下にある青色の[Deploy]をクリックします。
 <img width="1106" height="953" alt="32Deploy02" src="https://github.com/user-attachments/assets/93013a0a-4a0c-480a-92ac-445258edba8c" />
 
+18. しばらく待つと、画面右上に[Success]と表示されます。作成したAIエージェントが利用できます。
 <img width="1150" height="997" alt="33Deployed" src="https://github.com/user-attachments/assets/f2b41f20-aaf4-4aab-b5e5-d745bd212875" />
 
-
+19. 左上のメニューから[Chat]をクリックします。
 <img width="249" height="193" alt="34ChatMenu" src="https://github.com/user-attachments/assets/da98cedc-6c40-4b5c-a08c-8b8635dae80c" />
 
-
+20. AIエージェント、[IBMInfo]を選択します。
 <img width="307" height="277" alt="35ChooseAgent" src="https://github.com/user-attachments/assets/f9113463-e802-4218-89c4-7b62717342d1" />
 
+21.
 <img width="1150" height="997" alt="36Q9FreecashFlow" src="https://github.com/user-attachments/assets/9c82b31b-e764-4adc-93a9-84f45605cef9" />
 
 <img width="1032" height="328" alt="37A9FreecashFlow" src="https://github.com/user-attachments/assets/9a523eba-6e3e-434e-8566-3d0fe385ccaa" />
