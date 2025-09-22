@@ -1,4 +1,5 @@
 # watsonx Orchestrate AI エージェント体験 Part 1
+最終更新日: 2025/9/22
 この演習は、IBMについて回答するAIエージェント 'IBMInfo' を作成します。AIエージェントの入り口を体験しましょう。
 
 * Profileの設定
@@ -103,5 +104,7 @@ URL:
 18. AIエージェントが英語で回答することを確認します。AIエージェントは、手順15で指定した「日本語の質問には日本語で、英語の質問には英語で回答してください」という振る舞いに従っています。
 
 <img width="383" height="301" alt="18A5IBMis" src="https://github.com/user-attachments/assets/7622e93f-34a9-4d12-aa76-16289e88018f" />
+
+Part 1はここまでです。[Part 2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/readme.md)に進みましょう。
 
 
