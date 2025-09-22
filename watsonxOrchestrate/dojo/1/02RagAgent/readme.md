@@ -32,7 +32,8 @@
 
 9. AIエージェントの[Preview]画面を利用して、アップロードした文書に関する質問を送信しましょう。
 * 入力内容: ```IBMの2024 年のフリー・キャッシュ・フローはいくらですか。```
-<img width="537" height="188" alt="27A6CashFlow" src="https://github.com/user-attachments/assets/44261725-02fd-4d57-b3a9-21403ced5e6e" />
+<img width="549" height="66" alt="26Q6CashFlow" src="https://github.com/user-attachments/assets/d48af3b8-fa10-4bac-b6f2-796b6874c5e3" />
+
 
 10. しばらく待つと、AIエージェントから「$12.7 billion」と回答が表示されます。
 
