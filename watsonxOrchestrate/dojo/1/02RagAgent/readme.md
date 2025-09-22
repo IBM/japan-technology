@@ -67,7 +67,9 @@ increase of $1.5 billion year-over-year.
 
 15. 2024-annual-report.pdfを開いて、PDFの10ページ(文書の8ページ)を確認します。表にある[Revenue]の行を確認しましょう。
 
+* 情報ソース: [2024 IBM Annual Report](https://www.ibm.com/downloads/documents/us-en/1227c12d3a38b173)
 <img width="653" height="492" alt="30-02-DocTable" src="https://github.com/user-attachments/assets/29d18bcd-7f4d-471f-ae08-cffacc26f374" />
+
 
 16. 作成したIBMInfoエージェントをデプロイします。右上の[Deploy]をクリックします。
 <img width="1150" height="997" alt="31Deploy01" src="https://github.com/user-attachments/assets/91cbafb4-d134-4dae-90ef-f08729d10b6b" />
