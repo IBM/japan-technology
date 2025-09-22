@@ -47,7 +47,7 @@ at constant currency, and $12.7 billion in free cash flow — an
 increase of $1.5 billion year-over-year.
 ```
 
-12. [IBMInfo]の回答自国の右に表示されている[Show Reasoning v]をクリックします。
+12. [IBMInfo]の回答時刻の右側に表示されている[Show Reasoning v]をクリックします。
 
 <img width="531" height="463" alt="28A6Reasoning" src="https://github.com/user-attachments/assets/9345c974-0654-4bc6-9db7-07905a66a94a" />
 
