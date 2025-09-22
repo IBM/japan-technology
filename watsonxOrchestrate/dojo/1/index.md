@@ -1,5 +1,7 @@
 # AI Agent Dojo #1
 
+最終更新日: 2025/9/22
+
 第1回目は、企業の生産性を高める生成AIエージェント watsonx Orchestrateの環境を構築し、 IBMについての情報に回答するAIエージェントを作り、IBMの2024年の財務情報を知識として登録し、その知識をツールを呼び出す方法について、ハンズオンを通じて体験します。
 
 ## ゴール:
@@ -9,7 +11,7 @@
 * AIエージェントをデプロイして、チャットなどから利用できるようにします。
 
 ## [watsonx Orchestrate 環境の準備](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
-watsonx Orchestrateの環境を準備します。
+watsonx Orchestrateの環境を準備します。準備が整っている方は、次のPart 1へ進んでください。
 
 ## [watsonx Orchestrate AI エージェント体験 Part 1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/01HelloAgent/readme.md)
 
