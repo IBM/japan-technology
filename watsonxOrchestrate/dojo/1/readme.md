@@ -7,7 +7,7 @@ watsonx Orchestrateの環境をお持ちでない場合、次の方法の何れ�
 * [IBM Technology Zoneを使った環境の作成 (IBM社員並びにIBM Partner Plus登録済みのパートナー様限定）](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-technology-zone%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90)
 * [IBM Cloudアカウントを使い、環境の作成（すでにIBM Cloudをお使いのお客様、パートナー様）](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-cloud%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%BF%E3%81%84%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%99%E3%81%A7%E3%81%ABibm-cloud%E3%82%92%E3%81%8A%E4%BD%BF%E3%81%84%E3%81%AE%E3%81%8A%E5%AE%A2%E6%A7%98%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC%E6%A7%98)
 
-準備ができている方は、AI Agent Dojoの本編に進んでください。
+準備ができている方は、AI Agent DojoのPart 1に進んでください。
 
 * [AI Agent Dojo #1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/index.md#watsonx-orchestrate-ai-%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E4%BD%93%E9%A8%93-part-1)
 
