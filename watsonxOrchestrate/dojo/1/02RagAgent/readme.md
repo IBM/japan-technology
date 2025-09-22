@@ -71,7 +71,7 @@ increase of $1.5 billion year-over-year.
 16. 作成したIBMInfoエージェントをデプロイします。右上の[Deploy]をクリックします。
 <img width="1150" height="997" alt="31Deploy01" src="https://github.com/user-attachments/assets/91cbafb4-d134-4dae-90ef-f08729d10b6b" />
 
-17. [Predeployment Summary]の画面が表示されるので、右下にある青色の[Deploy]をクリックします。
+17. [Pre-deployment Summary]の画面が表示されるので、右下にある青色の[Deploy]をクリックします。
 <img width="1106" height="953" alt="32Deploy02" src="https://github.com/user-attachments/assets/93013a0a-4a0c-480a-92ac-445258edba8c" />
 
 18. しばらく待つと、画面右上に[Success]と表示されます。作成したAIエージェントが利用できます。
@@ -91,6 +91,7 @@ increase of $1.5 billion year-over-year.
 22. AIエージェントが回答するのを確認します。
 <img width="1032" height="328" alt="37A9FreecashFlow" src="https://github.com/user-attachments/assets/9a523eba-6e3e-434e-8566-3d0fe385ccaa" />
 
+23. 👍をクリックして、フィードバックを送信します。
 <img width="1150" height="997" alt="38Feedback-Concise" src="https://github.com/user-attachments/assets/0addaf1c-f580-49e9-866f-b0a6b3379c2d" />
 
 
