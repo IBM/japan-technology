@@ -83,9 +83,12 @@ increase of $1.5 billion year-over-year.
 20. AIエージェント、[IBMInfo]を選択します。
 <img width="307" height="277" alt="35ChooseAgent" src="https://github.com/user-attachments/assets/f9113463-e802-4218-89c4-7b62717342d1" />
 
-21.
+21.IBMInfoに次の質問を送信します。
+* 入力内容: ```IBMの2024 年のフリー・キャッシュ・フローはいくらですか。```
+  
 <img width="1150" height="997" alt="36Q9FreecashFlow" src="https://github.com/user-attachments/assets/9c82b31b-e764-4adc-93a9-84f45605cef9" />
 
+22. AIエージェントが回答するのを確認します。
 <img width="1032" height="328" alt="37A9FreecashFlow" src="https://github.com/user-attachments/assets/9a523eba-6e3e-434e-8566-3d0fe385ccaa" />
 
 <img width="1150" height="997" alt="38Feedback-Concise" src="https://github.com/user-attachments/assets/0addaf1c-f580-49e9-866f-b0a6b3379c2d" />
