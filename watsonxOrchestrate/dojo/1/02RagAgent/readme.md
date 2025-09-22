@@ -97,6 +97,30 @@ increase of $1.5 billion year-over-year.
 23. 👍をクリックして、フィードバックを送信します。
 <img width="1150" height="997" alt="38Feedback-Concise" src="https://github.com/user-attachments/assets/0addaf1c-f580-49e9-866f-b0a6b3379c2d" />
 
+* このフィードバックは、IBM watsonx Orchestrateの管理画面からは確認できません。
+* [Get messages to a specific thread](https://developer.ibm.com/apis/catalog/watsonorchestrate--custom-assistants/api/API--watsonorchestrate--agentic-experience#Get_Message_by_ID_v1_threads__thread_id__messages__message_id__get) APIを利用すると、message_stateオブジェクト内に feedbackオブジェクトの形式で保存されています。
 
+## オプション演習
+IBMInfoエージェントの動作をトレースすることができますので、試してみましょう。
 
+24. 画面左上のメニューから[Build]-[Agent Builder]をクリックします。
+
+<img width="1292" height="912" alt="41AgentBuilder" src="https://github.com/user-attachments/assets/a4426925-7f84-48f7-9ea2-3329bc388732" />
+
+25. 
+<img width="1292" height="912" alt="42AgentAnalytics" src="https://github.com/user-attachments/assets/abee3661-67ae-4c24-9d96-0c9200081017" />
+
+<img width="1292" height="912" alt="43AgentViewall" src="https://github.com/user-attachments/assets/32d1b356-dbe8-4d1c-8058-43ae2eadcc87" />
+
+<img width="1292" height="912" alt="44IBMInfo-Analytics" src="https://github.com/user-attachments/assets/95c558de-a940-4ce9-8377-436fc8d88b88" />
+
+<img width="1292" height="912" alt="45Trace" src="https://github.com/user-attachments/assets/70f140f9-c884-4ea7-abfa-00234516e8af" />
+
+<img width="1292" height="912" alt="46wxoServer" src="https://github.com/user-attachments/assets/61f08a13-d9ab-47ea-8303-05747800898f" />
+
+<img width="1292" height="912" alt="47wxoServer-Tags" src="https://github.com/user-attachments/assets/a278fbc3-3f98-413d-809a-fa0435669faa" />
+
+<img width="1292" height="912" alt="48LangGraph-part1" src="https://github.com/user-attachments/assets/41824dec-f144-42d8-b128-fc1915239f27" />
+
+<img width="1292" height="912" alt="49LangGraph-part2" src="https://github.com/user-attachments/assets/015d2544-9800-42b1-9827-fa8dd1787f4e" />
 
