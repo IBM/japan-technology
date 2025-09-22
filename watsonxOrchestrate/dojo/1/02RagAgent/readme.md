@@ -101,26 +101,34 @@ increase of $1.5 billion year-over-year.
 * [Get messages to a specific thread](https://developer.ibm.com/apis/catalog/watsonorchestrate--custom-assistants/api/API--watsonorchestrate--agentic-experience#Get_Message_by_ID_v1_threads__thread_id__messages__message_id__get) APIを利用すると、message_stateオブジェクト内に feedbackオブジェクトの形式で保存されています。
 
 ## オプション演習
-IBMInfoエージェントの動作をトレースすることができますので、試してみましょう。
+IBMInfoエージェントの動作をトレースすることができますので、試してみましょう。この演習では、LangGraphのワークフローが確認できます。
+* 参考: [LangGraph](https://www.langchain.com/langgraph) 大規模言語モデル、基盤モデルを活用したAIアプリケーションのワークフローを作成・管理するためのフレームワーク
 
-24. 画面左上のメニューから[Build]-[Agent Builder]をクリックします。
+24. 画面左上のメニューから[Build]-[Agent Builder]をクリックします。[View all →]をクリックします。
 
 <img width="1292" height="912" alt="41AgentBuilder" src="https://github.com/user-attachments/assets/a4426925-7f84-48f7-9ea2-3329bc388732" />
 
-25. 
+25. 初回は、[Agent Analytics]の画面が表示されるので、[Close]または[x]をクリックして閉じます。
 <img width="1292" height="912" alt="42AgentAnalytics" src="https://github.com/user-attachments/assets/abee3661-67ae-4c24-9d96-0c9200081017" />
 
+26. [Agents]リストに表示されている[IBMInfo]をクリックします。複数ある場合は、それぞれ開いてみて、[Traces]のTimestampが現在時刻に近いものを探します。
 <img width="1292" height="912" alt="43AgentViewall" src="https://github.com/user-attachments/assets/32d1b356-dbe8-4d1c-8058-43ae2eadcc87" />
 
+27. [Traces]リストに表示されている、直近の実行結果をクリックします。
 <img width="1292" height="912" alt="44IBMInfo-Analytics" src="https://github.com/user-attachments/assets/95c558de-a940-4ce9-8377-436fc8d88b88" />
 
+28. [Trace Detail]が表示されます。こちらはPublic Previewの機能で、AIエージェントの動作履歴を確認できます。
 <img width="1292" height="912" alt="45Trace" src="https://github.com/user-attachments/assets/70f140f9-c884-4ea7-abfa-00234516e8af" />
 
+29. [Service & Operation]のすぐ下にある[wxo-server LangGraph.workflow]と表示されている右側にある、青い太線をクリックします。
 <img width="1292" height="912" alt="46wxoServer" src="https://github.com/user-attachments/assets/61f08a13-d9ab-47ea-8303-05747800898f" />
 
+30. タイムライン上に、[LangGraph.workflow]が展開されます。続けて、[Tags]をクリックします。[LangGraph.workflow]の[Tags]セクションが展開されます。
 <img width="1292" height="912" alt="47wxoServer-Tags" src="https://github.com/user-attachments/assets/a278fbc3-3f98-413d-809a-fa0435669faa" />
 
+31. スクロールバーを使って、下の方へ読み進めます。入力した質問が見つかります。
 <img width="1292" height="912" alt="48LangGraph-part1" src="https://github.com/user-attachments/assets/41824dec-f144-42d8-b128-fc1915239f27" />
 
+32. さらに下の方へ読み進めます。[tool_calls:]という文字が見えます。[function:]の中に[knowledge_for_agent_IBMInfo_]で始まる[name]が見つかります。これは、この演習で作成した[Knowledge]をツールとして呼び出したことを示しています。
 <img width="1292" height="912" alt="49LangGraph-part2" src="https://github.com/user-attachments/assets/015d2544-9800-42b1-9827-fa8dd1787f4e" />
 
