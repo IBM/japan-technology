@@ -10,7 +10,7 @@
 
 * もし生成結果が止まらない場合、AIエージェントのPreview画面にある リセット<img width="31" height="33" alt="Preview-Reset" src="https://github.com/user-attachments/assets/e838f4b9-767b-4120-9396-0f8f631d6f06" />をクリックしてください。
 
-
+## ハンズオン
 
 1. watsonx Orchestrateを開きます。
 
