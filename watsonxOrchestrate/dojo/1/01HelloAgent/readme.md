@@ -1,5 +1,5 @@
 # watsonx Orchestrate AI エージェント体験 Part 1
-最終更新日: 2025/9/22
+最終更新日: 2025/9/24
 この演習は、IBMについて回答するAIエージェント 'IBMInfo' を作成します。AIエージェントの入り口を体験しましょう。
 
 * Profileの設定
@@ -8,7 +8,7 @@
 1. watsonx Orchestrateを開きます。
 
 URL:
-* 無償評価版: https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
 * TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
 * お使いの環境に合わせてwatsonx Orchestrateを開いてください。  
 
