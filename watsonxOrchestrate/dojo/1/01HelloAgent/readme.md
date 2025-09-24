@@ -65,6 +65,8 @@ URL:
 
 11. しばらく待つと、回答が表示されます。どちらの場合も、AIエージェントは外部のツールが必要であることを説明しますが、適切なツールは指定されていないため、正しい情報は表示されません。
 
+* もし生成結果が止まらない場合、AIエージェントのPreview画面にある リセット<img width="31" height="33" alt="Preview-Reset" src="https://github.com/user-attachments/assets/e838f4b9-767b-4120-9396-0f8f631d6f06" />をクリックしてください。リセットした後は、手順12と手順13は実行せず、手順14に進んでください。
+
 * 生成例1:
 
 <img width="391" height="277" alt="11A2StockPrice" src="https://github.com/user-attachments/assets/224a5fd4-b6c4-4c0b-8219-641e5e5089ae" />
