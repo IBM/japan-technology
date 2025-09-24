@@ -1,6 +1,6 @@
 # watsonx Orchestrate 環境の準備
 
-最終更新日: 2025/9/22
+最終更新日: 2025/9/24
 
 watsonx Orchestrateの環境をお持ちでない場合、次の方法の何れかを用いて、準備します。
 * [30日無償評価版の登録](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#30%E6%97%A5%E7%84%A1%E5%84%9F%E8%A9%95%E4%BE%A1%E7%89%88%E3%81%AE%E7%99%BB%E9%8C%B2)
@@ -113,6 +113,7 @@ https://techzone.ibm.com/my/reservations/create/6810e845d4c668424c04f121
 * Purpose: [Education]
 * Purpose description: To do AI Agent workshop
 * Prefered Geography: [any - AP - jp-tok region -any datacenter]
+* ご注意: Preferred Geographyを jp-tok としても、us-south にデプロイされます。
 
 <img width="1060" height="976" alt="FilloutReservation" src="https://github.com/user-attachments/assets/220afad1-b7a5-4a44-9afb-3c99b3956291" />
 
