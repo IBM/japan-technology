@@ -1,4 +1,5 @@
 # watsonx Orchestrate AI エージェント体験 Part 2
+最終更新日: 2025/9/29
 この演習は、IBMについて回答するAIエージェント 'IBMInfo' にRAGの手法で知識を追加します。Part 1が終わっている状態からスタートしますので、ご注意ください。
 
 * Knowledgeの追加
@@ -9,7 +10,7 @@
 2. [Choose knowledge source]の画面で、[Upload files]を選択し、[Next]をクリックします。
 <img width="1110" height="1024" alt="20UploadFile" src="https://github.com/user-attachments/assets/80757589-5310-4236-a1e2-2fe2266fd41f" />
 
-3. こちらの[リンク](https://ibm.github.io/ba-handson-jp/wxoagent/files/2024-annual-report.pdf)を利用し、ローカル・コンピューターに2024-annual-report.pdfファイルをダウンロードします。
+3. こちらの[リンク](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/2024-annual-report.pdf)を利用し、ローカル・コンピューターに2024-annual-report.pdfファイルをダウンロードします。
 
 4. 青色で表示されている[Drag and drop files here or click to upload]のところへ、ダウンロードしたファイルをドラッグ＆ドロップする、あるいは、リンクをクリックして2024-annual-report.pdfファイルをアップロードします。
 <img width="1110" height="1024" alt="21FilePicker" src="https://github.com/user-attachments/assets/cfddbd4d-64e4-4cc5-8fd1-7e8b7f4330d6" />
