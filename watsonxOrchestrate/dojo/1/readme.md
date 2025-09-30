@@ -143,7 +143,7 @@ IBM Technology Zoneの環境が準備できたことを通知するメールと�
 ## IBM Cloudアカウントを使い、環境の作成（すでにIBM Cloudをお使いのお客様、パートナー様）
 次のガイドを参考に環境を整えてください。
 
-https://github.com/IBM/japan-technology/tree/main/onboarding-docs/watsonx-orchestrate
+https://ibm.github.io/japan-technology/onboarding-docs/watsonx-orchestrate/
 
 
 
