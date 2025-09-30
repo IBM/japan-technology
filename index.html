@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM Japan Technology Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f4f4;
+            color: #161616;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .description {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #525252;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 64px;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+        }
+
+        .card {
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.1s ease;
+        }
+
+        .card:hover {
+            border-color: #0f62fe;
+            cursor: pointer;
+        }
+
+        .card:focus {
+            outline: 2px solid #0f62fe;
+            outline-offset: 2px;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            color: #161616;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #525252;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 16px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            color: #525252;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IBM Japan Technology Site</h1>
+            <p class="description">このページに掲載していたコンテンツをリニューアルしました。ぜひご活用ください。</p>
+        </header>
+
+        <main>
+            <div class="card-grid">
+                <a href="./onboarding-docs/" class="card">
+                    <h2>オンボーディングドキュメント</h2>
+                    <p>製品を使い始めるまでの手順をまとめたドキュメントです。</p>
+                </a>
+
+                <a href="./developer-learning-path/" class="card">
+                    <h2>IBM Developer Learning Paths</h2>
+                    <p>従来このページに掲載していたページです。</p>
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 IBM Japan. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

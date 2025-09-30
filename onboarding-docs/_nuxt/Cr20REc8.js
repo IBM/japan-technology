@@ -1,0 +1,1 @@
+import{_ as r,c as s,o,r as t}from"#entry";const a={},c={class:"list-disc ps-6 my-5 marker:text-cool-gray-600 dark:marker:text-cool-gray-500 radius-none"};function n(e,l){return o(),s("ul",c,[t(e.$slots,"default")])}const d=Object.assign(r(a,[["render",n]]),{__name:"ProseUl"});export{d as default};

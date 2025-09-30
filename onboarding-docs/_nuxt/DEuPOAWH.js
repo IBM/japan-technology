@@ -1,0 +1,1 @@
+import{_ as o,c as r,o as s,r as a}from"#entry";const c={},d={class:"bg-white dark:bg-cool-gray-950 divide-y divide-cool-gray-300 dark:divide-cool-gray-700 radius-none"};function t(e,n){return s(),r("tbody",d,[a(e.$slots,"default")])}const _=Object.assign(o(c,[["render",t]]),{__name:"ProseTbody"});export{_ as default};
