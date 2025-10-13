@@ -45,7 +45,8 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="1178" height="1042" alt="05NameAndDescription" src="https://github.com/user-attachments/assets/9aa5fef7-af4a-44fa-b049-927aaef5795b" />
 
 7. 
-<img width="1178" height="1042" alt="06AddInput" src="https://github.com/user-attachments/assets/a9e117ea-cb61-4f97-856c-e0b9dfb98fda" />
+<img width="1256" height="1042" alt="07AddInput-String" src="https://github.com/user-attachments/assets/6073e129-4ca3-4f77-8c14-604dd690b125" />
+
 
 8.
 <img width="196" height="262" alt="07AddInput-String" src="https://github.com/user-attachments/assets/933bd6be-152a-4532-8be5-0521e6b19820" />
