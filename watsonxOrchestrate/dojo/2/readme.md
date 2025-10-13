@@ -12,3 +12,6 @@ Open Meteoが提供している気象情報APIを用いて、地名（経度、�
 ### 注意事項並びに免責事項
 * IBM watsonx OrchestrateはSaaS製品であり、定期的に更新が発生します。ハンズオンの説明資料にある画面のスクリーンショットが実際と異なる場合があります。
 * AIエージェントは、基盤モデルとツールやワークフローを組み合わせて、回答を生成します。AIエージェント内の推論結果によって回答内容の表現がハンズオンの資料と異なる場合があります。
+* このハンズオンは、watsonx Orchestrateのハンズオン資料をベースに、評価版でも動作することを確認し、英語UIで実行した内容を説明しています。
+* [ツールを定義して呼び出してみよう](https://ibm.github.io/ba-handson-jp/wxoagent/tool/)
+* [フローを実装してみよう！](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)
