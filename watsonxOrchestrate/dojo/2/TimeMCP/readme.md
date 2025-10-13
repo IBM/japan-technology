@@ -3,6 +3,7 @@
 * MCP (Model Context Protocol) は、エージェントがMCPサーバーを通じて外部ツールやデータソースと安全かつ柔軟にやり取りできるようにするための標準規格です。
 * このハンズオンでは、Node.js (TypeScript)で作成され公開されている[time-mcp](https://github.com/yokingma/time-mcp/tree/main)をAIエージェントに繋げます。
 * [WeatherInfoエージェント](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が出来上がっている状態から出発しています。
+* このコンテンツは、[Business Automation Handsonコンテンツ](https://ibm.github.io/ba-handson-jp/wxoagent/tool/#optionmcp)の内容を、最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 
 1. Toolset項目を選択し、[Add tool+]をクリックします。
 
