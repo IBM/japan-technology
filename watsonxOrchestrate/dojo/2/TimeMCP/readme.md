@@ -1,4 +1,4 @@
-# AIエージェントにツールとして、MCPサーバーを追加する
+# 2. AIエージェントにツールとして、MCPサーバーを追加する
 
 * MCP (Model Context Protocol) は、エージェントがMCPサーバーを通じて外部ツールやデータソースと安全かつ柔軟にやり取りできるようにするための標準規格です。
 * このハンズオンでは、Node.js (TypeScript)で作成され公開されている[time-mcp](https://github.com/yokingma/time-mcp/tree/main)をAIエージェントに繋げます。
