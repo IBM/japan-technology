@@ -44,78 +44,81 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 * Description: ```特定の都市の天気情報を取得する```
 <img width="1178" height="1042" alt="05NameAndDescription" src="https://github.com/user-attachments/assets/9aa5fef7-af4a-44fa-b049-927aaef5795b" />
 
-7. 
+6. 入力(input)項目に何もないことを確認します。
+<img width="874" height="384" alt="06AddInput" src="https://github.com/user-attachments/assets/721b5f97-d5f5-4a52-ab16-753371614a46" />
+
+7. WeatherFlowに入力(input)項目を追加します。[Add input+]をクリックし、[String]を選択します。
 <img width="1256" height="1042" alt="07AddInput-String" src="https://github.com/user-attachments/assets/6073e129-4ca3-4f77-8c14-604dd690b125" />
 
-
-8.
-<img width="196" height="262" alt="07AddInput-String" src="https://github.com/user-attachments/assets/933bd6be-152a-4532-8be5-0521e6b19820" />
-
-
-9.
-<img width="646" height="509" alt="08String-Parameters" src="https://github.com/user-attachments/assets/149ec253-bc5a-42ab-b504-5f00451fd914" />
-
-10.
-<img width="1178" height="1042" alt="09List-Input" src="https://github.com/user-attachments/assets/1135b829-dbad-4e4b-ae28-18f7014249de" />
+8. [Add string input]にName,　Description, Required を設定し、[Add]をクリックします。
+* Name: ```city_name```
+* Description: ```都市名```
+* Required: ```On```
+<img width="646" height="509" alt="08String-Parameters" src="https://github.com/user-attachments/assets/1a20bb93-2686-4c61-ba0e-c987494cf1ee" />
 
 
-11.
+9. Inputs(1) と表示が変わり、手順8で設定したパラメーターが一覧表示されていることを確認します。
+<img width="886" height="242" alt="09List-Input" src="https://github.com/user-attachments/assets/ea94f47d-ccfd-417c-b862-7cff19b79994" />
+
+
+10. 次に出力(Output)項目を追加します。[Add output+]をクリックし、[String]を選択します。
 <img width="187" height="266" alt="10AddOutput-String" src="https://github.com/user-attachments/assets/5be7ae65-b246-4936-bed9-6c9fec239573" />
 
-12.
+11. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
+* Name: ```temp```
+* Description: ```都市の気温```
+
 <img width="646" height="394" alt="11String-Parameters" src="https://github.com/user-attachments/assets/771bb249-80c4-43bb-ba37-b96937986861" />
 
-13.
-<img width="1178" height="1042" alt="12Input-Output" src="https://github.com/user-attachments/assets/af8213b5-fa68-456b-94d4-6f3cec3a464c" />
+12. 入力項目と出力項目を確認したら、[Save]をクリックします。
+<img width="1256" height="1042" alt="12Inputs-Outputs" src="https://github.com/user-attachments/assets/0136a20d-61bd-45ff-b338-5e72d77b021e" />
 
-14.
+
+13. WeatherFlowの全体像を確認します。この時点では入力と出力の間に何も処理がありません。
 <img width="1178" height="1042" alt="13Flow-overview" src="https://github.com/user-attachments/assets/7e84a8d9-9a75-4c99-ab28-10478b8b6ae0" />
 
-15.
-<img width="38" height="35" alt="14Add-Tools" src="https://github.com/user-attachments/assets/b65b7d4d-4078-4ab3-922d-b143a2ba7332" />
+14. Add Tools <img width="38" height="35" alt="14Add-Tools" src="https://github.com/user-attachments/assets/f29069e2-fdcc-472c-9e7a-b00cd8fe33c4" /> のアイコンをクリックします。
 
-16.
+
+15. [Tools]タブを選択し、検索用テキストボックスに「weather」と入力します。[current weather for coordinate...]が見つかります。
 <img width="526" height="213" alt="15Find-WeatherTool" src="https://github.com/user-attachments/assets/864b80e8-9067-4c14-8d2a-a611a3216038" />
 
-17.
-<img width="600" height="240" alt="16-1-Tool" src="https://github.com/user-attachments/assets/b5050724-9454-4047-bbba-9e72ac850aa8" />
-
+16. [Tools]タブに表示されている[current weather for coordinate...]ツールをドラッグして、InputsとOutputsの間の青い矢印にドロップします。
 <img width="959" height="700" alt="16DragTool" src="https://github.com/user-attachments/assets/0b621999-6b4f-4953-935b-e1ec989360d7" />
 
-17.
+17. InputsとOutputsの間に[current weather for coordinate]ツールが追加されました。
 <img width="1178" height="1042" alt="17FlowWithTool" src="https://github.com/user-attachments/assets/44de9c1e-b3cb-4e7a-910e-62cbc03d130c" />
 
-18.
+18. 追加されたツールを選択し、表示されたウィンドウ内にある[Edit data mapping]をクリックします。
 <img width="707" height="435" alt="18StartEditDatamapping" src="https://github.com/user-attachments/assets/78e09adf-92ea-46f9-b5f2-2a0ee558f806" />
 
-19.
+19. 表示内容を確認します。
 <img width="527" height="452" alt="19Edit1stStage" src="https://github.com/user-attachments/assets/b930e417-7b2f-4570-b628-1c6688db6305" />
 
-20.
+20.　[Auto-map x]と削除用の[x]が見えるように、ブラウザーの横幅を大きくします。
 <img width="1222" height="1042" alt="20Edit-ChangePageWidth" src="https://github.com/user-attachments/assets/5f0761a9-21a9-4005-904d-b3b4f1573155" />
 
-21.
-<img width="120" height="33" alt="21Automap-delete" src="https://github.com/user-attachments/assets/b33d2ffc-8905-4103-8daf-30d783708a7a" />
+21.　[current_weather]の行にある<img width="120" height="33" alt="21Automap-delete" src="https://github.com/user-attachments/assets/b33d2ffc-8905-4103-8daf-30d783708a7a" />の[x]をクリックします。
 
-22.
+22. [current_weather]の行にあるAuto-mapが削除されました。
 <img width="546" height="454" alt="22Automap-deleted" src="https://github.com/user-attachments/assets/bfae1d0f-e8b2-44c3-98f4-d57b16d0b7b1" />
 
 
-23.
+23. [Enter a value]をクリックします。[current_weather]の行にあるトグル・スイッチがOffになります。
 <img width="540" height="442" alt="23Off" src="https://github.com/user-attachments/assets/3791567a-de9e-435a-99e7-9e32bd1e648b" />
 
-24.
+24. Offになっているトグル・スイッチをクリックして、Onにします。
 
 <img width="544" height="441" alt="24On" src="https://github.com/user-attachments/assets/99ba7608-e819-4fd6-8f03-7363ae05c569" />
 
-25.
+25. Map data for 'current weather for coordinates' のウィンドウの右上にある[x]をクリックして閉じます。
 
 <img width="537" height="88" alt="25Close" src="https://github.com/user-attachments/assets/5943e13f-434c-411b-be3b-9dc2e053f0cf" />
 
-26.
+26. WeatherFlowの右上にある[Done]をクリックして、ワークフローの編集を完了します。
 <img width="1222" height="1042" alt="26Done" src="https://github.com/user-attachments/assets/2458b022-1150-412d-8248-a6edb284f955" />
 
-27.
+27. [Build agents and tools]の画面から、[WeatherInfo]エージェントを開きます。
 <img width="1222" height="1042" alt="27WeatherInfo" src="https://github.com/user-attachments/assets/0b14fe54-cef6-4e6f-a3ff-466fce1b8eb2" />
 
 28.
