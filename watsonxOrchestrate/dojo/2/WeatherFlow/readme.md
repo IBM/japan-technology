@@ -80,7 +80,7 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 14. Add Tools <img width="38" height="35" alt="14Add-Tools" src="https://github.com/user-attachments/assets/f29069e2-fdcc-472c-9e7a-b00cd8fe33c4" /> のアイコンをクリックします。
 
 
-15. [Tools]タブを選択し、検索用テキストボックスに「weather」と入力します。[current weather for coordinate...]が見つかります。
+15. [Tools]タブを選択し、検索用テキストボックスに「```weather```」と入力します。[current weather for coordinate...]が見つかります。
 <img width="526" height="213" alt="15Find-WeatherTool" src="https://github.com/user-attachments/assets/864b80e8-9067-4c14-8d2a-a611a3216038" />
 
 16. [Tools]タブに表示されている[current weather for coordinate...]ツールをドラッグして、InputsとOutputsの間の青い矢印にドロップします。
@@ -121,40 +121,43 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 27. [Build agents and tools]の画面から、[WeatherInfo]エージェントを開きます。
 <img width="1222" height="1042" alt="27WeatherInfo" src="https://github.com/user-attachments/assets/0b14fe54-cef6-4e6f-a3ff-466fce1b8eb2" />
 
-28.
+28. Toolset項目を選択し、[Add tool+]をクリックします。
 <img width="1222" height="1042" alt="28AddTool" src="https://github.com/user-attachments/assets/2166378f-d207-47ed-996c-58b213215e9f" />
 
-29.
+29. [Add a new tool]から[Add from local instance]をクリックします。
 <img width="1222" height="1042" alt="29AddFromLocalInstance" src="https://github.com/user-attachments/assets/46e8e281-7a07-4120-86fb-b4deb7d59e12" />
 
-30.
+30. [Add tools to WeatherInfo]の検索テキスト・ボックスに「```weather```]と入力します。先ほど作成したWeatherFlowが表示されます。
 
 <img width="1222" height="1042" alt="30FindWeather" src="https://github.com/user-attachments/assets/e7f1b8c9-f8f9-4943-97fe-8e171496f257" />
 
-31.
+31. [WeatherFlow]の左にある☑️を有効にして、[Add to agent]をクリックします。
 <img width="1222" height="1042" alt="31AddtoAgent" src="https://github.com/user-attachments/assets/6b25db7f-7212-4a02-b825-506d028c98dc" />
 
-32.
+32. Toolset項目に戻り、[Tools]に表示されている[current weather for coordinates]ツールを削除します。このツールは、WeatherFlowの中で呼び出されるので、WeatherInfoエージェントとの関連付けは不要です。
 <img width="1222" height="1042" alt="32RemoveCurrentWeatherTool" src="https://github.com/user-attachments/assets/87721cbd-611d-4694-9add-6f19a1ffb585" />
 
-33.
+33. Preview欄をリセットして、AIエージェントに「```東京の気温は？```」と質問します。処理は非同期に実施され、応答を待っている間は追加の入力ができませんので、ご注意ください。
 
 <img width="1222" height="1042" alt="33RunWeatherFlow" src="https://github.com/user-attachments/assets/16a8f3b1-cdf0-4f8b-b323-05dde9274555" />
 
-34.
+34. しばらく待っていると、AIエージェントから回答があります。
 <img width="1222" height="1042" alt="34ResponseFromTheFlow" src="https://github.com/user-attachments/assets/5a64bb6b-5a61-4a09-b28c-2e4d966bdaf7" />
 
-35.
+35. 基本的な動作が確認できたので、ワークフローを変更し、東京以外の都市が指定された場合には、気温を華氏表記に変えましょう。
+[Tools]に表示されている[WeatherFlow]の右側にある３点リーダーを選択し、[Edit details]をクリックします。
 <img width="406" height="401" alt="35EditDetails" src="https://github.com/user-attachments/assets/8203df22-bd0f-45b4-bd7d-3825aca6c70e" />
 
-36.
+36. 出力(output)項目を追加するために、[Add output+]をクリックし、[String]を選びます。
 <img width="196" height="267" alt="36AddOutput-String" src="https://github.com/user-attachments/assets/89723091-9768-463d-bbc1-2e0e7e3fbf32" />
 
-37.
+37. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
+* Name: ```temp_unit```
+* Description: ```tempが摂氏か華氏かを示す```
 
 <img width="646" height="394" alt="37String-Parameters" src="https://github.com/user-attachments/assets/182e0997-eeaa-4aeb-8d1e-c9c947e0fb5e" />
 
-38.
+38. WeatherFlowのInputs(1)、Outputs(2)を確認したら、[Save]をクリックします。
 <img width="1222" height="1042" alt="38SaveState" src="https://github.com/user-attachments/assets/63a2aae9-7e43-4320-b1cc-44908c8f4103" />
 
 39.
