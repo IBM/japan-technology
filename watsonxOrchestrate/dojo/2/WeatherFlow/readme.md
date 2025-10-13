@@ -1,4 +1,4 @@
-# ツールとフローを使って気象情報を取得する
+# 3. ツールとフローを使って気象情報を取得する
 
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせの内容が東京であるかどうかを判断し、東京であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
@@ -160,90 +160,102 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 38. WeatherFlowのInputs(1)、Outputs(2)を確認したら、[Save]をクリックします。
 <img width="1222" height="1042" alt="38SaveState" src="https://github.com/user-attachments/assets/63a2aae9-7e43-4320-b1cc-44908c8f4103" />
 
-39.
+39. [Tools]に戻り、[WeatherFlow]の右側にある３点リーダーを選択し、[Open in flow builder]をクリックします。
 <img width="415" height="402" alt="39OpeninFlowBuilder" src="https://github.com/user-attachments/assets/164e049f-23ec-4bef-8ccf-3a7e96ac03c1" />
 
-40.
+40. WeatherFlowのワークフローが表示されました。[current weather for coordinates]のツールから[2 outputs]に伸びている青い矢印をクリックし、[+]を選択します。
 <img width="1222" height="1042" alt="40AddFlowItem" src="https://github.com/user-attachments/assets/cf86559d-90a0-4709-92ba-3c0eacf6e4b2" />
 
-41.
+41. 新しいウインドウが表示され、[Create new]タブの左下にある[Branch]をクリックします。条件分岐を設定しましょう。
 <img width="579" height="539" alt="41FlowControls-Branch" src="https://github.com/user-attachments/assets/3226f852-36e1-4751-ae27-040f3311d4be" />
 
-42.
+42. Branch 1から２つの線が表示されています。[Path 1]と表示されている矢印をクリックし、[+]を選択します。
 <img width="1222" height="1042" alt="42Path1" src="https://github.com/user-attachments/assets/a852a6c4-9a58-4e53-afa1-3ebd57bdbdf7" />
 
-43.
-
+43. Path 1側に追加する項目を選択します。ここでは[Code block]にマウス・カーソルを近づけます。
 <img width="1222" height="1042" alt="43Path1-Item" src="https://github.com/user-attachments/assets/58417d9d-0d25-4eb3-ac64-c09a6c8d2cf4" />
 
-44.
+44. [Code block]の説明が表示されます。Pythonコードでカスタム・ロジックを追加することができます。[Code block]をクリックして確定します。
 <img width="493" height="331" alt="44Codeblock" src="https://github.com/user-attachments/assets/ea661a27-32b0-41ff-8cde-a3356b050e55" />
 
-45.
+45. Path 2側も同様の操作でCode blockを追加します。
 <img width="1222" height="1042" alt="45Path2-Codeblock" src="https://github.com/user-attachments/assets/24e6f7cc-0043-46ea-b7c1-018602d4f017" />
 
-46.
+46. Branch 1からCode block 1とCode block 2に分岐するワークフローが作れました。フロー内の要素はドラッグ＆ドロップで移動できるので試してみましょう。
 <img width="1178" height="998" alt="46Codeblock1-2" src="https://github.com/user-attachments/assets/21e8c5db-c05d-4c53-8d9c-1d62b214e3dc" />
 
-47.
+47. [Code block 1]をクリックします。[Define outputs]を選択し、出力内容を指定しましょう。
 <img width="1222" height="1042" alt="47Codeblock1-define" src="https://github.com/user-attachments/assets/88f40ec6-6e7c-4133-a33b-7eb0aed5613f" />
 
-48.
+48. 出力(output)項目を追加するために、[Add output+]をクリックし、[String]を選びます。
 <img width="1222" height="1042" alt="48Codeblock1-output" src="https://github.com/user-attachments/assets/4d66f408-9783-4cb0-b87e-fc401d8d0628" />
 
-49.
+49. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
+* Name: ```temp_unit```
+* Description: ```tempが摂氏か華氏かを示す```
 <img width="1178" height="998" alt="49StringParameters" src="https://github.com/user-attachments/assets/0b9cc0a9-7143-46bd-aacd-37cfbef12c68" />
 
-50.
+50. Code block 1のOutputsに項目が追加されたことを確認します。[Code editor]タブをクリックします。
 <img width="1178" height="998" alt="50Codeblock1-output-defined" src="https://github.com/user-attachments/assets/23c9dabd-705b-4bb7-a00e-5c5aca5acfcc" />
 
-51.
+51. Code block 1のCode editorが起動します。初期状態では何もコードは含まれていません。
 <img width="540" height="728" alt="51CodeEditor" src="https://github.com/user-attachments/assets/84b946b2-ff85-4ba1-a699-d6928df8b288" />
 
-52.
+52. Code editorに次のコードを貼り付けます。
+
+```self.output.temp_unit = "摂氏"```
+
 <img width="540" height="211" alt="52Codeblock1-code" src="https://github.com/user-attachments/assets/1e150022-7cab-4279-81d7-24d832bd5db9" />
 
-53.
+53. Code block for 'Code block 1'と書かれている画面の右側にある[x]をクリックして、Code editorを終了します。
 <img width="544" height="87" alt="53CloseCode-Editor" src="https://github.com/user-attachments/assets/0e878df6-bde8-41af-b473-3d4e3c289623" />
 
-54.
+54. WeatherFlowの全体像に戻り、[Code block 2]をクリックします。[Define outputs]を選択し、出力内容を指定しましょう。
 <img width="1222" height="1042" alt="54Codeblock2-define" src="https://github.com/user-attachments/assets/f8abccd5-3bf0-4eaa-9ca6-ed5ac0f1f292" />
 
-55.
+55. 出力(output)項目を追加するために、[Add output+]をクリックし、[String]を選びます。
 <img width="1222" height="1042" alt="55Codeblock2-output" src="https://github.com/user-attachments/assets/2188222e-48fc-4f02-b81f-1d7512e99b8c" />
 
-56.
+56. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
+* Name: ```temp_unit```
+* Description: ```tempが摂氏か華氏かを示す```
 <img width="647" height="396" alt="56StringParameters" src="https://github.com/user-attachments/assets/728c1c62-93d0-43a3-b5a6-d112a24c31aa" />
 
-57.
+57. Code block 2のOutputsに項目が追加されたことを確認します。[Code editor]タブをクリックします。
 <img width="1222" height="1042" alt="57Codeblock2-output-defined" src="https://github.com/user-attachments/assets/26b91057-4cbb-4b45-93f7-db8d690d67a7" />
 
-58.
+58. Code editorに次のコードを貼り付けます。貼り付けたら、右上の[x]をクリックしてCode blockを閉じます。
+```
+flow["current weather for coordinates"].output.current_weather.temperature = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
+self.output.temp_unit = "華氏"
+```
 <img width="940" height="194" alt="58Codeblock2-code" src="https://github.com/user-attachments/assets/1a14b0c5-701c-4009-8249-7fd7cd33dc7c" />
 
-59.
+59.　WeatherFlowの全体像に戻り、[Branch 1]をクリックします。続けて、[Edit condition]をクリックします。
 <img width="1024" height="1042" alt="59EditBranch" src="https://github.com/user-attachments/assets/40aefd54-05ef-47fd-be9c-d99d894bb675" />
 
-60.
+60. [if]の右側にある[+]をクリックします。
 <img width="582" height="251" alt="60IfCondition" src="https://github.com/user-attachments/assets/32d2e64c-a276-4fa4-9b4d-eaa95c7d7906" />
 
-61.
+61.　[-- Select variable --]が表示されるので、Flow inputにある[city_name]を選択します。
 <img width="675" height="432" alt="61CityName" src="https://github.com/user-attachments/assets/ec3619e8-7ccb-4e80-8761-2540ff3371f4" />
 
-62.
+62. [Operator]の選択肢が表示されるので、[==]を選択します。
 <img width="651" height="426" alt="62Operators" src="https://github.com/user-attachments/assets/b689910d-a42b-4eac-a738-ec08d122e5ae" />
 
-63.
+63.　[Enter a value]の入力項目に対して、「```東京```」と入力します。入力された都市の名前が「東京」であれば、Path 1へ移動、そうでなければPath 2へ移動します。
+
 <img width="739" height="301" alt="63CityNameEqualsTokyo" src="https://github.com/user-attachments/assets/be64031e-f4cc-49f8-824a-29a80d208537" />
 
-64.
+64. WeatherFlowの右上にある[Done]をクリックし、作業を保存します。これで、WeatherInfoエージェントは、WeatherFlowを実行して、気温を摂氏（都市が東京の場合）または華氏（都市が東京ではない場合）で回答します。
 
 <img width="1024" height="1042" alt="64Done" src="https://github.com/user-attachments/assets/e74ca900-4773-4d96-a068-b66e9ec936da" />
 
-65.
+65.　Preview欄をリセットして、AIエージェントに「```東京の気温は？```」と質問します。摂氏で気温が回答されます。
 <img width="350" height="362" alt="65TemparatureTokyo" src="https://github.com/user-attachments/assets/73476be5-d656-4a82-b1c0-0cfe1ac8fa81" />
 
-66.
+66. 続けて、、AIエージェントに「```ニューヨークの気温は？```」と質問します。うまく回答しない場合、もう一度、質問してください。
 
 <img width="341" height="357" alt="66TemparatureNewYork" src="https://github.com/user-attachments/assets/ca9fd1e4-57c3-4baa-a350-6f5edae9807e" />
 
+この演習では、簡単なワークフローを実装し、条件に応じて回答内容を変える方法を体験しました。
