@@ -116,3 +116,6 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 * Think (考える） - Act　（行動する） - Observe　（観察する）という段階で、推論が実行されます。
 
 <img width="1178" height="1042" alt="20WeatherTomorrow02" src="https://github.com/user-attachments/assets/25109ff0-84c0-448c-a5c9-e81ff8e8e2e4" />
+
+続けて、[AIエージェントにツールとして、MCPサーバーを追加する](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/2/TimeMCP)に進みましょう。
+
