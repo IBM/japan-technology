@@ -81,7 +81,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 <img width="1042" height="1001" alt="13WhatCapability" src="https://github.com/user-attachments/assets/accb17d7-d6cc-44d0-8a9c-af6d14a595fd" />
 
 14. Behaviorに指示を追加します。AIエージェントは、「Hello」で始まる定型の挨拶を省略します。
-    * ```回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。```
+    * Instructions: ```回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。```
 
 <img width="1042" height="1001" alt="14SetBehaviors" src="https://github.com/user-attachments/assets/882ee0fc-e631-4823-af74-dbc4d9ed6935" />
 
