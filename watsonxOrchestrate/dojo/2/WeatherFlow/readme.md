@@ -2,6 +2,7 @@
 
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせの内容が東京であるかどうかを判断し、東京であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
+* 前提条件: [WeatherAgentの演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が終わっていること
 
 ## 参考資料 
 * [Agentic Workflows](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=tools-agentic-workflows)
@@ -11,61 +12,71 @@
 0. 作成するワークフローの全体像
 * watsonx Orchestrateのワークフロー作成ツールを利用します。
 * 作成するフローは単純です。ワークフロー作成ツールの操作に慣れるため、ハンズオンで体験しましょう。
-* 気象情報の取得は、WeatherAgentのパートで追加した[current weather for coordinates]を使います
-* 条件分岐としてのBranchを一つおき、指定された city_name が "東京" であるかどうかを判定し、摂氏を単位として回答するか、あるいは華氏を単位として回答するかを選択します。
-* 華氏を単位とした場合、摂氏で表現されている気温を華氏に変換します。
+* 気象情報の取得は、WeatherAgentのパートで追加した[current weather for coordinates]ツールを使います
+* 条件分岐としてのBranchを1つ作成し、指定された city_name が "東京" であるかどうかを判定し、摂氏を単位として回答するか、あるいは華氏を単位として回答するかを選択します。
+* 華氏を単位とした場合、摂氏で表現されている気温を華氏に変換します。（摂氏に華氏を変換するには 9/ 5をかけてから32を加える）
 
 <img width="1024" height="1042" alt="00Overview" src="https://github.com/user-attachments/assets/22b508b1-9bad-4dec-a452-e3601ad128c3" />
 
-1.
+1. watsonx Orchestrateを開きます。 
+URL: お使いの環境に合わせてwatsonx Orchestrateを開いてください。
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
+左上のメニューから[Build]メニューをクリックし、[Agent Builder]を選択します。
 <img width="1134" height="998" alt="01CreateAgent" src="https://github.com/user-attachments/assets/dddfa54a-49c1-4872-87c5-fb87fe408087" />
 
-2.
+2. 左上のメニューを閉じて、[Build agents and tools]画面から、[All tools]を選択し、[Create tool+]をクリックします。
+
 <img width="1178" height="1042" alt="02CreateTool" src="https://github.com/user-attachments/assets/0770aac8-2514-4cf2-b69a-0dd8daf2cae4" />
 
-3.
+3. [Add a new tool]から「Create an agentic workflow]をクリックします。
+
 <img width="1178" height="1042" alt="03CreateAnAgenticWorkflow" src="https://github.com/user-attachments/assets/84a24ff2-1562-483d-b71a-9829920aede6" />
 
-4.
+4.　ワークフロー・エディターが起動します。この状態は何も入力や出力が定義されていません。
 
 <img width="1178" height="1042" alt="04FlowEditor" src="https://github.com/user-attachments/assets/c1989a00-1c2e-4c27-b546-dfb2bf066453" />
 
-5. 
+5. Untitledの右にある編集ボタン<img width="22" height="21" alt="Editmenu" src="https://github.com/user-attachments/assets/a079c254-5ab6-4c51-a1df-4aa1c57cfd5d" />
+をクリックします。ワークフローのNameとDescriptionを入力したら、[Save]をクリックして保存します。
+
+* Name: ```WeatherFlow```
+* Description: ```特定の都市の天気情報を取得する```
 <img width="1178" height="1042" alt="05NameAndDescription" src="https://github.com/user-attachments/assets/9aa5fef7-af4a-44fa-b049-927aaef5795b" />
 
-6. 
+7. 
 <img width="1178" height="1042" alt="06AddInput" src="https://github.com/user-attachments/assets/a9e117ea-cb61-4f97-856c-e0b9dfb98fda" />
 
-7.
+8.
 <img width="196" height="262" alt="07AddInput-String" src="https://github.com/user-attachments/assets/933bd6be-152a-4532-8be5-0521e6b19820" />
 
 
-8.
+9.
 <img width="646" height="509" alt="08String-Parameters" src="https://github.com/user-attachments/assets/149ec253-bc5a-42ab-b504-5f00451fd914" />
 
-9.
+10.
 <img width="1178" height="1042" alt="09List-Input" src="https://github.com/user-attachments/assets/1135b829-dbad-4e4b-ae28-18f7014249de" />
 
 
-10.
+11.
 <img width="187" height="266" alt="10AddOutput-String" src="https://github.com/user-attachments/assets/5be7ae65-b246-4936-bed9-6c9fec239573" />
 
-11.
+12.
 <img width="646" height="394" alt="11String-Parameters" src="https://github.com/user-attachments/assets/771bb249-80c4-43bb-ba37-b96937986861" />
 
-12.
+13.
 <img width="1178" height="1042" alt="12Input-Output" src="https://github.com/user-attachments/assets/af8213b5-fa68-456b-94d4-6f3cec3a464c" />
 
-13.
+14.
 <img width="1178" height="1042" alt="13Flow-overview" src="https://github.com/user-attachments/assets/7e84a8d9-9a75-4c99-ab28-10478b8b6ae0" />
 
-14.
+15.
 <img width="38" height="35" alt="14Add-Tools" src="https://github.com/user-attachments/assets/b65b7d4d-4078-4ab3-922d-b143a2ba7332" />
 
-15.
+16.
 <img width="526" height="213" alt="15Find-WeatherTool" src="https://github.com/user-attachments/assets/864b80e8-9067-4c14-8d2a-a611a3216038" />
 
-16.
+17.
 <img width="600" height="240" alt="16-1-Tool" src="https://github.com/user-attachments/assets/b5050724-9454-4047-bbba-9e72ac850aa8" />
 
 <img width="959" height="700" alt="16DragTool" src="https://github.com/user-attachments/assets/0b621999-6b4f-4953-935b-e1ec989360d7" />
