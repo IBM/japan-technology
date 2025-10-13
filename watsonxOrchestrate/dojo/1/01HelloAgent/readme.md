@@ -29,7 +29,7 @@ URL:
 
 <img width="1136" height="1030" alt="03CreateAgent" src="https://github.com/user-attachments/assets/552cc1e2-fd36-4d6d-8dc3-84d64eda281d" />
 
-4. 「Create an agent」の画面から、[Creaate from scratch]を選択します。
+4. 「Create an agent」の画面から、[Create from scratch]を選択します。
 
 <img width="1136" height="1030" alt="04CreateFromScratch" src="https://github.com/user-attachments/assets/d5dbcf14-f0af-4641-a157-25e3562c7f74" />
 
