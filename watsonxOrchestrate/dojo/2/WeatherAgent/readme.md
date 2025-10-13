@@ -14,23 +14,35 @@ AIエージェントは、ツールを利用することで、基盤モデルに
 * AIエージェントのツールを定義する方法の体験目的で利用しており、業務用のプロダクション環境に展開することは想定していません。
 * 使用権許諾についての詳細は、[こちら](https://open-meteo.com/en/licence)を参照してください。
 
-1.
+1. watsonx Orchestrateを開きます。
+URL: お使いの環境に合わせてwatsonx Orchestrateを開いてください。
+
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
+
+左上のメニューから[Build]メニューをクリックし、[Agent Builder]を選択します。
 
 <img width="1042" height="1001" alt="01AgentBuilder" src="https://github.com/user-attachments/assets/cc94ef2e-8991-4016-83d7-228dfade47f9" />
 
-2. 
+2. 画面右手にある[Create agent +]をクリックします。
 
 <img width="1042" height="1001" alt="02CreateAgent" src="https://github.com/user-attachments/assets/05dcceca-cc61-4e5d-b280-65a9db635ad6" />
 
-3.
+3. [Create an agent]の画面から、[Create from scratch]を選択します。NameとDescriptionを指定してから、[Create]をクリックします。
+* Name: ```WeatherInfo```
+* Description: ```指定された地名などを元に現在の天気の情報を取得し回答するエージェントです。```
 
 <img width="1042" height="1001" alt="03NewAgent" src="https://github.com/user-attachments/assets/95043092-0ea1-42b3-a563-2d573e4410f2" />
 
-4.
+4. [Behavior]をクリックし、Instructionsを指定します。
+
+* Instructions: ```回答は日本語で行なってください。```
+* Behaviorの指定が終わったら、チャット欄に「```今日の静岡市の天気を教えてください。```」と入力します。静岡市の都道府県名を聞かれた場合「```静岡市```」と入力します。
+* この時点では、AIエージェントが適切なツールを呼び出せないため、天気の情報を取得することはできません。
 
 <img width="1042" height="1001" alt="04ChatWithNoTools" src="https://github.com/user-attachments/assets/0e402dbf-fc77-426d-be5c-182ed710e27b" />
 
-5.
+5. AIエージェントにツールを追加します。左側の項目一覧から[Toolset]を選択し、[Add Tool+]をクリックします。
 
 <img width="1042" height="1001" alt="05Toolset-AddTool" src="https://github.com/user-attachments/assets/929a49d1-2435-4e29-944a-92a888d1c6af" />
 
