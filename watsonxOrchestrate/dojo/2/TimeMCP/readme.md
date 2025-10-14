@@ -1,5 +1,5 @@
 # 2. AIエージェントにツールとして、MCPサーバーを追加する
-
+* 最終更新日: 2025/10/14
 * MCP (Model Context Protocol) は、エージェントがMCPサーバーを通じて外部ツールやデータソースと安全かつ柔軟にやり取りできるようにするための標準規格です。
 * このハンズオンでは、Node.js (TypeScript)で作成され公開されている[time-mcp](https://github.com/yokingma/time-mcp/tree/main)をAIエージェントに繋げます。
 * [WeatherInfoエージェント](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が出来上がっている状態から出発しています。
@@ -47,7 +47,8 @@
 <img width="1178" height="1042" alt="30Tools" src="https://github.com/user-attachments/assets/0fcddfc5-af68-4e05-a36e-bd70e0f74ec2" />
 
 11. BehaviorのInstructionsを変更します。
-* Instructions: ```回答は日本語で行なってください。
+* Instructions:
+```回答は日本語で行なってください。
   定型の挨拶は省略し、最初の質問から回答してください。
   current_time toolを使用する際は、formatとして　"YYYY/MM/DD HH:mm"　を指定してください。```
 
@@ -61,3 +62,6 @@
 
 MCPサーバーについては、例えば、[このページ](https://github.com/modelcontextprotocol/servers?tab=readme-ov-file)で定期的に情報が更新されています。
 使えそうなMCPサーバーを見つけたら、この演習を参考に、試していきましょう。
+
+続いて、[ツールとワークフローを使って気象情報を取得する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherFlow/readme.md)に進みます。
+
