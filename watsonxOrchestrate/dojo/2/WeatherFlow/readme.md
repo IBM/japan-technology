@@ -1,5 +1,5 @@
 # 3. ツールとワークフローを使って気象情報を取得する
-
+* 最終更新日: 2025/10/14
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせの内容が東京であるかどうかを判断し、東京であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
 * 前提条件: [WeatherAgentの演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が終わっていること
@@ -8,6 +8,8 @@
 * [Agentic Workflows](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=tools-agentic-workflows)
 * [Code blocks](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=workflows-code-blocks)
 * [Agentic workflow expressions](https://developer.watson-orchestrate.ibm.com/tools/flows/flow_expression)
+
+##
 
 0. 作成するワークフローの全体像
 * watsonx Orchestrateのワークフロー作成ツールを利用します。
@@ -40,8 +42,14 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 5. Untitledの右にある編集ボタン<img width="22" height="21" alt="Editmenu" src="https://github.com/user-attachments/assets/a079c254-5ab6-4c51-a1df-4aa1c57cfd5d" />
 をクリックします。ワークフローのNameとDescriptionを入力したら、[Save]をクリックして保存します。
 
-* Name: ```WeatherFlow```
-* Description: ```特定の都市の天気情報を取得する```
+* Name:
+```
+WeatherFlow
+```
+* Description:
+```
+特定の都市の天気情報を取得する
+```
 <img width="1178" height="1042" alt="05NameAndDescription" src="https://github.com/user-attachments/assets/9aa5fef7-af4a-44fa-b049-927aaef5795b" />
 
 6. 入力(input)項目に何もないことを確認します。
@@ -51,8 +59,14 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="1256" height="1042" alt="07AddInput-String" src="https://github.com/user-attachments/assets/6073e129-4ca3-4f77-8c14-604dd690b125" />
 
 8. [Add string input]にName,　Description, Required を設定し、[Add]をクリックします。
-* Name: ```city_name```
-* Description: ```都市名```
+* Name: 
+```
+city_name
+```
+* Description: 
+```
+都市名
+```
 * Required: ```On```
 <img width="646" height="509" alt="08String-Parameters" src="https://github.com/user-attachments/assets/1a20bb93-2686-4c61-ba0e-c987494cf1ee" />
 
@@ -65,8 +79,14 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="187" height="266" alt="10AddOutput-String" src="https://github.com/user-attachments/assets/5be7ae65-b246-4936-bed9-6c9fec239573" />
 
 11. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
-* Name: ```temp```
-* Description: ```都市の気温```
+* Name: 
+```
+temp
+```
+* Description: 
+```
+都市の気温
+```
 
 <img width="646" height="394" alt="11String-Parameters" src="https://github.com/user-attachments/assets/771bb249-80c4-43bb-ba37-b96937986861" />
 
@@ -152,8 +172,14 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="196" height="267" alt="36AddOutput-String" src="https://github.com/user-attachments/assets/89723091-9768-463d-bbc1-2e0e7e3fbf32" />
 
 37. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
-* Name: ```temp_unit```
-* Description: ```tempが摂氏か華氏かを示す```
+* Name: 
+```
+temp_unit
+```
+* Description: 
+```
+tempが摂氏か華氏かを示す
+```
 
 <img width="646" height="394" alt="37String-Parameters" src="https://github.com/user-attachments/assets/182e0997-eeaa-4aeb-8d1e-c9c947e0fb5e" />
 
@@ -191,8 +217,14 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="1222" height="1042" alt="48Codeblock1-output" src="https://github.com/user-attachments/assets/4d66f408-9783-4cb0-b87e-fc401d8d0628" />
 
 49. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
-* Name: ```temp_unit```
-* Description: ```tempが摂氏か華氏かを示す```
+* Name: 
+```
+temp_unit
+```
+* Description: 
+```
+tempが摂氏か華氏かを示す
+```
 <img width="1178" height="998" alt="49StringParameters" src="https://github.com/user-attachments/assets/0b9cc0a9-7143-46bd-aacd-37cfbef12c68" />
 
 50. Code block 1のOutputsに項目が追加されたことを確認します。[Code editor]タブをクリックします。
@@ -203,7 +235,9 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 
 52. Code editorに次のコードを貼り付けます。
 
-```self.output.temp_unit = "摂氏"```
+```
+self.output.temp_unit = "摂氏"
+```
 
 <img width="540" height="211" alt="52Codeblock1-code" src="https://github.com/user-attachments/assets/1e150022-7cab-4279-81d7-24d832bd5db9" />
 
@@ -217,14 +251,21 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="1222" height="1042" alt="55Codeblock2-output" src="https://github.com/user-attachments/assets/2188222e-48fc-4f02-b81f-1d7512e99b8c" />
 
 56. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
-* Name: ```temp_unit```
-* Description: ```tempが摂氏か華氏かを示す```
+* Name: 
+```
+temp_unit
+```
+* Description: 
+```
+tempが摂氏か華氏かを示す
+```
 <img width="647" height="396" alt="56StringParameters" src="https://github.com/user-attachments/assets/728c1c62-93d0-43a3-b5a6-d112a24c31aa" />
 
 57. Code block 2のOutputsに項目が追加されたことを確認します。[Code editor]タブをクリックします。
 <img width="1222" height="1042" alt="57Codeblock2-output-defined" src="https://github.com/user-attachments/assets/26b91057-4cbb-4b45-93f7-db8d690d67a7" />
 
 58. Code editorに次のコードを貼り付けます。貼り付けたら、右上の[x]をクリックしてCode blockを閉じます。
+
 ```
 flow["current weather for coordinates"].output.current_weather.temperature = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
 self.output.temp_unit = "華氏"
