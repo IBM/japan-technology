@@ -1,6 +1,6 @@
 # 1. 気象情報に回答するAIエージェントを作成する
 
-* 最終更新日: 2025/10/13
+* 最終更新日: 2025/10/14
 * このコンテンツは、Business Automation Handsonコンテンツの内容を、最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 [ソース](https://ibm.github.io/ba-handson-jp/wxoagent/tool/)
 
@@ -42,7 +42,7 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 
 <img width="1042" height="1001" alt="04ChatWithNoTools" src="https://github.com/user-attachments/assets/0e402dbf-fc77-426d-be5c-182ed710e27b" />
 
-5. AIエージェントにツールを追加します。左側の項目一覧から[Toolset]を選択し、[Add Tool+]をクリックします。
+5. 天気の情報をAIエージェントが取得できるように、ツールを追加します。左側の項目一覧から[Toolset]を選択し、[Add Tool+]をクリックします。
 
 <img width="1042" height="1001" alt="05Toolset-AddTool" src="https://github.com/user-attachments/assets/929a49d1-2435-4e29-944a-92a888d1c6af" />
 
@@ -101,7 +101,8 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 <img width="1178" height="1001" alt="17AgenticQA" src="https://github.com/user-attachments/assets/2ac1de88-91b3-4706-b8cf-d58a5a06331f" />
 
 18. 3つの地域の気温を比較しましょう。
-* チャット欄をリセットし、AIエージェントに「```静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。```」と入力します。 * ツールを使って* 気温を調べてくれない場合、AIエージェントに「```気温を表形式で比較してください。```」と入力します
+* チャット欄をリセットし、AIエージェントに「```静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。```」と入力します。
+* AIエージェントがツールを使って* 気温を調べてくれない場合、AIエージェントに「```気温を表形式で比較してください。```」と入力します
 
 <img width="1134" height="998" alt="18ComparedWithTable" src="https://github.com/user-attachments/assets/6cf4c8a2-a243-487e-897e-a1dc7c3cde8f" />
 
