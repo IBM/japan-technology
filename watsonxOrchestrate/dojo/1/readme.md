@@ -12,7 +12,6 @@ watsonx Orchestrateの環境をお持ちでない場合、次の方法の何れ�
 * [AI Agent Dojo #1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/index.md#watsonx-orchestrate-ai-%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E4%BD%93%E9%A8%93-part-1)
 * [AI Agent Dojo #2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/readme.md)
 
-  第1回目は、企業の生産性を高める生成AIエージェント watsonx Orchestrateの環境を構築し、 IBMについての情報に回答するAIエージェントを作り、IBMの2024年の財務情報を知識として登録し、その知識をツールを呼び出す方法について、ハンズオンを通じて体験します。
 
 ## 30日無償評価版の登録
 
