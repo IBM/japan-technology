@@ -48,9 +48,11 @@
 
 11. BehaviorのInstructionsを変更します。
 * Instructions:
-```回答は日本語で行なってください。
-  定型の挨拶は省略し、最初の質問から回答してください。
-  current_time toolを使用する際は、formatとして　"YYYY/MM/DD HH:mm"　を指定してください。```
+```
+回答は日本語で行なってください。
+定型の挨拶は省略し、最初の質問から回答してください。
+current_time toolを使用する際は、formatとして　"YYYY/MM/DD HH:mm"　を指定してください。
+```
 
 <img width="1178" height="1042" alt="31ToolBehavior" src="https://github.com/user-attachments/assets/f131b2e9-bc1a-4e62-b2b8-3bd61cd9530d" />
 
