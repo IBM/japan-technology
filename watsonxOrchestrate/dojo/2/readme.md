@@ -2,7 +2,8 @@
 
 * 最終更新日: 2025/10/14
 * ハンズオンの実行までに、watsonx Orchestrateの環境を準備してください。
-[準備方法])(https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
+* ハンズオンは、watsonx Orchestrate 30日無償評価版で動作を確認してあります。
+[準備方法](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
 
 ## 1. [気象情報に回答するAIエージェントを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)
 Open Meteoが提供している気象情報APIを用いて、地名（経度、緯度）から現在の天気について回答するAIエージェントを作ります。
