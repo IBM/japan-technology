@@ -24,7 +24,7 @@
 URL: お使いの環境に合わせてwatsonx Orchestrateを開いてください。
 * 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
 * TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
-左上のメニューから[Build]メニューをクリックし、[Agent Builder]を選択します。
+* 左上のメニューから[Build]メニューをクリックし、[Agent Builder]を選択します。
 <img width="1134" height="998" alt="01CreateAgent" src="https://github.com/user-attachments/assets/dddfa54a-49c1-4872-87c5-fb87fe408087" />
 
 2. 左上のメニューを閉じて、[Build agents and tools]画面から、[All tools]を選択し、[Create tool+]をクリックします。
