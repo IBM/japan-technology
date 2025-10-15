@@ -50,13 +50,13 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
   ```
   今日の静岡市の天気を教えてください。
   ```
-」と入力します。
+  」と入力します。
 
-静岡市の都道府県名を聞かれた場合「
-```
-静岡市
-```
-」と入力します。
+  静岡市の都道府県名を聞かれた場合「
+  ```
+  静岡市
+  ```
+  」と入力します。
 * この時点では、AIエージェントが適切なツールを呼び出せないため、天気の情報を取得することはできません。
 
 <img width="1042" height="1001" alt="04ChatWithNoTools" src="https://github.com/user-attachments/assets/0e402dbf-fc77-426d-be5c-182ed710e27b" />
@@ -104,7 +104,10 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 <img width="1042" height="1001" alt="13WhatCapability" src="https://github.com/user-attachments/assets/accb17d7-d6cc-44d0-8a9c-af6d14a595fd" />
 
 14. Behaviorに指示を追加します。AIエージェントは、「Hello」で始まる定型の挨拶を省略します。
-    * Instructions: ```回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。```
+    * Instructions: 
+    ```
+    回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。
+    ```
 
 <img width="1042" height="1001" alt="14SetBehaviors" src="https://github.com/user-attachments/assets/882ee0fc-e631-4823-af74-dbc4d9ed6935" />
 
@@ -145,10 +148,11 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
 18. 3つの地域の気温を比較しましょう。
 * チャット欄をリセットし、AIエージェントに「
-```
-静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。
-```
-」と入力します。
+    ```
+    静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。
+    ```
+    」と入力します。
+    
 * AIエージェントがツールを使って* 気温を調べてくれない場合、AIエージェントに「
    ```
    気温を表形式で比較してください。
