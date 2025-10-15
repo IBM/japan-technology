@@ -81,6 +81,9 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 * 参考: YAML形式でOpenAPI 3 の完全な仕様書を作る場合は、インターネットから情報を取得する機能を備えた生成AIサービスに頼ると簡単です。
 * プロンプトの例「watsonx Orchestrateのツールとして利用できるよう、open-meteoのforecast APIからOpenAPI 3.0の完全な仕様書を作ってください。」
 
+* ツールを追加する際の注意点: 同じ名前のツールを複数登録しようとすると、名前の後ろに番号が付与されていきますのでご注意ください。
+  Code Blockからツールの値を参照する際に、その番号も合わせて指定する必要が出てくるので、名前の後ろに番号が付与されないよう、ツールの名前を変更するなど、実装で工夫してください。
+
 9. ファイル名として、ダウンロード済みの weather.yaml を指定します。
 
 <img width="1042" height="1001" alt="09ChooseWeatherYaml" src="https://github.com/user-attachments/assets/3258ef5c-439d-4457-91f4-7d9871fe9fd3" />
