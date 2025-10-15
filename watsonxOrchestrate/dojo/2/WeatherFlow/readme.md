@@ -1,9 +1,9 @@
 # 3. ツールとワークフローを使って気象情報を取得する
-* 最終更新日: 2025/10/15
+* 最終更新日: 2025/10/16
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせの内容が東京であるかどうかを判断し、東京であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
 * 前提条件: [WeatherAgentの演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が終わっていること
-* 同じ名前のツールを複数回登録すると起きてしまう間違いについて、追記してあります。
+* 同じ名前のツールを複数回登録すると起きてしまう間違いについて、追記してあります。ご注意ください。
 
 ## 参考資料 
 * [Agentic Workflows](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=tools-agentic-workflows)
