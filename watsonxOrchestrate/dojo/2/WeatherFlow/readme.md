@@ -104,7 +104,11 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 14. Add Tools <img width="38" height="35" alt="14Add-Tools" src="https://github.com/user-attachments/assets/f29069e2-fdcc-472c-9e7a-b00cd8fe33c4" /> のアイコンをクリックします。
 
 
-15. [Tools]タブを選択し、検索用テキストボックスに「```weather```」と入力します。[current weather for coordinate...]が見つかります。
+15. [Tools]タブを選択し、検索用テキストボックスに「
+   ```
+   weather
+   ```
+   」と入力します。[current weather for coordinate...]が見つかります。
 <img width="526" height="213" alt="15Find-WeatherTool" src="https://github.com/user-attachments/assets/864b80e8-9067-4c14-8d2a-a611a3216038" />
 
 16. [Tools]タブに表示されている[current weather for coordinate...]ツールをドラッグして、InputsとOutputsの間の青い矢印にドロップします。
@@ -128,12 +132,19 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="546" height="454" alt="22Automap-deleted" src="https://github.com/user-attachments/assets/bfae1d0f-e8b2-44c3-98f4-d57b16d0b7b1" />
 
 
-23. [Enter a value]をクリックします。[current_weather]の行にあるトグル・スイッチがOffになります。
-<img width="540" height="442" alt="23Off" src="https://github.com/user-attachments/assets/3791567a-de9e-435a-99e7-9e32bd1e648b" />
+23. [Enter a value]をクリックします。値を指定する場所に[True]/[False]の選択メニューが表示されるので、[True]を選びます。
+* True / False の選択
+<img width="619" height="74" alt="TrueFalse" src="https://github.com/user-attachments/assets/031f89c6-116f-4e4b-a48c-1ca81abd1f6f" />
 
-24. Offになっているトグル・スイッチをクリックして、Onにします。
+* Trueが選ばれている状態
+<img width="622" height="428" alt="True-Selected" src="https://github.com/user-attachments/assets/05599b4e-3132-4ec9-a2ef-467c22c14a8e" />
 
-<img width="544" height="441" alt="24On" src="https://github.com/user-attachments/assets/99ba7608-e819-4fd6-8f03-7363ae05c569" />
+
+* ご注意: 10/14のリリースで仕様が変わっています。10/13までのバージョンでは、このTrue/FalseがOn/Offになっていました。もし、画面がOn/Offで表示されている場合は、Onにしてください。
+
+   <img width="540" height="442" alt="23Off" src="https://github.com/user-attachments/assets/3791567a-de9e-435a-99e7-9e32bd1e648b" />
+
+   <img width="544" height="441" alt="24On" src="https://github.com/user-attachments/assets/99ba7608-e819-4fd6-8f03-7363ae05c569" />
 
 25. Map data for 'current weather for coordinates' のウィンドウの右上にある[x]をクリックして閉じます。
 
