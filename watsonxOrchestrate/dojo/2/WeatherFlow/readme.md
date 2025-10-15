@@ -307,7 +307,7 @@ self.output.temp_unit = "華氏"
 
 <img width="1024" height="1042" alt="64Done" src="https://github.com/user-attachments/assets/e74ca900-4773-4d96-a068-b66e9ec936da" />
 
-65. Behaviorに次を指定します。
+65. WeatherInfoエージェントのBehaviorに次を指定します。
    * Instructions:
    ```
    回答は日本語で行なってください。
