@@ -78,8 +78,8 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 Upload filesの下にある、[Drag and drop an OpenAPI file here or click to upload]をクリックします。
 <img width="1042" height="1001" alt="08ClicktoUpload" src="https://github.com/user-attachments/assets/20c208ae-2c5f-4335-b066-e11262522afc" />
 
-* 参考: YAML形式でOpenAPI 3 の完全な仕様書を作る場合は、生成AIに頼ると簡単です。
-* 「watsonx Orchestrateのツールとして利用できるよう、open-meteoのforecast APIからOpenAPI 3.0の完全な仕様書を作ってください。」
+* 参考: YAML形式でOpenAPI 3 の完全な仕様書を作る場合は、インターネットから情報を取得する機能を備えた生成AIサービスに頼ると簡単です。
+* プロンプトの例「watsonx Orchestrateのツールとして利用できるよう、open-meteoのforecast APIからOpenAPI 3.0の完全な仕様書を作ってください。」
 
 9. ファイル名として、ダウンロード済みの weather.yaml を指定します。
 
