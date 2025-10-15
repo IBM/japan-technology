@@ -127,8 +127,13 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
     
     * ご注意: この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成しないように (Never - Assume/make up values)、という指示を与えていることによるものです。
     * 緯度、経度の確認をスキップする方法として、BehaviorのInstructionsに書いておく方法があります。必要に応じて試してください。
-    * 「ユーザーから都市の天気を問われた場合は、都市名から緯度と経度を想定して構いません。」
-
+    * Behaviorに指定するInstructions:
+    ```
+    回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。
+    ユーザーから都市の天気を問われた場合は、都市名から緯度と経度を想定して構いません。
+    気温はElevationではなく current_weather から取得してください。
+    ```
+    
 <img width="1178" height="1001" alt="15ShinjukuWeather" src="https://github.com/user-attachments/assets/c6d29cfb-1d8d-4365-a1b1-2dd465754358" />
 
 16. 回答が得られたら、[Show Reasoning]をクリックし、ツールにどのようなパラメータが渡されたかを確認します。併せて、Outputの内容も確認しましょう。
