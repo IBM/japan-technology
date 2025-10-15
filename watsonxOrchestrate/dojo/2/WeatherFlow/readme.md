@@ -52,7 +52,8 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
    ```
 <img width="1178" height="1042" alt="05NameAndDescription" src="https://github.com/user-attachments/assets/9aa5fef7-af4a-44fa-b049-927aaef5795b" />
 
-6. 入力(input)項目に何もないことを確認します。
+6. WeatherInfoの右にある編集ボタン<img width="22" height="21" alt="Editmenu" src="https://github.com/user-attachments/assets/a079c254-5ab6-4c51-a1df-4aa1c57cfd5d" />
+をクリックし、編集モードにします。入力(input)項目に何もないことを確認します。
 <img width="874" height="384" alt="06AddInput" src="https://github.com/user-attachments/assets/721b5f97-d5f5-4a52-ab16-753371614a46" />
 
 7. WeatherFlowに入力(input)項目を追加します。[Add input+]をクリックし、[String]を選択します。
