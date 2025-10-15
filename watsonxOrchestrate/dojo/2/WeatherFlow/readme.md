@@ -312,7 +312,8 @@ self.output.temp_unit = "華氏"
    東京の気温は？
    ```
    」と質問します。摂氏で気温が回答されます。
-<img width="350" height="362" alt="65TemparatureTokyo" src="https://github.com/user-attachments/assets/73476be5-d656-4a82-b1c0-0cfe1ac8fa81" />
+   
+   <img width="350" height="362" alt="65TemparatureTokyo" src="https://github.com/user-attachments/assets/73476be5-d656-4a82-b1c0-0cfe1ac8fa81" />
 
 66. 続けて、、AIエージェントに「
    ```
@@ -320,6 +321,6 @@ self.output.temp_unit = "華氏"
    ```
    」と質問します。うまく回答しない場合、もう一度、質問してください。
 
-<img width="341" height="357" alt="66TemparatureNewYork" src="https://github.com/user-attachments/assets/ca9fd1e4-57c3-4baa-a350-6f5edae9807e" />
+   <img width="341" height="357" alt="66TemparatureNewYork" src="https://github.com/user-attachments/assets/ca9fd1e4-57c3-4baa-a350-6f5edae9807e" />
 
 この演習では、簡単なワークフローを実装し、条件に応じて回答内容を変える方法を体験しました。
