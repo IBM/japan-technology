@@ -87,6 +87,9 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
 15. チャット欄をリセットし、AIエージェントに「```東京都新宿区の天気は？```」と質問します。
     * もし緯度と経度を聞かれた場合は、「```緯度: 35.689、経度:139.692```」と追加で入力します。
+    * ご注意: この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成しないように (Never - Assume/make up values)、という指示を与えていることによるものです。
+    * 緯度、経度の確認をスキップする方法として、BehaviorのInstructionsに書いておく方法があります。
+    * 「ユーザーから都市の天気を問われた場合は、都市名から緯度と経度を想定して構いません。current_weather_for_coordinatesツールを呼び出して天気情報を取得してください。」
 
 <img width="1178" height="1001" alt="15ShinjukuWeather" src="https://github.com/user-attachments/assets/c6d29cfb-1d8d-4365-a1b1-2dd465754358" />
 
@@ -117,6 +120,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 * Think (考える） - Act　（行動する） - Observe　（観察する）という段階で、推論が実行されます。
 
 <img width="1178" height="1042" alt="20WeatherTomorrow02" src="https://github.com/user-attachments/assets/25109ff0-84c0-448c-a5c9-e81ff8e8e2e4" />
+
 
 続けて、[AIエージェントにツールとして、MCPサーバーを追加する](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/2/TimeMCP)に進みましょう。
 
