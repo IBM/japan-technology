@@ -62,7 +62,11 @@
 
 <img width="1178" height="1042" alt="31ToolBehavior" src="https://github.com/user-attachments/assets/f131b2e9-bc1a-4e62-b2b8-3bd61cd9530d" />
 
-12. チャット欄をリセットし、AIエージェントに「```現在のニューヨークの日時は？```」と入力します。他にも地名を指定して質問してみましょう。
+12. チャット欄をリセットし、AIエージェントに「
+   ```
+   現在のニューヨークの日時は？
+   ```
+   」と入力します。他にも地名を指定して質問してみましょう。
 
 <img width="1178" height="1042" alt="32TimeQueries" src="https://github.com/user-attachments/assets/9892cc75-37dd-4f16-af3b-e80567ce6272" />
 
