@@ -163,7 +163,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
     
 * AIエージェントがツールを使って* 気温を調べてくれない場合、AIエージェントに「
    ```
-   気温を表形式で比較してください。
+   気温を表形式で比較してください。気温はElevationではなく current_weather から取得してください。
    ```
    」と入力します
 
