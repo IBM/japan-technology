@@ -143,7 +143,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
     」と質問します。
 * ツールを使って気温を調べてくれない場合、AIエージェントに「
     ```
-    実行してください
+    気温を調べて比較してください。
     ```
     」と入力します。
 
