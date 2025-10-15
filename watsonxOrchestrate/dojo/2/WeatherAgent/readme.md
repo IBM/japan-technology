@@ -73,10 +73,13 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 
 <img width="1042" height="1001" alt="07ImportFromFile" src="https://github.com/user-attachments/assets/eae3ca68-329d-461e-a9a2-fb745c363b0f" />
 
-8. ツールを定義している yaml形式のファイルを利用して、ツールを取り込みます。
+8. ツールを定義している OpenAPI 3.0.0準拠の仕様書が入っているyaml形式のファイルを利用して、ツールを取り込みます。
 * weather.yamlのダウンロード: こちらの[リンク](https://ibm.github.io/ba-handson-jp/wxoagent/files/weather.yaml)を右クリック (Macの場合、[control]を押しながらクリック)し、名前を付けて保存してください。
 Upload filesの下にある、[Drag and drop an OpenAPI file here or click to upload]をクリックします。
 <img width="1042" height="1001" alt="08ClicktoUpload" src="https://github.com/user-attachments/assets/20c208ae-2c5f-4335-b066-e11262522afc" />
+
+* 参考: YAML形式でOpenAPI 3 の完全な仕様書を作る場合は、生成AIに頼ると簡単です。
+* 「watsonx Orchestrateのツールとして利用できるよう、open-meteoのforecast APIからOpenAPI 3.0の完全な仕様書を作ってください。」
 
 9. ファイル名として、ダウンロード済みの weather.yaml を指定します。
 
