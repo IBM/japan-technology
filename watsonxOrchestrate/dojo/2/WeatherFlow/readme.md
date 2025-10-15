@@ -3,6 +3,7 @@
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせの内容が東京であるかどうかを判断し、東京であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
 * 前提条件: [WeatherAgentの演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が終わっていること
+* 同じ名前のツールを複数回登録すると起きてしまう間違いについて、追記してあります。
 
 ## 参考資料 
 * [Agentic Workflows](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=tools-agentic-workflows)
@@ -109,6 +110,8 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
    weather
    ```
    」と入力します。[current weather for coordinate...]が見つかります。
+
+   
 <img width="526" height="213" alt="15Find-WeatherTool" src="https://github.com/user-attachments/assets/864b80e8-9067-4c14-8d2a-a611a3216038" />
 
 16. [Tools]タブに表示されている[current weather for coordinate...]ツールをドラッグして、InputsとOutputsの間の青い矢印にドロップします。
@@ -116,6 +119,10 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 
 17. InputsとOutputsの間に[current weather for coordinate]ツールが追加されました。
 <img width="1178" height="1042" alt="17FlowWithTool" src="https://github.com/user-attachments/assets/44de9c1e-b3cb-4e7a-910e-62cbc03d130c" />
+
+* ツールを追加する際の注意点: 同じ名前のツールを複数登録した場合、watsonx Orchestrateが一意に識別できるよう名前の後ろに番号が付与されていますのでご注意ください。
+  Code Blockからツールの値を参照する際に、その番号も合わせて指定する必要が出てくるので、名前の後ろに番号が付与されないよう、ツールの名前を変更するなど、実装で工夫してください。
+  もし、番号付きでツールをワークフローに追加した場合は、Code Blockにおいて、ツール名の参照時に、その番号も合わせて指定してください。
 
 18. 追加されたツールを選択し、表示されたウィンドウ内にある[Edit data mapping]をクリックします。
 <img width="707" height="435" alt="18StartEditDatamapping" src="https://github.com/user-attachments/assets/78e09adf-92ea-46f9-b5f2-2a0ee558f806" />
@@ -285,7 +292,23 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
    flow["current weather for coordinates"].output.current_weather.temperature = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
 self.output.temp_unit = "華氏"
    ```
-<img width="940" height="194" alt="58Codeblock2-code" src="https://github.com/user-attachments/assets/1a14b0c5-701c-4009-8249-7fd7cd33dc7c" />
+  
+   <img width="940" height="194" alt="58Codeblock2-code" src="https://github.com/user-attachments/assets/1a14b0c5-701c-4009-8249-7fd7cd33dc7c" />
+
+   * ツールの名称に再度ご注意ください: 同じ名前のツールを複数登録した場合、watsonx Orchestrateが一意に識別できるよう名前の後ろに番号が付与されています。
+   もし、番号付きでツールをワークフローに追加した場合は、Code Blockにおいて、ツール名の参照時に、その番号も合わせて指定してください。
+   * 具体例: ツールの名前が "current weather for coordinates (3)" となっている場合
+   
+   <img width="594" height="663" alt="FlowWithToolNumber" src="https://github.com/user-attachments/assets/db9f80a8-2e5c-4c39-ba04-a2a42961c38c" />
+   
+   * この場合は、Code Editorに次のコードを貼り付ける必要があります。ツールの名前を、ワークフロー上のツールの名称に一致させれば正しく動作しますが、そうでない場合は、実行時例外が発生し、AIエージェントが期待通りに動きません。
+   * また実行時例外が発生していても、AIエージェントのチャット機能からは直接見えません。例えば、AIエージェントが再試行を繰り返しますが、ツール名が正しくないと例外が発生するので、ワークフローが終了しない、あるいは予期せぬ回答を返して終了します。
+
+   ```
+   flow["current weather for coordinates (3)"].output.current_weather.temperature = (flow["current weather for coordinates (3)"].output.current_weather.temperature*9/5)+32
+   self.output.temp_unit = "華氏"
+   ```
+
 
 59.　WeatherFlowの全体像に戻り、[Branch 1]をクリックします。続けて、[Edit condition]をクリックします。
 <img width="1024" height="1042" alt="59EditBranch" src="https://github.com/user-attachments/assets/40aefd54-05ef-47fd-be9c-d99d894bb675" />
