@@ -307,7 +307,16 @@ self.output.temp_unit = "華氏"
 
 <img width="1024" height="1042" alt="64Done" src="https://github.com/user-attachments/assets/e74ca900-4773-4d96-a068-b66e9ec936da" />
 
-65.　Preview欄をリセットして、AIエージェントに「
+65. Behaviorに次を指定します。
+   * Instructions:
+   ```
+   回答は日本語で行なってください。
+   定型の挨拶は省略し、最初の質問から回答してください。
+   current_time toolを使用する際は、formatとして　"YYYY/MM/DD HH:mm"　を指定してください。
+   WeatherFlowのcity_nameに設定する値は、日本の都市名は日本語にしてください。
+   気温の単位については、WeatherFlowのtemp_unitに従って℃あるいは℉を使用してください。
+   ```
+66.　Preview欄をリセットして、AIエージェントに「
    ```
    東京の気温は？
    ```
@@ -315,7 +324,7 @@ self.output.temp_unit = "華氏"
    
    <img width="350" height="362" alt="65TemparatureTokyo" src="https://github.com/user-attachments/assets/73476be5-d656-4a82-b1c0-0cfe1ac8fa81" />
 
-66. 続けて、、AIエージェントに「
+67. 続けて、、AIエージェントに「
    ```
    ニューヨークの気温は？
    ```
