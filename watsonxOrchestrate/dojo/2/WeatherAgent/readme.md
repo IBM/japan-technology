@@ -1,6 +1,6 @@
 # 1. 気象情報に回答するAIエージェントを作成する
 
-* 最終更新日: 2025/10/14
+* 最終更新日: 2025/10/15
 * このコンテンツは、Business Automation Handsonコンテンツの内容を、最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 [ソース](https://ibm.github.io/ba-handson-jp/wxoagent/tool/)
 
@@ -29,15 +29,34 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="1042" height="1001" alt="02CreateAgent" src="https://github.com/user-attachments/assets/05dcceca-cc61-4e5d-b280-65a9db635ad6" />
 
 3. [Create an agent]の画面から、[Create from scratch]を選択します。NameとDescriptionを指定してから、[Create]をクリックします。
-* Name: ```WeatherInfo```
-* Description: ```指定された地名などを元に現在の天気の情報を取得し回答するエージェントです。```
+* Name:
+  ```
+  WeatherInfo
+  ```
+* Description:
+  ```
+  指定された地名などを元に現在の天気の情報を取得し回答するエージェントです。
+  ```
 
 <img width="1042" height="1001" alt="03NewAgent" src="https://github.com/user-attachments/assets/95043092-0ea1-42b3-a563-2d573e4410f2" />
 
 4. [Behavior]をクリックし、Instructionsを指定します。
 
-* Instructions: ```回答は日本語で行なってください。```
-* Behaviorの指定が終わったら、チャット欄に「```今日の静岡市の天気を教えてください。```」と入力します。静岡市の都道府県名を聞かれた場合「```静岡市```」と入力します。
+* Instructions:
+  ```
+  回答は日本語で行なってください。
+  ```
+* Behaviorの指定が終わったら、チャット欄に「
+  ```
+  今日の静岡市の天気を教えてください。
+  ```
+」と入力します。
+
+静岡市の都道府県名を聞かれた場合「
+```
+静岡市
+```
+」と入力します。
 * この時点では、AIエージェントが適切なツールを呼び出せないため、天気の情報を取得することはできません。
 
 <img width="1042" height="1001" alt="04ChatWithNoTools" src="https://github.com/user-attachments/assets/0e402dbf-fc77-426d-be5c-182ed710e27b" />
@@ -55,7 +74,7 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 <img width="1042" height="1001" alt="07ImportFromFile" src="https://github.com/user-attachments/assets/eae3ca68-329d-461e-a9a2-fb745c363b0f" />
 
 8. ツールを定義している yaml形式のファイルを利用して、ツールを取り込みます。
-* weather.yamlのダウンロード: こちらの[リンク](https://ibm.github.io/ba-handson-jp/wxoagent/files/weather.yaml)を右クリックし、名前を付けて保存してください。
+* weather.yamlのダウンロード: こちらの[リンク](https://ibm.github.io/ba-handson-jp/wxoagent/files/weather.yaml)を右クリック (Macの場合、[control]を押しながらクリック)し、名前を付けて保存してください。
 Upload filesの下にある、[Drag and drop an OpenAPI file here or click to upload]をクリックします。
 <img width="1042" height="1001" alt="08ClicktoUpload" src="https://github.com/user-attachments/assets/20c208ae-2c5f-4335-b066-e11262522afc" />
 
@@ -75,7 +94,11 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
 <img width="1042" height="1001" alt="12AddedTheTool" src="https://github.com/user-attachments/assets/579c0930-4c91-45a0-a023-c3d083d69e7f" />
 
-13. Preview欄をリセットして、AIエージェントに「```あなたのできることを教えてください```」と質問します。
+13. Preview欄をリセットして、AIエージェントに「
+    ```
+    あなたのできることを教えてください
+    ```
+    」と質問します。
 * もし「Hello!」と表示された場合は、もう一度「```あなたのできることを教えてください```」と質問します。
 
 <img width="1042" height="1001" alt="13WhatCapability" src="https://github.com/user-attachments/assets/accb17d7-d6cc-44d0-8a9c-af6d14a595fd" />
@@ -85,10 +108,19 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
 <img width="1042" height="1001" alt="14SetBehaviors" src="https://github.com/user-attachments/assets/882ee0fc-e631-4823-af74-dbc4d9ed6935" />
 
-15. チャット欄をリセットし、AIエージェントに「```東京都新宿区の天気は？```」と質問します。
-    * もし緯度と経度を聞かれた場合は、「```緯度: 35.689、経度:139.692```」と追加で入力します。
+15. チャット欄をリセットし、AIエージェントに「
+    ```
+    東京都新宿区の天気は？
+    ```
+    」と質問します。
+    * もし緯度と経度を聞かれた場合は、「
+    ```
+    緯度: 35.689、経度:139.692
+    ```
+    」と追加で入力します。
+    
     * ご注意: この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成しないように (Never - Assume/make up values)、という指示を与えていることによるものです。
-    * 緯度、経度の確認をスキップする方法として、BehaviorのInstructionsに書いておく方法があります。
+    * 緯度、経度の確認をスキップする方法として、BehaviorのInstructionsに書いておく方法があります。必要に応じて試してください。
     * 「ユーザーから都市の天気を問われた場合は、都市名から緯度と経度を想定して構いません。current_weather_for_coordinatesツールを呼び出して天気情報を取得してください。」
 
 <img width="1178" height="1001" alt="15ShinjukuWeather" src="https://github.com/user-attachments/assets/c6d29cfb-1d8d-4365-a1b1-2dd465754358" />
@@ -98,25 +130,49 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 <img width="1178" height="1001" alt="16WeatherReasoning" src="https://github.com/user-attachments/assets/6aeee7f8-8da7-4773-8abc-e63a5db87d13" />
 
 17. 複数の地域の天気を比較する質問を使って、AIエージェントに自律的に考え、行動してもらいましょう。
-* チャット欄をリセットし、AIエージェントに「```横浜と宇都宮ではどちらの方が涼しい？```」と質問します。
-* ツールを使って気温を調べてくれない場合、AIエージェントに「```実行してください```」と入力します。
+* チャット欄をリセットし、AIエージェントに「
+    ```
+    横浜と宇都宮ではどちらの方が涼しい？
+    ```
+    」と質問します。
+* ツールを使って気温を調べてくれない場合、AIエージェントに「
+    ```
+    実行してください
+    ```
+    」と入力します。
 
 <img width="1178" height="1001" alt="17AgenticQA" src="https://github.com/user-attachments/assets/2ac1de88-91b3-4706-b8cf-d58a5a06331f" />
 
 18. 3つの地域の気温を比較しましょう。
-* チャット欄をリセットし、AIエージェントに「```静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。```」と入力します。
-* AIエージェントがツールを使って* 気温を調べてくれない場合、AIエージェントに「```気温を表形式で比較してください。```」と入力します
+* チャット欄をリセットし、AIエージェントに「
+```
+静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。
+```
+」と入力します。
+* AIエージェントがツールを使って* 気温を調べてくれない場合、AIエージェントに「
+   ```
+   気温を表形式で比較してください。
+   ```
+   」と入力します
 
 <img width="1134" height="998" alt="18ComparedWithTable" src="https://github.com/user-attachments/assets/6cf4c8a2-a243-487e-897e-a1dc7c3cde8f" />
 
 19. AIエージェントに応用問題を解いてもらいましょう。 
-* チャット欄をリセットし、AIエージェントに「```明日の千葉の気温は、今日より2度高くなるらしいのですが、何度になりますか？```」と入力します。
+* チャット欄をリセットし、AIエージェントに「
+   ```
+   明日の千葉の気温は、今日より2度高くなるらしいのですが、何度になりますか？
+   ```
+   」と入力します。
 * Agent styleがDefaultなので、うまく回答してくれません。
 
 <img width="1178" height="1042" alt="19WeatherTomorrow01" src="https://github.com/user-attachments/assets/9dccb240-2a27-4841-b1b5-2ceeb00d13b5" />
 
 20. Knowledge項目を選択し、[Agent style]を[ReAct]に変更します。
-* チャット欄をリセットし、AIエージェントに「```明日の千葉の気温は、今日より2度高くなるらしいのですが、何度になりますか？```」と入力します。
+* チャット欄をリセットし、AIエージェントに「
+   ```
+   明日の千葉の気温は、今日より2度高くなるらしいのですが、何度になりますか？
+   ```
+   」と入力します。
 * Think (考える） - Act　（行動する） - Observe　（観察する）という段階で、推論が実行されます。
 
 <img width="1178" height="1042" alt="20WeatherTomorrow02" src="https://github.com/user-attachments/assets/25109ff0-84c0-448c-a5c9-e81ff8e8e2e4" />
