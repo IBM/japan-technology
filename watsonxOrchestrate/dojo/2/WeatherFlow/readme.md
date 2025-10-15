@@ -1,5 +1,5 @@
 # 3. ツールとワークフローを使って気象情報を取得する
-* 最終更新日: 2025/10/14
+* 最終更新日: 2025/10/15
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせの内容が東京であるかどうかを判断し、東京であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
 * 前提条件: [WeatherAgentの演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/WeatherAgent/readme.md)が終わっていること
@@ -43,13 +43,13 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 をクリックします。ワークフローのNameとDescriptionを入力したら、[Save]をクリックして保存します。
 
 * Name:
-```
-WeatherFlow
-```
+   ```
+   WeatherFlow
+   ```
 * Description:
-```
-特定の都市の天気情報を取得する
-```
+   ```
+   特定の都市の天気情報を取得する
+   ```
 <img width="1178" height="1042" alt="05NameAndDescription" src="https://github.com/user-attachments/assets/9aa5fef7-af4a-44fa-b049-927aaef5795b" />
 
 6. 入力(input)項目に何もないことを確認します。
@@ -60,14 +60,17 @@ WeatherFlow
 
 8. [Add string input]にName,　Description, Required を設定し、[Add]をクリックします。
 * Name: 
-```
-city_name
-```
+   ```
+   city_name
+   ```
 * Description: 
-```
-都市名
-```
-* Required: ```On```
+   ```
+   都市名
+   ```
+* Required: 
+   ```
+   On
+   ```
 <img width="646" height="509" alt="08String-Parameters" src="https://github.com/user-attachments/assets/1a20bb93-2686-4c61-ba0e-c987494cf1ee" />
 
 
@@ -80,13 +83,13 @@ city_name
 
 11. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
 * Name: 
-```
-temp
-```
+   ```
+   temp
+   ```
 * Description: 
-```
-都市の気温
-```
+   ```
+   都市の気温
+   ```
 
 <img width="646" height="394" alt="11String-Parameters" src="https://github.com/user-attachments/assets/771bb249-80c4-43bb-ba37-b96937986861" />
 
@@ -173,13 +176,13 @@ temp
 
 37. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
 * Name: 
-```
-temp_unit
-```
+   ```
+   temp_unit
+   ```
 * Description: 
-```
-tempが摂氏か華氏かを示す
-```
+   ```
+   tempが摂氏か華氏かを示す
+   ```
 
 <img width="646" height="394" alt="37String-Parameters" src="https://github.com/user-attachments/assets/182e0997-eeaa-4aeb-8d1e-c9c947e0fb5e" />
 
@@ -218,13 +221,13 @@ tempが摂氏か華氏かを示す
 
 49. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
 * Name: 
-```
-temp_unit
-```
+   ```
+   temp_unit
+   ```
 * Description: 
-```
-tempが摂氏か華氏かを示す
-```
+   ```
+   tempが摂氏か華氏かを示す
+   ```
 <img width="1178" height="998" alt="49StringParameters" src="https://github.com/user-attachments/assets/0b9cc0a9-7143-46bd-aacd-37cfbef12c68" />
 
 50. Code block 1のOutputsに項目が追加されたことを確認します。[Code editor]タブをクリックします。
@@ -235,9 +238,9 @@ tempが摂氏か華氏かを示す
 
 52. Code editorに次のコードを貼り付けます。
 
-```
-self.output.temp_unit = "摂氏"
-```
+   ```
+   self.output.temp_unit = "摂氏"
+   ```
 
 <img width="540" height="211" alt="52Codeblock1-code" src="https://github.com/user-attachments/assets/1e150022-7cab-4279-81d7-24d832bd5db9" />
 
@@ -252,13 +255,13 @@ self.output.temp_unit = "摂氏"
 
 56. [Add string output]にName, Descriptionを設定し、[Add]をクリックします。
 * Name: 
-```
-temp_unit
-```
+   ```
+   temp_unit
+   ```
 * Description: 
-```
-tempが摂氏か華氏かを示す
-```
+   ```
+   tempが摂氏か華氏かを示す
+   ```
 <img width="647" height="396" alt="56StringParameters" src="https://github.com/user-attachments/assets/728c1c62-93d0-43a3-b5a6-d112a24c31aa" />
 
 57. Code block 2のOutputsに項目が追加されたことを確認します。[Code editor]タブをクリックします。
@@ -266,10 +269,10 @@ tempが摂氏か華氏かを示す
 
 58. Code editorに次のコードを貼り付けます。貼り付けたら、右上の[x]をクリックしてCode blockを閉じます。
 
-```
-flow["current weather for coordinates"].output.current_weather.temperature = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
+   ```
+   flow["current weather for coordinates"].output.current_weather.temperature = (flow["current weather for coordinates"].output.current_weather.temperature*9/5)+32
 self.output.temp_unit = "華氏"
-```
+   ```
 <img width="940" height="194" alt="58Codeblock2-code" src="https://github.com/user-attachments/assets/1a14b0c5-701c-4009-8249-7fd7cd33dc7c" />
 
 59.　WeatherFlowの全体像に戻り、[Branch 1]をクリックします。続けて、[Edit condition]をクリックします。
@@ -292,10 +295,18 @@ self.output.temp_unit = "華氏"
 
 <img width="1024" height="1042" alt="64Done" src="https://github.com/user-attachments/assets/e74ca900-4773-4d96-a068-b66e9ec936da" />
 
-65.　Preview欄をリセットして、AIエージェントに「```東京の気温は？```」と質問します。摂氏で気温が回答されます。
+65.　Preview欄をリセットして、AIエージェントに「
+   ```
+   東京の気温は？
+   ```
+   」と質問します。摂氏で気温が回答されます。
 <img width="350" height="362" alt="65TemparatureTokyo" src="https://github.com/user-attachments/assets/73476be5-d656-4a82-b1c0-0cfe1ac8fa81" />
 
-66. 続けて、、AIエージェントに「```ニューヨークの気温は？```」と質問します。うまく回答しない場合、もう一度、質問してください。
+66. 続けて、、AIエージェントに「
+   ```
+   ニューヨークの気温は？
+   ```
+   」と質問します。うまく回答しない場合、もう一度、質問してください。
 
 <img width="341" height="357" alt="66TemparatureNewYork" src="https://github.com/user-attachments/assets/ca9fd1e4-57c3-4baa-a350-6f5edae9807e" />
 
