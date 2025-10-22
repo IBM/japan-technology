@@ -1,6 +1,6 @@
 # Preparing the watsonx Orchestrate Environment
 
-_Last updated: October 14, 2025_
+_Last updated: October 23, 2025_
 
 If you don’t yet have a watsonx Orchestrate environment, you can prepare one using one of the following methods:
 * [Register for the 30-day free trial](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#30%E6%97%A5%E7%84%A1%E5%84%9F%E8%A9%95%E4%BE%A1%E7%89%88%E3%81%AE%E7%99%BB%E9%8C%B2)
@@ -50,5 +50,5 @@ https://us-south.watson-orchestrate.cloud.ibm.com/chat
 
 ## Creating an Environment Using an IBM Cloud Account
 
-If you already use IBM Cloud, refer to the following guide to set up your environment:  
+If you already use IBM Cloud, refer to the following guide to set up your environment:  (Please utilize translation feature on your browser because the site has Japanese contents only.)
 https://ibm.github.io/japan-technology/onboarding-docs/watsonx-orchestrate/
