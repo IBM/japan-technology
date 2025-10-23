@@ -1,8 +1,8 @@
 # AI Agent Dojo #1
 
-_Last updated: September 24, 2025_
-
-In this first session, you will build a generative AI agent—**watsonx Orchestrate**—designed to enhance enterprise productivity. Through hands-on exercises, you will create an AI agent that answers questions about IBM, register IBM’s 2024 financial information as knowledge, and learn how to use that knowledge to call tools.
+_Last updated: October 23, 2025_
+* This is machine translated version.  The original contents is [here](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/index.md) in Japanese.
+In this first session, you will build a generative AI agent—**watsonx Orchestrate**—designed to enhance enterprise productivity. Through hands-on exercises, you will create an AI agent that answers questions about IBM, register IBM’s 2024 financial information as knowledge, and learn how to use that knowledge as a tool from your AI Agent.
 
 ## Goals:
 * Set up an environment for learning while running watsonx Orchestrate.
