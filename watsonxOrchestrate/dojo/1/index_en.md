@@ -20,11 +20,11 @@ In this first session, you will build a generative AI agent—**watsonx Orchestr
 ## [Prepare the watsonx Orchestrate Environment](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
 Prepare your watsonx Orchestrate environment. Once ready, proceed to Part 1 below.
 
-## [watsonx Orchestrate AI Agent Experience – Part 1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/01HelloAgent/readme.md)
+## [watsonx Orchestrate AI Agent Experience – Part 1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/01HelloAgent/readme1_en.md)
 
 In this exercise, you will create an AI agent called **“IBMInfo”** that answers questions about IBM. You will configure its **Profile** and **Behavior**, and experience how to interact with the AI agent.
 
-## [watsonx Orchestrate AI Agent Experience – Part 2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/readme.md)
+## [watsonx Orchestrate AI Agent Experience – Part 2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/readme2_en.md)
 
 In this exercise, you will extend the **IBMInfo** agent created in Part 1 by adding knowledge using the **RAG (Retrieval-Augmented Generation)** method. By configuring the agent’s **Knowledge**, you will enable it to respond with corporate and financial information.
 
