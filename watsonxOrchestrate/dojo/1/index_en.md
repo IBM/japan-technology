@@ -17,7 +17,7 @@ In this first session, you will build a generative AI agent—**watsonx Orchestr
 * The **IBM Technology Zone Trial** of watsonx Orchestrate is deployed on **IBM Cloud**. Usage conditions follow the [IBM Technology Zone Terms of Use](https://techzone.ibm.com/terms). It must not be used for production systems. Please also review the [Security Policy](https://techzone.ibm.com/terms/securitypolicy) before using it.
 * Depending on the availability of computing resources in the watsonx Orchestrate evaluation environment, unexpected errors or unresponsive behavior may occur. If this happens, please wait and try again later.
 
-## [Prepare the watsonx Orchestrate Environment](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
+## [Prepare the watsonx Orchestrate Environment](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme_en.md)
 Prepare your watsonx Orchestrate environment. Once ready, proceed to Part 1 below.
 
 ## [watsonx Orchestrate AI Agent Experience – Part 1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/01HelloAgent/readme1_en.md)
