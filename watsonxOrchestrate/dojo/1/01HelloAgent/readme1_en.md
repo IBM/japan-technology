@@ -136,6 +136,9 @@ What is IBM’s stock price in dollars?
 
 You’ll notice a different response this time. The AI agent now follows the rules defined in the Behavior section. It no longer tries to launch unavailable tools and instead replies appropriately that it cannot provide a correct answer. This adjustment enhances the overall user experience.
 
+<img width="1154" height="1070" alt="1-13-ChangedRespnse" src="https://github.com/user-attachments/assets/beaeb7c5-b3ef-4c8c-b84e-594e6c135074" />
+
+
 ### 14. Ask the AI agent a question in Japanse.  
 * **Input:** 
 ```
