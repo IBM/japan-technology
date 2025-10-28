@@ -1,6 +1,6 @@
 # watsonx Orchestrate AI Agent Experience – Part 1
 
-_Last updated: September 24, 2025_
+_Last updated: October 28, 2025_
 
 In this exercise, you will create an AI agent named **IBMInfo** that can answer questions about IBM. Let’s explore the basics of building and interacting with an AI agent.
 
