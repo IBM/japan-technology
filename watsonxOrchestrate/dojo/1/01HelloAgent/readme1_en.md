@@ -49,40 +49,46 @@ IBMInfo
 ```
 An agent that answers questions about IBM company information.
 ```
+<img width="1110" height="1026" alt="1-6-Description" src="https://github.com/user-attachments/assets/36b94e91-6210-4f49-873b-985e016e4d28" />
 
 * Once you’ve entered the description, click **Create**.
 
 ### 7. Confirm that your AI agent has been created. If an error occurs, try using a different name.
 
-<img width="1136" height="1030" alt="07AgentCreated" src="https://github.com/user-attachments/assets/76bf6bc8-c4f9-4a99-ae43-624b55404ca4" />
+<img width="1154" height="1070" alt="1-7-Profile" src="https://github.com/user-attachments/assets/8b3cde2f-6094-435d-ae2b-763e22a4edf6" />
+
 
 ### 8. Test your newly created AI agent. In the **Preview** panel on the right, enter a question.  
 * **Input:** 
 ```
 What is IBM?
 ```
-<img width="409" height="734" alt="08Q1WhatIsIBM" src="https://github.com/user-attachments/assets/1a282d37-4569-4446-9fe5-4a9c35930eb6" />
+
+<img width="418" height="778" alt="1-8-whatisIBM" src="https://github.com/user-attachments/assets/1581db20-e4a5-4579-b749-36fb070be4ce" />
+
 
 After a few moments, the agent will respond using the foundation model **llama-3-2-90b-vision-instruct**.
 
-<img width="406" height="362" alt="09A1IBMis" src="https://github.com/user-attachments/assets/ae43888d-e1fc-4d4e-8afb-54d4c510fc66" />
+<img width="422" height="408" alt="1-8-2-result" src="https://github.com/user-attachments/assets/68402f6d-3cad-4c01-8692-f23adcf43971" />
+
 
 ### 9. Try another question.  
 * **Input:** 
 ```
 What is IBM’s stock price in dollars?
 ```
-<img width="395" height="58" alt="10Q2StockPrice" src="https://github.com/user-attachments/assets/d0d23ccc-e033-4d88-a9c5-8d8b1f756c56" />
+
+<img width="422" height="63" alt="1-9-1-StockPrice" src="https://github.com/user-attachments/assets/435709be-711d-4419-84f7-83da440e1f2c" />
+
 
 After a short wait, the AI agent will respond. In both cases, it will indicate that it needs an external tool to retrieve the information, but since no tool is configured, the correct data won’t appear.
 
+
 > If generation doesn’t stop, click **Reset**<img width="31" height="33" alt="Preview-Reset" src="https://github.com/user-attachments/assets/e838f4b9-767b-4120-9396-0f8f631d6f06" /> in the Preview panel, skip Steps 12–13, and proceed to Step 14.
 
-* **Example Output 1:** A general description about IBM’s stock.  
-<img width="391" height="277" alt="11A2StockPrice" src="https://github.com/user-attachments/assets/224a5fd4-b6c4-4c0b-8219-641e5e5089ae" />
+* **Example Output :** A general description about IBM’s stock.  
 
-* **Example Output 2:** Another variation in generated responses.
-<img width="349" height="637" alt="11-02A2StockPrice" src="https://github.com/user-attachments/assets/a27c7b63-fcdf-4872-a7a4-0eaf6257e657" />
+<img width="409" height="267" alt="1-9-2-Result" src="https://github.com/user-attachments/assets/f39637fd-0f77-4932-84b4-7423d95070c0" />
 
 
 ### 10. Provide the keyword **NYSE** (New York Stock Exchange) to inform the AI agent where IBM’s stock is traded.  
@@ -91,7 +97,8 @@ After a short wait, the AI agent will respond. In both cases, it will indicate t
 NYSE
 ```
 
-<img width="392" height="76" alt="12Q3NYSE" src="https://github.com/user-attachments/assets/0dc50a79-7424-4915-8ae6-db4386453d0a" />
+<img width="399" height="256" alt="1-10-NYSE" src="https://github.com/user-attachments/assets/cc1f08f8-a68c-4588-82fc-41e967dd0300" />
+
 
 
 The AI agent will attempt to call a tool to fetch the stock price but will fail because no proper tool is defined. This behavior is expected — it shows how the AI agent tries to use external tools to find missing contextual data.
@@ -100,7 +107,9 @@ The AI agent will attempt to call a tool to fetch the stock price but will fail 
 <img width="1256" height="705" alt="13-02-wxaiLLM" src="https://github.com/user-attachments/assets/91987539-9be8-489d-98dc-0872d1e42433" />
 
 ### 11. Define the agent’s behavior. Click **Behavior** on the left-hand side.
-<img width="1136" height="1030" alt="14Behavior" src="https://github.com/user-attachments/assets/3eb3f867-ca05-402a-8e86-aa0a4fb39376" />
+
+<img width="1154" height="1070" alt="1-11-Behavior" src="https://github.com/user-attachments/assets/e2ea7546-0042-4ecd-880f-f4b79473e424" />
+
 
 ### 12. In the **Instructions** field, describe how you want the AI agent to behave.
 
@@ -112,7 +121,8 @@ Don't ask for additional input if you don't have the stock price tool.
 Answer using the same natural language as the question. If the question is in Japanese, answer in Japanese. If it’s in English, answer in English.
 ```
 
-<img width="373" height="329" alt="15SetBehavior" src="https://github.com/user-attachments/assets/5e12a344-e4de-4dd3-8652-a21789f0b074" />
+<img width="1154" height="1070" alt="1-12-0Instruction" src="https://github.com/user-attachments/assets/09b744f5-9f85-4d23-bd2d-9f176aff55da" />
+
 
 ### 13. After configuring the behavior, return to the Preview panel and ask again:  
 * **Input:** 
@@ -129,6 +139,8 @@ IBMとは何ですか？
 ```
 
 ### 15. Confirm that the AI agent responds in Japanese. It follows the rule you set earlier (“Answer in the same language as the question”).
+
+<img width="409" height="265" alt="1-15-Japanese" src="https://github.com/user-attachments/assets/b216b558-1de8-42f4-9499-4c376ea2d3bb" />
 
 ---
 
