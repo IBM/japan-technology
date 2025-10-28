@@ -106,21 +106,29 @@ The AI agent will attempt to call a tool to fetch the stock price but will fail 
 
 * **Instructions:**  
 ```
-Answer using the same natural language as the question. If the question is in Japanese, answer in Japanese. If it’s in English, answer in English.  
-If you lack the necessary knowledge or context to answer, respond with: ‘I cannot answer accurately due to insufficient information.
+If you don't have any knowledge, tools for stock price or context to answer, respond with: ‘I cannot answer accurately due to insufficient information'.  Don't simulate the tool execution if you don't have the right tools/knowledge.
+Don't ask for additional input if you don't have the stock price tool.
+
+Answer using the same natural language as the question. If the question is in Japanese, answer in Japanese. If it’s in English, answer in English.
 ```
 
 <img width="373" height="329" alt="15SetBehavior" src="https://github.com/user-attachments/assets/5e12a344-e4de-4dd3-8652-a21789f0b074" />
 
 ### 13. After configuring the behavior, return to the Preview panel and ask again:  
-* **Input:** `IBMの株価は何ドルですか？` (“What is IBM’s stock price in dollars?”)
+* **Input:** 
+```
+What is IBM’s stock price in dollars?
+```
 
 You’ll notice a different response this time. The AI agent now follows the rules defined in the Behavior section. It no longer tries to launch unavailable tools and instead replies appropriately that it cannot provide a correct answer. This adjustment enhances the overall user experience.
 
-### 14. Ask the AI agent a question in English.  
-* **Input:** `What is IBM?`
+### 14. Ask the AI agent a question in Japanse.  
+* **Input:** 
+```
+IBMとは何ですか？
+```
 
-### 15. Confirm that the AI agent responds in English. It follows the rule you set earlier (“Answer in the same language as the question”).
+### 15. Confirm that the AI agent responds in Japanese. It follows the rule you set earlier (“Answer in the same language as the question”).
 
 ---
 
