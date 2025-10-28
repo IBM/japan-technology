@@ -115,10 +115,14 @@ The AI agent will attempt to call a tool to fetch the stock price but will fail 
 
 * **Instructions:**  
 ```
-If you don't have any knowledge, tools for stock price or context to answer, respond with: ‘I cannot answer accurately due to insufficient information'.  Don't simulate the tool execution if you don't have the right tools/knowledge.
+If you don't have any knowledge, tools for stock price or context to answer,
+respond with: ‘I cannot answer accurately due to insufficient information'.
+Don't simulate the tool execution if you don't have the right tools/knowledge.
 Don't ask for additional input if you don't have the stock price tool.
 
-Answer using the same natural language as the question. If the question is in Japanese, answer in Japanese. If it’s in English, answer in English.
+Answer using the same natural language as the question.
+If the question is in Japanese, answer in Japanese.
+If it’s in English, answer in English.
 ```
 
 <img width="1154" height="1070" alt="1-12-0Instruction" src="https://github.com/user-attachments/assets/09b744f5-9f85-4d23-bd2d-9f176aff55da" />
