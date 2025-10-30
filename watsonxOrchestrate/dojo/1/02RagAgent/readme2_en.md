@@ -1,6 +1,6 @@
 # watsonx Orchestrate AI Agent Experience – Part 2
 
-_Last updated: September 29, 2025_
+_Last updated: October 30, 2025_
 
 In this exercise, you will extend your AI agent **IBMInfo** (created in Part 1) by adding knowledge using the **RAG (Retrieval-Augmented Generation)** approach. Please ensure that you have completed Part 1 before starting.
 
@@ -10,26 +10,55 @@ In this exercise, you will extend your AI agent **IBMInfo** (created in Part 1) 
 
 ### 1. Click **Knowledge** from the left-hand menu on the IBMInfo agent management page, then click **Choose knowledge +** under the *Knowledge source* section.
 
+<img width="1174" height="932" alt="2-1-ChooseKnowledge" src="https://github.com/user-attachments/assets/c6862030-32c4-48a8-9053-c83e27d67ebe" />
+
+
 ### 2. In the **Choose knowledge source** window, select **Upload files**, then click **Next**.
+
+<img width="1174" height="1036" alt="2-2-SelectUploadFile" src="https://github.com/user-attachments/assets/02843008-2765-4723-bfa3-85555769acc5" />
+
 
 ### 3. Download the file [2024-annual-report.pdf](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/2024-annual-report.pdf) to your local computer.
 
 ### 4. Drag and drop the downloaded file into the **Drag and drop files here or click to upload** area, or click the link to upload it manually.
 
+
+
+<img width="1181" height="974" alt="2-4-ClickToUpload" src="https://github.com/user-attachments/assets/5386cef9-bd34-45e3-838b-37e71ec51319" />
+
 ### 5. Once the file is uploaded, click **Next**.
+
+<img width="1181" height="974" alt="2-5-FileUploaded" src="https://github.com/user-attachments/assets/a887f454-2c0c-45b9-a7dd-4f193b306f8c" />
 
 ### 6. Enter the following description to let the agent know what the document contains, then click **Save**.
 
-* **Description:** `This is IBM’s 2024 Annual Report, including financial information and core business strategy.`
+* **Description:** 
+```
+This is IBM’s 2024 Annual Report, including financial information and core business strategy.
+```
+<img width="1181" height="974" alt="2-6-FileDescription" src="https://github.com/user-attachments/assets/afcffba8-1fc7-4bc0-ac16-75e79167f647" />
 
-### 7. The *Knowledge source* section will show **Processing...** as the file is being indexed. The system uses the uploaded PDF and description to prepare searchable knowledge for your agent. This may take around one minute.
+
+
+### 7. The *Knowledge source* section will show **Processing...** as the file is being indexed. The system uses the uploaded PDF and description to prepare searchable knowledge for your agent. This may take around two minutes.
+
+<img width="377" height="400" alt="2-7-Processing" src="https://github.com/user-attachments/assets/0989ead6-2017-4581-ad0f-24bf79bef107" />
 
 ### 8. When processing is complete, the *Knowledge source* will display **Connected**, and you’ll see the file name `2024-annual-report.pdf` and your description:  
 “This is IBM’s 2024 Annual Report, including financial information and core business strategy.”
 
+<img width="1181" height="974" alt="2-8-Connected" src="https://github.com/user-attachments/assets/5690c741-ae4c-427e-b534-9538e5a41c51" />
+
+
 ### 9. Use the **Preview** window to ask a question based on the uploaded document.  
-* **Input:** `What was IBM’s free cash flow in 2024?`  
+* **Input:** 
+```
+What was IBM’s free cash flow in 2024?
+```
+
 The AI agent will reply with **$12.7 billion**.
+
+<img width="1181" height="974" alt="2-10-FreeCashFlowResult" src="https://github.com/user-attachments/assets/4a20654a-955a-43d8-a904-93798cf7f213" />
 
 ### 10. Open *2024-annual-report.pdf* and check page 3 (document page 1). You’ll find the following text:
 
@@ -44,17 +73,36 @@ increase of $1.5 billion year-over-year.
 
 You’ll see “Tool: knowledge_for_agent_IBMInfo,” confirming that the agent used the uploaded knowledge to answer your question.
 
+<img width="399" height="480" alt="2-12-Reasoning" src="https://github.com/user-attachments/assets/4330d500-dee7-4dc5-9351-87f89f5288d8" />
+
+
 ### 12. Ask another question:  
-* **Input:** `How much did free cash flow change year-over-year in 2024? Please include the unit and provide the amount.`  
+* **Input:** 
+```
+How much did free cash flow change year-over-year in 2024? Please include the unit and provide the amount.
+```  
 The answer should reflect the same context found in the report above.
 
+<img width="404" height="296" alt="2-13-CashFlowYtY" src="https://github.com/user-attachments/assets/de1f4fe9-113a-4ee2-b6f6-01bd3f0f8589" />
+
 ### 13. Ask about a different section of the document:  
-* **Input:** `According to the Management Discussion, what was IBM’s revenue growth rate in 2024 compared to 2023?`
+* **Input:** 
+```
+What was Revenue in 2024?
+```
+
+```
+What was Net income in 2024?
+```
+
+```
+What was Net income in 2023?
+```
 
 You can verify this data by checking the table on page 10 (document page 8) of the Annual Report under **Revenue**.
 
 * **Source:** [2024 IBM Annual Report](https://www.ibm.com/downloads/documents/us-en/1227c12d3a38b173)
-
+<img width="653" height="492" alt="30-02-DocTable" src="https://github.com/user-attachments/assets/29d18bcd-7f4d-471f-ae08-cffacc26f374" />
 ---
 
 ## Deploying the AI Agent
