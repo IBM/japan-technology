@@ -154,4 +154,4 @@ IBMとは何ですか？
 ---
 
 **End of Part 1**  
-Proceed to [Part 2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/readme.md) to continue the hands-on experience.
+Proceed to [Part 2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/02RagAgent/readme2_en.md) to continue the hands-on experience.
