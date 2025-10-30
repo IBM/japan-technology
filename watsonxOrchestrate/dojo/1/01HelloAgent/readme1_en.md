@@ -104,7 +104,9 @@ NYSE
 The AI agent will attempt to call a tool to fetch the stock price but will fail because no proper tool is defined. This behavior is expected — it shows how the AI agent tries to use external tools to find missing contextual data.
 
 > For reference, if you run the same inference directly on watsonx.ai, it won’t attempt to call tools — it will simply generate a text-based response.
-<img width="1256" height="705" alt="13-02-wxaiLLM" src="https://github.com/user-attachments/assets/91987539-9be8-489d-98dc-0872d1e42433" />
+
+<img width="1237" height="932" alt="1-10-wx-StockQuestion" src="https://github.com/user-attachments/assets/a8a09b19-c975-43bb-a2d8-0e6d435d88b8" />
+
 
 ### 11. Define the agent’s behavior. Click **Behavior** on the left-hand side.
 
