@@ -32,7 +32,8 @@ In this exercise, you will extend your AI agent **IBMInfo** (created in Part 1) 
 
 * **Description:** 
 ```
-This is IBM’s 2024 Annual Report, including financial information and core business strategy.
+This is IBM’s 2024 Annual Report,
+including financial information and core business strategy.
 ```
 <img width="1181" height="974" alt="2-6-FileDescription" src="https://github.com/user-attachments/assets/afcffba8-1fc7-4bc0-ac16-75e79167f647" />
 
