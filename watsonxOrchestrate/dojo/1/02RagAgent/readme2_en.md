@@ -99,6 +99,9 @@ What was Net income in 2024?
 What was Net income in 2023?
 ```
 
+<img width="432" height="675" alt="2-13-VariousQuestions" src="https://github.com/user-attachments/assets/76767bed-0ad5-45b4-8de5-2da91a68176a" />
+
+
 You can verify this data by checking the table on page 10 (document page 8) of the Annual Report under **Revenue**.
 
 * **Source:** [2024 IBM Annual Report](https://www.ibm.com/downloads/documents/us-en/1227c12d3a38b173)
