@@ -112,20 +112,46 @@ You can verify this data by checking the table on page 10 (document page 8) of t
 
 ### 14. Click **Deploy** in the upper-right corner.
 
+<img width="1181" height="974" alt="2-14-DeployButton" src="https://github.com/user-attachments/assets/f20828b8-8d53-4bf4-891e-a3ecfb21a315" />
+
+
 ### 15. On the **Pre-deployment Summary** page, click the blue **Deploy** button in the lower right corner.
+
+<img width="1181" height="974" alt="2-15-PredeploymentSummary" src="https://github.com/user-attachments/assets/66e5f675-e302-480c-86c1-fc337942fe1c" />
+
 
 ### 16. Wait until the message **Success** appears in the upper-right corner. Your AI agent is now deployed and ready for use.
 
+<img width="1181" height="974" alt="2-16-Deployed" src="https://github.com/user-attachments/assets/58eb314c-71fb-4a8f-8b0f-52bc918ec558" />
+
+
 ### 17. From the top-left menu, click **Chat**.
+
+<img width="252" height="198" alt="2-17-Chat" src="https://github.com/user-attachments/assets/e69714c3-595e-40c0-bbbf-12ca34172be8" />
+
 
 ### 18. Select your AI agent **IBMInfo**.
 
+<img width="308" height="183" alt="2-18-IBMInfo-Chat" src="https://github.com/user-attachments/assets/d13c6d95-bd1b-47fc-8270-7af44575339c" />
+
+
 ### 19. Ask a question in the chat:  
-* **Input:** `What was IBM’s free cash flow in 2024?`
+* **Input:** 
+```
+What was IBM’s free cash flow in 2024?
+```
+<img width="1181" height="974" alt="2-19-CashFlowQuestion" src="https://github.com/user-attachments/assets/0699a391-d1b7-45e4-9f2d-5e466509ad9d" />
+
 
 ### 20. Confirm that the AI agent responds correctly.
 
+<img width="1061" height="330" alt="2-20-Result" src="https://github.com/user-attachments/assets/f5d11550-2b05-492e-96cb-2b674cca99b1" />
+
+
 ### 21. Click the 👍 icon to send feedback.
+
+<img width="1181" height="974" alt="2-21-Feedback" src="https://github.com/user-attachments/assets/1449bae2-16b2-449d-b1ae-65143ee116cb" />
+
 
 > Note: Feedback cannot be viewed directly from the watsonx Orchestrate management console.  
 > You can access it through the API [Get messages to a specific thread](https://developer.ibm.com/apis/catalog/watsonorchestrate--custom-assistants/api/API--watsonorchestrate--agentic-experience#Get_Message_by_ID_v1_threads__thread_id__messages__message_id__get), where it’s stored as a `feedback` object inside `message_state`.
