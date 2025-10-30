@@ -78,7 +78,8 @@ You’ll see “Tool: knowledge_for_agent_IBMInfo,” confirming that the agent 
 ### 12. Ask another question:  
 * **Input:** 
 ```
-How much did free cash flow change year-over-year in 2024? Please include the unit and provide the amount.
+How much did free cash flow change year-over-year in 2024?
+Please include the unit and provide the amount.
 ```  
 The answer should reflect the same context found in the report above.
 
