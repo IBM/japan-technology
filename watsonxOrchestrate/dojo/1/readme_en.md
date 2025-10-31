@@ -3,14 +3,13 @@
 _Last updated: October 23, 2025_
 
 If you don’t yet have a watsonx Orchestrate environment, you can prepare one using one of the following methods:
-* [Register for the 30-day free trial](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#30%E6%97%A5%E7%84%A1%E5%84%9F%E8%A9%95%E4%BE%A1%E7%89%88%E3%81%AE%E7%99%BB%E9%8C%B2)
-* [Set up an environment using IBM Technology Zone (available to IBM employees and registered IBM Partner Plus partners)](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-technology-zone%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90)
-* [Set up an environment using your IBM Cloud account (for existing IBM Cloud customers and partners)](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/1#ibm-cloud%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%BF%E3%81%84%E7%92%B0%E5%A2%83%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%99%E3%81%A7%E3%81%ABibm-cloud%E3%82%92%E3%81%8A%E4%BD%BF%E3%81%84%E3%81%AE%E3%81%8A%E5%AE%A2%E6%A7%98%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC%E6%A7%98)
+* [Register for the 30-day free trial](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme_en.md#register-for-the-30-day-free-trial)
+* [Set up an environment using IBM Technology Zone (available to IBM employees and registered IBM Partner Plus partners)](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme_en.md#creating-an-environment-using-ibm-technology-zone)
+* [Set up an environment using your IBM Cloud account (for existing IBM Cloud customers and partners)](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme_en.md#creating-an-environment-using-an-ibm-cloud-account)
 
 If your environment is already ready, please proceed to the AI Agent Dojo:
 
-* [AI Agent Dojo #1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/index.md#watsonx-orchestrate-ai-%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E4%BD%93%E9%A8%93-part-1)
-* [AI Agent Dojo #2](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2/readme.md)
+* [AI Agent Dojo #1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/index_en.md)
 
 ## Register for the 30-day Free Trial
 
