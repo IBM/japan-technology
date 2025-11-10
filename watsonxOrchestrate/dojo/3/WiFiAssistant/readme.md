@@ -1,3 +1,5 @@
+Wifi Assistant
+
 # ネットワーク（Wi-Fiパスワード案内）
 
 * 最終更新日: 2025/11/10
@@ -28,7 +30,9 @@
   Japanese
   ```
 
-3. 続いて「Personalize your assistant」の画面が表示されます。Webサイトで動作するチャットボットを作成するので、デプロイ先は「Web」とします。
+  <img width="1098" height="1000" alt="02Create1stAssistant" src="https://github.com/user-attachments/assets/1f4f5d3a-813a-42ba-ae21-11939300d751" />
+
+3. 続いて「Personalize your assistant」の画面が表示されます。Webサイトで動作するチャットボットを作成するので、デプロイ先は「Web」とします。Tell us about yourselfのところは、皆さんに適したものを選択してください。それぞれ設定したら、右上の[Next]をクリックします。
 
 * Where do you plan on deploying your assistant?
   ```
@@ -49,7 +53,7 @@
   ```
   I want to provide confident answers to common questions.
   ```
-<img width="1098" height="1000" alt="02Create1stAssistant" src="https://github.com/user-attachments/assets/1f4f5d3a-813a-42ba-ae21-11939300d751" />
+
 
 <img width="1098" height="1000" alt="03PersonalizeYourAssistant" src="https://github.com/user-attachments/assets/0392094f-5eeb-47ef-9cb7-ac8834781d5e" />
 
@@ -110,6 +114,7 @@
 <img width="989" height="785" alt="31-Step4-SetAll" src="https://github.com/user-attachments/assets/6f2de719-db1a-4cfd-adc1-2529503bdca6" />
 
 <img width="367" height="533" alt="32-Step4-Preview" src="https://github.com/user-attachments/assets/65130a13-b606-45cd-9a9d-4175d6062ccc" />
+
 
 
 
