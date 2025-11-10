@@ -48,3 +48,84 @@
   ブルースクリーン
   ```
 <img width="832" height="776" alt="36-DisplayName-Examples" src="https://github.com/user-attachments/assets/26092564-f936-4b88-97a6-cbc35d989f99" />
+
+5. 以降、似たような作業の繰り返しであるため、作業のポイントを書いておきます。全体のフローを参考にして、完成させてください。連絡先は架空のものです。ご注意ください。
+
+## Step 1:
+
+* Assistant says:
+  ```
+  故障しているのは Windows と Mac のどちらですか？
+  ```
+* Options: 
+  ```
+  Windows
+  ```
+
+  ```
+  Mac
+  ```
+* Name: (New Saved response)
+  ```
+  os
+  ```
+
+## Step 2:
+* Assistant says:
+  ```
+ メーカー名の先頭文字を教えてください。L ですか？ それ以外ですか？
+  ```
+  
+* Options: 
+  ```
+  L
+  ```
+
+  ```
+  それ以外
+  ```
+  
+<img width="1325" height="983" alt="39-Step2-detail" src="https://github.com/user-attachments/assets/a4c65c73-aecc-46fb-bd00-ac9370e5e887" />
+
+<img width="578" height="559" alt="40-Step2-Options" src="https://github.com/user-attachments/assets/a817dc94-1425-4bb8-959b-1fe1b54578ee" />
+
+## Step 3:
+* Conditions:
+  if [Step 1] is [Windows]
+  and if [Step 2] is [L]
+  
+* Assistant says:
+  ```
+ 「サポートM部門、123-9988」にご連絡ください。
+  ```
+* And Then:
+  ```
+  End of action
+  ```
+  
+## Step 4:
+* Conditions:
+  if [Step 1] is [Windows]
+  and if [Step 2] is [それ以外]
+
+* Assistant says:
+  ```
+ 「サポートM部門、123-9988」にご連絡ください。
+  ```
+* And Then:
+  ```
+  End of action
+  ```
+
+## Step 5:
+* Conditions:
+  if [Step 1] is [Mac]
+
+* Assistant says:
+  ```
+ サポートA部門、123-0202」にご連絡ください。
+  ```
+* And Then:
+  ```
+  End of action
+  ```
