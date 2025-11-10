@@ -4,7 +4,13 @@
 * このハンズオンは、watsonx OrchestrateのAI Assistant Builderを使って、社内のヘルプデスクで利用することを想定して、簡単なチャットボット作成を体験します。
 * watsonx OrchestrateのSaaS環境だけで作成しますので、外部のシステムや文書との連携は含みません。
 
-##
+## watsonx Orchestrateの準備
+準備方法は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
+
+お使いの環境に合わせてwatsonx Orchestrateを開いてください。
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
+
 
 ## 1. Wi-Fiパスワードの案内
 下記のような問い合わせに対して、ユーザーが現在いるオフィスを確認し、該当のWi-Fiパスワードを案内します。
