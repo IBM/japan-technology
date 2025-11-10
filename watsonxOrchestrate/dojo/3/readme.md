@@ -14,6 +14,8 @@
 * wifi password
 * 社内ネットワーク つながらない
 
+演習は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/3/WiFiAssistant/readme.md)
+
 <img width="2633" height="2711" alt="Wi-Fiが繋がらない" src="https://github.com/user-attachments/assets/493092ec-fbc0-4cfb-bf46-f4e0204da6ec" />
 
 ## 2. PC故障時の案内
@@ -23,6 +25,9 @@
 * パソコンが起動しない
 * ブルースクリーン
 * Macが動かない
+
+演習は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/3/PCFailureAssistant/readme.md)
+
 <img width="2035" height="2676" alt="PC故障の問い合わせ" src="https://github.com/user-attachments/assets/ebcc9fb2-4ce4-4c00-bf7a-0ba43638f36b" />
 
 ##
