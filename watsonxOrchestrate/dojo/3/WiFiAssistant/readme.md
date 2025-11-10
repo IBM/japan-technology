@@ -225,7 +225,7 @@ Wifi Assistant
 
 <img width="660" height="329" alt="28-Step3-ChooseOffice" src="https://github.com/user-attachments/assets/585093db-0ef1-4c80-973e-b5fc36a6b201" />
 
-29. [Step 3]の[Assistant says]を入力します。
+29. [Step 3]の[Assistant says]を入力します。[And then]の下にある[Continue to next step]をクリックし、[End the action]を選択します。
 
 * Assistant says:（ご注意:このパスワードは架空のものです）
   ```
@@ -234,14 +234,45 @@ Wifi Assistant
 
 <img width="894" height="772" alt="29-Step3-New" src="https://github.com/user-attachments/assets/3bd38af1-7365-462b-8ee3-0a70823feaf6" />
 
+30. [Preview]をクリックして、AIアシスタントの動作を確認します。
 
+* ご用件をお伺いいたします。: 
+  ```
+  ネットワーク
+  ```
+
+* 今どのオフィスにいますか？:
+  ```
+  虎ノ門
+  ```
 <img width="368" height="530" alt="30-Step3-Preview" src="https://github.com/user-attachments/assets/91aa2555-a14d-4e2b-aafc-0d7e64da47d3" />
 
+31. 手順23、28と同様に左側にある[Conversation steps]欄の下側にある[New step +]をクリックします。[Step 4]のEditorが開いたら、[Is taken]と表示されている右側にあるドロップ・ダウン・リストボックスを開き、下側にある[with conditions]を選択します。[Assitant Says]、[And Then]を設定します。
+
+* Conditions内に表示されているオフィスの[Options]項目から、[その他]を選択します。
+
+* Assistant says:（ご注意:このパスワードは架空のものです）
+  ```
+  そのほかのオフィスのWi-Fiパスワードは「GN5963#41!」です。
+  ```
+* And Then:
+  ```
+  End the action
+  ```
 <img width="989" height="785" alt="31-Step4-SetAll" src="https://github.com/user-attachments/assets/6f2de719-db1a-4cfd-adc1-2529503bdca6" />
 
+32. [Preview]をクリックし、AIアシスタントの動作を確認します。
 <img width="367" height="533" alt="32-Step4-Preview" src="https://github.com/user-attachments/assets/65130a13-b606-45cd-9a9d-4175d6062ccc" />
 
 
+* ご用件をお伺いいたします。: 
+  ```
+  パスワード
+  ```
 
+* 今どのオフィスにいますか？:
+  ```
+  その他
+  ```
 
-
+以上、Wi-Fiのパスワードを案内するアクションの作成でした。
