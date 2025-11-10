@@ -11,6 +11,10 @@ Wifi Assistant
 ##
 1. watsonx Orchestrateを開き、左上のメニューから、[Build]-[Assistant Builder]を選択します。
 
+※ お使いの環境に合わせてwatsonx Orchestrateを開いてください。
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
+
 <img width="1098" height="1000" alt="01AssistantBuilder" src="https://github.com/user-attachments/assets/3807edcd-2fc7-4d97-ac31-afe6266a696e" />
 
 2. 初回のアシスタント作成であるので、「Welcome to AI assistant builder」の画面を使って進めます。「Create your first assistant」の入力欄に次の内容を設定します。それぞれ設定したら、右上にある[Next]をクリックします。
