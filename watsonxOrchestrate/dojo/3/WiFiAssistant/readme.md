@@ -275,4 +275,8 @@ Wifi Assistant
   その他
   ```
 
+33. 最後にEditorの右上にある[x]をクリックして、アクション一覧画面に戻ります。
+<img width="1208" height="317" alt="33-Actions-List" src="https://github.com/user-attachments/assets/54a60964-31ce-487b-bf5d-07951cfa1b6f" />
+
+
 以上、Wi-Fiのパスワードを案内するアクションの作成でした。
