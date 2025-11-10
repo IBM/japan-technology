@@ -7,7 +7,7 @@ Wifi Assistant
 ## 全体像の確認
 
 * ハンズオンのゴール: この会話フローを、プログラミングコードを書かずにWeb GUIの操作だけで構築することがゴールです。
-* 使用するツール: このハンズオンではwatsonx Orchestrateの環境にログインし、その中でAI Assistant Builderという機能を使います。これは、AIとの対話（チャットボット）の流れを専門に作るためのツールです。
+* 使用するツール: このハンズオンではwatsonx Orchestrateの環境にログインし、その中でAI Assistant Builderという機能を使います。これは、AIとの対話（AIアシスタント）の流れを専門に作るためのツールです。
 * Action（アクション)とは、AIアシスタントが実行できる『一つの仕事』の単位です。今回は『Wi-Fiパスワードを案内する』というActionを1つ作ります。
 
 <img width="2633" height="2711" alt="Wi-Fiが繋がらない" src="https://github.com/user-attachments/assets/493092ec-fbc0-4cfb-bf46-f4e0204da6ec" />
@@ -40,7 +40,7 @@ Wifi Assistant
 
   <img width="1098" height="1000" alt="02Create1stAssistant" src="https://github.com/user-attachments/assets/1f4f5d3a-813a-42ba-ae21-11939300d751" />
 
-3. 続いて「Personalize your assistant」の画面が表示されます。Webサイトで動作するチャットボットを作成するので、デプロイ先は「Web」とします。Tell us about yourselfのところは、皆さんに適したものを選択してください。それぞれ設定したら、右上の[Next]をクリックします。
+3. 続いて「Personalize your assistant」の画面が表示されます。Webサイトで動作するAIアシスタントを作成するので、デプロイ先は「Web」とします。Tell us about yourselfのところは、皆さんに適したものを選択してください。それぞれ設定したら、右上の[Next]をクリックします。
 
 * Where do you plan on deploying your assistant?
   ```
@@ -194,7 +194,7 @@ Wifi Assistant
 
 * このアクションはまだ完成していないので、Preview画面内に「There are no additional steps for this actions.  Add a new step or end the action.」と表示されます。
 
-22. [Preview]画面にある[-]をクリックして、チャット・ウィンドウを閉じます。
+22. [Preview]画面にある[-]をクリックして、Preview画面を閉じます。
 <img width="320" height="40" alt="22CloseChatWindow" src="https://github.com/user-attachments/assets/928fc059-68c7-425e-a417-a177c311b189" />
 
 23. 左側にある[Conversation steps]欄の下側にある[New step +]をクリックします。
@@ -295,7 +295,7 @@ Wifi Assistant
 33. 最後にEditorの右上にある[x]をクリックして、アクション一覧画面に戻ります。
 <img width="1208" height="317" alt="33-Actions-List" src="https://github.com/user-attachments/assets/54a60964-31ce-487b-bf5d-07951cfa1b6f" />
 
-おめでとうございます！これで、『お客様の質問の意図を理解し』『選択肢で回答を誘導し』『条件に応じて異なる回答を返す』という、チャットボットの最も重要な基本ロジックを完成できました。
+おめでとうございます！これで、『お客様の質問の意図を理解し』『選択肢で回答を誘導し』『条件に応じて異なる回答を返す』という、AIアシスタントの最も重要な基本ロジックを完成できました。
 
 [次の演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/3/PCFailureAssistant/readme.md)に進んでください。
 
