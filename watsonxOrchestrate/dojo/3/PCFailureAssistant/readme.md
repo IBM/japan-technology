@@ -54,10 +54,13 @@
 ## Step 1:
 
 * Assistant says:
+
   ```
   故障しているのは Windows と Mac のどちらですか？
   ```
+
 * Options: 
+
   ```
   Windows
   ```
@@ -66,17 +69,21 @@
   Mac
   ```
 * Name: (New Saved response)
+
   ```
   os
   ```
 
 ## Step 2:
+
 * Assistant says:
+
   ```
- メーカー名の先頭文字を教えてください。L ですか？ それ以外ですか？
+  メーカー名の先頭文字を教えてください。L ですか？ それ以外ですか？
   ```
   
 * Options: 
+
   ```
   L
   ```
@@ -90,42 +97,58 @@
 <img width="578" height="559" alt="40-Step2-Options" src="https://github.com/user-attachments/assets/a817dc94-1425-4bb8-959b-1fe1b54578ee" />
 
 ## Step 3:
+
 * Conditions:
+
   if [Step 1] is [Windows]
+  
   and if [Step 2] is [L]
   
 * Assistant says:
   ```
  「サポートM部門、123-9988」にご連絡ください。
   ```
+  
 * And Then:
+
   ```
   End of action
   ```
   
 ## Step 4:
+
 * Conditions:
+
   if [Step 1] is [Windows]
+
   and if [Step 2] is [それ以外]
 
 * Assistant says:
+
   ```
- 「サポートM部門、123-9988」にご連絡ください。
+  「サポートM部門、123-9988」にご連絡ください。
   ```
+
 * And Then:
+
   ```
   End of action
   ```
 
 ## Step 5:
+
 * Conditions:
+
   if [Step 1] is [Mac]
 
 * Assistant says:
+
   ```
- サポートA部門、123-0202」にご連絡ください。
+  「サポートA部門、123-0202」にご連絡ください。
   ```
+  
 * And Then:
+
   ```
   End of action
   ```
