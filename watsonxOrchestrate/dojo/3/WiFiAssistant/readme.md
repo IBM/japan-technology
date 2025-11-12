@@ -2,7 +2,7 @@ Wifi Assistant
 
 # ネットワーク（Wi-Fiパスワード案内）
 
-* 最終更新日: 2025/11/10
+* 最終更新日: 2025/11/12
 
 ## 全体像の確認
 
@@ -174,7 +174,7 @@ Wifi Assistant
 20. 「New saved response」の画面が表示されます。[Name]項目を入力して、[Apply]をクリックします。
 * Name (required): 
   ```
-  その他
+  office
   ```
 
 <img width="1151" height="983" alt="20NewSavedResponse" src="https://github.com/user-attachments/assets/35650faa-a8ce-484a-9064-87cb52dd8680" />
