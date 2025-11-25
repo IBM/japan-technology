@@ -2,14 +2,22 @@ Wifi Assistant
 
 # ネットワーク（Wi-Fiパスワード案内）
 
-* 最終更新日: 2025/11/10
+* 最終更新日: 2025/11/12
 
 ## 全体像の確認
+
+* ハンズオンのゴール: この会話フローを、プログラミングコードを書かずにWeb GUIの操作だけで構築することがゴールです。
+* 使用するツール: このハンズオンではwatsonx Orchestrateの環境にログインし、その中でAI Assistant Builderという機能を使います。これは、AIとの対話（AIアシスタント）の流れを専門に作るためのツールです。
+* Action（アクション)とは、AIアシスタントが実行できる『一つの仕事』の単位です。今回は『Wi-Fiパスワードを案内する』というActionを1つ作ります。
 
 <img width="2633" height="2711" alt="Wi-Fiが繋がらない" src="https://github.com/user-attachments/assets/493092ec-fbc0-4cfb-bf46-f4e0204da6ec" />
 
 ##
 1. watsonx Orchestrateを開き、左上のメニューから、[Build]-[Assistant Builder]を選択します。
+
+※ お使いの環境に合わせてwatsonx Orchestrateを開いてください。
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
 
 <img width="1098" height="1000" alt="01AssistantBuilder" src="https://github.com/user-attachments/assets/3807edcd-2fc7-4d97-ac31-afe6266a696e" />
 
@@ -32,7 +40,7 @@ Wifi Assistant
 
   <img width="1098" height="1000" alt="02Create1stAssistant" src="https://github.com/user-attachments/assets/1f4f5d3a-813a-42ba-ae21-11939300d751" />
 
-3. 続いて「Personalize your assistant」の画面が表示されます。Webサイトで動作するチャットボットを作成するので、デプロイ先は「Web」とします。Tell us about yourselfのところは、皆さんに適したものを選択してください。それぞれ設定したら、右上の[Next]をクリックします。
+3. 続いて「Personalize your assistant」の画面が表示されます。Webサイトで動作するAIアシスタントを作成するので、デプロイ先は「Web」とします。Tell us about yourselfのところは、皆さんに適したものを選択してください。それぞれ設定したら、右上の[Next]をクリックします。
 
 * Where do you plan on deploying your assistant?
   ```
@@ -117,6 +125,8 @@ Wifi Assistant
   社内ネットワーク つながらない
   ```
 
+* Add example phrasesを入力する理由は、問い合わせするユーザーがどのような言い回し（例：Wi-Fiパスワード、wifi password）で質問してきても、watsonx Orchestrateが『これはWi-Fiパスワードの質問だ』と賢く理解できるように、AIの『辞書』に言葉を登録しています。これを自然言語理解（NLU）のトレーニングと呼びます。
+  
 <img width="1151" height="983" alt="13Filled-DisplayName-Examples" src="https://github.com/user-attachments/assets/0b76414b-fc30-40f1-a200-b707ef6a37a9" />
 
 14. 必要な入力を終えたら、左側に表示されている[Conversation steps]の下にある[1]のタイルをクリックします。
@@ -135,6 +145,8 @@ Wifi Assistant
 
 17. [Define customer response]の画面に表示される[Options]を使って、回答用の選択肢を作成します。[Options]の下に表示されている[As buttons]のところをクリックします。
 <img width="1151" height="983" alt="17Options" src="https://github.com/user-attachments/assets/cff4d856-4036-4dfe-8ce7-21b1c8eea48e" />
+
+* なぜ自由入力（Free text）ではなく選択肢（Options）を使うのか？：この後のステップで、『もし箱崎が選ばれたら、箱崎オフィスのパスワードを教える』という条件分岐を行いたいからです。選択肢にすることで、ユーザーの回答をAIアシスタントが100%正確に認識できます。
 
 18. [Edit response]の画面が表示されるので、[Option 1]から[Option 3]をそれぞれ入力し、最後に[Apply]をクリックします。
 
@@ -158,10 +170,11 @@ Wifi Assistant
 19. 設定した[Options]が表示されていることを確認し、[Edit response]と同じ行にある[Save response for reuse]アイコンをクリックします。
 <img width="535" height="277" alt="19SaveResponseToReuse" src="https://github.com/user-attachments/assets/1c1e216e-a9c6-418b-98d6-17eb73d8d79c" />
 
+
 20. 「New saved response」の画面が表示されます。[Name]項目を入力して、[Apply]をクリックします。
 * Name (required): 
   ```
-  その他
+  office
   ```
 
 <img width="1151" height="983" alt="20NewSavedResponse" src="https://github.com/user-attachments/assets/35650faa-a8ce-484a-9064-87cb52dd8680" />
@@ -181,7 +194,7 @@ Wifi Assistant
 
 * このアクションはまだ完成していないので、Preview画面内に「There are no additional steps for this actions.  Add a new step or end the action.」と表示されます。
 
-22. [Preview]画面にある[-]をクリックして、チャット・ウィンドウを閉じます。
+22. [Preview]画面にある[-]をクリックして、Preview画面を閉じます。
 <img width="320" height="40" alt="22CloseChatWindow" src="https://github.com/user-attachments/assets/928fc059-68c7-425e-a417-a177c311b189" />
 
 23. 左側にある[Conversation steps]欄の下側にある[New step +]をクリックします。
@@ -193,6 +206,8 @@ Wifi Assistant
 25. [Conditions]のところが展開されます。if [All] of this is true: と書かれている下の行を確認します。条件が次のようになっていることを確認してください。
 
 * [1. 今どのオフィスにいますか？] [is] [箱崎]
+
+[Step 1]の回答が[箱崎]の場合に限って、このアクションが実行されます。
 
 確認ができたら、Assistant says:を入力します。（ご注意:このパスワードは架空のものです）
 
@@ -247,6 +262,8 @@ Wifi Assistant
   ```
 <img width="368" height="530" alt="30-Step3-Preview" src="https://github.com/user-attachments/assets/91aa2555-a14d-4e2b-aafc-0d7e64da47d3" />
 
+* もしPreviewで虎ノ門と入力しても虎ノ門オフィスのパスワードが表示されない場合、ステップ28のConditionsの設定（1. 今どのオフィスにいますか? is 虎ノ門）が正しいか確認しましょう。
+
 31. 手順23、28と同様に左側にある[Conversation steps]欄の下側にある[New step +]をクリックします。[Step 4]のEditorが開いたら、[Is taken]と表示されている右側にあるドロップ・ダウン・リストボックスを開き、下側にある[with conditions]を選択します。[Assitant Says]、[And Then]を設定します。
 
 * Conditions内に表示されているオフィスの[Options]項目から、[その他]を選択します。
@@ -278,5 +295,7 @@ Wifi Assistant
 33. 最後にEditorの右上にある[x]をクリックして、アクション一覧画面に戻ります。
 <img width="1208" height="317" alt="33-Actions-List" src="https://github.com/user-attachments/assets/54a60964-31ce-487b-bf5d-07951cfa1b6f" />
 
+おめでとうございます！これで、『お客様の質問の意図を理解し』『選択肢で回答を誘導し』『条件に応じて異なる回答を返す』という、AIアシスタントの最も重要な基本ロジックを完成できました。
 
-以上、Wi-Fiのパスワードを案内するアクションの作成でした。
+[次の演習](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/3/PCFailureAssistant/readme.md)に進んでください。
+

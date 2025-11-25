@@ -4,7 +4,13 @@
 * このハンズオンは、watsonx OrchestrateのAI Assistant Builderを使って、社内のヘルプデスクで利用することを想定して、簡単なチャットボット作成を体験します。
 * watsonx OrchestrateのSaaS環境だけで作成しますので、外部のシステムや文書との連携は含みません。
 
-##
+## watsonx Orchestrateの準備
+準備方法は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
+
+お使いの環境に合わせてwatsonx Orchestrateを開いてください。
+* 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
+* TechZone (ダラス): https://us-south.watson-orchestrate.cloud.ibm.com/chat
+
 
 ## 1. Wi-Fiパスワードの案内
 下記のような問い合わせに対して、ユーザーが現在いるオフィスを確認し、該当のWi-Fiパスワードを案内します。
@@ -13,6 +19,8 @@
 * 無線LANのパスワード
 * wifi password
 * 社内ネットワーク つながらない
+
+演習は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/3/WiFiAssistant/readme.md)
 
 <img width="2633" height="2711" alt="Wi-Fiが繋がらない" src="https://github.com/user-attachments/assets/493092ec-fbc0-4cfb-bf46-f4e0204da6ec" />
 
@@ -23,6 +31,9 @@
 * パソコンが起動しない
 * ブルースクリーン
 * Macが動かない
+
+演習は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/3/PCFailureAssistant/readme.md)
+
 <img width="2035" height="2676" alt="PC故障の問い合わせ" src="https://github.com/user-attachments/assets/ebcc9fb2-4ce4-4c00-bf7a-0ba43638f36b" />
 
 ##
