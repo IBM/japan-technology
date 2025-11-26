@@ -43,6 +43,6 @@
 これでMilvusエンジンの接続情報のJSONスニペットがクリップボードにコピーできました。
 
 
- watsonx.data integrationのブラウザー画面に戻ります。
+ watsonxのブラウザー画面に戻ります。
 
-[7-1. Milvusエンジンへの接続作成 「 Milvus JSONスニペットのコピー」](02_prep_watsonx.data_premium.md#milvus-jsonスニペットのコピー)手順に戻ってください
+[7-1. Milvusエンジンへの接続作成 「Milvus JSONスニペットのコピー」](02_prep_watsonx.data_premium.md#milvus-jsonスニペットのコピー)手順に進んでください。

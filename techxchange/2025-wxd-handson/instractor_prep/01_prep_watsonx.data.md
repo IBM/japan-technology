@@ -236,4 +236,4 @@ cos-bucketストレージの設定はこれで完了です。右上の「X」を
  watsonx.dataでの初期設定は以上です。<br>
  後で使うので、 watsonx.dataの画面は閉じないでおいてください。
 
-  02: [インストラクター用　watsonx.data Premiumの事前準備](02_prep_watsonx.data_premium.md) に進んでください。
+  02: [インストラクター用　watsonxの事前準備](02_prep_watsonx.data_premium.md) に進んでください。

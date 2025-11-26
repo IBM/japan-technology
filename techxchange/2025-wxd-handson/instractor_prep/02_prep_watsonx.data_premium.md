@@ -1,7 +1,7 @@
-# インストラクター用　watsonx.data integration の事前準備
+# インストラクター用　 watsonxの事前準備
 
-当日ハンズオンをスムーズに進行させるために、watsonx.data integration の初期設定を事前に行います。<br>
-既に[インストラクター用　watsonx.dataの事前準備](01_prep_watsonx.data.md)でIBM Cloudのダッシュボードを開いている場合は、「3. watsonx画面の表示」に進んでください。
+当日ハンズオンをスムーズに進行させるために、watsonx の初期設定を事前に行います。<br>
+既に[インストラクター用　watsonx.dataの事前準備](01_prep_watsonx.data.md)でIBM Cloudの画面を開いている場合は、「[3. watsonx画面の表示](#3-watsonx画面の表示)」に進んでください。
 
 
 # 1. Instructor URLにアクセス
@@ -39,19 +39,22 @@ An IBM App ID Cloud Directory instance has been created for you as the default I
 <img width="800" alt="" src="images/01_2-5.jpg"><br>
 
 
-## 3. リソースリストを表示
+## 3. watsonx画面の表示
+既に[インストラクター用　watsonx.dataの事前準備](01_prep_watsonx.data.md)から継続している場合は、Webブラウザーのタブにwatsonx.dataではなく、**IBM Cloudの画面**が開いていることを確認してください。そうでない場合は**IBM Cloudの画面**が開いているタブを表示させてください。<br>
+&nbsp;<br>
+
 左上のナビゲーション・メニューをクリック後、メニューの下の方の「watsonx」をクリックし、watsonxの起動画面を開きます。<br>
 <img alt="" src="../images/resource_list_01.jpg"><br>
 <img width="800" alt="" src="../images/02_01_watsonx_access.jpg"><br>
 
 
 
-### 4. watsonx.data integration の起動
+### 4. watsonx の起動
 watsonxの起動画面の、右側の「watsonx.data」の下にある「起動」ボタンをクリックします。<br>
 <img width="800" alt="" src="../images/02_01_watsonx_launch.jpg"><br>
 
 
-### 5. watsonx.data integration のコンソールの表示
+### 5. watsonx のコンソールの表示
 watsonx.aiのトップページが開きます。
 「watsonxへようこそ」というウィンドウが表示された場合は,チェックボックスにチェックを入れ、右上の[X]をクリックして閉じてください。<br>
 <img width="800" alt="" src="images/wxd_p_01-1.jpg"><br>
@@ -63,7 +66,7 @@ watsonx.aiのトップページが開きます。
 
 
 
-### 7. プラットフォーム接続を作成
+### 7. プラットフォーム接続の作成
 左上のナビゲーションメニューをクリックし、「Data」の下の「Connectivity」をクリックします。
 <img alt="" src="images/wxd_p_navimenu.jpg"><br>
 &nbsp;<br>
@@ -96,7 +99,7 @@ IBM watsonx.data Milvusにチェックを入れ、「次へ」をクリックし
 &nbsp;<br>
 
 watsonx.dataのweb画面からmilvusエンジンの接続情報のJSONスニペットをコピーします。<br>
-[インストラクター用　starterエンジンの接続情報のJSONスニペットをコピー](04_prep_watsonx_data_json_milvus.md) を実施してください。
+[インストラクター用　 Milvusエンジンの接続情報のJSONスニペットをコピー](04_prep_watsonx_data_json_milvus.md) を実施してください。
 
 #### Milvus JSONスニペットのコピー
 コピーが完了したら、表示されている「接続の作成: IBM watsonx.data Milvus」の「JSONスニペットを入力」をクリックします。<br>
@@ -163,13 +166,66 @@ Credentialsの「API キー(必須)」に貼り付けます。<br>
 <img width="800" alt="" src="images/wxd_p_18.jpg"><br>
 &nbsp;<br>
 
+左上の「IBM watsonx」のロゴをクリックして、watsonxのダッシュボードに戻ってください。
+<img width="800" alt="" src="images/watsonx.jpg"><br>
+&nbsp;<br>
+
 ### 8. サンプル・プロジェクトの作成
 サンプル・プロジェクトを作成します。<br>
-T.B.D.<br>
+「ディスカバー」エリアに表示されている「まずは watsonx.data」　というタイルにある「サンプル・プロジェクトの作成」ボタンをクリックします。
+<img width="800" alt="" src="images/wxd_p_19.jpg"><br>
+&nbsp;<br>
+
+#### 8-1. 名前を`TechXchange Hands-on`に変更します
+「Getting started with watsonx.data gen AI capabilities」という名前から<br>
+`TechXchange Hands-on`<br>
+いう名前に変更してください。
+
+#### 8-2. ストレージ・サービスの選択
+①ストレージ・サービスの選択<br>
+ターゲット Cloud Object Storage インスタンス<br>
+`cos-`で始まるCloud Object Storage インスタンスをセットしてください。<br>
+<img width="500" alt="" src="images/wxd_p_21.jpg"><br>
+&nbsp;<br>
+
+#### 8-3. サービス・インスタンスの定義
+watsonx.ai Runtimeに1つだけサービスインスタンスが入っているので、それをセットしてください。<br>
+<img width="500" alt="" src="images/wxd_p_22.jpg"><br>
+&nbsp;<br>
+
+#### 8-4. 「作成」のクリック
+上記3つをセットしたら、「作成」をクリックしてください。
+<img width="800" alt="" src="images/wxd_p_20.jpg"><br>
+&nbsp;<br>
+
+作成中の画面が表示されるので作成完了まで待ちます。<br>
+<img width="800" alt="" src="images/wxd_p_23.jpg"><br>
+&nbsp;<br>
+
+下記の画面が表示されれば完了です。「新規プロジェクトの表示」をクリックしてプロジェクトが表示できることを確認します。<br>
+<img width="800" alt="" src="images/wxd_p_24.jpg"><br>
+&nbsp;<br>
+
+<img width="800" alt="" src="images/wxd_p_25.jpg"><br>
+&nbsp;<br>
+
+
+#### 8-5. 「非構造化データ統合フロー」の削除
+「資産」タブをクリックし、非構造化データ統合フロー「invoice-ingestion-flow」の右のハンバーガーメニューから「削除」クリックしてください。<br>
+その後、確認のウィンドウで「削除」をクリックします。<br>
+<img width="800" alt="" src="images/wxd_p_26.jpg"><br>
+&nbsp;<br>
+<img width="800" alt="" src="images/wxd_p_27.jpg"><br>
+&nbsp;<br>
+
+削除が完了したら左上の「IBM watsonx」のロゴをクリックして、watsonxのダッシュボードに戻ってください。<br>
+<img width="800" alt="" src="images/watsonx.jpg"><br>
+&nbsp;<br>
 
 
 
-watsonx.data integration の設定はこれで完了です。<br>
-別にUsernameの設定をする場合はwatsonx.ai、watson.data, IBM Cloudコンソール、全てログアウトしてから実行してください。
+
+watsonx の設定はこれで完了です。<br>
+別にUsernameの設定をする場合はwatsonx、watson.data, IBM Cloudコンソール、全てログアウトしてから実行してください。
 
 

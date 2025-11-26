@@ -43,6 +43,6 @@
 これでstaterエンジンの接続情報のJSONスニペットがクリップボードにコピーできました。
 
 
- watsonx.data integrationのブラウザー画面に戻ります。
+ watsonxのブラウザー画面に戻ります。
 
 [7-2. starterエンジンへの接続作成 「 starter JSONスニペットのコピー」](02_prep_watsonx.data_premium.md#starter-jsonスニペットのコピー)手順に戻ってください

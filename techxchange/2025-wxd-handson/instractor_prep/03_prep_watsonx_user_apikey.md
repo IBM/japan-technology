@@ -1,12 +1,12 @@
 # インストラクター用　IBM Watsonx User API Keyの作成
 
-[インストラクター用　watsonx.data integrationの事前準備](02_prep_watsonx.data_premium.md) の「5. watsonx.data integrationのコンソールの表示」まで実施している前提です。
+[インストラクター用　watsonxの事前準備](02_prep_watsonx.data_premium.md) の「5. watsonxのコンソールの表示」まで実施している前提です。
 
 ユーザー用にユーザーAPIキーが生成されていることを確認します。ない場合は作成します。<br>
 IBM Watsonxでのランタイム操作を認証するには、ユーザーAPIキーが必要です。
 
 ## 1. 「プロファイルと設定」画面の表示
-watsonx.data integration コンソールで、右上の丸いプロフィール・アイコンをクリックします。<br>
+watsonx コンソールで、右上の丸いプロフィール・アイコンをクリックします。<br>
 次に、「プロファイルと設定」をクリックします。<br>
 <img width="800" alt="" src="images/wxd_apikey_01.jpg"><br>
 &nbsp;<br>
@@ -29,11 +29,11 @@ watsonx.data integration コンソールで、右上の丸いプロフィール�
 <img width="800" alt="" src="images/wxd_apikey_04.jpg"><br>
 &nbsp;<br>
 
-### 4. watsonx.data integrationのコンソールを表示します
+### 4. watsonxのコンソールを表示します
 左上部の「IBM watsonx」をクリックして元の画面に戻ります。<br>
 <img width="800" alt="" src="images/wxd_apikey_05.jpg"><br>
 &nbsp;<br>
 <img width="800" alt="" src="images/wxd_apikey_06.jpg"><br>
 &nbsp;<br>
 
-[インストラクター用　watsonx.data integrationの事前準備](02_prep_watsonx.data_premium.md) の「7. プラットフォーム接続の作成」に戻ってください。
+[インストラクター用　watsonxの事前準備](02_prep_watsonx.data_premium.md) の「[7. プラットフォーム接続の作成](02_prep_watsonx.data_premium.md#7-プラットフォーム接続の作成)」に戻ってください。
