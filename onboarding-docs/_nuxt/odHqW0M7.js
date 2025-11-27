@@ -1,1 +1,0 @@
-import{_ as t,c as o,o as s,r}from"./BqJLwBBd.js";const a={},c={class:"px-6 py-4 whitespace-nowrap text-sm text-cool-gray-900 dark:text-cool-gray-300"};function n(e,_){return s(),o("td",c,[r(e.$slots,"default")])}const l=Object.assign(t(a,[["render",n]]),{__name:"ProseTd"});export{l as default};
