@@ -1,0 +1,1 @@
+import{_ as r,c as e,o as s,r as t}from"./BqJLwBBd.js";const a={},c={class:"hover:bg-cool-gray-50 dark:hover:bg-cool-gray-800/50 transition-colors radius-none"};function n(o,_){return s(),e("tr",c,[t(o.$slots,"default")])}const d=Object.assign(r(a,[["render",n]]),{__name:"ProseTr"});export{d as default};

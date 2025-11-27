@@ -1,0 +1,1 @@
+import{j as s,c as t,o,r as a,_ as n}from"./BqJLwBBd.js";const r={class:"steps-container my-8"},_=s({__name:"Steps",props:{level:{default:"3"}},setup(c){return(e,p)=>(o(),t("div",r,[a(e.$slots,"default",{},void 0,!0)]))}}),l=Object.assign(n(_,[["__scopeId","data-v-fed42ba5"]]),{__name:"Steps"});export{l as default};
