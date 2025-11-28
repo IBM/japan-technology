@@ -50,19 +50,19 @@ Environmentsセクションの　担当番号のセクションを開きます�
 
 
 
-### 4. watsonx.dataのリソースの表示
+## 4. watsonx.dataのリソースの表示
 リソース・リストから[データベース]のグループを見つけて、その中に含まれている watsonx.data のサービスを見つけて、表示されている名前をクリックします。<br>
 <img width="800" alt="" src="../images/watsonx.data_01.jpg"><br>
 
 
-### 5. watsonx.dataのコンソールの表示
+## 5. watsonx.dataのコンソールの表示
 watsonx.dataのリソースが表示されるので、「Webコンソールを開く」をクリックします
 <img width="800" alt="" src="../images/watsonx.data_02.jpg"><br>
 &nbsp;<br>
 
 
 
-### 6. watsonx.dataの初期設定実施
+## 6. watsonx.dataの初期設定実施
 以下、デフォルトのまま全て「次へ」をクリックします(5まで):<br>
 1.<br>
 <img width="800" alt="" src="images/wxd01.jpg"><br>
@@ -91,7 +91,7 @@ watsonx.dataのリソースが表示されるので、「Webコンソールを�
 <img width="800" alt="" src="images/wxd07.jpg"><br>
 &nbsp;<br>
 
-### 7. Milvusサービスの作成
+## 7. Milvusサービスの作成
 左上のグローバル・ナビゲーションをクリック後、「インフラストラクチャー・マネージャー」をクリックし、インフラストラクチャー・マネージャーを開きます。<br>
 <img  src="../images/watsonx.data_navimenu.jpg"><br>
 &nbsp;<br>
@@ -132,7 +132,7 @@ Milvusの上にマウスを重ねると、「Milvus実行中」と表示され�
 <img  width="800" src="images/milvus01.jpg"><br>
 &nbsp;<br>
 
-### 8. Milvusサービスに権限追加 (プロビジョン中でも設定可能)
+## 8. Milvusサービスに権限追加 (プロビジョン中でも設定可能)
 「Milvus」アイコンをクリックします。サービスの詳細が表示されます。<br>
 「アクセス制御タブ」をクリックし、「アクセス権限の追加」をクリックします。
 <img  width="800" src="images/milvus02.jpg"><br>
@@ -155,7 +155,7 @@ Milvusの上にマウスを重ねると、「Milvus実行中」と表示され�
 
 Milvusの設定はこれで完了です。右上の「X」をクリックしてMilvusの画面を閉じてください。
 
-### 9. starterエンジンにアクセス権の追加
+## 9. starterエンジンにアクセス権の追加
 「starter」アイコンをクリックします。エンジンの詳細が表示されます。<br>
 「アクセス制御タブ」をクリックし、「アクセス権限の追加」をクリックします。
 <img  width="800" src="images/starter01.jpg"><br>
@@ -173,7 +173,7 @@ Milvusの設定はこれで完了です。右上の「X」をクリックしてM
 
 starterエンジンの設定はこれで完了です。右上の「X」をクリックしてstarterの画面を閉じてください。
 
-### 10. iceberg_dataカタログにアクセス権の追加 (プロビジョン中でも設定可能)
+## 10. iceberg_dataカタログにアクセス権の追加 (プロビジョン中でも設定可能)
 「iceberg_data」(表示は「iceberg_d...」)アイコンをクリックします。エンジンの詳細が表示されます。<br>
 「アクセス制御タブ」をクリックし、「アクセス権限の追加」をクリックします。
 <img  width="800" src="images/iceberg_data01.jpg"><br>
@@ -193,7 +193,7 @@ iceberg_dataカタログの設定はこれで完了です。右上の「X」を�
 
 
 
-### 11. cos-bucketストレージにアクセス権の追加
+## 11. cos-bucketストレージにアクセス権の追加
 「cos-bucket」アイコンをクリックします。ストレージの詳細が表示されます。<br>
 「アクセス制御タブ」をクリックし、「アクセス権限の追加」をクリックします。
 <img  width="800" src="images/cos-bucket01.jpg"><br>
@@ -212,7 +212,7 @@ iceberg_dataカタログの設定はこれで完了です。右上の「X」を�
 cos-bucketストレージの設定はこれで完了です。右上の「X」をクリックしてcos-bucketの画面を閉じてください。
 
 
-### 12. iceberg_dataカタログにスキーマ作成
+## 12. iceberg_dataカタログにスキーマ作成
 左上のグローバル・ナビゲーションをクリック後、「データ・マネージャー」をクリックし、データ・マネージャーを開きます。<br>
 <img  src="../images/watsonx.data_navimenu.jpg"><br>
 &nbsp;<br>
