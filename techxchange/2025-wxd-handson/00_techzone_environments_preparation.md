@@ -25,7 +25,7 @@ IBM idの確認は以下のLinkより、ログインして確認してみてく�
 
 ## 準備3: IBM Cloudで使用できるWebブラウザーを使用するPCに導入してください。
 
-Chrome, Firefox, エッジ, Safariが対応していますが、古すぎるバージョンは対応していませんので、下記の記載を参考にご準備ください。
+Chrome, Firefox, エッジが対応していますが、古すぎるバージョンは対応していませんので、下記の記載を参考にご準備ください。
 - [IBM Cloudに最小限必要なブラウザー・ソフトウェア](
 https://cloud.ibm.com/docs/overview?topic=overview-prereqs-platform#browsers-platform)
 
