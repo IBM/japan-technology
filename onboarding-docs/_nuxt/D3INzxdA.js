@@ -1,1 +1,0 @@
-import{_ as o,c as d,o as r,r as a}from"./BoCBbIpG.js";const s={},c={class:"my-5 divide-y divide-cool-gray-300 dark:divide-cool-gray-700 radius-none"};function n(e,t){return r(),d("div",c,[a(e.$slots,"default",{},void 0,!0)])}const _=Object.assign(o(s,[["render",n],["__scopeId","data-v-b685a2b8"]]),{__name:"FieldGroup"});export{_ as default};

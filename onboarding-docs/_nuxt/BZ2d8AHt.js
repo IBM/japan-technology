@@ -1,1 +1,0 @@
-import{_ as r,c as o,o as s,r as t}from"./BoCBbIpG.js";const a={},c={class:"list-decimal ps-6 my-5 marker:text-cool-gray-600 dark:marker:text-cool-gray-500 marker:font-medium"};function l(e,n){return s(),o("ol",c,[t(e.$slots,"default")])}const _=Object.assign(r(a,[["render",l]]),{__name:"ProseOl"});export{_ as default};

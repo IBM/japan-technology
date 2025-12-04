@@ -1,0 +1,1 @@
+import{_ as r,c as e,o}from"./Bsrw49xC.js";const c={},s={class:"my-8 border-0 border-t border-cool-gray-300 dark:border-cool-gray-700"};function t(a,n){return o(),e("hr",s)}const d=Object.assign(r(c,[["render",t]]),{__name:"ProseHr"});export{d as default};
