@@ -1,30 +1,35 @@
-# IBM Cloud SaaS製品別オンボーディングガイド
+# IBM SaaS製品別オンボーディングガイド
 
-IBM CloudのSaaS製品をご利用いただくための初期設定・利用開始手順をご案内します。
-製品ごとのガイドを確認して、スムーズに導入を進めてください。
+IBM SaaS製品をよりスムーズにご利用いただけるよう、初期設定・利用開始手順を作成しました。
+以下のページよりご確認いただけます。
+
+[https://ibm.github.io/japan-technology/onboarding-docs/](https://ibm.github.io/japan-technology/onboarding-docs/)
+
 
 ## 現在公開中のガイド
 
 ### watsonx
 
-[watsonx.ai](./watsonx-ai/)
+[watsonx.ai](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-ai/)
 
-[watsonx.data](./watsonx-data/)
+[watsonx.data](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-data/)
 
-[watsonx.governance](./watsonx-governance/)
+[watsonx.governance](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-governance/)
 
-[watsonx Orchestrate](./watsonx-orchestrate/)
+[watsonx Orchestrate](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-orchestrate/)
 
-[watsonx Code Assistant for Enterprise Java Applications](./watsonx-code-assistant-for-enterprise-java-applications/)
+[watsonx Code Assistant for Enterprise Java Applications](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-code-assistant-for-enterprise-java-applications/)
 
 ---
 
 ### IBM Planning Analytics
 
-[Planning Analytics on Cloud](./planning-analytics-on-cloud/)
+[Planning Analytics on Cloud](https://ibm.github.io/japan-technology/onboarding-docs/planning-analytics-on-cloud/)
 
 ---
 
 ### IT Automation
 
-[IBM Instana Observability](./instana/)
+[IBM Instana Observability](https://ibm.github.io/japan-technology/onboarding-docs/instana/)
+
+[IBM Turbonomic](https://ibm.github.io/japan-technology/onboarding-docs/turbonomic/)
