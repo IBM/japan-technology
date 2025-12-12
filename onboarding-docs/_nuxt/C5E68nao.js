@@ -1,1 +1,0 @@
-import{_ as t,c as o,o as s,r}from"./Bsrw49xC.js";const c={},a={class:"text-lg text-cool-gray-900 dark:text-cool-gray-300 font-medium mt-6 mb-3"};function n(e,_){return s(),o("h4",a,[r(e.$slots,"default")])}const m=Object.assign(t(c,[["render",n]]),{__name:"ProseH4"});export{m as default};
