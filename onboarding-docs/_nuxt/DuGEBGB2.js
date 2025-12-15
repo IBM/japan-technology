@@ -1,1 +1,0 @@
-import{_ as o,c as t,o as r,s}from"./ZwSKFrxj.js";const n={},c={class:"px-1.5 py-0.5 text-sm font-mono font-normal rounded-md inline-block border border-muted bg-muted text-cool-gray-1000 dark:text-cool-gray-100"};function a(e,d){return r(),t("code",c,[s(e.$slots,"default")])}const _=Object.assign(o(n,[["render",a]]),{__name:"ProseCode"});export{_ as default};

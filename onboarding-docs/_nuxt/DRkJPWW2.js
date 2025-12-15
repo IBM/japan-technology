@@ -1,0 +1,1 @@
+import{t as e}from"./CELuhLwb.js";import{M as t,e as c,c as n,o as l,n as p}from"./DMgYRahA.js";const u={base:"border-t border-default my-12"},_={__name:"ProseHr",props:{class:{type:null,required:!1}},setup(s){const o=s,r=t(),a=c(()=>e({extend:e(u),...r.ui?.prose?.hr||{}}));return(m,i)=>(l(),n("hr",{class:p(a.value({class:o.class}))},null,2))}};export{_ as default};
