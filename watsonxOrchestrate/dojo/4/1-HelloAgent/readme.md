@@ -1,5 +1,6 @@
 # ADKでエージェントを作る
-参考資料: [エージェントを作ってみよう！](https://github.ibm.com/ba-techsales-jp/ba-handson-jp/blob/main/docs/wxo_adk/agents.md)
+* 最終更新日: 2025/12/16
+* 参考資料: [エージェントを作ってみよう！](https://github.ibm.com/ba-techsales-jp/ba-handson-jp/blob/main/docs/wxo_adk/agents.md)
 
 ## 前提条件
 * watsonx Orchestrate ADK 2.1.0 がインストール済みである。
