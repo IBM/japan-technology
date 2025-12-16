@@ -5,7 +5,7 @@
 ## [watsonx Orchestrate ADK環境構築](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/install/readme.md)
 watsonx Orchestrate ADK 2.1.0をインストールし、watsonx Orchestrate Developer版、Visual Studio CodeのADK拡張機能を設定します。
 
-## [ADKでAIエージェントを作る](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/4/1-HelloAgent)
+## [ADKでAIエージェントを作る]([https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/4/1-HelloAgent](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/1-HelloAgent/readme.md))
 Visual Studio CodeのADK拡張機能を利用して、AIエージェントを作成します。
 
 ## [ADKとPythonでツールを作る](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/2-CreateNewTool/readme.md)
