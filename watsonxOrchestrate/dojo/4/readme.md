@@ -440,5 +440,7 @@ IBMは創業してから何年が経過している企業？
 ```
 IBMは1911年に創業しました。現在は2025年です。したがって、IBMは創業してから114年が経過しています。
 ```
+* Windows上での実行例:
+<img width="1402" height="1027" alt="chat-vscode-ADK-Windows" src="https://github.com/user-attachments/assets/af38968f-c52e-4b0a-8c7c-ab2a999bce1e" />
 
 以上、watsonx Orchestrate ADKならびにwatsonx Orchestrate Developer版のインストールでした。この環境とプログラミング言語を利用して、AIエージェント開発が行えます。
