@@ -446,3 +446,6 @@ IBMは1911年に創業しました。現在は2025年です。したがって、
 ##
 
 以上、watsonx Orchestrate ADKならびにwatsonx Orchestrate Developer版のインストールを実行しました。皆さんは、このローカル環境とプログラミング言語を利用して、AIエージェント開発が行えます。
+
+続きは、[ADKでエージェントを作る](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/1-HelloAgent/readme.md)に進んでください。
+
