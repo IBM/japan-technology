@@ -1,5 +1,5 @@
 # watsonx Orchestrate ADK体験
-* 最終更新日: 2025/12/15
+* 最終更新日: 2025/12/16
 * このハンズオンでは、watsonx Orchestrate ADKをインストールし、ローカル環境で動くwatsonx Orchestrate Developer版を構築します。
 
 ## [watsonx Orchestrate ADK環境構築](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/install/readme.md)
