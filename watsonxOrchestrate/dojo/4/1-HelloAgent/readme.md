@@ -123,6 +123,78 @@ instructions: >
 11. しばらく待つと、[Successfully imported finance_agent.yaml]と表示されます。
 <img width="465" height="57" alt="Import-successful" src="https://github.com/user-attachments/assets/8cded511-d832-440d-bb0b-4b37b359ca01" />
 
+12. watsonx Orchestrate Explorerに戻り、[Agents]の行にある<img width="26" height="25" alt="refresh" src="https://github.com/user-attachments/assets/d52b3eac-2758-4f5e-bd11-91eb9b52b9de" /> (refreshアイコン)をクリックします。
+<img width="331" height="100" alt="Explorer-beforeRefresh" src="https://github.com/user-attachments/assets/9dea05ac-a039-4664-b837-5a20ce1b44ce" />
+
+13. Explorer画面にエージェントの情報が読み込まれます。
+
+<img width="336" height="118" alt="Explorer-Refreshed" src="https://github.com/user-attachments/assets/5c275cc4-c5ed-48bf-980b-5551834df75b" />
+
+14. [finance_agent]の行にある <img width="20" height="22" alt="chat-icon" src="https://github.com/user-attachments/assets/7416105e-f735-4493-9a24-97f53f5ff4c3" /> (chatアイコン)をクリックします。
+
+15. [finance_agent]のチャット機能が表示されます。
+
+<img width="1046" height="806" alt="finance_agent_chat1" src="https://github.com/user-attachments/assets/6e4fa174-c086-41fe-a4e1-b3fb3bfd6bec" />
+
+16. このエージェントには、まだ呼び出せるツールが組み込まれていませんが、基盤モデルを使った回答ができます。
+チャット欄への入力:
+```
+企業の業績を表す代表的な指標を教えて。
+```
+* Windows上の実行例
+<img width="1020" height="846" alt="chat1-Windows" src="https://github.com/user-attachments/assets/6a45d927-847b-4203-baf6-ffa24c098b4b" />
+
+* mac上の実行例
+<img width="1062" height="776" alt="chat1-Mac" src="https://github.com/user-attachments/assets/29c3f977-7a89-4786-89b1-c73f9ce6f4cd" />
+
+## スターター・プロンプトの変更とエージェントの更新
+* よくある問い合わせ等、代表的なプロンプトをスターター・プロンプトとしてあらかじめ3つまで定義しておくことが可能です。スターター・プロンプトを定義し、エージェントを更新してみましょう。
+
+17. Visual Studio Codeに戻り、finance_agent.yamlを以下の内容で置き換えます。yamlファイルを閉じてしまった場合は、watsonx Orchestrate Explorerから[finance_agent]をクリックします。表示されるダイアログ・ウィンドウには[Replace]で回答してください。
+<img width="277" height="252" alt="replace-yn" src="https://github.com/user-attachments/assets/bae8cfb6-28e0-4d85-b1d6-09fe3bbe3a49" />
+
+```
+spec_version: v1
+kind: native
+style: default
+name: finance_agent
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+description: >
+  企業情報の専門家のエージェントです。
+instructions: >
+  企業情報について日本語で回答してください。
+welcome_content:
+    welcome_message: "企業情報エージェント"
+    description: "企業情報についてはお任せください"
+starter_prompts:
+    is_default_prompts: false
+    prompts:
+        - id: "prompt_id_1"
+          title: "用語のリスト"
+          subtitle: "企業の業績に関する指標をリストします。"
+          prompt: "企業の業績を表す代表的な指標を5個リストして"
+          state: "active"
+        - id: "prompt_id_2"
+          title: "用語の比較"
+          subtitle: "ROAとROEの違いを説明します。"
+          prompt: "ROAとROEの意味とその違いを表形式で整理して"
+          state: "active"
+```
+18. 手順10と同様にfinance_agent.yamlの内容をインポートします。Visual Studio Codeのコマンド・パレットを開き、[watsonx Orchestrate: Import Current File]を選択します。[Successfully imported finance_agent.yaml]と表示されるのを待ちます。
+<img width="600" height="106" alt="adk-import-current" src="https://github.com/user-attachments/assets/555440a7-31aa-46a2-a2a7-633beca4f1c4" />
+
+19. watsonx Orchestrate Explorerに戻り、[finance_agent]から<img width="20" height="22" alt="chat-icon" src="https://github.com/user-attachments/assets/7416105e-f735-4493-9a24-97f53f5ff4c3" /> (chatアイコン)をクリックします。
+
+20. [企業情報エージェント]が表示されます。うまく表示されない場合は、チャット画面で<img width="28" height="26" alt="reset-icon" src="https://github.com/user-attachments/assets/073d9f09-6a4a-460b-b9c0-90edc4c0eb95" /> (resetアイコン)をクリックします。
+
+<img width="1494" height="846" alt="company-info-agent" src="https://github.com/user-attachments/assets/ad1a86d2-f7f3-4f8f-94bf-fe426f177a0d" />
+
+21. [用語のリスト]や[用語の比較]をクリックして、動作を確認してください。
+
+##
+以上、watsonx Orchestrate ADKを使った、AIエージェントの作成体験でした。この次のハンズオンでは、Pythonで作成したツールをこのAIエージェントに連携させます。
+
+
 
 
 
