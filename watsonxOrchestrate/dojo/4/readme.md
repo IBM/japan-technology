@@ -373,4 +373,49 @@ netstat -nao | find "3000"
 taskkill /pid <Process ID>
 ```
 
+## ADK VSCode extension 0.1.0のインストール
 
+20. お使いのブラウザーから次のURLを開きます。
+
+```
+https://marketplace.visualstudio.com/items?itemName=watson-devex.ibm-watsonx-orchestrate-agent-builder
+```
+<img width="1114" height="1123" alt="vsCode-ADK" src="https://github.com/user-attachments/assets/b0179ed7-52db-44f9-a449-dcbfc71ca9a3" />
+
+21. [Install]をクリックして、Visual Studio Codeを開きます。
+Windowsの例:
+<img width="808" height="356" alt="ADK-Windows" src="https://github.com/user-attachments/assets/98169d53-4738-45ac-ae09-d7ed6a330ff8" />
+
+macOSの例:
+<img width="1114" height="1123" alt="ADK-macOS" src="https://github.com/user-attachments/assets/a7ac25a3-7bff-4e45-bb27-e8f772cced35" />
+<img width="998" height="346" alt="ADK-macOS2" src="https://github.com/user-attachments/assets/d67f9f7c-97b4-4d36-afbf-0ae4bb9d017e" />
+
+22. Visual Studio Code内に[watsonx Orchestrate ADK]の拡張機能が表示されます。[Install]をクリックします。
+<img width="1194" height="1012" alt="VSCode-ADK-menu" src="https://github.com/user-attachments/assets/b71f45c0-20ba-4854-adc8-08da116514fe" />
+
+23. Visual Studio Codeの左側に表示されている<img width="40" height="41" alt="wxo" src="https://github.com/user-attachments/assets/84435ee7-68b7-495f-a23f-e89ecc085f4c" /> アイコンをクリックします。EnvironmentとLocal serverの状態を確認します。
+(正しい状態)
+* Environment: local (active)
+* Local server: Started 🟢
+<img width="1194" height="1012" alt="adk-active" src="https://github.com/user-attachments/assets/e8bb96ee-ef3a-4625-ae06-51e33b96877f" />
+
+24. watsonx Orchestrate ADK拡張機能のメニューから、[Explorer]を選びます。
+<img width="562" height="217" alt="Explorer" src="https://github.com/user-attachments/assets/f8451799-e787-4256-b1fe-a0d31e4bc755" />
+
+25. [EXPLORER] > [Agents] > [AskOrchestrate]を見つけ、[Chat]アイコンをクリックします。
+* ADK拡張機能をインストールする画面は閉じて構いません。
+<img width="1056" height="1012" alt="chat" src="https://github.com/user-attachments/assets/3bd68505-7a5d-4de4-a858-e9e296893e17" />
+
+26. watsonx Orchestrate Developer版のチャット機能がVisual Studio Code内で開きます。
+<img width="1056" height="1012" alt="wxoChatInVSCode" src="https://github.com/user-attachments/assets/1d39d87e-d153-4971-adb2-617a491c88b0" />
+
+27. チャットで質問してみましょう。
+```
+IBMは創業してから何年が経過している企業？
+```
+出力例:
+```
+IBMは1911年に創業しました。現在は2025年です。したがって、IBMは創業してから114年が経過しています。
+```
+
+以上、watsonx Orchestrate ADKならびにwatsonx Orchestrate Developer版のインストールでした。この環境とプログラミング言語を利用して、AIエージェント開発が行えます。
