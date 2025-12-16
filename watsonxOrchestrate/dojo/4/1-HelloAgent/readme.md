@@ -65,7 +65,8 @@ orchestrate agents list
 
 ## 新しいエージェントの作成
 4. Visual Studio Codeに戻り、コマンド・パレットを開きます。
-＊　macOS: [Shift]+[command]+[p] キー
+
+* macOS: [Shift]+[command]+[p] キー
 * Windows: [ctrl]+[Shift]+[p]キー
 
 5. 作成するエージェントの名前をクリップボードにコピーします。
@@ -138,7 +139,8 @@ instructions: >
 <img width="1046" height="806" alt="finance_agent_chat1" src="https://github.com/user-attachments/assets/6e4fa174-c086-41fe-a4e1-b3fb3bfd6bec" />
 
 16. このエージェントには、まだ呼び出せるツールが組み込まれていませんが、基盤モデルを使った回答ができます。
-チャット欄への入力:
+
+* チャット欄への入力:
 ```
 企業の業績を表す代表的な指標を教えて。
 ```
