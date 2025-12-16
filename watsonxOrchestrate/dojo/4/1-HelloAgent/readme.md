@@ -194,6 +194,8 @@ starter_prompts:
 
 ##
 以上、watsonx Orchestrate ADKを使った、AIエージェントの作成体験でした。この次のハンズオンでは、Pythonで作成したツールをこのAIエージェントに連携させます。
+続きは、[ADKとPythonでツールを作る](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/2-CreateNewTool/readme.md)に進んでください。
+
 
 
 
