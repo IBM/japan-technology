@@ -242,7 +242,7 @@ Date
 longBusinessSummary="International Business Machines Corporation, together with its subsidiaries, provides integrated solutions and services in the Americas, Europe, the Middle East, Africa, and the Asia Pacific. It operates through Software, Consulting, Infrastructure, and Financing segments. The Software segment offers hybrid cloud and AI platforms that allows clients to realize their digital and AI transformations across the applications, data, and environments in which they operate. Its Consulting segment focuses on skills integration for strategy, experience, technology, and operations by domain and industry. The Infrastructure segment provides on-premises and cloud based server, and storage solutions, as well as life-cycle services for hybrid cloud infrastructure deployment. Its Financing segment offers client and commercial financing, facilitates IBM clients' acquisition of hardware, software, and services. It has strategic partnership with various companies, including hyperscalers, service providers, system integrators, and software and hardware vendors that includes Adobe, Amazon Web services, Microsoft, Oracle, Salesforce, Samsung Electronics and SAP, and others. The company was formerly known as Computing-Tabulating-Recording Co. International Business Machines Corporation was incorporated in 1911 and is headquartered in Armonk, New York." sector='Technology' industry='Information Technology Services' fullTimeEmployee=270300 per=36.74524 pbr=10.33933 analyst_price_targets={'current': 308.66, 'high': 360.0, 'low': 198.0, 'mean': 293.89316, 'median': 300.0}
 
 ```
-13. Visual Studio Codeに戻り、toolsフォルダーに requirement.txt を作成します。
+13. Visual Studio Codeに戻り、toolsフォルダーに requirement.txt を作成します。中身は yfinance のみです。
 ```
 yfinance
 ```
@@ -293,6 +293,18 @@ tools:
 本日のIBMの株価は？
 ```
 <img width="1198" height="959" alt="IBMStockPrice" src="https://github.com/user-attachments/assets/e567162c-8d66-480c-ba94-ced13c1b01ee" />
+
+* yfinanceのエラーが発生している場合、ツールのインポートがうまく行ってない可能性があります。
+
+* Windowsの場合、次のコマンドを試してください:
+```
+orchestrate tools import -k python -f .\tools\yfinance_tools.py -r .\tools\requirement.txt
+```
+
+* macOSの場合、次のコマンドを試してください:
+```
+orchestrate tools import -k python -f ./tools/yfinance_tools.py -r ./tools/requirement.txt
+```
 
 ##
 
