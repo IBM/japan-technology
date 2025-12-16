@@ -102,7 +102,8 @@ code .env
 ```
 
 14. 次の何れかの方法で、.envファイルの中身を作成し、保存します。 
-参考: https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup
+* 参考: https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup
+
 * 30日無償評価版をお使いの場合:
 全ての行をコピーして、.envファイルに貼り付けた後、<>の部分を適宜、置き換えてください。<>の記号は不要です。
 ```
