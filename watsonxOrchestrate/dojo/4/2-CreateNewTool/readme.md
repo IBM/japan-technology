@@ -54,7 +54,7 @@ orchestrate chat start
 cd ~/wxo
 code .
 ```
-2. Visual Studio Code内の<img width="40" height="41" alt="wxo" src="https://github.com/user-attachments/assets/7ff0b277-720b-47f1-8c3c-0c9309a0178b" />アイコンをクリックして、watsonx OrchestrateのExplorerを開きます。[EXPLORER}>[Tools]のフォルダーを見ると、ツールは作成されていないことがわかります。
+2. Visual Studio Code内の<img width="40" height="41" alt="wxo" src="https://github.com/user-attachments/assets/7ff0b277-720b-47f1-8c3c-0c9309a0178b" />アイコンをクリックして、watsonx OrchestrateのExplorerを開きます。[EXPLORER]>[Tools]のフォルダーを見ると、ツールは作成されていないことがわかります。
 
 3. コマンドを入力し、ツールの一覧を確認します。この時点では、おそらく何も表示されません。
 
@@ -80,6 +80,7 @@ yfinance_tools
 7. 作成するツールの名前を入力するテキストボックスが表示されるので、コピー済みの名前を貼り付けます。
 * コマンド・パレットを選択した直後
 <img width="597" height="119" alt="cnt-Name" src="https://github.com/user-attachments/assets/7714aee4-306d-404b-8091-9e880c938405" />
+
 * yfinance_toolsと入力（クリップボードから貼り付け)した直後
 <img width="603" height="65" alt="cnt-yfinance" src="https://github.com/user-attachments/assets/916b4d86-c4a9-4525-a3ca-9b9004ecab41" />
 
