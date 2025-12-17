@@ -63,7 +63,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 ```
 python --version
 ```
-####
+##
 
 8. 作業用のフォルダーを作成してください。ここでは、ホーム・ディレクトリ（~/ で指定できるユーザー用のフォルダ）の下にwxoフォルダーを作っています。ホーム・ディレクトリの下にフォルダーを作りたくない場合は、使いやすいフォルダーをご利用ください。
 
