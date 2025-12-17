@@ -387,6 +387,7 @@ Skipping already applied observability migration: 20251201.sql
 ```
 
 17. ローカル版のwatsonx Orchestrate を有効化します。
+* リソースが十分ではない実行環境によっては時間がかかる場合があります。
 ```
 orchestrate env activate local
 ```
@@ -397,6 +398,8 @@ orchestrate env activate local
 ```
 
 18. ローカル版のwatsonx Orchestrateのチャット機能を起動します。
+* リソースが十分ではない実行環境によっては時間がかかる場合があります。
+
 ```
 orchestrate chat start
 ```
