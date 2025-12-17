@@ -39,12 +39,13 @@ Region と表示されている直後の文字列をVS Codeやメモ帳などに
 * セキュリティーのため、キーは表示されません。関係のない人にAPI keyを共有しないようご注意ください。
 <img width="1289" height="813" alt="05-GeneratedAPIkey" src="https://github.com/user-attachments/assets/5102a191-a85d-49cd-9f9c-ac800896b7fd" />
 
-### IBM TechZoneをお使いの場合
-* 上記4、5の手順ではAPI Keyを取得できません。
-* API Keyは、IBM TechZoneのMy reservations / Collectionにある watsonx Orchestrateのページに入っています。
-<img width="437" height="65" alt="IBM-TechZone-APIKey" src="https://github.com/user-attachments/assets/d7b58ff1-7c98-4066-b263-be95e1531d06" />
-
 6. [Service instance URL]と書かれている下にある、URLをコピーし、VS Codeやメモ帳などに控えてください。
+
+### IBM TechZoneをお使いの場合
+* 上記4、5、6の手順ではなく、IBM Cloudのリソース・リストにある watsonx Orchestrateのインスタンスのページから、取得します。
+
+<img width="877" height="496" alt="IBMCloud-APIKey" src="https://github.com/user-attachments/assets/c28c33d6-2195-49ba-bb05-e0fb27aaf3f8" />
+
 
 ## watsonx Orchestrate ADK 2.1.0のインストール
 
