@@ -42,7 +42,7 @@ Region と表示されている直後の文字列をVS Codeやメモ帳などに
 6. [Service instance URL]と書かれている下にある、URLをコピーし、VS Codeやメモ帳などに控えてください。
 
 ### IBM TechZoneをお使いの場合
-* 上記4、5、6の手順ではなく、IBM Cloudのリソース・リストにある watsonx Orchestrateのインスタンスのページから、取得します。
+* 上記4、5、6の手順ではなく、IBM Cloudのリソース・リストにある watsonx Orchestrateのインスタンスのページから、API KeyとURLを取得します。それぞれ、VS Codeやメモ帳などに控えてください。
 
 <img width="877" height="496" alt="IBMCloud-APIKey" src="https://github.com/user-attachments/assets/c28c33d6-2195-49ba-bb05-e0fb27aaf3f8" />
 
