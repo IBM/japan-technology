@@ -31,12 +31,18 @@ Region と表示されている直後の文字列をVS Codeやメモ帳などに
 
 <img width="1289" height="813" alt="03-Settings" src="https://github.com/user-attachments/assets/0f20a946-013f-4010-9c18-81f4622ae71f" />
 
+### 30日無料評価版をお使いの場合
 4. [API details]タブを選択します。
 <img width="1289" height="813" alt="04-API-Detail" src="https://github.com/user-attachments/assets/a315ec0b-6dc7-4bbc-a5e7-46864efd7180" />
 
-5. [Generate API key]をクリックします。[Copy]をクリックして、キーをコピーしたら、メモ帳などに控えてください。
+5.  [Generate API key]をクリックします。[Copy]をクリックして、キーをコピーしたら、メモ帳などに控えてください。
 * セキュリティーのため、キーは表示されません。関係のない人にAPI keyを共有しないようご注意ください。
 <img width="1289" height="813" alt="05-GeneratedAPIkey" src="https://github.com/user-attachments/assets/5102a191-a85d-49cd-9f9c-ac800896b7fd" />
+
+### IBM TechZoneをお使いの場合
+* 上記4、5の手順ではAPI Keyを取得できません。
+* API Keyは、IBM TechZoneのMy reservations / Collectionにある watsonx Orchestrateのページに入っています。
+<img width="437" height="65" alt="IBM-TechZone-APIKey" src="https://github.com/user-attachments/assets/d7b58ff1-7c98-4066-b263-be95e1531d06" />
 
 6. [Service instance URL]と書かれている下にある、URLをコピーし、VS Codeやメモ帳などに控えてください。
 
