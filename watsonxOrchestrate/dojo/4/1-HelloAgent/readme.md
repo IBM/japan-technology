@@ -68,15 +68,16 @@ orchestrate agents list
 
 
 ## 新しいエージェントの作成
-4. Visual Studio Codeに戻り、コマンド・パレットを開きます。
+4. 作成するエージェントの名前をクリップボードにコピーします。
+```
+finance_agent
+```
+
+5. Visual Studio Codeに戻り、コマンド・パレットを開きます。
 
 * macOS: [Shift]+[command]+[p] キー
 * Windows: [ctrl]+[Shift]+[p]キー
 
-5. 作成するエージェントの名前をクリップボードにコピーします。
-```
-finance_agent
-```
 6. コマンド・パレット内で、[watsonx Orchestrate: create new agent]を選び、[Enter]キーを入力します。
 
 <img width="1056" height="1012" alt="vscode-adk-createNewAgent" src="https://github.com/user-attachments/assets/e507e6b2-9a04-4b0a-8abf-ade9034d32a9" />
