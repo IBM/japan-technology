@@ -14,7 +14,7 @@
 * pip コマンド (uvは非対応なのでご注意ください)
 
 ## watsonx Orchestrate SaaS環境の region、API Key、Service instance URLの取得
-準備方法は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
+SaaS環境の準備方法は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
 
 1. お使いの環境に合わせてwatsonx Orchestrateを開いてください。
 * 無償評価版 (シンガポール): https://ap-southeast-1.dl.watson-orchestrate.ibm.com/chat
