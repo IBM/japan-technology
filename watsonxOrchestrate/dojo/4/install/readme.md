@@ -36,7 +36,7 @@ Region と表示されている直後の文字列をVS Codeやメモ帳などに
 
 7. ローカル・コンピューターにPython 3.11以上がインストールされていることを確認してください。
 
-### macOSの場合
+#### 手順7: macOSの場合
 ターミナルを開きます。以降のコマンド入力は同じターミナルで実行します。
 
 * [macOS] Pythonのバージョンを確認します。
@@ -45,7 +45,7 @@ Region と表示されている直後の文字列をVS Codeやメモ帳などに
 python --version
 ```
 
-### Windows OSの場合
+#### 手順7: Windows OSの場合
 PowerShellを開きます。以降のコマンド入力は同じPowerShellで実行します。
 
 * [Windows] Code PageをUTF-8にします。
@@ -64,7 +64,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 python --version
 ```
 
-8. 作業用のフォルダーを作成してください。ここでは、ホーム・ディレクトリ（ユーザー用のフォルダ）の下にwxoフォルダーを作っています。
+8. 作業用のフォルダーを作成してください。ここでは、ホーム・ディレクトリ（~/ で指定できるユーザー用のフォルダ）の下にwxoフォルダーを作っています。ホーム・ディレクトリの下にフォルダーを作りたくない場合は、使いやすいフォルダーをご利用ください。
 
 ```
 mkdir ~/wxo
