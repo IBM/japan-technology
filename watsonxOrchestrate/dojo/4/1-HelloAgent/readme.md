@@ -149,11 +149,11 @@ instructions: >
 ```
 企業の業績を表す代表的な指標を教えて。
 ```
-* Windows上の実行例
-<img width="1020" height="846" alt="chat1-Windows" src="https://github.com/user-attachments/assets/6a45d927-847b-4203-baf6-ffa24c098b4b" />
-
 * mac上の実行例
-<img width="1062" height="776" alt="chat1-Mac" src="https://github.com/user-attachments/assets/29c3f977-7a89-4786-89b1-c73f9ce6f4cd" />
+<img width="1020" height="846" alt="chat1-mac" src="https://github.com/user-attachments/assets/6a45d927-847b-4203-baf6-ffa24c098b4b" />
+
+* Windows上の実行例
+<img width="1062" height="776" alt="chat1-Windows" src="https://github.com/user-attachments/assets/29c3f977-7a89-4786-89b1-c73f9ce6f4cd" />
 
 ## スターター・プロンプトの変更とエージェントの更新
 * よくある問い合わせ等、代表的なプロンプトをスターター・プロンプトとしてあらかじめ3つまで定義しておくことが可能です。スターター・プロンプトを定義し、エージェントを更新してみましょう。
