@@ -33,25 +33,33 @@ Region と表示されている直後の文字列をVS Codeやメモ帳などに
 
 * Windows環境における注意点: WSLのLinux環境へのインストールはできません。
 * Pythonパッケージマネージャーは pipを使います。watsonx Orchestrate ADK 2.1.0はuvに対応していないので、uv経由で作成した仮想環境、uvでインストールしたPythonパッケージを識別できません。
+
 7. ローカル・コンピューターにPython 3.11以上がインストールされていることを確認してください。
 
-macOSの場合は、ターミナルを開きます。以降のコマンド入力は同じターミナルで実行します。
-＊ [macOS] Pythonのバージョンを確認します。
+### macOSの場合
+ターミナルを開きます。以降のコマンド入力は同じターミナルで実行します。
+
+* [macOS] Pythonのバージョンを確認します。
+
 ```
 python --version
 ```
 
-Windows OSの場合は、PowerShellを開きます。以降のコマンド入力は同じPowerShellで実行します。
+### Windows OSの場合
+PowerShellを開きます。以降のコマンド入力は同じPowerShellで実行します。
 
 * [Windows] Code PageをUTF-8にします。
+
 ```
 chcp 65001
 ```
-＊ [Windows] PowerShell内でのスクリプト実行を許可します。
+＊ [Windows] PowerShell内でのスクリプト実行を許可します。このスクリプトを実行した後、同じPowerShell内で作業を続けてください。新しいPowerShellを開いた場合は、このスクリプトを新しいPowerShell内で実行してください。
+
 ```
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 ```
 ＊ [Windows] Pythonのバージョンを確認します。
+
 ```
 python --version
 ```
@@ -64,7 +72,8 @@ cd ~/wxo
 ```
 
 9. venvという名前で、Pythonの仮想環境を作成します。
-* ADKのインストールを通じて、多くのPythonパッケージがインストールされます。既存のPython環境と独立したものにするために、仮想環境を使います。
+* ADKのインストールを通じて、多くのPythonパッケージがインストールされます。
+* 既存のPython環境と独立したものにするために、仮想環境を使います。
 
 ```
 python -m venv venv
