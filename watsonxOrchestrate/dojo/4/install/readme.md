@@ -2,6 +2,17 @@
 * 最終更新日: 2025/12/16
 * このハンズオンでは、watsonx Orchestrate ADKをインストールし、ローカル環境で動くwatsonx Orchestrate Developer版を構築します。
 
+## [ハードウェア要件](https://developer.watson-orchestrate.ibm.com/developer_edition/wxOde_setup#hardware-requirements)
+
+* CPU: 8コア以上
+* RAM: 16GB以上
+* ストレージの空き: 25GB以上
+
+## [ソフトウェア要件]
+* コンテナ・ランタイム (Docker Desktop、Rancher Desktopなど)
+* Python 3.11 から 3.13 (このハンズオンでは3.11を利用)
+* pip コマンド (uvは非対応なのでご注意ください)
+
 ## watsonx Orchestrate SaaS環境の region、API Key、Service instance URLの取得
 準備方法は[こちら](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)
 
