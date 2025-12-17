@@ -82,12 +82,12 @@ python -m venv venv
 
 10. 仮想環境 venvを有効化します。
 
-macOSの場合:
+* macOSの場合:
 ```
 source venv/bin/activate
 ```
 
-Windowsの場合:
+* Windowsの場合:
 ```
 venv\Scripts\activate
 ```
@@ -105,8 +105,9 @@ pip install --upgrade ibm-watsonx-orchestrate==2.1.0
 ```
 ## watsonx Orchestrate Developer Editionのインストール
 ### 環境変数を .envファイルへ保存
-13. Visual Studio Codeを開きます。codeコマンドのPATHを設定していない場合は、Visual Studio Codeを開き、コマンドパレットから```Command: Install 'code' command in PATH command```を実行してください。
+13. Visual Studio Codeを開きます。もしcodeコマンドのPATHを設定していない場合は、Visual Studio Codeを開き、コマンドパレットから```Command: Install 'code' command in PATH command```を実行してください。
 
+* ~/wxo/.env ファイルを開く
 ```
 code .env
 ```
