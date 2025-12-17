@@ -110,7 +110,7 @@ tools:
   - 
 ```
 
-9. finance_agent.yamlを次の内容で上書きします。コピー機能を使って、クリップボードにコピーして、その内容をそのままVisual Studio Codeに貼り付けてください。その後、finance_agent.yamlを保存してください。
+9. finance_agent.yamlを次の内容で上書きします。コピー機能を使って、yamlのコードをクリップボードにコピーして、その内容をそのままVisual Studio Codeに貼り付けてください。その後、finance_agent.yamlを保存してください。
 
 ```
 spec_version: v1
@@ -161,6 +161,8 @@ instructions: >
 17. Visual Studio Codeに戻り、finance_agent.yamlを以下の内容で置き換えます。yamlファイルを閉じてしまった場合は、watsonx Orchestrate Explorerから[finance_agent]をクリックします。表示されるダイアログ・ウィンドウには[Replace]で回答してください。
 <img width="277" height="252" alt="replace-yn" src="https://github.com/user-attachments/assets/bae8cfb6-28e0-4d85-b1d6-09fe3bbe3a49" />
 
+* コピー機能を使って、yamlのコードをクリップボードにコピーして、その内容をそのままVisual Studio Codeに貼り付けてください。その後、finance_agent.yamlを保存してください。
+
 ```
 spec_version: v1
 kind: native
@@ -200,7 +202,8 @@ starter_prompts:
 21. [用語のリスト]や[用語の比較]をクリックして、動作を確認してください。
 
 ##
-以上、watsonx Orchestrate ADKを使った、AIエージェントの作成体験でした。この次のハンズオンでは、Pythonで作成したツールをこのAIエージェントに連携させます。
+以上、watsonx Orchestrate ADKを使った、AIエージェントの作成体験でした。
+* 次のハンズオンでは、Pythonで作成したツールをこのAIエージェントに連携させます。
 続きは、[ADKとPythonでツールを作る](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/4/2-CreateNewTool/readme.md)に進んでください。
 
 
