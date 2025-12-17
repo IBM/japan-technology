@@ -57,11 +57,15 @@ code .
 
 <img width="1046" height="806" alt="vscode-wxo-ADK" src="https://github.com/user-attachments/assets/2385db81-b13b-47d5-b01c-187c656c928a" />
 
-3. コマンドを入力し、エージェントの一覧を確認します。
+3. ターミナル/PowerShellにコマンドを入力し、エージェントの一覧を確認します。
+* 以降、コマンド入力が必要な場合は、Visual Studio Code内のターミナルから実行しても良いです。
 
 ```
 orchestrate agents list
 ```
+
+<img width="1269" height="1111" alt="agents-list-vsterminal" src="https://github.com/user-attachments/assets/7c514504-fa51-4ce8-a9c9-22a8ea253b83" />
+
 
 ## 新しいエージェントの作成
 4. Visual Studio Codeに戻り、コマンド・パレットを開きます。
