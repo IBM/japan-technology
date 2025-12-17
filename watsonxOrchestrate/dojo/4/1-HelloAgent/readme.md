@@ -3,7 +3,7 @@
 * 参考資料: [エージェントを作ってみよう！](https://github.ibm.com/ba-techsales-jp/ba-handson-jp/blob/main/docs/wxo_adk/agents.md)
 
 ## 前提条件
-* watsonx Orchestrate ADK 2.1.0 がインストール済みである。
+* watsonx Orchestrate ADK 2.1.0 がインストール済である
 * watsonx Orchestrate Developer版が動作している
 * Visual Studio Codeにwatsonx Orchestrate ADK拡張機能がインストールされている
 * Windowsの場合、PowerShellを通じてコマンドを実行
