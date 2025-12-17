@@ -53,7 +53,7 @@ orchestrate chat start
 cd ~/wxo
 code .
 ```
-2. Visual Studio Code内の<img width="40" height="41" alt="wxo" src="https://github.com/user-attachments/assets/7ff0b277-720b-47f1-8c3c-0c9309a0178b" />アイコンをクリックして、watsonx OrchestrateのExplorerを開きます。[EXPLORER}>[Agents]のフォルダーを見ると、AskOrchestrateエージェントが確認できます。
+2. Visual Studio Code内の<img width="40" height="41" alt="wxo" src="https://github.com/user-attachments/assets/7ff0b277-720b-47f1-8c3c-0c9309a0178b" />アイコンをクリックして、watsonx OrchestrateのExplorerを開きます。[EXPLORER]>[Agents]のフォルダーを見ると、AskOrchestrateエージェントが確認できます。
 
 <img width="1046" height="806" alt="vscode-wxo-ADK" src="https://github.com/user-attachments/assets/2385db81-b13b-47d5-b01c-187c656c928a" />
 
