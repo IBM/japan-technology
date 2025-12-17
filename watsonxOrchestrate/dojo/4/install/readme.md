@@ -161,11 +161,18 @@ mklink /J "C:\mnt\c\Users\oniak3" "C:\Users\oniak3"
 16. watsonx Orchestrate Developer版のコンテナをダウンロードして、ローカル版のサーバー機能を起動します。
 * コンテナ・イメージをダウンロードする際に、通信がタイムアウトになるなど、エラーが生じる場合があります。エラーが発生したら、少し待ってから、同じコマンドを再実行してください。
 * 多くのコンテナ・イメージを利用するため、気長にお待ちください。
+
+* macOSの場合:
+```
+orchestrate server start -e ./.env
+```
+
+* Windowsの場合:
 ```
 orchestrate server start -e .\.env
 ```
 
-* 起動時の出力例:
+* 起動時の出力例 (Windows PowerShell):
 ```
 (venv) PS C:\Users\oniak3\wxo> orchestrate server start -e .\.env
 [INFO] - Auto-detecting local IP address for async tool callbacks...
