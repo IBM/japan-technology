@@ -242,69 +242,49 @@ Date
 longBusinessSummary="International Business Machines Corporation, together with its subsidiaries, provides integrated solutions and services in the Americas, Europe, the Middle East, Africa, and the Asia Pacific. It operates through Software, Consulting, Infrastructure, and Financing segments. The Software segment offers hybrid cloud and AI platforms that allows clients to realize their digital and AI transformations across the applications, data, and environments in which they operate. Its Consulting segment focuses on skills integration for strategy, experience, technology, and operations by domain and industry. The Infrastructure segment provides on-premises and cloud based server, and storage solutions, as well as life-cycle services for hybrid cloud infrastructure deployment. Its Financing segment offers client and commercial financing, facilitates IBM clients' acquisition of hardware, software, and services. It has strategic partnership with various companies, including hyperscalers, service providers, system integrators, and software and hardware vendors that includes Adobe, Amazon Web services, Microsoft, Oracle, Salesforce, Samsung Electronics and SAP, and others. The company was formerly known as Computing-Tabulating-Recording Co. International Business Machines Corporation was incorporated in 1911 and is headquartered in Armonk, New York." sector='Technology' industry='Information Technology Services' fullTimeEmployee=270300 per=36.74524 pbr=10.33933 analyst_price_targets={'current': 308.66, 'high': 360.0, 'low': 198.0, 'mean': 293.89316, 'median': 300.0}
 
 ```
-13. Visual Studio Codeに戻り、toolsフォルダーに requirement.txt を作成します。中身は yfinance のみです。
+13. ツールが動作していることを確認できたら、Visual Studio Codeに戻り、toolsフォルダーに requirement.txt を作成します。中身は yfinance のみです。
 ```
 yfinance
 ```
-14. Visual Studio Codeに戻り、yfinance_tools.py を開きます。
-<img width="1426" height="863" alt="yfinance-py" src="https://github.com/user-attachments/assets/11ba7e91-20c2-401e-b397-3f9334b2976a" />
+14. 次のコマンドを実行し、作成したツールをインポートします。
 
-15. コマンド・パレットを開きます。
-＊　macOS: [Shift]+[command]+[p] キー
-* Windows: [ctrl]+[Shift]+[p]キー
-
-16. [watsonx Orchestrate: Import Current File]を選び、[Enter]キーを入力します。
-<img width="598" height="62" alt="Import-CurrentFile2" src="https://github.com/user-attachments/assets/8f69c8a7-28cd-4d42-892d-eb32e9139a73" />
-
-17. [requirements.txt]のパスを入力する画面になるので、何も入力せずに[Enter]キーを入力します。
-<img width="598" height="77" alt="Optional-requirement" src="https://github.com/user-attachments/assets/09d20cb2-ba02-4398-afe4-38b7ac63f90f" />
-
-
-18. ツールのパッケージのルート・ディレクトリーを入力する画面になるので、toolsと入力し、[Enter]キーを入力します。
+* macOS (ターミナル):
 ```
-tools
+orchestrate tools import -k python -f ./tools/yfinance_tools.py -r ./tools/requirement.txt
 ```
-<img width="600" height="75" alt="Optional-ToolRootDir" src="https://github.com/user-attachments/assets/3e524fbf-13cf-429d-b517-320f3f1fb15b" />
 
-19. しばらく待つとツールのインポートが完了します。
-<img width="310" height="39" alt="SuccessfullyImported-tools" src="https://github.com/user-attachments/assets/d0bfffcd-40fb-43ab-85fe-f5f1e22e577d" />
+* Windows (PowerShell):
+```
+orchestrate tools import -k python -f .\tools\yfinance_tools.py -r .\tools\requirement.txt
+```
 
 ## ツールの実行
 * インポートしたツールをエージェントから実行してみましょう。AgentBuilderを用いてfinance_agentにツールを追加することもできますが、今回はADKを用いて追加をしてみます。
 
-20. Visual Studio Codeからfinance_agent.yamlを開き、末尾に、次の3行を追加して保存してください。
+15. Visual Studio Codeからfinance_agent.yamlを開き、末尾に、次の3行を追加して保存してください。
 ```
 tools:
   - get_stock_quote
   - get_company_info
 ```
-21. コマンド・パレットを開きます。
+16. コマンド・パレットを開きます。
 ＊　macOS: [Shift]+[command]+[p] キー
 * Windows: [ctrl]+[Shift]+[p]キー
 
-22. [watsonx Orchestrate: Import Current File]を選び、[Enter]キーを入力します。
+17. [watsonx Orchestrate: Import Current File]を選び、[Enter]キーを入力します。
 <img width="598" height="62" alt="Import-CurrentFile2" src="https://github.com/user-attachments/assets/8f69c8a7-28cd-4d42-892d-eb32e9139a73" />
 
-23. watsonx Orchestarate Explorerから finance_agent を見つけ、<img width="20" height="22" alt="chat-icon" src="https://github.com/user-attachments/assets/c0d9886c-8521-4c1b-ba56-7dcc3879fd10" /> をクリックします。
+18. watsonx Orchestarate Explorerから finance_agent を見つけ、<img width="20" height="22" alt="chat-icon" src="https://github.com/user-attachments/assets/c0d9886c-8521-4c1b-ba56-7dcc3879fd10" /> をクリックします。
 
-24. [企業情報エージェント]のチャット欄に質問を入力します。finance_agentがyfinance_toolsを使って、株価を取得し、結果を表示します。
+19. [企業情報エージェント]のチャット欄に質問を入力します。finance_agentがyfinance_toolsを使って、株価を取得し、結果を表示します。
 
 ```
 本日のIBMの株価は？
 ```
 <img width="1198" height="959" alt="IBMStockPrice" src="https://github.com/user-attachments/assets/e567162c-8d66-480c-ba94-ced13c1b01ee" />
 
-* yfinanceのエラーが発生している場合、ツールのインポートがうまく行ってない可能性があります。
+* もし、yfinanceのエラーが発生している場合、ツールのインポートがうまく行ってない可能性があります。手順11から確認してください。
 
-* Windowsの場合、次のコマンドを試してください:
-```
-orchestrate tools import -k python -f .\tools\yfinance_tools.py -r .\tools\requirement.txt
-```
-
-* macOSの場合、次のコマンドを試してください:
-```
-orchestrate tools import -k python -f ./tools/yfinance_tools.py -r ./tools/requirement.txt
-```
 
 ##
 
