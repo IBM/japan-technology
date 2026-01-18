@@ -117,6 +117,7 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 14. チャット欄で<img width="23" height="27" alt="2-1-14-reset" src="https://github.com/user-attachments/assets/4a9f8a7b-e614-4300-b7bf-bacca4c2dc91" />をクリックし、リセットします。
 
 15. Geocodeツールのテストを実行します。
+
   チャット欄: 
   ```
   geocodeを使って、静岡市の緯度・経度を教えて
@@ -194,6 +195,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
   ```
 
 28. 左側のメニューから[Behavior]を選択し、[Instructions]を更新します。
+
   Instructions: 
   ```
   回答は日本語で行なってください。
@@ -212,12 +214,13 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 <img width="1432" height="1142" alt="2-1-30-WeatherResult" src="https://github.com/user-attachments/assets/14732d41-b20e-4d2a-b2cb-21958c977dfb" />
 
 31. 回答が得られたら、[Show Reasoning]をクリックし、ツールにどのようなパラメータが渡されたかを確認します。併せて、Outputの内容も確認しましょう。
-Reasoningの例:
+
+* Reasoningの例:
 <img width="1432" height="1142" alt="2-1-31-Reasoning" src="https://github.com/user-attachments/assets/57223733-7b18-4885-85f4-d53e134e4f38" />
 
-Outputの例:
-   ```
- 
+* Outputの例:
+
+``` 
 {
   "current_weather": {
     "interval": 900,
@@ -245,7 +248,7 @@ Outputの例:
   "timezone_abbreviation": "GMT",
   "utc_offset_seconds": 0
 }
-   ```
+```
  
 32. 複数の地域の天気を比較する質問を試してみましょう。
 * チャット欄をリセットし、AIエージェントに「
@@ -277,7 +280,10 @@ Outputの例:
 <img width="1605" height="1142" alt="2-1-34-RelativeTemparature" src="https://github.com/user-attachments/assets/bde57ea7-eae9-4728-8936-281d4dea44d0" />
 
 
-演習1は以上です。この演習で体験したことを整理しておきましょう。
+演習1は以上です。
+
+## まとめ
+この演習で体験したことを整理しておきましょう。
 
 * MCP serverを利用して、都市名から緯度・経度情報を取得する
 * Open-Meteoの気象APIをOpenAPIツールとして取り込み、緯度・経度から気象情報を取得する
