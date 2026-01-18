@@ -12,7 +12,7 @@
 * 指定した地名からMCP serverを利用して、緯度、経度を求めます。
 * 気象情報APIをツールとして登録し、緯度・経度を指定して、現在の天気を求めます。
 
-## ２. [ツールとワークフローを使って気象情報を取得する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-refresh/WeatherFlow/readme.md)
+## ２. [気象情報を取得するワークフローを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-refresh/WeatherFlow/readme.md)
 1と同様の動きをするAIエージェントをMCP server、気象APIを組み合わせて、簡単なワークフローと一緒に作ります。指定された地名が米国であれば華氏表示、それ以外は摂氏表示で気温を含めた気象情報を回答するAIエージェントを作ります。
 
 ### 注意事項並びに免責事項
