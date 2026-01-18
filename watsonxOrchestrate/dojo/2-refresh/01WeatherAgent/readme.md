@@ -206,7 +206,8 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
 29. チャット欄で<img width="23" height="27" alt="2-1-14-reset" src="https://github.com/user-attachments/assets/4a9f8a7b-e614-4300-b7bf-bacca4c2dc91" />をクリックし、リセットします。
 
-30. 
+30. AIエージェントに東京都新宿区の天気を質問します。
+
 
 16. 回答が得られたら、[Show Reasoning]をクリックし、ツールにどのようなパラメータが渡されたかを確認します。併せて、Outputの内容も確認しましょう。
 
