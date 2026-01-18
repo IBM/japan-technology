@@ -206,62 +206,83 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
 29. チャット欄で<img width="23" height="27" alt="2-1-14-reset" src="https://github.com/user-attachments/assets/4a9f8a7b-e614-4300-b7bf-bacca4c2dc91" />をクリックし、リセットします。
 
-30. AIエージェントに東京都新宿区の天気を質問します。
+30. AIエージェントに東京都新宿区の天気を質問します。回答を確認します。
 
+回答例:
+<img width="1432" height="1142" alt="2-1-30-WeatherResult" src="https://github.com/user-attachments/assets/14732d41-b20e-4d2a-b2cb-21958c977dfb" />
 
-16. 回答が得られたら、[Show Reasoning]をクリックし、ツールにどのようなパラメータが渡されたかを確認します。併せて、Outputの内容も確認しましょう。
+31. 回答が得られたら、[Show Reasoning]をクリックし、ツールにどのようなパラメータが渡されたかを確認します。併せて、Outputの内容も確認しましょう。
+Reasoningの例:
+<img width="1432" height="1142" alt="2-1-31-Reasoning" src="https://github.com/user-attachments/assets/57223733-7b18-4885-85f4-d53e134e4f38" />
 
-<img width="1178" height="1001" alt="16WeatherReasoning" src="https://github.com/user-attachments/assets/6aeee7f8-8da7-4773-8abc-e63a5db87d13" />
-
-17. 複数の地域の天気を比較する質問を使って、AIエージェントに自律的に考え、行動してもらいましょう。
+Outputの例:
+   ```
+ 
+{
+  "current_weather": {
+    "interval": 900,
+    "is_day": 1,
+    "temperature": 9.9,
+    "time": "2026-01-18T03:45",
+    "weathercode": 0,
+    "winddirection": 29,
+    "windspeed": 3.7
+  },
+  "current_weather_units": {
+    "interval": "seconds",
+    "is_day": "",
+    "temperature": "°C",
+    "time": "iso8601",
+    "weathercode": "wmo code",
+    "winddirection": "°",
+    "windspeed": "km/h"
+  },
+  "elevation": 45,
+  "generationtime_ms": 0.06198883056640625,
+  "latitude": 35.7,
+  "longitude": 139.6875,
+  "timezone": "GMT",
+  "timezone_abbreviation": "GMT",
+  "utc_offset_seconds": 0
+}
+   ```
+ 
+32. 複数の地域の天気を比較する質問を試してみましょう。
 * チャット欄をリセットし、AIエージェントに「
     ```
     横浜市と宇都宮市では、どちらの方が涼しい？
     ```
     」と質問します。
-* ツールを使って気温を調べてくれない場合、AIエージェントに「
-    ```
-    気温を調べて比較してください。
-    ```
-    」と入力します。
 
-<img width="1178" height="1001" alt="17AgenticQA" src="https://github.com/user-attachments/assets/2ac1de88-91b3-4706-b8cf-d58a5a06331f" />
+<img width="1432" height="1142" alt="2-1-32-Yokohama-Utsunomiya" src="https://github.com/user-attachments/assets/8a550ca8-f098-4b06-9b8a-0546cb91bd2f" />
 
-18. 3つの地域の気温を比較しましょう。
+
+33. 3つの地域の気温を比較しましょう。
 * チャット欄をリセットし、AIエージェントに「
     ```
     静岡県沼津市、静岡県静岡市、静岡県浜松市の気温を表形式で比較してください。
     ```
     」と入力します。
     
-* AIエージェントがツールを使って* 気温を調べてくれない場合、AIエージェントに「
-   ```
-   気温を表形式で比較してください。気温はElevationではなく current_weather から取得してください。
-   ```
-   」と入力します
 
-<img width="1134" height="998" alt="18ComparedWithTable" src="https://github.com/user-attachments/assets/6cf4c8a2-a243-487e-897e-a1dc7c3cde8f" />
+<img width="1605" height="1142" alt="2-1-33-3CitiesInShizuoka" src="https://github.com/user-attachments/assets/317f823f-2ff9-43cb-a6f8-9f6be946c786" />
 
-19. AIエージェントに応用問題を解いてもらいましょう。 
+34. AIエージェントに応用問題を解いてもらいましょう。 
 * チャット欄をリセットし、AIエージェントに「
    ```
    明日の千葉の気温は、今日より2度高くなるらしいのですが、何度になりますか？
    ```
    」と入力します。
-* Agent styleがDefaultなので、うまく回答してくれません。
 
-<img width="1178" height="1042" alt="19WeatherTomorrow01" src="https://github.com/user-attachments/assets/9dccb240-2a27-4841-b1b5-2ceeb00d13b5" />
-
-20. Knowledge項目を選択し、[Agent style]を[ReAct]に変更します。
-* チャット欄をリセットし、AIエージェントに「
-   ```
-   明日の千葉の気温は、今日より2度高くなるらしいのですが、何度になりますか？
-   ```
-   」と入力します。
-* Think (考える） - Act　（行動する） - Observe　（観察する）という段階で、推論が実行されます。
-
-<img width="1178" height="1042" alt="20WeatherTomorrow02" src="https://github.com/user-attachments/assets/25109ff0-84c0-448c-a5c9-e81ff8e8e2e4" />
+<img width="1605" height="1142" alt="2-1-34-RelativeTemparature" src="https://github.com/user-attachments/assets/bde57ea7-eae9-4728-8936-281d4dea44d0" />
 
 
-続けて、[AIエージェントにツールとして、MCPサーバーを追加する](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/2/TimeMCP)に進みましょう。
+演習1は以上です。この演習で体験したことを整理しておきましょう。
+
+* MCP serverを利用して、都市名から緯度・経度情報を取得する
+* Open-Meteoの気象APIをOpenAPIツールとして取り込み、緯度・経度から気象情報を取得する
+* WMO気象コードの説明ファイルを知識として取り込み、気象コードの説明に利用する
+* BehaviorのInstructionsを通じて、AIエージェントに期待する動作を指定する 
+
+続けて、[気象情報を取得するワークフローを作成する](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/2/TimeMCP)に進みましょう。
 
