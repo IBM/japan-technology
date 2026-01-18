@@ -976,7 +976,10 @@ Instructions:
 ```
 <img width="669" height="820" alt="2-2-54-Shizuoka-Seattle" src="https://github.com/user-attachments/assets/99a23c82-c475-4f4e-af5d-ef5d04b55ec6" />
 
-* 再度ご注意: Geocodeツールが利用している[Nominatim APIの呼び出し制約](https://operations.osmfoundation.org/policies/nominatim/)のため、複数拠点の緯度・経度情報を連続で検索すると、予期せぬエラーが発生し、緯度・経度がそれぞれ0になる場合があります。このAIエージェントで2拠点の比較はおそらく問題になりませんが、3拠点以上を比較すると、Nominatim API呼び出しの失敗により、緯度・経度がそれぞれ0になります。その場合、AIエージェントが回答している気象情報はヌル島（Null Island）のデータとなりますので、ご注意ください。AIエージェントの回答内容に含まれている緯度・経度が0以外になっているかどうかを必ずご確認ください。
+* 再度ご注意: Geocodeツールが利用している[Nominatim APIの呼び出し制約](https://operations.osmfoundation.org/policies/nominatim/)のため、複数拠点の緯度・経度情報を連続で検索すると、予期せぬエラーが発生し、緯度・経度がそれぞれ0になる場合があります。このAIエージェントで2拠点の比較はおそらく問題になりませんが、3拠点以上を比較すると、Nominatim API呼び出しの失敗により、緯度・経度がそれぞれ0になる可能性があります。その場合、AIエージェントが回答している気象情報はヌル島（Null Island）のデータとなりますので、ご注意ください。AIエージェントの回答内容に含まれている緯度・経度が0以外になっているかどうかを必ずご確認ください。
+
+* 制約を守りながら、3拠点以上を比較する方法としては、それぞれの拠点の気象情報を個別で取得した後に、比較表を作成することです。
+<img width="660" height="811" alt="2-2-54-02-Limitation" src="https://github.com/user-attachments/assets/729fbc20-05a1-49fc-bb99-2f9bee465366" />
 
 55. 最後に右上の[Deploy]ボタンをクリックして、このAIエージェントをデプロイしてください。
 
