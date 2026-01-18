@@ -12,11 +12,62 @@
 ##
 
 0. 作成するワークフローの全体像
-* watsonx Orchestrateのワークフロー作成ツールを利用します。
+* [演習1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-refresh/01WeatherAgent/readme.md)が完了している状態で、新しいAIエージェントを作ります。
+* watsonx OrchestrateのAgentic Workflow作成ツールを利用します。
 * 作成するフローは１つの分岐(Branch)を伴うものです。ワークフロー作成ツールの操作に慣れるため、ハンズオンで体験しましょう。
-* 気象情報の取得は、WeatherAgentのパートで追加した[current weather for coordinates]ツールを使います
-* 条件分岐としてのBranchを1つ作成し、地名をGeocode MCP Serverで緯度・経度に変換する際に得られる国コード country_code が "US" / "us" であるかどうかを判定し、気温の単位を華氏あるいは摂氏として回答するかを分岐します。
-* 華氏を単位とした場合、摂氏で表現されている気温を華氏に変換します。（摂氏に華氏を変換するには 9/5をかけてから32を加える）
+
+フローの説明:
+* step 1: [Geocode:geocode] ツール： 指定された地名から、緯度・経度、国コードを取得します。結果はJSON文字列となります。
+
+Geocode:geocodeの出力例 (addressdetail=1, q=静岡市):
+
+```
+[
+  {
+    "place_id": 243339469,
+    "osm_type": "relation",
+    "osm_id": 4674742,
+    "lat": "34.9751974",
+    "lon": "138.3831697",
+    "category": "boundary",
+    "type": "administrative",
+    "place_rank": 16,
+    "importance": 0.6257569776868801,
+    "addresstype": "city",
+    "name": "静岡市",
+    "display_name": "静岡市, 静岡県, 420-8602, 日本",
+    "address": {
+      "city": "静岡市",
+      "province": "静岡県",
+      "ISO3166-2-lvl4": "JP-22",
+      "postcode": "420-8602",
+      "country": "日本",
+      "country_code": "jp"
+    },
+    "boundingbox": [
+      "34.8019562",
+      "35.6459570",
+      "138.0829590",
+      "138.6539534"
+    ]
+  }
+]
+```
+
+* step 2: [Json-loader] Python Code block、[Geocode:geocode]の戻り値から、出力として、緯度(latitude)、経度(longitude)、国コード(country_code)を取得します。デバッグ用にtrace_logという文字列を用意します。
+
+* step 3: [current weather for coordinates]ツール、step 2で得られた緯度・経度を利用して、現在の気象情報を取得します。
+
+* step 4: step 2で得られた国コードを利用して、分岐を作ります。米国の場合 (country_code == 'us' / 'US') はUSA Codeblock (Step 5)、それ以外はNot USA Codeblock (Step 6)へ進みます。
+
+* step 5: 米国の場合 (USA Code block)、step 3で得られた気象情報を使い、気温を摂氏から華氏に変換（摂氏に華氏を変換するには 9/5をかけてから32を加える）します。気温の単位を"°F 華氏"に設定します。
+
+USA Code blockの出力(String型): temp_celsius (摂氏の気温）, temp_fahrenheit(華氏の気温), temp_unit(気温の単位), trace_log(トレースログ)
+
+* step 6: 米国ではない場合 (Not USA Code block)、step 3で得られた気象情報を使い、気温の単位を"℃ 摂氏"に設定します。
+Not USA Code blockの出力(String型): temp_unit(気温の単位), trace_log(トレースログ)
+
+* step 7: 結果を出力します。
 
 <img width="1000" height="1142" alt="2-2-1-flowOverview" src="https://github.com/user-attachments/assets/658d8d6f-aa08-4cdd-9be6-0b2bd49fe191" />
 
@@ -195,4 +246,320 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 14. パラメーターが正しく作成されているかどうか、特にTypeとNameが正しく入力されているかを確認します。最後に[Done]をクリックします。
 <img width="1250" height="1194" alt="2-2-8-FlowParams" src="https://github.com/user-attachments/assets/f3f94b78-d42a-41ca-ab68-7db855c14394" />
 
+15. [WeatherFlow]の全体像が表示されるので、初期状態を確認します。
+<img width="1162" height="995" alt="2-2-15-InitialFlow" src="https://github.com/user-attachments/assets/3ae60aad-7bb9-4274-af2c-5f1c3ef9f2e0" />
 
+16. 左上にある[+]アイコンをクリックして、[Tools]タブを選択します。演習1で登録した[Geocode:geocode]、[current weather for coordinate]ツールが表示されていることを確認します。ご注意: 次の画面に見えている[Geocode:reverse_geocode]は使いません。
+<img width="1206" height="1039" alt="2-2-16-Tools" src="https://github.com/user-attachments/assets/2fee8749-9115-40d1-87cb-9e39cb4d35df" />
+
+17. [Geocode:geocode]ツールをドラッグして、フローの矢印の中心あたりにドロップします。
+
+<img width="1061" height="849" alt="2-2-17-Tool-DragDrop" src="https://github.com/user-attachments/assets/5771e6f0-6693-4dbb-84e0-dd5286b3f265" />
+
+18. [Current weather for coordinate]ツールをドラッグして、[Geocode:geocode]の下側にドロップします。
+<img width="1206" height="1039" alt="2-2-18-2-Tools" src="https://github.com/user-attachments/assets/58386827-88b6-482a-a8cc-e1674c1f5c39" />
+
+19. [Geocode:geocode]をクリックし、表示されたウィンドウ内で、[Edit data ma
+pping]をクリックします。
+<img width="1206" height="1039" alt="2-2-19-GeoCode-mapping" src="https://github.com/user-attachments/assets/2e64815f-237d-4023-bb3b-026245b1780a" />
+
+20. [Map data for 'Geocode:geocode']の画面を確認し、[Inputs]の下に表示されている[Ask user for input if auto-mapping is unsuccessful]のスイッチをオフにします。
+* このスイッチがオンになっていると、パラメーターのマッピングができない場合に、AIエージェントからユーザーに問い合わせが行われます。
+<img width="1280" height="1139" alt="2-2-20-NotAsk" src="https://github.com/user-attachments/assets/6f245bc6-58ee-4a4e-9a00-d5c0cbbe0895" />
+
+21.[Remove all automapping]をクリックして、すべてのパラメーターに対する自動マッピングを削除します。
+<img width="1363" height="1139" alt="2-2-21-RemoveAutoMap" src="https://github.com/user-attachments/assets/d0aeb182-c24c-4aaf-b0e0-f8fa6653e455" />
+
+22.すべての自動マッピングが削除されたことを確認します。
+<img width="1363" height="1139" alt="2-2-22-AutomapRemoved" src="https://github.com/user-attachments/assets/5261f9bb-a624-42e2-8dba-5aa3914a2584" />
+
+23. AIエージェントに入力された地名と[q]パラメーターを対応させます。[q]パラメーターに表示されている[{x}]をクリックします。
+<img width="608" height="108" alt="2-2-23-q-variable" src="https://github.com/user-attachments/assets/dfb1b8cb-a151-4635-827f-d03ca66469e5" />
+
+24. [q]パラメーターの下側に、変数名を参照するためのメニューが表示されます。[Input]をクリックして、表示されている[city_name]を選択します。
+<img width="606" height="224" alt="2-2-24-Input-city" src="https://github.com/user-attachments/assets/dac96914-e2f7-4e42-9f0d-046825af179f" />
+
+25. [q]パラメーターに[city_name]がマッピングされたことを確認します。
+<img width="1363" height="1139" alt="2-2-25-GeoCode-Mapping" src="https://github.com/user-attachments/assets/ed1b66aa-9187-4a1c-96e7-37a805343743" />
+
+* [addressdetails]と[format]の値を入力します。[Enter a value]をクリックすると値を入力できます。
+
+addressdetails:
+   ```
+   1
+   ```
+   
+format:
+   ```
+   jsonv2
+   ```
+* 3つのパラメーター(addressdetails, format, q)のマッピングが正しくできたら、[Map data for 'Geocode:geocode']の右側にある[x]をクリックして、設定画面を閉じましょう。
+<img width="605" height="808" alt="2-2-25-1-params" src="https://github.com/user-attachments/assets/0698affc-03a6-40bc-94c2-d9536df0bbcf" />
+
+26. 左上の[+]をクリックし、[Flow nodes]タブから[Code block]を見つけ、[Geocode:geocode]ツールと[current weather for coordinates]ツールとの間にドロップします。
+
+<img width="1840" height="1030" alt="2-2-26-Codeblock-DD" src="https://github.com/user-attachments/assets/e17f5d98-6206-4d89-892b-cab3e789a505" />
+
+27. 追加されたCode blockをクリックして、ブロック名を変更します。
+<img width="354" height="341" alt="2-2-27-Codeblock-Edit" src="https://github.com/user-attachments/assets/43f99138-b804-4b69-9311-78514a7efddc" />
+
+* Code block名:
+   ```
+   Json-loader
+   ```
+
+28. [Json-loader]のCode blockの下側にある[Define outputs]をクリックします。
+
+<img width="356" height="335" alt="2-2-27-1-Editing" src="https://github.com/user-attachments/assets/4f46fa96-14a3-4b89-a552-143221dd6d74" />
+
+29. 4つのOutputsを作成します。
+
+<img width="622" height="477" alt="2-2-28-4outputs" src="https://github.com/user-attachments/assets/df4e3c02-36b0-4113-994f-2c7104090daf" />
+
+* Type: Decimal
+* Name:
+  ```
+  latitude
+  ```
+  
+* Description:
+  ```
+  緯度
+  ```
+---
+
+* Type: Decimal
+* Name:
+  ```
+  longitude
+  ```
+  
+* Description:
+  ```
+  経度
+  ```
+
+---
+* Type: String
+* Name:
+  ```
+  trace_log
+  ```
+  
+* Description:
+  ```
+  トレースログ
+  ```
+---
+* Type: String
+* Name:
+  ```
+  country_code
+  ```
+  
+* Description:
+  ```
+  国コード
+  ```
+
+30. [Json-loader] Code blockから[Open Code Editor]をクリックします。
+
+<img width="368" height="353" alt="2-2-30-JsonLoader-cb" src="https://github.com/user-attachments/assets/ac6174dc-8ba8-4eef-9bd5-849035da7c6f" />
+
+31. [Code block for 'Json-loader']が開くのを確認します。
+
+<img width="611" height="840" alt="2-2-31-CodeEditor" src="https://github.com/user-attachments/assets/3bb16b0f-ee40-414d-9527-815999298b26" />
+
+32. 次のコードをコピーして、エディターに貼り付けます。
+
+* watsonx OrchestrateのSaaS環境では、Pythonコードからのログ出力を確認するのが容易ではないため、デバッグ文字列にAgentic Workflowの出力として書き出します。
+* 数値から文字、文字から数値など、型の不一致などで実行時例外が発生するのを避けるため、変換において、既定値を設定しています。エラーで異常終了させないことを重視しているため、コード量が多くなっています。
+```
+# ===== ログ蓄積用のヘルパー関数 =====
+trace_log = []
+
+def log(message):
+    """ログメッセージを蓄積"""
+    trace_log.append(message)
+
+# ===== 安全な属性取得関数 =====
+def safe_get_attr(obj, attr, default=None):
+    """属性を安全に取得"""
+    try:
+        return getattr(obj, attr, default)
+    except:
+        return default
+
+# ===== JSON文字列からの値抽出（正規表現不使用） =====
+def extract_from_string(text, key):
+    """文字列から特定のキーの値を抽出（簡易版）"""
+    try:
+        # "key":"value" または "key":value のパターンを探す
+        search_pattern = f'"{key}":'
+        idx = text.find(search_pattern)
+        if idx == -1:
+            return None
+        
+        # コロンの後から値を抽出
+        start = idx + len(search_pattern)
+        # 引用符をスキップ
+        while start < len(text) and text[start] in ' "':
+            start += 1
+        
+        # 値の終わりを探す（カンマ、閉じ括弧、引用符まで）
+        end = start
+        while end < len(text) and text[end] not in '",}]':
+            end += 1
+        
+        value = text[start:end].strip()
+        return value if value else None
+    except:
+        return None
+
+log("=== Json-loader processing started ===")
+
+# ===== 1. 出力を取得 =====
+try:
+    step_output = flow["Geocode:geocode"].output
+    log("Geocode output retrieved successfully")
+except Exception as e:
+    log(f"ERROR: Failed to get Geocode output: {str(e)}")
+    self.output.country_code = "NODE_ERROR"
+    self.output.latitude = 0.0
+    self.output.longitude = 0.0
+    self.output.trace_log = "\n".join(trace_log)
+    # 早期終了
+    step_output = None
+
+# ===== 2. データの抽出とパース =====
+data = None
+if step_output is not None:
+    try:
+        log("Attempting to parse output...")
+        
+        # A: すでにオブジェクト（辞書/リスト）として渡されている場合
+        if isinstance(step_output, (list, dict)):
+            data = step_output
+            log("Output is already a dict/list")
+        
+        # B: content[0].text 形式の場合
+        else:
+            content_attr = safe_get_attr(step_output, 'content')
+            if content_attr is not None:
+                try:
+                #    import json
+                    text_content = content_attr[0].text
+                    data = json.loads(text_content)
+                    log("Parsed from content[0].text")
+                except:
+                    log("Failed to parse content[0].text")
+            
+            # C: 単純な文字列の場合
+            if data is None:
+                try:
+                    # import json
+                    data = json.loads(str(step_output))
+                    log("Parsed from string representation")
+                except:
+                    log("Failed to parse as JSON string")
+    
+    except Exception as e:
+        log(f"ERROR in parsing: {str(e)}")
+
+# ===== 3. パースに失敗した場合の文字列抽出 =====
+if data is None and step_output is not None:
+    log("Attempting string extraction as fallback...")
+    try:
+        raw = str(step_output)
+        log(f"Raw output length: {len(raw)}")
+        
+        # 簡易的な抽出
+        lat_str = extract_from_string(raw, "lat")
+        lon_str = extract_from_string(raw, "lon")
+        
+        if lat_str and lon_str:
+            self.output.latitude = float(lat_str)
+            self.output.longitude = float(lon_str)
+            log(f"Extracted lat={lat_str}, lon={lon_str}")
+            
+            # 国コードの推定
+            if "United States" in raw or "USA" in raw:
+                self.output.country_code = "US"
+            elif "Japan" in raw or "日本" in raw:
+                self.output.country_code = "JP"
+            else:
+                # country_codeを直接抽出
+                cc_str = extract_from_string(raw, "country_code")
+                if cc_str:
+                    self.output.country_code = cc_str.upper()
+                else:
+                    self.output.country_code = "UNKNOWN"
+            
+            log(f"Country code: {self.output.country_code}")
+        else:
+            log("ERROR: Could not extract lat/lon from string")
+            self.output.country_code = "PARSE_FAIL"
+            self.output.latitude = 0.0
+            self.output.longitude = 0.0
+    
+    except Exception as e:
+        log(f"ERROR in string extraction: {str(e)}")
+        self.output.country_code = "EXTRACT_ERROR"
+        self.output.latitude = 0.0
+        self.output.longitude = 0.0
+
+# ===== 4. 正常にパースできた場合の処理 =====
+if data is not None:
+    log("Processing parsed data...")
+    try:
+        # リストの場合は最初の要素を取得
+        if isinstance(data, list):
+            if len(data) > 0:
+                target = data[0]
+                log(f"Using first element of list (length: {len(data)})")
+            else:
+                log("ERROR: Empty list")
+                target = {}
+        else:
+            target = data
+            log("Using data as-is (dict)")
+        
+        # 緯度・経度の取得
+        if isinstance(target, dict):
+            lat_value = target.get("lat", 0)
+            lon_value = target.get("lon", 0)
+            
+            self.output.latitude = float(lat_value)
+            self.output.longitude = float(lon_value)
+            log(f"Latitude: {self.output.latitude}")
+            log(f"Longitude: {self.output.longitude}")
+            
+            # 住所情報から国コードを取得
+            addr = target.get("address", {})
+            if isinstance(addr, dict):
+                cc = addr.get("country_code", "US")
+                self.output.country_code = str(cc).upper()
+                log(f"Country code from address: {self.output.country_code}")
+            else:
+                # addressがない場合は直接country_codeを探す
+                cc = target.get("country_code", "US")
+                self.output.country_code = str(cc).upper()
+                log(f"Country code (direct): {self.output.country_code}")
+        else:
+            log("ERROR: Target is not a dict")
+            self.output.country_code = "TYPE_ERROR"
+            self.output.latitude = 0.0
+            self.output.longitude = 0.0
+    
+    except Exception as e:
+        log(f"ERROR in data extraction: {str(e)}")
+        self.output.country_code = "EXTRACT_FAIL"
+        self.output.latitude = 0.0
+        self.output.longitude = 0.0
+
+log("=== Json-loader processing finished ===")
+log(f"Final: country={self.output.country_code}, lat={self.output.latitude}, lon={self.output.longitude}")
+
+# ===== 5. ログを出力変数に設定 =====
+self.output.trace_log = "\n".join(trace_log)
+```
