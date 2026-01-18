@@ -98,7 +98,7 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 
 * Install command: 
   ```
-  npx -y @goecoding-ai/mcp
+  npx -y @geocoding-ai/mcp
   ```
 
 12. [Add tool and manage MCP servers]ウィンドウ内に「"Geocode" is ready.」の文字が表示され、ツールを選択できるようになります。
