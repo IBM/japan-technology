@@ -3,7 +3,8 @@
 * 最終更新日: 2026/01/18
 * [準備方法](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)をご覧の上、ハンズオンの実行までに、watsonx Orchestrateの環境を用意してください。
 * ハンズオンは、watsonx Orchestrate 30日無償評価版で動作を確認してあります。
-* 以前に公開したAI Agent Dojo #2を発展させ、利用できる基盤モデルの変更、watsonx Orchestrateの機能改善に合わせて、内容を刷新したものになります。
+* 以前に公開したAI Agent Dojo #2を発展させ、利用できる基盤モデルの変更、watsonx Orchestrateの機能改善に合わせて、内容を改良したものになります。
+* 主な改良点: 指定された地名から、緯度・経度をMCP serverで取得することで、AIエージェントがユーザーに緯度・経度を問い合わせずに気象情報の取得に進められること。WMO気象コードを説明する知識を持たせて、天気の状態をわかりやすく説明できること。
 
 ## 1. [気象情報に回答するAIエージェントを作成する]
 Open Meteoが提供している気象情報APIを用いて、地名（経度、緯度）から現在の天気について回答するAIエージェントを作ります。
