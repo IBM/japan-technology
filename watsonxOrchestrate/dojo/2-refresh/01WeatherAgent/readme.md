@@ -138,12 +138,18 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
     
 <img width="1223" height="1089" alt="2-1-17-Addtool" src="https://github.com/user-attachments/assets/47700161-8d04-44e5-a5c6-556082530311" />
 
+18. [Add a tool]から[OpenAPI]をクリックします。
 
-8. ツールを定義している OpenAPI 3.0.0準拠の仕様書
+<img width="1223" height="1089" alt="2-1-18-AddTool-OpenAPI" src="https://github.com/user-attachments/assets/3efa8b39-5072-415f-ae12-fbe1299aee8e" />
+
+19. [Import tool]の画面が開きます。
+
+* ツールを定義している OpenAPI 3.0.0準拠の仕様書
 が入っているyaml形式のファイルを利用して、ツールを取り込みます。
 * weather.yamlのダウンロード: こちらの[リンク](https://ibm.github.io/ba-handson-jp/wxoagent/files/weather.yaml)を右クリック (Macの場合、[control]を押しながらクリック)し、名前を付けて保存してください。
 Upload filesの下にある、[Drag and drop an OpenAPI file here or click to upload]をクリックします。
-<img width="1042" height="1001" alt="08ClicktoUpload" src="https://github.com/user-attachments/assets/20c208ae-2c5f-4335-b066-e11262522afc" />
+
+ <img width="1223" height="1089" alt="2-1-19-ImportTool" src="https://github.com/user-attachments/assets/c3ec2644-6007-42ee-9834-c7c6b3dc4567" />
 
 * 参考: YAML形式でOpenAPI 3 の完全な仕様書を作る場合は、インターネットから情報を取得する機能を備えた生成AIサービスに頼ると簡単です。
 * プロンプトの例「watsonx Orchestrateのツールとして利用できるよう、open-meteoのforecast APIからOpenAPI 3.0の完全な仕様書を作ってください。」
@@ -151,60 +157,56 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 * ツールを追加する際の注意点: 同じ名前のツールを複数登録しようとすると、名前の後ろに番号が付与されていきますのでご注意ください。
   Code Blockからツールの値を参照する際に、その番号も合わせて指定する必要が出てくるので、名前の後ろに番号が付与されないよう、ツールの名前を変更するなど、実装で工夫してください。
 
-9. ファイル名として、ダウンロード済みの weather.yaml を指定します。
+20. weather.yamlをアップロードすると、watsonx Orchestrateは、内容を検証します。
+* 検証が完了すると"Validation successful"と表示されますので、[Next]をクリックします。
+<img width="1223" height="1089" alt="2-1-20-Validated-yaml" src="https://github.com/user-attachments/assets/a013d12c-0f38-4b19-b38f-f25c48713d55" />
 
-<img width="1042" height="1001" alt="09ChooseWeatherYaml" src="https://github.com/user-attachments/assets/3258ef5c-439d-4457-91f4-7d9871fe9fd3" />
+21. [Operations] というリストが表示されるので、[current weather for coordinates]にチェックを入れて、[Done]をクリックします。
+<img width="1223" height="1089" alt="2-1-21-Operations" src="https://github.com/user-attachments/assets/256c6330-6657-48aa-b23c-f741ba114d22" />
 
-10. weather.yamlがアップロードされ、"Validation successful"と表示されたのを確認します。[Next]をクリックします。
+22. しばらくすると、watsonx Orchestrateが気象ツールを取り込み、画面右上に[Tool Added]と表示します。
+<img width="1223" height="1089" alt="2-1-22-ToolAdded" src="https://github.com/user-attachments/assets/b4c3266e-b9a0-4b5f-aa4c-09aa6ff868be" />
 
-<img width="998" height="957" alt="10WeatherYaml-Validated" src="https://github.com/user-attachments/assets/db2a2151-7fff-4764-a0fc-f23ac570986d" />
+23. Open Meteoの気象APIで利用されているWMO （世界気象機関）の気象コードを解釈できるよう、簡単なテキストファイルを[Knowledge]として取り込みます。左側のメニューから[Knowledge]を選択し、[Add source +]をクリックします。
+<img width="1223" height="1089" alt="2-1-23-AddSource" src="https://github.com/user-attachments/assets/a096b1f6-fc83-4db5-9452-7ea578e086f7" />
 
-11. Operationsと書かれている表にある、[current weather for corrdinates]という文字がある行に☑️を入れ、最後に[Done]をクリックします。
+24. [Add knowledge]から[New knowledge]をクリックします。
+* ご注意: Existing knowledgeは、watsonx Orchestrateの環境に登録済みのデータを選択する場合に使います。
+<img width="1223" height="1089" alt="2-1-24-NewKnowledge" src="https://github.com/user-attachments/assets/50fc79ae-65b7-49c4-86d8-8ececec354de" />
 
-<img width="1042" height="1001" alt="11SelectOperations" src="https://github.com/user-attachments/assets/8ba0a062-0154-45fc-8e4f-a01522bb02fd" />
+25. [Choose knowledge source]から[Upload files]を選択し、最後に[Next]をクリックします。
+<img width="1223" height="1089" alt="2-1-25-Uploadfiles" src="https://github.com/user-attachments/assets/cf476389-b708-45da-9d3c-b95337acd4f8" />
 
-12. 画面の右上に「Tool Added」と表示されることを確認します。併せて、Toolset項目のTools内に、追加された[current weather for corrdinates]ツールが表示されていることを確認しましょう。これで、AIエージェントからツールが呼び出せます。
+26. [Drag and drop files here or click to upload]をクリックし、気象コードの説明が入ったテキストファイルをアップロードします。ファイル名が表示されたことを確認して、[Next]をクリックします。
 
-<img width="1042" height="1001" alt="12AddedTheTool" src="https://github.com/user-attachments/assets/579c0930-4c91-45a0-a023-c3d083d69e7f" />
+<img width="1223" height="1089" alt="2-1-26-AddKnowledge" src="https://github.com/user-attachments/assets/f4612f6a-1abf-40d5-9cc0-bbaa34161197" />
 
-13. Preview欄をリセットして、AIエージェントに「
-    ```
-    あなたのできることを教えてください
-    ```
-    」と質問します。
-* もし「Hello!」と表示された場合は、もう一度「```あなたのできることを教えてください```」と質問します。
+27. [Choose knowledge source]の画面から、詳細を入力し、[Save]をクリックします。
 
-<img width="1042" height="1001" alt="13WhatCapability" src="https://github.com/user-attachments/assets/accb17d7-d6cc-44d0-8a9c-af6d14a595fd" />
+  Name: 
+  ```
+  WMO Weather Code
+  ```
 
-14. Behaviorに指示を追加します。AIエージェントは、「Hello」で始まる定型の挨拶を省略します。
-    * Instructions: 
-    ```
-    回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。
-    ```
+  Description: 
+  ```
+  WMO Weather Code マッピングテーブル
+  ```
 
-<img width="1042" height="1001" alt="14SetBehaviors" src="https://github.com/user-attachments/assets/882ee0fc-e631-4823-af74-dbc4d9ed6935" />
+28. 左側のメニューから[Behavior]を選択し、[Instructions]を更新します。
+  Instructions: 
+  ```
+  回答は日本語で行なってください。
+  1.　[Geocode:geocode] ツールを使って、都市名から緯度・経度を取得してください。
+  2.　[current weather for coordinates] ツールを使って、天気・気象情報を取得してください。この時current_weather = trueとしてください。
+  3.　[current weather for coordinates] ツールから得られた、current_weatherオブジェクトの内容を気象情報として返してください。
+  ```
+  
+  <img width="1432" height="1142" alt="2-1-28-Behavior" src="https://github.com/user-attachments/assets/9883e21b-38b0-447e-a55f-d289fae74892" />
 
-15. チャット欄をリセットし、AIエージェントに「
-    ```
-    東京都新宿区の天気は？
-    ```
-    」と質問します。
-    * もし緯度と経度を聞かれた場合は、「
-    ```
-    緯度: 35.689、経度:139.692
-    ```
-    」と追加で入力します。
-    
-    * ご注意: この挙動は、製品が使用しているシステム・プロンプトが、変数の値を勝手に想定、生成しないように (Never - Assume/make up values)、という指示を与えていることによるものです。
-    * 緯度、経度の確認をスキップする方法として、BehaviorのInstructionsに書いておく方法があります。必要に応じて試してください。
-    * Behaviorに指定するInstructions:
-    ```
-    回答は日本語で行なってください。 定型の挨拶は省略し、最初の質問から回答してください。
-    ユーザーから都市の天気を問われた場合は、都市名から緯度と経度を想定して構いません。
-    気温はElevationではなく current_weather から取得してください。
-    ```
-    
-<img width="1178" height="1001" alt="15ShinjukuWeather" src="https://github.com/user-attachments/assets/c6d29cfb-1d8d-4365-a1b1-2dd465754358" />
+29. チャット欄で<img width="23" height="27" alt="2-1-14-reset" src="https://github.com/user-attachments/assets/4a9f8a7b-e614-4300-b7bf-bacca4c2dc91" />をクリックし、リセットします。
+
+30. 
 
 16. 回答が得られたら、[Show Reasoning]をクリックし、ツールにどのようなパラメータが渡されたかを確認します。併せて、Outputの内容も確認しましょう。
 
