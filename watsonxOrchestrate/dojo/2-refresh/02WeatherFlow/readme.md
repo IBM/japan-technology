@@ -12,7 +12,7 @@
 ##
 
 0. 作成するワークフローの全体像
-* [演習1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-refresh/01WeatherAgent/readme.md)が完了している状態で、新しいAIエージェントを作ります。
+* [演習1](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-refresh/01WeatherAgent/readme.md)が完了している状態で、名前の異なる新しいAIエージェントを作ります。
 * watsonx OrchestrateのAgentic Workflow作成ツールを利用します。
 * 作成するフローは１つの分岐(Branch)を伴うものです。ワークフロー作成ツールの操作に慣れるため、ハンズオンで体験しましょう。
 
@@ -563,3 +563,76 @@ log(f"Final: country={self.output.country_code}, lat={self.output.latitude}, lon
 # ===== 5. ログを出力変数に設定 =====
 self.output.trace_log = "\n".join(trace_log)
 ```
+
+33. コードを貼り付けたら、右上の[x]クリックして、Code Editorを終了します。
+
+<img width="615" height="838" alt="2-2-32-JsonLoaderCode" src="https://github.com/user-attachments/assets/370812d5-43e3-4d3c-8c5c-7d719cbe7b0c" />
+
+34. [current weather for coordinate]ツールをクリックし、[Edit data mapping]をクリックします。
+
+<img width="629" height="301" alt="2-2-33-WeatherTool" src="https://github.com/user-attachments/assets/e5dcc7ed-5f52-4e54-8792-24da540d7a1a" />
+
+35. ツールのデータ・マッピングを確認します。
+
+<img width="610" height="317" alt="2-2-35-WT-mapping" src="https://github.com/user-attachments/assets/a2f62e47-c4ec-433c-85c1-54b2add39878" />
+
+36. 自動マッピングの設置を削除します。
+* [Ask user for input if auto-mapping is unsuccessful]をオフにします。
+* [Remove all auto-mapping]をクリックします。
+<img width="613" height="322" alt="2-2-36-WT-removed" src="https://github.com/user-attachments/assets/5012b8ea-d956-451a-98df-9a0bf26db602" />
+
+37. [current_weather]の値を[True]に設定します。
+
+<img width="612" height="319" alt="2-2-37-CurrentWeather" src="https://github.com/user-attachments/assets/5b5b02ed-fa80-456f-81da-972e6790414e" />
+
+38. [latitude]の値を、[{x}]クリックし、[Json-loader]の[latitude]出力にマップします。
+
+<img width="618" height="472" alt="2-2-38-latitude" src="https://github.com/user-attachments/assets/7a91fc74-6da3-4c59-aab2-d2d4ad186aea" />
+
+39. 同様に[longitude]の値を、[{x}]クリックし、[Json-loader]の[longitude]出力にマップします。
+
+<img width="618" height="519" alt="2-2-39-longitude" src="https://github.com/user-attachments/assets/fe23b27e-b5e0-44ce-9c3f-66bd36928b97" />
+
+40. 'Map data for 'current weather for coordinates'の右側にある[x]をクリックして、マッピング画面を閉じます。
+<img width="615" height="314" alt="2-2-40-datamapping" src="https://github.com/user-attachments/assets/d462e88d-3926-4dad-a0c6-f0e31f9ebd58" />
+
+41. [current weather for coordinates]の下側に[Branch]を作ります。左上の[+]をクリックし、[Flow Nodes]タブにある[Flow controls]から[Branch]を選んで、ドラッグ＆ドロップします。[Path 1]と[Path 2]が作られるので、それぞれに[Code block]を追加します。
+
+* Path 1: [USA] Code block
+* Path 2: [Not USA] Code block
+
+42. [Branch 1]の条件式を設定します。[Json-loader]の[country_code]出力を使って、式を評価します。
+
+* 完成した状態:
+<img width="517" height="243" alt="2-2-42-branch" src="https://github.com/user-attachments/assets/a4dab000-8bc4-4ba2-8c4f-f8a4f9c2bcfa" />
+
+* 初期状態: [Edit condition]をクリックして、条件式を作成します。
+<img width="377" height="268" alt="2-2-42-branch-init" src="https://github.com/user-attachments/assets/469aefea-e38c-4875-bbd2-f2c58569d36c" />
+
+* １行目: flow["Json-loader].output.country_code == "US"
+
+* 左辺は ifの右側にある[+]をクリックして、Json-loaderからの[country_code]出力を選びます。
+<img width="375" height="171" alt="2-2-42-condition" src="https://github.com/user-attachments/assets/0217cd62-39b5-4051-ba20-9e6b3913ca40" />
+
+* 比較式は[==]を選択します。
+* 右辺は、
+ ```
+ US
+ ```
+ を入力します。
+
+<img width="656" height="452" alt="2-2-42-1-US" src="https://github.com/user-attachments/assets/2ed49217-55c4-45cd-9002-6ae8247278ab" />
+
+* 2行目: flow["Json-loader].output.country_code == "us" 
+* [Add condition+]をクリックして、[or]を選びます。
+* 左辺は [{x}]をクリックして、Json-loaderからの[country_code]出力を選びます。
+* 比較式は[==]を選択します。
+* 右辺は、
+ ```
+ us
+ ```
+ を入力します。
+
+<img width="648" height="494" alt="2-2-42-2-us" src="https://github.com/user-attachments/assets/b8d83551-4a1f-4ba7-acae-41e080b4c606" />
+
+
