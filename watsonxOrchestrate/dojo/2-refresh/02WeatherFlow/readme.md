@@ -2,7 +2,7 @@
 * 最終更新日: 2026/01/18
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 * 問い合わせした地名が米国であるかどうかを判断し、米国以外の国であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
-* 同じ名前のツールを複数回登録すると起きてしまう間違いについて、追記してあります。ご注意ください。
+
 
 ## 参考資料 
 * [Agentic Workflows](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=tools-agentic-workflows)
@@ -70,6 +70,8 @@ Not USA Code blockの出力(String型): temp_unit(気温の単位), trace_log(�
 * step 7: 結果を出力します。
 
 <img width="1000" height="1142" alt="2-2-1-flowOverview" src="https://github.com/user-attachments/assets/658d8d6f-aa08-4cdd-9be6-0b2bd49fe191" />
+
+* ご注意: Geocodeツールが利用している[Nominatim APIの呼び出し制約](https://operations.osmfoundation.org/policies/nominatim/)のため、複数拠点の緯度・経度情報を連続で検索すると、予期せぬエラーが発生し、緯度・経度がそれぞれ0になる場合があります。表示された結果の緯度・経度・国コードの情報を確認し、緯度・経度がそれぞれ0になっている場合は、おそらくNominatim APIの呼び出しに失敗しています。
 
 1. watsonx Orchestrateを開きます。
 URL: お使いの環境に合わせてwatsonx Orchestrateを開いてください。
@@ -958,6 +960,7 @@ Instructions:
 ```
 
 53. チャット欄に質問を入力します。
+
 チャット欄:
 ```
 東京都新宿区の天気は？
@@ -966,6 +969,23 @@ Instructions:
 <img width="1126" height="1142" alt="2-2-53-Shinjuku" src="https://github.com/user-attachments/assets/2a20062a-c0a6-473f-bfbb-2330a65201ae" />
 
 54. 違う質問を入力します。
+
+チャット欄:
 ```
-東京都新宿区、静岡県静岡市、シアトル、ニューヨークの天気を比較して。
+静岡市とシアトルの天気を表で比較して
 ```
+<img width="669" height="820" alt="2-2-54-Shizuoka-Seattle" src="https://github.com/user-attachments/assets/99a23c82-c475-4f4e-af5d-ef5d04b55ec6" />
+
+* 再度ご注意: Geocodeツールが利用している[Nominatim APIの呼び出し制約](https://operations.osmfoundation.org/policies/nominatim/)のため、複数拠点の緯度・経度情報を連続で検索すると、予期せぬエラーが発生し、緯度・経度がそれぞれ0になる場合があります。このAIエージェントで2拠点の比較はおそらく問題になりませんが、3拠点以上を比較すると、Nominatim API呼び出しの失敗により、緯度・経度がそれぞれ0になります。その場合、AIエージェントが回答している気象情報はヌル島（Null Island）のデータとなりますので、ご注意ください。AIエージェントの回答内容に含まれている緯度・経度が0以外になっているかどうかを必ずご確認ください。
+
+55. 最後に右上の[Deploy]ボタンをクリックして、このAIエージェントをデプロイしてください。
+
+演習2は以上です。
+
+## まとめ
+
+* Agentic Workflowを利用し、MCP server、OpenAPI、それぞれを組み合わせたワークフローを作成しました。
+* MCP serverからの戻り値を加工するJson-loader Code blockを実装することで、指定した都市名に対応する国コードを取得できるようにしました。
+* Branchを使い、国コードが "US" または "us" であることを条件にして、気温の単位を「華氏表示」に対応させるCode blockを作成しました。米国以外の国においては、「摂氏表示」に対応するCode blockを作成しました。 
+
+
