@@ -292,5 +292,5 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 * WMO気象コードの説明ファイルを知識として取り込み、気象コードの説明に利用する
 * BehaviorのInstructionsを通じて、AIエージェントに期待する動作を指定する 
 
-続けて、[気象情報を取得するワークフローを作成する](https://github.com/IBM/japan-technology/tree/main/watsonxOrchestrate/dojo/2/TimeMCP)に進みましょう。
+続けて、[気象情報を取得するワークフローを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-refresh/02WeatherFlow/readme.md)に進みましょう。
 
