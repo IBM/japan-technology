@@ -171,6 +171,8 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 23. Open Meteoの気象APIで利用されているWMO （世界気象機関）の気象コードを解釈できるよう、簡単なテキストファイルを[Knowledge]として取り込みます。左側のメニューから[Knowledge]を選択し、[Add source +]をクリックします。
 <img width="1223" height="1089" alt="2-1-23-AddSource" src="https://github.com/user-attachments/assets/a096b1f6-fc83-4db5-9452-7ea578e086f7" />
 
+* テキストファイルのダウンロードは[こちら](https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonxOrchestrate/dojo/2-refresh/Weather.txt) を右クリック (Macの場合、[control]を押しながらクリック)し、名前を付けて保存してください。: 
+
 24. [Add knowledge]から[New knowledge]をクリックします。
 * ご注意: Existing knowledgeは、watsonx Orchestrateの環境に登録済みのデータを選択する場合に使います。
 <img width="1223" height="1089" alt="2-1-24-NewKnowledge" src="https://github.com/user-attachments/assets/50fc79ae-65b7-49c4-86d8-8ececec354de" />
@@ -178,7 +180,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 25. [Choose knowledge source]から[Upload files]を選択し、最後に[Next]をクリックします。
 <img width="1223" height="1089" alt="2-1-25-Uploadfiles" src="https://github.com/user-attachments/assets/cf476389-b708-45da-9d3c-b95337acd4f8" />
 
-26. [Drag and drop files here or click to upload]をクリックし、気象コードの説明が入ったテキストファイルをアップロードします。ファイル名が表示されたことを確認して、[Next]をクリックします。
+26. [Drag and drop files here or click to upload]をクリックし、手順23でダウンロードしたWeather.txt(気象コードの説明が入ったテキストファイル)をアップロードします。ファイル名が表示されたことを確認して、[Next]をクリックします。
 
 <img width="1223" height="1089" alt="2-1-26-AddKnowledge" src="https://github.com/user-attachments/assets/f4612f6a-1abf-40d5-9cc0-bbaa34161197" />
 
