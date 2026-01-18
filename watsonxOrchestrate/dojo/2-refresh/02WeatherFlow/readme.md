@@ -635,4 +635,337 @@ self.output.trace_log = "\n".join(trace_log)
 
 <img width="648" height="494" alt="2-2-42-2-us" src="https://github.com/user-attachments/assets/b8d83551-4a1f-4ba7-acae-41e080b4c606" />
 
+43. [USA] Code blockをクリックし、[Define outputs]から4つの出力を作成します。
 
+<img width="612" height="483" alt="2-2-43-USA-outputs" src="https://github.com/user-attachments/assets/35ef7e20-fe22-44e1-9700-c49888004162" />
+
+---
+* Type: String
+* Name:
+  ```
+  temp_unit
+  ```
+  
+* Description:
+  ```
+  気温の単位
+  ```
+---
+* Type: String
+* Name:
+  ```
+  trace_log
+  ```
+  
+* Description:
+  ```
+  トレースログ
+  ```
+---
+* Type: String
+* Name:
+  ```
+  temp_celsius
+  ```
+  
+* Description:
+  ```
+  摂氏表示の気温
+  ```
+---
+* Type: String
+* Name:
+  ```
+  temp_fahrenheit
+  ```
+  
+* Description:
+  ```
+  華氏表示の気温
+  ```
+
+44. [USA] Code blockのCode editorを開き、次のコードを貼り付けます。
+
+```
+# ===== ログ蓄積用のヘルパー関数 =====
+trace_log = []
+
+def log(message):
+    """ログメッセージを蓄積"""
+    trace_log.append(message)
+
+# ===== 安全な取得関数 =====
+def safe_get_nested(obj, *keys, default=None):
+    """ネストされた属性を安全に取得"""
+    result = obj
+    try:
+        for key in keys:
+            if result is None:
+                return default
+            if isinstance(result, dict):
+                result = result.get(key, None)
+            else:
+                result = getattr(result, key, None)
+            if result is None:
+                return default
+        return result
+    except Exception as e:
+        log(f"safe_get_nested error: {str(e)}")
+        return default
+
+# ===== 1. 天気情報の取得と華氏変換 =====
+log("=== Weather processing started ===")
+
+try:
+    weather_node = flow["current weather for coordinates"]
+    log("Weather node retrieved successfully")
+    
+    # 温度を取得
+    temp_c = safe_get_nested(weather_node, "output", "current_weather", "temperature")
+    log(f"Temperature (raw): {temp_c}")
+    
+    if temp_c is not None:
+        temp_c = float(temp_c)
+        log(f"Temperature (float): {temp_c} C")
+        
+        # 華氏に変換
+        temp_f = temp_c * 9.0 / 5.0 + 32.0
+        log(f"Converted to Fahrenheit: {temp_f} F")
+        
+        # 出力に設定
+        self.output.temp = str(round(temp_f, 1))
+        self.output.temp_unit = "°F"
+        self.output.temp_celsius = str(round(temp_c, 1))
+        self.output.temp_fahrenheit = str(round(temp_f, 1))
+        
+        log(f"Output set: temp={self.output.temp}, unit={self.output.temp_unit}")
+        
+        # 天気コード
+        weathercode = safe_get_nested(weather_node, "output", "current_weather", "weathercode", default=0)
+        self.output.current_weather_code = weathercode
+        log(f"Weather code: {weathercode}")
+        
+    else:
+        log("ERROR: Temperature is None")
+        self.output.temp = "N/A"
+        self.output.temp_unit = "°F"
+        self.output.current_weather_code = "UNKNOWN"
+        
+except Exception as e:
+    log(f"ERROR in weather processing: {str(e)}")
+    self.output.temp = "ERROR"
+    self.output.temp_unit = "ERROR"
+    self.output.error_weather = str(e)
+
+log("=== Weather processing finished ===")
+
+# ===== 2. Json-loaderからの取得 =====
+log("=== Loader processing started ===")
+
+try:
+    loader_node = flow["Json-loader"]
+    log("Loader node retrieved successfully")
+    
+    c_code = safe_get_nested(loader_node, "output", "country_code", default="UNKNOWN")
+    latitude = safe_get_nested(loader_node, "output", "latitude", default=0.0)
+    longitude = safe_get_nested(loader_node, "output", "longitude", default=0.0)
+    
+    log(f"Loader data: country={c_code}, lat={latitude}, lon={longitude}")
+    
+    self.output.country_code = str(c_code)
+    self.output.latitude = float(latitude)
+    self.output.longitude = float(longitude)
+    
+except Exception as e:
+    log(f"ERROR in loader processing: {str(e)}")
+    self.output.country_code = "UNKNOWN"
+    self.output.latitude = 0.0
+    self.output.longitude = 0.0
+    self.output.error_loader = str(e)
+
+log("=== Loader processing finished ===")
+
+# ===== 3. パス名の設定 =====
+self.output.latest_path_name = f"USA:{self.output.country_code}"
+log(f"Path name set: {self.output.latest_path_name}")
+
+# ===== 4. 最終ログ =====
+log("=== Code block execution completed ===")
+log(f"Total log entries: {len(trace_log)}")
+
+# ===== 5. ログを出力変数に設定 =====
+self.output.trace_log = "\n".join(trace_log)
+```
+
+45. [Not USA] Code blockをクリックし、[Define outputs]から2つの出力を作成します。
+<img width="608" height="401" alt="2-2-45-NotUSA-outputs" src="https://github.com/user-attachments/assets/5d8633c6-7fea-41ac-9914-871455b2d874" />
+
+---
+* Type: String
+* Name:
+  ```
+  temp_unit
+  ```
+  
+* Description:
+  ```
+  気温の単位
+  ```
+---
+* Type: String
+* Name:
+  ```
+  trace_log
+  ```
+  
+* Description:
+  ```
+  トレースログ
+  ```
+
+46. [Not USA] Code blockのCode Editorを開き、次のコードを貼り付けます。
+
+```
+# ===== ログ蓄積用のヘルパー関数 =====
+trace_log = []
+
+def log(message):
+    """ログメッセージを蓄積"""
+    trace_log.append(message)
+
+# ===== 安全な取得関数 =====
+def safe_get_nested(obj, *keys, default=None):
+    """ネストされた属性を安全に取得"""
+    result = obj
+    try:
+        for key in keys:
+            if result is None:
+                return default
+            if isinstance(result, dict):
+                result = result.get(key, None)
+            else:
+                result = getattr(result, key, None)
+            if result is None:
+                return default
+        return result
+    except Exception as e:
+        log(f"safe_get_nested error: {str(e)}")
+        return default
+
+# ===== 1. 天気情報の取得（摂氏のまま） =====
+log("=== Weather processing started ===")
+
+try:
+    weather_node = flow["current weather for coordinates"]
+    log("Weather node retrieved successfully")
+    
+    # 温度を取得（摂氏）
+    temp_c = safe_get_nested(weather_node, "output", "current_weather", "temperature")
+    log(f"Temperature (raw): {temp_c}")
+    
+    if temp_c is not None:
+        temp_c = float(temp_c)
+        log(f"Temperature (float): {temp_c} C")
+        
+        # 摂氏のまま出力に設定
+        self.output.temp = str(round(temp_c, 1))
+        self.output.temp_unit = "°C"
+        self.output.temp_celsius = str(round(temp_c, 1))
+        
+        log(f"Output set: temp={self.output.temp}, unit={self.output.temp_unit}")
+        
+        # 天気コード
+        weathercode = safe_get_nested(weather_node, "output", "current_weather", "weathercode", default=0)
+        self.output.current_weather_code = weathercode
+        log(f"Weather code: {weathercode}")
+        
+    else:
+        log("ERROR: Temperature is None")
+        self.output.temp = "N/A"
+        self.output.temp_unit = "°C"
+        self.output.current_weather_code = "UNKNOWN"
+        
+except Exception as e:
+    log(f"ERROR in weather processing: {str(e)}")
+    self.output.temp = "ERROR"
+    self.output.temp_unit = "ERROR"
+    self.output.error_weather = str(e)
+
+log("=== Weather processing finished ===")
+
+# ===== 2. Json-loaderからの取得 =====
+log("=== Loader processing started ===")
+
+try:
+    loader_node = flow["Json-loader"]
+    log("Loader node retrieved successfully")
+    
+    c_code = safe_get_nested(loader_node, "output", "country_code", default="UNKNOWN")
+    latitude = safe_get_nested(loader_node, "output", "latitude", default=0.0)
+    longitude = safe_get_nested(loader_node, "output", "longitude", default=0.0)
+    
+    log(f"Loader data: country={c_code}, lat={latitude}, lon={longitude}")
+    
+    self.output.country_code = str(c_code)
+    self.output.latitude = float(latitude)
+    self.output.longitude = float(longitude)
+    
+except Exception as e:
+    log(f"ERROR in loader processing: {str(e)}")
+    self.output.country_code = "UNKNOWN"
+    self.output.latitude = 0.0
+    self.output.longitude = 0.0
+    self.output.error_loader = str(e)
+
+log("=== Loader processing finished ===")
+
+# ===== 3. パス名の設定 =====
+self.output.latest_path_name = f"Not USA:{self.output.country_code}"
+log(f"Path name set: {self.output.latest_path_name}")
+
+# ===== 4. 最終ログ =====
+log("=== Code block execution completed ===")
+log(f"Total log entries: {len(trace_log)}")
+
+# ===== 5. ログを出力変数に設定 =====
+self.output.trace_log = "\n".join(trace_log)
+```
+
+47. フロー全体を確認し、[USA]と[Not USA]、２つのCode blockの後、8 outputsにつながっていることを確認します。問題なければ、右上の[Done]をクリックします。
+<img width="1126" height="1142" alt="2-2-47-Done" src="https://github.com/user-attachments/assets/347d1cb5-052b-49fb-9661-080e5e9690a0" />
+
+48. [WeatherAgent02]の左側メニューから[Knowledge]を選択し、[Add source +]をクリックします。
+
+<img width="1126" height="1142" alt="2-2-48-AddSource" src="https://github.com/user-attachments/assets/ecbf572d-9210-4761-8672-13a29db913c5" />
+
+49. [Add Knowledge]から[Exisiting Knowledge]を選択します。
+<img width="600" height="254" alt="2-2-49-ExistingKnowledge" src="https://github.com/user-attachments/assets/a8047be7-ec35-4591-99cf-7885b6886634" />
+
+50. [Add knowledge to WeatherAgent02]から、[WMO Weather Code]を選択し、[Add knowledge]をクリックします。
+<img width="1126" height="1142" alt="2-2-50-WMO-Code" src="https://github.com/user-attachments/assets/9b02f4f1-dd51-48d4-b410-1086f7dc1991" />
+
+51. [Weather Agent02]に[WMO Weather Code]が追加されたことを確認します。
+
+<img width="1126" height="1142" alt="2-2-51-KnowledgeAdded" src="https://github.com/user-attachments/assets/1dfd3cc4-4b66-4dc5-98f0-2bbe28b3eb62" />
+
+52. [WeatherAgent02]の左側メニューから[Behavior]を選択し、[Instructions]を入力します。
+
+Instructions:
+```
+日本語で回答してください。
+ユーザーから与えられた都市名を使い、WeatherFlowツールを使って、気象情報を取得してください。気温の単位は、出力されたtemp_unitを使って表示ください。
+根拠を示すために気象情報の出力（current_weather_code, temp, temp_unit, country_code, latitude, longitude, latest_path_name）を全て表示してください。trace_logがあれば、それも出力してください。WeatherFlowツール内では、文字列データを翻訳したり、大文字・小文字の変換をしないでください。
+```
+
+53. チャット欄に質問を入力します。
+チャット欄:
+```
+東京都新宿区の天気は？
+```
+
+<img width="1126" height="1142" alt="2-2-53-Shinjuku" src="https://github.com/user-attachments/assets/2a20062a-c0a6-473f-bfbb-2330a65201ae" />
+
+54. 違う質問を入力します。
+```
+東京都新宿区、静岡県静岡市、シアトル、ニューヨークの天気を比較して。
+```
