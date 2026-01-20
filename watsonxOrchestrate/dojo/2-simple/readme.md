@@ -8,7 +8,7 @@
   指定された地名から、緯度・経度を基盤モデル自身で取得することで、AIエージェントがユーザーに緯度・経度を問い合わせずに気象情報の取得に進められること。
   Nominatim APIの呼び出し制約を気にしなくて良いこと。
 
-## 1. [地名から緯度、経度、国コードを求めるフローを作成する]
+## 1. [地名から緯度、経度、国コードを求めるフローを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-simple/01Geocoding/readme.md)
 指定した地名を使って、基盤モデルが学習している情報を使って、緯度、経度、国コードを求める簡単なフローを作成します。
 
 ## ２. [気象情報を取得するワークフローを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-simple/02WeatherFlow/readme.md)
