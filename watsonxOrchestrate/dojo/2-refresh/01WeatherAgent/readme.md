@@ -193,7 +193,10 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 
   Description: 
   ```
-  WMO Weather Code マッピングテーブル
+  WMO Weather Code から天気の説明を取得します。
+  wmo code : 気象コード
+  WeatherDescription-English: 英語による天気の説明
+  WeatherDescription-Japanese: 日本語による天気の説明
   ```
 
 28. 左側のメニューから[Behavior]を選択し、[Instructions]を更新します。
@@ -204,6 +207,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
   1.　[Geocode:geocode] ツールを使って、都市名から緯度・経度を取得してください。
   2.　[current weather for coordinates] ツールを使って、天気・気象情報を取得してください。この時current_weather = trueとしてください。
   3.　[current weather for coordinates] ツールから得られた、current_weatherオブジェクトの内容を気象情報として返してください。
+  4.  weather codeの説明は、"WMO Weather Code" ツールから取得してください。
   ```
   
   <img width="1432" height="1142" alt="2-1-28-Behavior" src="https://github.com/user-attachments/assets/9883e21b-38b0-447e-a55f-d289fae74892" />
