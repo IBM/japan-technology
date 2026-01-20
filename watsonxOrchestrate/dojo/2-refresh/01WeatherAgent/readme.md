@@ -1,6 +1,6 @@
 # 1. 気象情報に回答するAIエージェントを作成する
 
-* 最終更新日: 2026/01/18
+* 最終更新日: 2026/01/19
 * このコンテンツは、Business Automation Handsonコンテンツの内容を、若干発展させて最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 [ソース](https://ibm.github.io/ba-handson-jp/wxoagent/tool/)
 
