@@ -1,4 +1,4 @@
-# 気象情報を取得するワークフローを作成する
+# 2. 気象情報を取得するワークフローを作成する
 * 最終更新日: 2026/01/21
 * このコンテンツは、Business Automation Handsonコンテンツの内容を、若干発展させて最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。
 [ソース](https://ibm.github.io/ba-handson-jp/wxoagent/tool/)
