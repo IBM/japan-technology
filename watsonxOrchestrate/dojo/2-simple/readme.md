@@ -4,9 +4,9 @@
 * [準備方法](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/1/readme.md)をご覧の上、ハンズオンの実行までに、watsonx Orchestrateの環境を用意してください。
 * ハンズオンは、watsonx Orchestrate 30日無償評価版で動作を確認してあります。
 * 以前に公開したAI Agent Dojo #2を発展させ、利用できる基盤モデルの変更、watsonx Orchestrateの機能改善に合わせて、内容を改良したものになります。
-* リフレッシュ版からの主な改良点: 
-  指定された地名から、緯度・経度を基盤モデル自身で取得することで、AIエージェントがユーザーに緯度・経度を問い合わせずに気象情報の取得に進められること。
-  Nominatim APIの呼び出し制約を気にしなくて良いこと。
+## リフレッシュ版からの主な改良点: 
+  * 指定された地名から、緯度・経度を基盤モデル自身で取得することで、AIエージェントがユーザーに緯度・経度を問い合わせずに気象情報の取得に進められること。別の言い方をすると、Nominatim APIの呼び出し制約を気にしなくて良いこと。
+  * Pythonコードは使わず、ノーコードによるアプローチにより、デバッグを容易にしたこと
 
 ## 1. [地名から緯度、経度、国コードを求めるフローを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-simple/01Geocoding/readme.md)
 指定した地名を使って、基盤モデルが学習している情報を使って、緯度、経度、国コードを求める簡単なフローを作成します。
