@@ -1,5 +1,5 @@
 # 2. 気象情報を取得するワークフローを作成する
-* 最終更新日: 2026/01/18
+* 最終更新日: 2026/01/19
 * こちらは、Business Automation Hands-onのwatsonx Orchestrate [Lab 3](https://ibm.github.io/ba-handson-jp/wxoagent/flow/)を最新のwatsonx Orchestrate (英語UI版)を使って実行できるようにしたものです。MCP serverやWMO Weather Codeを変換するテーブルを利用する方法を加えています。
 * 問い合わせした地名が米国であるかどうかを判断し、米国以外の国であれば気温を摂氏で、そうでなければ、気温を華氏で回答します。
 
@@ -377,6 +377,7 @@ format:
 * watsonx OrchestrateのSaaS環境では、Pythonコードからのログ出力を確認するのが容易ではないため、デバッグ文字列にAgentic Workflowの出力として書き出します。
 * 数値から文字、文字から数値など、型の不一致などで実行時例外が発生するのを避けるため、変換において、既定値を設定しています。エラーで異常終了させないことを重視しているため、コード量が多くなっています。
 ```
+time.sleep(2) # GeoCodeのAPI呼び出しが連続しないよう待機する
 # ===== ログ蓄積用のヘルパー関数 =====
 trace_log = []
 
