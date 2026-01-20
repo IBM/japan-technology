@@ -198,14 +198,18 @@ WMO気象コード
 
 ※米国の都市でないため、気温は摂氏のまま表示しています。  
 ```
-<img width="570" height="676" alt="2-2-31-test1" src="https://github.com/user-attachments/assets/774c3fcd-a4c5-4b34-83de-05edaedf90e6" />
+
+<img width="1082" height="1067" alt="2-2-32-test2" src="https://github.com/user-attachments/assets/fe662d2b-9fba-4cf0-bce9-d35f8854f8e7" />
+
 
 32. 複数拠点の天気も一度に調べることができます。
 * プロンプト:
 ```
 シアトルとサンフランシスコとニューヨーク、ドバイ、ハイデラバードの天気を教えて
 ```
-<img width="1082" height="1067" alt="2-2-32-test2" src="https://github.com/user-attachments/assets/fe662d2b-9fba-4cf0-bce9-d35f8854f8e7" />
+
+<img width="570" height="676" alt="2-2-31-test1" src="https://github.com/user-attachments/assets/774c3fcd-a4c5-4b34-83de-05edaedf90e6" />
+
 
 演習は以上です。
 ##
