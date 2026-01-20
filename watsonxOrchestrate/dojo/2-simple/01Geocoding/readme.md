@@ -311,6 +311,7 @@ URL: お使いの環境に合わせてwatsonx Orchestrateを開いてくださ�
 
 ##
 演習は以上です。
+続いて、[気象情報を取得するワークフローを作成する](https://github.com/IBM/japan-technology/blob/main/watsonxOrchestrate/dojo/2-simple/02WeatherFlow/readme.md)に進んでください。
 
 ## まとめ
 * この演習では、基盤モデルの知識を使って、位置情報を提供するフローを作成しました。
