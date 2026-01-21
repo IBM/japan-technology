@@ -1,6 +1,6 @@
 # AI エージェントを試してみる
 
-最終更新日: 2025/9/12
+最終更新日: 2026/1/21
 
 前提条件:
 * IBM watsonx as a Serviceの環境にアクセスできること
@@ -50,6 +50,34 @@ Apple Watch, Pixel Watch, Fitbitの比較表を作成してください。
 7. [この答えはどうやって得たのでしょうか？]と表示されているところをクリックして内容を確認します。
 * Google検索の結果を取得し、基盤モデルに存在しない情報を取得
 * 得られた結果を使って基盤モデルで回答を生成
+
+8. 英語を使って、エージェントに問い合わせしてみましょう。
+
+プロンプト例を示します。
+
+```
+Google, Who is the CEO of IBM Corporation?
+```
+
+```
+Google, please find the long history of IBM.
+```
+
+```
+Google, please let me know the brief history of IBM 8 Bar logo.
+```
+
+```
+Google, what is "Aitokukai"?
+```
+
+```
+Google, what is "IBM watsonx.ai"?
+```
+
+```
+Google, what is "IBM TechXchange Summit Japan"?
+```
 
 このハンズオンは以上となります。
 
