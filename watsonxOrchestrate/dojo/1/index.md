@@ -1,4 +1,4 @@
-# AI Agent Dojo #1
+# AI Agent Dojo #1: watsonx Orchestrate AIエージェント体験
 
 最終更新日: 2025/9/24
 
