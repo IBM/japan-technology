@@ -57,7 +57,7 @@ Upload filesの下にある、[Drag and drop an OpenAPI file here or click to up
 * 左側のメニューから[Knowledge]を選択し、[Add source +]をクリックします。
 <img width="1091" height="1068" alt="2-2-7-Knowledge" src="https://github.com/user-attachments/assets/68db75a6-7346-4c98-a19f-5f30a79547e0" />
 
-* テキストファイルのダウンロードは[こちら](https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonxOrchestrate/dojo/2-simple/wmo_weather_codes_with_emoji.csv)を右クリック (Macの場合、[control]を押しながらクリック)し、名前を付けて保存してください。
+* 気象コードの説明が入ったテキストファイルwmo_weather_codes_with_emoji.csvのダウンロードは[こちら](https://raw.githubusercontent.com/IBM/japan-technology/refs/heads/main/watsonxOrchestrate/dojo/2-simple/wmo_weather_codes_with_emoji.csv)を右クリック (Macの場合、[control]を押しながらクリック)し、名前を付けて保存してください。
 8. [Add knowledge]から[New knowledge]をクリックします。
 <img width="1091" height="1068" alt="2-2-8-NewKnowledge" src="https://github.com/user-attachments/assets/069dc849-70e5-457a-8cc1-2b4c10ad303d" />
 
