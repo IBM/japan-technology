@@ -1,0 +1,1 @@
+import{g as a,ad as c,O as u,c as m}from"./DGo3a6i3.js";import{u as p}from"./Dd-H9CC-.js";function i(o){const e=a(),s=e?.type.emits,t={};return s?.length||console.warn(`No emitted event found. Please check component: ${e?.type.__name}`),s?.forEach(r=>{t[c(u(r))]=(...n)=>o(r,...n)}),t}function l(o,e){const s=p(o),t=e?i(e):{};return m(()=>({...s.value,...t}))}export{i as a,l as u};
