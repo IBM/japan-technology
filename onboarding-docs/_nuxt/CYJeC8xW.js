@@ -1,0 +1,1 @@
+import{a1 as o,e as t,h as r,Y as n}from"./CQUz3iD8.js";const s={},a={class:"px-1.5 py-0.5 text-sm font-mono font-normal rounded-md inline-block border border-muted bg-muted text-cool-gray-1000 dark:text-cool-gray-100"};function c(e,d){return r(),t("code",a,[n(e.$slots,"default")])}const m=Object.assign(o(s,[["render",c]]),{__name:"ProseCode"});export{m as default};
