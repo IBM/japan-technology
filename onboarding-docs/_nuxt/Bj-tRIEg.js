@@ -1,1 +1,0 @@
-import{t as s}from"./DWAIKLtv.js";import{a0 as n,c,e as l,h as p,Y as u,a4 as m}from"./CQUz3iD8.js";const i={base:""},_={__name:"ProseStrong",props:{class:{type:null,required:!1}},setup(e){const a=e,o=n(),t=c(()=>s({extend:s(i),...o.ui?.prose?.strong||{}}));return(r,f)=>(p(),l("strong",{class:m(t.value({class:a.class}))},[u(r.$slots,"default")],2))}};export{_ as default};
