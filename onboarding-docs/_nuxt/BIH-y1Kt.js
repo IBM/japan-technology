@@ -1,1 +1,0 @@
-import{t as s}from"./DTE54-SQ.js";import{a0 as c,c as l,e as n,h as p,Y as u,a4 as m}from"./BpnwVoUe.js";const d={base:""},b={__name:"ProseTbody",props:{class:{type:null,required:!1}},setup(e){const a=e,o=c(),t=l(()=>s({extend:s(d),...o.ui?.prose?.tbody||{}}));return(r,i)=>(p(),n("tbody",{class:m(t.value({class:a.class}))},[u(r.$slots,"default")],2))}};export{b as default};
