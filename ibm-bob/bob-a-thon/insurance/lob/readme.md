@@ -63,7 +63,7 @@
 
 ### ワークショップを進めるためのヒント
 
-モックアップ作成においてのヒント集を[こちら]にまとめておきます。
+モックアップ作成に向けたヒント集を[こちら](https://github.com/IBM/japan-technology/blob/main/ibm-bob/bob-a-thon/insurance/lob/tips.md)にまとめておきます。
 
 ---
 
