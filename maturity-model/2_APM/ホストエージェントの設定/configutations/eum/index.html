@@ -1,0 +1,3608 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../database/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Eum - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#eumend-user-monitoring" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Eum
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eumend-user-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EUM（End User Monitoring）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なWebサイト監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 複数ウェブサイトの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SPAアプリケーション監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. カスタムイベント追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ユーザー情報の追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プライバシー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: データが送信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: ページロード時間が正確でない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: SPAでページ遷移が追跡されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-eumsynthetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: EUMとSynthetic監視の違いは？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: モバイルアプリも監視できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: パフォーマンスへの影響は？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-gdpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: GDPRに準拠していますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: カスタムメトリクスを送信できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/sdks-mcp-server-instana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eumend-user-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EUM（End User Monitoring）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なWebサイト監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 複数ウェブサイトの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SPAアプリケーション監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. カスタムイベント追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ユーザー情報の追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プライバシー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: データが送信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: ページロード時間が正確でない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-spa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: SPAでページ遷移が追跡されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-eumsynthetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: EUMとSynthetic監視の違いは？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: モバイルアプリも監視できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: パフォーマンスへの影響は？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-gdpr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: GDPRに準拠していますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: カスタムメトリクスを送信できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Eum</h1>
+
+<h2 id="eumend-user-monitoring">EUM（End User Monitoring）</h2>
+<hr />
+<h2 id="_1">📚 情報ソース</h2>
+<p>このドキュメントは以下の情報源を基に作成されています：</p>
+<h3 id="_2">主要ソース</h3>
+<ul>
+<li><strong>IBM公式ドキュメント</strong>:</li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">End User Monitoring</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Website Monitoring</a></li>
+</ul>
+<h3 id="_3">補足ソース</h3>
+<ul>
+<li><strong>EUMのベストプラクティス</strong>: JavaScriptエージェント設定とパフォーマンス最適化</li>
+<li><strong>実運用環境の設定例</strong>: グローバルユーザー監視とコンバージョン追跡</li>
+</ul>
+<hr />
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">End User Monitoring</a></p>
+<p>EUM（End User Monitoring）は、実際のユーザーのブラウザやモバイルアプリケーションからのパフォーマンスデータを収集し、ユーザー体験を監視します。</p>
+<h3 id="_4">基本概念</h3>
+<p>EUMは以下の情報を収集します：
+- ページロード時間
+- JavaScriptエラー
+- AJAXリクエスト
+- ユーザーセッション
+- ブラウザ情報
+- 地理的位置</p>
+<h3 id="_5">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #000">com.instana.plugin.eum</span>:
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">instrumentation</span>:
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span style="color: #000">jsAgentUrl</span>: <span style="color: #C41A16">&#39;https://eum.instana.io/eum.min.js&#39;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span style="color: #000">reportingUrl</span>: <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span style="color: #000">trackSessions</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span style="color: #000">autoPageDetection</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span style="color: #000">websites</span>:
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;Production</span><span style="color: #000"> </span><span style="color: #C41A16">Website&#39;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;[Website-Key]&#39;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span style="color: #000">selector</span>:
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>          <span style="color: #000">matchExpressions</span>:
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>            - <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;url/path&#39;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>              <span style="color: #000">operator</span>: <span style="color: #C41A16">&#39;StartWith&#39;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>              <span style="color: #000">values</span>:
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>                - <span style="color: #C41A16">&#39;/&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>jsAgentUrl</code></td>
+<td>JavaScriptエージェントURL</td>
+<td>-</td>
+<td>Instana提供URL</td>
+<td>Instanaコンソールから</td>
+</tr>
+<tr>
+<td><code>reportingUrl</code></td>
+<td>データ送信先URL</td>
+<td>-</td>
+<td>Instana提供URL</td>
+<td>Instanaコンソールから</td>
+</tr>
+<tr>
+<td><code>trackSessions</code></td>
+<td>セッション追跡</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>autoPageDetection</code></td>
+<td>自動ページ検出</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>ウェブサイトキー</td>
+<td>-</td>
+<td>必須</td>
+<td>Instanaコンソールから生成</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">実践的な使用例</h3>
+<h4 id="1-web">1. 基本的なWebサイト監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #000">com.instana.plugin.eum</span>:
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span style="color: #000">instrumentation</span>:
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span style="color: #000">jsAgentUrl</span>: <span style="color: #C41A16">&#39;https://eum.instana.io/eum.min.js&#39;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span style="color: #000">reportingUrl</span>: <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span style="color: #000">trackSessions</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span style="color: #000">autoPageDetection</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span style="color: #000">websites</span>:
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;Corporate</span><span style="color: #000"> </span><span style="color: #C41A16">Website&#39;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;abc123def456&#39;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>HTMLへの組み込み:</strong>
+<div class="language-html highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-18">18</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #633820">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>&lt;<span style="color: #000">html</span>&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>&lt;<span style="color: #000">head</span>&gt;
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    &lt;<span style="color: #000">title</span>&gt;My Website&lt;/<span style="color: #000">title</span>&gt;
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span style="color: #177500">&lt;!-- Instana EUM Script --&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    &lt;<span style="color: #000">script</span>&gt;
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>        (<span style="color: #A90D91">function</span>(<span style="color: #000">s</span>,<span style="color: #000">t</span>,<span style="color: #000">a</span>,<span style="color: #000">n</span>){<span style="color: #000">s</span>[<span style="color: #000">t</span>]<span style="color: #000">||</span>(<span style="color: #000">s</span>[<span style="color: #000">t</span>]<span style="color: #000">=a</span>,<span style="color: #000">n=s</span>[<span style="color: #000">a</span>]<span style="color: #000">=</span><span style="color: #A90D91">function</span>(){<span style="color: #000">n</span>.<span style="color: #000">q</span>.<span style="color: #000">push</span>(<span style="color: #000">arguments</span>)},
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>        <span style="color: #000">n</span>.<span style="color: #000">q=</span>[],<span style="color: #000">n</span>.<span style="color: #000">v=</span><span style="color: #1C01CE">2</span>,<span style="color: #000">n</span>.<span style="color: #000">l=</span><span style="color: #1C01CE">1</span><span style="color: #000">*new</span> <span style="color: #A90D91">Date</span>)})(<span style="color: #A90D91">window</span>,<span style="color: #C41A16">&quot;InstanaEumObject&quot;</span>,<span style="color: #C41A16">&quot;ineum&quot;</span>);
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>        <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportingUrl&#39;</span>, <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>);
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>        <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;key&#39;</span>, <span style="color: #C41A16">&#39;abc123def456&#39;</span>);
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;trackSessions&#39;</span>);
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    &lt;/<span style="color: #000">script</span>&gt;
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    &lt;<span style="color: #000">script</span> <span style="color: #836C28">async</span> <span style="color: #836C28">crossorigin</span><span style="color: #000">=</span><span style="color: #C41A16">&quot;anonymous&quot;</span> <span style="color: #836C28">src</span><span style="color: #000">=</span><span style="color: #C41A16">&quot;https://eum.instana.io/eum.min.js&quot;</span>&gt;&lt;/<span style="color: #000">script</span>&gt;
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>&lt;/<span style="color: #000">head</span>&gt;
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>&lt;<span style="color: #000">body</span>&gt;
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span style="color: #177500">&lt;!-- Your content --&gt;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>&lt;/<span style="color: #000">body</span>&gt;
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>&lt;/<span style="color: #000">html</span>&gt;
+</code></pre></div></td></tr></table></div></p>
+<h4 id="2">2. 複数ウェブサイトの監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-28">28</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-29">29</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-30">30</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-31">31</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-32">32</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-33">33</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-34">34</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-35">35</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-36">36</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-37">37</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-38">38</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-39">39</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #000">com.instana.plugin.eum</span>:
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  <span style="color: #000">instrumentation</span>:
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span style="color: #000">jsAgentUrl</span>: <span style="color: #C41A16">&#39;https://eum.instana.io/eum.min.js&#39;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span style="color: #000">reportingUrl</span>: <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span style="color: #000">trackSessions</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span style="color: #000">autoPageDetection</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span style="color: #000">websites</span>:
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>      <span style="color: #177500"># 本番サイト</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;Production</span><span style="color: #000"> </span><span style="color: #C41A16">Website&#39;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;prod-key-123&#39;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>        <span style="color: #000">selector</span>:
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>          <span style="color: #000">matchExpressions</span>:
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>            - <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;url/host&#39;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>              <span style="color: #000">operator</span>: <span style="color: #C41A16">&#39;Equals&#39;</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>              <span style="color: #000">values</span>:
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>                - <span style="color: #C41A16">&#39;www.example.com&#39;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>      <span style="color: #177500"># ステージングサイト</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;Staging</span><span style="color: #000"> </span><span style="color: #C41A16">Website&#39;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;staging-key-456&#39;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>        <span style="color: #000">selector</span>:
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>          <span style="color: #000">matchExpressions</span>:
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>            - <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;url/host&#39;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>              <span style="color: #000">operator</span>: <span style="color: #C41A16">&#39;Equals&#39;</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>              <span style="color: #000">values</span>:
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>                - <span style="color: #C41A16">&#39;staging.example.com&#39;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>      <span style="color: #177500"># 管理画面</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;Admin</span><span style="color: #000"> </span><span style="color: #C41A16">Portal&#39;</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;admin-key-789&#39;</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a>        <span style="color: #000">selector</span>:
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a>          <span style="color: #000">matchExpressions</span>:
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a>            - <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;url/path&#39;</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a>              <span style="color: #000">operator</span>: <span style="color: #C41A16">&#39;StartWith&#39;</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a>              <span style="color: #000">values</span>:
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a>                - <span style="color: #C41A16">&#39;/admin&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-spa">3. SPAアプリケーション監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #000">com.instana.plugin.eum</span>:
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span style="color: #000">instrumentation</span>:
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span style="color: #000">jsAgentUrl</span>: <span style="color: #C41A16">&#39;https://eum.instana.io/eum.min.js&#39;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span style="color: #000">reportingUrl</span>: <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span style="color: #000">trackSessions</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span style="color: #000">autoPageDetection</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span style="color: #000">spa</span>: <span style="color: #1C01CE">true</span>  <span style="color: #177500"># Single Page Application</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span style="color: #000">websites</span>:
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;React</span><span style="color: #000"> </span><span style="color: #C41A16">Application&#39;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;react-app-key&#39;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>React統合例:</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-19">19</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #A90D91">import</span> { <span style="color: #000">useEffect</span> } <span style="color: #A90D91">from</span> <span style="color: #C41A16">&#39;react&#39;</span>;
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span style="color: #A90D91">function</span> <span style="color: #000">App</span>() {
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  <span style="color: #000">useEffect</span>(() =&gt; {
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span style="color: #177500">// Instana EUM初期化</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span style="color: #A90D91">if</span> (<span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>) {
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>      <span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportingUrl&#39;</span>, <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>);
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>      <span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;key&#39;</span>, <span style="color: #C41A16">&#39;react-app-key&#39;</span>);
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>      <span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;trackSessions&#39;</span>);
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>      <span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;page&#39;</span>, <span style="color: #A90D91">window</span>.<span style="color: #000">location</span>.<span style="color: #000">pathname</span>);
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    }
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  }, []);
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>  <span style="color: #A90D91">return</span> (
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span style="color: #000">&lt;div</span> <span style="color: #000">className=</span><span style="color: #C41A16">&quot;App&quot;</span><span style="color: #000">&gt;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>      {<span style="color: #177500">/* Your React components */</span>}
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span style="color: #000">&lt;/div&gt;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>  );
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>}
+</code></pre></div></td></tr></table></div></p>
+<h4 id="4">4. カスタムイベント追跡</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #000">com.instana.plugin.eum</span>:
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  <span style="color: #000">instrumentation</span>:
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span style="color: #000">jsAgentUrl</span>: <span style="color: #C41A16">&#39;https://eum.instana.io/eum.min.js&#39;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span style="color: #000">reportingUrl</span>: <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span style="color: #000">trackSessions</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span style="color: #000">autoPageDetection</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span style="color: #000">customEvents</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span style="color: #000">websites</span>:
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;E-commerce</span><span style="color: #000"> </span><span style="color: #C41A16">Site&#39;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;ecommerce-key&#39;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>カスタムイベントの送信:</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-20">20</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #177500">// 商品閲覧イベント</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportEvent&#39;</span>, <span style="color: #C41A16">&#39;product_view&#39;</span>, {
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  <span style="color: #000">productId:</span> <span style="color: #C41A16">&#39;12345&#39;</span>,
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  <span style="color: #000">productName:</span> <span style="color: #C41A16">&#39;Sample Product&#39;</span>,
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span style="color: #000">category:</span> <span style="color: #C41A16">&#39;Electronics&#39;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>});
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span style="color: #177500">// カート追加イベント</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportEvent&#39;</span>, <span style="color: #C41A16">&#39;add_to_cart&#39;</span>, {
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>  <span style="color: #000">productId:</span> <span style="color: #C41A16">&#39;12345&#39;</span>,
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>  <span style="color: #000">quantity:</span> <span style="color: #1C01CE">1</span>,
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span style="color: #000">price:</span> <span style="color: #1C01CE">99.99</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>});
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span style="color: #177500">// 購入完了イベント</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportEvent&#39;</span>, <span style="color: #C41A16">&#39;purchase&#39;</span>, {
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>  <span style="color: #000">orderId:</span> <span style="color: #C41A16">&#39;ORD-67890&#39;</span>,
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>  <span style="color: #000">totalAmount:</span> <span style="color: #1C01CE">199.98</span>,
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>  <span style="color: #000">items:</span> <span style="color: #1C01CE">2</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>});
+</code></pre></div></td></tr></table></div></p>
+<h4 id="5">5. ユーザー情報の追跡</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #000">com.instana.plugin.eum</span>:
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  <span style="color: #000">instrumentation</span>:
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span style="color: #000">jsAgentUrl</span>: <span style="color: #C41A16">&#39;https://eum.instana.io/eum.min.js&#39;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span style="color: #000">reportingUrl</span>: <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span style="color: #000">trackSessions</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span style="color: #000">autoPageDetection</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span style="color: #000">trackUserInfo</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>    <span style="color: #000">websites</span>:
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>      - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;User</span><span style="color: #000"> </span><span style="color: #C41A16">Portal&#39;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;portal-key&#39;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>        <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>ユーザー情報の設定:</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #177500">// ログイン後にユーザー情報を設定</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;user&#39;</span>, <span style="color: #C41A16">&#39;user123&#39;</span>, <span style="color: #C41A16">&#39;user@example.com&#39;</span>, <span style="color: #C41A16">&#39;John Doe&#39;</span>);
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span style="color: #177500">// またはオブジェクト形式</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;user&#39;</span>, {
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  <span style="color: #000">id:</span> <span style="color: #C41A16">&#39;user123&#39;</span>,
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>  <span style="color: #000">email:</span> <span style="color: #C41A16">&#39;user@example.com&#39;</span>,
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>  <span style="color: #000">name:</span> <span style="color: #C41A16">&#39;John Doe&#39;</span>,
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span style="color: #000">plan:</span> <span style="color: #C41A16">&#39;premium&#39;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>});
+</code></pre></div></td></tr></table></div></p>
+<h3 id="_8">ベストプラクティス</h3>
+<h4 id="_9">パフォーマンス</h4>
+<ol>
+<li>
+<p><strong>非同期ロード</strong>
+<div class="language-html highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #177500">&lt;!-- 推奨: 非同期ロード --&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>&lt;<span style="color: #000">script</span> <span style="color: #836C28">async</span> <span style="color: #836C28">crossorigin</span><span style="color: #000">=</span><span style="color: #C41A16">&quot;anonymous&quot;</span> <span style="color: #836C28">src</span><span style="color: #000">=</span><span style="color: #C41A16">&quot;https://eum.instana.io/eum.min.js&quot;</span>&gt;&lt;/<span style="color: #000">script</span>&gt;
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span style="color: #177500">&lt;!-- 非推奨: 同期ロード（ページロードをブロック） --&gt;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>&lt;<span style="color: #000">script</span> <span style="color: #836C28">src</span><span style="color: #000">=</span><span style="color: #C41A16">&quot;https://eum.instana.io/eum.min.js&quot;</span>&gt;&lt;/<span style="color: #000">script</span>&gt;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>サンプリング設定</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #177500">// 高トラフィックサイトではサンプリングを使用</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;sampleRate&#39;</span>, <span style="color: #1C01CE">0.1</span>);  <span style="color: #177500">// 10%のトラフィックのみ追跡</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>遅延初期化</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #177500">// ページロード後に初期化</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span style="color: #A90D91">window</span>.<span style="color: #000">addEventListener</span>(<span style="color: #C41A16">&#39;load&#39;</span>, <span style="color: #A90D91">function</span>() {
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span style="color: #A90D91">if</span> (<span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>) {
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportingUrl&#39;</span>, <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>);
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;key&#39;</span>, <span style="color: #C41A16">&#39;your-key&#39;</span>);
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;trackSessions&#39;</span>);
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>  }
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>});
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="_10">セキュリティ</h4>
+<ol>
+<li>
+<p><strong>機密情報のフィルタリング</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span style="color: #177500">// URLパラメータのフィルタリング</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;ignoreUrls&#39;</span>, [
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  <span style="color: #C41A16">/password/i</span>,
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  <span style="color: #C41A16">/token/i</span>,
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>  <span style="color: #C41A16">/secret/i</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>]);
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span style="color: #177500">// エラーメッセージのフィルタリング</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;ignoreErrorMessages&#39;</span>, [
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>  <span style="color: #C41A16">/password/i</span>,
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>  <span style="color: #C41A16">/credit card/i</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>]);
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>CORS設定</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span style="color: #177500"># サーバー側でCORSヘッダーを設定</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span style="color: #000">Access-Control-Allow-Origin</span>: <span style="color: #1C01CE">https://eum-collector.instana.io</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span style="color: #000">Access-Control-Allow-Methods</span>: <span style="color: #1C01CE">POST, OPTIONS</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span style="color: #000">Access-Control-Allow-Headers</span>: <span style="color: #1C01CE">Content-Type</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="_11">プライバシー</h4>
+<ol>
+<li>
+<p><strong>個人情報の保護</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span style="color: #177500">// IPアドレスの匿名化</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;anonymizeIP&#39;</span>, <span style="color: #A90D91">true</span>);
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span style="color: #177500">// ユーザーIDのハッシュ化</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span style="color: #A90D91">const</span> <span style="color: #000">hashedUserId</span> <span style="color: #000">=</span> <span style="color: #000">hashFunction</span>(<span style="color: #000">userId</span>);
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;user&#39;</span>, <span style="color: #000">hashedUserId</span>);
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Cookie同意の実装</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span style="color: #177500">// Cookie同意後にEUMを有効化</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span style="color: #A90D91">if</span> (<span style="color: #000">userConsentedToCookies</span>()) {
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>  <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportingUrl&#39;</span>, <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>);
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>  <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;key&#39;</span>, <span style="color: #C41A16">&#39;your-key&#39;</span>);
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>  <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;trackSessions&#39;</span>);
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>}
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="_12">トラブルシューティング</h3>
+<h4 id="1">問題1: データが送信されない</h4>
+<p><strong>症状:</strong>
+- Instanaコンソールにデータが表示されない
+- ブラウザコンソールにエラーなし</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>設定の確認</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span style="color: #177500">// ブラウザコンソールで確認</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span style="color: #000">console</span>.<span style="color: #000">log</span>(<span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>);
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span style="color: #000">console</span>.<span style="color: #000">log</span>(<span style="color: #A90D91">window</span>.<span style="color: #000">InstanaEumObject</span>);
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span style="color: #177500">// 設定が正しいか確認</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;getConfig&#39;</span>);
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ネットワークタブの確認</strong>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>ブラウザの開発者ツール → Network タブ
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>eum-collector.instana.io へのリクエストを確認
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>キーの確認</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span style="color: #177500">// 正しいキーが設定されているか確認</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;key&#39;</span>, <span style="color: #C41A16">&#39;correct-key-here&#39;</span>);
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="2_1">問題2: ページロード時間が正確でない</h4>
+<p><strong>症状:</strong>
+- ページロード時間が異常に長い/短い</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>スクリプトの配置</strong>
+<div class="language-html highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #177500">&lt;!-- 推奨: &lt;head&gt;内の早い位置 --&gt;</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>&lt;<span style="color: #000">head</span>&gt;
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>    &lt;<span style="color: #000">script</span>&gt;
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>        (<span style="color: #A90D91">function</span>(<span style="color: #000">s</span>,<span style="color: #000">t</span>,<span style="color: #000">a</span>,<span style="color: #000">n</span>){<span style="color: #000">s</span>[<span style="color: #000">t</span>]<span style="color: #000">||</span>(<span style="color: #000">s</span>[<span style="color: #000">t</span>]<span style="color: #000">=a</span>,<span style="color: #000">n=s</span>[<span style="color: #000">a</span>]<span style="color: #000">=</span><span style="color: #A90D91">function</span>(){<span style="color: #000">n</span>.<span style="color: #000">q</span>.<span style="color: #000">push</span>(<span style="color: #000">arguments</span>)},
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>        <span style="color: #000">n</span>.<span style="color: #000">q=</span>[],<span style="color: #000">n</span>.<span style="color: #000">v=</span><span style="color: #1C01CE">2</span>,<span style="color: #000">n</span>.<span style="color: #000">l=</span><span style="color: #1C01CE">1</span><span style="color: #000">*new</span> <span style="color: #A90D91">Date</span>)})(<span style="color: #A90D91">window</span>,<span style="color: #C41A16">&quot;InstanaEumObject&quot;</span>,<span style="color: #C41A16">&quot;ineum&quot;</span>);
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>        <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportingUrl&#39;</span>, <span style="color: #C41A16">&#39;https://eum-collector.instana.io&#39;</span>);
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>        <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;key&#39;</span>, <span style="color: #C41A16">&#39;your-key&#39;</span>);
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>    &lt;/<span style="color: #000">script</span>&gt;
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a>    &lt;<span style="color: #000">script</span> <span style="color: #836C28">async</span> <span style="color: #836C28">src</span><span style="color: #000">=</span><span style="color: #C41A16">&quot;https://eum.instana.io/eum.min.js&quot;</span>&gt;&lt;/<span style="color: #000">script</span>&gt;
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a>&lt;/<span style="color: #000">head</span>&gt;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>タイミングAPIの確認</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span style="color: #177500">// Performance APIが利用可能か確認</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span style="color: #A90D91">if</span> (<span style="color: #A90D91">window</span>.<span style="color: #000">performance</span> <span style="color: #000">&amp;&amp;</span> <span style="color: #A90D91">window</span>.<span style="color: #000">performance</span>.<span style="color: #000">timing</span>) {
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>  <span style="color: #000">console</span>.<span style="color: #000">log</span>(<span style="color: #C41A16">&#39;Performance API available&#39;</span>);
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>} <span style="color: #A90D91">else</span> {
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>  <span style="color: #000">console</span>.<span style="color: #000">log</span>(<span style="color: #C41A16">&#39;Performance API not available&#39;</span>);
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>}
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="3-spa_1">問題3: SPAでページ遷移が追跡されない</h4>
+<p><strong>症状:</strong>
+- Single Page Applicationでページ遷移が記録されない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>手動ページ追跡</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-19">19</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span style="color: #177500">// React Router例</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span style="color: #A90D91">import</span> { <span style="color: #000">useLocation</span> } <span style="color: #A90D91">from</span> <span style="color: #C41A16">&#39;react-router-dom&#39;</span>;
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span style="color: #A90D91">function</span> <span style="color: #000">App</span>() {
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>  <span style="color: #A90D91">const</span> <span style="color: #000">location</span> <span style="color: #000">=</span> <span style="color: #000">useLocation</span>();
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>  <span style="color: #000">useEffect</span>(() =&gt; {
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span style="color: #A90D91">if</span> (<span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>) {
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a>      <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;page&#39;</span>, <span style="color: #000">location</span>.<span style="color: #000">pathname</span>);
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a>    }
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a>  }, [<span style="color: #000">location</span>]);
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a>}
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a>
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a><span style="color: #177500">// Vue Router例</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15"></a><span style="color: #000">router</span>.<span style="color: #000">afterEach</span>((<span style="color: #000">to</span>, <span style="color: #A90D91">from</span>) =&gt; {
+<a id="__codelineno-22-16" name="__codelineno-22-16"></a>  <span style="color: #A90D91">if</span> (<span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>) {
+<a id="__codelineno-22-17" name="__codelineno-22-17"></a>    <span style="color: #A90D91">window</span>.<span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;page&#39;</span>, <span style="color: #000">to</span>.<span style="color: #000">path</span>);
+<a id="__codelineno-22-18" name="__codelineno-22-18"></a>  }
+<a id="__codelineno-22-19" name="__codelineno-22-19"></a>});
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>自動ページ検出の有効化</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;autoPageDetection&#39;</span>, <span style="color: #A90D91">true</span>);
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="faq">FAQ</h3>
+<h4 id="q1-eumsynthetic">Q1: EUMとSynthetic監視の違いは？</h4>
+<p><strong>A:</strong>
+- <strong>EUM</strong>: 実際のユーザーの体験を測定。実際のデバイス、ネットワーク、ブラウザ。
+- <strong>Synthetic</strong>: シミュレーションによる定期的なチェック。問題の事前検出。</p>
+<p>両方を組み合わせることで、包括的な監視が可能です。</p>
+<h4 id="q2">Q2: モバイルアプリも監視できますか？</h4>
+<p><strong>A:</strong> はい、Instanaはモバイルアプリ用のSDKも提供しています。</p>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-18">18</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span style="color: #177500">// iOS (Swift)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span style="color: #A90D91">import</span> <span style="color: #000">InstanaAgent</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span style="color: #000">Instana</span>.<span style="color: #000">setup</span>(
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>    <span style="color: #000">key:</span> <span style="color: #C41A16">&quot;your-key&quot;</span>,
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>    <span style="color: #000">reportingURL:</span> <span style="color: #000">URL</span>(<span style="color: #000">string:</span> <span style="color: #C41A16">&quot;https://eum-collector.instana.io&quot;</span>)<span style="color: #000">!</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>)
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span style="color: #177500">// Android (Kotlin)</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span style="color: #A90D91">import</span> <span style="color: #000">com</span>.<span style="color: #000">instana</span>.<span style="color: #000">android</span>.<span style="color: #000">Instana</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span style="color: #000">Instana</span>.<span style="color: #000">setup</span>(
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>    <span style="color: #A90D91">this</span>,
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a>    <span style="color: #000">InstanaConfig</span>(
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a>        <span style="color: #000">reportingURL</span> <span style="color: #000">=</span> <span style="color: #C41A16">&quot;https://eum-collector.instana.io&quot;</span>,
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a>        <span style="color: #000">key</span> <span style="color: #000">=</span> <span style="color: #C41A16">&quot;your-key&quot;</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a>    )
+<a id="__codelineno-24-18" name="__codelineno-24-18"></a>)
+</code></pre></div></td></tr></table></div>
+<h4 id="q3">Q3: パフォーマンスへの影響は？</h4>
+<p><strong>A:</strong> 適切に実装すれば、影響は最小限です：</p>
+<ul>
+<li><strong>非同期ロード</strong>: ページロードをブロックしない</li>
+<li><strong>軽量</strong>: スクリプトサイズは約30KB（gzip圧縮後）</li>
+<li><strong>サンプリング</strong>: 高トラフィックサイトではサンプリングを使用</li>
+</ul>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span style="color: #177500">// サンプリング設定</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;sampleRate&#39;</span>, <span style="color: #1C01CE">0.1</span>);  <span style="color: #177500">// 10%のみ追跡</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q4-gdpr">Q4: GDPRに準拠していますか？</h4>
+<p><strong>A:</strong> はい、以下の機能でGDPR準拠をサポートします：</p>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span style="color: #177500">// IPアドレスの匿名化</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;anonymizeIP&#39;</span>, <span style="color: #A90D91">true</span>);
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span style="color: #177500">// Cookie同意の実装</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a><span style="color: #A90D91">if</span> (<span style="color: #000">userConsented</span>) {
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>  <span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;trackSessions&#39;</span>);
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>}
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a><span style="color: #177500">// データ保持期間の設定（Instanaコンソールで設定）</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q5">Q5: カスタムメトリクスを送信できますか？</h4>
+<p><strong>A:</strong> はい、カスタムイベントとメトリクスを送信できます。</p>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span style="color: #177500">// カスタムイベント</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportEvent&#39;</span>, <span style="color: #C41A16">&#39;custom_action&#39;</span>, {
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>  <span style="color: #000">action:</span> <span style="color: #C41A16">&#39;button_click&#39;</span>,
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>  <span style="color: #000">value:</span> <span style="color: #C41A16">&#39;submit_form&#39;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>});
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span style="color: #177500">// カスタムメトリクス</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportMetric&#39;</span>, <span style="color: #C41A16">&#39;custom_metric&#39;</span>, <span style="color: #1C01CE">123.45</span>);
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a><span style="color: #177500">// カスタムエラー</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11"></a><span style="color: #000">ineum</span>(<span style="color: #C41A16">&#39;reportError&#39;</span>, <span style="color: #000">new</span> <span style="color: #000">Error</span>(<span style="color: #C41A16">&#39;Custom error message&#39;</span>));
+</code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>関連ドキュメント:</strong>
+- <a href="../synthetic/">Synthetic監視</a>
+- <a href="../tracing/">トレーシング設定</a>
+- <a href="../bestpractices/">ベストプラクティス</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

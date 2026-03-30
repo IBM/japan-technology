@@ -1,0 +1,48 @@
+.md-typeset pre {
+  color: #f8f8f2;
+}
+.md-typeset .highlighttable {
+  margin-left:-10px;
+  margin-right: -10px;
+  border-radius: 0;
+}
+/*コードブロック枠のコピーロゴを変更する*/
+.md-typeset .highlighttable .md-clipboard:before,
+.md-typeset .highlighttable .md-clipboard:after {
+  color: rgba(0,0,0,.8);
+}
+.md-typeset .highlighttable .md-clipboard:hover:before,
+.md-typeset .highlighttable .md-clipboard:hover:after {
+  color: rgba(102,217,224,1);
+}
+/*h1からh3のヘッダーの変更*/
+.md-typeset h1 {
+  font-weight: bold;
+  color: #000;
+  border-bottom: solid 2px #f18b21;
+  padding-bottom: 5px;
+}
+.md-typeset h2 {
+  font-weight: bold;
+  border-bottom: 1px dotted #888;
+}
+.md-typeset .highlighttable .linenos .linenodiv pre {
+  line-height: 15pt;
+}
+.md-typeset h3:before {
+  font-family: "IBM Plex Sans JP";
+  font-weight: 900;
+  content: "\21B3"  !important;
+  margin-right: 5px;
+}
+
+/*ヘッダーを変更する*/
+.md-header__button.md-logo {
+  margin: 0;
+  padding: 0;
+}
+/*ロゴの大きさを変更する*/
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+  height: 2rem;
+  width: 2rem;
+}

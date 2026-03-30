@@ -1,0 +1,4002 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../file/">
+      
+      
+        <link rel="next" href="../host/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Hardware - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hardware
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハードウェア・ゾーン設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. データセンター別設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. クラウド環境のアベイラビリティゾーン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ハイブリッドクラウド環境
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 詳細な物理配置情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. マルチリージョン構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名規則
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        障害影響範囲の把握
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高可用性構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスチューニング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンスチューニング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 適切な粒度の選択
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 自動化による設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ansibleterraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ansible/Terraformによる管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: アベイラビリティゾーンが表示されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: 設定が反映されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: 複数のゾーン情報が混在
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題4: クラウド環境で自動検出されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題5: 命名規則の不統一
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: アベイラビリティゾーンは必須ですか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: 動的に変更できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: クラウドとオンプレミスで命名規則を統一すべきですか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: 複数のラックにまたがるサーバーはどう設定しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: コンテナ環境ではどう設定しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q6: 仮想マシンではどう設定しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q7: 障害時にアベイラビリティゾーン情報はどう活用されますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/sdks-mcp-server-instana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ハードウェア・ゾーン設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. データセンター別設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. クラウド環境のアベイラビリティゾーン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. ハイブリッドクラウド環境
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 詳細な物理配置情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. マルチリージョン構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名規則
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        障害影響範囲の把握
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高可用性構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスチューニング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンスチューニング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 適切な粒度の選択
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 自動化による設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ansibleterraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ansible/Terraformによる管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: アベイラビリティゾーンが表示されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: 設定が反映されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: 複数のゾーン情報が混在
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題4: クラウド環境で自動検出されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題5: 命名規則の不統一
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: アベイラビリティゾーンは必須ですか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: 動的に変更できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: クラウドとオンプレミスで命名規則を統一すべきですか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: 複数のラックにまたがるサーバーはどう設定しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: コンテナ環境ではどう設定しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q6: 仮想マシンではどう設定しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q7: 障害時にアベイラビリティゾーン情報はどう活用されますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Hardware</h1>
+
+<h2 id="_1">ハードウェア・ゾーン設定</h2>
+<hr />
+<h2 id="_2">📚 情報ソース</h2>
+<p>このドキュメントは以下の情報源を基に作成されています：</p>
+<h3 id="_3">主要ソース</h3>
+<ul>
+<li><strong>IBM公式ドキュメント</strong>:</li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Availability Zones Configuration</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Hardware Monitoring</a></li>
+</ul>
+<h3 id="_4">補足ソース</h3>
+<ul>
+<li><strong>データセンター管理のベストプラクティス</strong>: ゾーン設計とタグ戦略</li>
+<li><strong>実運用環境の設定例</strong>: マルチデータセンター/マルチクラウド環境での統一的な管理</li>
+</ul>
+<hr />
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">ハードウェア・ゾーン設定 (com.instana.plugin.generic.hardware)</a></p>
+<p>物理ハードウェア情報とアベイラビリティゾーン（可用性ゾーン）の設定を行います。データセンター、ラック、フロアなどの物理的な配置情報を記録し、障害発生時の影響範囲を把握しやすくします。</p>
+<h3 id="_5">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo</span><span style="color: #000"> </span><span style="color: #C41A16">DC</span><span style="color: #000"> </span><span style="color: #C41A16">/</span><span style="color: #000"> </span><span style="color: #C41A16">Rack</span><span style="color: #000"> </span><span style="color: #C41A16">42&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>ハードウェア監視の有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>availability-zone</code></td>
+<td>アベイラビリティゾーン名</td>
+<td>-</td>
+<td>データセンター/ラック情報</td>
+<td>データセンター管理者から取得</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">実践的な使用例</h3>
+<h4 id="1">1. データセンター別設定</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #177500"># 東京データセンター - ラック単位</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15&#39;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span style="color: #177500"># 大阪データセンター - ラック単位</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Osaka-DC2/Floor-2/Rack-B08&#39;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span style="color: #177500"># 福岡データセンター - ラック単位</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Fukuoka-DC3/Floor-1/Rack-C05&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2">2. クラウド環境のアベイラビリティゾーン</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-19">19</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #177500"># AWS東京リージョン</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;ap-northeast-1a&#39;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span style="color: #177500"># AWS大阪リージョン</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;ap-northeast-3a&#39;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span style="color: #177500"># Azure東日本リージョン</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;japaneast-1&#39;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span style="color: #177500"># GCP東京リージョン</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;asia-northeast1-a&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3">3. ハイブリッドクラウド環境</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #177500"># オンプレミス</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;OnPrem/Tokyo-DC1/Rack-A15&#39;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span style="color: #177500"># AWS</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1a&#39;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span style="color: #177500"># Azure</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Azure/japaneast-1&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="4">4. 詳細な物理配置情報</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #177500"># データセンター、フロア、ラック、ユニット位置まで記録</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/Unit-10-15&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span style="color: #177500"># 電源系統情報も含める</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/PowerA&#39;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span style="color: #177500"># ネットワークセグメント情報も含める</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/VLAN-100&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="5">5. マルチリージョン構成</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #177500"># プライマリリージョン</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Primary/Tokyo-DC1/Rack-A15&#39;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span style="color: #177500"># セカンダリリージョン（DR）</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Secondary/Osaka-DC2/Rack-B08&#39;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span style="color: #177500"># バックアップリージョン</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Backup/Fukuoka-DC3/Rack-C05&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_8">ベストプラクティス</h3>
+<h4 id="_9">命名規則</h4>
+<ol>
+<li>
+<p><strong>階層的な命名</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #177500"># 推奨: 階層構造を明確に</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Region/DataCenter/Floor/Rack/Unit&#39;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span style="color: #177500"># 例</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;APAC/Tokyo-DC1/Floor-3/Rack-A15/Unit-10&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>一貫性のある命名</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #177500"># 全環境で統一されたフォーマットを使用</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span style="color: #177500"># フォーマット: [環境]/[リージョン]/[データセンター]/[詳細]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span style="color: #177500"># 本番環境</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Production/Tokyo/DC1/Rack-A15&#39;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span style="color: #177500"># ステージング環境</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Staging/Tokyo/DC1/Rack-B20&#39;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span style="color: #177500"># 開発環境</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Development/Tokyo/DC1/Rack-C30&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>クラウドプロバイダー別の命名</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #177500"># AWS</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1a&#39;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span style="color: #177500"># Azure</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Azure/japaneast-1&#39;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span style="color: #177500"># GCP</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;GCP/asia-northeast1-a&#39;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span style="color: #177500"># オンプレミス</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;OnPrem/Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="_10">障害影響範囲の把握</h4>
+<ol>
+<li>
+<p><strong>ラック単位での管理</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #177500"># 同じラック内のサーバーは同じゾーンに設定</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span style="color: #177500"># Rack-A15内のサーバー1</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15&#39;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span style="color: #177500"># Rack-A15内のサーバー2</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15&#39;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span style="color: #177500"># これにより、ラック障害時の影響範囲を即座に把握可能</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>電源系統の管理</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #177500"># 電源系統Aに接続されたサーバー</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/PowerA&#39;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span style="color: #177500"># 電源系統Bに接続されたサーバー</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/PowerB&#39;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span style="color: #177500"># 電源障害時の影響範囲を把握</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ネットワークセグメントの管理</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #177500"># VLAN-100に接続されたサーバー</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/VLAN-100&#39;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span style="color: #177500"># VLAN-200に接続されたサーバー</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/VLAN-200&#39;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><span style="color: #177500"># ネットワーク障害時の影響範囲を把握</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="_11">高可用性構成</h4>
+<ol>
+<li>
+<p><strong>冗長化構成の可視化</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #177500"># プライマリサーバー</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Primary/Tokyo-DC1/Rack-A15&#39;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span style="color: #177500"># セカンダリサーバー（別ラック）</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Secondary/Tokyo-DC1/Rack-B20&#39;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span style="color: #177500"># 異なるラックに配置することで、単一障害点を回避</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>マルチAZ構成</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span style="color: #177500"># AZ-1</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1a&#39;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span style="color: #177500"># AZ-2</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1c&#39;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span style="color: #177500"># AZ-3</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1d&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>マルチリージョン構成</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span style="color: #177500"># 東京リージョン</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Primary/Tokyo/ap-northeast-1a&#39;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span style="color: #177500"># 大阪リージョン（DR）</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;DR/Osaka/ap-northeast-3a&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="_12">パフォーマンスチューニング</h3>
+<h4 id="1_1">1. 適切な粒度の選択</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-20">20</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span style="color: #177500"># 粗い粒度（データセンターレベル）</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span style="color: #177500"># メリット: シンプル、管理が容易</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span style="color: #177500"># デメリット: 詳細な影響範囲が不明</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1&#39;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span style="color: #177500"># 中程度の粒度（ラックレベル）- 推奨</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span style="color: #177500"># メリット: 適度な詳細度、障害影響範囲の把握が容易</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span style="color: #177500"># デメリット: 管理の手間が増える</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15&#39;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span style="color: #177500"># 細かい粒度（ユニットレベル）</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a><span style="color: #177500"># メリット: 非常に詳細な情報</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a><span style="color: #177500"># デメリット: 管理が複雑、オーバーヘッド</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-15-19" name="__codelineno-15-19"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15/Unit-10-15&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2_1">2. 自動化による設定</h4>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-28">28</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-29">29</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-30">30</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-31">31</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span style="color: #177500">#!/bin/bash</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span style="color: #177500"># 自動的にアベイラビリティゾーンを設定するスクリプト</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span style="color: #177500"># AWSの場合</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span style="color: #A90D91">if</span> <span style="color: #000">[</span> -f /sys/hypervisor/uuid <span style="color: #000">]</span> <span style="color: #000">&amp;&amp;</span> <span style="color: #000">[</span> <span style="color: #C41A16">`</span>head -c <span style="color: #1C01CE">3</span> /sys/hypervisor/uuid<span style="color: #C41A16">`</span> <span style="color: #000">==</span> <span style="color: #C41A16">&quot;ec2&quot;</span> <span style="color: #000">]</span>; <span style="color: #A90D91">then</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span style="color: #000">AZ=</span><span style="color: #A90D91">$(</span>curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone<span style="color: #A90D91">)</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>    sed -i <span style="color: #C41A16">&quot;s/availability-zone: .*/availability-zone: &#39;AWS\/</span><span style="color: #000">$AZ</span><span style="color: #C41A16">&#39;/&quot;</span> /opt/instana/agent/etc/instana/configuration.yaml
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span style="color: #A90D91">fi</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span style="color: #177500"># Azureの場合</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span style="color: #A90D91">if</span> <span style="color: #000">[</span> -f /var/lib/waagent/ovf-env.xml <span style="color: #000">]</span>; <span style="color: #A90D91">then</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>    <span style="color: #000">REGION=</span><span style="color: #A90D91">$(</span>curl -s -H Metadata:true <span style="color: #C41A16">&quot;http://169.254.169.254/metadata/instance/compute/location?api-version=2021-02-01&amp;format=text&quot;</span><span style="color: #A90D91">)</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>    <span style="color: #000">ZONE=</span><span style="color: #A90D91">$(</span>curl -s -H Metadata:true <span style="color: #C41A16">&quot;http://169.254.169.254/metadata/instance/compute/zone?api-version=2021-02-01&amp;format=text&quot;</span><span style="color: #A90D91">)</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a>    sed -i <span style="color: #C41A16">&quot;s/availability-zone: .*/availability-zone: &#39;Azure\/</span><span style="color: #000">$REGION</span><span style="color: #C41A16">-</span><span style="color: #000">$ZONE</span><span style="color: #C41A16">&#39;/&quot;</span> /opt/instana/agent/etc/instana/configuration.yaml
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span style="color: #A90D91">fi</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span style="color: #177500"># GCPの場合</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span style="color: #A90D91">if</span> <span style="color: #000">[</span> -f /sys/class/dmi/id/product_name <span style="color: #000">]</span> <span style="color: #000">&amp;&amp;</span> grep -q <span style="color: #C41A16">&quot;Google&quot;</span> /sys/class/dmi/id/product_name; <span style="color: #A90D91">then</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a>    <span style="color: #000">ZONE=</span><span style="color: #A90D91">$(</span>curl -s -H <span style="color: #C41A16">&quot;Metadata-Flavor: Google&quot;</span> http://metadata.google.internal/computeMetadata/v1/instance/zone | cut -d<span style="color: #C41A16">&#39;/&#39;</span> -f4<span style="color: #A90D91">)</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a>    sed -i <span style="color: #C41A16">&quot;s/availability-zone: .*/availability-zone: &#39;GCP\/</span><span style="color: #000">$ZONE</span><span style="color: #C41A16">&#39;/&quot;</span> /opt/instana/agent/etc/instana/configuration.yaml
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><span style="color: #A90D91">fi</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a><span style="color: #177500"># オンプレミスの場合（ホスト名から推測）</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span style="color: #000">HOSTNAME=</span><span style="color: #A90D91">$(</span>hostname<span style="color: #A90D91">)</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a><span style="color: #A90D91">if</span> <span style="color: #000">[[</span> <span style="color: #000">$HOSTNAME</span> <span style="color: #000">==</span> *<span style="color: #C41A16">&quot;dc1&quot;</span>* <span style="color: #000">]]</span>; <span style="color: #A90D91">then</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26"></a>    <span style="color: #000">RACK=</span><span style="color: #A90D91">$(echo</span> <span style="color: #000">$HOSTNAME</span> | grep -oP <span style="color: #C41A16">&#39;rack\d+&#39;</span><span style="color: #A90D91">)</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27"></a>    sed -i <span style="color: #C41A16">&quot;s/availability-zone: .*/availability-zone: &#39;OnPrem\/Tokyo-DC1\/</span><span style="color: #000">$RACK</span><span style="color: #C41A16">&#39;/&quot;</span> /opt/instana/agent/etc/instana/configuration.yaml
+<a id="__codelineno-16-28" name="__codelineno-16-28"></a><span style="color: #A90D91">fi</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29"></a>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a><span style="color: #177500"># Agentを再起動</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a>systemctl restart instana-agent
+</code></pre></div></td></tr></table></div>
+<h4 id="3-ansibleterraform">3. Ansible/Terraformによる管理</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-22">22</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span style="color: #177500"># Ansible Playbook例</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span style="color: #000">---</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>- <span style="color: #000">name</span>: <span style="color: #1C01CE">Configure Instana Agent Availability Zone</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>  <span style="color: #000">hosts</span>: <span style="color: #1C01CE">all</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>  <span style="color: #000">vars</span>:
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>    <span style="color: #000">datacenter</span>: <span style="color: #C41A16">&quot;{{</span><span style="color: #000"> </span><span style="color: #C41A16">datacenter_name</span><span style="color: #000"> </span><span style="color: #C41A16">}}&quot;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>    <span style="color: #000">floor</span>: <span style="color: #C41A16">&quot;{{</span><span style="color: #000"> </span><span style="color: #C41A16">floor_number</span><span style="color: #000"> </span><span style="color: #C41A16">}}&quot;</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>    <span style="color: #000">rack</span>: <span style="color: #C41A16">&quot;{{</span><span style="color: #000"> </span><span style="color: #C41A16">rack_id</span><span style="color: #000"> </span><span style="color: #C41A16">}}&quot;</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>  <span style="color: #000">tasks</span>:
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>    - <span style="color: #000">name</span>: <span style="color: #1C01CE">Set availability zone</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>      <span style="color: #000">lineinfile</span>:
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>        <span style="color: #000">path</span>: <span style="color: #1C01CE">/opt/instana/agent/etc/instana/configuration.yaml</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a>        <span style="color: #000">regexp</span>: <span style="color: #C41A16">&#39;^</span><span style="color: #000">  </span><span style="color: #C41A16">availability-zone:&#39;</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>        <span style="color: #000">line</span>: <span style="color: #C41A16">&quot;</span><span style="color: #000">  </span><span style="color: #C41A16">availability-zone:</span><span style="color: #000"> </span><span style="color: #C41A16">&#39;{{</span><span style="color: #000"> </span><span style="color: #C41A16">datacenter</span><span style="color: #000"> </span><span style="color: #C41A16">}}/Floor-{{</span><span style="color: #000"> </span><span style="color: #C41A16">floor</span><span style="color: #000"> </span><span style="color: #C41A16">}}/{{</span><span style="color: #000"> </span><span style="color: #C41A16">rack</span><span style="color: #000"> </span><span style="color: #C41A16">}}&#39;&quot;</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a>        <span style="color: #000">state</span>: <span style="color: #1C01CE">present</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a>      <span style="color: #000">notify</span>: <span style="color: #1C01CE">restart instana-agent</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a>  <span style="color: #000">handlers</span>:
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a>    - <span style="color: #000">name</span>: <span style="color: #1C01CE">restart instana-agent</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a>      <span style="color: #000">systemd</span>:
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a>        <span style="color: #000">name</span>: <span style="color: #1C01CE">instana-agent</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a>        <span style="color: #000">state</span>: <span style="color: #1C01CE">restarted</span>
+</code></pre></div></td></tr></table></div>
+<div class="language-hcl highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-18">18</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span style="color: #177500"># Terraform例（AWS）</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span style="color: #A90D91">resource</span> <span style="color: #3F6E75">&quot;null_resource&quot;</span> <span style="color: #000">&quot;instana_agent_config&quot;</span> {
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>  <span style="color: #836C28">count</span> <span style="color: #000">=</span> <span style="color: #000">length</span>(<span style="color: #000">aws_instance.app_server</span>)
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>  <span style="color: #A90D91">provisioner</span> <span style="color: #000">&quot;remote-exec&quot;</span> {
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span style="color: #836C28">inline</span> <span style="color: #000">=</span> [
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a>      <span style="color: #C41A16">&quot;sudo sed -i &#39;s/availability-zone: .*/availability-zone: \&quot;AWS\\/${aws_instance.app_server[count.index].availability_zone}\&quot;/&#39; /opt/instana/agent/etc/instana/configuration.yaml&quot;</span>,
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>      <span style="color: #C41A16">&quot;sudo systemctl restart instana-agent&quot;</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a>    ]
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a>    <span style="color: #A90D91">connection</span> {
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a>      <span style="color: #836C28">type</span>        <span style="color: #000">=</span> <span style="color: #C41A16">&quot;ssh&quot;</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a>      <span style="color: #836C28">user</span>        <span style="color: #000">=</span> <span style="color: #C41A16">&quot;ubuntu&quot;</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a>      <span style="color: #836C28">private_key</span> <span style="color: #000">=</span> <span style="color: #000">file</span>(<span style="color: #C41A16">&quot;~/.ssh/id_rsa&quot;</span>)
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a>      <span style="color: #836C28">host</span>        <span style="color: #000">=</span> <span style="color: #000">aws_instance.app_server[count.index].public_ip</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a>    }
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a>  }
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a>}
+</code></pre></div></td></tr></table></div>
+<h3 id="_13">トラブルシューティング</h3>
+<h4 id="1_2">問題1: アベイラビリティゾーンが表示されない</h4>
+<p><strong>症状:</strong>
+- Instana UIでアベイラビリティゾーン情報が表示されない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>設定の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span style="color: #177500"># 設定ファイルを確認</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>cat /opt/instana/agent/etc/instana/configuration.yaml | grep -A <span style="color: #1C01CE">2</span> <span style="color: #C41A16">&quot;generic.hardware&quot;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span style="color: #177500"># enabledがtrueになっているか確認</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>設定の修正</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #177500"># enabledをtrueに設定</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>  <span style="color: #177500"># falseになっていないか確認</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Agent再起動</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span style="color: #177500"># 設定変更後は必ず再起動</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>sudo systemctl restart instana-agent
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span style="color: #177500"># ログで確認</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>sudo journalctl -u instana-agent -f
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="2_2">問題2: 設定が反映されない</h4>
+<p><strong>症状:</strong>
+- 設定を変更したが、Instana UIに反映されない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>YAMLフォーマットの確認</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span style="color: #177500"># ❌ インデントが間違っている</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span style="color: #177500"># ✅ 正しいインデント（2スペース）</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>特殊文字のエスケープ</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span style="color: #177500"># ❌ 特殊文字がエスケープされていない</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span style="color: #000">availability-zone</span>: <span style="color: #1C01CE">Tokyo-DC1/Rack-A15</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span style="color: #177500"># ✅ クォートで囲む</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>設定ファイルの検証</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span style="color: #177500"># YAMLの構文チェック</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>python3 -c <span style="color: #C41A16">&quot;import yaml; yaml.safe_load(open(&#39;/opt/instana/agent/etc/instana/configuration.yaml&#39;))&quot;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span style="color: #177500"># エラーがあれば表示される</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="3_1">問題3: 複数のゾーン情報が混在</h4>
+<p><strong>症状:</strong>
+- 同じホストに複数のアベイラビリティゾーンが設定されている</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>重複設定の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span style="color: #177500"># 設定ファイル内の重複を確認</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>grep -n <span style="color: #C41A16">&quot;com.instana.plugin.generic.hardware&quot;</span> /opt/instana/agent/etc/instana/configuration.yaml
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>重複の削除</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-13">13</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span style="color: #177500"># ❌ 重複している</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-B20&#39;</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span style="color: #177500"># ✅ 1つだけ設定</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="4_1">問題4: クラウド環境で自動検出されない</h4>
+<p><strong>症状:</strong>
+- クラウド環境でアベイラビリティゾーンが自動的に設定されない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>メタデータサービスの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span style="color: #177500"># AWS</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span style="color: #177500"># Azure</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>curl -s -H Metadata:true <span style="color: #C41A16">&quot;http://169.254.169.254/metadata/instance/compute/location?api-version=2021-02-01&amp;format=text&quot;</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span style="color: #177500"># GCP</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a>curl -s -H <span style="color: #C41A16">&quot;Metadata-Flavor: Google&quot;</span> http://metadata.google.internal/computeMetadata/v1/instance/zone
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>手動設定</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span style="color: #177500"># メタデータサービスが利用できない場合は手動設定</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1a&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="5_1">問題5: 命名規則の不統一</h4>
+<p><strong>症状:</strong>
+- 環境によってアベイラビリティゾーンの命名規則が異なる</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>標準化された命名規則の策定</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span style="color: #177500"># 標準フォーマット: [環境]/[プロバイダー]/[リージョン]/[ゾーン]</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span style="color: #177500"># 本番環境</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Production/AWS/ap-northeast-1/1a&#39;</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span style="color: #177500"># ステージング環境</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Staging/AWS/ap-northeast-1/1c&#39;</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a><span style="color: #177500"># 開発環境</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Development/AWS/ap-northeast-1/1d&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ドキュメント化</strong>
+<div class="language-markdown highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a># アベイラビリティゾーン命名規則
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>## フォーマット
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>[環境]/[プロバイダー]/[リージョン]/[詳細]
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>## 例
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a><span style="color: #A90D91">-</span> Production/AWS/ap-northeast-1/1a
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a><span style="color: #A90D91">-</span> Staging/Azure/japaneast/1
+<a id="__codelineno-30-9" name="__codelineno-30-9"></a><span style="color: #A90D91">-</span> Development/GCP/asia-northeast1/a
+<a id="__codelineno-30-10" name="__codelineno-30-10"></a><span style="color: #A90D91">-</span> Production/OnPrem/Tokyo-DC1/Rack-A15
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="faq">FAQ</h3>
+<h4 id="q1">Q1: アベイラビリティゾーンは必須ですか？</h4>
+<p><strong>A:</strong> 必須ではありませんが、強く推奨されます。特に以下の場合は設定すべきです：</p>
+<ul>
+<li>マルチAZ/マルチリージョン構成</li>
+<li>高可用性が求められる環境</li>
+<li>障害影響範囲の迅速な把握が必要な環境</li>
+<li>複数のデータセンターを運用している場合</li>
+</ul>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span style="color: #177500"># 最低限の設定</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q2">Q2: 動的に変更できますか？</h4>
+<p><strong>A:</strong> はい、設定ファイルを変更してAgentを再起動すれば変更できます。</p>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span style="color: #177500"># 設定変更</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>sudo vi /opt/instana/agent/etc/instana/configuration.yaml
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span style="color: #177500"># Agent再起動</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>sudo systemctl restart instana-agent
+</code></pre></div></td></tr></table></div>
+<p>ただし、頻繁な変更は推奨されません。物理的な配置が変わる場合のみ変更してください。</p>
+<h4 id="q3">Q3: クラウドとオンプレミスで命名規則を統一すべきですか？</h4>
+<p><strong>A:</strong> はい、統一することを強く推奨します。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span style="color: #177500"># 統一されたフォーマット</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span style="color: #177500"># [環境]/[プロバイダー]/[リージョン]/[詳細]</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><span style="color: #177500"># AWS</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Production/AWS/ap-northeast-1/1a&#39;</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a><span style="color: #177500"># オンプレミス</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Production/OnPrem/Tokyo-DC1/Rack-A15&#39;</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a>
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a><span style="color: #177500"># Azure</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a><span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Production/Azure/japaneast/1&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q4">Q4: 複数のラックにまたがるサーバーはどう設定しますか？</h4>
+<p><strong>A:</strong> 各サーバーは1つのアベイラビリティゾーンのみ設定できます。物理的な主要配置場所を設定してください。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span style="color: #177500"># サーバーAはRack-A15に主に配置</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-A15&#39;</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a><span style="color: #177500"># サーバーBはRack-B20に主に配置</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Floor-3/Rack-B20&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q5">Q5: コンテナ環境ではどう設定しますか？</h4>
+<p><strong>A:</strong> コンテナのホストマシンのアベイラビリティゾーンを設定します。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span style="color: #177500"># Kubernetesノード</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;AWS/ap-northeast-1a&#39;</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a><span style="color: #177500"># Dockerホスト</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>コンテナ自体には個別に設定する必要はありません。ホストの設定が継承されます。</p>
+<h4 id="q6">Q6: 仮想マシンではどう設定しますか？</h4>
+<p><strong>A:</strong> 仮想マシンが稼働している物理ホストのアベイラビリティゾーンを設定します。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span style="color: #177500"># VMware vSphere</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/ESXi-Host-01/Rack-A15&#39;</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a>
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a><span style="color: #177500"># Hyper-V</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-36-9" name="__codelineno-36-9"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Tokyo-DC1/HyperV-Host-02/Rack-B20&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q7">Q7: 障害時にアベイラビリティゾーン情報はどう活用されますか？</h4>
+<p><strong>A:</strong> Instana UIで以下のように活用できます：</p>
+<ol>
+<li><strong>影響範囲の特定</strong></li>
+<li>同じゾーン内のすべてのホスト/サービスを一覧表示</li>
+<li>
+<p>ラック障害時の影響を即座に把握</p>
+</li>
+<li>
+<p><strong>フィルタリング</strong></p>
+</li>
+<li>特定のゾーンのみを表示</li>
+<li>
+<p>ゾーン間の比較</p>
+</li>
+<li>
+<p><strong>アラート設定</strong></p>
+</li>
+<li>ゾーン単位でのアラート設定</li>
+<li>ゾーン障害の検知</li>
+</ol>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span style="color: #177500"># 例: 本番環境の東京DC1のみ監視</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a><span style="color: #000">com.instana.plugin.generic.hardware</span>:
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>  <span style="color: #000">availability-zone</span>: <span style="color: #C41A16">&#39;Production/Tokyo-DC1/Rack-A15&#39;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>関連ドキュメント:</strong>
+- <a href="../host/">ホスト監視設定</a>
+- <a href="../cloud/">クラウド監視設定</a>
+- <a href="../bestpractices/">ベストプラクティス</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

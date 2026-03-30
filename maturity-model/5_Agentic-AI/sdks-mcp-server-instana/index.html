@@ -1,0 +1,3164 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../intelligent-remediation/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>MCP Server for Instana - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mcp-server-for-instana" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MCP Server for Instana
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/eum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2_APM/%E3%83%9B%E3%82%B9%E3%83%88%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A/configutations/virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要とメリット
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公式ドキュメントのリンク
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前提条件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各AI開発ツールでの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APIトークンの権限設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロキシ環境での設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体的なユースケース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体的なユースケース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユースケース1: インシデント調査の効率化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユースケース2: パフォーマンス最適化の分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-slo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユースケース3: SLO違反の早期検知と対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実運用での注意点・ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実運用での注意点・ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APIトークンの管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスへの影響
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ考慮事項
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティングの効率化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくあるトラブルと解決方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくあるトラブルと解決方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Serverが起動しない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APIトークンの権限エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロキシ環境での接続エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レスポンスが遅い
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要とメリット
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公式ドキュメントのリンク
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前提条件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        各AI開発ツールでの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APIトークンの権限設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロキシ環境での設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体的なユースケース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体的なユースケース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユースケース1: インシデント調査の効率化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユースケース2: パフォーマンス最適化の分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-slo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユースケース3: SLO違反の早期検知と対応
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実運用での注意点・ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実運用での注意点・ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APIトークンの管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスへの影響
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ考慮事項
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティングの効率化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくあるトラブルと解決方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくあるトラブルと解決方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Serverが起動しない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APIトークンの権限エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロキシ環境での接続エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レスポンスが遅い
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mcp-server-for-instana">MCP Server for Instana</h1>
+<h2 id="_1">概要とメリット</h2>
+<ul>
+<li>MCP (Model Context Protocol) Serverは、AI開発ツール（Claude Desktop、Cursor、IBM watsonx Code Assistantなど）とInstanaを統合し、自然言語でInstanaのデータにアクセスできる機能です。</li>
+<li>主なメリット</li>
+<li>AI開発ツールから直接Instanaのメトリクス、トレース、イベントを照会できます</li>
+<li>自然言語でのクエリにより、複雑なAPIコールを意識せずにデータを取得できます</li>
+<li>開発ワークフロー内でシームレスに可観測性データを活用できます</li>
+<li>インシデント調査やパフォーマンス分析を効率化できます</li>
+<li>IBM製品との統合により、エンタープライズ環境での活用が容易です</li>
+</ul>
+<h2 id="_2">公式ドキュメントのリンク</h2>
+<ul>
+<li><a href="https://www.ibm.com/docs/ja/instana-observability/current?topic=sdks-mcp-server-instana">IBM Instana公式ドキュメント</a></li>
+<li><a href="https://github.com/instana/mcp-instana">GitHub - instana/mcp-instana</a></li>
+</ul>
+<p>基本的な設定手順は公式ドキュメントを参照してください。最新の設定例や詳細な情報はGitHubリポジトリで確認できます。</p>
+<h2 id="_3">前提条件</h2>
+<p>以下の準備が整っていることを確認してください。</p>
+<ul>
+<li><strong>Node.js</strong>: バージョン18以上がインストールされていること</li>
+<li><code>node --version</code>で確認できます</li>
+<li><strong>Instana APIトークン</strong>: 適切な権限を持つAPIトークンが作成されていること</li>
+<li>必須権限: Configuration of applications、Access audit log、Access Analyze（読み取り）</li>
+<li><strong>AI開発ツール</strong>: 以下のいずれかがインストールされていること</li>
+<li>Claude Desktop</li>
+<li>Cursor</li>
+<li>IBM watsonx Code Assistant (Bob)</li>
+<li><strong>ネットワーク</strong>: Instanaバックエンドへのアクセスが可能であること</li>
+<li>プロキシ環境の場合は、プロキシ設定が必要です</li>
+</ul>
+<h2 id="_4">設定例</h2>
+<p>以下の設定例は記事作成時点のものです。最新の設定方法は<a href="https://github.com/instana/mcp-instana">公式GitHubリポジトリ</a>を参照してください。</p>
+<h3 id="ai">各AI開発ツールでの設定</h3>
+<p><strong>Claude Desktopの場合:</strong></p>
+<p>設定ファイルの場所:
+- macOS: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>
+- Windows: <code>%APPDATA%\Claude\claude_desktop_config.json</code></p>
+<div class="language-json highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>{
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">&quot;mcpServers&quot;</span>: {
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span style="color: #000">&quot;instana&quot;</span>: {
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>      <span style="color: #000">&quot;command&quot;</span>: <span style="color: #C41A16">&quot;npx&quot;</span>,
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>      <span style="color: #000">&quot;args&quot;</span>: [<span style="color: #C41A16">&quot;-y&quot;</span>, <span style="color: #C41A16">&quot;@instana/mcp-server-instana&quot;</span>],
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>      <span style="color: #000">&quot;env&quot;</span>: {
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span style="color: #000">&quot;INSTANA_BASE_URL&quot;</span>: <span style="color: #C41A16">&quot;https://&lt;your-tenant&gt;.instana.io&quot;</span>,
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span style="color: #000">&quot;INSTANA_API_TOKEN&quot;</span>: <span style="color: #C41A16">&quot;&lt;your-api-token&gt;&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>      }
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    }
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>  }
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>}
+</code></pre></div></td></tr></table></div>
+<p><strong>Cursorの場合:</strong></p>
+<p>設定ファイルの場所:
+- macOS/Linux: <code>~/.cursor/mcp_config.json</code>
+- Windows: <code>%USERPROFILE%\.cursor\mcp_config.json</code></p>
+<p><strong>IBM watsonx Code Assistant (Bob)の場合:</strong></p>
+<p>設定ファイルの場所:
+- macOS: <code>~/Library/Application Support/Code/User/globalStorage/ibm.watsonx-code-assistant/mcp_config.json</code>
+- Windows: <code>%APPDATA%\Code\User\globalStorage\ibm.watsonx-code-assistant\mcp_config.json</code>
+- Linux: <code>~/.config/Code/User/globalStorage/ibm.watsonx-code-assistant/mcp_config.json</code></p>
+<div class="language-json highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>{
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span style="color: #000">&quot;mcpServers&quot;</span>: {
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span style="color: #000">&quot;instana&quot;</span>: {
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>      <span style="color: #000">&quot;command&quot;</span>: <span style="color: #C41A16">&quot;npx&quot;</span>,
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>      <span style="color: #000">&quot;args&quot;</span>: [<span style="color: #C41A16">&quot;-y&quot;</span>, <span style="color: #C41A16">&quot;@instana/mcp-server-instana&quot;</span>],
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>      <span style="color: #000">&quot;env&quot;</span>: {
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span style="color: #000">&quot;INSTANA_BASE_URL&quot;</span>: <span style="color: #C41A16">&quot;https://&lt;your-tenant&gt;.instana.io&quot;</span>,
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>        <span style="color: #000">&quot;INSTANA_API_TOKEN&quot;</span>: <span style="color: #C41A16">&quot;&lt;your-api-token&gt;&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>      }
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    }
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>  }
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>}
+</code></pre></div></td></tr></table></div>
+<h3 id="api">APIトークンの権限設定</h3>
+<p>MCP Serverが正常に動作するために必要な最小限のAPIトークン権限は以下の通りです。</p>
+<p><strong>必須権限:</strong>
+- Configuration of applications (読み取り)
+- Configuration of mobile app (読み取り)
+- Configuration of websites (読み取り)
+- Access audit log (読み取り)
+- Access Analyze (読み取り)</p>
+<p><strong>Instana UIでの設定手順:</strong></p>
+<ol>
+<li>
+<p>Instana UIにログインします</p>
+</li>
+<li>
+<p>「設定」→「セキュリティ＆アクセス」→「APIトークン」を選択します</p>
+</li>
+<li>
+<p>「新規 API トークン」をクリックします</p>
+</li>
+<li>
+<p>トークン名を入力します（例: <code>MCP Server Token</code>）</p>
+</li>
+<li>
+<p>上記の必須権限にチェックを入れます</p>
+</li>
+<li>
+<p>「保存」をクリックしてトークンを作成します</p>
+</li>
+<li>
+<p>表示されたAPIトークンをコピーして、安全な場所に保存します</p>
+</li>
+<li><strong>注意</strong>: トークンは一度しか表示されません</li>
+</ol>
+<p>権限が不足している場合、特定のクエリが失敗してしまうので、事前に適切な権限を付与したAPIトークンを作成しておきましょう。</p>
+<h3 id="_5">プロキシ環境での設定</h3>
+<p>企業ネットワークでプロキシを使用している場合、追加の環境変数設定が必要になります。</p>
+<div class="language-json highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>{
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span style="color: #000">&quot;mcpServers&quot;</span>: {
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span style="color: #000">&quot;instana&quot;</span>: {
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>      <span style="color: #000">&quot;command&quot;</span>: <span style="color: #C41A16">&quot;npx&quot;</span>,
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>      <span style="color: #000">&quot;args&quot;</span>: [<span style="color: #C41A16">&quot;-y&quot;</span>, <span style="color: #C41A16">&quot;@instana/mcp-server-instana&quot;</span>],
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>      <span style="color: #000">&quot;env&quot;</span>: {
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>        <span style="color: #000">&quot;INSTANA_BASE_URL&quot;</span>: <span style="color: #C41A16">&quot;https://&lt;your-tenant&gt;.instana.io&quot;</span>,
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>        <span style="color: #000">&quot;INSTANA_API_TOKEN&quot;</span>: <span style="color: #C41A16">&quot;&lt;your-api-token&gt;&quot;</span>,
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>        <span style="color: #000">&quot;HTTP_PROXY&quot;</span>: <span style="color: #C41A16">&quot;http://proxy.company.com:8080&quot;</span>,
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>        <span style="color: #000">&quot;HTTPS_PROXY&quot;</span>: <span style="color: #C41A16">&quot;http://proxy.company.com:8080&quot;</span>,
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span style="color: #000">&quot;NO_PROXY&quot;</span>: <span style="color: #C41A16">&quot;localhost,127.0.0.1&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>      }
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    }
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>  }
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>}
+</code></pre></div></td></tr></table></div>
+<h2 id="_6">具体的なユースケース</h2>
+<h3 id="1">ユースケース1: インシデント調査の効率化</h3>
+<p><strong>背景・課題:</strong>
+本番環境でエラー率が急増し、原因を特定する必要があります。従来はInstana UIを開いて複数の画面を遷移しながら調査していましたが、かなり時間がかかっていました。</p>
+<p><strong>解決方法:</strong>
+MCP Serverを使用することで、AI開発ツール内から自然言語でInstanaのデータを照会でき、迅速に原因を特定できます。</p>
+<p><strong>手順:</strong></p>
+<ol>
+<li>自然言語でクエリを実行</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>「過去1時間のエラー率が高いサービスを教えて」
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>「payment-serviceの最新のエラートレースを表示して」
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>「データベース接続エラーの発生頻度を確認して」
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>取得した情報を基に原因を特定し、修正を実施</li>
+</ol>
+<p><strong>期待される効果:</strong>
+- インシデント調査時間: 15分 → 3分（80%削減）
+- 複数画面の遷移が不要になり、調査フローが効率化
+- AIによる関連情報の自動提示により、見落としが減少</p>
+<h3 id="2">ユースケース2: パフォーマンス最適化の分析</h3>
+<p><strong>背景・課題:</strong>
+アプリケーションのレスポンスタイムが悪化しており、ボトルネックを特定する必要があります。できれば開発中のコードエディタから離れずに分析したいと考えています。</p>
+<p><strong>解決方法:</strong>
+Cursor内でMCP Serverを使用することで、コーディング中にリアルタイムでパフォーマンスデータを確認できます。</p>
+<p><strong>手順:</strong></p>
+<ol>
+<li>コード編集中にパフォーマンスデータを照会</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>「user-serviceの平均レスポンスタイムを教えて」
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>「最も遅いエンドポイントTOP5を表示して」
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>「データベースクエリの実行時間を確認して」
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>特定したボトルネックに対してコードを最適化</p>
+</li>
+<li>
+<p>デプロイ後、再度パフォーマンスを確認</p>
+</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>「user-serviceのレスポンスタイムは改善した？」
+</code></pre></div></td></tr></table></div>
+<p><strong>期待される効果:</strong>
+- パフォーマンス分析時間: 20分 → 5分（75%削減）
+- コードエディタとInstana UIの切り替えが不要
+- 最適化の効果を即座に確認可能</p>
+<h3 id="3-slo">ユースケース3: SLO違反の早期検知と対応</h3>
+<p><strong>背景・課題:</strong>
+SLO違反が発生した際、迅速に状況を把握し、関係者に報告する必要があります。</p>
+<p><strong>解決方法:</strong>
+MCP Serverを使用することで、SLOの状態を自然言語で照会でき、レポートも自動生成できます。</p>
+<p><strong>手順:</strong></p>
+<ol>
+<li>
+<p>MCP Serverの設定を確認</p>
+</li>
+<li>
+<p>SLOの状態を照会</p>
+</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>「現在SLOに違反しているサービスを教えて」
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>「payment-serviceのSLO達成率を確認して」
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>「過去24時間のSLO違反の履歴を表示して」
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>詳細情報を取得</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>「payment-serviceのエラーバジェットの残量は？」
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>「どのエンドポイントがSLO違反の原因？」
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>AIに状況レポートの作成を依頼</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>「上記の情報を基に、SLO違反の状況レポートを作成して」
+</code></pre></div></td></tr></table></div>
+<p><strong>期待される効果:</strong>
+- SLO違反の検知から報告まで: 10分 → 2分（80%削減）
+- 自動生成されたレポートにより、報告の品質が向上
+- 迅速な対応により、サービス品質の維持が可能</p>
+<h2 id="_7">実運用での注意点・ベストプラクティス</h2>
+<h3 id="api_1">APIトークンの管理</h3>
+<ul>
+<li>APIトークンは環境変数として設定し、設定ファイルに直接記載しないようにしましょう</li>
+<li>定期的にトークンをローテーションすることをお勧めします</li>
+<li>最小権限の原則に従い、必要な権限のみを付与しましょう</li>
+</ul>
+<h3 id="_8">パフォーマンスへの影響</h3>
+<ul>
+<li>MCP Serverは各クエリごとにInstana APIを呼び出すため、頻繁なクエリはAPI制限に達する可能性があります</li>
+<li>大量のデータを取得する場合は、時間範囲を適切に制限しましょう</li>
+<li>キャッシュ機能を活用し、同じクエリの繰り返しを避けることが大切です</li>
+</ul>
+<h3 id="_9">セキュリティ考慮事項</h3>
+<ul>
+<li>MCP Serverの設定ファイルには機密情報が含まれるため、適切なファイル権限を設定しておきましょう
+  <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #177500"># macOS/Linux</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>chmod <span style="color: #1C01CE">600</span> ~/Library/Application<span style="color: #C41A16">\ </span>Support/Claude/claude_desktop_config.json
+</code></pre></div></td></tr></table></div></li>
+<li>共有PCでは使用を避けるか、使用後にAPIトークンを無効化しましょう</li>
+<li>ログファイルに機密情報が記録されないよう注意が必要です</li>
+</ul>
+<h3 id="_10">トラブルシューティングの効率化</h3>
+<ul>
+<li>よく使用するクエリパターンをドキュメント化しておくと便利です</li>
+<li>チーム内でクエリのベストプラクティスを共有しましょう</li>
+<li>複雑なクエリは段階的に実行し、結果を確認しながら進めることをお勧めします</li>
+</ul>
+<h2 id="_11">よくあるトラブルと解決方法</h2>
+<h3 id="mcp-server">MCP Serverが起動しない</h3>
+<p><strong>症状:</strong>
+AI開発ツールを起動してもMCP Serverが利用できない、またはエラーメッセージが表示されます。</p>
+<p><strong>原因:</strong>
+- 設定ファイルのJSON形式が正しくありません
+- npxコマンドが見つかりません（Node.jsがインストールされていません）
+- 環境変数の設定が正しくありません</p>
+<p><strong>解決方法:</strong></p>
+<ol>
+<li>設定ファイルのJSON形式を確認</li>
+</ol>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #177500"># macOS/Linux</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>cat ~/Library/Application<span style="color: #C41A16">\ </span>Support/Claude/claude_desktop_config.json | jq .
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span style="color: #177500"># Windows (PowerShell)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>Get-Content <span style="color: #C41A16">&quot;</span><span style="color: #000">$env</span><span style="color: #C41A16">:APPDATA\Claude\claude_desktop_config.json&quot;</span> | ConvertFrom-Json
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Node.jsのインストールを確認</li>
+</ol>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-15">15</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #177500"># Node.jsのバージョン確認</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>node --version
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span style="color: #177500"># npxコマンドの確認</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>npx --version
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span style="color: #177500"># Node.jsがインストールされていない場合</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a><span style="color: #177500"># macOS (Homebrew)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>brew install node
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><span style="color: #177500"># Windows (Chocolatey)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>choco install nodejs
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a><span style="color: #177500"># Linux (Ubuntu/Debian)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>sudo apt install nodejs npm
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>環境変数の値を確認</li>
+</ol>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #177500"># 手動でMCP Serverを起動してエラーを確認</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>npx -y @instana/mcp-server-instana
+</code></pre></div></td></tr></table></div>
+<h3 id="api_2">APIトークンの権限エラー</h3>
+<p><strong>症状:</strong>
+特定のクエリを実行すると「権限がありません」というエラーが返されます。</p>
+<p><strong>原因:</strong>
+APIトークンに必要な権限が付与されていません。</p>
+<p><strong>解決方法:</strong></p>
+<ol>
+<li>Instana UIでAPIトークンの権限を確認</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>Settings → Team Settings → API Tokens → [該当トークン]
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>必要な権限を追加</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>必須権限:
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>- Configuration of applications (読み取り)
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>- Configuration of mobile app (読み取り)
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>- Configuration of websites (読み取り)
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>- Access audit log (読み取り)
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>- Access Analyze (読み取り)
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>設定ファイルのAPIトークンを更新</p>
+</li>
+<li>
+<p>AI開発ツールを再起動</p>
+</li>
+</ol>
+<h3 id="_12">プロキシ環境での接続エラー</h3>
+<p><strong>症状:</strong>
+企業ネットワーク内でMCP Serverが「接続できません」というエラーを返します。</p>
+<p><strong>原因:</strong>
+プロキシ設定が不足しています。</p>
+<p><strong>解決方法:</strong></p>
+<ol>
+<li>プロキシ設定を追加</li>
+</ol>
+<div class="language-json highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-15">15</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>{
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>  <span style="color: #000">&quot;mcpServers&quot;</span>: {
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>    <span style="color: #000">&quot;instana&quot;</span>: {
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>      <span style="color: #000">&quot;command&quot;</span>: <span style="color: #C41A16">&quot;npx&quot;</span>,
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>      <span style="color: #000">&quot;args&quot;</span>: [<span style="color: #C41A16">&quot;-y&quot;</span>, <span style="color: #C41A16">&quot;@instana/mcp-server-instana&quot;</span>],
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>      <span style="color: #000">&quot;env&quot;</span>: {
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>        <span style="color: #000">&quot;INSTANA_BASE_URL&quot;</span>: <span style="color: #C41A16">&quot;https://example.instana.io&quot;</span>,
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>        <span style="color: #000">&quot;INSTANA_API_TOKEN&quot;</span>: <span style="color: #C41A16">&quot;your-api-token-here&quot;</span>,
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a>        <span style="color: #000">&quot;HTTP_PROXY&quot;</span>: <span style="color: #C41A16">&quot;http://proxy.company.com:8080&quot;</span>,
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>        <span style="color: #000">&quot;HTTPS_PROXY&quot;</span>: <span style="color: #C41A16">&quot;http://proxy.company.com:8080&quot;</span>,
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>        <span style="color: #000">&quot;NO_PROXY&quot;</span>: <span style="color: #C41A16">&quot;localhost,127.0.0.1&quot;</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>      }
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a>    }
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a>  }
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a>}
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>プロキシの認証が必要な場合</li>
+</ol>
+<div class="language-json highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>{
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>  <span style="color: #000">&quot;env&quot;</span>: {
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>    <span style="color: #000">&quot;HTTP_PROXY&quot;</span>: <span style="color: #C41A16">&quot;http://username:password@proxy.company.com:8080&quot;</span>,
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>    <span style="color: #000">&quot;HTTPS_PROXY&quot;</span>: <span style="color: #C41A16">&quot;http://username:password@proxy.company.com:8080&quot;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>  }
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>}
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>AI開発ツールを再起動</p>
+</li>
+<li>
+<p>接続を確認</p>
+</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>「Instanaに接続できているか確認して」
+</code></pre></div></td></tr></table></div>
+<h3 id="_13">レスポンスが遅い</h3>
+<p><strong>症状:</strong>
+クエリの実行に時間がかかり、タイムアウトしてしまうことがあります。</p>
+<p><strong>原因:</strong>
+- 取得するデータ量が多すぎます
+- 時間範囲が広すぎます
+- Instana APIの制限に達しています</p>
+<p><strong>解決方法:</strong></p>
+<ol>
+<li>時間範囲を制限</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>悪い例: 「過去1週間のすべてのトレースを表示して」
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>良い例: 「過去1時間のエラートレースを表示して」
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>取得するデータを絞り込む</li>
+</ol>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>悪い例: 「すべてのサービスのメトリクスを表示して」
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>良い例: 「payment-serviceのレスポンスタイムを表示して」
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>API制限を確認</li>
+</ol>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #177500"># Instana APIの制限を確認</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>curl -H <span style="color: #C41A16">&quot;Authorization: apiToken &lt;your-api-token&gt;&quot;</span> <span style="color: #C41A16">\</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>  https://&lt;your-tenant&gt;.instana.io/api/application-monitoring/settings/api-tokens
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>必要に応じて、複数のクエリに分割して実行</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

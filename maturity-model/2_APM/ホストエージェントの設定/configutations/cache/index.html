@@ -1,0 +1,4473 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../bigdata/">
+      
+      
+        <link rel="next" href="../cloud/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Cache - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cache
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キャッシュ・ストレージシステム
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なRedis監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. パスワード認証付きRedis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Vault統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-redis-sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Redis Sentinel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-redis-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Redis Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memcached
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なMemcached監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 複数Memcachedインスタンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-saslmemcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SASL認証付きMemcached
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ceph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なCeph監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. カスタム設定ファイル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 複数Cephクラスター
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#varnish-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Varnish Cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-varnish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なVarnish監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 名前付きインスタンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-varnish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 複数Varnishインスタンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drbd-distributed-replicated-block-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRBD (Distributed Replicated Block Device)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-drbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なDRBD監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Vault統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: Redisに接続できない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memcached_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: Memcachedメトリクスが取得できない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ceph_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: Cephコマンドが実行できない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-redis-sentinelredis-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: Redis SentinelとRedis Clusterの違いは？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: Memcachedのパフォーマンスを最適化するには？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-varnish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: Varnishのキャッシュヒット率を改善するには？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: Cephクラスターの健全性を確認するには？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/sdks-mcp-server-instana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キャッシュ・ストレージシステム
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なRedis監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. パスワード認証付きRedis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Vault統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-redis-sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Redis Sentinel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-redis-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Redis Cluster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memcached
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なMemcached監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 複数Memcachedインスタンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-saslmemcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. SASL認証付きMemcached
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ceph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なCeph監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. カスタム設定ファイル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 複数Cephクラスター
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#varnish-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Varnish Cache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-varnish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なVarnish監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 名前付きインスタンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-varnish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 複数Varnishインスタンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drbd-distributed-replicated-block-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRBD (Distributed Replicated Block Device)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-drbd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なDRBD監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Vault統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: Redisに接続できない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memcached_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: Memcachedメトリクスが取得できない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ceph_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: Cephコマンドが実行できない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-redis-sentinelredis-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: Redis SentinelとRedis Clusterの違いは？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-memcached" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: Memcachedのパフォーマンスを最適化するには？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-varnish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: Varnishのキャッシュヒット率を改善するには？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-ceph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: Cephクラスターの健全性を確認するには？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Cache</h1>
+
+<h2 id="_1">キャッシュ・ストレージシステム</h2>
+<hr />
+<h2 id="_2">📚 情報ソース</h2>
+<p>このドキュメントは以下の情報源を基に作成されています：</p>
+<h3 id="_3">主要ソース</h3>
+<ul>
+<li><strong>IBM公式ドキュメント</strong>:</li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability/redis">Monitoring Redis</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Monitoring Memcached</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Monitoring Ceph</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Monitoring Varnish</a></li>
+</ul>
+<h3 id="_4">補足ソース</h3>
+<ul>
+<li><strong>キャッシュシステムのベストプラクティス</strong>: パフォーマンスチューニングとクラスター構成</li>
+<li><strong>実運用環境の設定例</strong>: HA構成とフェイルオーバー設定</li>
+</ul>
+<hr />
+<h3 id="redis">Redis</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/redis">Redis</a></p>
+<p>Redisはインメモリデータストア・キャッシュシステムです。高速なデータアクセスとパブ/サブ機能を提供します。</p>
+<h3 id="_5">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># 秒単位（デフォルト1秒）</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>poll_rate</code></td>
+<td>メトリクス収集間隔</td>
+<td>1</td>
+<td>10</td>
+<td>秒単位</td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>Redisホスト</td>
+<td>localhost</td>
+<td>環境に応じて</td>
+<td>Redis設定から</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>Redisポート</td>
+<td>6379</td>
+<td>6379</td>
+<td>Redis設定から</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>Redis認証パスワード</td>
+<td>-</td>
+<td>Vault推奨</td>
+<td>Redis設定から</td>
+</tr>
+<tr>
+<td><code>database</code></td>
+<td>データベース番号</td>
+<td>0</td>
+<td>0</td>
+<td>用途に応じて</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">実践的な使用例</h3>
+<h4 id="1-redis">1. 基本的なRedis監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2-redis">2. パスワード認証付きRedis</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis.example.com&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;redis_password&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-vault">3. Vault統合</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis.example.com&#39;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>        <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/redis</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>        <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="4-redis-sentinel">4. Redis Sentinel</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-17">17</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span style="color: #000">sentinel</span>:
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span style="color: #000">master_name</span>: <span style="color: #C41A16">&#39;mymaster&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span style="color: #000">sentinels</span>:
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;sentinel1.example.com&#39;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">26379</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;sentinel2.example.com&#39;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">26379</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;sentinel3.example.com&#39;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">26379</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/redis</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="5-redis-cluster">5. Redis Cluster</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span style="color: #000">cluster</span>:
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span style="color: #000">nodes</span>:
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis-node1.example.com&#39;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis-node2.example.com&#39;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis-node3.example.com&#39;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>        <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/redis</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>        <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_8">ベストプラクティス</h3>
+<h4 id="_9">セキュリティ</h4>
+<ol>
+<li>
+<p><strong>パスワード認証の有効化</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #177500"># redis.conf</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>requirepass your_strong_password
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span style="color: #177500"># Instana設定</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span style="color: #C41A16">```</span>yaml
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>com.instana.plugin.redis:
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>  password:
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    configuration_from:
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>      type: vault
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>      secret_key:
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        path: secret/redis
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>        key: password
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ネットワークアクセス制限</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #177500"># redis.conf</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span style="color: #A90D91">bind</span> <span style="color: #1C01CE">127</span>.0.0.1 <span style="color: #1C01CE">10</span>.0.0.0/8
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>protected-mode yes
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>SSL/TLS接続</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis.example.com&#39;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">6380</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  <span style="color: #000">ssl</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  <span style="color: #000">ssl_ca_cert</span>: <span style="color: #C41A16">&#39;/etc/ssl/certs/ca-bundle.crt&#39;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>        <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/redis</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>        <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="memcached">Memcached</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Memcached</a></p>
+<p>Memcachedは分散メモリキャッシュシステムです。データベースの負荷を軽減するために広く使用されています。</p>
+<h3 id="_10">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #000">com.instana.plugin.memcached</span>:
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># 秒単位</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_11">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>poll_rate</code></td>
+<td>メトリクス収集間隔</td>
+<td>10</td>
+<td>10-30</td>
+<td>秒単位</td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>Memcachedホスト</td>
+<td>localhost</td>
+<td>環境に応じて</td>
+<td>Memcached設定から</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>Memcachedポート</td>
+<td>11211</td>
+<td>11211</td>
+<td>Memcached設定から</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">実践的な使用例</h3>
+<h4 id="1-memcached">1. 基本的なMemcached監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #000">com.instana.plugin.memcached</span>:
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">11211</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2-memcached">2. 複数Memcachedインスタンス</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #000">com.instana.plugin.memcached</span>:
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;memcached-session&#39;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>      <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;memcached1.example.com&#39;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>      <span style="color: #000">port</span>: <span style="color: #1C01CE">11211</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;memcached-cache&#39;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>      <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;memcached2.example.com&#39;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>      <span style="color: #000">port</span>: <span style="color: #1C01CE">11211</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-saslmemcached">3. SASL認証付きMemcached</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-13">13</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #000">com.instana.plugin.memcached</span>:
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;memcached.example.com&#39;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">11211</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>  <span style="color: #000">sasl</span>:
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;memcached_user&#39;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span style="color: #000">password</span>:
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>      <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>        <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span style="color: #000">secret_key</span>:
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>          <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/memcached</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>          <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="ceph">Ceph</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Ceph</a></p>
+<p>Cephは分散ストレージシステムで、オブジェクト、ブロック、ファイルストレージを提供します。</p>
+<h3 id="_13">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span style="color: #000">com.instana.plugin.ceph</span>:
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  <span style="color: #000">ceph-executable-path</span>: <span style="color: #C41A16">&#39;/usr/bin/ceph&#39;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># 秒単位（デフォルト5秒）</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_14">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>センサーの有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ceph-executable-path</code></td>
+<td>Cephコマンドパス</td>
+<td>/usr/bin/ceph</td>
+<td>環境に応じて</td>
+<td>which ceph</td>
+</tr>
+<tr>
+<td><code>poll_rate</code></td>
+<td>メトリクス収集間隔</td>
+<td>5</td>
+<td>10</td>
+<td>秒単位</td>
+</tr>
+<tr>
+<td><code>config_file</code></td>
+<td>Ceph設定ファイル</td>
+<td>/etc/ceph/ceph.conf</td>
+<td>環境に応じて</td>
+<td>Ceph設定から</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">実践的な使用例</h3>
+<h4 id="1-ceph">1. 基本的なCeph監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span style="color: #000">com.instana.plugin.ceph</span>:
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span style="color: #000">ceph-executable-path</span>: <span style="color: #C41A16">&#39;/usr/bin/ceph&#39;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2">2. カスタム設定ファイル</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span style="color: #000">com.instana.plugin.ceph</span>:
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>  <span style="color: #000">ceph-executable-path</span>: <span style="color: #C41A16">&#39;/usr/bin/ceph&#39;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>  <span style="color: #000">config_file</span>: <span style="color: #C41A16">&#39;/etc/ceph/ceph.conf&#39;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>  <span style="color: #000">keyring</span>: <span style="color: #C41A16">&#39;/etc/ceph/ceph.client.admin.keyring&#39;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-ceph">3. 複数Cephクラスター</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span style="color: #000">com.instana.plugin.ceph</span>:
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>  <span style="color: #000">clusters</span>:
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;ceph-prod&#39;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>      <span style="color: #000">ceph-executable-path</span>: <span style="color: #C41A16">&#39;/usr/bin/ceph&#39;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>      <span style="color: #000">config_file</span>: <span style="color: #C41A16">&#39;/etc/ceph/prod/ceph.conf&#39;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;ceph-backup&#39;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>      <span style="color: #000">ceph-executable-path</span>: <span style="color: #C41A16">&#39;/usr/bin/ceph&#39;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>      <span style="color: #000">config_file</span>: <span style="color: #C41A16">&#39;/etc/ceph/backup/ceph.conf&#39;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_16">ベストプラクティス</h3>
+<h4 id="_17">セキュリティ</h4>
+<ol>
+<li>
+<p><strong>最小権限の原則</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span style="color: #177500"># 監視専用ユーザーの作成</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>ceph auth get-or-create client.monitoring <span style="color: #C41A16">\</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  mon <span style="color: #C41A16">&#39;allow r&#39;</span> <span style="color: #C41A16">\</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>  osd <span style="color: #C41A16">&#39;allow r&#39;</span> <span style="color: #C41A16">\</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>  mds <span style="color: #C41A16">&#39;allow r&#39;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span style="color: #177500"># キーリングの作成</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>ceph auth get client.monitoring -o /etc/ceph/ceph.client.monitoring.keyring
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>キーリングの保護</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span style="color: #177500"># 適切な権限設定</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>chmod <span style="color: #1C01CE">600</span> /etc/ceph/ceph.client.monitoring.keyring
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>chown instana:instana /etc/ceph/ceph.client.monitoring.keyring
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="varnish-cache">Varnish Cache</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Varnish Cache</a></p>
+<p>VarnishはHTTPアクセラレータ・リバースプロキシキャッシュです。</p>
+<h3 id="_18">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span style="color: #000">com.instana.plugin.varnish</span>:
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>  <span style="color: #177500"># 秒単位（デフォルト1秒）</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_19">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>poll_rate</code></td>
+<td>メトリクス収集間隔</td>
+<td>1</td>
+<td>1-10</td>
+<td>秒単位</td>
+</tr>
+<tr>
+<td><code>instance_name</code></td>
+<td>Varnishインスタンス名</td>
+<td>-</td>
+<td>環境に応じて</td>
+<td>varnishstat -l</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_20">実践的な使用例</h3>
+<h4 id="1-varnish">1. 基本的なVarnish監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #000">com.instana.plugin.varnish</span>:
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2_1">2. 名前付きインスタンス</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span style="color: #000">com.instana.plugin.varnish</span>:
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>  <span style="color: #000">instance_name</span>: <span style="color: #C41A16">&#39;varnish-frontend&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3-varnish">3. 複数Varnishインスタンス</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span style="color: #000">com.instana.plugin.varnish</span>:
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;varnish-web&#39;</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>      <span style="color: #000">instance_name</span>: <span style="color: #C41A16">&#39;web&#39;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;varnish-api&#39;</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>      <span style="color: #000">instance_name</span>: <span style="color: #C41A16">&#39;api&#39;</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_21">ベストプラクティス</h3>
+<h4 id="_22">パフォーマンス</h4>
+<ol>
+<li>
+<p><strong>適切なキャッシュサイズ</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span style="color: #177500"># varnish起動オプション</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>varnishd -s malloc,2G  <span style="color: #177500"># 2GBのメモリキャッシュ</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>キャッシュヒット率の監視</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span style="color: #000">com.instana.plugin.varnish</span>:
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>  <span style="color: #177500"># キャッシュヒット率が低い場合はVCL設定を見直す</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="drbd-distributed-replicated-block-device">DRBD (Distributed Replicated Block Device)</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">DRBD</a></p>
+<p>DRBDは分散レプリケーテッドブロックデバイスで、ネットワーク経由でブロックデバイスをミラーリングします。</p>
+<h3 id="_23">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span style="color: #000">com.instana.plugin.drbd</span>:
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>  <span style="color: #177500"># 秒単位（デフォルト60秒）</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>    <span style="color: #000">DRBD_HOST_1</span>:
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;8080&#39;</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;drbd_password&#39;</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;DRBD</span><span style="color: #000"> </span><span style="color: #C41A16">Cluster</span><span style="color: #000"> </span><span style="color: #C41A16">A&#39;</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a>    <span style="color: #000">DRBD_HOST_2</span>:
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;8080&#39;</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;drbd_password&#39;</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;DRBD</span><span style="color: #000"> </span><span style="color: #C41A16">Cluster</span><span style="color: #000"> </span><span style="color: #C41A16">B&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_24">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>センサーの有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>poll_rate</code></td>
+<td>メトリクス収集間隔</td>
+<td>60</td>
+<td>60</td>
+<td>秒単位</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>DRBDポート</td>
+<td>8080</td>
+<td>8080</td>
+<td>DRBD設定から</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>認証ユーザー名</td>
+<td>-</td>
+<td>監視用ユーザー</td>
+<td>DRBD設定から</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>認証パスワード</td>
+<td>-</td>
+<td>Vault推奨</td>
+<td>DRBD設定から</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_25">実践的な使用例</h3>
+<h4 id="1-drbd">1. 基本的なDRBD監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span style="color: #000">com.instana.plugin.drbd</span>:
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>    <span style="color: #000">PRIMARY</span>:
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;8080&#39;</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;monitoring&#39;</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;drbd_password&#39;</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Primary</span><span style="color: #000"> </span><span style="color: #C41A16">Node&#39;</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a>    <span style="color: #000">SECONDARY</span>:
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;8080&#39;</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;monitoring&#39;</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;drbd_password&#39;</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Secondary</span><span style="color: #000"> </span><span style="color: #C41A16">Node&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2-vault">2. Vault統合</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span style="color: #000">com.instana.plugin.drbd</span>:
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>    <span style="color: #000">PRIMARY</span>:
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;8080&#39;</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;monitoring&#39;</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a>      <span style="color: #000">password</span>:
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a>        <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a>          <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11"></a>          <span style="color: #000">secret_key</span>:
+<a id="__codelineno-27-12" name="__codelineno-27-12"></a>            <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/drbd</span>
+<a id="__codelineno-27-13" name="__codelineno-27-13"></a>            <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+<a id="__codelineno-27-14" name="__codelineno-27-14"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Primary</span><span style="color: #000"> </span><span style="color: #C41A16">Node&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_26">トラブルシューティング</h3>
+<h4 id="1-redis_1">問題1: Redisに接続できない</h4>
+<p><strong>症状:</strong>
+- Redis メトリクスが表示されない
+- 接続エラー</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>Redis接続の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span style="color: #177500"># Redisに接続できるか確認</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>redis-cli -h localhost -p <span style="color: #1C01CE">6379</span> ping
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span style="color: #177500"># パスワード認証が必要な場合</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>redis-cli -h localhost -p <span style="color: #1C01CE">6379</span> -a password ping
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ネットワーク設定の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span style="color: #177500"># Redisが起動しているか確認</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>systemctl status redis
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span style="color: #177500"># ポートが開いているか確認</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>netstat -tlnp | grep <span style="color: #1C01CE">6379</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Redis設定の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span style="color: #177500"># bind設定を確認</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>grep <span style="color: #A90D91">bind</span> /etc/redis/redis.conf
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span style="color: #177500"># protected-modeを確認</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>grep protected-mode /etc/redis/redis.conf
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="2-memcached_1">問題2: Memcachedメトリクスが取得できない</h4>
+<p><strong>症状:</strong>
+- Memcached メトリクスが表示されない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>Memcached接続の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span style="color: #177500"># Memcachedに接続できるか確認</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><span style="color: #A90D91">echo</span> <span style="color: #C41A16">&quot;stats&quot;</span> | nc localhost <span style="color: #1C01CE">11211</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><span style="color: #177500"># または</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>telnet localhost <span style="color: #1C01CE">11211</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>stats
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a>quit
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Memcached起動確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span style="color: #177500"># Memcachedが起動しているか確認</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>systemctl status memcached
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span style="color: #177500"># プロセス確認</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>ps aux | grep memcached
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="3-ceph_1">問題3: Cephコマンドが実行できない</h4>
+<p><strong>症状:</strong>
+- Ceph メトリクスが表示されない
+- 権限エラー</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>Cephコマンドの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span style="color: #177500"># Cephコマンドが実行できるか確認</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a>sudo -u instana ceph status
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><span style="color: #177500"># 権限がない場合</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a>sudo usermod -a -G ceph instana
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Ceph設定の確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span style="color: #177500"># 設定ファイルの確認</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a>ls -la /etc/ceph/
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span style="color: #177500"># キーリングの確認</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a>ls -la /etc/ceph/*.keyring
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="faq">FAQ</h3>
+<h4 id="q1-redis-sentinelredis-cluster">Q1: Redis SentinelとRedis Clusterの違いは？</h4>
+<p><strong>A:</strong> 
+- <strong>Redis Sentinel</strong>: 高可用性のためのマスター/スレーブ構成。自動フェイルオーバー。
+- <strong>Redis Cluster</strong>: データシャーディングによる水平スケーリング。複数のマスターノード。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span style="color: #177500"># Sentinel</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>  <span style="color: #000">sentinel</span>:
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>    <span style="color: #000">master_name</span>: <span style="color: #C41A16">&#39;mymaster&#39;</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>    <span style="color: #000">sentinels</span>:
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;sentinel1&#39;</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">26379</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a><span style="color: #177500"># Cluster</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-35-11" name="__codelineno-35-11"></a>  <span style="color: #000">cluster</span>:
+<a id="__codelineno-35-12" name="__codelineno-35-12"></a>    <span style="color: #000">nodes</span>:
+<a id="__codelineno-35-13" name="__codelineno-35-13"></a>      - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis-node1&#39;</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q2-memcached">Q2: Memcachedのパフォーマンスを最適化するには？</h4>
+<p><strong>A:</strong> 以下のポイントに注意してください：</p>
+<ol>
+<li>
+<p><strong>適切なメモリサイズ</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span style="color: #177500"># 起動オプション</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>memcached -m <span style="color: #1C01CE">2048</span>  <span style="color: #177500"># 2GBのメモリ</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>接続数の調整</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>memcached -c <span style="color: #1C01CE">1024</span>  <span style="color: #177500"># 最大1024接続</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>監視間隔の調整</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span style="color: #000">com.instana.plugin.memcached</span>:
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>  <span style="color: #177500"># 負荷が高い場合は間隔を長くする</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="q3-varnish">Q3: Varnishのキャッシュヒット率を改善するには？</h4>
+<p><strong>A:</strong> VCL（Varnish Configuration Language）の設定を見直してください：</p>
+<div class="language-vcl highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a><span style="color: #177500"># VCL設定例</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a><span style="color: #A90D91">sub </span><span style="color: #000">vcl_recv</span> {
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a>    <span style="color: #177500"># 静的コンテンツをキャッシュ</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a>    <span style="color: #A90D91">if</span> (<span style="color: #000">req.url</span> <span style="color: #000">~</span> <span style="color: #C41A16">&quot;\.(jpg|jpeg|png|gif|css|js)$&quot;</span>) <span style="color: #000">{</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>        <span style="color: #A90D91">return</span> (<span style="color: #000">hash</span>);
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a>    <span style="color: #000">}</span>
+<a id="__codelineno-39-7" name="__codelineno-39-7"></a><span style="color: #000">}</span>
+<a id="__codelineno-39-8" name="__codelineno-39-8"></a>
+<a id="__codelineno-39-9" name="__codelineno-39-9"></a><span style="color: #A90D91">sub </span><span style="color: #000">vcl_backend_response</span> {
+<a id="__codelineno-39-10" name="__codelineno-39-10"></a>    <span style="color: #177500"># キャッシュ時間を設定</span>
+<a id="__codelineno-39-11" name="__codelineno-39-11"></a>    <span style="color: #A90D91">set</span> <span style="color: #000">beresp.ttl</span> <span style="color: #000">=</span> <span style="color: #1C01CE">1h</span>;
+<a id="__codelineno-39-12" name="__codelineno-39-12"></a><span style="color: #000">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="q4-ceph">Q4: Cephクラスターの健全性を確認するには？</h4>
+<p><strong>A:</strong> 以下のコマンドで確認できます：</p>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span style="color: #177500"># クラスター全体の状態</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>ceph status
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a><span style="color: #177500"># OSDの状態</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a>ceph osd status
+<a id="__codelineno-40-6" name="__codelineno-40-6"></a>
+<a id="__codelineno-40-7" name="__codelineno-40-7"></a><span style="color: #177500"># PGの状態</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8"></a>ceph pg stat
+<a id="__codelineno-40-9" name="__codelineno-40-9"></a>
+<a id="__codelineno-40-10" name="__codelineno-40-10"></a><span style="color: #177500"># 健全性の詳細</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11"></a>ceph health detail
+</code></pre></div></td></tr></table></div>
+<p>Instanaは自動的にこれらの情報を収集し、ダッシュボードに表示します。</p>
+<hr />
+<p><strong>関連ドキュメント:</strong>
+- <a href="../database/">データベース監視設定</a>
+- <a href="../host/">ホスト監視設定</a>
+- <a href="../bestpractices/">パフォーマンスチューニング</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

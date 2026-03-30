@@ -1,0 +1,3694 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../troubleshooting/">
+      
+      
+        <link rel="next" href="../../../../3_Observability/instana-profile-processes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Virtualization - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Virtualization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仮想化・ハイパーバイザー
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仮想化・ハイパーバイザー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xenserver-citrix-hypervisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XenServer (Citrix Hypervisor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powerhmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerHMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powervc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerVC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-openstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM OpenStack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RabbitMQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-mq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM MQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activemq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ActiveMQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-rocketmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache RocketMQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache Tomcat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splunk-observability-signalfx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Splunk Observability (SignalFx)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solarwinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SolarWinds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nagios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nagios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zabbix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zabbix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-scom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft SCOM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turbonomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turbonomic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#argo-cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argo CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jbosswildfly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JBoss/WildFly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-websphere-application-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM WebSphere Application Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-websphere-liberty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM WebSphere Liberty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-http-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache HTTP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nginx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-ace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM ACE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-mq-managed-file-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM MQ Managed File Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/sdks-mcp-server-instana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仮想化・ハイパーバイザー
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仮想化・ハイパーバイザー">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xenserver-citrix-hypervisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        XenServer (Citrix Hypervisor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powerhmc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerHMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#powervc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerVC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-openstack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM OpenStack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RabbitMQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-mq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM MQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activemq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ActiveMQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-rocketmq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache RocketMQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache Tomcat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splunk-observability-signalfx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Splunk Observability (SignalFx)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solarwinds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SolarWinds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nagios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nagios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zabbix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zabbix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsoft-scom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microsoft SCOM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turbonomic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turbonomic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#argo-cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argo CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jbosswildfly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JBoss/WildFly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-websphere-application-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM WebSphere Application Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-websphere-liberty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM WebSphere Liberty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-http-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache HTTP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nginx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-ace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM ACE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-mq-managed-file-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM MQ Managed File Transfer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Virtualization</h1>
+
+<h2 id="_1">仮想化・ハイパーバイザー</h2>
+<h3 id="xenserver-citrix-hypervisor">XenServer (Citrix Hypervisor)</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">XenServer (Citrix Hypervisor)</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #000">com.instana.plugin.xenserver</span>:
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;https://xenserver.example.com&#39;</span>  <span style="color: #177500"># http または https</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;root&#39;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;xen_password&#39;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>  <span style="color: #177500"># 秒単位</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>取得方法:</strong>
+- URL: XenServer管理インターフェースのURL
+- 認証情報: XenServer管理者アカウント</p>
+<h3 id="powerhmc">PowerHMC</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">PowerHMC</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #000">com.instana.plugin.powerhmc</span>:
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;hmc-server.example.com&#39;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;12443&#39;</span>  <span style="color: #177500"># デフォルトポート</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;hscroot&#39;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;hmc_password&#39;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>  <span style="color: #177500"># 秒単位</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Power</span><span style="color: #000"> </span><span style="color: #C41A16">Systems</span><span style="color: #000"> </span><span style="color: #C41A16">HMC&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="powervc">PowerVC</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">PowerVC</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #000">com.instana.plugin.powervc</span>:
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;powervc.example.com&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;5000&#39;</span>  <span style="color: #177500"># Keystoneポート</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;powervc_password&#39;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;PowerVC</span><span style="color: #000"> </span><span style="color: #C41A16">Cluster&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ibm-openstack">IBM OpenStack</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">IBM OpenStack</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #000">com.instana.plugin.ibmopenstack</span>:
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;openstack.example.com&#39;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;5000&#39;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;openstack_password&#39;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="rabbitmq">RabbitMQ</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/rabbitmq">RabbitMQ</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #000">com.instana.plugin.rabbitmq</span>:
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;guest&#39;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;guest&#39;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  <span style="color: #000">queuesRegex</span>: <span style="color: #C41A16">&#39;.*&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>  <span style="color: #000">monitorQueues</span>:
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    - <span style="color: #000">queue</span>: <span style="color: #C41A16">&#39;orders&#39;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>      <span style="color: #000">vhost</span>: <span style="color: #C41A16">&#39;/&#39;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>user</code>: RabbitMQ管理APIユーザー名（デフォルト: guest）
+- <code>password</code>: 管理APIパスワード
+- <code>queuesRegex</code>: 監視対象キューの正規表現パターン（デフォルト: '.*' = 全て）
+- <code>monitorQueues</code>: 個別に監視するキューのリスト
+  - <code>queue</code>: キュー名
+  - <code>vhost</code>: 仮想ホスト名（デフォルト: /）
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 5秒）</p>
+<p><strong>監視ユーザーの作成:</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #177500"># RabbitMQで実行</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>rabbitmqctl add_user monitoring_user monitoring_password
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>rabbitmqctl set_user_tags monitoring_user monitoring
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>rabbitmqctl set_permissions -p / monitoring_user <span style="color: #C41A16">&quot;.*&quot;</span> <span style="color: #C41A16">&quot;.*&quot;</span> <span style="color: #C41A16">&quot;.*&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Management Plugin有効化:</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #177500"># Management Pluginを有効化（必須）</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>rabbitmq-plugins <span style="color: #A90D91">enable</span> rabbitmq_management
+</code></pre></div></td></tr></table></div></p>
+<p><strong>複数仮想ホストの監視:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #000">com.instana.plugin.rabbitmq</span>:
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;monitoring_user&#39;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;monitoring_password&#39;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  <span style="color: #000">queuesRegex</span>: <span style="color: #C41A16">&#39;.*&#39;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span style="color: #000">monitorQueues</span>:
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    - <span style="color: #000">queue</span>: <span style="color: #C41A16">&#39;orders&#39;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>      <span style="color: #000">vhost</span>: <span style="color: #C41A16">&#39;/production&#39;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    - <span style="color: #000">queue</span>: <span style="color: #C41A16">&#39;payments&#39;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>      <span style="color: #000">vhost</span>: <span style="color: #C41A16">&#39;/production&#39;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    - <span style="color: #000">queue</span>: <span style="color: #C41A16">&#39;test-queue&#39;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>      <span style="color: #000">vhost</span>: <span style="color: #C41A16">&#39;/staging&#39;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>特定キューのみ監視:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #000">com.instana.plugin.rabbitmq</span>:
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;monitoring_user&#39;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;monitoring_password&#39;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  <span style="color: #000">queuesRegex</span>: <span style="color: #C41A16">&#39;^(orders|payments|notifications)$&#39;</span>  <span style="color: #177500"># 特定キューのみ</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>SSL/TLS接続:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #000">com.instana.plugin.rabbitmq</span>:
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;monitoring_user&#39;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;monitoring_password&#39;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>  <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;https://rabbitmq.example.com:15671&#39;</span>  <span style="color: #177500"># HTTPS Management API</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  <span style="color: #000">queuesRegex</span>: <span style="color: #C41A16">&#39;.*&#39;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  <span style="color: #000">ssl</span>:
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span style="color: #000">verify</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span style="color: #000">ca_cert</span>: <span style="color: #C41A16">&#39;/path/to/ca.crt&#39;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- user/password: RabbitMQ管理画面（http://localhost:15672）から作成、またはrabbitmqctlコマンドで作成
+- vhost: RabbitMQ管理画面の「Virtual Hosts」タブで確認
+- Management API URL: デフォルトはhttp://localhost:15672/api</p>
+<h3 id="ibm-mq">IBM MQ</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/ibm-mq">IBM MQ</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #000">com.instana.plugin.ibmmq</span>:
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>  <span style="color: #000">queueManagers</span>:
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    <span style="color: #000">QM1</span>:
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>      <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mq-server.example.com&#39;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;1414&#39;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>      <span style="color: #000">channel</span>: <span style="color: #C41A16">&#39;SYSTEM.DEF.SVRCONN&#39;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;mquser&#39;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;mqpassword&#39;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>      <span style="color: #000">queuesIncludeRegex</span>: <span style="color: #C41A16">&#39;.*&#39;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>      <span style="color: #000">queuesExcludeRegex</span>: <span style="color: #C41A16">&#39;^SYSTEM\..*&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>enabled</code>: IBM MQセンサーの有効化（デフォルト: true）
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 60秒）
+- <code>queueManagers</code>: キューマネージャーの設定（複数設定可能）
+  - キー（QM1など）: キューマネージャー名
+  - <code>host</code>: MQサーバーのホスト名またはIPアドレス
+  - <code>port</code>: MQリスナーポート（デフォルト: 1414）
+  - <code>channel</code>: サーバー接続チャネル名
+  - <code>username</code>: MQ接続ユーザー名
+  - <code>password</code>: MQ接続パスワード
+  - <code>queuesIncludeRegex</code>: 監視対象キューの正規表現（デフォルト: '.*'）
+  - <code>queuesExcludeRegex</code>: 除外するキューの正規表現</p>
+<p><strong>監視ユーザーの作成:</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #177500"># MQサーバーで実行（runmqsc コマンド）</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>runmqsc QM1
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span style="color: #177500"># ユーザーの作成と権限付与</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>DEFINE CHANNEL<span style="color: #000">(</span>INSTANA.SVRCONN<span style="color: #000">)</span> CHLTYPE<span style="color: #000">(</span>SVRCONN<span style="color: #000">)</span> TRPTYPE<span style="color: #000">(</span>TCP<span style="color: #000">)</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>SET CHLAUTH<span style="color: #000">(</span>INSTANA.SVRCONN<span style="color: #000">)</span> TYPE<span style="color: #000">(</span>BLOCKUSER<span style="color: #000">)</span> USERLIST<span style="color: #000">(</span><span style="color: #C41A16">&#39;nobody&#39;</span><span style="color: #000">)</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>SET CHLAUTH<span style="color: #000">(</span>INSTANA.SVRCONN<span style="color: #000">)</span> TYPE<span style="color: #000">(</span>ADDRESSMAP<span style="color: #000">)</span> ADDRESS<span style="color: #000">(</span><span style="color: #C41A16">&#39;*&#39;</span><span style="color: #000">)</span> USERSRC<span style="color: #000">(</span>CHANNEL<span style="color: #000">)</span> CHCKCLNT<span style="color: #000">(</span>REQUIRED<span style="color: #000">)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span style="color: #177500"># 監視ユーザーに権限を付与</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>SET AUTHREC OBJTYPE<span style="color: #000">(</span>QMGR<span style="color: #000">)</span> PRINCIPAL<span style="color: #000">(</span><span style="color: #C41A16">&#39;mquser&#39;</span><span style="color: #000">)</span> AUTHADD<span style="color: #000">(</span>CONNECT,INQ,DSP<span style="color: #000">)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>SET AUTHREC PROFILE<span style="color: #000">(</span><span style="color: #C41A16">&#39;SYSTEM.**&#39;</span><span style="color: #000">)</span> OBJTYPE<span style="color: #000">(</span>QUEUE<span style="color: #000">)</span> PRINCIPAL<span style="color: #000">(</span><span style="color: #C41A16">&#39;mquser&#39;</span><span style="color: #000">)</span> AUTHADD<span style="color: #000">(</span>DSP,INQ,BROWSE<span style="color: #000">)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>SET AUTHREC PROFILE<span style="color: #000">(</span><span style="color: #C41A16">&#39;**&#39;</span><span style="color: #000">)</span> OBJTYPE<span style="color: #000">(</span>QUEUE<span style="color: #000">)</span> PRINCIPAL<span style="color: #000">(</span><span style="color: #C41A16">&#39;mquser&#39;</span><span style="color: #000">)</span> AUTHADD<span style="color: #000">(</span>DSP,INQ,BROWSE<span style="color: #000">)</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>複数キューマネージャーの監視:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-19">19</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #000">com.instana.plugin.ibmmq</span>:
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>  <span style="color: #000">queueManagers</span>:
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span style="color: #000">QM_PROD</span>:
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>      <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mq-prod.example.com&#39;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;1414&#39;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>      <span style="color: #000">channel</span>: <span style="color: #C41A16">&#39;INSTANA.SVRCONN&#39;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;monitoring&#39;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;prod_password&#39;</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>      <span style="color: #000">queuesIncludeRegex</span>: <span style="color: #C41A16">&#39;^(APP|ORDER|PAYMENT)\..*&#39;</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>      <span style="color: #000">queuesExcludeRegex</span>: <span style="color: #C41A16">&#39;^SYSTEM\..*&#39;</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>    <span style="color: #000">QM_TEST</span>:
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>      <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mq-test.example.com&#39;</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;1414&#39;</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>      <span style="color: #000">channel</span>: <span style="color: #C41A16">&#39;INSTANA.SVRCONN&#39;</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;monitoring&#39;</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;test_password&#39;</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>      <span style="color: #000">queuesIncludeRegex</span>: <span style="color: #C41A16">&#39;.*&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>SSL/TLS接続:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span style="color: #000">com.instana.plugin.ibmmq</span>:
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  <span style="color: #000">queueManagers</span>:
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span style="color: #000">QM1</span>:
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>      <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mq-server.example.com&#39;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;1414&#39;</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>      <span style="color: #000">channel</span>: <span style="color: #C41A16">&#39;INSTANA.SSL.SVRCONN&#39;</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>      <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;mquser&#39;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;mqpassword&#39;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>      <span style="color: #000">sslCipherSuite</span>: <span style="color: #C41A16">&#39;TLS_RSA_WITH_AES_256_CBC_SHA256&#39;</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>      <span style="color: #000">sslKeyStore</span>: <span style="color: #C41A16">&#39;/path/to/keystore.jks&#39;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>      <span style="color: #000">sslKeyStorePassword</span>: <span style="color: #C41A16">&#39;keystore_password&#39;</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>      <span style="color: #000">queuesIncludeRegex</span>: <span style="color: #C41A16">&#39;.*&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- キューマネージャー名: <code>dspmq</code> コマンドで確認
+- channel: <code>DISPLAY CHANNEL(*)</code> コマンドで確認、またはSYSTEM.DEF.SVRCONNを使用
+- port: MQリスナー設定で確認（デフォルト: 1414）
+- username/password: MQ管理者から取得、または新規作成</p>
+<h3 id="activemq">ActiveMQ</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/activemq">ActiveMQ</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span style="color: #000">com.instana.plugin.activemq</span>:
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span style="color: #000">monitorQueues</span>:
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>    - <span style="color: #C41A16">&#39;orders&#39;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>    - <span style="color: #C41A16">&#39;DLQ&#39;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>  <span style="color: #000">monitorTopics</span>:
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>    - <span style="color: #C41A16">&#39;notifications&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 1秒）
+- <code>monitorQueues</code>: 監視対象キューのリスト
+- <code>monitorTopics</code>: 監視対象トピックのリスト</p>
+<p><strong>JMX接続設定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span style="color: #000">com.instana.plugin.activemq</span>:
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>  <span style="color: #000">jmx</span>:
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>    <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">1099</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>    <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>  <span style="color: #000">monitorQueues</span>:
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a>    - <span style="color: #C41A16">&#39;orders&#39;</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>    - <span style="color: #C41A16">&#39;payments&#39;</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>    - <span style="color: #C41A16">&#39;DLQ&#39;</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>  <span style="color: #000">monitorTopics</span>:
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a>    - <span style="color: #C41A16">&#39;notifications&#39;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a>    - <span style="color: #C41A16">&#39;events&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>正規表現でキュー/トピックを指定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span style="color: #000">com.instana.plugin.activemq</span>:
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>  <span style="color: #000">queuesRegex</span>: <span style="color: #C41A16">&#39;^(orders|payments)\..*&#39;</span>  <span style="color: #177500"># ordersまたはpaymentsで始まるキュー</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>  <span style="color: #000">topicsRegex</span>: <span style="color: #C41A16">&#39;^events\..*&#39;</span>  <span style="color: #177500"># eventsで始まるトピック</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- JMXポート: ActiveMQ設定ファイル（activemq.xml）で確認（デフォルト: 1099）
+- キュー/トピック名: ActiveMQ Web Console（http://localhost:8161/admin）で確認</p>
+<h3 id="apache-rocketmq">Apache RocketMQ</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/apache">Apache RocketMQ</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span style="color: #000">com.instana.plugin.rocketmq</span>:
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>  <span style="color: #000">nameServerClusters</span>:
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>    - <span style="color: #000">namesrvAddr</span>: <span style="color: #C41A16">&#39;192.168.1.100:9876&#39;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;RocketMQ</span><span style="color: #000"> </span><span style="color: #C41A16">Production&#39;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>      <span style="color: #000">enableACL</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>      <span style="color: #000">accessKey</span>: <span style="color: #C41A16">&#39;rocketmq_access_key&#39;</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>      <span style="color: #000">secretKey</span>: <span style="color: #C41A16">&#39;rocketmq_secret_key&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>enabled</code>: RocketMQセンサーの有効化（デフォルト: true）
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 60秒）
+- <code>nameServerClusters</code>: NameServerクラスターの設定リスト
+  - <code>namesrvAddr</code>: NameServerのアドレス（host:port形式）
+  - <code>availabilityZone</code>: 可用性ゾーン名（識別用）
+  - <code>enableACL</code>: ACL（アクセス制御リスト）の有効化
+  - <code>accessKey</code>: ACL認証用アクセスキー
+  - <code>secretKey</code>: ACL認証用シークレットキー</p>
+<p><strong>ACL無効の場合:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span style="color: #000">com.instana.plugin.rocketmq</span>:
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>  <span style="color: #000">nameServerClusters</span>:
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>    - <span style="color: #000">namesrvAddr</span>: <span style="color: #C41A16">&#39;192.168.1.100:9876&#39;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;RocketMQ</span><span style="color: #000"> </span><span style="color: #C41A16">Production&#39;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a>      <span style="color: #000">enableACL</span>: <span style="color: #1C01CE">false</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>複数NameServerクラスターの監視:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span style="color: #000">com.instana.plugin.rocketmq</span>:
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>  <span style="color: #000">nameServerClusters</span>:
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>    - <span style="color: #000">namesrvAddr</span>: <span style="color: #C41A16">&#39;192.168.1.100:9876;192.168.1.101:9876&#39;</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;RocketMQ</span><span style="color: #000"> </span><span style="color: #C41A16">Production</span><span style="color: #000"> </span><span style="color: #C41A16">Cluster&#39;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>      <span style="color: #000">enableACL</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>      <span style="color: #000">accessKey</span>: <span style="color: #C41A16">&#39;prod_access_key&#39;</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a>      <span style="color: #000">secretKey</span>: <span style="color: #C41A16">&#39;prod_secret_key&#39;</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a>    - <span style="color: #000">namesrvAddr</span>: <span style="color: #C41A16">&#39;192.168.2.100:9876&#39;</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;RocketMQ</span><span style="color: #000"> </span><span style="color: #C41A16">Staging&#39;</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a>      <span style="color: #000">enableACL</span>: <span style="color: #1C01CE">false</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>ACL設定の作成:</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #177500"># RocketMQサーバーで実行</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span style="color: #177500"># plain_acl.yml ファイルを編集</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>accounts:
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>  - accessKey: rocketmq_access_key
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>    secretKey: rocketmq_secret_key
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>    whiteRemoteAddress:
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>    admin: <span style="color: #A90D91">false</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>    defaultTopicPerm: PUB|SUB
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a>    defaultGroupPerm: PUB|SUB
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a>    topicPerms:
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>      - <span style="color: #000">topicA=</span>PUB|SUB
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a>      - <span style="color: #000">topicB=</span>PUB|SUB
+<a id="__codelineno-20-13" name="__codelineno-20-13"></a>    groupPerms:
+<a id="__codelineno-20-14" name="__codelineno-20-14"></a>      - <span style="color: #000">groupA=</span>PUB|SUB
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- namesrvAddr: RocketMQ管理者から取得、またはbroker.confで確認
+- accessKey/secretKey: plain_acl.ymlファイルで確認、または新規作成
+- ポート番号: デフォルトNameServerポートは9876</p>
+<hr />
+<h3 id="apache-tomcat">Apache Tomcat</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/tomcat">Apache Tomcat</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span style="color: #000">com.instana.plugin.tomcat</span>:
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 1秒）</p>
+<p><strong>JMX接続設定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span style="color: #000">com.instana.plugin.tomcat</span>:
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>  <span style="color: #000">jmx</span>:
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>    <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">9090</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;tomcat_jmx_user&#39;</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>    <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;jmx_password&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Tomcat JMX設定:</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span style="color: #177500"># catalina.sh または setenv.sh に追加</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote.port=9090&quot;</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote.ssl=false&quot;</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote.authenticate=false&quot;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a><span style="color: #177500"># 認証を有効にする場合</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote.authenticate=true&quot;</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote.password.file=/path/to/jmxremote.password&quot;</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a><span style="color: #000">CATALINA_OPTS=</span><span style="color: #C41A16">&quot;</span><span style="color: #000">$CATALINA_OPTS</span><span style="color: #C41A16"> -Dcom.sun.management.jmxremote.access.file=/path/to/jmxremote.access&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>複数Tomcatインスタンスの監視:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span style="color: #000">com.instana.plugin.tomcat</span>:
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;tomcat-app1&#39;</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>      <span style="color: #000">jmx</span>:
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">9090</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;tomcat-app2&#39;</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>      <span style="color: #000">jmx</span>:
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">9091</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- JMXポート: catalina.shまたはsetenv.shで設定した値
+- 自動検出が有効な場合、設定不要（Instana Agentが自動的に検出）</p>
+<h3 id="splunk-observability-signalfx">Splunk Observability (SignalFx)</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Splunk Observability (SignalFx)</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span style="color: #000">com.instana.plugin.splunk</span>:
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>  <span style="color: #000">endpoint</span>: <span style="color: #C41A16">&#39;https://api.us1.signalfx.com&#39;</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>  <span style="color: #000">api_token</span>: <span style="color: #C41A16">&#39;[Splunk-API-Token]&#39;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>  <span style="color: #177500"># 秒単位</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>取得方法:</strong>
+- endpoint: Splunkリージョンに応じたAPI URL
+- api_token: Splunk Observability設定から生成</p>
+<h3 id="solarwinds">SolarWinds</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">SolarWinds</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span style="color: #000">com.instana.plugin.solarwinds</span>:
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>  <span style="color: #000">endpoint</span>: <span style="color: #C41A16">&#39;https://solarwinds.example.com:17774&#39;</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>  <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;solarwinds_password&#39;</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="nagios">Nagios</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Nagios</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span style="color: #000">com.instana.plugin.nagios</span>:
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>  <span style="color: #000">endpoint</span>: <span style="color: #C41A16">&#39;https://nagios.example.com/nagios&#39;</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>  <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;[Nagios-API-Key]&#39;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>  <span style="color: #177500"># 秒単位</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Nagios統合（テクニカルプレビュー）:</strong>
+- レガシー監視システム統合
+- サービスステータス
+- ホストチェック結果</p>
+<h3 id="zabbix">Zabbix</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Zabbix</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span style="color: #000">com.instana.plugin.zabbix</span>:
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>  <span style="color: #000">endpoint</span>: <span style="color: #C41A16">&#39;http://zabbix.example.com/zabbix/api_jsonrpc.php&#39;</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>  <span style="color: #000">token</span>: <span style="color: #C41A16">&#39;[Zabbix-API-Token]&#39;</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>  <span style="color: #177500"># 秒単位</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>取得方法:</strong>
+- endpoint: Zabbix API エンドポイント
+- token: Zabbix管理画面から生成（User settings → API tokens）</p>
+<h3 id="microsoft-scom">Microsoft SCOM</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Microsoft SCOM</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span style="color: #000">com.instana.plugin.scom</span>:
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>  <span style="color: #000">pollRate</span>: <span style="color: #1C01CE">30</span>  <span style="color: #177500"># 秒単位</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>  <span style="color: #000">endpoint</span>: <span style="color: #C41A16">&#39;http://scom-server.example.com/OperationsManager&#39;</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>  <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;domain\\admin&#39;</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;scom_password&#39;</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>  <span style="color: #000">kerberos_realm</span>: <span style="color: #C41A16">&#39;EXAMPLE.COM&#39;</span>  <span style="color: #177500"># Kerberosレルム名</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>  <span style="color: #000">kdc</span>: <span style="color: #C41A16">&#39;kdc.example.com&#39;</span>  <span style="color: #177500"># Kerberos KDCホスト名</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定のポイント:</strong>
+- username: ドメイン\ユーザー形式
+- Kerberos設定が必要な場合あり</p>
+<h3 id="turbonomic">Turbonomic</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Turbonomic</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span style="color: #000">com.instana.plugin.turbonomic</span>:
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;turbonomic.example.com&#39;</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>  <span style="color: #000">target</span>: <span style="color: #C41A16">&#39;Instana-Target-Name&#39;</span>  <span style="color: #177500"># Turbonomic内のターゲット名</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>  <span style="color: #000">auth</span>:
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a>    <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;turbo_password&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>取得方法:</strong>
+- target: Turbonomic管理画面で設定したInstanaターゲット名
+- 認証情報: Turbonomic管理者権限が必要</p>
+<h3 id="argo-cd">Argo CD</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/go">Argo CD</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span style="color: #000">com.instana.plugin.argocd</span>:
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># 秒単位（デフォルト5秒）</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>  <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;https://argocd.example.com&#39;</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>  <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;argocd_password&#39;</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a>  <span style="color: #000">clusters</span>:
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a>    - <span style="color: #C41A16">&#39;production-cluster&#39;</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9"></a>    - <span style="color: #C41A16">&#39;staging-cluster&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="jbosswildfly">JBoss/WildFly</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/jboss">JBoss/WildFly</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span style="color: #000">com.instana.plugin.jbossas</span>:
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>  <span style="color: #000">monitor-ejb-deployments</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>  <span style="color: #000">monitor-web-deployments-regex</span>: <span style="color: #C41A16">&#39;webapp.*&#39;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>monitor-ejb-deployments</code>: EJBデプロイメントの監視を有効化（デフォルト: true）
+- <code>monitor-web-deployments-regex</code>: 監視対象Webアプリケーションの正規表現パターン
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 1秒）</p>
+<p><strong>詳細設定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span style="color: #000">com.instana.plugin.jbossas</span>:
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a>  <span style="color: #000">monitor-ejb-deployments</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a>  <span style="color: #000">monitor-web-deployments-regex</span>: <span style="color: #C41A16">&#39;^(myapp|webapp).*&#39;</span>  <span style="color: #177500"># 特定アプリのみ</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a>  <span style="color: #000">jmx</span>:
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a>    <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">9990</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a>    <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- JMXポート: standalone.xmlまたはdomain.xmlで確認（デフォルト: 9990）
+- 認証情報: add-user.shスクリプトで作成</p>
+<h3 id="ibm-websphere-application-server">IBM WebSphere Application Server</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">IBM WebSphere Application Server</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span style="color: #000">com.instana.plugin.websphere</span>:
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a>  <span style="color: #000">enable_pmi</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>enable_pmi</code>: PMI（Performance Monitoring Infrastructure）の有効化（デフォルト: true）
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 5秒）</p>
+<p><strong>詳細設定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span style="color: #000">com.instana.plugin.websphere</span>:
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a>  <span style="color: #000">enable_pmi</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>  <span style="color: #000">soap</span>:
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>    <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">8880</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;wasadmin&#39;</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a>    <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;waspassword&#39;</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a>  <span style="color: #000">cells</span>:
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a>    - <span style="color: #C41A16">&#39;Cell01&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>PMI設定の確認:</strong>
+- WebSphere管理コンソール → Monitoring and Tuning → Performance Monitoring Infrastructure (PMI)
+- PMIレベルを「Basic」以上に設定</p>
+<p><strong>取得方法:</strong>
+- SOAPポート: WebSphere管理コンソールで確認（デフォルト: 8880）
+- 認証情報: WebSphere管理者アカウント</p>
+<h3 id="ibm-websphere-liberty">IBM WebSphere Liberty</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">IBM WebSphere Liberty</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span style="color: #000">com.instana.plugin.websphereliberty</span>:
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 1秒）</p>
+<p><strong>Liberty監視の前提条件:</strong>
+<div class="language-xml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span style="color: #177500">&lt;!-- server.xml に以下のfeatureを追加 --&gt;</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a><span style="color: #000">&lt;featureManager&gt;</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a>    <span style="color: #000">&lt;feature&gt;</span>monitor-1.0<span style="color: #000">&lt;/feature&gt;</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>    <span style="color: #000">&lt;feature&gt;</span>mpMetrics-2.3<span style="color: #000">&lt;/feature&gt;</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5"></a><span style="color: #000">&lt;/featureManager&gt;</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7"></a><span style="color: #177500">&lt;!-- HTTPエンドポイントの設定 --&gt;</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8"></a><span style="color: #000">&lt;httpEndpoint</span> <span style="color: #836C28">id=</span><span style="color: #C41A16">&quot;defaultHttpEndpoint&quot;</span>
+<a id="__codelineno-37-9" name="__codelineno-37-9"></a>              <span style="color: #836C28">host=</span><span style="color: #C41A16">&quot;*&quot;</span>
+<a id="__codelineno-37-10" name="__codelineno-37-10"></a>              <span style="color: #836C28">httpPort=</span><span style="color: #C41A16">&quot;9080&quot;</span>
+<a id="__codelineno-37-11" name="__codelineno-37-11"></a>              <span style="color: #836C28">httpsPort=</span><span style="color: #C41A16">&quot;9443&quot;</span> <span style="color: #000">/&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>詳細設定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span style="color: #000">com.instana.plugin.websphereliberty</span>:
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a>  <span style="color: #000">rest</span>:
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a>    <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;localhost&#39;</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">9443</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6"></a>    <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7"></a>    <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;liberty_password&#39;</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8"></a>    <span style="color: #000">ssl</span>: <span style="color: #1C01CE">true</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- ポート: server.xmlのhttpEndpoint設定で確認
+- 認証情報: Liberty管理者アカウント</p>
+<h3 id="apache-http-server">Apache HTTP Server</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/apache">Apache HTTP Server</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a><span style="color: #000">com.instana.plugin.httpd</span>:
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;admin&#39;</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;httpd_password&#39;</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a>  <span style="color: #000">tracing</span>:
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a>    <span style="color: #000">autoRestart</span>: <span style="color: #1C01CE">false</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>user</code>: server-statusページへのBasic認証ユーザー名
+- <code>password</code>: Basic認証パスワード
+- <code>tracing</code>: トレーシング設定
+  - <code>enabled</code>: トレーシングの有効化
+  - <code>autoRestart</code>: 設定変更時の自動再起動（デフォルト: false）</p>
+<p><strong>Apache設定の前提条件:</strong>
+<div class="language-apache highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-15">15</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span style="color: #177500"># httpd.conf または status.conf</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a><span style="color: #A90D91">LoadModule</span> status_module modules/mod_status.so
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a><span style="color: #000">&lt;Location</span> <span style="color: #C41A16">&quot;/server-status&quot;</span><span style="color: #000">&gt;</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a>    <span style="color: #A90D91">SetHandler</span> server-status
+<a id="__codelineno-40-6" name="__codelineno-40-6"></a>    <span style="color: #A90D91">Require</span> ip <span style="color: #1C01CE">127.0.0.1</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7"></a>    <span style="color: #177500"># Basic認証を使用する場合</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8"></a>    <span style="color: #A90D91">AuthType</span> Basic
+<a id="__codelineno-40-9" name="__codelineno-40-9"></a>    <span style="color: #A90D91">AuthName</span> <span style="color: #C41A16">&quot;Server Status&quot;</span>
+<a id="__codelineno-40-10" name="__codelineno-40-10"></a>    <span style="color: #A90D91">AuthUserFile</span> <span style="color: #C41A16">/etc/apache2/.htpasswd</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11"></a>    <span style="color: #A90D91">Require</span> valid-user
+<a id="__codelineno-40-12" name="__codelineno-40-12"></a><span style="color: #000">&lt;/Location&gt;</span>
+<a id="__codelineno-40-13" name="__codelineno-40-13"></a>
+<a id="__codelineno-40-14" name="__codelineno-40-14"></a><span style="color: #177500"># 拡張ステータスを有効化</span>
+<a id="__codelineno-40-15" name="__codelineno-40-15"></a><span style="color: #A90D91">ExtendedStatus</span> <span style="color: #A90D91">On</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>認証なしの場合:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><span style="color: #000">com.instana.plugin.httpd</span>:
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a>  <span style="color: #000">tracing</span>:
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a>    <span style="color: #000">autoRestart</span>: <span style="color: #1C01CE">false</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- user/password: .htpasswdファイルで管理、htpasswdコマンドで作成
+- server-status URL: デフォルトはhttp://localhost/server-status</p>
+<h3 id="nginx">Nginx</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/nginx">Nginx</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><span style="color: #000">com.instana.plugin.nginx</span>:
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>poll_rate</code>: メトリクス収集間隔（秒単位、デフォルト: 30秒）</p>
+<p><strong>Nginx設定の前提条件:</strong>
+<div class="language-nginx highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-43-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a><span style="color: #177500"># nginx.conf</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2"></a><span style="color: #A90D91">http</span> {
+<a id="__codelineno-43-3" name="__codelineno-43-3"></a>    <span style="color: #A90D91">server</span> {
+<a id="__codelineno-43-4" name="__codelineno-43-4"></a>        <span style="color: #A90D91">listen</span> <span style="color: #1C01CE">80</span>;
+<a id="__codelineno-43-5" name="__codelineno-43-5"></a>
+<a id="__codelineno-43-6" name="__codelineno-43-6"></a>        <span style="color: #177500"># stub_statusモジュールを有効化</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7"></a>        <span style="color: #A90D91">location</span> <span style="color: #C41A16">/nginx_status</span> {
+<a id="__codelineno-43-8" name="__codelineno-43-8"></a>            <span style="color: #A90D91">stub_status</span> <span style="color: #000">on</span>;
+<a id="__codelineno-43-9" name="__codelineno-43-9"></a>            <span style="color: #A90D91">access_log</span> <span style="color: #000">off</span>;
+<a id="__codelineno-43-10" name="__codelineno-43-10"></a>            <span style="color: #A90D91">allow</span> <span style="color: #1C01CE">127</span><span style="color: #C41A16">.0.0.1</span>;
+<a id="__codelineno-43-11" name="__codelineno-43-11"></a>            <span style="color: #A90D91">deny</span> <span style="color: #C41A16">all</span>;
+<a id="__codelineno-43-12" name="__codelineno-43-12"></a>        }
+<a id="__codelineno-43-13" name="__codelineno-43-13"></a>    }
+<a id="__codelineno-43-14" name="__codelineno-43-14"></a>}
+</code></pre></div></td></tr></table></div></p>
+<p><strong>詳細設定:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-44-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1"></a><span style="color: #000">com.instana.plugin.nginx</span>:
+<a id="__codelineno-44-2" name="__codelineno-44-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3"></a>  <span style="color: #000">status_url</span>: <span style="color: #C41A16">&#39;http://localhost/nginx_status&#39;</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4"></a>  <span style="color: #177500"># 複数Nginxインスタンス</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-44-6" name="__codelineno-44-6"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;nginx-frontend&#39;</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7"></a>      <span style="color: #000">status_url</span>: <span style="color: #C41A16">&#39;http://localhost:8080/nginx_status&#39;</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9"></a>    - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;nginx-backend&#39;</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10"></a>      <span style="color: #000">status_url</span>: <span style="color: #C41A16">&#39;http://localhost:8081/nginx_status&#39;</span>
+<a id="__codelineno-44-11" name="__codelineno-44-11"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Nginx Plus（商用版）の場合:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-45-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-45-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-45-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-45-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span style="color: #000">com.instana.plugin.nginx</span>:
+<a id="__codelineno-45-2" name="__codelineno-45-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a>  <span style="color: #000">plus</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a>  <span style="color: #000">api_url</span>: <span style="color: #C41A16">&#39;http://localhost:8080/api&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>取得方法:</strong>
+- status_url: nginx.confのlocation設定で確認
+- stub_statusモジュールが有効か確認: <code>nginx -V 2&gt;&amp;1 | grep -o with-http_stub_status_module</code></p>
+<hr />
+<h3 id="ibm-ace">IBM ACE</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">IBM ACE</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-46-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1"></a><span style="color: #000">com.instana.plugin.ace</span>:
+<a id="__codelineno-46-2" name="__codelineno-46-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4"></a>  <span style="color: #000">messageFlow</span>:
+<a id="__codelineno-46-5" name="__codelineno-46-5"></a>    <span style="color: #000">limit</span>: <span style="color: #1C01CE">20</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6"></a>    <span style="color: #000">sortByMetric</span>: <span style="color: #C41A16">&#39;MaximumElapsedTime&#39;</span>
+<a id="__codelineno-46-7" name="__codelineno-46-7"></a>  <span style="color: #000">NodesOrServers</span>:
+<a id="__codelineno-46-8" name="__codelineno-46-8"></a>    <span style="color: #000">BK1</span>:
+<a id="__codelineno-46-9" name="__codelineno-46-9"></a>      <span style="color: #000">restApiPort</span>: <span style="color: #C41A16">&#39;4414&#39;</span>
+<a id="__codelineno-46-10" name="__codelineno-46-10"></a>      <span style="color: #000">aceUsername</span>: <span style="color: #C41A16">&#39;viewer&#39;</span>
+<a id="__codelineno-46-11" name="__codelineno-46-11"></a>      <span style="color: #000">acePassword</span>: <span style="color: #C41A16">&#39;viewerPassword&#39;</span>
+<a id="__codelineno-46-12" name="__codelineno-46-12"></a>      <span style="color: #000">mqport</span>: <span style="color: #C41A16">&#39;11883&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="ibm-mq-managed-file-transfer">IBM MQ Managed File Transfer</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/ibm-mq">IBM MQ Managed File Transfer</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-47-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span style="color: #000">com.instana.plugin.ibmmqmft</span>:
+<a id="__codelineno-47-2" name="__codelineno-47-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4"></a>  <span style="color: #000">instances</span>:
+<a id="__codelineno-47-5" name="__codelineno-47-5"></a>    <span style="color: #000">QM1-hostname</span>:
+<a id="__codelineno-47-6" name="__codelineno-47-6"></a>      <span style="color: #000">transfer_expired_interval</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-47-7" name="__codelineno-47-7"></a>      <span style="color: #000">coordinationQueueManager</span>:
+<a id="__codelineno-47-8" name="__codelineno-47-8"></a>        <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;QM1&#39;</span>
+<a id="__codelineno-47-9" name="__codelineno-47-9"></a>        <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mq-server.example.com&#39;</span>
+<a id="__codelineno-47-10" name="__codelineno-47-10"></a>        <span style="color: #000">port</span>: <span style="color: #1C01CE">1414</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4270 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../container/">
+      
+      
+        <link rel="next" href="../eum/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Database - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Database
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースセンサー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snowflake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snowflake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oracle Database (リモート監視)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DB2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db2-for-zos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DB2 for z/OS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-rds-aurora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS RDS / Aurora
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mysqlvault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ1: 本番環境でのMySQL監視（Vault統合）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ2: PostgreSQL高可用性構成の監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ3: マルチデータベース環境の監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ4: Kubernetes環境でのデータベース監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ5: クラウドマネージドデータベースの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスチューニング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンスチューニング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ポーリング間隔の最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        接続プールの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クエリパフォーマンスの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メモリ使用量の最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: データベースへの接続エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: 認証エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: パフォーマンスの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題4: メトリクスが収集されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題5: Vault統合の問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題6: レプリケーション遅延の監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 高可用性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 運用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある質問（FAQ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問（FAQ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: 複数のデータベースインスタンスを監視できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: データベースのパスワード変更時の対応は？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-rdsazure-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: クラウドマネージドデータベース（RDS、Azure Database等）も監視できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: データベース監視がアプリケーションのパフォーマンスに影響しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: レプリケーション遅延はどのように監視されますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考リンク
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/sdks-mcp-server-instana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースセンサー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snowflake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snowflake
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oracle Database (リモート監視)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DB2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#db2-for-zos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DB2 for z/OS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-rds-aurora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS RDS / Aurora
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mysqlvault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ1: 本番環境でのMySQL監視（Vault統合）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ2: PostgreSQL高可用性構成の監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ3: マルチデータベース環境の監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ4: Kubernetes環境でのデータベース監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シナリオ5: クラウドマネージドデータベースの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスチューニング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンスチューニング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ポーリング間隔の最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        接続プールの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クエリパフォーマンスの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メモリ使用量の最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: データベースへの接続エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: 認証エラー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: パフォーマンスの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題4: メトリクスが収集されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題5: Vault統合の問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題6: レプリケーション遅延の監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 高可用性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 運用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある質問（FAQ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よくある質問（FAQ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: 複数のデータベースインスタンスを監視できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: データベースのパスワード変更時の対応は？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-rdsazure-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: クラウドマネージドデータベース（RDS、Azure Database等）も監視できますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: データベース監視がアプリケーションのパフォーマンスに影響しますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: レプリケーション遅延はどのように監視されますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考リンク
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Database</h1>
+
+<h2 id="_1">データベースセンサー</h2>
+<hr />
+<h2 id="_2">📚 情報ソース</h2>
+<p>このドキュメントは以下の情報源を基に作成されています：</p>
+<h3 id="_3">主要ソース</h3>
+<ul>
+<li><strong>IBM公式ドキュメント</strong>:</li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Monitoring Databases</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Snowflake</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Oracle Database</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability/mysql">MySQL</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability/postgresql">PostgreSQL</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability/mongodb">MongoDB</a></li>
+</ul>
+<h3 id="_4">補足ソース</h3>
+<ul>
+<li><strong>各データベース公式ドキュメント</strong>: 接続設定とメトリクス情報</li>
+<li><strong>実運用環境の設定例</strong>: 本番環境でのHA構成とVault統合パターン</li>
+</ul>
+<hr />
+<p>このセクションでは、各種データベースの監視設定を解説します。データベース監視では、パフォーマンスメトリクス、クエリ統計、接続情報などを収集します。</p>
+<h3 id="snowflake">Snowflake</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Snowflake</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #000">com.instana.plugin.snowflake</span>:
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span style="color: #000">account</span>: <span style="color: #C41A16">&#39;xy12345.us-east-1&#39;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;https://xy12345.us-east-1.snowflakecomputing.com&#39;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;monitoring_user&#39;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>  <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;secure_password&#39;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>  <span style="color: #000">role</span>: <span style="color: #C41A16">&#39;ACCOUNTADMIN&#39;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>  <span style="color: #000">warehouse</span>: <span style="color: #C41A16">&#39;COMPUTE_WH&#39;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">3600</span>  <span style="color: #177500"># 秒単位（デフォルト3600秒=1時間）</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>  <span style="color: #000">collectOrganizationData</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>  <span style="color: #000">org_poll_rate</span>: <span style="color: #1C01CE">43200</span>  <span style="color: #177500"># 組織データ収集間隔（12時間）</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Snowflake</span><span style="color: #000"> </span><span style="color: #C41A16">Production&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定項目の説明:</strong>
+- <code>account</code>: Snowflakeアカウント識別子
+- <code>url</code>: SnowflakeアカウントURL
+- <code>role</code>: 使用するロール（ACCOUNTADMIN推奨）
+- <code>warehouse</code>: クエリ実行用ウェアハウス
+- <code>collectOrganizationData</code>: 組織レベルのデータ収集
+- <code>org_poll_rate</code>: 組織データの収集間隔</p>
+<p><strong>設定値の取得方法:</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>account</code></td>
+<td>Snowflakeコンソール &gt; Account &gt; Account Identifier</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td><code>https://&lt;account_identifier&gt;.snowflakecomputing.com</code></td>
+</tr>
+<tr>
+<td><code>user</code>/<code>password</code></td>
+<td>Snowflakeで監視用ユーザーを作成</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>SHOW ROLES;</code>で確認（ACCOUNTADMIN推奨）</td>
+</tr>
+<tr>
+<td><code>warehouse</code></td>
+<td><code>SHOW WAREHOUSES;</code>で確認</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="oracle-database">Oracle Database (リモート監視)</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Oracle Database (リモート監視)</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #000">com.instana.plugin.oracledb</span>:
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;oracle-server.example.com&#39;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;1521&#39;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>      <span style="color: #000">databaseSID</span>: <span style="color: #C41A16">&#39;ORCL&#39;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;sys</span><span style="color: #000"> </span><span style="color: #C41A16">as</span><span style="color: #000"> </span><span style="color: #C41A16">sysdba&#39;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;oracle_password&#39;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="db2">DB2</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">DB2</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #000">com.instana.plugin.db2</span>:
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span style="color: #000">local</span>:
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    - <span style="color: #000">instance</span>: <span style="color: #C41A16">&#39;db2inst1&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;50000&#39;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;db2inst1&#39;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;db2_password&#39;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>      <span style="color: #000">databases</span>:
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>        - <span style="color: #C41A16">&#39;database1&#39;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>        - <span style="color: #C41A16">&#39;database2&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定値の取得方法:</strong>
+- <code>instance</code>: DB2インスタンス名（<code>db2ilist</code>コマンドで確認）
+- <code>port</code>: DB2ポート番号（デフォルト50000、<code>db2 get dbm cfg | grep SVCENAME</code>で確認）
+- <code>user</code>/<code>password</code>: 下記のSQLで監視用ユーザーを作成
+- <code>databases</code>: 監視対象データベース名（<code>db2 list db directory</code>で確認）</p>
+<p><strong>監視ユーザーの作成:</strong>
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #177500">-- DB2で実行</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span> <span style="color: #000">IDENTIFIED</span> <span style="color: #A90D91">BY</span> <span style="color: #000">db2_password</span>;
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">CONNECT</span> <span style="color: #A90D91">ON</span> <span style="color: #A90D91">DATABASE</span> <span style="color: #A90D91">TO</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span>;
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span style="color: #A90D91">GRANT</span> <span style="color: #000">DATAACCESS</span> <span style="color: #A90D91">ON</span> <span style="color: #A90D91">DATABASE</span> <span style="color: #A90D91">TO</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span>;
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span style="color: #A90D91">GRANT</span> <span style="color: #000">DBADM</span> <span style="color: #A90D91">ON</span> <span style="color: #A90D91">DATABASE</span> <span style="color: #A90D91">TO</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span>;
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span style="color: #177500">-- または最小権限で</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">CONNECT</span> <span style="color: #A90D91">ON</span> <span style="color: #A90D91">DATABASE</span> <span style="color: #A90D91">TO</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span>;
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">SELECT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">SYSIBMADM</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span>;
+</code></pre></div></td></tr></table></div></p>
+<h3 id="db2-for-zos">DB2 for z/OS</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">DB2 for z/OS</a></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #000">com.instana.plugin.db2z</span>:
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;192.168.1.100&#39;</span>  <span style="color: #177500"># z/OSシステムのIPアドレス</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;5040&#39;</span>  <span style="color: #177500"># DDF（Distributed Data Facility）ポート</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;DB2Z</span><span style="color: #000"> </span><span style="color: #C41A16">Remote</span><span style="color: #000"> </span><span style="color: #C41A16">Monitoring&#39;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>  <span style="color: #177500"># 秒単位</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>      <span style="color: #000">locations</span>:
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>        - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;LOCATION1&#39;</span>  <span style="color: #177500"># DB2ロケーション名</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>          <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;DB2ADMIN&#39;</span>  <span style="color: #177500"># z/OSユーザーID</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>          <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        - <span style="color: #000">name</span>: <span style="color: #C41A16">&#39;LOCATION2&#39;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>          <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;DB2ADMIN&#39;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>          <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>設定値の取得方法:</strong>
+- <code>host</code>: z/OSシステムのIPアドレスまたはホスト名
+- <code>port</code>: DDFポート番号（z/OS管理者に確認、通常5040または446）
+- <code>locations.name</code>: DB2ロケーション名（<code>-DIS DDF</code>コマンドで確認）
+- <code>user</code>/<code>password</code>: RACF/ACF2/Top Secretで定義されたz/OSユーザー
+- 必要な権限: SYSADM、SYSOPR、またはMONITOR権限</p>
+<h3 id="aws-rds-aurora">AWS RDS / Aurora</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability/mysql">MySQL</a> | <a href="https://www.ibm.com/docs/en/instana-observability/postgresql">PostgreSQL</a></p>
+<p><strong>💡 注意:</strong> AWS RDS/Auroraには2つの監視方法があります：
+1. <strong>CloudWatch経由</strong>（<a href="../cloud/">cloud.md</a>参照）- メトリクス収集のみ
+2. <strong>直接DB接続</strong>（本セクション）- 詳細なクエリ監視、スロークエリ、接続数など</p>
+<p><strong>MySQL/Aurora MySQL:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mydb.abc123.us-east-1.rds.amazonaws.com&#39;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;3306&#39;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;monitoring_user&#39;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;secure_password&#39;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>      <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;mysql&#39;</span>  <span style="color: #177500"># システムデータベース</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;AWS</span><span style="color: #000"> </span><span style="color: #C41A16">RDS</span><span style="color: #000"> </span><span style="color: #C41A16">MySQL</span><span style="color: #000"> </span><span style="color: #C41A16">Production&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>PostgreSQL/Aurora PostgreSQL:</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  <span style="color: #000">remote</span>:
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    - <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mydb.abc123.us-east-1.rds.amazonaws.com&#39;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>      <span style="color: #000">port</span>: <span style="color: #C41A16">&#39;5432&#39;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>      <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;monitoring_user&#39;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>      <span style="color: #000">password</span>: <span style="color: #C41A16">&#39;secure_password&#39;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>      <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;postgres&#39;</span>  <span style="color: #177500"># システムデータベース</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>      <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>      <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;AWS</span><span style="color: #000"> </span><span style="color: #C41A16">RDS</span><span style="color: #000"> </span><span style="color: #C41A16">PostgreSQL</span><span style="color: #000"> </span><span style="color: #C41A16">Production&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>設定値の取得方法:</strong></p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>host</code></td>
+<td>AWS Console &gt; RDS &gt; データベース &gt; エンドポイント</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td>AWS Console &gt; RDS &gt; データベース &gt; ポート（MySQL: 3306, PostgreSQL: 5432）</td>
+</tr>
+<tr>
+<td><code>user</code>/<code>password</code></td>
+<td>RDSで作成した監視用ユーザー（下記参照）</td>
+</tr>
+<tr>
+<td><code>database</code></td>
+<td>システムデータベース（MySQL: <code>mysql</code>, PostgreSQL: <code>postgres</code>）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>監視ユーザーの作成:</strong></p>
+<p>MySQL/Aurora MySQL:
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #177500">-- RDSマスターユーザーで実行</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">USER</span> <span style="color: #C41A16">&#39;monitoring_user&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span> <span style="color: #000">IDENTIFIED</span> <span style="color: #A90D91">BY</span> <span style="color: #C41A16">&#39;secure_password&#39;</span>;
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">SELECT</span>, <span style="color: #000">PROCESS</span>, <span style="color: #000">REPLICATION</span> <span style="color: #000">CLIENT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">*</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #C41A16">&#39;monitoring_user&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span>;
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">SELECT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">performance_schema</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #C41A16">&#39;monitoring_user&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span>;
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span style="color: #000">FLUSH</span> <span style="color: #A90D91">PRIVILEGES</span>;
+</code></pre></div></td></tr></table></div></p>
+<p>PostgreSQL/Aurora PostgreSQL:
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #177500">-- RDSマスターユーザーで実行</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">USER</span> <span style="color: #000">monitoring_user</span> <span style="color: #A90D91">WITH</span> <span style="color: #000">PASSWORD</span> <span style="color: #C41A16">&#39;secure_password&#39;</span>;
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span style="color: #A90D91">GRANT</span> <span style="color: #000">pg_monitor</span> <span style="color: #A90D91">TO</span> <span style="color: #000">monitoring_user</span>;
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">SELECT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">pg_stat_database</span> <span style="color: #A90D91">TO</span> <span style="color: #000">monitoring_user</span>;
+</code></pre></div></td></tr></table></div></p>
+<p><strong>セキュリティグループ設定:</strong>
+- Instana AgentのセキュリティグループからRDSへのインバウンドルールを追加
+- ポート: MySQL(3306), PostgreSQL(5432)</p>
+<p><strong>ベストプラクティス:</strong>
+- パスワードは<a href="../secrets/">secrets.md</a>のVault統合を使用
+- 読み取りレプリカがある場合は、レプリカも監視対象に追加
+- <code>poll_rate</code>は負荷に応じて調整（本番環境では5-10秒推奨）</p>
+<hr />
+<hr />
+<h2 id="_5">実践的な使用例</h2>
+<h3 id="1-mysqlvault">シナリオ1: 本番環境でのMySQL監視（Vault統合）</h3>
+<p>本番環境では、Vaultを使用してデータベース認証情報を安全に管理します。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-23">23</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #177500"># Vault統合を使用したMySQL監視</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mysql-primary.prod.example.com&#39;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;production_db&#39;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  <span style="color: #000">user</span>:
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/mysql/production&#39;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;username&#39;</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/mysql/production&#39;</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>  <span style="color: #177500"># 5秒ごとに監視</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;MySQL</span><span style="color: #000"> </span><span style="color: #C41A16">Production</span><span style="color: #000"> </span><span style="color: #C41A16">Primary&#39;</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>    - <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>    - <span style="color: #C41A16">&#39;primary&#39;</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>    - <span style="color: #C41A16">&#39;critical&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>監視ユーザーの作成（最小権限）:</strong>
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #177500">-- MySQLで実行</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">USER</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span> <span style="color: #000">IDENTIFIED</span> <span style="color: #A90D91">BY</span> <span style="color: #C41A16">&#39;secure_password&#39;</span>;
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span style="color: #A90D91">GRANT</span> <span style="color: #000">PROCESS</span>, <span style="color: #000">REPLICATION</span> <span style="color: #000">CLIENT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">*</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span>;
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">SELECT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">performance_schema</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span>;
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">SELECT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">mysql</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span>;
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span style="color: #000">FLUSH</span> <span style="color: #A90D91">PRIVILEGES</span>;
+</code></pre></div></td></tr></table></div></p>
+<h3 id="2-postgresql">シナリオ2: PostgreSQL高可用性構成の監視</h3>
+<p>プライマリとレプリカの両方を監視する設定：</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-28">28</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-29">29</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-30">30</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-31">31</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-32">32</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-33">33</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-34">34</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-35">35</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-36">36</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-37">37</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #177500"># プライマリデータベース</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;postgres-primary.prod.example.com&#39;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">5432</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/postgresql/primary&#39;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;PostgreSQL</span><span style="color: #000"> </span><span style="color: #C41A16">Primary&#39;</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>    - <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>    - <span style="color: #C41A16">&#39;primary&#39;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>    - <span style="color: #C41A16">&#39;postgres&#39;</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a><span style="color: #177500"># レプリカ1</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-11-22" name="__codelineno-11-22"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;postgres-replica1.prod.example.com&#39;</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">5432</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-11-27" name="__codelineno-11-27"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-11-28" name="__codelineno-11-28"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-11-30" name="__codelineno-11-30"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/postgresql/replica&#39;</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># レプリカは監視頻度を下げる</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;PostgreSQL</span><span style="color: #000"> </span><span style="color: #C41A16">Replica</span><span style="color: #000"> </span><span style="color: #C41A16">1&#39;</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-11-35" name="__codelineno-11-35"></a>    - <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-11-36" name="__codelineno-11-36"></a>    - <span style="color: #C41A16">&#39;replica&#39;</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37"></a>    - <span style="color: #C41A16">&#39;postgres&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>PostgreSQL監視ユーザーの作成:</strong>
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #177500">-- PostgreSQLで実行</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">USER</span> <span style="color: #000">instana_monitor</span> <span style="color: #A90D91">WITH</span> <span style="color: #000">PASSWORD</span> <span style="color: #C41A16">&#39;secure_password&#39;</span>;
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span style="color: #A90D91">GRANT</span> <span style="color: #000">pg_monitor</span> <span style="color: #A90D91">TO</span> <span style="color: #000">instana_monitor</span>;
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">CONNECT</span> <span style="color: #A90D91">ON</span> <span style="color: #A90D91">DATABASE</span> <span style="color: #000">production</span> <span style="color: #A90D91">TO</span> <span style="color: #000">instana_monitor</span>;
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span style="color: #A90D91">GRANT</span> <span style="color: #A90D91">USAGE</span> <span style="color: #A90D91">ON</span> <span style="color: #A90D91">SCHEMA</span> <span style="color: #A90D91">public</span> <span style="color: #A90D91">TO</span> <span style="color: #000">instana_monitor</span>;
+</code></pre></div></td></tr></table></div></p>
+<h3 id="3">シナリオ3: マルチデータベース環境の監視</h3>
+<p>複数のデータベースを一元管理する設定：</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-28">28</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-29">29</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-30">30</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-31">31</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-32">32</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-33">33</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-34">34</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-35">35</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-36">36</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-37">37</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-38">38</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-39">39</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-40">40</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-41">41</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-42">42</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-43">43</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-44">44</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-45">45</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-46">46</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-47">47</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-48">48</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-49">49</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-50">50</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-51">51</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-52">52</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-53">53</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-54">54</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-55">55</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-56">56</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-57">57</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-58">58</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-59">59</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span style="color: #177500"># MySQL - アプリケーションDB</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mysql.prod.example.com&#39;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;app_db&#39;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/mysql/app&#39;</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;MySQL</span><span style="color: #000"> </span><span style="color: #C41A16">Application</span><span style="color: #000"> </span><span style="color: #C41A16">DB&#39;</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a><span style="color: #177500"># PostgreSQL - 分析DB</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-13-18" name="__codelineno-13-18"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;postgres.prod.example.com&#39;</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">5432</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;analytics_db&#39;</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-13-23" name="__codelineno-13-23"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-13-24" name="__codelineno-13-24"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-13-26" name="__codelineno-13-26"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/postgresql/analytics&#39;</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;PostgreSQL</span><span style="color: #000"> </span><span style="color: #C41A16">Analytics</span><span style="color: #000"> </span><span style="color: #C41A16">DB&#39;</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30"></a>
+<a id="__codelineno-13-31" name="__codelineno-13-31"></a><span style="color: #177500"># MongoDB - ログDB</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32"></a><span style="color: #000">com.instana.plugin.mongodb</span>:
+<a id="__codelineno-13-33" name="__codelineno-13-33"></a>  <span style="color: #000">hosts</span>:
+<a id="__codelineno-13-34" name="__codelineno-13-34"></a>    - <span style="color: #C41A16">&#39;mongo1.prod.example.com:27017&#39;</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35"></a>    - <span style="color: #C41A16">&#39;mongo2.prod.example.com:27017&#39;</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36"></a>    - <span style="color: #C41A16">&#39;mongo3.prod.example.com:27017&#39;</span>
+<a id="__codelineno-13-37" name="__codelineno-13-37"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;logs_db&#39;</span>
+<a id="__codelineno-13-38" name="__codelineno-13-38"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-13-40" name="__codelineno-13-40"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-13-41" name="__codelineno-13-41"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-13-42" name="__codelineno-13-42"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-13-43" name="__codelineno-13-43"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/mongodb/logs&#39;</span>
+<a id="__codelineno-13-44" name="__codelineno-13-44"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-13-46" name="__codelineno-13-46"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;MongoDB</span><span style="color: #000"> </span><span style="color: #C41A16">Logs</span><span style="color: #000"> </span><span style="color: #C41A16">DB&#39;</span>
+<a id="__codelineno-13-47" name="__codelineno-13-47"></a>
+<a id="__codelineno-13-48" name="__codelineno-13-48"></a><span style="color: #177500"># Redis - キャッシュ</span>
+<a id="__codelineno-13-49" name="__codelineno-13-49"></a><span style="color: #000">com.instana.plugin.redis</span>:
+<a id="__codelineno-13-50" name="__codelineno-13-50"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;redis.prod.example.com&#39;</span>
+<a id="__codelineno-13-51" name="__codelineno-13-51"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">6379</span>
+<a id="__codelineno-13-52" name="__codelineno-13-52"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-13-53" name="__codelineno-13-53"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-13-54" name="__codelineno-13-54"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-13-55" name="__codelineno-13-55"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-13-56" name="__codelineno-13-56"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/database/redis/cache&#39;</span>
+<a id="__codelineno-13-57" name="__codelineno-13-57"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-13-58" name="__codelineno-13-58"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-13-59" name="__codelineno-13-59"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Redis</span><span style="color: #000"> </span><span style="color: #C41A16">Cache&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="4-kubernetes">シナリオ4: Kubernetes環境でのデータベース監視</h3>
+<p>StatefulSetで動作するデータベースの監視：</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-18">18</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span style="color: #177500"># Kubernetes内のPostgreSQL監視</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;postgres-0.postgres-headless.database.svc.cluster.local&#39;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">5432</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;app_db&#39;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/k8s/database/postgres&#39;</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Kubernetes</span><span style="color: #000"> </span><span style="color: #C41A16">PostgreSQL&#39;</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a>    - <span style="color: #C41A16">&#39;kubernetes&#39;</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a>    - <span style="color: #C41A16">&#39;statefulset&#39;</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a>    - <span style="color: #C41A16">&#39;postgres&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="5">シナリオ5: クラウドマネージドデータベースの監視</h3>
+<p>AWS RDS、Azure Database、Google Cloud SQLの監視：</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-28">28</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-29">29</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-30">30</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-31">31</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-32">32</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-33">33</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-34">34</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-35">35</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-36">36</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-37">37</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-38">38</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-39">39</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-40">40</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-41">41</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-42">42</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-43">43</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-44">44</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-45">45</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-46">46</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-47">47</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-48">48</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-49">49</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-50">50</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-51">51</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-52">52</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-53">53</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-54">54</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-55">55</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span style="color: #177500"># AWS RDS MySQL</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mydb.abc123.us-east-1.rds.amazonaws.com&#39;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/aws/rds/mysql&#39;</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;AWS</span><span style="color: #000"> </span><span style="color: #C41A16">RDS</span><span style="color: #000"> </span><span style="color: #C41A16">MySQL</span><span style="color: #000"> </span><span style="color: #C41A16">us-east-1&#39;</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a>    - <span style="color: #C41A16">&#39;aws&#39;</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a>    - <span style="color: #C41A16">&#39;rds&#39;</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a>    - <span style="color: #C41A16">&#39;managed&#39;</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19"></a>
+<a id="__codelineno-15-20" name="__codelineno-15-20"></a><span style="color: #177500"># Azure Database for PostgreSQL</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-15-22" name="__codelineno-15-22"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;myserver.postgres.database.azure.com&#39;</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">5432</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor@myserver&#39;</span>  <span style="color: #177500"># Azure形式</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-15-27" name="__codelineno-15-27"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-15-28" name="__codelineno-15-28"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-15-29" name="__codelineno-15-29"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-15-30" name="__codelineno-15-30"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/azure/postgres&#39;</span>
+<a id="__codelineno-15-31" name="__codelineno-15-31"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-15-32" name="__codelineno-15-32"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-15-33" name="__codelineno-15-33"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;Azure</span><span style="color: #000"> </span><span style="color: #C41A16">PostgreSQL&#39;</span>
+<a id="__codelineno-15-34" name="__codelineno-15-34"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-15-35" name="__codelineno-15-35"></a>    - <span style="color: #C41A16">&#39;azure&#39;</span>
+<a id="__codelineno-15-36" name="__codelineno-15-36"></a>    - <span style="color: #C41A16">&#39;managed&#39;</span>
+<a id="__codelineno-15-37" name="__codelineno-15-37"></a>
+<a id="__codelineno-15-38" name="__codelineno-15-38"></a><span style="color: #177500"># Google Cloud SQL</span>
+<a id="__codelineno-15-39" name="__codelineno-15-39"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-15-40" name="__codelineno-15-40"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;10.0.0.3&#39;</span>  <span style="color: #177500"># プライベートIP</span>
+<a id="__codelineno-15-41" name="__codelineno-15-41"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-15-42" name="__codelineno-15-42"></a>  <span style="color: #000">database</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-15-43" name="__codelineno-15-43"></a>  <span style="color: #000">user</span>: <span style="color: #C41A16">&#39;instana_monitor&#39;</span>
+<a id="__codelineno-15-44" name="__codelineno-15-44"></a>  <span style="color: #000">password</span>:
+<a id="__codelineno-15-45" name="__codelineno-15-45"></a>    <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-15-46" name="__codelineno-15-46"></a>      <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-15-47" name="__codelineno-15-47"></a>      <span style="color: #000">secret_key</span>:
+<a id="__codelineno-15-48" name="__codelineno-15-48"></a>        <span style="color: #000">path</span>: <span style="color: #C41A16">&#39;secret/gcp/cloudsql/mysql&#39;</span>
+<a id="__codelineno-15-49" name="__codelineno-15-49"></a>        <span style="color: #000">key</span>: <span style="color: #C41A16">&#39;password&#39;</span>
+<a id="__codelineno-15-50" name="__codelineno-15-50"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+<a id="__codelineno-15-51" name="__codelineno-15-51"></a>  <span style="color: #000">availabilityZone</span>: <span style="color: #C41A16">&#39;GCP</span><span style="color: #000"> </span><span style="color: #C41A16">Cloud</span><span style="color: #000"> </span><span style="color: #C41A16">SQL&#39;</span>
+<a id="__codelineno-15-52" name="__codelineno-15-52"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-15-53" name="__codelineno-15-53"></a>    - <span style="color: #C41A16">&#39;gcp&#39;</span>
+<a id="__codelineno-15-54" name="__codelineno-15-54"></a>    - <span style="color: #C41A16">&#39;cloudsql&#39;</span>
+<a id="__codelineno-15-55" name="__codelineno-15-55"></a>    - <span style="color: #C41A16">&#39;managed&#39;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="_6">パフォーマンスチューニング</h2>
+<h3 id="_7">ポーリング間隔の最適化</h3>
+<p>データベースの負荷とモニタリング要件に応じて、ポーリング間隔を調整します。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span style="color: #177500"># 高負荷環境 - ポーリング間隔を長くする</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># 10秒（デフォルトは1秒）</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span style="color: #177500"># 低負荷環境 - より頻繁に監視</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">1</span>   <span style="color: #177500"># 1秒</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span style="color: #177500"># 分析用DB - 監視頻度を下げる</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span style="color: #000">com.instana.plugin.postgresql</span>:
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">30</span>  <span style="color: #177500"># 30秒</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>推奨設定:</strong></p>
+<table>
+<thead>
+<tr>
+<th>データベースタイプ</th>
+<th>本番環境</th>
+<th>開発環境</th>
+<th>分析DB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL/PostgreSQL</td>
+<td>5秒</td>
+<td>10秒</td>
+<td>30秒</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>5秒</td>
+<td>10秒</td>
+<td>30秒</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>5秒</td>
+<td>10秒</td>
+<td>15秒</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>10秒</td>
+<td>30秒</td>
+<td>60秒</td>
+</tr>
+<tr>
+<td>DB2</td>
+<td>10秒</td>
+<td>30秒</td>
+<td>60秒</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">接続プールの設定</h3>
+<p>データベース接続数を最適化：</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span style="color: #177500"># MySQL - 接続プール設定</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mysql.example.com&#39;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>  <span style="color: #177500"># 接続タイムアウト（ミリ秒）</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>  <span style="color: #000">connection_timeout</span>: <span style="color: #1C01CE">5000</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>  <span style="color: #177500"># 最大接続数（Instana Agent側では制御しない）</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>  <span style="color: #177500"># データベース側で設定: max_connections = 200</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>データベース側の設定例（MySQL）:</strong>
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span style="color: #177500">-- my.cnf</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>[<span style="color: #000">mysqld</span>]
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span style="color: #000">max_connections</span> <span style="color: #000">=</span> <span style="color: #1C01CE">200</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span style="color: #000">max_user_connections</span> <span style="color: #000">=</span> <span style="color: #1C01CE">50</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span style="color: #000">wait_timeout</span> <span style="color: #000">=</span> <span style="color: #1C01CE">28800</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span style="color: #000">interactive_timeout</span> <span style="color: #000">=</span> <span style="color: #1C01CE">28800</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="_9">クエリパフォーマンスの監視</h3>
+<p>スロークエリの監視設定：</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span style="color: #177500"># MySQL - スロークエリログの有効化</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span style="color: #177500"># my.cnf</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>[<span style="color: #000">mysqld</span>]
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span style="color: #1C01CE">slow_query_log = 1</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span style="color: #1C01CE">slow_query_log_file = /var/log/mysql/slow-query.log</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span style="color: #1C01CE">long_query_time = 2</span>  <span style="color: #177500"># 2秒以上のクエリをログ</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span style="color: #1C01CE">log_queries_not_using_indexes = 1</span>
+</code></pre></div></td></tr></table></div>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #177500"># PostgreSQL - スロークエリログの有効化</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span style="color: #177500"># postgresql.conf</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span style="color: #1C01CE">log_min_duration_statement = 2000</span>  <span style="color: #177500"># 2秒以上のクエリをログ</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span style="color: #1C01CE">log_line_prefix = &#39;%t [%p]</span>: [<span style="color: #000">%l-1</span>] <span style="color: #1C01CE">user=%u,db=%d,app=%a,client=%h &#39;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span style="color: #1C01CE">log_statement = &#39;all&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_10">メモリ使用量の最適化</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span style="color: #177500"># MySQL - メモリ設定</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span style="color: #177500"># my.cnf</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>[<span style="color: #000">mysqld</span>]
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span style="color: #1C01CE">innodb_buffer_pool_size = 8G</span>  <span style="color: #177500"># 物理メモリの70-80%</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span style="color: #1C01CE">innodb_log_file_size = 512M</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span style="color: #1C01CE">innodb_flush_log_at_trx_commit = 2</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span style="color: #1C01CE">innodb_flush_method = O_DIRECT</span>
+</code></pre></div></td></tr></table></div>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span style="color: #177500"># PostgreSQL - メモリ設定</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span style="color: #177500"># postgresql.conf</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span style="color: #1C01CE">shared_buffers = 2GB</span>  <span style="color: #177500"># 物理メモリの25%</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span style="color: #1C01CE">effective_cache_size = 6GB</span>  <span style="color: #177500"># 物理メモリの50-75%</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span style="color: #1C01CE">work_mem = 64MB</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span style="color: #1C01CE">maintenance_work_mem = 512MB</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="_11">トラブルシューティング</h2>
+<h3 id="1">問題1: データベースへの接続エラー</h3>
+<p><strong>症状:</strong>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>ERROR: Failed to connect to database: Connection refused
+</code></pre></div></td></tr></table></div></p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>データベースが起動していない</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span style="color: #177500"># MySQL</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>sudo systemctl status mysql
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>sudo systemctl start mysql
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span style="color: #177500"># PostgreSQL</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>sudo systemctl status postgresql
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>sudo systemctl start postgresql
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ファイアウォールでポートがブロックされている</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span style="color: #177500"># ポート確認</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>telnet mysql.example.com <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span style="color: #177500"># ファイアウォール設定（CentOS/RHEL）</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>sudo firewall-cmd --add-port<span style="color: #000">=</span><span style="color: #1C01CE">3306</span>/tcp --permanent
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>sudo firewall-cmd --reload
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span style="color: #177500"># ファイアウォール設定（Ubuntu）</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>sudo ufw allow <span style="color: #1C01CE">3306</span>/tcp
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>データベースがリモート接続を許可していない</strong>
+   <div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span style="color: #177500">-- MySQL: bind-addressの確認</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span style="color: #177500">-- my.cnf</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span style="color: #000">bind-address</span> <span style="color: #000">=</span> <span style="color: #1C01CE">0</span>.<span style="color: #1C01CE">0</span>.<span style="color: #1C01CE">0</span>.<span style="color: #1C01CE">0</span>  <span style="color: #000">#</span> <span style="color: #000">すべてのIPから接続許可</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a><span style="color: #177500">-- PostgreSQL: listen_addressesの確認</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a><span style="color: #177500">-- postgresql.conf</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span style="color: #000">listen_addresses</span> <span style="color: #000">=</span> <span style="color: #C41A16">&#39;*&#39;</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a><span style="color: #177500">-- pg_hba.conf</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span style="color: #A90D91">host</span>    <span style="color: #A90D91">all</span>    <span style="color: #A90D91">all</span>    <span style="color: #1C01CE">0</span>.<span style="color: #1C01CE">0</span>.<span style="color: #1C01CE">0</span>.<span style="color: #1C01CE">0</span><span style="color: #000">/</span><span style="color: #1C01CE">0</span>    <span style="color: #000">md5</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="2">問題2: 認証エラー</h3>
+<p><strong>症状:</strong>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>ERROR: Access denied for user &#39;instana_monitor&#39;@&#39;host&#39; (using password: YES)
+</code></pre></div></td></tr></table></div></p>
+<p><strong>解決策:</strong></p>
+<ol>
+<li>
+<p><strong>ユーザー名とパスワードの確認</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span style="color: #177500"># Vaultから取得した値を確認</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>vault kv get secret/database/mysql/production
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span style="color: #177500"># 直接接続テスト</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>mysql -h mysql.example.com -u instana_monitor -p
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ユーザーの権限確認</strong>
+   <div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span style="color: #177500">-- MySQL</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span style="color: #A90D91">SHOW</span> <span style="color: #000">GRANTS</span> <span style="color: #A90D91">FOR</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;%&#39;</span>;
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span style="color: #177500">-- PostgreSQL</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span style="color: #000">\du</span> <span style="color: #000">instana_monitor</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span style="color: #A90D91">SELECT</span> <span style="color: #000">*</span> <span style="color: #A90D91">FROM</span> <span style="color: #000">pg_roles</span> <span style="color: #A90D91">WHERE</span> <span style="color: #000">rolname</span> <span style="color: #000">=</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span>;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ホストベースの認証</strong>
+   <div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span style="color: #177500">-- MySQL: 特定のホストからのみ接続許可</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">USER</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;instana-agent-host&#39;</span> <span style="color: #000">IDENTIFIED</span> <span style="color: #A90D91">BY</span> <span style="color: #C41A16">&#39;password&#39;</span>;
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span style="color: #A90D91">GRANT</span> <span style="color: #000">PROCESS</span>, <span style="color: #000">REPLICATION</span> <span style="color: #000">CLIENT</span> <span style="color: #A90D91">ON</span> <span style="color: #000">*</span>.<span style="color: #000">*</span> <span style="color: #A90D91">TO</span> <span style="color: #C41A16">&#39;instana_monitor&#39;</span><span style="color: #000">@</span><span style="color: #C41A16">&#39;instana-agent-host&#39;</span>;
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="3_1">問題3: パフォーマンスの問題</h3>
+<p><strong>症状:</strong>
+データベースの応答が遅い、CPU使用率が高い</p>
+<p><strong>解決策:</strong></p>
+<ol>
+<li>
+<p><strong>ポーリング間隔を調整</strong>
+   <div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">10</span>  <span style="color: #177500"># 1秒から10秒に変更</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>不要なメトリクスの無効化</strong>
+   <div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span style="color: #177500"># 特定のデータベースのみ監視</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>  <span style="color: #000">databases</span>:
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>    - <span style="color: #C41A16">&#39;production_db&#39;</span>  <span style="color: #177500"># 他のDBは監視しない</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>インデックスの最適化</strong>
+   <div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-33-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span style="color: #177500">-- MySQL: スロークエリの分析</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span style="color: #A90D91">SELECT</span> <span style="color: #000">*</span> <span style="color: #A90D91">FROM</span> <span style="color: #000">mysql</span>.<span style="color: #000">slow_log</span> <span style="color: #A90D91">ORDER</span> <span style="color: #A90D91">BY</span> <span style="color: #000">query_time</span> <span style="color: #A90D91">DESC</span> <span style="color: #A90D91">LIMIT</span> <span style="color: #1C01CE">10</span>;
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><span style="color: #177500">-- インデックスの追加</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><span style="color: #A90D91">CREATE</span> <span style="color: #A90D91">INDEX</span> <span style="color: #000">idx_user_email</span> <span style="color: #A90D91">ON</span> <span style="color: #000">users</span>(<span style="color: #000">email</span>);
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="4">問題4: メトリクスが収集されない</h3>
+<p><strong>症状:</strong>
+Instanaダッシュボードにデータが表示されない</p>
+<p><strong>解決策:</strong></p>
+<ol>
+<li>
+<p><strong>Agentログの確認</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-34-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span style="color: #177500"># Agentログの確認</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a>sudo journalctl -u instana-agent -f | grep -i mysql
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span style="color: #177500"># ログファイルの確認</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a>tail -f /opt/instana/agent/data/log/agent.log
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>設定ファイルの構文チェック</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-35-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span style="color: #177500"># YAML構文チェック</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a>yamllint /opt/instana/agent/etc/instana/configuration.yaml
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Agentの再起動</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-36-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>sudo systemctl restart instana-agent
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a><span style="color: #177500"># 起動確認</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a>sudo systemctl status instana-agent
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="5-vault">問題5: Vault統合の問題</h3>
+<p><strong>症状:</strong>
+<div class="language-text highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>ERROR: Failed to retrieve secret from Vault
+</code></pre></div></td></tr></table></div></p>
+<p><strong>解決策:</strong></p>
+<ol>
+<li>
+<p><strong>Vault接続の確認</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-38-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span style="color: #177500"># Vault接続テスト</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>curl -k https://vault.example.com:8200/v1/sys/health
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>シークレットパスの確認</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-39-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a><span style="color: #177500"># シークレットの存在確認</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>vault kv get secret/database/mysql/production
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Vault認証の確認</strong>
+   <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-40-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span style="color: #177500"># トークンの有効性確認</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>vault token lookup
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a><span style="color: #177500"># AppRoleの確認</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a>vault <span style="color: #A90D91">read</span> auth/approle/role/instana-agent/role-id
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="6">問題6: レプリケーション遅延の監視</h3>
+<p><strong>症状:</strong>
+レプリカの遅延が検出されない</p>
+<p><strong>解決策:</strong></p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-41-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><span style="color: #177500"># MySQL - レプリケーション監視</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a><span style="color: #000">com.instana.plugin.mysql</span>:
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>  <span style="color: #000">host</span>: <span style="color: #C41A16">&#39;mysql-replica.example.com&#39;</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a>  <span style="color: #000">port</span>: <span style="color: #1C01CE">3306</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5"></a>  <span style="color: #177500"># レプリケーション状態を監視</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">5</span>
+</code></pre></div></td></tr></table></div>
+<div class="language-sql highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-42-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><span style="color: #177500">-- MySQL: レプリケーション状態の確認</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a><span style="color: #A90D91">SHOW</span> <span style="color: #000">SLAVE</span> <span style="color: #000">STATUS\</span><span style="color: #A90D91">G</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a><span style="color: #177500">-- PostgreSQL: レプリケーション状態の確認</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a><span style="color: #A90D91">SELECT</span> <span style="color: #000">*</span> <span style="color: #A90D91">FROM</span> <span style="color: #000">pg_stat_replication</span>;
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="_12">ベストプラクティス</h2>
+<h3 id="1_1">1. セキュリティ</h3>
+<ul>
+<li>✅ 常にVaultを使用してパスワードを管理</li>
+<li>✅ 最小権限の原則に従う</li>
+<li>✅ 監視用ユーザーには読み取り専用権限のみ付与</li>
+<li>✅ SSL/TLS接続を使用</li>
+<li>✅ 定期的にパスワードをローテーション</li>
+</ul>
+<h3 id="2_1">2. パフォーマンス</h3>
+<ul>
+<li>✅ 本番環境では poll_rate を 5-10秒に設定</li>
+<li>✅ 不要なデータベースは監視対象から除外</li>
+<li>✅ 接続プールを適切に設定</li>
+<li>✅ スロークエリログを有効化</li>
+</ul>
+<h3 id="3_2">3. 高可用性</h3>
+<ul>
+<li>✅ プライマリとレプリカの両方を監視</li>
+<li>✅ フェイルオーバー時の自動切り替えを考慮</li>
+<li>✅ 複数のAvailability Zoneを使用</li>
+<li>✅ タグを使用して環境を識別</li>
+</ul>
+<h3 id="4_1">4. 運用</h3>
+<ul>
+<li>✅ 環境ごとに設定ファイルを分離</li>
+<li>✅ タグを使用してデータベースを分類</li>
+<li>✅ アラート閾値を適切に設定</li>
+<li>✅ 定期的にログを確認</li>
+</ul>
+<hr />
+<h2 id="faq">よくある質問（FAQ）</h2>
+<h3 id="q1">Q1: 複数のデータベースインスタンスを監視できますか？</h3>
+<p><strong>A:</strong> はい、configuration.yamlに複数の設定ブロックを追加することで、複数のデータベースを監視できます。</p>
+<h3 id="q2">Q2: データベースのパスワード変更時の対応は？</h3>
+<p><strong>A:</strong> Vaultを使用している場合、Vaultのシークレットを更新するだけで、Instana Agentが自動的に新しいパスワードを取得します。</p>
+<h3 id="q3-rdsazure-database">Q3: クラウドマネージドデータベース（RDS、Azure Database等）も監視できますか？</h3>
+<p><strong>A:</strong> はい、ネットワーク接続が可能であれば、クラウドマネージドデータベースも監視できます。</p>
+<h3 id="q4">Q4: データベース監視がアプリケーションのパフォーマンスに影響しますか？</h3>
+<p><strong>A:</strong> 適切に設定すれば、影響は最小限です。poll_rateを調整し、必要なメトリクスのみ収集することを推奨します。</p>
+<h3 id="q5">Q5: レプリケーション遅延はどのように監視されますか？</h3>
+<p><strong>A:</strong> Instanaは自動的にレプリケーション状態を監視し、遅延が発生した場合にアラートを発行します。</p>
+<hr />
+<h2 id="_13">参考リンク</h2>
+<ul>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Instana Database Monitoring</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/optimization.html">MySQL Performance Tuning</a></li>
+<li><a href="https://www.postgresql.org/docs/current/performance-tips.html">PostgreSQL Performance Tips</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/administration/monitoring/">MongoDB Monitoring</a></li>
+<li><a href="https://redis.io/docs/management/optimization/">Redis Monitoring</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4017 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../messaging/">
+      
+      
+        <link rel="next" href="../monitoring-tools/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Metrics - Instana Maturity Model</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CIBM+Plex+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"IBM Plex mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Instana Maturity Model" class="md-header__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Instana Maturity Model
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metrics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Instana Maturity Model" class="md-nav__button md-logo" aria-label="Instana Maturity Model" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Instana Maturity Model
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana成熟度モデル
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Monitoring
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1 Monitoring
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/alerts-configuring-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アラートの構成と管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/apis-instana-terraform-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraformを用いたIaC化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/applications-smart-alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    アプリケーションにおけるスマートアラート設定（静的しきい値）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/configuring-host-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    configuration.yaml（基礎）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/instana-building-custom-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    カスタム・ダッシュボードの構築
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ネットワーク設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/nw-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ネットワーク設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../1_Monitoring/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E8%A8%AD%E5%AE%9A/setting-up-an-agent-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana Agentとバックエンドの間における多段プロキシー設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 APM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2 APM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ロギング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-mobile-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モバイル・アプリケーションのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-monitoring-websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webサイトのモニター
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-rest-api-sdks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../instana-synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    合成モニタリング（外形監視）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../service-level-objectives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    サービス・レベル目標
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェントの設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホストエージェントの設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cha-configuring-host-agents-by-using-agent-configuration-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホストエージェント設定ファイル(configuration.yaml) ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configutations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configutations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bestpractices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bestpractices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bigdata
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ibm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ibm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メトリクス収集・統合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なPrometheus監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. アプリケーションメトリクスの収集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 複数エンドポイントの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 認証付きエンドポイント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Kubernetes環境
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なOpenTelemetry設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. アプリケーション統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Kubernetes環境
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StatsD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-statsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なStatsD設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. アプリケーション統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. タグ付きメトリクス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statsd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StatsD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prometheus_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: Prometheusメトリクスが収集されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: OpenTelemetryデータが送信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-statsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: StatsDメトリクスが受信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-prometheusopentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: PrometheusとOpenTelemetryの違いは？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: どのメトリクス収集方法を選ぶべきですか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: メトリクスの保持期間は？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: カスタムメトリクスの数に制限はありますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Special sensors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Observability
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3 Observability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/instana-profile-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instana AutoProfile（プロファイル・プロセス）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/integrations-dbmarlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBmarlin統合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/opentelemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenTelemetry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../3_Observability/technologies-automation-action-script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自動化フレームワーク
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../4_Integration/Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Agentic AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5 Agentic AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/ai-gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/intelligent-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligent Remediation: Action generation with AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Agentic-AI/sdks-mcp-server-instana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server for Instana
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メトリクス収集・統合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 情報ソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 情報ソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        補足ソース
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prometheus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なPrometheus監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. アプリケーションメトリクスの収集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 複数エンドポイントの監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 認証付きエンドポイント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Kubernetes環境
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なOpenTelemetry設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. アプリケーション統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Kubernetes環境
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StatsD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定項目の詳細
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実践的な使用例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実践的な使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-statsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本的なStatsD設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. アプリケーション統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. タグ付きメトリクス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opentelemetry_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenTelemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statsd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StatsD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prometheus_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題1: Prometheusメトリクスが収集されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-opentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題2: OpenTelemetryデータが送信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-statsd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        問題3: StatsDメトリクスが受信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-prometheusopentelemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: PrometheusとOpenTelemetryの違いは？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: どのメトリクス収集方法を選ぶべきですか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: メトリクスの保持期間は？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: カスタムメトリクスの数に制限はありますか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Metrics</h1>
+
+<h2 id="_1">メトリクス収集・統合</h2>
+<hr />
+<h2 id="_2">📚 情報ソース</h2>
+<p>このドキュメントは以下の情報源を基に作成されています：</p>
+<h3 id="_3">主要ソース</h3>
+<ul>
+<li><strong>IBM公式ドキュメント</strong>:</li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">Monitoring Prometheus</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">OpenTelemetry Integration</a></li>
+<li><a href="https://www.ibm.com/docs/en/instana-observability">StatsD Integration</a></li>
+<li><strong>Prometheus公式ドキュメント</strong>: メトリクス形式とエクスポーター仕様</li>
+<li><strong>OpenTelemetry公式ドキュメント</strong>: OTLPプロトコルとSDK</li>
+</ul>
+<h3 id="_4">補足ソース</h3>
+<ul>
+<li><strong>メトリクス収集のベストプラクティス</strong>: カーディナリティ管理とサンプリング戦略</li>
+<li><strong>実運用環境の設定例</strong>: マルチソース統合とカスタムメトリクス</li>
+</ul>
+<hr />
+<h3 id="prometheus">Prometheus</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">Prometheus</a></p>
+<p>Prometheusはオープンソースのメトリクスベースのモニタリングシステムです。Instana AgentはPrometheusメトリクスを収集し、統合できます。</p>
+<h3 id="_5">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;/metrics&#39;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^application_.*&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_6">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>poll_rate</code></td>
+<td>メトリクス収集間隔</td>
+<td>15</td>
+<td>15-60</td>
+<td>秒単位</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>メトリクスエンドポイント</td>
+<td>/metrics</td>
+<td>環境に応じて</td>
+<td>アプリケーション設定から</td>
+</tr>
+<tr>
+<td><code>metricNameIncludeRegex</code></td>
+<td>収集するメトリクスの正規表現</td>
+<td>.*</td>
+<td>必要なメトリクスのみ</td>
+<td>メトリクス名から</td>
+</tr>
+<tr>
+<td><code>metricNameExcludeRegex</code></td>
+<td>除外するメトリクスの正規表現</td>
+<td>-</td>
+<td>不要なメトリクス</td>
+<td>メトリクス名から</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">実践的な使用例</h3>
+<h4 id="1-prometheus">1. 基本的なPrometheus監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://localhost:9090/metrics&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2">2. アプリケーションメトリクスの収集</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span style="color: #177500"># Spring Boot Actuator</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://localhost:8080/actuator/prometheus&#39;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^(jvm_|http_|application_).*&#39;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>      <span style="color: #000">metricNameExcludeRegex</span>: <span style="color: #C41A16">&#39;^jvm_gc_.*&#39;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span style="color: #177500"># Node.js アプリケーション</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://localhost:3000/metrics&#39;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^nodejs_.*&#39;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span style="color: #177500"># カスタムアプリケーション</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://localhost:8000/metrics&#39;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^myapp_.*&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="3">3. 複数エンドポイントの監視</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-19">19</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span style="color: #177500"># アプリケーションサーバー</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://app-server-1:8080/metrics&#39;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>      <span style="color: #000">labels</span>:
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>        <span style="color: #000">instance</span>: <span style="color: #C41A16">&#39;app-server-1&#39;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>        <span style="color: #000">environment</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://app-server-2:8080/metrics&#39;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>      <span style="color: #000">labels</span>:
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>        <span style="color: #000">instance</span>: <span style="color: #C41A16">&#39;app-server-2&#39;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>        <span style="color: #000">environment</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span style="color: #177500"># データベースエクスポーター</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://localhost:9104/metrics&#39;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^mysql_.*&#39;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>      <span style="color: #000">labels</span>:
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>        <span style="color: #000">service</span>: <span style="color: #C41A16">&#39;mysql&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="4">4. 認証付きエンドポイント</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-16">16</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;https://secure-app.example.com/metrics&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>      <span style="color: #000">auth</span>:
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>        <span style="color: #000">type</span>: <span style="color: #C41A16">&#39;basic&#39;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>        <span style="color: #000">username</span>: <span style="color: #C41A16">&#39;monitoring&#39;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>        <span style="color: #000">password</span>:
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>          <span style="color: #000">configuration_from</span>:
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>            <span style="color: #000">type</span>: <span style="color: #1C01CE">vault</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>            <span style="color: #000">secret_key</span>:
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>              <span style="color: #000">path</span>: <span style="color: #1C01CE">secret/prometheus</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>              <span style="color: #000">key</span>: <span style="color: #1C01CE">password</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>      <span style="color: #000">ssl</span>:
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>        <span style="color: #000">verify</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        <span style="color: #000">ca_cert</span>: <span style="color: #C41A16">&#39;/etc/ssl/certs/ca-bundle.crt&#39;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="5-kubernetes">5. Kubernetes環境</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-19">19</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span style="color: #000">kubernetes</span>:
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span style="color: #000">namespaces</span>:
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>      - <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>      - <span style="color: #C41A16">&#39;staging&#39;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span style="color: #000">annotations</span>:
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>      - <span style="color: #C41A16">&#39;prometheus.io/scrape&#39;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>      - <span style="color: #C41A16">&#39;prometheus.io/port&#39;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>      - <span style="color: #C41A16">&#39;prometheus.io/path&#39;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>    <span style="color: #177500"># Kubernetes APIサーバー</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;https://kubernetes.default.svc/metrics&#39;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>      <span style="color: #000">auth</span>:
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>        <span style="color: #000">type</span>: <span style="color: #C41A16">&#39;bearer&#39;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>        <span style="color: #000">token_file</span>: <span style="color: #C41A16">&#39;/var/run/secrets/kubernetes.io/serviceaccount/token&#39;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>      <span style="color: #000">ssl</span>:
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span style="color: #000">ca_cert</span>: <span style="color: #C41A16">&#39;/var/run/secrets/kubernetes.io/serviceaccount/ca.crt&#39;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="opentelemetry">OpenTelemetry</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">OpenTelemetry</a></p>
+<p>OpenTelemetryは、トレース、メトリクス、ログを収集するための統一された観測可能性フレームワークです。</p>
+<h3 id="_8">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #000">com.instana.plugin.opentelemetry</span>:
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  <span style="color: #000">grpc</span>:
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span style="color: #000">max_message_size</span>: <span style="color: #1C01CE">5242880</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>  <span style="color: #000">http</span>:
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span style="color: #000">max_message_size</span>: <span style="color: #1C01CE">5242880</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_9">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>OpenTelemetryの有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>grpc.enabled</code></td>
+<td>gRPCエンドポイントの有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>grpc.port</code></td>
+<td>gRPCポート</td>
+<td>4317</td>
+<td>4317</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>grpc.max_message_size</code></td>
+<td>最大メッセージサイズ</td>
+<td>4194304</td>
+<td>5242880</td>
+<td>バイト単位</td>
+</tr>
+<tr>
+<td><code>http.enabled</code></td>
+<td>HTTPエンドポイントの有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>http.port</code></td>
+<td>HTTPポート</td>
+<td>4318</td>
+<td>4318</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">実践的な使用例</h3>
+<h4 id="1-opentelemetry">1. 基本的なOpenTelemetry設定</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-10">10</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #000">com.instana.plugin.opentelemetry</span>:
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  <span style="color: #000">grpc</span>:
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">4317</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span style="color: #000">max_message_size</span>: <span style="color: #1C01CE">5242880</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  <span style="color: #000">http</span>:
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">4318</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span style="color: #000">max_message_size</span>: <span style="color: #1C01CE">5242880</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2_1">2. アプリケーション統合</h4>
+<p><strong>Java アプリケーション:</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #177500"># OpenTelemetry Javaエージェントの使用</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>java -javaagent:opentelemetry-javaagent.jar <span style="color: #C41A16">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  -Dotel.service.name<span style="color: #000">=</span>my-service <span style="color: #C41A16">\</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  -Dotel.exporter.otlp.endpoint<span style="color: #000">=</span>http://localhost:4317 <span style="color: #C41A16">\</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  -jar myapp.jar
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Node.js アプリケーション:</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #A90D91">const</span> { <span style="color: #000">NodeTracerProvider</span> } <span style="color: #000">=</span> <span style="color: #000">require</span>(<span style="color: #C41A16">&#39;@opentelemetry/sdk-trace-node&#39;</span>);
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span style="color: #A90D91">const</span> { <span style="color: #000">OTLPTraceExporter</span> } <span style="color: #000">=</span> <span style="color: #000">require</span>(<span style="color: #C41A16">&#39;@opentelemetry/exporter-trace-otlp-grpc&#39;</span>);
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span style="color: #A90D91">const</span> <span style="color: #000">provider</span> <span style="color: #000">=</span> <span style="color: #000">new</span> <span style="color: #000">NodeTracerProvider</span>();
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span style="color: #000">provider</span>.<span style="color: #000">addSpanProcessor</span>(
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  <span style="color: #000">new</span> <span style="color: #000">BatchSpanProcessor</span>(
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span style="color: #000">new</span> <span style="color: #000">OTLPTraceExporter</span>({
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>      <span style="color: #000">url:</span> <span style="color: #C41A16">&#39;http://localhost:4317&#39;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>    })
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>  )
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>);
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span style="color: #000">provider</span>.<span style="color: #000">register</span>();
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Python アプリケーション:</strong>
+<div class="language-python highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-10-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span style="color: #A90D91">from</span> <span style="color: #000">opentelemetry</span> <span style="color: #A90D91">import</span> <span style="color: #000">trace</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span style="color: #A90D91">from</span> <span style="color: #000">opentelemetry.exporter.otlp.proto.grpc.trace_exporter</span> <span style="color: #A90D91">import</span> <span style="color: #000">OTLPSpanExporter</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span style="color: #A90D91">from</span> <span style="color: #000">opentelemetry.sdk.trace</span> <span style="color: #A90D91">import</span> <span style="color: #000">TracerProvider</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span style="color: #A90D91">from</span> <span style="color: #000">opentelemetry.sdk.trace.export</span> <span style="color: #A90D91">import</span> <span style="color: #000">BatchSpanProcessor</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span style="color: #000">trace.set_tracer_provider</span>(<span style="color: #000">TracerProvider</span>())
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span style="color: #000">tracer</span> <span style="color: #000">=</span> <span style="color: #000">trace.get_tracer</span>(<span style="color: #000">__name__</span>)
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span style="color: #000">otlp_exporter</span> <span style="color: #000">=</span> <span style="color: #000">OTLPSpanExporter</span>(<span style="color: #000">endpoint=</span><span style="color: #C41A16">&quot;http://localhost:4317&quot;</span>)
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span style="color: #000">span_processor</span> <span style="color: #000">=</span> <span style="color: #000">BatchSpanProcessor</span>(<span style="color: #000">otlp_exporter</span>)
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span style="color: #000">trace.get_tracer_provider</span>()<span style="color: #000">.add_span_processor</span>(<span style="color: #000">span_processor</span>)
+</code></pre></div></td></tr></table></div></p>
+<h4 id="3-kubernetes">3. Kubernetes環境</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-11-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span style="color: #000">com.instana.plugin.opentelemetry</span>:
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>  <span style="color: #000">grpc</span>:
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">4317</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>  <span style="color: #000">http</span>:
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span style="color: #000">port</span>: <span style="color: #1C01CE">4318</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>  <span style="color: #000">kubernetes</span>:
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>    <span style="color: #000">resource_attributes</span>:
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>      - <span style="color: #C41A16">&#39;k8s.namespace.name&#39;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>      - <span style="color: #C41A16">&#39;k8s.pod.name&#39;</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>      - <span style="color: #C41A16">&#39;k8s.deployment.name&#39;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="statsd">StatsD</h3>
+<p>📚 <strong>公式ドキュメント:</strong> <a href="https://www.ibm.com/docs/en/instana-observability">StatsD</a></p>
+<p>StatsDはシンプルなメトリクス集約デーモンです。UDPプロトコルでメトリクスを受信します。</p>
+<h3 id="_11">基本設定</h3>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-12-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span style="color: #000">com.instana.plugin.statsd</span>:
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>  <span style="color: #000">ports</span>:
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span style="color: #000">udp</span>: <span style="color: #1C01CE">8125</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span style="color: #000">mgmt</span>: <span style="color: #1C01CE">8126</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>  <span style="color: #000">bind-ip</span>: <span style="color: #C41A16">&#39;0.0.0.0&#39;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>  <span style="color: #000">flush-interval</span>: <span style="color: #1C01CE">10</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_12">設定項目の詳細</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+<th>デフォルト値</th>
+<th>推奨値</th>
+<th>取得方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>StatsDの有効化</td>
+<td>false</td>
+<td>true</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ports.udp</code></td>
+<td>UDPポート</td>
+<td>8125</td>
+<td>8125</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>ports.mgmt</code></td>
+<td>管理ポート</td>
+<td>8126</td>
+<td>8126</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>bind-ip</code></td>
+<td>バインドIPアドレス</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>flush-interval</code></td>
+<td>フラッシュ間隔</td>
+<td>10</td>
+<td>10</td>
+<td>秒単位</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">実践的な使用例</h3>
+<h4 id="1-statsd">1. 基本的なStatsD設定</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-13-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span style="color: #000">com.instana.plugin.statsd</span>:
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>  <span style="color: #000">ports</span>:
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span style="color: #000">udp</span>: <span style="color: #1C01CE">8125</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span style="color: #000">mgmt</span>: <span style="color: #1C01CE">8126</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>  <span style="color: #000">bind-ip</span>: <span style="color: #C41A16">&#39;0.0.0.0&#39;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>  <span style="color: #000">flush-interval</span>: <span style="color: #1C01CE">10</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="2_2">2. アプリケーション統合</h4>
+<p><strong>Node.js:</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-14-17">17</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span style="color: #A90D91">const</span> <span style="color: #000">StatsD</span> <span style="color: #000">=</span> <span style="color: #000">require</span>(<span style="color: #C41A16">&#39;node-statsd&#39;</span>);
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span style="color: #A90D91">const</span> <span style="color: #000">client</span> <span style="color: #000">=</span> <span style="color: #000">new</span> <span style="color: #000">StatsD</span>({
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span style="color: #000">host:</span> <span style="color: #C41A16">&#39;localhost&#39;</span>,
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  <span style="color: #000">port:</span> <span style="color: #1C01CE">8125</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>});
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span style="color: #177500">// カウンター</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span style="color: #000">client</span>.<span style="color: #000">increment</span>(<span style="color: #C41A16">&#39;page.views&#39;</span>);
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span style="color: #177500">// ゲージ</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span style="color: #000">client</span>.<span style="color: #000">gauge</span>(<span style="color: #C41A16">&#39;active.users&#39;</span>, <span style="color: #1C01CE">150</span>);
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a><span style="color: #177500">// タイミング</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a><span style="color: #000">client</span>.<span style="color: #000">timing</span>(<span style="color: #C41A16">&#39;response.time&#39;</span>, <span style="color: #1C01CE">250</span>);
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a><span style="color: #177500">// ヒストグラム</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a><span style="color: #000">client</span>.<span style="color: #000">histogram</span>(<span style="color: #C41A16">&#39;request.size&#39;</span>, <span style="color: #1C01CE">1024</span>);
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Python:</strong>
+<div class="language-python highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-15-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span style="color: #A90D91">import</span> <span style="color: #000">statsd</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span style="color: #000">client</span> <span style="color: #000">=</span> <span style="color: #000">statsd.StatsClient</span>(<span style="color: #C41A16">&#39;localhost&#39;</span>, <span style="color: #1C01CE">8125</span>)
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span style="color: #177500"># カウンター</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span style="color: #000">client.incr</span>(<span style="color: #C41A16">&#39;page.views&#39;</span>)
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span style="color: #177500"># ゲージ</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span style="color: #000">client.gauge</span>(<span style="color: #C41A16">&#39;active.users&#39;</span>, <span style="color: #1C01CE">150</span>)
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span style="color: #177500"># タイミング</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span style="color: #000">client.timing</span>(<span style="color: #C41A16">&#39;response.time&#39;</span>, <span style="color: #1C01CE">250</span>)
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Java:</strong>
+<div class="language-java highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-16-17">17</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span style="color: #A90D91">import</span> <span style="color: #000">com.timgroup.statsd.StatsDClient</span>;
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span style="color: #A90D91">import</span> <span style="color: #000">com.timgroup.statsd.NonBlockingStatsDClient</span>;
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span style="color: #000">StatsDClient</span> <span style="color: #000">statsd</span> <span style="color: #000">=</span> <span style="color: #A90D91">new</span> <span style="color: #000">NonBlockingStatsDClient</span>(
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span style="color: #C41A16">&quot;my.app&quot;</span>,
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span style="color: #C41A16">&quot;localhost&quot;</span>,
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>    <span style="color: #1C01CE">8125</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>);
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span style="color: #177500">// カウンター</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span style="color: #000">statsd</span>.<span style="color: #836C28">incrementCounter</span>(<span style="color: #C41A16">&quot;page.views&quot;</span>);
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span style="color: #177500">// ゲージ</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span style="color: #000">statsd</span>.<span style="color: #836C28">recordGaugeValue</span>(<span style="color: #C41A16">&quot;active.users&quot;</span>, <span style="color: #1C01CE">150</span>);
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span style="color: #177500">// タイミング</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span style="color: #000">statsd</span>.<span style="color: #836C28">recordExecutionTime</span>(<span style="color: #C41A16">&quot;response.time&quot;</span>, <span style="color: #1C01CE">250</span>);
+</code></pre></div></td></tr></table></div></p>
+<h4 id="3_1">3. タグ付きメトリクス</h4>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-8">8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-17-9">9</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span style="color: #000">com.instana.plugin.statsd</span>:
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  <span style="color: #000">ports</span>:
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>    <span style="color: #000">udp</span>: <span style="color: #1C01CE">8125</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>  <span style="color: #000">bind-ip</span>: <span style="color: #C41A16">&#39;0.0.0.0&#39;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>  <span style="color: #000">flush-interval</span>: <span style="color: #1C01CE">10</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>  <span style="color: #000">tags</span>:
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>    <span style="color: #000">format</span>: <span style="color: #C41A16">&#39;datadog&#39;</span>  <span style="color: #177500"># または &#39;influxdb&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>タグ付きメトリクスの送信:</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-18-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span style="color: #177500">// Datadog形式</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span style="color: #000">client</span>.<span style="color: #000">increment</span>(<span style="color: #C41A16">&#39;page.views&#39;</span>, <span style="color: #1C01CE">1</span>, [<span style="color: #C41A16">&#39;environment:production&#39;</span>, <span style="color: #C41A16">&#39;region:us-east&#39;</span>]);
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span style="color: #177500">// InfluxDB形式</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span style="color: #000">client</span>.<span style="color: #000">increment</span>(<span style="color: #C41A16">&#39;page.views,environment=production,region=us-east&#39;</span>, <span style="color: #1C01CE">1</span>);
+</code></pre></div></td></tr></table></div></p>
+<h3 id="_14">ベストプラクティス</h3>
+<h4 id="prometheus_1">Prometheus</h4>
+<ol>
+<li>
+<p><strong>メトリクスのフィルタリング</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-19-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;/metrics&#39;</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>      <span style="color: #177500"># 必要なメトリクスのみ収集</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^(http_requests|database_queries|cache_hits)_.*&#39;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>      <span style="color: #177500"># 不要なメトリクスを除外</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>      <span style="color: #000">metricNameExcludeRegex</span>: <span style="color: #C41A16">&#39;^(go_|process_).*&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>ラベルの活用</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-20-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;http://app-1:8080/metrics&#39;</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>      <span style="color: #000">labels</span>:
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>        <span style="color: #000">instance</span>: <span style="color: #C41A16">&#39;app-1&#39;</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>        <span style="color: #000">environment</span>: <span style="color: #C41A16">&#39;production&#39;</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>        <span style="color: #000">datacenter</span>: <span style="color: #C41A16">&#39;tokyo&#39;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>適切なポーリング間隔</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-21-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span style="color: #177500"># 高頻度メトリクス</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">15</span>  <span style="color: #177500"># 15秒</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span style="color: #177500"># 低頻度メトリクス</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>  <span style="color: #000">poll_rate</span>: <span style="color: #1C01CE">60</span>  <span style="color: #177500"># 60秒</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="opentelemetry_1">OpenTelemetry</h4>
+<ol>
+<li>
+<p><strong>サンプリング設定</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-22-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span style="color: #000">com.instana.plugin.opentelemetry</span>:
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>  <span style="color: #000">sampling</span>:
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>    <span style="color: #000">type</span>: <span style="color: #C41A16">&#39;probabilistic&#39;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>    <span style="color: #000">rate</span>: <span style="color: #1C01CE">0.1</span>  <span style="color: #177500"># 10%のトレースをサンプリング</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>バッチ処理</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-23-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span style="color: #000">com.instana.plugin.opentelemetry</span>:
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>  <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>  <span style="color: #000">grpc</span>:
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span style="color: #000">enabled</span>: <span style="color: #1C01CE">true</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>    <span style="color: #000">batch</span>:
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>      <span style="color: #000">max_queue_size</span>: <span style="color: #1C01CE">2048</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a>      <span style="color: #000">max_export_batch_size</span>: <span style="color: #1C01CE">512</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a>      <span style="color: #000">schedule_delay_millis</span>: <span style="color: #1C01CE">5000</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="statsd_1">StatsD</h4>
+<ol>
+<li>
+<p><strong>バッファリング</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-24-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span style="color: #A90D91">const</span> <span style="color: #000">client</span> <span style="color: #000">=</span> <span style="color: #000">new</span> <span style="color: #000">StatsD</span>({
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>  <span style="color: #000">host:</span> <span style="color: #C41A16">&#39;localhost&#39;</span>,
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>  <span style="color: #000">port:</span> <span style="color: #1C01CE">8125</span>,
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>  <span style="color: #000">maxBufferSize:</span> <span style="color: #1C01CE">1000</span>,  <span style="color: #177500">// バッファサイズ</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>  <span style="color: #000">bufferFlushInterval:</span> <span style="color: #1C01CE">1000</span>  <span style="color: #177500">// フラッシュ間隔（ミリ秒）</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>});
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>エラーハンドリング</strong>
+<div class="language-javascript highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-25-3">3</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span style="color: #000">client</span>.<span style="color: #000">socket</span>.<span style="color: #000">on</span>(<span style="color: #C41A16">&#39;error&#39;</span>, <span style="color: #A90D91">function</span>(<span style="color: #000">error</span>) {
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>  <span style="color: #000">console</span>.<span style="color: #000">error</span>(<span style="color: #C41A16">&#39;StatsD error:&#39;</span>, <span style="color: #000">error</span>);
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>});
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="_15">トラブルシューティング</h3>
+<h4 id="1-prometheus_1">問題1: Prometheusメトリクスが収集されない</h4>
+<p><strong>症状:</strong>
+- メトリクスが表示されない
+- エンドポイントにアクセスできない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>エンドポイントの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-26-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span style="color: #177500"># メトリクスエンドポイントにアクセスできるか確認</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>curl http://localhost:8080/metrics
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span style="color: #177500"># 認証が必要な場合</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>curl -u username:password http://localhost:8080/metrics
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>正規表現の確認</strong>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-27-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span style="color: #177500"># 正規表現が正しいか確認</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;/metrics&#39;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^application_.*&#39;</span>  <span style="color: #177500"># 正しい正規表現</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="2-opentelemetry">問題2: OpenTelemetryデータが送信されない</h4>
+<p><strong>症状:</strong>
+- トレースやメトリクスが表示されない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>ポートの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-28-5">5</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span style="color: #177500"># gRPCポートが開いているか確認</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>netstat -tlnp | grep <span style="color: #1C01CE">4317</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span style="color: #177500"># HTTPポートが開いているか確認</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>netstat -tlnp | grep <span style="color: #1C01CE">4318</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>エンドポイントの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-29-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span style="color: #177500"># アプリケーションから接続できるか確認</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>telnet localhost <span style="color: #1C01CE">4317</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h4 id="3-statsd">問題3: StatsDメトリクスが受信されない</h4>
+<p><strong>症状:</strong>
+- メトリクスが表示されない
+- UDPパケットが届かない</p>
+<p><strong>原因と解決策:</strong></p>
+<ol>
+<li>
+<p><strong>UDPポートの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-30-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span style="color: #177500"># UDPポートが開いているか確認</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>netstat -ulnp | grep <span style="color: #1C01CE">8125</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span style="color: #177500"># ファイアウォール設定</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>firewall-cmd --add-port<span style="color: #000">=</span><span style="color: #1C01CE">8125</span>/udp --permanent
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>firewall-cmd --reload
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>パケットロスの確認</strong>
+<div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-31-2">2</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span style="color: #177500"># パケットロスを確認</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>netstat -su | grep -i <span style="color: #C41A16">&quot;packet receive errors&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="faq">FAQ</h3>
+<h4 id="q1-prometheusopentelemetry">Q1: PrometheusとOpenTelemetryの違いは？</h4>
+<p><strong>A:</strong>
+- <strong>Prometheus</strong>: メトリクス専用。プル型（スクレイピング）。
+- <strong>OpenTelemetry</strong>: トレース、メトリクス、ログの統合。プッシュ型。</p>
+<p>両方を使用することも可能です。</p>
+<h4 id="q2">Q2: どのメトリクス収集方法を選ぶべきですか？</h4>
+<p><strong>A:</strong> 用途に応じて選択してください：</p>
+<ul>
+<li><strong>Prometheus</strong>: 既存のPrometheusエクスポーターを使用している場合</li>
+<li><strong>OpenTelemetry</strong>: 新規プロジェクトや複数の観測可能性データを統合したい場合</li>
+<li><strong>StatsD</strong>: シンプルなメトリクス送信が必要な場合</li>
+</ul>
+<h4 id="q3">Q3: メトリクスの保持期間は？</h4>
+<p><strong>A:</strong> Instanaでは、メトリクスの保持期間は以下の通りです：</p>
+<ul>
+<li><strong>1秒粒度</strong>: 24時間</li>
+<li><strong>1分粒度</strong>: 7日間</li>
+<li><strong>1時間粒度</strong>: 30日間</li>
+</ul>
+<p>詳細はInstanaコンソールで設定できます。</p>
+<h4 id="q4">Q4: カスタムメトリクスの数に制限はありますか？</h4>
+<p><strong>A:</strong> はい、Instanaのライセンスによって異なります。大量のカスタムメトリクスを送信する場合は、フィルタリングを使用してください。</p>
+<div class="language-yaml highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-32-4">4</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span style="color: #000">com.instana.plugin.prometheus</span>:
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>  <span style="color: #000">customMetricSources</span>:
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>    - <span style="color: #000">url</span>: <span style="color: #C41A16">&#39;/metrics&#39;</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>      <span style="color: #000">metricNameIncludeRegex</span>: <span style="color: #C41A16">&#39;^(critical_|important_).*&#39;</span>  <span style="color: #177500"># 重要なメトリクスのみ</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p><strong>関連ドキュメント:</strong>
+- <a href="../host/">ホスト監視設定</a>
+- <a href="../tracing/">トレーシング設定</a>
+- <a href="../bestpractices/">ベストプラクティス</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
