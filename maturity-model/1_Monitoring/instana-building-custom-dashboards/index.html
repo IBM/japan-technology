@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -2328,7 +2328,7 @@ Instana UIで作成するダッシュボードをベースに、APIおよびTerr
 <li>
 <p>作成
     利用するエンドポイント : <a href="https://developer.ibm.com/apis/catalog/instana--instana-rest-api/api/API--instana--instana-rest-api-documentation#addCustomDashboard">POST /api/custom-dashboard</a></p>
-<p><a href="https://github.ibm.com/customer-success-japan/maturity-model/blob/main/samples/custom_dashboard/cpu_load.json">サンプルJSON</a>をPCにダウンロードして、以下のcURLコマンドでダッシュボードを作成するリクエストを送信します。
+<p><a href="https://github.com/IBM/japan-technology/blob/main/maturity-model/instana/samples/custom_dashboard/cpu_load.json">サンプルJSON</a>をPCにダウンロードして、以下のcURLコマンドでダッシュボードを作成するリクエストを送信します。
 <div class="language-bash highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1">1</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2">2</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3">3</a></span>
@@ -2347,7 +2347,7 @@ Instana UIで作成するダッシュボードをベースに、APIおよびTerr
 <li>
 <p>編集
     利用するエンドポイント : <a href="https://developer.ibm.com/apis/catalog/instana--instana-rest-api/api/API--instana--instana-rest-api-documentation#updateCustomDashboard">PUT /api/custom-dashboard/{customDashboardId}</a></p>
-<p>例として、<code>作成</code>で使用した<a href="https://github.ibm.com/customer-success-japan/maturity-model/blob/main/samples/custom_dashboard/cpu_load.json">サンプルJSON</a>を編集してダッシュボードの名前を変更します。</br>
+<p>例として、<code>作成</code>で使用した<a href="https://github.com/IBM/japan-technology/blob/main/maturity-model/instana/samples/custom_dashboard/cpu_load.json">サンプルJSON</a>を編集してダッシュボードの名前を変更します。</br>
 まず、APIで既存のダッシュボードを編集する場合は対象となるダッシュボードの<strong>ダッシュボードID</strong>を把握する必要があります。
 ブラウザで確認する場合は、ダッシュボードを開いた際のアドレスバーから取得が可能です。
 具体的には<code>https://hoge-hoge.instana.io/#/customDashboards/view;dashboardId=ci__paQZTxObGkTXlFQl-g</code>と表示されている中の<code>ci__paQZTxObGkTXlFQl-g</code>の部分となります。
@@ -2361,7 +2361,7 @@ APIで確認する場合は<code>GET /api/custom-dashboard</code>エンドポイ
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span style="color: #C41A16">  --header &#39;</span>authorization: apiToken <span style="color: #000">{</span>事前準備で作成したAPIトークンを指定<span style="color: #000">}&#39;</span>
 </code></pre></div></td></tr></table></div></p>
 <p>JSONの11行目を修正して保存します。</p>
-<p><div class="language-diff highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<div class="language-diff highlight" style="background: #ffffff"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
@@ -2393,11 +2393,12 @@ APIで確認する場合は<code>GET /api/custom-dashboard</code>エンドポイ
 <a id="__codelineno-2-15" name="__codelineno-2-15"></a>    ・
 <a id="__codelineno-2-16" name="__codelineno-2-16"></a>}
 </code></pre></div></td></tr></table></div>
-    - 削除
-利用するエンドポイント : <a href="https://developer.ibm.com/apis/catalog/instana--instana-rest-api/api/API--instana--instana-rest-api-documentation#deleteCustomDashboard">DELETE /api/custom-dashboard/{customDashboardId}</a></p>
+</li>
+<li>
+<p>削除
+    利用するエンドポイント : <a href="https://developer.ibm.com/apis/catalog/instana--instana-rest-api/api/API--instana--instana-rest-api-documentation#deleteCustomDashboard">DELETE /api/custom-dashboard/{customDashboardId}</a></p>
 </li>
 </ul>
-<p>こちらの<a href="https://www.ibm.com/docs/ja/instana-observability/current?topic=api-getting-started">ドキュメント</a>を参照してください。</p>
 </li>
 </ol>
 <!--
@@ -2464,10 +2465,10 @@ APIで確認する場合は<code>GET /api/custom-dashboard</code>エンドポイ
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "search.suggest", "search.highlight", "navigation.top"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
