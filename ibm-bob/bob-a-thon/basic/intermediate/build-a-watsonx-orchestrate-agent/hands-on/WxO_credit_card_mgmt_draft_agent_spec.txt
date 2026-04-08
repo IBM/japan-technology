@@ -1,0 +1,73 @@
+Your task is to create a multi-agent credit card management application prototype that will run in Watsonx Orchestrate. 
+
+Since this is a prototype, you will hardcode several components of the application. You will hardcode sample credit card transactions and return values for tools.
+Sample transactions should be from different categories: retail, dining, groceries, subscriptions, travel, gas, utilities, etc. 
+
+Agent implementation details:
+
+1. Agent instructions are implemented in yaml. Use the YAML guidelines on this webpage: https://developer.watson-orchestrate.ibm.com/agents/build_agent
+
+2. You will create three agents: fraud_agent, manage_subscriptions_agent, and the orchestrator agent called credit_card_management_agent.
+   
+3. Implementation of agents:
+   1. fraud_agent is responsible for answering questions about unusual transactions, freezing or canceling a credit card, and requesting a new credit card. This agent has the following tools:
+	a. check_transactions(): lists unusual transactions. It sholud return up to 3 transactions that could be potentially fraudulent
+    b. report_fraud(): opens a case and recommends sending a new credit card. 
+    c. freeze_credit_card(): returns a confirmation that the credit card has been frozen
+    d. cancel_credit_card(): returns a confirmation that the credit card has been cancelled
+    e. send_new_credit_card: returns a confirmation that a new credit card was sent. 
+
+   2. manage_subscriptions_agent is responsible for listing all charges that are related to subscriptions. This agent has the following tools:
+    a. get_subscriptions(): list all transactions that are subscriptions. This tool shold return 5-7 subscriptions.
+    b. get_subscription_spend(): calculates amount spent for different subscription categories. 
+    c. cancel_subscription(): returns a confirmation that a subscription has been cancelled. 
+
+  3. credit_card_management_agent: this agent orchestrates the fraud_agent and the manage_subscriptions_agent
+
+
+4. Implementation of tools:
+     a. Tools are implemented in Python. 
+     b. Use this syntax to implement tools: 
+
+#test_tool.py
+from ibm_watsonx_orchestrate.agent_builder.tools import tool
+
+
+@tool()
+def my_tool(input: str) -> str:
+    """Executes the tool's action based on the provided input.
+
+    Args:
+        input (str): The input of the tool.
+
+    Returns:
+        str: The action of the tool.
+    """
+
+    #functionality of the tool
+
+    return f"Hello, {input}"
+
+5. The tools should return hardcoded values.  
+
+6. Save the agent yaml files in /agents folder.
+
+7. Save tools in /tools folder
+
+8. Generate a test Web UI for all tools.  
+
+9. Generate a markdown file explaining the implemenation.
+
+10. The markdown file should contain the following:
+    a. Implementation details
+    b. Deployment instructions: 
+       - Tool import command: orchestrate tools import -k python -f <file_name>.py
+       - Agent import command: orchestrate agents import -f <file_name>>.yaml
+    c. 5-10 sample questions that can be answered by the agent. 
+
+
+
+
+
+
+
