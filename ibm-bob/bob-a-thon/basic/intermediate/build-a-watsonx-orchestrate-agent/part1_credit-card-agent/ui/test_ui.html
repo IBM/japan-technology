@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クレジットカード管理ツール - テストUI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .tool-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .tool-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .result-container {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+
+        .result-container h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        #result {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+            min-height: 100px;
+            max-height: 500px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .fraud-badge {
+            background: #dc3545;
+        }
+
+        .subscription-badge {
+            background: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏦 クレジットカード管理ツール - テストUI</h1>
+        
+        <div class="tools-grid">
+            <!-- 不正検知ツール -->
+            <div class="tool-card">
+                <span class="category-badge fraud-badge">不正検知</span>
+                <h2>異常な取引を確認</h2>
+                <p>不正の可能性がある取引を最大3件表示します。</p>
+                <button onclick="checkTransactions()">取引を確認</button>
+            </div>
+
+            <div class="tool-card">
+                <span class="category-badge fraud-badge">不正検知</span>
+                <h2>不正を報告</h2>
+                <p>不正ケースを開き、新しいカードの送付を推奨します。</p>
+                <div class="input-group">
+                    <label for="transaction_id">取引ID:</label>
+                    <input type="text" id="transaction_id" placeholder="例: TXN-2024-001">
+                </div>
+                <button onclick="reportFraud()">不正を報告</button>
+            </div>
+
+            <div class="tool-card">
+                <span class="category-badge fraud-badge">不正検知</span>
+                <h2>カードを凍結</h2>
+                <p>クレジットカードを一時的に凍結します。</p>
+                <div class="input-group">
+                    <label for="freeze_card_number">カード番号（下4桁）:</label>
+                    <input type="text" id="freeze_card_number" placeholder="例: 1234" maxlength="4">
+                </div>
+                <button onclick="freezeCard()">カードを凍結</button>
+            </div>
+
+            <div class="tool-card">
+                <span class="category-badge fraud-badge">不正検知</span>
+                <h2>カードをキャンセル</h2>
+                <p>クレジットカードを永久にキャンセルします。</p>
+                <div class="input-group">
+                    <label for="cancel_card_number">カード番号（下4桁）:</label>
+                    <input type="text" id="cancel_card_number" placeholder="例: 1234" maxlength="4">
+                </div>
+                <div class="input-group">
+                    <label for="cancel_reason">キャンセル理由:</label>
+                    <input type="text" id="cancel_reason" placeholder="例: カードを紛失">
+                </div>
+                <button onclick="cancelCard()">カードをキャンセル</button>
+            </div>
+
+            <div class="tool-card">
+                <span class="category-badge fraud-badge">不正検知</span>
+                <h2>新しいカードを送付</h2>
+                <p>新しいクレジットカードを指定の住所に送付します。</p>
+                <div class="input-group">
+                    <label for="delivery_address">配送先住所:</label>
+                    <input type="text" id="delivery_address" placeholder="例: 東京都渋谷区...">
+                </div>
+                <button onclick="sendNewCard()">新しいカードを送付</button>
+            </div>
+
+            <!-- サブスクリプション管理ツール -->
+            <div class="tool-card">
+                <span class="category-badge subscription-badge">サブスクリプション</span>
+                <h2>サブスクリプション一覧</h2>
+                <p>アクティブなサブスクリプションを5〜7件表示します。</p>
+                <button onclick="getSubscriptions()">サブスクリプションを表示</button>
+            </div>
+
+            <div class="tool-card">
+                <span class="category-badge subscription-badge">サブスクリプション</span>
+                <h2>カテゴリ別支出</h2>
+                <p>サブスクリプションのカテゴリ別支出を計算します。</p>
+                <div class="input-group">
+                    <label for="category">カテゴリ（オプション）:</label>
+                    <select id="category">
+                        <option value="">すべてのカテゴリ</option>
+                        <option value="streaming">ストリーミング</option>
+                        <option value="software">ソフトウェア</option>
+                        <option value="fitness">フィットネス</option>
+                        <option value="shopping">ショッピング</option>
+                        <option value="news">ニュース</option>
+                    </select>
+                </div>
+                <button onclick="getSubscriptionSpend()">支出を計算</button>
+            </div>
+
+            <div class="tool-card">
+                <span class="category-badge subscription-badge">サブスクリプション</span>
+                <h2>サブスクリプションをキャンセル</h2>
+                <p>指定したサブスクリプションをキャンセルします。</p>
+                <div class="input-group">
+                    <label for="subscription_name">サブスクリプション名:</label>
+                    <input type="text" id="subscription_name" placeholder="例: Netflix Premium">
+                </div>
+                <button onclick="cancelSubscription()">サブスクリプションをキャンセル</button>
+            </div>
+        </div>
+
+        <div class="result-container">
+            <h2>📊 実行結果</h2>
+            <div id="result">ツールを実行すると、ここに結果が表示されます。</div>
+        </div>
+    </div>
+
+    <script>
+        function displayResult(data) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = JSON.stringify(data, null, 2);
+        }
+
+        function displayError(message) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = `エラー: ${message}`;
+        }
+
+        // 不正検知ツール
+        function checkTransactions() {
+            // シミュレーション: 実際にはPythonツールを呼び出します
+            const result = {
+                "status": "success",
+                "message": "3件の疑わしい取引が見つかりました",
+                "count": 3,
+                "transactions": [
+                    {
+                        "transaction_id": "TXN-2024-001",
+                        "date": new Date(Date.now() - 86400000).toISOString(),
+                        "amount": 1250.00,
+                        "currency": "USD",
+                        "merchant": "Electronics World Online",
+                        "location": "Moscow, Russia",
+                        "category": "retail",
+                        "reason": "通常と異なる地域からの高額購入"
+                    },
+                    {
+                        "transaction_id": "TXN-2024-002",
+                        "date": new Date(Date.now() - 10800000).toISOString(),
+                        "amount": 899.99,
+                        "currency": "USD",
+                        "merchant": "Luxury Fashion Store",
+                        "location": "Paris, France",
+                        "category": "retail",
+                        "reason": "短時間に複数の高額取引"
+                    },
+                    {
+                        "transaction_id": "TXN-2024-003",
+                        "date": new Date().toISOString(),
+                        "amount": 2500.00,
+                        "currency": "USD",
+                        "merchant": "International Wire Transfer",
+                        "location": "Lagos, Nigeria",
+                        "category": "transfer",
+                        "reason": "通常と異なるタイプの取引"
+                    }
+                ]
+            };
+            displayResult(result);
+        }
+
+        function reportFraud() {
+            const transactionId = document.getElementById('transaction_id').value;
+            if (!transactionId) {
+                displayError('取引IDを入力してください');
+                return;
+            }
+
+            const result = {
+                "status": "success",
+                "message": "不正ケースが正常に開かれました",
+                "case_number": `FRAUD-${new Date().toISOString().split('T')[0].replace(/-/g, '')}-${transactionId.slice(-3)}`,
+                "transaction_id": transactionId,
+                "reported_date": new Date().toISOString(),
+                "next_steps": [
+                    "取引は調査のためにブロックされました",
+                    "新しいクレジットカードの発行を推奨します",
+                    "調査結果は3-5営業日以内にメールで通知されます"
+                ],
+                "recommendation": "新しいクレジットカードを発行してください"
+            };
+            displayResult(result);
+        }
+
+        function freezeCard() {
+            const cardNumber = document.getElementById('freeze_card_number').value;
+            if (!cardNumber || cardNumber.length !== 4) {
+                displayError('カード番号の下4桁を入力してください');
+                return;
+            }
+
+            const result = {
+                "status": "success",
+                "message": `カード番号 ****${cardNumber} が正常に凍結されました`,
+                "card_last_four": cardNumber,
+                "frozen_date": new Date().toISOString(),
+                "details": {
+                    "all_transactions_blocked": true,
+                    "can_unfreeze": true,
+                    "unfreeze_method": "モバイルアプリまたはカスタマーサービスに連絡"
+                },
+                "note": "カードは凍結されましたが、キャンセルされていません。いつでも凍結解除できます。"
+            };
+            displayResult(result);
+        }
+
+        function cancelCard() {
+            const cardNumber = document.getElementById('cancel_card_number').value;
+            const reason = document.getElementById('cancel_reason').value;
+            
+            if (!cardNumber || cardNumber.length !== 4) {
+                displayError('カード番号の下4桁を入力してください');
+                return;
+            }
+            if (!reason) {
+                displayError('キャンセル理由を入力してください');
+                return;
+            }
+
+            const result = {
+                "status": "success",
+                "message": `カード番号 ****${cardNumber} が正常にキャンセルされました`,
+                "card_last_four": cardNumber,
+                "cancelled_date": new Date().toISOString(),
+                "reason": reason,
+                "details": {
+                    "card_destroyed": true,
+                    "all_transactions_blocked": true,
+                    "can_reactivate": false
+                },
+                "next_steps": [
+                    "このカードは完全に無効化されました",
+                    "新しいカードが必要な場合は、send_new_credit_cardツールを使用してください",
+                    "最終明細書は次の請求サイクルで送付されます"
+                ]
+            };
+            displayResult(result);
+        }
+
+        function sendNewCard() {
+            const address = document.getElementById('delivery_address').value;
+            if (!address) {
+                displayError('配送先住所を入力してください');
+                return;
+            }
+
+            const expectedDelivery = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
+            const result = {
+                "status": "success",
+                "message": "新しいクレジットカードが正常に発送されました",
+                "delivery_address": address,
+                "order_date": new Date().toISOString(),
+                "expected_delivery": expectedDelivery,
+                "tracking_number": `TRACK-${Date.now()}`,
+                "card_details": {
+                    "card_type": "Visa Platinum",
+                    "last_four_digits": "新しいカード番号は配送時に確認できます",
+                    "activation_required": true
+                },
+                "instructions": [
+                    "カードを受け取ったら、同封の手順に従って有効化してください",
+                    "有効化には、カード裏面の電話番号に電話するか、モバイルアプリを使用してください",
+                    "古いカードは安全に破棄してください"
+                ]
+            };
+            displayResult(result);
+        }
+
+        // サブスクリプション管理ツール
+        function getSubscriptions() {
+            const result = {
+                "status": "success",
+                "message": "7件のアクティブなサブスクリプションが見つかりました",
+                "count": 7,
+                "total_monthly_cost": 152.94,
+                "currency": "USD",
+                "subscriptions": [
+                    {
+                        "subscription_id": "SUB-001",
+                        "name": "Netflix Premium",
+                        "category": "streaming",
+                        "amount": 15.99,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2023-01-15",
+                        "next_billing_date": new Date(Date.now() + 5 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "Netflix Inc."
+                    },
+                    {
+                        "subscription_id": "SUB-002",
+                        "name": "Spotify Family",
+                        "category": "streaming",
+                        "amount": 16.99,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2023-03-20",
+                        "next_billing_date": new Date(Date.now() + 12 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "Spotify AB"
+                    },
+                    {
+                        "subscription_id": "SUB-003",
+                        "name": "Adobe Creative Cloud",
+                        "category": "software",
+                        "amount": 54.99,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2022-11-01",
+                        "next_billing_date": new Date(Date.now() + 18 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "Adobe Systems"
+                    },
+                    {
+                        "subscription_id": "SUB-004",
+                        "name": "Planet Fitness Membership",
+                        "category": "fitness",
+                        "amount": 22.99,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2023-02-10",
+                        "next_billing_date": new Date(Date.now() + 8 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "Planet Fitness"
+                    },
+                    {
+                        "subscription_id": "SUB-005",
+                        "name": "Amazon Prime",
+                        "category": "shopping",
+                        "amount": 14.99,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2022-06-15",
+                        "next_billing_date": new Date(Date.now() + 3 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "Amazon.com"
+                    },
+                    {
+                        "subscription_id": "SUB-006",
+                        "name": "The New York Times Digital",
+                        "category": "news",
+                        "amount": 17.00,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2023-04-01",
+                        "next_billing_date": new Date(Date.now() + 25 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "The New York Times"
+                    },
+                    {
+                        "subscription_id": "SUB-007",
+                        "name": "Microsoft 365 Family",
+                        "category": "software",
+                        "amount": 9.99,
+                        "currency": "USD",
+                        "frequency": "monthly",
+                        "start_date": "2022-09-12",
+                        "next_billing_date": new Date(Date.now() + 10 * 86400000).toISOString().split('T')[0],
+                        "status": "active",
+                        "merchant": "Microsoft Corporation"
+                    }
+                ]
+            };
+            displayResult(result);
+        }
+
+        function getSubscriptionSpend() {
+            const category = document.getElementById('category').value;
+            
+            const categoryData = {
+                "streaming": {
+                    "category": "streaming",
+                    "monthly_total": 32.98,
+                    "annual_total": 395.76,
+                    "subscriptions": [
+                        {"name": "Netflix Premium", "amount": 15.99},
+                        {"name": "Spotify Family", "amount": 16.99}
+                    ]
+                },
+                "software": {
+                    "category": "software",
+                    "monthly_total": 64.98,
+                    "annual_total": 779.76,
+                    "subscriptions": [
+                        {"name": "Adobe Creative Cloud", "amount": 54.99},
+                        {"name": "Microsoft 365 Family", "amount": 9.99}
+                    ]
+                },
+                "fitness": {
+                    "category": "fitness",
+                    "monthly_total": 22.99,
+                    "annual_total": 275.88,
+                    "subscriptions": [
+                        {"name": "Planet Fitness Membership", "amount": 22.99}
+                    ]
+                },
+                "shopping": {
+                    "category": "shopping",
+                    "monthly_total": 14.99,
+                    "annual_total": 179.88,
+                    "subscriptions": [
+                        {"name": "Amazon Prime", "amount": 14.99}
+                    ]
+                },
+                "news": {
+                    "category": "news",
+                    "monthly_total": 17.00,
+                    "annual_total": 204.00,
+                    "subscriptions": [
+                        {"name": "The New York Times Digital", "amount": 17.00}
+                    ]
+                }
+            };
+
+            let result;
+            if (category) {
+                result = {
+                    "status": "success",
+                    "message": `カテゴリ '${category}' の支出情報`,
+                    "filter": category,
+                    "data": categoryData[category]
+                };
+            } else {
+                result = {
+                    "status": "success",
+                    "message": "すべてのカテゴリの支出概要",
+                    "summary": {
+                        "total_monthly": 152.94,
+                        "total_annual": 1835.28,
+                        "currency": "USD",
+                        "category_count": 5
+                    },
+                    "categories": categoryData
+                };
+            }
+            displayResult(result);
+        }
+
+        function cancelSubscription() {
+            const subscriptionName = document.getElementById('subscription_name').value;
+            if (!subscriptionName) {
+                displayError('サブスクリプション名を入力してください');
+                return;
+            }
+
+            const lastBillingDate = new Date(Date.now() + 15 * 86400000).toISOString().split('T')[0];
+            const result = {
+                "status": "success",
+                "message": `サブスクリプション '${subscriptionName}' が正常にキャンセルされました`,
+                "subscription": {
+                    "subscription_name": subscriptionName,
+                    "status": "cancelled",
+                    "cancellation_date": new Date().toISOString(),
+                    "last_billing_date": lastBillingDate,
+                    "refund_eligible": false,
+                    "access_until": lastBillingDate
+                },
+                "details": {
+                    "immediate_cancellation": false,
+                    "access_continues": true,
+                    "access_until": lastBillingDate,
+                    "no_future_charges": true
+                },
+                "notes": [
+                    `現在の請求期間の終了(${lastBillingDate})までサービスにアクセスできます`,
+                    "今後の請求は発生しません",
+                    "いつでも再登録できます"
+                ]
+            };
+            displayResult(result);
+        }
+    </script>
+</body>
+</html>
