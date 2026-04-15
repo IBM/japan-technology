@@ -1,0 +1,111 @@
+Prompt 1
+
+Which security vulnerability violations can you identify, specifically for financial services industry. Do not scan the code, just answer the question.
+
+日本語版 1
+
+金融サービス業の観点で、どのようなセキュリティ脆弱性や違反が考えられるかを挙げてください。コードはスキャンせず、質問に対して回答だけしてください。
+
+
+Prompt 2
+
+Please perform a comprehensive security audit of this banking application (app.py).
+Identify all security vulnerabilities with:
+1. CWE (Common Weakness Enumeration) references
+2. PCI-DSS compliance violations
+3. Severity ratings (Critical, High, Medium, Low)
+4. Specific line numbers where issues occur
+5. Potential impact of each vulnerability
+
+Focus on:
+- Hardcoded credentials
+- SQL injection vulnerabilities
+- Sensitive data exposure
+- Missing authentication
+- Weak session management
+- Input validation issues
+- Insecure direct object references
+- Missing encryption
+
+日本語版 2
+
+この銀行アプリケーション（`app.py`）に対して、包括的なセキュリティ監査を実施してください。
+以下の観点を含めて、すべてのセキュリティ脆弱性を特定してください。
+1. CWE（Common Weakness Enumeration）の参照
+2. PCI-DSS コンプライアンス違反
+3. 重大度評価（Critical, High, Medium, Low）
+4. 問題が発生している具体的な行番号
+5. 各脆弱性がもたらす潜在的な影響
+
+特に次を重点的に見てください。
+- ハードコードされた認証情報
+- SQL Injection の脆弱性
+- 機密データの露出
+- 認証の欠如
+- 弱いセッション管理
+- 入力検証の問題
+- Insecure Direct Object Reference の問題
+- 暗号化の欠如
+
+
+Prompt 3
+
+Focus on the SQL injection vulnerability in the search_customer endpoint.
+Explain:
+1. How this vulnerability can be exploited
+2. What data could be compromised
+3. Provide a specific exploit example
+4. Show me the secure code fix with parameterized queries
+
+日本語版 3
+
+`search_customer` エンドポイントにある SQL Injection 脆弱性に絞って説明してください。
+次の内容を含めてください。
+1. この脆弱性がどのように悪用されるか
+2. どのデータが侵害され得るか
+3. 具体的な攻撃例
+4. パラメータ化クエリを使った安全な修正コード
+
+
+Prompt 4
+
+Generate a PCI-DSS compliance report for this application.
+For each violation, specify:
+1. The PCI-DSS requirement number
+2. What data is at risk
+3. The business impact
+4. Remediation priority
+5. Estimated effort to fix
+
+Create a summary table of all PCI-DSS violations found.
+
+日本語版 4
+
+このアプリケーションに対する PCI-DSS コンプライアンスレポートを作成してください。
+各違反について、次を明記してください。
+1. 該当する PCI-DSS 要件番号
+2. リスクにさらされるデータ
+3. ビジネスへの影響
+4. 対応優先度
+5. 修正に必要なおおよその工数
+
+見つかったすべての PCI-DSS 違反を要約したサマリーテーブルも作成してください。
+
+
+Prompt 5
+
+Fix the top 3 critical vulnerabilities:
+1. Remove hardcoded credentials and use environment variables
+2. Fix the SQL injection in search_customer endpoint
+3. Add encryption for sensitive data (SSN, card numbers)
+
+Apply the fixes and show me the diff of changes.
+
+日本語版 5
+
+重大度が最も高い 3 件の脆弱性を修正してください。
+1. ハードコードされた認証情報を削除し、環境変数を使う
+2. `search_customer` エンドポイントの SQL Injection を修正する
+3. 機密データ（SSN、カード番号）に暗号化を追加する
+
+修正を適用し、変更差分も見せてください。

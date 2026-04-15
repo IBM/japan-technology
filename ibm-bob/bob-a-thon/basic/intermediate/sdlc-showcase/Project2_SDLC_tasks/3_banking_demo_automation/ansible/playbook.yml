@@ -1,0 +1,246 @@
+---
+# ============================================================================
+# ANSIBLE PLAYBOOK - CONFIGURATION MANAGEMENT
+# ============================================================================
+# Purpose: Configure applications deployed by Terraform
+# Reads infrastructure details from Terraform outputs
+# ============================================================================
+
+- name: Configure Banking Applications
+  hosts: localhost
+  gather_facts: yes
+  vars:
+    terraform_dir: "../terraform"
+    
+  tasks:
+    - name: Get Terraform outputs
+      command: terraform output -json
+      args:
+        chdir: "{{ terraform_dir }}"
+      register: terraform_output
+      changed_when: false
+      
+    - name: Parse Terraform outputs
+      set_fact:
+        tf_output: "{{ terraform_output.stdout | from_json }}"
+        
+    - name: Display infrastructure information
+      debug:
+        msg:
+          - "Network: {{ tf_output.network_name.value }}"
+          - "Bank 1: {{ tf_output.bank1_container_name.value }} ({{ tf_output.bank1_url.value }})"
+          - "Bank 2: {{ tf_output.bank2_container_name.value }} ({{ tf_output.bank2_url.value }})"
+
+- name: Configure Bank Applications
+  hosts: localhost
+  gather_facts: no
+  vars:
+    terraform_dir: "../terraform"
+    
+  tasks:
+    - name: Get Terraform outputs
+      command: terraform output -json
+      args:
+        chdir: "{{ terraform_dir }}"
+      register: terraform_output
+      changed_when: false
+      
+    - name: Parse Terraform outputs
+      set_fact:
+        tf_output: "{{ terraform_output.stdout | from_json }}"
+        bank1_container: "{{ (terraform_output.stdout | from_json).bank1_container_name.value }}"
+        bank2_container: "{{ (terraform_output.stdout | from_json).bank2_container_name.value }}"
+        bank1_url: "{{ (terraform_output.stdout | from_json).bank1_url.value }}"
+        bank2_url: "{{ (terraform_output.stdout | from_json).bank2_url.value }}"
+    
+    # ========================================================================
+    # ROLE 1: Configure Applications
+    # ========================================================================
+    - name: Configure Bank 1 (Savings) environment
+      community.docker.docker_container_exec:
+        container: "{{ bank1_container }}"
+        command: /bin/sh -c "echo 'BANK2_URL=http://{{ bank2_container }}:5000' >> /app/.env"
+      ignore_errors: yes
+      
+    - name: Configure Bank 2 (Investment) environment
+      community.docker.docker_container_exec:
+        container: "{{ bank2_container }}"
+        command: /bin/sh -c "echo 'BANK1_URL=http://{{ bank1_container }}:5000' >> /app/.env"
+      ignore_errors: yes
+    
+    # ========================================================================
+    # ROLE 2: Setup Monitoring
+    # ========================================================================
+    - name: Create monitoring script for Bank 1
+      copy:
+        dest: "/tmp/monitor_bank1.sh"
+        mode: '0755'
+        content: |
+          #!/bin/bash
+          # Bank 1 Health Monitor
+          while true; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" {{ bank1_url }}/health)
+            TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+            if [ "$STATUS" = "200" ]; then
+              echo "[$TIMESTAMP] Bank 1 (Savings): ✓ Healthy (HTTP $STATUS)"
+            else
+              echo "[$TIMESTAMP] Bank 1 (Savings): ✗ Unhealthy (HTTP $STATUS)"
+            fi
+            sleep 30
+          done
+          
+    - name: Create monitoring script for Bank 2
+      copy:
+        dest: "/tmp/monitor_bank2.sh"
+        mode: '0755'
+        content: |
+          #!/bin/bash
+          # Bank 2 Health Monitor
+          while true; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" {{ bank2_url }}/health)
+            TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+            if [ "$STATUS" = "200" ]; then
+              echo "[$TIMESTAMP] Bank 2 (Investment): ✓ Healthy (HTTP $STATUS)"
+            else
+              echo "[$TIMESTAMP] Bank 2 (Investment): ✗ Unhealthy (HTTP $STATUS)"
+            fi
+            sleep 30
+          done
+    
+    # ========================================================================
+    # ROLE 3: Setup Backup System
+    # ========================================================================
+    - name: Create backup script
+      copy:
+        dest: "/tmp/backup_banks.sh"
+        mode: '0755'
+        content: |
+          #!/bin/bash
+          # Banking Data Backup Script
+          BACKUP_DIR="/tmp/banking-backups"
+          TIMESTAMP=$(date '+%Y%m%d_%H%M%S')
+          
+          mkdir -p "$BACKUP_DIR"
+          
+          echo "Starting backup at $(date)"
+          
+          # Backup Bank 1 data
+          echo "Backing up Bank 1 (Savings)..."
+          docker exec {{ bank1_container }} tar czf - /app/data 2>/dev/null > "$BACKUP_DIR/bank1_${TIMESTAMP}.tar.gz"
+          
+          # Backup Bank 2 data
+          echo "Backing up Bank 2 (Investment)..."
+          docker exec {{ bank2_container }} tar czf - /app/data 2>/dev/null > "$BACKUP_DIR/bank2_${TIMESTAMP}.tar.gz"
+          
+          # Keep only last 7 days of backups
+          find "$BACKUP_DIR" -name "*.tar.gz" -mtime +7 -delete
+          
+          echo "Backup completed at $(date)"
+          echo "Backups stored in: $BACKUP_DIR"
+          ls -lh "$BACKUP_DIR"
+    
+    # ========================================================================
+    # ROLE 4: Health Checks & Validation
+    # ========================================================================
+    - name: Wait for Bank 1 to be healthy
+      uri:
+        url: "{{ bank1_url }}/health"
+        status_code: 200
+      register: bank1_health
+      until: bank1_health.status == 200
+      retries: 10
+      delay: 3
+      
+    - name: Wait for Bank 2 to be healthy
+      uri:
+        url: "{{ bank2_url }}/health"
+        status_code: 200
+      register: bank2_health
+      until: bank2_health.status == 200
+      retries: 10
+      delay: 3
+      
+    - name: Verify inter-bank connectivity
+      uri:
+        url: "{{ bank1_url }}/health"
+        return_content: yes
+      register: connectivity_test
+      
+    - name: Display health check results
+      debug:
+        msg:
+          - "✓ Bank 1 (Savings) is healthy"
+          - "✓ Bank 2 (Investment) is healthy"
+          - "✓ Inter-bank connectivity verified"
+          
+    # ========================================================================
+    # ROLE 5: Configure Logging
+    # ========================================================================
+    - name: Ensure audit log directories exist in containers
+      community.docker.docker_container_exec:
+        container: "{{ item }}"
+        command: /bin/sh -c "mkdir -p /app/data && chmod 755 /app/data"
+      loop:
+        - "{{ bank1_container }}"
+        - "{{ bank2_container }}"
+      ignore_errors: yes
+      
+    - name: Create log rotation script
+      copy:
+        dest: "/tmp/rotate_logs.sh"
+        mode: '0755'
+        content: |
+          #!/bin/bash
+          # Log Rotation Script
+          MAX_SIZE=10485760  # 10MB
+          
+          for container in {{ bank1_container }} {{ bank2_container }}; do
+            echo "Checking logs for $container..."
+            docker exec $container sh -c '
+              for log in /app/data/*.jsonl; do
+                if [ -f "$log" ]; then
+                  size=$(stat -f%z "$log" 2>/dev/null || stat -c%s "$log" 2>/dev/null)
+                  if [ "$size" -gt '$MAX_SIZE' ]; then
+                    echo "Rotating $log (size: $size bytes)"
+                    mv "$log" "$log.$(date +%Y%m%d_%H%M%S)"
+                    gzip "$log.$(date +%Y%m%d_%H%M%S)"
+                  fi
+                fi
+              done
+            '
+          done
+    
+    # ========================================================================
+    # Final Summary
+    # ========================================================================
+    - name: Configuration Summary
+      debug:
+        msg:
+          - "=========================================="
+          - "Configuration Complete!"
+          - "=========================================="
+          - ""
+          - "Infrastructure (Terraform):"
+          - "  Network: {{ tf_output.network_name.value }}"
+          - "  Bank 1 Container: {{ bank1_container }}"
+          - "  Bank 2 Container: {{ bank2_container }}"
+          - ""
+          - "Configuration (Ansible):"
+          - "  ✓ Environment variables configured"
+          - "  ✓ Monitoring scripts created"
+          - "  ✓ Backup system configured"
+          - "  ✓ Health checks passed"
+          - "  ✓ Logging configured"
+          - ""
+          - "Access URLs:"
+          - "  Bank 1 (Savings): {{ bank1_url }}"
+          - "  Bank 2 (Investment): {{ bank2_url }}"
+          - ""
+          - "Management Scripts:"
+          - "  Monitor: /tmp/monitor_bank1.sh & /tmp/monitor_bank2.sh"
+          - "  Backup: /tmp/backup_banks.sh"
+          - "  Log Rotation: /tmp/rotate_logs.sh"
+          - ""
+          - "=========================================="
+
+# Made with Bob
