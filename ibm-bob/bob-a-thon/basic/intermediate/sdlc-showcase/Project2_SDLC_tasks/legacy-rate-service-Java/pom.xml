@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bank</groupId>
+    <artifactId>legacy-rate-service</artifactId>
+    <version>1.0.0-LEGACY</version>
+    <packaging>jar</packaging>
+
+    <name>Legacy Rate Service</name>
+    <description>Legacy Banking Rate Service - Demonstrates code modernization needs</description>
+
+    <properties>
+        <!-- ISSUE: Using Java 8 (outdated) -->
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- ISSUE: Using deprecated Apache Commons Lang 2.x -->
+        <!-- Should use Commons Lang 3.x -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <!-- ISSUE: Using deprecated Apache Commons HttpClient 3.x -->
+        <!-- Should use HttpClient 4.x or 5.x -->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <!-- ISSUE: Old MySQL connector with known vulnerabilities -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+        </dependency>
+
+        <!-- ISSUE: No modern logging framework -->
+        <!-- Should use SLF4J + Logback or Log4j2 -->
+        <!-- Currently using System.out.println -->
+
+        <!-- ISSUE: No connection pooling library -->
+        <!-- Should use HikariCP or Apache DBCP2 -->
+
+        <!-- JUnit for testing (also outdated) -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.1</version>
+                <configuration>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
+<!-- Made with Bob -->

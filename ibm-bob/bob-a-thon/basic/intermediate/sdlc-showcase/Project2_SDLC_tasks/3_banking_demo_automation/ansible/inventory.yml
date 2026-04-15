@@ -1,0 +1,32 @@
+all:
+  hosts:
+    localhost:
+      ansible_connection: local
+      ansible_python_interpreter: auto
+  
+  vars:
+    # Docker configuration
+    docker_network_name: banking-network
+    docker_network_subnet: 172.20.0.0/16
+    docker_network_gateway: 172.20.0.1
+    
+    # Bank 1 (Savings) configuration
+    bank1_name: bank1-savings
+    bank1_image: bank1-savings:latest
+    bank1_port: 5001
+    bank1_internal_port: 5000
+    bank1_app_name: "Savings Bank"
+    bank1_build_path: "../bank1-savings"
+    
+    # Bank 2 (Investment) configuration
+    bank2_name: bank2-investment
+    bank2_image: bank2-investment:latest
+    bank2_port: 5002
+    bank2_internal_port: 5000
+    bank2_app_name: "Investment Bank"
+    bank2_build_path: "../bank2-investment"
+    
+    # Application settings
+    restart_policy: unless-stopped
+
+# Made with Bob
