@@ -1,7 +1,7 @@
 # Bob-a-thon ハンズオン・ガイド
-仕様駆動のAI開発入門 — IBM Bobで学ぶモックアップ開発と文書化
+## 仕様駆動開発入門：ユースケースを想定した、Webアプリのプロトタイピング
 
-* 最終更新日: 2026/4/13
+* 最終更新日: 2026/5/13
 * Author: Akira Onishi (Principal BDE, AI Lab Japan Office, IBM Japan)
 
 ---
