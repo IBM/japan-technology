@@ -3,7 +3,9 @@
 
 * 最終更新日: 2026/6/3
 * Author: Akira Onishi (Principal BDE, AI Lab Japan Office, IBM Japan)
-* Co-Author: Miki Igarashi (Consulting, IBM Japan)
+* Co-Author: 
+   Mitsuhiro Nakayama (IT Specialist, Consulting, IBM Japan)
+   Miki Igarashi (Consulting, IBM Japan)
 
 ---
 
