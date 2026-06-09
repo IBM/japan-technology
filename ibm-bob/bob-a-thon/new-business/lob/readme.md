@@ -805,6 +805,7 @@ IBM Bobには、用途に応じたコマンド（モード）がある。
 
 ```
 bob-a-thon-lob-web.md                  このドキュメント
+bob-a-thon-lob-web.html               HTML版
 lab-scenario/
 ├── company_profile.md              企業設定メモ（空欄テンプレート）
 ├── sales_challenge.md              営業チームの課題カード（練習ラボ・チーム演習で使用）
