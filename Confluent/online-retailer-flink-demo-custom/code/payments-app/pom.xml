@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.confluent</groupId>
+    <artifactId>data-contract-examples</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <properties>
+        <confluent.version>7.9.1</confluent.version>
+        <kafka.version>3.9.2</kafka.version>
+        <jsonschema2pojo-maven-plugin>1.0.2</jsonschema2pojo-maven-plugin>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <avro-maven-plugin>1.12.1</avro-maven-plugin>
+        <protoc.jar.maven.plugin>3.11.4</protoc.jar.maven.plugin>
+        <schema.registry.url>${env.SR_URL}</schema.registry.url>
+        <schema.registry.basic.auth.user.info>
+            ${env.SR_KEY}:${env.SR_SECRET}
+        </schema.registry.basic.auth.user.info>
+    </properties>
+    <dependencies>
+
+        <!-- Library for Java Kafka client -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+
+        <!-- Library for Schema Registry client - to use with the Kafka client to serialize and deserialize records with a SR schema -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-registry-client</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+
+        <!-- Libraries for Avro -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>${avro-maven-plugin}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-avro-serializer</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-streams-avro-serde</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+
+        <!-- Libraries for Protobuf -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-protobuf-serializer</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-streams-protobuf-serde</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+
+        <!-- Libraries for JSON -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-json-schema-serializer</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-streams-json-schema-serde</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+
+        <!-- Library for fake data generation -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <!-- Libraries for Log4J -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- Library for Schema Rules -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-rules</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+
+        <!-- Libraries for Client-Side Field Level Encryption -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-registry-client-encryption-aws</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-registry-client-encryption</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>kafka-schema-registry-client-encryption-tink</artifactId>
+            <version>${confluent.version}</version>
+        </dependency>
+
+        <!-- Library to send a custom action email -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <!-- Misc -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.slack.api/slack-api-client -->
+        <dependency>
+            <groupId>com.slack.api</groupId>
+            <artifactId>slack-api-client</artifactId>
+            <version>1.48.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Generate code for all 3 formats: mvn generate-sources -->
+               <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.6.3</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>java</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>io.confluent.examples.datacontract.ProducerApp</mainClass>
+                        <arguments>
+                            <argument>1</argument>
+                        </arguments>
+                    </configuration>
+                </plugin>
+                <!-- Create a fat (shaded) JAR including all dependencies -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.6.2</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <createDependencyReducedPom>false</createDependencyReducedPom>
+                                <shadedArtifactAttached>true</shadedArtifactAttached>
+                                <shadedClassifierName>shaded</shadedClassifierName>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            <!-- Plugin to generate POJO from Avro schemas -->
+                <plugin>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>avro-maven-plugin</artifactId>
+                    <version>${avro-maven-plugin}</version>
+                    <executions>
+                        <execution>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>schema</goal>
+                            </goals>
+                            <configuration>
+                                <sourceDirectory>src/main/datacontracts/avro/</sourceDirectory>
+                                <outputDirectory>src/main/java/</outputDirectory>
+                                <imports>
+                                    <import>src/main/datacontracts/avro/payments-value.avsc</import>
+                                </imports>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+            <!-- Plugin to generate POJO from Protobuf schemas
+            <plugin>
+                <groupId>com.github.os72</groupId>
+                <artifactId>protoc-jar-maven-plugin</artifactId>
+                <version>${protoc.jar.maven.plugin}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <includeStdTypes>true</includeStdTypes>
+                            <inputDirectories>
+                                <include>src/main/schemas/protobuf/</include>
+                            </inputDirectories>
+                            <outputTargets>
+                                <outputTarget>
+                                    <type>java</type>
+                                    <addSources>none</addSources>
+                                    <outputDirectory>src/main/java/</outputDirectory>
+                                </outputTarget>
+                            </outputTargets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!- Plugin to generate POJO from JSON schemas ->
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>${jsonschema2pojo-maven-plugin}</version>
+                <configuration>
+                    <sourceDirectory>src/main/schemas/json/</sourceDirectory>
+                    <targetPackage>io.confluent.examples.datacontract.pojo.json</targetPackage>
+                    <outputDirectory>src/main/java/</outputDirectory>
+                    <!-suppress UnresolvedMavenProperty ->
+                    <skip>${skipGenPOJO}</skip>
+                    <excludes>*.md</excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+
+            <!-- Plugin to manage schemas on the Schema Registry -->
+            <!-- mvn schema-registry:register -->
+            <plugin>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-schema-registry-maven-plugin</artifactId>
+                <version>${confluent.version}</version>
+                <configuration>
+                    <schemaRegistryUrls>
+                        <param>${schema.registry.url}</param>
+                    </schemaRegistryUrls>
+                    <userInfoConfig>${schema.registry.basic.auth.user.info}</userInfoConfig>
+                    <subjects>
+                        <users.avro-value>src/main/schemas/avro/user.avsc</users.avro-value>
+                        <users.protobuf-value>src/main/schemas/protobuf/user.proto</users.protobuf-value>
+                        <users.json-value>src/main/schemas/json/user.json</users.json-value>
+                    </subjects>
+                    <schemaTypes>
+                        <users.avro-value>AVRO</users.avro-value>
+                        <users.protobuf-value>PROTOBUF</users.protobuf-value>
+                        <users.json-value>JSON</users.json-value>
+                    </schemaTypes>
+                    <!--
+                    <metadata>
+                        <customer>
+                            <tags>
+                                <ssn>PII</ssn>
+                                <age>PHI</age>
+                            </tags>
+                            <properties>
+                                <owner>Bob Jones</owner>
+                                <email>bob@acme.com</email>
+                            </properties>
+                        </customer>
+                    </metadata>
+                    <ruleSet>
+                        <customer>
+                            <domainRules>
+                                <rule>
+                                    <name>checkSsnLen</name>
+                                    <doc>Check the SSL length.</doc>
+                                    <kind>CONDITION</kind>
+                                    <mode>WRITE</mode>
+                                    <type>CEL</type>
+                                    <tags>
+                                        <tag>PII</tag>
+                                        <tag>PHI</tag>
+                                    </tags>
+                                    <params>
+                                        <key1>value1</key1>
+                                        <key2>value2</key2>
+                                    </params>
+                                    <expr>size(message.ssn) == 9</expr>
+                                    <onSuccess>NONE</onSuccess>
+                                    <onFailure>DLQ</onFailure>
+                                    <disabled>false</disabled>
+                                </rule>
+                            </domainRules>
+                        </customer>
+                    </ruleSet>
+                    -->
+                    <compatibilityLevels/>
+                    <messagePath/>
+                    <outputDirectory/>
+                    <outputPath/>
+                    <previousSchemaPaths/>
+                    <schemas/>
+                </configuration>
+                <goals>
+                    <goal>register</goal>
+                </goals>
+            </plugin>
+        </plugins>
+    </build>
+</project>

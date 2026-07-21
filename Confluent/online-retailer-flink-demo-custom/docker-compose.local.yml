@@ -1,0 +1,138 @@
+version: '3.8'
+
+services:
+  # PostgreSQL with WAL enabled for CDC
+  postgres:
+    image: postgres:15-alpine
+    container_name: local-postgres
+    environment:
+      POSTGRES_DB: onlinestoredb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Admin123456!!
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./code/postgresql-data-feeder/init-schema.sql:/docker-entrypoint-initdb.d/init-schema.sql:ro
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+      - "-c"
+      - "max_wal_senders=1"
+      - "-c"
+      - "max_replication_slots=1"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - local-network
+
+  # PostgreSQL Data Feeder
+  data-feeder:
+    build:
+      context: ./code/postgresql-data-feeder
+      dockerfile: Dockerfile
+    container_name: data-feeder
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/onlinestoredb
+      DB_USER: postgres
+      DB_PASSWORD: Admin123456!!
+    restart: unless-stopped
+    networks:
+      - local-network
+
+  # Kafka Connect with Debezium and Confluent Avro Converter
+  debezium-connect:
+    build:
+      context: ./code/debezium-connect
+      dockerfile: Dockerfile
+    container_name: debezium-connect
+    ports:
+      - "8083:8083"
+    environment:
+      # Confluent Platform Kafka Connect required variables
+      CONNECT_BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS}
+      CONNECT_GROUP_ID: debezium-connect-cluster
+      CONNECT_CONFIG_STORAGE_TOPIC: debezium-connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: debezium-connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: debezium-connect-status
+      
+      # Confluent Cloud requires replication factor of 3
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 3
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 3
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 3
+      
+      # Confluent Cloud authentication
+      CONNECT_SASL_MECHANISM: PLAIN
+      CONNECT_SECURITY_PROTOCOL: SASL_SSL
+      CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_API_KEY}" password="${KAFKA_API_SECRET}";
+      
+      # Producer settings
+      CONNECT_PRODUCER_SASL_MECHANISM: PLAIN
+      CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
+      CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_API_KEY}" password="${KAFKA_API_SECRET}";
+      
+      # Consumer settings
+      CONNECT_CONSUMER_SASL_MECHANISM: PLAIN
+      CONNECT_CONSUMER_SECURITY_PROTOCOL: SASL_SSL
+      CONNECT_CONSUMER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_API_KEY}" password="${KAFKA_API_SECRET}";
+      
+      # Schema Registry settings
+      CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: ${SCHEMA_REGISTRY_URL}
+      CONNECT_VALUE_CONVERTER_BASIC_AUTH_CREDENTIALS_SOURCE: USER_INFO
+      CONNECT_VALUE_CONVERTER_BASIC_AUTH_USER_INFO: ${SR_API_KEY}:${SR_API_SECRET}
+      
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      
+      # Internal converter settings
+      CONNECT_INTERNAL_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_INTERNAL_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      
+      # Connector settings
+      CONNECT_REST_ADVERTISED_HOST_NAME: debezium-connect
+      CONNECT_PLUGIN_PATH: /usr/share/java,/usr/share/confluent-hub-components
+      
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - local-network
+
+  # Payment Producer App
+  payment-producer:
+    build:
+      context: ./code/payments-app
+      dockerfile: Dockerfile
+    container_name: payment-producer
+    environment:
+      BOOTSTRAP_SERVERS: ${BOOTSTRAP_SERVERS}
+      SASL_USERNAME: ${KAFKA_API_KEY}
+      SASL_PASSWORD: ${KAFKA_API_SECRET}
+      SCHEMA_REGISTRY_URL: ${SCHEMA_REGISTRY_URL}
+      SR_API_KEY: ${SR_API_KEY}
+      SR_API_SECRET: ${SR_API_SECRET}
+      # Dummy AWS credentials (required by ClientsUtils but not used without CSFLE)
+      AWS_ACCESS_KEY_ID: "dummy-access-key-id"
+      AWS_SECRET_ACCESS_KEY: "dummy-secret-access-key"
+    restart: unless-stopped
+    depends_on:
+      - debezium-connect
+    networks:
+      - local-network
+
+volumes:
+  postgres-data:
+
+networks:
+  local-network:
+    driver: bridge
+
+# Made with Bob
