@@ -14,17 +14,21 @@ IBM SaaS製品をよりスムーズにご利用いただけるよう、初期設
 
 [watsonx.data](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-data/)
 
+[DataStax](https://ibm.github.io/japan-technology/onboarding-docs/datastax/)
+
 [watsonx.governance](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-governance/)
 
 [watsonx Orchestrate](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-orchestrate/)
 
-[watsonx Code Assistant for Enterprise Java Applications](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-code-assistant-for-enterprise-java-applications/)
+[watsonx Code Assistant](https://ibm.github.io/japan-technology/onboarding-docs/watsonx-code-assistant/)
 
 ---
 
 ### IBM Planning Analytics
 
 [Planning Analytics on Cloud](https://ibm.github.io/japan-technology/onboarding-docs/planning-analytics-on-cloud/)
+
+[Planning Analytics as a Service](https://ibm.github.io/japan-technology/onboarding-docs/planning-analytics-as-a-service/)
 
 ---
 
@@ -33,3 +37,7 @@ IBM SaaS製品をよりスムーズにご利用いただけるよう、初期設
 [IBM Instana Observability](https://ibm.github.io/japan-technology/onboarding-docs/instana/)
 
 [IBM Turbonomic](https://ibm.github.io/japan-technology/onboarding-docs/turbonomic/)
+
+[Terraform](https://ibm.github.io/japan-technology/onboarding-docs/terraform/)
+
+[Vault](https://ibm.github.io/japan-technology/onboarding-docs/vault/)
