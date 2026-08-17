@@ -56,6 +56,13 @@ Bobから提案された方法の中から、利用するMCPサーバーを選�
 
 #### 4. リモートMCPサーバーを設定する
 
+* Bobからbob sesttingから、MCPサーバーを開き、赤枠のプラスをクリックする。
+
+<img width="1179" height="923" alt="スクリーンショット 2026-08-17 16 30 52" src="https://github.com/user-attachments/assets/9b606f5f-39cb-4553-8c2f-55b4b76ab6fb" />
+
+
+
+
 利用するMCPサーバーのドキュメントを確認し、記載されている手順に従ってBobにサーバーを設定する。
 
 ドキュメントのリンク：https://bob.ibm.com/docs/ide/configuration/mcp/understanding-mcp
