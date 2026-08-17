@@ -23,7 +23,7 @@ IBM Bob というAI コーディングエージェントで、業務効率化エ
 　→ 便を比較（価格・時間）
 　→ 最適便を選択
 ```
-
+![alt text](lab-scenario/images/bobche4.png)
 
 ## ハンズオンの流れ
 | ステップ | 内容 |
