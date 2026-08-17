@@ -55,13 +55,13 @@ Bobから提案された方法の中から、利用するMCPサーバーを選�
 
 
 #### 4. リモートMCPサーバーの設定
-利用するMCPサーバーのドキュメントを確認し、記載されている手順に従ってBobにサーバーを設定を行ってください。以下には、Tavilyの接続方法を記します。
+利用するMCPサーバーのドキュメントを確認し、記載されている手順に従ってサーバーの設定を行ってください。以下には、Tavilyの接続方法を記します。
 
 ドキュメントのリンク：https://bob.ibm.com/docs/ide/configuration/mcp/understanding-mcp
 
 
 
-* Bobを立ち上げ、bob sesttingから、MCPサーバーを開き、赤枠のプラスをクリックする。  
+* Bobを立ち上げ、Bob sesttingから、MCPサーバーを開き、赤枠のプラスをクリックしてください。  
 
 
 <img width="1179" height="923" alt="スクリーンショット 2026-08-17 16 30 52" src="https://github.com/user-attachments/assets/9b606f5f-39cb-4553-8c2f-55b4b76ab6fb" />  
@@ -69,14 +69,14 @@ Bobから提案された方法の中から、利用するMCPサーバーを選�
 
 
 
-* 設定スコープを選択し、設定ファイルを開くを選択してください。すべてのワークスペースで利用する場合はグローバルを選択し、そうでない場合は特定のワークスペースに追加するを選択してください。  
+* 設定スコープを選択し、「設定ファイルを開く」を選択してください。すべてのワークスペースで利用する場合は「グローバル」を選択し、それ以外の場合は「特定のワークスペースに追加する」を選択してください。  
 
 
 <img width="929" height="398" alt="スクリーンショット 2026-08-17 16 31 05" src="https://github.com/user-attachments/assets/c1efbafb-2af9-42d2-a8d0-3d4616968c35" />  
 
 
 
-* 下記のサイトからTavilyへのサインアップを行い、取得したAPI keyを入力してください。mcp.jsonの書き方を参考にしてください。  
+* 下記のサイトからTavilyへのサインアップを行い、取得したAPIキーを入力してください。mcp.jsonの書き方を参考にしてください。  
 
 Tavilyのサインアップのサイト：
 https://auth.tavily.com/u/login/identifier?state=hKFo2SBtNDFSSzJXSWJKckV0RUQtMGliQzZWWGt3NmJ1ZUF0c6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHh5UjNub1RfVms3eFNja05DMVlhQ3JEajdxWkVIc1Zko2NpZNkgUlJJQXZ2WE5GeHBmVFdJb3pYMW1YcUxueVVtWVNUclE
@@ -109,7 +109,7 @@ mcp.jsonの書き方：
 
 <img width="704" height="156" alt="スクリーンショット 2026-08-17 16 44 02" src="https://github.com/user-attachments/assets/5cf05964-a5f4-46ba-b2a5-343be85c1a9e" />
 
-MCPの接続の許可を求められるので、承認します。
+MCPサーバーへの接続許可を求められるので、承認します。
 
 <img width="708" height="348" alt="スクリーンショット 2026-08-17 16 44 15" src="https://github.com/user-attachments/assets/beab4400-8b75-43c2-b1b3-e0297d3a9166" />
 
