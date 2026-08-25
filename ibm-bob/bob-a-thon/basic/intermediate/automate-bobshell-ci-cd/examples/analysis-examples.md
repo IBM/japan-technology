@@ -19,16 +19,16 @@
 
 ```bash
 # Analyze single file
-bob "Analyze the code quality of ./src/app.js"
+bob run "Analyze the code quality of ./src/app.js"
 
 # Analyze with specific checks
-bob "Analyze ./src/app.js for quality, maintainability, and readability issues"
+bob run "Analyze ./src/app.js for quality, maintainability, and readability issues"
 
 # Analyze entire directory
-bob "Analyze all files in ./src recursively for code quality issues"
+bob run "Analyze all files in ./src recursively for code quality issues"
 
 # Get detailed report
-bob "Perform a comprehensive code quality analysis of ./src and provide a detailed report" > quality-report.md
+bob run "Perform a comprehensive code quality analysis of ./src and provide a detailed report" > quality-report.md
 ```
 
 **出力例:**
@@ -58,15 +58,15 @@ bob "Perform a comprehensive code quality analysis of ./src and provide a detail
 
 ```bash
 # Get specific metrics
-bob "Analyze ./src and provide metrics on complexity, maintainability, coverage, and code duplication"
+bob run "Analyze ./src and provide metrics on complexity, maintainability, coverage, and code duplication"
 
 # Set quality threshold
-bob "Analyze ./src and ensure the code quality score is at least 80"
+bob run "Analyze ./src and ensure the code quality score is at least 80"
 
 # Compare before and after
-bob "Analyze ./src for code quality and output as JSON" > before.json
+bob run "Analyze ./src for code quality and output as JSON" > before.json
 # Make changes
-bob "Analyze ./src for code quality and output as JSON" > after.json
+bob run "Analyze ./src for code quality and output as JSON" > after.json
 # Compare results
 diff before.json after.json
 ```
@@ -75,13 +75,13 @@ diff before.json after.json
 
 ```bash
 # Detect code smells
-bob "Detect code smells in ./src and provide detailed analysis"
+bob run "Detect code smells in ./src and provide detailed analysis"
 
 # Focus on specific smells
-bob "Check ./src for long methods, large classes, and duplicate code"
+bob run "Check ./src for long methods, large classes, and duplicate code"
 
 # Generate refactoring suggestions
-bob "Analyze ./src for code smells and suggest refactoring strategies" > refactoring-plan.md
+bob run "Analyze ./src for code smells and suggest refactoring strategies" > refactoring-plan.md
 ```
 
 **出力例:**
@@ -109,16 +109,16 @@ bob "Analyze ./src for code smells and suggest refactoring strategies" > refacto
 
 ```bash
 # Basic security scan
-bob "Scan ./src for security vulnerabilities"
+bob run "Scan ./src for security vulnerabilities"
 
 # Scan with severity focus
-bob "Scan ./src for high and critical security vulnerabilities"
+bob run "Scan ./src for high and critical security vulnerabilities"
 
 # Scan for specific vulnerabilities
-bob "Check ./src for SQL injection, XSS, CSRF, and exposed secrets"
+bob run "Check ./src for SQL injection, XSS, CSRF, and exposed secrets"
 
 # Generate security report
-bob "Perform a comprehensive security scan of ./src and generate an HTML report" > security-report.html
+bob run "Perform a comprehensive security scan of ./src and generate an HTML report" > security-report.html
 ```
 
 **出力例:**
@@ -148,32 +148,32 @@ bob "Perform a comprehensive security scan of ./src and generate an HTML report"
 
 ```bash
 # Check for SQL injection
-bob "Check ./src for SQL injection vulnerabilities and provide detailed examples"
+bob run "Check ./src for SQL injection vulnerabilities and provide detailed examples"
 
 # Check for XSS vulnerabilities
-bob "Scan ./src for XSS vulnerabilities with examples of how to fix them"
+bob run "Scan ./src for XSS vulnerabilities with examples of how to fix them"
 
 # Check for exposed secrets
-bob "Check ./src for exposed secrets, credentials, and API keys"
+bob run "Check ./src for exposed secrets, credentials, and API keys"
 
 # Check authentication issues
-bob "Analyze ./src for authentication, session management, and JWT security issues"
+bob run "Analyze ./src for authentication, session management, and JWT security issues"
 ```
 
 ### セキュリティベストプラクティス
 
 ```bash
 # Check OWASP Top 10
-bob "Scan ./src for OWASP Top 10 vulnerabilities"
+bob run "Scan ./src for OWASP Top 10 vulnerabilities"
 
 # Check for insecure dependencies
-bob "Check ./package.json for security vulnerabilities in dependencies"
+bob run "Check ./package.json for security vulnerabilities in dependencies"
 
 # Validate security headers
-bob "Review ./src/middleware for proper security headers implementation"
+bob run "Review ./src/middleware for proper security headers implementation"
 
 # Check for sensitive data exposure
-bob "Check ./src for sensitive data exposure and logging issues"
+bob run "Check ./src for sensitive data exposure and logging issues"
 ```
 
 ## パフォーマンス分析
@@ -182,16 +182,16 @@ bob "Check ./src for sensitive data exposure and logging issues"
 
 ```bash
 # Analyze performance
-bob "Analyze ./src for performance issues and provide detailed recommendations"
+bob run "Analyze ./src for performance issues and provide detailed recommendations"
 
 # Identify bottlenecks
-bob "Identify performance bottlenecks in ./src"
+bob run "Identify performance bottlenecks in ./src"
 
 # Memory leak detection
-bob "Check ./src for memory leaks and resource leaks"
+bob run "Check ./src for memory leaks and resource leaks"
 
 # Async/await optimization
-bob "Analyze ./src for async/await performance issues and optimization opportunities"
+bob run "Analyze ./src for async/await performance issues and optimization opportunities"
 ```
 
 **出力例:**
@@ -225,16 +225,16 @@ bob "Analyze ./src for async/await performance issues and optimization opportuni
 
 ```bash
 # Get optimization recommendations
-bob "Analyze ./src for performance and provide optimization recommendations" > optimizations.md
+bob run "Analyze ./src for performance and provide optimization recommendations" > optimizations.md
 
 # Analyze bundle size
-bob "Analyze ./src for bundle size issues and tree-shaking opportunities"
+bob run "Analyze ./src for bundle size issues and tree-shaking opportunities"
 
 # Database query optimization
-bob "Review ./src/models for database query optimization opportunities"
+bob run "Review ./src/models for database query optimization opportunities"
 
 # Caching opportunities
-bob "Identify caching opportunities in ./src"
+bob run "Identify caching opportunities in ./src"
 ```
 
 ## コードレビュー
@@ -243,16 +243,16 @@ bob "Identify caching opportunities in ./src"
 
 ```bash
 # Review single file
-bob "Review ./src/components/UserForm.jsx for code quality and best practices"
+bob run "Review ./src/components/UserForm.jsx for code quality and best practices"
 
 # Review with style guide
-bob "Review ./src following Airbnb style guide"
+bob run "Review ./src following Airbnb style guide"
 
 # Review git changes
-bob "Review my uncommitted code changes"
+bob run "Review my uncommitted code changes"
 
 # Review pull request
-bob "Review the code changes between main and feature-branch" > pr-review.md
+bob run "Review the code changes between main and feature-branch" > pr-review.md
 ```
 
 **出力例:**
@@ -307,29 +307,29 @@ bob "Review the code changes between main and feature-branch" > pr-review.md
 
 ```bash
 # Focus on specific aspects
-bob "Review ./src focusing on security and performance"
+bob run "Review ./src focusing on security and performance"
 
 # Review documentation
-bob "Review ./src and check if documentation is adequate"
+bob run "Review ./src and check if documentation is adequate"
 
 # Review test coverage
-bob "Review ./tests and assess test coverage quality"
+bob run "Review ./tests and assess test coverage quality"
 
 # Review API design
-bob "Review ./src/api for API design and REST principles compliance"
+bob run "Review ./src/api for API design and REST principles compliance"
 ```
 
 ### スタイルガイド準拠
 
 ```bash
 # Check Airbnb style guide
-bob "Review ./src following Airbnb style guide and suggest fixes"
+bob run "Review ./src following Airbnb style guide and suggest fixes"
 
 # Check Google style guide
-bob "Review ./src following Google style guide"
+bob run "Review ./src following Google style guide"
 
 # Check Standard JS
-bob "Review ./src following Standard JS style guide"
+bob run "Review ./src following Standard JS style guide"
 ```
 
 ## 複雑性分析
@@ -338,13 +338,13 @@ bob "Review ./src following Standard JS style guide"
 
 ```bash
 # Analyze complexity
-bob "Analyze ./src for cyclomatic complexity metrics"
+bob run "Analyze ./src for cyclomatic complexity metrics"
 
 # Find complex functions
-bob "Find functions in ./src with complexity greater than 10"
+bob run "Find functions in ./src with complexity greater than 10"
 
 # Detailed complexity report
-bob "Analyze ./src for complexity and provide a detailed report" > complexity-report.md
+bob run "Analyze ./src for complexity and provide a detailed report" > complexity-report.md
 ```
 
 **出力例:**
@@ -379,23 +379,23 @@ bob "Analyze ./src for complexity and provide a detailed report" > complexity-re
 
 ```bash
 # Analyze cognitive complexity
-bob "Analyze ./src for cognitive complexity"
+bob run "Analyze ./src for cognitive complexity"
 
 # Compare cyclomatic vs cognitive
-bob "Analyze ./src and compare cyclomatic complexity with cognitive complexity"
+bob run "Analyze ./src and compare cyclomatic complexity with cognitive complexity"
 ```
 
 ### 保守性指標
 
 ```bash
 # Calculate maintainability index
-bob "Calculate the maintainability index for ./src"
+bob run "Calculate the maintainability index for ./src"
 
 # Find hard-to-maintain code
-bob "Find code in ./src with maintainability index below 65"
+bob run "Find code in ./src with maintainability index below 65"
 
 # Generate maintainability report
-bob "Analyze ./src for maintainability and generate an HTML report" > maintainability.html
+bob run "Analyze ./src for maintainability and generate an HTML report" > maintainability.html
 ```
 
 ## 依存関係分析
@@ -404,16 +404,16 @@ bob "Analyze ./src for maintainability and generate an HTML report" > maintainab
 
 ```bash
 # Analyze dependencies
-bob "Analyze dependencies in ./package.json"
+bob run "Analyze dependencies in ./package.json"
 
 # Find outdated dependencies
-bob "Check ./package.json for outdated dependencies"
+bob run "Check ./package.json for outdated dependencies"
 
 # Security vulnerabilities in dependencies
-bob "Check ./package.json for security vulnerabilities in dependencies"
+bob run "Check ./package.json for security vulnerabilities in dependencies"
 
 # Unused dependencies
-bob "Find unused dependencies in ./package.json"
+bob run "Find unused dependencies in ./package.json"
 ```
 
 **出力例:**
@@ -447,16 +447,16 @@ bob "Find unused dependencies in ./package.json"
 
 ```bash
 # Analyze imports
-bob "Analyze imports in ./src"
+bob run "Analyze imports in ./src"
 
 # Find circular dependencies
-bob "Check ./src for circular dependencies"
+bob run "Check ./src for circular dependencies"
 
 # Unused imports
-bob "Find unused imports in ./src"
+bob run "Find unused imports in ./src"
 
 # Import organization
-bob "Check if imports in ./src are properly organized"
+bob run "Check if imports in ./src are properly organized"
 ```
 
 ## ベストプラクティスチェック
@@ -465,48 +465,48 @@ bob "Check if imports in ./src are properly organized"
 
 ```bash
 # JavaScript/TypeScript best practices
-bob "Check ./src for JavaScript and TypeScript best practices"
+bob run "Check ./src for JavaScript and TypeScript best practices"
 
 # Python best practices (PEP 8)
-bob "Check ./src for Python best practices and PEP 8 compliance"
+bob run "Check ./src for Python best practices and PEP 8 compliance"
 
 # Java best practices
-bob "Check ./src for Java best practices"
+bob run "Check ./src for Java best practices"
 
 # React best practices
-bob "Check ./src for React best practices and patterns"
+bob run "Check ./src for React best practices and patterns"
 ```
 
 ### フレームワーク固有のチェック
 
 ```bash
 # Express.js best practices
-bob "Check ./src for Express.js best practices"
+bob run "Check ./src for Express.js best practices"
 
 # React best practices
-bob "Analyze ./src React code for best practices and common patterns"
+bob run "Analyze ./src React code for best practices and common patterns"
 
 # Vue.js best practices
-bob "Check ./src for Vue.js best practices"
+bob run "Check ./src for Vue.js best practices"
 
 # Django best practices
-bob "Check ./src for Django best practices"
+bob run "Check ./src for Django best practices"
 ```
 
 ### コード構成
 
 ```bash
 # Check file structure
-bob "Review the file structure of ./src and suggest improvements"
+bob run "Review the file structure of ./src and suggest improvements"
 
 # Check naming conventions
-bob "Check ./src for consistent naming conventions"
+bob run "Check ./src for consistent naming conventions"
 
 # Check module organization
-bob "Analyze ./src for proper module organization"
+bob run "Analyze ./src for proper module organization"
 
 # Check separation of concerns
-bob "Check ./src for proper separation of concerns"
+bob run "Check ./src for proper separation of concerns"
 ```
 
 ## バッチ分析
@@ -516,7 +516,7 @@ bob "Check ./src for proper separation of concerns"
 ```bash
 # Analyze multiple directories
 for dir in project1 project2 project3; do
-    bob "Analyze ./$dir for code quality and output as JSON" > ${dir}-analysis.json
+    bob run "Analyze ./$dir for code quality and output as JSON" > ${dir}-analysis.json
 done
 ```
 
@@ -527,8 +527,8 @@ done
 cat > daily-analysis.sh << 'EOF'
 #!/bin/bash
 DATE=$(date +%Y%m%d)
-bob "Analyze ./src for code quality and output as JSON" > reports/analysis-$DATE.json
-bob "Analyze ./src for code quality and generate HTML report" > reports/analysis-$DATE.html
+bob run "Analyze ./src for code quality and output as JSON" > reports/analysis-$DATE.json
+bob run "Analyze ./src for code quality and generate HTML report" > reports/analysis-$DATE.html
 
 # Check for critical issues
 if grep -q "CRITICAL" reports/analysis-$DATE.json; then
@@ -555,7 +555,7 @@ STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|
 
 if [ -n "$STAGED_FILES" ]; then
     for file in $STAGED_FILES; do
-        bob "Analyze $file and fail if any high severity issues are found"
+        bob run "Analyze $file and fail if any high severity issues are found"
         if [ $? -ne 0 ]; then
             echo "Analysis failed for $file"
             exit 1
@@ -573,13 +573,10 @@ chmod +x .git/hooks/pre-commit
 
 ```bash
 # Analyze PR changes
-bob review --git-diff origin/main...HEAD \
-    --format markdown \
-    --output pr-analysis.md
+bob run "Review the code changes between origin/main and HEAD and output in markdown format" --log-level silent > pr-analysis.md
 
 # Check for regressions
-bob analyze ./src --compare-with baseline-analysis.json \
-    --fail-on-regression
+bob run "Analyze ./src and compare code quality with the baseline in baseline-analysis.json"
 ```
 
 ## 分析のベストプラクティス
@@ -588,10 +585,10 @@ bob analyze ./src --compare-with baseline-analysis.json \
 
 ```bash
 # Daily analysis
-bob "Analyze ./src and provide comprehensive results in JSON format" > daily-$(date +%Y%m%d).json
+bob run "Analyze ./src and provide comprehensive results in JSON format" > daily-$(date +%Y%m%d).json
 
 # Weekly detailed report
-bob "Analyze ./src with verbose details and provide comprehensive report in HTML format" > weekly-report.html
+bob run "Analyze ./src with verbose details and provide comprehensive report in HTML format" > weekly-report.html
 ```
 
 ### 2. 重大な問題に焦点を当てる
@@ -610,7 +607,7 @@ STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|
 
 if [ -n "$STAGED_FILES" ]; then
     for file in $STAGED_FILES; do
-        bob "Analyze $file for critical issues" | grep -q "CRITICAL" && exit 1
+        bob run "Analyze $file for critical issues" | grep -q "CRITICAL" && exit 1
     done
 fi
 
@@ -624,10 +621,10 @@ chmod +x .git/hooks/pre-commit
 
 ```bash
 # Analyze PR changes
-bob "Review the code changes between origin/main and HEAD" > pr-analysis.md
+bob run "Review the code changes between origin/main and HEAD" > pr-analysis.md
 
 # Check for regressions
-bob "Analyze ./src and compare with previous quality baseline"
+bob run "Analyze ./src and compare with previous quality baseline"
 ```
 
 ## 分析のベストプラクティス
@@ -636,43 +633,43 @@ bob "Analyze ./src and compare with previous quality baseline"
 
 ```bash
 # Daily analysis
-bob "Analyze ./src for code quality" > daily-$(date +%Y%m%d).json
+bob run "Analyze ./src for code quality" > daily-$(date +%Y%m%d).json
 
 # Weekly detailed report
-bob "Perform comprehensive analysis of ./src with detailed recommendations" > weekly-report.html
+bob run "Perform comprehensive analysis of ./src with detailed recommendations" > weekly-report.html
 ```
 
 ### 2. 重大な問題に焦点を当てる
 
 ```bash
 # Prioritize critical and high severity
-bob "Analyze ./src and focus on critical and high severity issues"
+bob run "Analyze ./src and focus on critical and high severity issues"
 
 # Focus on security first
-bob "Scan ./src for critical security vulnerabilities"
+bob run "Scan ./src for critical security vulnerabilities"
 ```
 
 ### 3. 改善を追跡
 
 ```bash
 # Baseline analysis
-bob "Analyze ./src for code quality and output as JSON" > baseline.json
+bob run "Analyze ./src for code quality and output as JSON" > baseline.json
 
 # After improvements
-bob "Analyze ./src for code quality and output as JSON" > improved.json
+bob run "Analyze ./src for code quality and output as JSON" > improved.json
 
 # Compare manually or ask Bob
-bob "Compare the code quality between baseline.json and improved.json"
+bob run "Compare the code quality between baseline.json and improved.json"
 ```
 
 ### 4. すべてを自動化
 
 ```bash
 # Automated workflow
-bob "Analyze ./src for code quality" > analysis.json && \
-bob "Scan ./src for security vulnerabilities" > security.json && \
-bob "Review my uncommitted changes" > review.md && \
-bob "Create an executive summary from analysis.json, security.json, and review.md" > summary.md
+bob run "Analyze ./src for code quality" > analysis.json && \
+bob run "Scan ./src for security vulnerabilities" > security.json && \
+bob run "Review my uncommitted changes" > review.md && \
+bob run "Create an executive summary from analysis.json, security.json, and review.md" > summary.md
 ```
 
 ## より良い分析のためのヒント

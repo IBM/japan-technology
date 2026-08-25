@@ -38,15 +38,15 @@ jobs:
       
       - name: Install Bob CLI
         run: |
-          npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+          curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
           bob --version
       
       - name: Configure Bob
         env:
           BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
         run: |
-          bob config set api-key $BOB_API_KEY
-          bob config set cache-enabled true
+          # BOB_API_KEY 環境変数が設定されていれば自動的に認証されます
+          bob --version
       
       - name: Run Code Review
         id: review
@@ -58,7 +58,7 @@ jobs:
             BASE_REF="HEAD~1"
           fi
           
-          bob "Review the code changes between origin/$BASE_REF and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > review-report.md || true
+          bob run "Review the code changes between origin/$BASE_REF and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > review-report.md || true
       
       - name: Upload Review Report
         uses: actions/upload-artifact@v4
@@ -102,17 +102,19 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       
       - name: Install Bob CLI
-        run: npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+        run: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
       
       - name: Configure Bob
         env:
           BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
-        run: bob config set api-key $BOB_API_KEY
+        run: |
+          # BOB_API_KEY 環境変数が設定されていれば自動的に認証されます
+          bob --version
       
       - name: Run Security Scan
         id: security
         run: |
-          bob "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > security-report.json || true
+          bob run "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > security-report.json || true
       
       - name: Parse Security Results
         id: parse-security
@@ -156,16 +158,18 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       
       - name: Install Bob CLI
-        run: npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+        run: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
       
       - name: Configure Bob
         env:
           BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
-        run: bob config set api-key $BOB_API_KEY
+        run: |
+          # BOB_API_KEY 環境変数が設定されていれば自動的に認証されます
+          bob --version
       
       - name: Run Quality Analysis
         run: |
-          bob "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > quality-report.json || true
+          bob run "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > quality-report.json || true
       
       - name: Parse Quality Results
         id: parse-quality
@@ -212,18 +216,20 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       
       - name: Install Bob CLI
-        run: npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+        run: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
       
       - name: Configure Bob
         env:
           BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
-        run: bob config set api-key $BOB_API_KEY
+        run: |
+          # BOB_API_KEY 環境変数が設定されていれば自動的に認証されます
+          bob --version
       
       - name: Generate Documentation
         run: |
           mkdir -p docs
-          bob "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
-          bob "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
+          bob run "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
+          bob run "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

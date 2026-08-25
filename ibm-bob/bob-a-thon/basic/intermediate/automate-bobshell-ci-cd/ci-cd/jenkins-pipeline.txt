@@ -54,16 +54,13 @@ pipeline {
                     
                     // Install Bob CLI
                     sh '''
-                        npm install -g @ibm/bob-cli@${BOB_VERSION}
+                        curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
                         bob --version
                     '''
                     
                     // Configure Bob
-                    sh '''
-                        bob config set api-key ${BOB_API_KEY}
-                        bob config set cache-enabled true
-                        bob config set cache-dir .bob-cache
-                    '''
+                    // BOB_API_KEY 環境変数が設定されていれば自動的に認証されます
+                    // Jenkins Credential ID 'bob-api-key' で設定した値が自動で参照されます
                     
                     // Create reports directory
                     sh "mkdir -p ${REPORTS_DIR}"
@@ -89,7 +86,7 @@ pipeline {
                     def targetBranch = env.CHANGE_TARGET ?: 'main'
                     
                     sh """
-                        bob "Review the code changes between origin/${targetBranch} and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > ${REPORTS_DIR}/review-report.md || true
+                        bob run "Review the code changes between origin/${targetBranch} and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > ${REPORTS_DIR}/review-report.md || true
                     """
                     
                     // Check if review was successful
@@ -118,7 +115,7 @@ pipeline {
                     echo "Running security scan..."
                     
                     sh """
-                        bob "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > ${REPORTS_DIR}/security-report.json || true
+                        bob run "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > ${REPORTS_DIR}/security-report.json || true
                     """
                     
                     // Parse security results
@@ -163,7 +160,7 @@ pipeline {
                     echo "Running quality analysis..."
                     
                     sh """
-                        bob "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > ${REPORTS_DIR}/quality-report.json || true
+                        bob run "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > ${REPORTS_DIR}/quality-report.json || true
                     """
                     
                     // Parse quality results
@@ -209,7 +206,7 @@ pipeline {
                     echo "Running complexity analysis..."
                     
                     sh """
-                        bob "Analyze the codebase for complexity metrics including cyclomatic complexity and cognitive complexity. Output results in JSON format." > ${REPORTS_DIR}/complexity-report.json || true
+                        bob run "Analyze the codebase for complexity metrics including cyclomatic complexity and cognitive complexity. Output results in JSON format." > ${REPORTS_DIR}/complexity-report.json || true
                     """
                     
                     if (fileExists("${REPORTS_DIR}/complexity-report.json")) {
@@ -247,7 +244,7 @@ pipeline {
                     
                     if (fileExists('package.json')) {
                         sh """
-                            bob "Analyze package.json for dependency issues and vulnerabilities. Check for outdated packages and security issues. Output results in JSON format." > ${REPORTS_DIR}/dependency-report.json || true
+                            bob run "Analyze package.json for dependency issues and vulnerabilities. Check for outdated packages and security issues. Output results in JSON format." > ${REPORTS_DIR}/dependency-report.json || true
                         """
                         
                         if (fileExists("${REPORTS_DIR}/dependency-report.json")) {
@@ -288,11 +285,11 @@ pipeline {
                     sh """
                         mkdir -p docs
                         
-                        bob "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
+                        bob run "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
                         
-                        bob "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
+                        bob run "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
                         
-                        bob "Create a comprehensive README from the codebase" > docs/README.md || true
+                        bob run "Create a comprehensive README from the codebase" > docs/README.md || true
                     """
                     
                     echo "Documentation generated successfully"

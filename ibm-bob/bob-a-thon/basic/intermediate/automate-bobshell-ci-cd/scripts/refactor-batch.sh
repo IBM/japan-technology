@@ -74,7 +74,7 @@ fi
 # Check if Bob CLI is installed
 if ! command -v bob &> /dev/null; then
     print_error "Bob CLI is not installed"
-    echo "Install it with: npm install -g @ibm/bob-cli"
+    echo "Install it with: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash"
     exit 1
 fi
 

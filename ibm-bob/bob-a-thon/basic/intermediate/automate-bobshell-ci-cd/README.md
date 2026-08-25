@@ -74,9 +74,7 @@ bob --help
 
 期待される出力:
 ```
-Bob CLI v1.x.x
-Usage: bob [options] [command]
-...
+2.x.x
 ```
 
 「command not found」が表示される場合は：
@@ -130,19 +128,19 @@ def multiply(x, y):
 
 ```bash
 # Explain code in a file
-bob "Explain what the calculator.py file does"
+bob run "Explain what the calculator.py file does"
 
 # Ask for code review
-bob "Review calculator.py and suggest improvements"
+bob run "Review calculator.py and suggest improvements"
 
 # Generate new code
-bob "Create a Python function that calculates the factorial of a number" --yolo --hide-intermediary-output > factorial.py
+bob run "Create a Python function that calculates the factorial of a number" --log-level silent > factorial.py
 
 # Ask a quick question
-bob "What is the difference between a list and a tuple in Python?"
+bob run "What is the difference between a list and a tuple in Python?"
 ```
 
-非インタラクティブモードは単一のコマンドを実行して終了します。`bob "your prompt"` の形式で使います。特定のツールを呼び出す際に明示的な承認が必要な場合は `--yolo` を追加してください。結果はstdoutに出力されるので、パイプや他のCLIツールとも組み合わせやすいです。
+非インタラクティブモードは単一のコマンドを実行して終了します。`bob run "your prompt"` の形式で使います。結果はstdoutに出力されるので、パイプや他のCLIツールとも組み合わせやすいです。
 
 ### ステップ1.5: 出力リダイレクトの理解
 
@@ -152,46 +150,46 @@ BobShellで出力リダイレクト（ `>` ）を使う場合、クリーンな�
 
 デフォルトでは、Bobの出力をファイルにリダイレクトすると、Bobの思考プロセスと中間出力が生成されたコードと一緒にファイルに含まれます。コードのみを取得するには2つの方法があります。
 
-オプション1: `--hide-intermediary-output` フラグを使う
+オプション1: `--log-level silent` フラグを使う
 ```bash
 # Generate code with clean output
-bob "Create a Python function that calculates the factorial of a number" --yolo --hide-intermediary-output > factorial.py
+bob run "Create a Python function that calculates the factorial of a number" --log-level silent > factorial.py
 ```
 
 オプション2: プロンプトにファイル書き込み指示を含める
 ```bash
 # Ask Bob to write directly to the file
-bob "Create a Python function that calculates the factorial of a number and write it to factorial.py" --yolo
+bob run "Create a Python function that calculates the factorial of a number and write it to factorial.py"
 ```
 
 これらのアプローチを使わない場合、ファイルにはBobの思考プロセス、ツール使用メッセージ、ステータス更新も含まれます。使った場合は、クリーンな生成コードだけが入り、すぐに使えるファイルになります。
 
 ```bash
 # ❌ This includes Bob's thinking in the file
-bob "Create a sorting function" --yolo > sort.py
+bob run "Create a sorting function" > sort.py
 
 # ✅ This creates a clean code file
-bob "Create a sorting function" --yolo --hide-intermediary-output > sort.py
+bob run "Create a sorting function" --log-level silent > sort.py
 
 # ✅ This also creates a clean code file
-bob "Create a sorting function and write it to sort.py" --yolo
+bob run "Create a sorting function and write it to sort.py"
 ```
 
-💡 ファイルにリダイレクトする際は常に `--hide-intermediary-output` を使うか、プロンプトでBobに明示的にファイルへの書き込みを指示してください。
+💡 ファイルにリダイレクトする際は常に `--log-level silent` を使うか、プロンプトでBobに明示的にファイルへの書き込みを指示してください。
 
 ### ステップ1.4: セッション再開の使用
 
 Bobはインタラクティブセッションを自動的に保存するので、以前の会話を再開して中断したところから続けられます。
 
 ```bash
-# List available sessions
-bob --list-sessions
+# List available tasks
+bob --list-tasks
 
-# Resume the most recent session
-bob --resume latest
+# Resume a task (task picker が表示される)
+bob --resume
 
-# Resume a specific session by index
-bob --resume 5
+# Resume a specific task by ID
+bob --resume <task-id>
 ```
 
 ワークフローでの使い方：
@@ -208,23 +206,23 @@ bob
 # Exit the session (Ctrl+C twice)
 
 # Later, resume the same session
-bob --resume latest
+bob --resume
 
 # Continue from where you left off
 > Let's implement those suggestions now
 ```
 
-仕組みはシンプルで、Bobはすべてのインタラクティブセッションを自動保存します。各セッションはインデックス化され、 `--list-sessions` でリスト表示できます。最新の作業を続けるには `--resume latest` 、特定のセッションに戻るには `--resume <index>` を使います。
+仕組みはシンプルで、Bobはすべてのインタラクティブセッションを自動保存します。タスクは `--list-tasks` でリスト表示できます。最新の作業を続けるには `--resume` でピッカーから選択するか、`--resume <task-id>` で直接再開できます。
 
 ```bash
-# List all available sessions
-bob --list-sessions
+# List all available tasks
+bob --list-tasks
 
-# Delete a specific session
-bob --delete-session 3
+# Resume a task (pick from list)
+bob --resume
 
-# Resume and continue working
-bob --resume latest
+# Resume a specific task by ID
+bob --resume <task-id>
 ```
 
 セッション再開が役立つ場面：
@@ -245,12 +243,12 @@ bob
 # Exit session
 
 # Later, resume to continue
-bob --resume latest
+bob --resume
 > Let's implement those database optimizations now
 # Bob remembers the previous analysis and continues
 ```
 
-💡 最新の作業を続けるなら `--resume latest` 、過去のセッションを選んで再開するなら `--list-sessions` を使ってください。
+💡 タスクを再開するには `--resume` でピッカーから選択するか、`--list-tasks` でタスクIDを確認して `--resume <task-id>` で直接再開してください。
 
 
 ## パート2: CLI経由のコード生成
@@ -260,17 +258,17 @@ bob --resume latest
 コマンドラインから自然言語プロンプトで完全なコードファイルを生成できます：
 
 ```bash
-# Generate a Python class (using --hide-intermediary-output for clean output)
-bob "Create a Python class for managing a shopping cart with add, remove, and calculate total methods" --yolo --hide-intermediary-output > cart.py
+# Generate a Python class (using --log-level silent for clean output)
+bob run "Create a Python class for managing a shopping cart with add, remove, and calculate total methods" --log-level silent > cart.py
 
 # Generate a React component (asking Bob to write to file)
-bob "Create a React component for a user profile card with avatar, name, and bio and write it to UserProfile.jsx" --yolo
+bob run "Create a React component for a user profile card with avatar, name, and bio and write it to UserProfile.jsx"
 
-# Generate a test file (using --hide-intermediary-output)
-bob "Create unit tests for the cart.py file using pytest" --yolo --hide-intermediary-output > test_cart.py
+# Generate a test file (using --log-level silent)
+bob run "Create unit tests for the cart.py file using pytest" --log-level silent > test_cart.py
 ```
 
-クリーンなコードファイルを得るには `>` リダイレクトと `--hide-intermediary-output` フラグを使います。またはプロンプトに「[ファイル名]に書き込む」を含めてBobに直接書き込ませることもできます。言語、フレームワーク、要件は具体的に書くほど良い結果が得られます。
+クリーンなコードファイルを得るには `>` リダイレクトと `--log-level silent` フラグを使います。またはプロンプトに「[ファイル名]に書き込む」を含めてBobに直接書き込ませることもできます。言語、フレームワーク、要件は具体的に書くほど良い結果が得られます。
 
 ### ステップ2.2: 複数の関連ファイルの生成
 
@@ -278,10 +276,10 @@ bob "Create unit tests for the cart.py file using pytest" --yolo --hide-intermed
 
 ```bash
 # Generate a complete API module
-bob "Create a complete REST API for a todo application in Python with routes, models, and database setup. Provide all necessary files."
+bob run "Create a complete REST API for a todo application in Python with routes, models, and database setup. Provide all necessary files."
 
 # Generate frontend components
-bob "Create a set of React components for a dashboard: Header, Sidebar, MainContent, and Footer. Provide each component in a separate code block."
+bob run "Create a set of React components for a dashboard: Header, Sidebar, MainContent, and Footer. Provide each component in a separate code block."
 ```
 
 プロンプトで完全なプロジェクト構造を記述すると、Bobは複数のコードブロックまたはファイルを返します。各部分を個別に保存するか、Bobに整理を依頼することもできます。
@@ -303,10 +301,10 @@ Create a REST API endpoint with:
 EOF
 
 # Use the saved prompt with specific details (with clean output)
-bob "$(cat api-prompt.txt) Create a POST endpoint at /api/users for creating new users" --yolo --hide-intermediary-output > user-endpoint.js
+bob run "$(cat api-prompt.txt) Create a POST endpoint at /api/users for creating new users" --log-level silent > user-endpoint.js
 
 # Or combine with additional context (asking Bob to write to file)
-bob "$(cat api-prompt.txt) Create a GET endpoint at /api/products for listing products with pagination and write it to products-endpoint.js" --yolo
+bob run "$(cat api-prompt.txt) Create a GET endpoint at /api/products for listing products with pagination and write it to products-endpoint.js"
 ```
 
 共通の要件をテキストファイルに保存しておくことで、コードベース全体で一貫性を保てます。プロンプトの繰り返しも減らせます。
@@ -321,13 +319,13 @@ bob "$(cat api-prompt.txt) Create a GET endpoint at /api/products for listing pr
 
 ```bash
 # Example: Analyze a single file
-bob "Analyze the code quality, performance, and security of ./src/app.js"
+bob run "Analyze the code quality, performance, and security of ./src/app.js"
 
 # Example: Analyze entire directory and save as JSON
-bob "Analyze all files in ./src recursively and provide a detailed report" > analysis-report.json
+bob run "Analyze all files in ./src recursively and provide a detailed report" > analysis-report.json
 
 # Example: Get specific metrics
-bob "Analyze ./src and provide metrics on complexity, maintainability, and test coverage"
+bob run "Analyze ./src and provide metrics on complexity, maintainability, and test coverage"
 ```
 
 Bobに分析してほしい内容を自然言語で記述するだけです。品質、パフォーマンス、セキュリティなどの側面を具体的に書くほど精度が上がります。結果をファイルに保存するには出力リダイレクト（ `>` ）を使ってください。
@@ -338,13 +336,13 @@ Bobに分析してほしい内容を自然言語で記述するだけです。�
 
 ```bash
 # Example: Review changes in a branch
-bob "Review the code changes between main and feature-branch"
+bob run "Review the code changes between main and feature-branch"
 
 # Example: Review specific files with style guide
-bob "Review the React components in ./src/components following Airbnb style guide"
+bob run "Review the React components in ./src/components following Airbnb style guide"
 
 # Example: Review with specific focus
-bob "Review ./src for code quality issues and provide suggestions in markdown format" > review-report.md
+bob run "Review ./src for code quality issues and provide suggestions in markdown format" > review-report.md
 ```
 
 レビューしたいコード（ファイル、ディレクトリ、git変更）を記述し、従うべきスタイルガイドや基準（Airbnb、Googleなど）を指定してください。セキュリティ、パフォーマンスなど焦点領域を絞ることもできます。
@@ -355,13 +353,13 @@ bob "Review ./src for code quality issues and provide suggestions in markdown fo
 
 ```bash
 # Example: Security scan with severity focus
-bob "Scan ./src for high and critical security vulnerabilities"
+bob run "Scan ./src for high and critical security vulnerabilities"
 
 # Example: Check for specific vulnerabilities
-bob "Check ./src for SQL injection, XSS, and exposed secrets"
+bob run "Check ./src for SQL injection, XSS, and exposed secrets"
 
 # Example: Generate security report
-bob "Perform a comprehensive security analysis of ./src and generate an HTML report" > security-report.html
+bob run "Perform a comprehensive security analysis of ./src and generate an HTML report" > security-report.html
 ```
 
 重大度レベル（高、クリティカル）や脆弱性タイプを指定できます。出力形式（HTML、markdown、JSON）もリクエストできます。Lab 2で修正した脆弱性と同様のアプローチです。
@@ -409,13 +407,13 @@ echo "$CHANGED_FILES"
 for file in $CHANGED_FILES; do
     if [ -f "$file" ]; then
         echo "Reviewing: $file"
-        bob "Review $file for code quality, potential bugs, and best practices. Output in markdown format." > "$OUTPUT_DIR/${file//\//_}_review_$TIMESTAMP.md"
+        bob run "Review $file for code quality, potential bugs, and best practices. Output in markdown format." > "$OUTPUT_DIR/${file//\//_}_review_$TIMESTAMP.md"
     fi
 done
 
 # Generate summary report
 echo "Generating summary report..."
-bob "Create a summary of all code reviews in $OUTPUT_DIR" > "$OUTPUT_DIR/summary_$TIMESTAMP.md"
+bob run "Create a summary of all code reviews in $OUTPUT_DIR" > "$OUTPUT_DIR/summary_$TIMESTAMP.md"
 
 echo "Review complete! Reports saved to $OUTPUT_DIR"
 ```
@@ -604,16 +602,16 @@ Bobを他のCLIツールと組み合わせると強力なワークフローを�
 
 ```bash
 # Find TODO comments and create tasks
-grep -r "TODO" ./src | bob "Convert these TODO comments into GitHub issues with proper formatting in JSON format" --hide-intermediary-output > issues.json
+grep -r "TODO" ./src | bob run "Convert these TODO comments into GitHub issues with proper formatting in JSON format" --log-level silent > issues.json
 
 # Analyze git history and generate insights
-git log --since="1 month ago" --pretty=format:"%h %s" | bob "Analyze these commit messages and provide insights on development patterns in markdown format" --hide-intermediary-output > dev-insights.md
+git log --since="1 month ago" --pretty=format:"%h %s" | bob run "Analyze these commit messages and provide insights on development patterns in markdown format" --log-level silent > dev-insights.md
 
 # Process test results
-npm test -- --json | bob "Analyze these test results and suggest improvements in markdown format" --hide-intermediary-output > test-analysis.md
+npm test -- --json | bob run "Analyze these test results and suggest improvements in markdown format" --log-level silent > test-analysis.md
 
 # Code coverage analysis
-npm run coverage -- --json | bob "Create a coverage report with recommendations for improving test coverage in markdown format" --hide-intermediary-output > coverage-report.md
+npm run coverage -- --json | bob run "Create a coverage report with recommendations for improving test coverage in markdown format" --log-level silent > coverage-report.md
 ```
 
 標準ツールからの出力をBobにパイプすることで、AI分析を組み込んだワークフローを作れます。非構造化データを実行可能なインサイトに変換し、レポートや推奨事項を自動生成できます。
@@ -630,19 +628,19 @@ echo "Running pre-commit checks with Bob..."
 
 # 1. Format code
 echo "Formatting code..."
-bob "Format all code in ./src directory using Prettier style guidelines"
+bob run "Format all code in ./src directory using Prettier style guidelines"
 
 # 2. Lint code
 echo "Linting code..."
-bob lint ./src --fix
+bob run "Fix all style and linting issues in ./src following best practices"
 
 # 3. Review changes
 echo "Reviewing changes..."
-bob "Review uncommitted changes (git diff HEAD) for code quality issues. Output in markdown format." --hide-intermediary-output > pre-commit-review.md
+bob run "Review uncommitted changes (git diff HEAD) for code quality issues. Output in markdown format." --log-level silent > pre-commit-review.md
 
 # 4. Security check
 echo "Security scan..."
-bob "Perform security scan of ./src focusing on high and critical severity vulnerabilities. Output in JSON format." --hide-intermediary-output > security-check.json
+bob run "Perform security scan of ./src focusing on high and critical severity vulnerabilities. Output in JSON format." --log-level silent > security-check.json
 
 # 5. Check for critical issues
 CRITICAL=$(jq '.critical | length' security-check.json)
@@ -658,7 +656,7 @@ npm test
 
 # 7. Generate commit message suggestion
 echo "Generating commit message suggestion..."
-bob "Based on the staged changes, suggest a conventional commit message" --hide-intermediary-output > suggested-commit.txt
+bob run "Based on the staged changes, suggest a conventional commit message" --log-level silent > suggested-commit.txt
 
 echo "✅ Pre-commit checks passed!"
 echo "Suggested commit message:"
@@ -674,22 +672,22 @@ cat suggested-commit.txt
 1. プロンプトを具体的に書いてください。リクエストが具体的なほど良い結果が得られます
    ```bash
    # Good
-   bob generate "Create a React component for user authentication with email and password fields, validation, and error handling"
+   bob run "Create a React component for user authentication with email and password fields, validation, and error handling"
    
    # Less specific
-   bob generate "Create a login form"
+   bob run "Create a login form"
    ```
 
 2. 出力形式を使い分けましょう
    ```bash
    # JSON for programmatic processing
-   bob "Analyze ./src and provide results in JSON format" --hide-intermediary-output > analysis.json
+   bob run "Analyze ./src and provide results in JSON format" --log-level silent > analysis.json
    
    # Markdown for documentation
-   bob "Review ./src for code quality and output in markdown format" --hide-intermediary-output > review.md
+   bob run "Review ./src for code quality and output in markdown format" --log-level silent > review.md
    
    # HTML for reports
-   bob "Perform security scan of ./src and output in HTML format" --hide-intermediary-output > security-report.html
+   bob run "Perform security scan of ./src and output in HTML format" --log-level silent > security-report.html
    ```
 
 > 💡 自動最適化について
@@ -698,17 +696,20 @@ cat suggested-commit.txt
 3. git統合を使って変更されたコードだけをレビューしましょう
    ```bash
    # Review changes in current branch
-   bob "Review code changes between main and HEAD branches"
+   bob run "Review code changes between main and HEAD branches"
 
    # Review uncommitted changes
-   bob "Review uncommitted changes (git diff HEAD)"
+   bob run "Review uncommitted changes (git diff HEAD)"
    ```
 
 4. 繰り返し操作にはキャッシングを設定しましょう
-   ```bash
-   # Enable caching
-   bob config set cache-enabled true
-   bob config set cache-ttl 3600
+   ```json
+   // ~/.bob/settings.json または .bob/settings.json に追加
+   {
+     "general": {
+       "disableAutoUpdate": false
+     }
+   }
    ```
 
 ### 7.2: 自動化のベストプラクティス
@@ -767,25 +768,25 @@ cat suggested-commit.txt
    which bob
    
    # Reinstall if needed
-   npm install -g @ibm/bob-cli
+   curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
    ```
 
 2. 認証エラー
    ```bash
-   # Check API key configuration
-   bob config get api-key
+   # 環境変数でAPIキーを設定
+   export BOB_API_KEY=YOUR_API_KEY
    
-   # Reconfigure if needed
-   bob config set api-key YOUR_API_KEY
+   # または ~/.bob/settings.json でインスタンスIDを確認
+   cat ~/.bob/settings.json
    ```
 
-3. レート制限
+3. セッションの確認
    ```bash
-   # Check rate limit status
-   bob status
+   # バージョン確認
+   bob --version
    
-   # Use caching to reduce API calls
-   bob config set cache-enabled true
+   # ヘルプ表示
+   bob --help
    ```
 
 ## 次のステップ
