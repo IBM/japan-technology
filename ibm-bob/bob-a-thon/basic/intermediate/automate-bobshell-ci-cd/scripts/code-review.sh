@@ -57,7 +57,7 @@ print_error() {
 # Check if Bob CLI is installed
 if ! command -v bob &> /dev/null; then
     print_error "Bob CLI is not installed"
-    echo "Install it with: npm install -g @ibm/bob-cli"
+    echo "Install it with: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash"
     exit 1
 fi
 
@@ -118,7 +118,7 @@ echo "$CHANGED_FILES" | while read -r file; do
         REPORT_FILE="$OUTPUT_DIR/${SAFE_FILENAME}_review_$TIMESTAMP.md"
         
         # Run Bob review
-        if bob "Review $file for code quality, best practices, and potential issues. Provide detailed feedback in markdown format." > "$REPORT_FILE" 2>/dev/null; then
+        if bob run "Review $file for code quality, best practices, and potential issues. Provide detailed feedback in markdown format." > "$REPORT_FILE" 2>/dev/null; then
             print_success "Done"
             REVIEW_COUNT=$((REVIEW_COUNT + 1))
         else

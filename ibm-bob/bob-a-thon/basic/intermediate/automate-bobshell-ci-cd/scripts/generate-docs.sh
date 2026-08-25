@@ -76,7 +76,7 @@ fi
 # Check if Bob CLI is installed
 if ! command -v bob &> /dev/null; then
     print_error "Bob CLI is not installed"
-    echo "Install it with: npm install -g @ibm/bob-cli"
+    echo "Install it with: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash"
     exit 1
 fi
 
@@ -109,7 +109,7 @@ API_DOC="$OUTPUT_DIR/api.$EXT"
 echo -n "Creating API documentation ... "
 log_message "Generating API documentation"
 
-if bob "Generate comprehensive API documentation for the code in $SOURCE_DIR in $DOC_TYPE format" > "$API_DOC" 2>> "$LOG_FILE"; then
+if bob run "Generate comprehensive API documentation for the code in $SOURCE_DIR in $DOC_TYPE format" > "$API_DOC" 2>> "$LOG_FILE"; then
     print_success "Done"
     log_message "SUCCESS: API documentation created"
 else
@@ -124,7 +124,7 @@ ARCH_DOC="$OUTPUT_DIR/architecture.$EXT"
 echo -n "Creating architecture documentation ... "
 log_message "Generating architecture documentation"
 
-if bob "Create architecture documentation for $SOURCE_DIR explaining the system design, components, and data flow in $DOC_TYPE format" > "$ARCH_DOC" 2>> "$LOG_FILE"; then
+if bob run "Create architecture documentation for $SOURCE_DIR explaining the system design, components, and data flow in $DOC_TYPE format" > "$ARCH_DOC" 2>> "$LOG_FILE"; then
     print_success "Done"
     log_message "SUCCESS: Architecture documentation created"
 else
@@ -139,7 +139,7 @@ EXAMPLES_DOC="$OUTPUT_DIR/examples.$EXT"
 echo -n "Creating usage examples ... "
 log_message "Generating usage examples"
 
-if bob "Create comprehensive usage examples for all public functions and classes in $SOURCE_DIR with code snippets and explanations" > "$EXAMPLES_DOC" 2>> "$LOG_FILE"; then
+if bob run "Create comprehensive usage examples for all public functions and classes in $SOURCE_DIR with code snippets and explanations" > "$EXAMPLES_DOC" 2>> "$LOG_FILE"; then
     print_success "Done"
     log_message "SUCCESS: Usage examples created"
 else
@@ -154,7 +154,7 @@ README_DOC="$OUTPUT_DIR/README.md"
 echo -n "Creating README ... "
 log_message "Generating README"
 
-if bob "Create a comprehensive README for the project in $SOURCE_DIR including:
+if bob run "Create a comprehensive README for the project in $SOURCE_DIR including:
 - Project overview and description
 - Installation instructions
 - Usage guide with examples
@@ -178,7 +178,7 @@ if [ -d ".git" ]; then
     echo -n "Creating changelog from git history ... "
     log_message "Generating changelog"
     
-    if bob "Create a detailed changelog from git history following Keep a Changelog format with:
+    if bob run "Create a detailed changelog from git history following Keep a Changelog format with:
 - Version numbers
 - Release dates
 - Added, Changed, Deprecated, Removed, Fixed, Security sections
@@ -198,7 +198,7 @@ CONTRIBUTING_DOC="$OUTPUT_DIR/CONTRIBUTING.md"
 echo -n "Creating contributing guide ... "
 log_message "Generating contributing guide"
 
-if bob "Create a CONTRIBUTING.md file with:
+if bob run "Create a CONTRIBUTING.md file with:
 - How to set up development environment
 - Code style guidelines
 - Testing requirements
@@ -219,7 +219,7 @@ CODE_OF_CONDUCT_DOC="$OUTPUT_DIR/CODE_OF_CONDUCT.md"
 echo -n "Creating code of conduct ... "
 log_message "Generating code of conduct"
 
-if bob "Create a CODE_OF_CONDUCT.md following the Contributor Covenant standard" > "$CODE_OF_CONDUCT_DOC" 2>> "$LOG_FILE"; then
+if bob run "Create a CODE_OF_CONDUCT.md following the Contributor Covenant standard" > "$CODE_OF_CONDUCT_DOC" 2>> "$LOG_FILE"; then
     print_success "Done"
     log_message "SUCCESS: Code of conduct created"
 else
@@ -234,7 +234,7 @@ TROUBLESHOOTING_DOC="$OUTPUT_DIR/troubleshooting.$EXT"
 echo -n "Creating troubleshooting guide ... "
 log_message "Generating troubleshooting guide"
 
-if bob "Analyze the code in $SOURCE_DIR and create a troubleshooting guide with:
+if bob run "Analyze the code in $SOURCE_DIR and create a troubleshooting guide with:
 - Common issues and solutions
 - Error messages and fixes
 - Configuration problems
@@ -254,7 +254,7 @@ FAQ_DOC="$OUTPUT_DIR/faq.$EXT"
 echo -n "Creating FAQ ... "
 log_message "Generating FAQ"
 
-if bob "Create a comprehensive FAQ for the project in $SOURCE_DIR covering:
+if bob run "Create a comprehensive FAQ for the project in $SOURCE_DIR covering:
 - Installation questions
 - Usage questions
 - Configuration questions

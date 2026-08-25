@@ -59,12 +59,18 @@ bob
 
 チェックポイントを使用すると、インタラクティブモードで会話状態を保存および復元できます。Bobを起動する際にチェックポイントを有効にします：
 
-```bash
-# Start Bob with checkpointing enabled
-bob --checkpointing
+```json
+// ~/.bob/settings.json または .bob/settings.json に以下を追加
+{
+  "general": {
+    "checkpointing": {
+      "enabled": true
+    }
+  }
+}
 ```
 
-または、Bob設定で有効にしてから、通常通り`bob`で起動します。
+設定後は通常通り `bob` で起動するだけでチェックポイントが有効になります。
 
 **チェックポイントの使用方法:**
 
@@ -111,171 +117,167 @@ bob -v
 
 ```bash
 # Generate code from description
-bob "Create a REST API endpoint for user login"
+bob run "Create a REST API endpoint for user login"
 
 # Generate and save to file (with clean output)
-bob "Create a React component for a todo list" --yolo --hide-intermediary-output > TodoList.jsx
+bob run "Create a React component for a todo list" --log-level silent > TodoList.jsx
 
 # Generate with specific language (asking Bob to write to file)
-bob "Create a sorting algorithm in Python and write it to sort.py" --yolo
+bob run "Create a sorting algorithm in Python and write it to sort.py"
 
 # Generate multiple related files (with clean output)
-bob "Create a complete Express.js API with routes, controllers, and models for user management" --yolo --hide-intermediary-output > api-structure.txt
+bob run "Create a complete Express.js API with routes, controllers, and models for user management" --log-level silent > api-structure.txt
 
 # Generate with specific framework (asking Bob to write to file)
-bob "Create a Vue 3 component for user profile using Composition API and write it to UserProfile.vue" --yolo
+bob run "Create a Vue 3 component for user profile using Composition API and write it to UserProfile.vue"
 ```
 
 ### コード分析
 
 ```bash
 # Analyze single file
-bob analyze ./src/app.js
+bob run "Analyze the code quality of ./src/app.js"
 
 # Analyze with specific checks
-bob "Analyze ./src/app.js focusing on quality, performance, and security issues"
+bob run "Analyze ./src/app.js focusing on quality, performance, and security issues"
 
 # Analyze directory recursively
-bob "Analyze all files in ./src directory recursively"
+bob run "Analyze all files in ./src directory recursively"
 
 # Analyze with output format
-bob "Analyze ./src and provide results in JSON format" --hide-intermediary-output > analysis.json
-bob "Analyze ./src and provide results in markdown format" --hide-intermediary-output > analysis.md
-bob "Analyze ./src and provide results in HTML format" --hide-intermediary-output > analysis.html
+bob run "Analyze ./src and provide results in JSON format" --log-level silent > analysis.json
+bob run "Analyze ./src and provide results in markdown format" --log-level silent > analysis.md
+bob run "Analyze ./src and provide results in HTML format" --log-level silent > analysis.html
 
 # Get specific metrics
-bob "Analyze ./src and provide complexity, maintainability, and coverage metrics"
+bob run "Analyze ./src and provide complexity, maintainability, and coverage metrics"
 
 # Analyze with threshold
-bob "Analyze ./src and fail if quality score is below 80"
+bob run "Analyze ./src and fail if quality score is below 80"
 ```
 
 ### コードレビュー
 
 ```bash
 # Review single file
-bob review ./src/components/UserForm.jsx
+bob run "Review ./src/components/UserForm.jsx for code quality and best practices"
 
-
-### コードレビュー
-
-```bash
 # Review with style guide
-bob "Review ./src following Airbnb style guide"
-bob "Review ./src following Google style guide"
+bob run "Review ./src following Airbnb style guide"
+bob run "Review ./src following Google style guide"
 
 # Review git changes
-bob "Review the uncommitted changes in my code"
-bob "Review the code changes between main and feature-branch"
+bob run "Review the uncommitted changes in my code"
+bob run "Review the code changes between main and feature-branch"
 
 # Review with specific focus
-bob "Review ./src focusing on security, performance, and maintainability" --hide-intermediary-output > review-report.md
+bob run "Review ./src focusing on security, performance, and maintainability" --log-level silent > review-report.md
 ```
 
 ### コードの説明
 
 ```bash
 # Explain code in file
-bob "Explain what the code in ./src/utils/helper.js does"
+bob run "Explain what the code in ./src/utils/helper.js does"
 
 # Explain specific function
-bob "Explain the calculateTotal function in ./src/utils/helper.js"
+bob run "Explain the calculateTotal function in ./src/utils/helper.js"
 
 # Detailed explanation
-bob "Provide a detailed explanation of the algorithm in ./src/complex-algorithm.js" --hide-intermediary-output > explanation.md
+bob run "Provide a detailed explanation of the algorithm in ./src/complex-algorithm.js" --log-level silent > explanation.md
 
 # Explain in different language
-bob "Explain the code in ./src/app.js in Spanish"
+bob run "Explain the code in ./src/app.js in Spanish"
 ```
 
 ### コードリファクタリング
 
 ```bash
 # Refactor file
-bob "Refactor ./src/legacy-code.js to use modern JavaScript patterns"
+bob run "Refactor ./src/legacy-code.js to use modern JavaScript patterns"
 
 # Refactor for performance
-bob "Refactor ./src/slow-function.js to improve performance"
+bob run "Refactor ./src/slow-function.js to improve performance"
 
 # Remove dead code
-bob "Identify and remove dead code from ./src/app.js"
+bob run "Identify and remove dead code from ./src/app.js"
 
 # Fix style issues
-bob "Fix all style issues in ./src/app.js following best practices"
+bob run "Fix all style issues in ./src/app.js following best practices"
 ```
 
 ### セキュリティスキャン
 
 ```bash
 # Basic security scan
-bob "Scan ./src for security vulnerabilities"
+bob run "Scan ./src for security vulnerabilities"
 
 # Scan with severity focus
-bob "Scan ./src for high and critical security vulnerabilities"
+bob run "Scan ./src for high and critical security vulnerabilities"
 
 # Scan for specific vulnerabilities
-bob "Check ./src for SQL injection, XSS, exposed secrets, and CSRF vulnerabilities"
+bob run "Check ./src for SQL injection, XSS, exposed secrets, and CSRF vulnerabilities"
 
 # Generate security report
-bob "Perform a comprehensive security scan of ./src and generate a detailed report" --hide-intermediary-output > security-report.html
+bob run "Perform a comprehensive security scan of ./src and generate a detailed report" --log-level silent > security-report.html
 ```
 
 ### ドキュメント生成
 
 ```bash
 # Generate API documentation
-bob "Generate API documentation for the code in ./src" --hide-intermediary-output > api-docs.md
+bob run "Generate API documentation for the code in ./src" --log-level silent > api-docs.md
 
 # Generate architecture documentation
-bob "Create architecture documentation for ./src explaining the system design" --hide-intermediary-output > architecture.md
+bob run "Create architecture documentation for ./src explaining the system design" --log-level silent > architecture.md
 
 # Generate usage examples
-bob "Generate usage examples for the functions in ./src" --hide-intermediary-output > examples.md
+bob run "Generate usage examples for the functions in ./src" --log-level silent > examples.md
 
 # Generate README
-bob "Create a comprehensive README for this project based on ./src" --hide-intermediary-output > README.md
+bob run "Create a comprehensive README for this project based on ./src" --log-level silent > README.md
 ```
 
 ### テスト
 
 ```bash
 # Generate tests for file
-bob "Generate Jest unit tests for ./src/app.js" --yolo --hide-intermediary-output > ./tests/app.test.js
+bob run "Generate Jest unit tests for ./src/app.js" --log-level silent > ./tests/app.test.js
 
 # Generate tests with specific framework
-bob "Generate pytest tests for ./src/app.py with fixtures and mocks" --yolo --hide-intermediary-output > ./tests/test_app.py
+bob run "Generate pytest tests for ./src/app.py with fixtures and mocks" --log-level silent > ./tests/test_app.py
 
 # Suggest test improvements
-bob "Review ./tests/app.test.js and suggest improvements for better coverage"
+bob run "Review ./tests/app.test.js and suggest improvements for better coverage"
 ```
 
 ### コードフォーマット
 
 ```bash
 # Format file
-bob "Format ./src/app.js following Prettier standards"
+bob run "Format ./src/app.js following Prettier standards"
 
 # Format with specific style
-bob "Format ./src/app.py following Black formatting style"
+bob run "Format ./src/app.py following Black formatting style"
 
 # Check formatting
-bob "Check if ./src follows proper formatting standards and suggest fixes"
+bob run "Check if ./src follows proper formatting standards and suggest fixes"
 ```
 
 ## Gitとの連携
 
 ```bash
 # Review uncommitted changes
-bob "Review my uncommitted code changes"
+bob run "Review my uncommitted code changes"
 
 # Review changes in branch
-bob "Review the code changes between main and feature-branch"
+bob run "Review the code changes between main and feature-branch"
 
 # Generate commit message
-bob "Generate a commit message for my staged changes"
+bob run "Generate a commit message for my staged changes"
 
 # Generate changelog
-bob "Generate a changelog for changes since v1.0.0" --hide-intermediary-output > CHANGELOG.md
+bob run "Generate a changelog for changes since v1.0.0" --log-level silent > CHANGELOG.md
 ```
 
 ## バッチ操作
@@ -285,19 +287,19 @@ bob "Generate a changelog for changes since v1.0.0" --hide-intermediary-output >
 ```bash
 # Analyze all JavaScript files
 for file in ./src/**/*.js; do
-    bob "Analyze $file for code quality issues" --hide-intermediary-output >> analysis-results.txt
+    bob run "Analyze $file for code quality issues" --log-level silent >> analysis-results.txt
 done
 
 # Review all Python files
 for file in ./src/**/*.py; do
-    bob "Review $file for code quality and best practices in markdown format" --hide-intermediary-output > "reviews/$(basename $file).md"
+    bob run "Review $file for code quality and best practices in markdown format" --log-level silent > "reviews/$(basename $file).md"
 done
 
 # Generate tests for all files
-bob test-generate ./src/**/*.js --output-dir ./tests
+bob run "Generate Jest unit tests for all JavaScript files in ./src and save them to ./tests"
 
 # Refactor all files in directory
-bob "Refactor all files in ./src directory recursively using modern coding patterns and best practices"
+bob run "Refactor all files in ./src directory recursively using modern coding patterns and best practices"
 ```
 
 ## 出力形式
@@ -306,43 +308,28 @@ bob "Refactor all files in ./src directory recursively using modern coding patte
 
 ```bash
 # JSON output (for programmatic processing)
-bob analyze ./src --format json
+bob run "Analyze ./src and provide results in JSON format" --log-level silent > analysis.json
 
 # Markdown output (for documentation)
-bob review ./src --format markdown
+bob run "Review ./src for code quality and output in markdown format" --log-level silent > review.md
 
 # HTML output (for reports)
-bob security-scan ./src --format html
+bob run "Scan ./src for security vulnerabilities and output in HTML format" --log-level silent > security-report.html
 
 # Plain text output (default)
-bob explain ./src/app.js --format text
-
-# YAML output
-bob analyze ./src --format yaml
+bob run "Explain what the code in ./src/app.js does"
 ```
 
 ## 設定管理
 
 ### 設定の管理
 
+v2.0 では設定ファイル (`~/.bob/settings.json` または `.bob/settings.json`) で管理します。
+
 ```bash
-# View current configuration
-bob config list
-
-# Get specific config value
-bob config get api-key
-bob config get default-mode
-
-# Set configuration value
-bob config set cache-ttl 3600
-bob config set max-tokens 4096
-
-# Reset configuration
-bob config reset
-
 # Review all Python files
 for file in ./src/**/*.py; do
-    bob "Review $file and suggest improvements" --hide-intermediary-output >> review-results.md
+    bob run "Review $file and suggest improvements" --log-level silent >> review-results.md
 done
 ```
 
@@ -352,13 +339,13 @@ done
 
 ```bash
 # Pipe code to Bob for explanation
-cat ./src/app.js | bob "Explain this code"
+cat ./src/app.js | bob run "Explain this code"
 
 # Chain with other tools
-bob "Analyze ./src for quality issues and output as JSON" | jq '.issues[] | select(.severity == "high")'
+bob run "Analyze ./src for quality issues and output as JSON" | jq '.issues[] | select(.severity == "high")'
 
 # Use in scripts
-if bob "Scan ./src for critical security vulnerabilities" | grep -q "CRITICAL"; then
+if bob run "Scan ./src for critical security vulnerabilities" | grep -q "CRITICAL"; then
     echo "Security issues found"
     exit 1
 else
@@ -366,9 +353,9 @@ else
 fi
 
 # Combine multiple Bob commands
-bob "Analyze ./src for code quality" --hide-intermediary-output > analysis.json && \
-bob "Review ./src for best practices" --hide-intermediary-output > review.md && \
-bob "Scan ./src for security vulnerabilities" --hide-intermediary-output > security.html
+bob run "Analyze ./src for code quality" --log-level silent > analysis.json && \
+bob run "Review ./src for best practices" --log-level silent > review.md && \
+bob run "Scan ./src for security vulnerabilities" --log-level silent > security.html
 ```
 
 ## ヒントとコツ
@@ -377,27 +364,27 @@ bob "Scan ./src for security vulnerabilities" --hide-intermediary-output > secur
 
 1. **Use Aliases**: Create shell aliases for common prompts
    ```bash
-   alias bob-review='bob "Review my code changes for quality and best practices"'
-   alias bob-scan='bob "Scan for high and critical security vulnerabilities"'
+   alias bob-review='bob run "Review my code changes for quality and best practices"'
+   alias bob-scan='bob run "Scan for high and critical security vulnerabilities"'
    ```
 
 2. **Save Common Prompts**: Store frequently used prompts in files
    ```bash
    echo "Analyze this code for quality, performance, and security issues" > analyze-prompt.txt
-   bob "$(cat analyze-prompt.txt) in ./src/app.js"
+   bob run "$(cat analyze-prompt.txt) in ./src/app.js"
    ```
 
 3. **Use Variables in Scripts**: Make prompts reusable
    ```bash
    FILE="./src/app.js"
-   bob "Analyze $FILE for code quality and suggest improvements"
+   bob run "Analyze $FILE for code quality and suggest improvements"
    ```
 
 4. **Combine with Git**: Integrate Bob into your git workflow
    ```bash
    # .git/hooks/pre-commit
    #!/bin/bash
-   bob "Review my uncommitted changes and check for issues" | grep -q "ERROR" && exit 1
+   bob run "Review my uncommitted changes and check for issues" | grep -q "ERROR" && exit 1
    ```
 
 ## 一般的なパターン
@@ -406,23 +393,23 @@ bob "Scan ./src for security vulnerabilities" --hide-intermediary-output > secur
 
 ```bash
 # Quick code review workflow
-bob "Review my uncommitted changes" && \
-bob "Scan for security vulnerabilities" && \
+bob run "Review my uncommitted changes" && \
+bob run "Scan for security vulnerabilities" && \
 npm test
 
 # Documentation update workflow
-bob "Generate API documentation for ./src" --hide-intermediary-output > docs/api.md && \
-bob "Create a comprehensive README for this project" --hide-intermediary-output > README.md
+bob run "Generate API documentation for ./src" --log-level silent > docs/api.md && \
+bob run "Create a comprehensive README for this project" --log-level silent > README.md
 
 # Pre-deployment checks
-bob "Analyze ./src and ensure code quality score is above 80" && \
-bob "Scan for critical security vulnerabilities" && \
+bob run "Analyze ./src and ensure code quality score is above 80" && \
+bob run "Scan for critical security vulnerabilities" && \
 npm run test
 
 # Code quality improvement workflow
-bob "Analyze ./src for quality issues" --hide-intermediary-output > before-analysis.txt && \
-bob "Refactor ./src to use modern best practices" && \
-bob "Analyze ./src for quality issues" --hide-intermediary-output > after-analysis.txt
+bob run "Analyze ./src for quality issues" --log-level silent > before-analysis.txt && \
+bob run "Refactor ./src to use modern best practices" && \
+bob run "Analyze ./src for quality issues" --log-level silent > after-analysis.txt
 ```
 
 ## 次のステップ

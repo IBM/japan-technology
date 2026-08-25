@@ -30,11 +30,10 @@ cache:
 # Before script - runs before each job
 before_script:
   - echo "Installing Bob CLI..."
-  - npm install -g @ibm/bob-cli@${BOB_VERSION}
+  - curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
   - bob --version
-  - bob config set api-key ${BOB_API_KEY}
-  - bob config set cache-enabled true
-  - bob config set cache-dir ${BOB_CACHE_DIR}
+  # BOB_API_KEY 環境変数が設定されていれば自動的に認証されます
+  # CI/CD変数として BOB_API_KEY を Settings > CI/CD > Variables に追加してください
 
 # Job: Code Review
 code_review:
@@ -49,7 +48,7 @@ code_review:
       fi
     - echo "Comparing against branch: ${TARGET_BRANCH}"
     - |
-      bob "Review the code changes between origin/${TARGET_BRANCH} and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > review-report.md || true
+      bob run "Review the code changes between origin/${TARGET_BRANCH} and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > review-report.md || true
     - |
       if [ -f review-report.md ]; then
         echo "Review report generated successfully"
@@ -76,7 +75,7 @@ security_scan:
   script:
     - echo "Running security scan..."
     - |
-      bob "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > security-report.json || true
+      bob run "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > security-report.json || true
     - |
       if [ -f security-report.json ]; then
         echo "Security scan completed"
@@ -122,7 +121,7 @@ quality_check:
   script:
     - echo "Running quality analysis..."
     - |
-      bob "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > quality-report.json || true
+      bob run "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > quality-report.json || true
     - |
       if [ -f quality-report.json ]; then
         echo "Quality analysis completed"
@@ -162,7 +161,7 @@ complexity_analysis:
   script:
     - echo "Running complexity analysis..."
     - |
-      bob "Analyze the codebase for complexity metrics including cyclomatic complexity and cognitive complexity. Output results in JSON format." > complexity-report.json || true
+      bob run "Analyze the codebase for complexity metrics including cyclomatic complexity and cognitive complexity. Output results in JSON format." > complexity-report.json || true
     - |
       if [ -f complexity-report.json ]; then
         echo "Complexity analysis completed"
@@ -186,7 +185,7 @@ dependency_check:
     - echo "Checking dependencies..."
     - |
       if [ -f package.json ]; then
-        bob "Analyze package.json for dependency issues and vulnerabilities. Check for outdated packages and security issues. Output results in JSON format." > dependency-report.json || true
+        bob run "Analyze package.json for dependency issues and vulnerabilities. Check for outdated packages and security issues. Output results in JSON format." > dependency-report.json || true
         
         if [ -f dependency-report.json ]; then
           echo "Dependency check completed"
@@ -224,11 +223,11 @@ generate_documentation:
     - echo "Generating documentation..."
     - mkdir -p docs
     - |
-      bob "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
+      bob run "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
     - |
-      bob "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
+      bob run "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
     - |
-      bob "Create a comprehensive README from the codebase" > docs/README.md || true
+      bob run "Create a comprehensive README from the codebase" > docs/README.md || true
     - echo "Documentation generated successfully"
   artifacts:
     paths:
