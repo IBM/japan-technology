@@ -1,0 +1,354 @@
+# GitLab CI/CD Configuration for Bob AI Integration
+#
+# This configuration demonstrates how to integrate Bob into your GitLab CI/CD
+# pipeline for automated code review, security scanning, and quality checks.
+#
+# Copy this file to .gitlab-ci.yml in your repository root
+
+# Define pipeline stages
+stages:
+  - setup
+  - review
+  - security
+  - quality
+  - documentation
+  - report
+
+# Global variables
+variables:
+  BOB_VERSION: "latest"
+  BOB_CACHE_DIR: ".bob-cache"
+  QUALITY_THRESHOLD: "70"
+
+# Cache configuration for faster builds
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - ${BOB_CACHE_DIR}
+    - node_modules/
+
+# Before script - runs before each job
+before_script:
+  - echo "Installing Bob CLI..."
+  - npm install -g @ibm/bob-cli@${BOB_VERSION}
+  - bob --version
+  - bob config set api-key ${BOB_API_KEY}
+  - bob config set cache-enabled true
+  - bob config set cache-dir ${BOB_CACHE_DIR}
+
+# Job: Code Review
+code_review:
+  stage: review
+  script:
+    - echo "Running code review..."
+    - |
+      if [ -n "${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}" ]; then
+        TARGET_BRANCH="${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}"
+      else
+        TARGET_BRANCH="main"
+      fi
+    - echo "Comparing against branch: ${TARGET_BRANCH}"
+    - |
+      bob "Review the code changes between origin/${TARGET_BRANCH} and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > review-report.md || true
+    - |
+      if [ -f review-report.md ]; then
+        echo "Review report generated successfully"
+        cat review-report.md
+      else
+        echo "Warning: Review report not generated"
+      fi
+  artifacts:
+    paths:
+      - review-report.md
+    reports:
+      codequality: review-report.md
+    expire_in: 1 week
+  only:
+    - merge_requests
+    - main
+    - develop
+  tags:
+    - docker
+
+# Job: Security Scan
+security_scan:
+  stage: security
+  script:
+    - echo "Running security scan..."
+    - |
+      bob "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > security-report.json || true
+    - |
+      if [ -f security-report.json ]; then
+        echo "Security scan completed"
+        
+        # Parse results
+        CRITICAL=$(jq '.critical | length' security-report.json)
+        HIGH=$(jq '.high | length' security-report.json)
+        MEDIUM=$(jq '.medium | length' security-report.json)
+        
+        echo "Security Issues Found:"
+        echo "  Critical: ${CRITICAL}"
+        echo "  High: ${HIGH}"
+        echo "  Medium: ${MEDIUM}"
+        
+        # Fail if critical issues found
+        if [ "${CRITICAL}" -gt 0 ]; then
+          echo "ERROR: Critical security issues found!"
+          jq '.critical' security-report.json
+          exit 1
+        fi
+        
+        # Warn on high severity issues
+        if [ "${HIGH}" -gt 0 ]; then
+          echo "WARNING: High severity security issues found!"
+          jq '.high' security-report.json
+        fi
+      else
+        echo "Warning: Security report not generated"
+      fi
+  artifacts:
+    paths:
+      - security-report.json
+    reports:
+      sast: security-report.json
+    expire_in: 1 week
+  allow_failure: false
+  tags:
+    - docker
+
+# Job: Code Quality Analysis
+quality_check:
+  stage: quality
+  script:
+    - echo "Running quality analysis..."
+    - |
+      bob "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > quality-report.json || true
+    - |
+      if [ -f quality-report.json ]; then
+        echo "Quality analysis completed"
+        
+        # Parse results
+        SCORE=$(jq '.overall_score // 0' quality-report.json)
+        echo "Overall Quality Score: ${SCORE}/100"
+        
+        # Check against threshold
+        if (( $(echo "${SCORE} < ${QUALITY_THRESHOLD}" | bc -l) )); then
+          echo "WARNING: Quality score ${SCORE} is below threshold ${QUALITY_THRESHOLD}"
+          # Uncomment to fail on low quality
+          # exit 1
+        else
+          echo "Quality check passed!"
+        fi
+        
+        # Display metrics
+        echo "Quality Metrics:"
+        jq '.metrics' quality-report.json || echo "No metrics available"
+      else
+        echo "Warning: Quality report not generated"
+      fi
+  artifacts:
+    paths:
+      - quality-report.json
+    reports:
+      metrics: quality-report.json
+    expire_in: 1 week
+  allow_failure: true
+  tags:
+    - docker
+
+# Job: Complexity Analysis
+complexity_analysis:
+  stage: quality
+  script:
+    - echo "Running complexity analysis..."
+    - |
+      bob "Analyze the codebase for complexity metrics including cyclomatic complexity and cognitive complexity. Output results in JSON format." > complexity-report.json || true
+    - |
+      if [ -f complexity-report.json ]; then
+        echo "Complexity analysis completed"
+        
+        # Find high complexity functions
+        echo "High Complexity Functions:"
+        jq '.functions[] | select(.complexity > 10)' complexity-report.json || echo "None found"
+      fi
+  artifacts:
+    paths:
+      - complexity-report.json
+    expire_in: 1 week
+  allow_failure: true
+  tags:
+    - docker
+
+# Job: Dependency Check
+dependency_check:
+  stage: security
+  script:
+    - echo "Checking dependencies..."
+    - |
+      if [ -f package.json ]; then
+        bob "Analyze package.json for dependency issues and vulnerabilities. Check for outdated packages and security issues. Output results in JSON format." > dependency-report.json || true
+        
+        if [ -f dependency-report.json ]; then
+          echo "Dependency check completed"
+          
+          VULNERABLE=$(jq '.vulnerable | length' dependency-report.json)
+          OUTDATED=$(jq '.outdated | length' dependency-report.json)
+          
+          echo "Vulnerable Dependencies: ${VULNERABLE}"
+          echo "Outdated Dependencies: ${OUTDATED}"
+          
+          if [ "${VULNERABLE}" -gt 0 ]; then
+            echo "WARNING: Vulnerable dependencies found!"
+            jq '.vulnerable' dependency-report.json
+          fi
+        fi
+      else
+        echo "No package.json found, skipping dependency check"
+      fi
+  artifacts:
+    paths:
+      - dependency-report.json
+    expire_in: 1 week
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
+    - develop
+  tags:
+    - docker
+
+# Job: Generate Documentation (main branch only)
+generate_documentation:
+  stage: documentation
+  script:
+    - echo "Generating documentation..."
+    - mkdir -p docs
+    - |
+      bob "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
+    - |
+      bob "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
+    - |
+      bob "Create a comprehensive README from the codebase" > docs/README.md || true
+    - echo "Documentation generated successfully"
+  artifacts:
+    paths:
+      - docs/
+    expire_in: 30 days
+  only:
+    - main
+  tags:
+    - docker
+
+# Job: Generate Summary Report
+summary_report:
+  stage: report
+  script:
+    - echo "Generating summary report..."
+    - |
+      cat > summary-report.md << 'EOF'
+      # Bob AI Analysis Summary
+      
+      **Pipeline:** ${CI_PIPELINE_ID}
+      **Branch:** ${CI_COMMIT_REF_NAME}
+      **Commit:** ${CI_COMMIT_SHORT_SHA}
+      **Date:** $(date)
+      
+      ## Results
+      
+      EOF
+    - |
+      # Add code review results
+      if [ -f review-report.md ]; then
+        echo "### ✅ Code Review" >> summary-report.md
+        echo "Review completed successfully" >> summary-report.md
+        echo "" >> summary-report.md
+      else
+        echo "### ❌ Code Review" >> summary-report.md
+        echo "Review failed or not run" >> summary-report.md
+        echo "" >> summary-report.md
+      fi
+    - |
+      # Add security scan results
+      if [ -f security-report.json ]; then
+        CRITICAL=$(jq '.critical | length' security-report.json)
+        HIGH=$(jq '.high | length' security-report.json)
+        
+        if [ "${CRITICAL}" -eq 0 ]; then
+          echo "### ✅ Security Scan" >> summary-report.md
+        else
+          echo "### ❌ Security Scan" >> summary-report.md
+        fi
+        
+        echo "- Critical Issues: ${CRITICAL}" >> summary-report.md
+        echo "- High Issues: ${HIGH}" >> summary-report.md
+        echo "" >> summary-report.md
+      fi
+    - |
+      # Add quality analysis results
+      if [ -f quality-report.json ]; then
+        SCORE=$(jq '.overall_score // 0' quality-report.json)
+        echo "### 📊 Quality Analysis" >> summary-report.md
+        echo "Overall Score: ${SCORE}/100" >> summary-report.md
+        echo "" >> summary-report.md
+      fi
+    - |
+      echo "## Artifacts" >> summary-report.md
+      echo "" >> summary-report.md
+      echo "- [Code Review Report](review-report.md)" >> summary-report.md
+      echo "- [Security Report](security-report.json)" >> summary-report.md
+      echo "- [Quality Report](quality-report.json)" >> summary-report.md
+      echo "" >> summary-report.md
+      echo "---" >> summary-report.md
+      echo "*Generated by Bob AI*" >> summary-report.md
+    - cat summary-report.md
+  artifacts:
+    paths:
+      - summary-report.md
+    expire_in: 1 week
+  dependencies:
+    - code_review
+    - security_scan
+    - quality_check
+  when: always
+  tags:
+    - docker
+
+# Job: Notify on Failure
+notify_failure:
+  stage: report
+  script:
+    - echo "Pipeline failed - sending notification"
+    - |
+      # Add your notification logic here
+      # Examples:
+      # - Send Slack message
+      # - Send email
+      # - Create GitLab issue
+      echo "Notification sent"
+  when: on_failure
+  only:
+    - main
+    - develop
+  tags:
+    - docker
+
+# Configuration Notes:
+#
+# 1. Add BOB_API_KEY as a CI/CD variable:
+#    Settings > CI/CD > Variables > Add Variable
+#    - Key: BOB_API_KEY
+#    - Value: Your Bob API key
+#    - Protected: Yes
+#    - Masked: Yes
+#
+# 2. Adjust quality thresholds in variables section
+#
+# 3. Configure artifact retention based on your needs
+#
+# 4. Add notification integrations in notify_failure job
+#
+# 5. Customize stages and jobs based on your requirements
+#
+# 6. Consider adding manual approval gates for production deployments
+
+# Made with Bob

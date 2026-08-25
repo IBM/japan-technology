@@ -1,0 +1,298 @@
+# GitHub Actions Workflow for Bob AI Integration
+# 
+# This workflow demonstrates how to integrate Bob into your CI/CD pipeline
+# for automated code review, security scanning, and quality checks.
+#
+# Copy this file to .github/workflows/bob-ci.yml in your repository
+
+name: Bob AI Code Review and Quality Check
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:  # Allow manual triggering
+
+# Environment variables
+env:
+  BOB_VERSION: latest
+  NODE_VERSION: '18'
+
+jobs:
+  # Job 1: Code Review
+  code-review:
+    name: Bob Code Review
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper diff analysis
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Bob CLI
+        run: |
+          npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+          bob --version
+      
+      - name: Configure Bob
+        env:
+          BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
+        run: |
+          bob config set api-key $BOB_API_KEY
+          bob config set cache-enabled true
+      
+      - name: Run Code Review
+        id: review
+        run: |
+          # Review changed files only
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_REF="${{ github.base_ref }}"
+          else
+            BASE_REF="HEAD~1"
+          fi
+          
+          bob "Review the code changes between origin/$BASE_REF and HEAD. Focus on code quality, potential bugs, and best practices. Output the review in markdown format." > review-report.md || true
+      
+      - name: Upload Review Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-review-report
+          path: review-report.md
+          retention-days: 30
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            try {
+              const review = fs.readFileSync('review-report.md', 'utf8');
+              
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## 🤖 Bob AI Code Review\n\n${review}\n\n---\n*Automated review by Bob AI*`
+              });
+            } catch (error) {
+              console.log('Could not post review comment:', error.message);
+            }
+
+  # Job 2: Security Scan
+  security-scan:
+    name: Bob Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Bob CLI
+        run: npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+      
+      - name: Configure Bob
+        env:
+          BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
+        run: bob config set api-key $BOB_API_KEY
+      
+      - name: Run Security Scan
+        id: security
+        run: |
+          bob "Perform a comprehensive security scan of the codebase. Focus on high and critical severity vulnerabilities. Output results in JSON format." > security-report.json || true
+      
+      - name: Parse Security Results
+        id: parse-security
+        run: |
+          if [ -f security-report.json ]; then
+            CRITICAL=$(jq '.critical | length' security-report.json)
+            HIGH=$(jq '.high | length' security-report.json)
+            echo "critical=$CRITICAL" >> $GITHUB_OUTPUT
+            echo "high=$HIGH" >> $GITHUB_OUTPUT
+            
+            echo "### Security Scan Results" >> $GITHUB_STEP_SUMMARY
+            echo "- Critical Issues: $CRITICAL" >> $GITHUB_STEP_SUMMARY
+            echo "- High Issues: $HIGH" >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Upload Security Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: security-report.json
+          retention-days: 90
+      
+      - name: Fail on Critical Issues
+        if: steps.parse-security.outputs.critical > 0
+        run: |
+          echo "::error::Found ${{ steps.parse-security.outputs.critical }} critical security issues"
+          exit 1
+
+  # Job 3: Code Quality Analysis
+  quality-analysis:
+    name: Bob Quality Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Bob CLI
+        run: npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+      
+      - name: Configure Bob
+        env:
+          BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
+        run: bob config set api-key $BOB_API_KEY
+      
+      - name: Run Quality Analysis
+        run: |
+          bob "Analyze the codebase for quality, performance, and maintainability issues. Provide an overall quality score and detailed metrics in JSON format." > quality-report.json || true
+      
+      - name: Parse Quality Results
+        id: parse-quality
+        run: |
+          if [ -f quality-report.json ]; then
+            SCORE=$(jq '.overall_score // 0' quality-report.json)
+            echo "score=$SCORE" >> $GITHUB_OUTPUT
+            
+            echo "### Code Quality Score" >> $GITHUB_STEP_SUMMARY
+            echo "Overall Score: $SCORE/100" >> $GITHUB_STEP_SUMMARY
+            
+            if (( $(echo "$SCORE < 70" | bc -l) )); then
+              echo "::warning::Quality score below threshold: $SCORE"
+            fi
+          fi
+      
+      - name: Upload Quality Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-report
+          path: quality-report.json
+          retention-days: 30
+      
+      - name: Quality Gate
+        if: steps.parse-quality.outputs.score < 70
+        run: |
+          echo "::warning::Quality score is below 70: ${{ steps.parse-quality.outputs.score }}"
+          # Uncomment to fail the build on low quality
+          # exit 1
+
+  # Job 4: Generate Documentation (on main branch only)
+  generate-docs:
+    name: Generate Documentation
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Bob CLI
+        run: npm install -g @ibm/bob-cli@${{ env.BOB_VERSION }}
+      
+      - name: Configure Bob
+        env:
+          BOB_API_KEY: ${{ secrets.BOB_API_KEY }}
+        run: bob config set api-key $BOB_API_KEY
+      
+      - name: Generate Documentation
+        run: |
+          mkdir -p docs
+          bob "Generate comprehensive API documentation in HTML format from the codebase" > docs/api.html || true
+          bob "Generate architecture documentation in HTML format showing the system design and component relationships" > docs/architecture.html || true
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+
+  # Job 5: Summary Report
+  summary:
+    name: Generate Summary
+    runs-on: ubuntu-latest
+    needs: [code-review, security-scan, quality-analysis]
+    if: always()
+    
+    steps:
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+      
+      - name: Generate Summary
+        run: |
+          echo "# Bob AI Analysis Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Code Review
+          if [ -f code-review-report/review-report.md ]; then
+            echo "✅ Code Review: Completed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Code Review: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Security Scan
+          if [ -f security-report/security-report.json ]; then
+            CRITICAL=$(jq '.critical | length' security-report/security-report.json)
+            HIGH=$(jq '.high | length' security-report/security-report.json)
+            if [ "$CRITICAL" -eq 0 ]; then
+              echo "✅ Security Scan: No critical issues" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ Security Scan: $CRITICAL critical issues found" >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "❌ Security Scan: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Quality Analysis
+          if [ -f quality-report/quality-report.json ]; then
+            SCORE=$(jq '.overall_score // 0' quality-report/quality-report.json)
+            echo "📊 Quality Score: $SCORE/100" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Quality Analysis: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Analysis completed at $(date)*" >> $GITHUB_STEP_SUMMARY
+
+# Workflow configuration tips:
+# 
+# 1. Add BOB_API_KEY to repository secrets:
+#    Settings > Secrets and variables > Actions > New repository secret
+#
+# 2. Adjust quality thresholds based on your project needs
+#
+# 3. Enable/disable jobs based on your requirements
+#
+# 4. Customize notification settings for failures
+#
+# 5. Consider adding Slack/Teams notifications for critical issues
+
+# Made with Bob
