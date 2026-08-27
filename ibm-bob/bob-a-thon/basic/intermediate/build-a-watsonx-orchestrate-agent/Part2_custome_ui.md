@@ -1,5 +1,8 @@
 # Credit Card 管理アプリのWeb UI を作成する
 
+## 動画
+- [https://ibm.box.com/s/4m6bnj7avmdibrrhvlwecqmpqnem82bn](https://ibm.box.com/s/4m6bnj7avmdibrrhvlwecqmpqnem82bn)
+
 ## ハンズオンシナリオ
 1. リポジトリ内のハンズオン用サンプル([hands-on](hands-on))をダウンロードし、Bobがアクセスできるフォルダに配置
 
