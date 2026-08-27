@@ -1,7 +1,7 @@
 # Credit Card Agent を実装してwatsonx Orchestrate にデプロイする
 
 ## 動画
-+ https://ibm.box.com/s/8megtlukqia0ltwvmgg3zwarpydboses
++ [https://ibm.box.com/s/8megtlukqia0ltwvmgg3zwarpydboses](https://ibm.box.com/s/fm9dkfio6lerquj8b4ni9x32nxso7cct)
 
 ## 要件
 + Git アカウント
