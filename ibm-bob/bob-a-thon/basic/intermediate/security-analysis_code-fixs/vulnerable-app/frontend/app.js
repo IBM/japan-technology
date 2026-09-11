@@ -9,7 +9,7 @@
  * - Direct DOM manipulation with user data
  */
 
-const API_URL = 'http://localhost:5001/api/todos';
+const API_URL = 'http://localhost:5000/api/todos';
 
 let appState = {
     todos: [],
@@ -143,8 +143,9 @@ async function deleteTodo(todoId) {
 }
 
 /**
- * SECURE VERSION: Safe DOM manipulation
- * Uses textContent and DOM methods to prevent XSS attacks
+ * VULNERABILITY: XSS through innerHTML
+ * This function uses innerHTML to render user content, which allows
+ * script injection if the user enters malicious HTML/JavaScript
  */
 function displayTodos(todos) {
     const todosList = document.getElementById('todos-list');
@@ -162,21 +163,32 @@ function displayTodos(todos) {
     
     emptyState.style.display = 'none';
     
-    // SECURE: Clear the list and rebuild using DOM methods
-    todosList.innerHTML = '';
+    // VULNERABILITY: Using innerHTML with user content
+    todosList.innerHTML = todos.map(todo => createTodoHTML(todo)).join('');
     
-    // Create and append each todo element safely
-    todos.forEach(todo => {
-        const todoElement = createTodoElement(todo);
-        todosList.appendChild(todoElement);
+    // Attach event listeners
+    todosList.querySelectorAll('.btn-success').forEach(button => {
+        button.addEventListener('click', () => {
+            const todoId = parseInt(button.dataset.id);
+            const completed = button.dataset.completed === 'true';
+            toggleTodo(todoId, completed);
+        });
+    });
+    
+    todosList.querySelectorAll('.btn-danger').forEach(button => {
+        button.addEventListener('click', () => {
+            const todoId = parseInt(button.dataset.id);
+            deleteTodo(todoId);
+        });
     });
 }
 
 /**
- * SECURE VERSION: Creates todo element using DOM methods
- * Prevents XSS by using textContent instead of innerHTML
+ * VULNERABILITY: Direct HTML injection
+ * This function creates HTML with user input without any sanitization
+ * Allows XSS attacks through todo.title and todo.description
  */
-function createTodoElement(todo) {
+function createTodoHTML(todo) {
     const date = new Date(todo.created_at);
     const formattedDate = date.toLocaleDateString('en-US', {
         year: 'numeric',
@@ -186,64 +198,37 @@ function createTodoElement(todo) {
         minute: '2-digit'
     });
     
-    // Create main container
-    const todoItem = document.createElement('div');
-    todoItem.className = `todo-item${todo.completed ? ' completed' : ''}`;
+    const completedClass = todo.completed ? 'completed' : '';
+    const buttonText = todo.completed ? '↩️ Undo' : '✓ Complete';
     
-    // Create header section
-    const todoHeader = document.createElement('div');
-    todoHeader.className = 'todo-header';
-    
-    const todoTitle = document.createElement('h3');
-    todoTitle.className = 'todo-title';
-    todoTitle.textContent = todo.title; // SECURE: textContent prevents XSS
-    
-    todoHeader.appendChild(todoTitle);
-    todoItem.appendChild(todoHeader);
-    
-    // Create description if exists
-    if (todo.description) {
-        const todoDescription = document.createElement('p');
-        todoDescription.className = 'todo-description';
-        todoDescription.textContent = todo.description; // SECURE: textContent prevents XSS
-        todoItem.appendChild(todoDescription);
-    }
-    
-    // Create meta section
-    const todoMeta = document.createElement('div');
-    todoMeta.className = 'todo-meta';
-    
-    // Create date span
-    const todoDate = document.createElement('span');
-    todoDate.className = 'todo-date';
-    todoDate.textContent = `📅 ${formattedDate}`;
-    
-    // Create actions container
-    const todoActions = document.createElement('div');
-    todoActions.className = 'todo-actions';
-    
-    // Create complete button
-    const completeBtn = document.createElement('button');
-    completeBtn.className = 'btn btn-success';
-    completeBtn.textContent = todo.completed ? '↩️ Undo' : '✓ Complete';
-    completeBtn.addEventListener('click', () => toggleTodo(todo.id, todo.completed));
-    
-    // Create delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.className = 'btn btn-danger';
-    deleteBtn.textContent = '🗑️ Delete';
-    deleteBtn.addEventListener('click', () => deleteTodo(todo.id));
-    
-    // Assemble the structure
-    todoActions.appendChild(completeBtn);
-    todoActions.appendChild(deleteBtn);
-    
-    todoMeta.appendChild(todoDate);
-    todoMeta.appendChild(todoActions);
-    
-    todoItem.appendChild(todoMeta);
-    
-    return todoItem;
+    // VULNERABILITY: Direct insertion of user content into HTML
+    // If todo.title contains <script>alert('XSS')</script>, it will execute!
+    return `
+        <div class="todo-item ${completedClass}">
+            <div class="todo-header">
+                <h3 class="todo-title">${todo.title}</h3>
+            </div>
+            ${todo.description ? `<p class="todo-description">${todo.description}</p>` : ''}
+            <div class="todo-meta">
+                <span class="todo-date">📅 ${formattedDate}</span>
+                <div class="todo-actions">
+                    <button 
+                        class="btn btn-success" 
+                        data-id="${todo.id}"
+                        data-completed="${todo.completed}"
+                    >
+                        ${buttonText}
+                    </button>
+                    <button 
+                        class="btn btn-danger" 
+                        data-id="${todo.id}"
+                    >
+                        🗑️ Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 function setLoadingState(isLoading) {

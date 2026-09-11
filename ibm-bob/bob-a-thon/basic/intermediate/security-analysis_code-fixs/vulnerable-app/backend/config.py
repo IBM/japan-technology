@@ -1,60 +1,54 @@
 """
-Application Configuration - SECURE VERSION
-Uses environment variables for sensitive data.
-Secrets are loaded from .env file (not committed to version control).
+Application Configuration - VULNERABLE VERSION
+This file contains hardcoded secrets for educational purposes.
+DO NOT use this pattern in production!
+
+VULNERABILITY: Hardcoded Secrets
+All sensitive credentials are stored directly in the source code.
 """
 
-import os
-from dotenv import load_dotenv
+# VULNERABILITY: Hardcoded database credentials
+# Anyone with access to the code can see the password
+DATABASE_URL = "postgresql://admin:SuperSecret123@localhost:5432/todos_db"
 
-# Load environment variables from .env file
-load_dotenv()
+# VULNERABILITY: Hardcoded API key
+# This key should be in environment variables or a secrets manager
+API_KEY = "sk_live_abc123xyz789_this_is_a_secret_key"
 
-# Database configuration
-DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///todos.db')
+# VULNERABILITY: Hardcoded secret key
+# Used for session management and should be randomly generated
+SECRET_KEY = "my-super-secret-key-12345"
 
-# API Keys and Secrets
-API_KEY = os.getenv('API_KEY')
-SECRET_KEY = os.getenv('SECRET_KEY')
+# VULNERABILITY: Hardcoded third-party credentials
+AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 
-# Third-party credentials (optional)
-AWS_ACCESS_KEY = os.getenv('AWS_ACCESS_KEY')
-AWS_SECRET_KEY = os.getenv('AWS_SECRET_KEY')
+# VULNERABILITY: Hardcoded email credentials
+EMAIL_USERNAME = "admin@example.com"
+EMAIL_PASSWORD = "EmailPassword123!"
 
-# Email configuration (optional)
-EMAIL_USERNAME = os.getenv('EMAIL_USERNAME')
-EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+# Additional configuration
+DEBUG = True  # VULNERABILITY: Debug mode enabled
+TESTING = False
 
-# JWT configuration
-JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
-
-# Application settings
-DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
-TESTING = os.getenv('TESTING', 'False').lower() == 'true'
-
-# Validate required environment variables
-REQUIRED_VARS = ['SECRET_KEY', 'API_KEY']
-missing_vars = [var for var in REQUIRED_VARS if not os.getenv(var)]
-
-if missing_vars:
-    raise ValueError(
-        f"Missing required environment variables: {', '.join(missing_vars)}\n"
-        f"Please create a .env file based on .env.example"
-    )
+# VULNERABILITY: Hardcoded JWT secret
+JWT_SECRET_KEY = "jwt-secret-key-not-secure"
 
 """
-SECURITY IMPROVEMENTS:
-1. ✅ Secrets stored in environment variables, not in code
-2. ✅ .env file excluded from version control
-3. ✅ Easy credential rotation without code changes
-4. ✅ Different credentials per environment
-5. ✅ Validation of required variables
-6. ✅ Clear error messages for missing configuration
+WHY THIS IS DANGEROUS:
+1. Credentials are visible in version control history
+2. Anyone with code access has full system access
+3. Credentials can't be rotated without code changes
+4. Same credentials used across all environments
+5. Secrets may be exposed in logs or error messages
+6. No audit trail of who accessed what
 
-USAGE:
-1. Copy .env.example to .env
-2. Update .env with your actual credentials
-3. Never commit .env to version control
+PROPER SOLUTION:
+Use environment variables or a secrets management service like:
+- AWS Secrets Manager
+- Azure Key Vault
+- HashiCorp Vault
+- Environment variables with .env files (not committed)
 """
 
 # Made with Bob
