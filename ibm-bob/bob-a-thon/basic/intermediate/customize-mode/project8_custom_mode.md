@@ -9,9 +9,9 @@
 
 ## 1. 既存モードを確認する
 
-**Settings** で **Modes** と各モードの説明を確認します。
+**Settings** で **モード一覧** と各モードの説明を確認します。
 
-> スクリーンショット: Settings > Modes
+![Settings(Bob設定)->モード](modes.png)
 
 ## 2. Bob とモード案をブレインストーミングする
 
@@ -39,12 +39,15 @@
 
 **watsonx.ai developer mode** を作成するために、以下の手順を実施します。
 
-- まずは[ドラフトモード定義](https://github.ibm.com/elowery/WW-Bobathon/blob/main/Project8_Create_Custom_Modes/watsonx_ai_mode_draft.txt)から始める
+- まずは[ドラフトモード定義](https://github.com/IBM/japan-technology/blob/main/ibm-bob/bob-a-thon/basic/intermediate/customize-mode/watsonx_ai_mode_draft.md)から始める
 - Bob にモード定義をレビュー・改善してもらい、テキストファイルとして保存する  
-  Bob の出力は通常かなり詳細なので、モード定義に何を含めるかは自分で判断してください。
-- 気に入った定義の一部を **Settings** の **Custom mode** フォームにコピー＆ペーストする
+  Bob の出力は通常かなり詳細なので、モード定義に何を含めるかは自分で判断してください
+- 気に入った定義の一部を **Bob設定** の **新しいモードを作成** フォームにコピー＆ペーストして、保存ボタンをクリックする
 
-> スクリーンショット: watsonx.ai developer 用カスタムモード定義の例
+![モード作成](create_mode.png)
+
+参考：watson.aiモード記入例：
+![モードサンプル](mode_sample.png)
 
 ## 4. モードをテストする
 

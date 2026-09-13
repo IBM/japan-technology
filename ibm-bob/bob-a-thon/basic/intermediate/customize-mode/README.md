@@ -39,6 +39,8 @@
 
 > **重要**  
 > 本ハンズオンでは、watsonx.ai を利用するコード生成やテストを行うため、**API Key** と **watsonx project id** が必須です。事前に取得しておいてください。
+[watsonx ログインページ](https://jp-tok.dataplatform.cloud.ibm.com/wx/home?context=wx) 
+
 
 ### 事前に確認しておくとよい情報
 - 使用したい言語（**Python SDK** または **Node.js**）
