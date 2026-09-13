@@ -1,0 +1,158 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="yes" layout="ArticleStandard18" skill-level="3" toc="yes"><id cma-id="1055544" original="yes"/><keywords content="IoT, devices, device management"/><meta-last-updated day="03" initials="corbinm@us.ibm.com" month="01" year="2018"/><content-area-primary name="iot"/><title>Managing your IoT devices</title><subtitle>A guide to selecting IoT device management protocols and features that
+            solve your IoT device management challenges</subtitle><pdf pages="6" paperSize="common" size="143 KB" url="iot-lp301-iot-device-management-pdf.pdf"/><author email="anna.m.gerber@gmail.com" email-cc="" jobtitle="Senior Software Developer" publish-email="no"><author-level>none</author-level><bio>Anna Gerber is a full-stack developer with 15 years experience in the
+                university sector, formerly a Technical Project Manager at The University
+                of Queensland ITEE eResearch specialising in Digital Humanities, and a
+                Research Scientist at the Distributed System Technology Centre (DSTC).
+                Anna is a JavaScript robotics enthusiast and maker and enjoys tinkering
+                with soft circuits and 3D printers.</bio><img align="left" alt="Anna Gerber" height="60" src="https://www.ibm.com/developerworks/i/p-agerber60.jpg" valign="top" width="60"/><author-name><GivenName>Anna</GivenName><FamilyName>Gerber</FamilyName></author-name><company-name/><social-networks><social-network><social-network-name>dW author profile</social-network-name><social-network-url>https://developer.ibm.com/author/anna.m.gerber/</social-network-url></social-network></social-networks></author><date-published day="22" month="12" year="2017"/><date-updated day="03" month="01" year="2018"/><social-media-meta><twitter-summary-card><twitter-card-title>Managing your IoT devices: A guide to selecting IoT device management protocols and features</twitter-card-title><twitter-card-abstract>Discover how the IoT device management protocols
+                    and features help you address many IoT device management challenges,
+                    including scalability and availability among others.</twitter-card-abstract><twitter-card-img height="440" src="https://www.ibm.com/developerworks/i/twitterdw-topic-iot.png" width="880"/></twitter-summary-card></social-media-meta><abstract>In this article, discover how the IoT device management protocols
+                    and features help you address many IoT device management challenges,
+                    including scalability and availability among others.</abstract><docbody><sidebar><heading>IoT 301: Mastering IoT development</heading><p>This article is part of the <a href="https://www.ibm.com/developerworks/library/iot-lp301-mastery-guide-iot-developers/index.html" target="_blank">IoT 301 learning path</a>, an advanced developer
+                    guide for IoT.</p><ul><li><a href="https://developer.ibm.com/dwblog/2017/getting-serious-iot-development/" target="_blank">Get serious</a></li><li><a href="https://developer.ibm.com/dwblog/2017/iot-security-challenges/" target="_blank">IoT security challenges</a></li><li>IoT device management (this article)</li><li><a href="https://www.ibm.com/developerworks/library/iot-lp301-iot-manage-data/index.html" target="_blank">IoT analytics</a></li><li><a href="https://www.ibm.com/developerworks/library/iot-lp301-mastering-skills-extend-iot-health-app/" target="_blank">Tutorial: Extend an IoT system</a></li></ul></sidebar><p>Any complex IoT system must include device management capabilities in its
+                architecture. IoT devices are often deployed in hostile environments. And,
+                when devices fail, they might need to be retired and removed from those
+                environments or updated so that they can continue to operate in those
+                environments. </p><p>Device management helps to protect devices and their data by making it
+                easier to secure and monitor the devices. Device management capabilities
+                allow IoT developers to control IoT devices by performing operations like
+                resetting them to factory defaults or applying updates to patch security
+                issues or fix bugs. </p><p>As the number and variety IoT devices deployed increases, and the
+                complexity of your IoT system architecture also increases, managing your
+                IoT devices becomes increasingly challenging.</p><heading alttoc="" inline-commenting-id="cmt_1" refname="1Devicemanagementchallengesoutline" type="h2">Device management challenges</heading><p>The key challenges involved with managing and maintaining IoT devices
+                include security, interoperability, constrained devices, scalability, and
+                availability. </p><heading alttoc="" inline-commenting-id="cmt_2" refname="11Securityoutline" type="h3">Security</heading><p>Security is an important consideration across all layers of your IoT
+                system. Device management services can make it easier to secure the IoT
+                devices themselves by providing secure device registration and
+                authentication services and by supporting encrypted machine-to-machine
+                (M2M) communication. Read more in my <a href="https://developer.ibm.com/dwblog/2017/iot-security-challenges/">Top 10 IoT Security Challenges</a> blog post on the developerWorks
+                blog and how implementing device management services in your IoT system
+                can address many of these security challenges.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="12Interoperabilityoutline" type="h3">Interoperability</heading><p>The devices deployed within an IoT system now and into the future might be
+                of different classes, be produced by a range of manufacturers, and use a
+                range of communication protocols. Device management tools must support
+                managing all of the devices consistently to maintain interoperability
+                across heterogeneous devices. Look for device management services that
+                support standard device management protocols, or which implement protocols
+                and APIs to provide abstractions for managing devices generically in
+                bulk.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="13Constraineddevicesoutline" type="h3">Constrained devices</heading><p>IoT devices are often constrained, which means they have limited power,
+                memory, processing capability, or connectivity. (Read more about IoT
+                devices in my <a href="https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.htmc">IoT hardware guide</a>.) These constraints affect whether the device
+                is capable of being managed remotely, and how effectively it can apply
+                remote operations. If a device is powered by a battery, it is vital that
+                the device be able to communicate with the device manager and perform
+                updates or operations without exhausting the power available. If the power
+                supply is exhausted and then an operation such as a factory reset or
+                firmware update is interrupted, it could result in bricking the device. </p><p>Lightweight device management protocols are ideal for IoT devices, as they
+                are designed to be efficient and minimize the amount of processing that
+                needs to be performed by the device itself. These lightweight device
+                management protocols reduce the bandwidth and frequency of communication
+                between the device and the management services so as to conserve device
+                resources.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="14Scalabilityoutline" type="h3">Scalability</heading><p>As more devices are added to the system, device management services need to
+                scale to handle larger numbers of devices that are registering and
+                communicating with the device management service. Device management
+                services need to be able to handle the increased number of routine device
+                management operations that will need to be performed at any given time. </p><p>Automation is key to scaling device management for IoT, because it quickly
+                becomes impractical to monitor and manage all of the devices manually. An
+                administrator should only need to step in to intervene if something
+                unexpected happens.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="15Availabilityoutline" type="h3">Availability</heading><p>Device management services must be aware of context in order to ensure
+                availability. Device management includes monitoring the current state of
+                devices so that you don't try to reboot a device while it is in the middle
+                of an update, but also includes broader awareness of the state of the
+                network, awareness of the device's status and available power, or what the
+                current device usage looks like before performing maintenance operations.
+                Device management services should support synchronizing management
+                operations like firmware updates to minimize disruption.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="2Devicemanagementprotocolsoutline" type="h2">Device management protocols</heading><p>Many of these device management challenges can be addressed by adopting
+                standard device management protocols or by making use of device management
+                services provided by an IoT platform. (Read more about <a href="https://www.ibm.com/developerworks/library/iot-lp101-why-use-iot-platform/">why you might need to use an IoT platform</a> in your IoT solutions
+                in my previous developerWorks article.)</p><p>IoT devices typically perform machine-to-machine (M2M) communication over
+                lightweight connectivity protocols like <a href="https://en.wikipedia.org/wiki/XMPP">XMPP</a> (an XML-based chat
+                protocol), <a href="https://tools.ietf.org/html/rfc7252">CoAP</a>
+                (Constrained Application Protocol), or <a href="http://mqtt.org/">MQTT</a>
+                (MQ Telemetry Transport). Read more about IoT communication protocols in
+                my <a href="https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/">connectivity and network protocols guide</a>.</p><p>Device management protocols operate over the top of these general
+                connectivity protocols, to support device registration, authentication,
+                querying device capabilities, and performing operations consistently
+                across devices. </p><p>Standardized device management protocols that have been applied to IoT
+                devices from the broadband and mobile industries include TR-069, OMA DM
+                and LWM2M:</p><ul><li><strong>TR-069.</strong> The BroadBand Forum's <a href="https://www.broadband-forum.org/technical/download/TR-069_Amendment-5.pdf">TR-069 Customer Premises Equipment (CPE) WAN Management Protocol
+                        (CWMP)</a> was originally developed in 2004, based on SOAP, for
+                    managing broadband equipment including modems, routers, gateways, and
+                    home devices including set-top boxes. This protocol has been applied
+                    within IoT smart home applications.<br/></li><li><strong>OMA DM.</strong> The <a href="http://openmobilealliance.org/wp/Overviews/dm_overview.html">Open Mobile Alliance Device Management (OMA DM)</a> specification
+                    was the predecessor of LWM2M, developed for mobile phones, PDAs, and
+                    tablets, and was first released in 2003. It is designed for
+                    constrained devices that have limited bandwidth, and supports M2M
+                    communication over a range of protocols including HTTP, WAP, or SMS.
+                    It can be applied to IoT devices to support provisioning,
+                    configuration, firmware updates, and fault management. However, it is
+                    not as lightweight as LWM2M.<br/></li><li><strong>LWM2M.</strong> OMA's <a href="http://www.openmobilealliance.org/wp/Overviews/lightweightm2m_overview.html">Lightweight Machine to Machine (LWM2M)</a> protocol is designed
+                    to manage devices communicating over cellular networks, for example,
+                    within a sensor network. LWM2M is usually implemented over CoAP. There
+                    are a number of open source implementations of clients and servers
+                    that support the LWM2M protocol, including <a href="https://www.mbed.com/en/development/software/">ARM mbed</a>
+                    and Eclipse <a href="http://projects.eclipse.org/projects/iot.leshan">Leshan</a> and <a href="http://projects.eclipse.org/projects/technology.wakaama">Wakaama</a>.</li></ul><p>IoT device management is an area of active standardization, so this area
+                remains quite fragmented. Many <a href="https://www.ibm.com/developerworks/library/iot-lp201-iot-architectures/">IoT reference architectures</a> describe device management features,
+                and most IoT platforms, such as the IBM Watson IoT Platform, implement
+                custom device management services that have been tailored to the
+                requirements of managing IoT devices for use with the specific
+                platform.</p><sidebar><p>Read how to <a href="https://developer.ibm.com/recipes/tutorials/connect-raspberry-pi-as-managed-device-to-ibm-iot-foundation/">connect a Raspberry Pi as a managed device</a> in this
+                    developerWorks recipe. <!-- ADD THIS LINK WHEN THAT ARTICLE IS PUBLISHED --><!-- <p>Find out more
+                about IBM Watson IoT Platform's device management features in this
+                developerWorks series, "How to govern your IoT devices"</p> --></p></sidebar><p>The <a href="https://console.bluemix.net/docs/services/IoT/devices/device_mgmt/index.html">IBM Watson IoT Platform Device Management protocol</a> is a
+                lightweight device management protocol that operates over MQTT. The IBM
+                Watson IoT platform supports both managed and unmanaged devices. Managed
+                devices run a device management agent, which includes the logic for
+                connecting to and communicating with the Watson IoT Platform's device
+                management service. </p><heading alttoc="" inline-commenting-id="cmt_3" refname="3Devicemanagementfeaturesoutline" type="h2">Device management features</heading><p>IoT platforms typically provide APIs and dashboards for their device
+                management. These dashboards and APIs can be used to manage device
+                registration, trigger remote operations, and to monitor, search for, or
+                filter devices (for example, by manufacturer or serial number). </p><p>Whether you are considering adopting device management provided by an IoT
+                platform, a standalone service (for example an Eclipse Leshan server),
+                that implements a standard device management protocol, or a combination of
+                device management services, key features to look for include:</p><ul><li><strong>Provisioning.</strong> When a new device is added to the
+                    system, the device should securely register itself with the device
+                    management service, as well as registering the metadata for the
+                    device. Registering the device provides it with identity and
+                    credentials.<br/></li><li><strong>Authentication.</strong> Authentication services establish the
+                    identity of devices. The device uses the identity created initially
+                    during the provisioning process, so that whenever it communicates with
+                    other devices, apps or services, the other party can be assured that
+                    the device is a trusted, authentic device.<br/></li><li><strong>Configuration.</strong> Device management services typically
+                    support applying new configurations to IoT devices directly or by
+                    broadcasting new configurations to update devices in bulk, as well as
+                    managing device configuration dependencies.<br/></li><li><strong>Monitoring &amp; diagnostics.</strong> Device management
+                    services are also responsible for keeping track of device logs and
+                    metadata, for example, a service might track device capabilities,
+                    firmware version, the usual location of the device, device ID and
+                    status. Device management services often expose this information,
+                    along with error and connectivity logs through dashboards or APIs to
+                    use for monitoring health and status as well as for diagnostics and
+                    remote debugging. The logs and status can also be used to generate
+                    alerts, for example, if the device has not produced any data for a
+                    certain period of time.<br/></li><li><strong>Scheduling remote operations.</strong> Many device management
+                    services support scheduling remote operations, including device
+                    reboot, enabling or disabling the device, performing a factory reset
+                    and triggering a new firmware download and update through over the air
+                    updates. Being able to perform these maintenance operations remotely
+                    without manual intervention, helps to save time and money throughout
+                    the life of the device, as well as helping to avoid mistakes and
+                    minimize device downtime throughout the process. It also removes the
+                    need to manually retrieve or update devices installed in locations
+                    that are difficult to access physically.<br/></li><li><strong>Automation.</strong> Automation becomes a necessity when the
+                    number and range of devices deployed within an IoT system starts to
+                    scale. Automation helps to simplify applying remote operations in
+                    bulk, for example to rapidly perform a firmware update on multiple
+                    devices to address a security vulnerability. Depending on the device,
+                    these updates might be applied through specialized device management
+                    protocols, however for Linux-based devices, Open Source orchestration
+                    tools like Kubernetes can be used to deploy <a href="https://www.ibm.com/developerworks/library/iot-docker-containers/">Docker containers</a> containing firmware, applications or
+                    operating environments across multiple devices. <br/></li><li><strong>Retirement.</strong> Devices eventually fail, or are
+                    superseded when they come to the end of their service life. Device
+                    management services should support decommissioning devices securely,
+                    including revoking any tokens and identities associated with the
+                    device so that it is no longer able to communicate with other devices,
+                    apps or services within the system. </li></ul><heading alttoc="" inline-commenting-id="cmt_4" refname="4Conclusionoutline" type="h2">Conclusion</heading><p>Device management services help to automate the management of IoT devices
+                throughout their lifecycle - including provisioning, authentication,
+                configuration, maintenance operations, monitoring, and eventually
+                decommissioning. Device management is a critical component for any
+                scalable, secure and interoperable IoT solution.</p><related-topics-block><link><text>Device Management Protocol docs</text><url>https://console.bluemix.net/docs/services/IoT/devices/device_mgmt/index.html</url></link><link><text>developerWorks recipe: Device Management in Watson IoT Platform</text><url>https://developer.ibm.com/recipes/tutorials/device-management-in-wiot-platform-device-initiated-firmware-upgrade/</url></link><link><text>IoT 101: IoT hardware guide</text><url>https://www.ibm.com/developerworks/library/iot-lp101-best-hardware-devices-iot-project/index.html</url></link><link><text>IoT 101: IoT platform guide</text><url>https://www.ibm.com/developerworks/library/iot-lp101-why-use-iot-platform/</url></link><link><text>IoT 101: Networking technologies guide</text><url>https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/</url></link><link><text>IoT 201: IoT reference architectures</text><url>https://www.ibm.com/developerworks/library/iot-lp201-iot-architectures/</url></link><link><text>Series: Design and build secure IoT solutions</text><url>https://www.ibm.com/developerworks/library/iot-trs-secure-iot-solutions1/</url></link></related-topics-block></docbody></dw-article><!-- PUB_TO_MAV --></dw-document>

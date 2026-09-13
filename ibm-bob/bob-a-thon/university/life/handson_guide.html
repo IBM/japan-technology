@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob-a-thon ハンズオン・ガイド</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #0f62fe;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #0f62fe;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #0f62fe;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 5px solid #0f62fe;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #161616;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            color: #161616;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0f62fe;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        blockquote {
+            background-color: #e8f4fd;
+            border-left: 4px solid #0f62fe;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        blockquote p {
+            margin-bottom: 10px;
+        }
+
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .code-block-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .code-block {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            padding-top: 45px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #0f62fe;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-family: 'IBM Plex Sans JP', sans-serif;
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+
+        .copy-button:hover {
+            background-color: #0353e9;
+        }
+
+        .copy-button:active {
+            background-color: #002d9c;
+        }
+
+        .copy-button.copied {
+            background-color: #24a148;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        a {
+            color: #0f62fe;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<h1>Bob-a-thon ハンズオン・ガイド</h1>
+<p>仕様駆動のAI開発入門 — IBM Bobで学ぶモックアップ開発と文書化</p>
+<ul>
+<li>最終更新日: 2026/6/3</li>
+<li>Author: Akira Onishi (Principal BDE, AI Lab Japan Office, IBM Japan)</li>
+<li>Co-Author: </li>
+<p>   Mitsuhiro Nakayama (IT Specialist, Consulting, IBM Japan)</p>
+<p>   Miki Igarashi (Consulting, IBM Japan)</p>
+</ul>
+<hr>
+<h2>📋 ワークショップ概要</h2>
+<h3>目的</h3>
+<ul>
+<li><strong>IBM Bobを使ったモックアップ開発を体験する</strong>: 短時間でどこまで作れるか、その速さを実感する</li>
+<li><strong>「ざっくり依頼」と「仕様を決めてから依頼」の違いを知る</strong>: 同じツールでも、渡し方で出来上がりが変わることを確かめる</li>
+<li><strong>要件 → モックアップ → 文書化の流れをひと通りやってみる</strong>: 作って終わりではなく、要件定義や設計書も一緒に整える</li>
+<li><strong>ギーク思考を体感する</strong>: スピード・オーナーシップ・サイエンス・オープンネスの4つの規範を、手を動かしながら実践する</li>
+</ul>
+<h3>対象者</h3>
+<p>どなたでも参加できる。</p>
+<p>ITの知識は問わない。IBM Bobがパートナーとしてサポートする。</p>
+<h3>所要時間</h3>
+<p>約1時間30分（練習ラボ約45分 ＋ チーム演習・振り返り約45分）</p>
+<h3>前提条件</h3>
+<ul>
+<li>IBM Bobが使える環境が準備されていること</li>
+<li>Webブラウザー（Chrome、Edge、Firefoxなど）が使えること</li>
+<li>講師から配布された<a href="https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-bob/bob-a-thon/new-business/lob/lab-files.zip">ZIPファイル</a>をダウンロードして、ローカル・コンピューター内に展開済みであること（<a href="#-付録a-配布フォルダの内容">付録A: 配布フォルダの内容</a>を参照）</li>
+</ul>
+<hr>
+<h3>The Geek Way（ギーク思考）について</h3>
+<p>参考書籍: <a href="https://bookplus.nikkei.com/atcl/catalog/25/03/25/01931/">ギーク思考 — 圧倒的な結果を出す型破りな思考法</a></p>
+<p>このワークショップでは、ギーク思考の4つの規範を、手を動かしながら体感します。各Labに対応する規範を示しているので、「普段の仕事のやり方とどう違うか？」を意識しながら取り組んでみてください。</p>
+<table>
+<thead><tr>
+<th>規範</th>
+<th>考え方</th>
+<th>ワークショップでの実践</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🏃 <strong>スピード</strong></td>
+<td>綿密な計画よりも、素早く試して結果から学ぶ</td>
+<td>まずやってみる。ダメなら別のやり方を試す。Bobとのやりとりを何度も繰り返す</td>
+</tr>
+<tr>
+<td>🙋 <strong>オーナーシップ</strong></td>
+<td>共通のゴールに向かって、自分で考えて動く</td>
+<td>一人ひとりがリーダーであり実務家。自分の業務イメージをもってモックアップを作る</td>
+</tr>
+<tr>
+<td>🔬 <strong>サイエンス</strong></td>
+<td>試した結果をもとに判断する。勘頼みにしない</td>
+<td>やってみた結果から改善する。要件を整理し、根拠をもってモックアップを作る</td>
+</tr>
+<tr>
+<td>🌐 <strong>オープンネス</strong></td>
+<td>情報を出し惜しみせず共有し、方向転換も歓迎する</td>
+<td>作ったものを見せ合う。ドキュメントを残して、他の人も使えるようにする</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🗂️ ワークショップの全体構成</h2>
+<table>
+<thead><tr>
+<th>パート</th>
+<th>内容</th>
+<th>所要時間（目安）</th>
+<th>ギーク思考</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>導入</td>
+<td>ワークショップの目的と流れの説明</td>
+<td>3分</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>練習ラボ（全員共通）</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lab 1</td>
+<td>IBM Bobにざっくり依頼してみる</td>
+<td>5分</td>
+<td>🏃 スピード</td>
+</tr>
+<tr>
+<td>Lab 2</td>
+<td>要件テンプレートを作る</td>
+<td>5分</td>
+<td>🔬 サイエンス</td>
+</tr>
+<tr>
+<td>Lab 3</td>
+<td>課題を読み解いて、要件をまとめる</td>
+<td>10分</td>
+<td>🔬 サイエンス</td>
+</tr>
+<tr>
+<td>Lab 4</td>
+<td>要件からモックアップを作る</td>
+<td>10分</td>
+<td>🏃 スピード</td>
+</tr>
+<tr>
+<td>Lab 5</td>
+<td>追加の要望でモックアップを磨く</td>
+<td>7分</td>
+<td>🏃 スピード ＋ 🔬 サイエンス</td>
+</tr>
+<tr>
+<td>Lab 6</td>
+<td>設計書と使い方説明書を作る</td>
+<td>5分</td>
+<td>🌐 オープンネス</td>
+</tr>
+<tr>
+<td>まとめ</td>
+<td>成果物の確認と振り返り</td>
+<td>5分</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>チーム演習</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ステップ1</td>
+<td>課題を選び、チームを決める</td>
+<td>5分</td>
+<td>🙋 オーナーシップ</td>
+</tr>
+<tr>
+<td>ステップ2</td>
+<td>プロフィール（個人／団体）を完成させる</td>
+<td>15分</td>
+<td>🙋 オーナーシップ</td>
+</tr>
+<tr>
+<td>ステップ3</td>
+<td>仕様駆動でモックアップを作成</td>
+<td>40分</td>
+<td>🙋 オーナーシップ ＋ 🌐 オープンネス</td>
+</tr>
+<tr>
+<td>振り返り</td>
+<td>成果物の共有とフィードバック</td>
+<td>5分</td>
+<td>🌐 オープンネス</td>
+</tr>
+<tr>
+<td>オプション</td>
+<td><code>/plan</code> を使った計画駆動の開発</td>
+<td>—</td>
+<td>🔬 サイエンス</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🧪 練習ラボ（全員共通）</h2>
+<p>全員で同じ「履修中の講義を管理する『マイ履修ノート』」を題材に、IBM Bobを使った仕様駆動の開発プロセスを練習する。</p>
+<blockquote>
+<p>💡 各Labの所要時間にはBobの応答待ち時間を含みます。応答時間は環境によって異なります。</p>
+</blockquote>
+<hr>
+<h3>Lab 1: IBM Bobにざっくり依頼してみる（5分）</h3>
+<blockquote>
+<p>🏃 <strong>ギーク思考: スピード</strong> — まずやってみる。結果を見てから次を考える。</p>
+</blockquote>
+<h4>手順</h4>
+<p>IBM Bobを開く。まだ起動していない場合は、アプリケーション一覧からIBM Bobを起動する。</p>
+<ol>
+<li>IBM Bobのメニューから <strong>「ファイル」→「フォルダーを開く」</strong> を選ぶ</li>
+<li>任意の場所に <strong><code>bob-lab</code></strong> という名前でフォルダを新しく作る（Windowsの場合はドキュメント・フォルダー内、macOSの場合は書類フォルダー内がおすすめ）</li>
+<li>作った <code>bob-lab</code> フォルダを選んで <strong>「開く」</strong> をクリックする</li>
+</ol>
+<blockquote>
+<p>💡 IBM Bobはフォルダ単位で作業します。Bobが作るファイルは、開いたフォルダの中に入ります。</p>
+</blockquote>
+<p>IBM Bobのチャット欄に、以下のメッセージを入力して送信する。</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code 学生向けの履修・講義管理システムのモックアップを作って</pre>
+</div></p>
+<p>Bobがファイルを作り始める。しばらく待つ（環境によって数十秒〜数分かかる）。</p>
+<ol>
+<li>ファイル一覧（エクスプローラー）に、Bobが作ったファイルが並ぶ</li>
+<li>HTMLファイル（例: <code>index.html</code>）をクリックして中身を眺める</li>
+<li>HTMLファイルを右クリック → <strong>「エクスプローラーで表示する」</strong>（macOSは <strong>「Finderで表示する」</strong>）を選ぶ</li>
+<li>開いたフォルダの中のHTMLファイルをダブルクリックすると、ブラウザーでモックアップが表示される</li>
+</ol>
+<blockquote>
+<p>📝 <strong>ここで振り返り</strong>: Bobはそれなりのものを作ってくれたはずです。でも、自分が思い描いていた業務の流れや画面と比べて、どうでしょう？ 「ここが違う」「これが足りない」と感じたポイントを覚えておいてください。次のLabで、その差を埋める方法を学びます。</p>
+</blockquote>
+<hr>
+<h3>Lab 2: 要件テンプレートを作る（5分）</h3>
+<p>Lab 1では「ざっくり頼む」を試しました。ここからは、もう少し丁寧にBobへ依頼するやり方を学んでいきます。</p>
+<blockquote>
+<p>🔬 <strong>ギーク思考: サイエンス</strong> — 勘や好みだけで進めず、整理のための枠組みを用意する。</p>
+</blockquote>
+<h4>手順</h4>
+<p>引き続き <code>bob-lab</code> フォルダで作業する。チャット欄に以下を貼り付けて送信してください。</p>
+<blockquote>
+<p>⚠️ 長い文章ですが、そのまま全文コピーして貼り付けてください。</p>
+</blockquote>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/ask ブラウザーでHTMLファイルを開くだけで動くモックアップの要件を整理するためのテンプレートを、mockup-req-template.md として作ってほしい。以下の方針で構成して。
+- ITに詳しくない人が読み書きできるように、アプリの目的・画面構成・機能一覧などの主要な要件を文書の前半にまとめる
+- ストレージやセキュリティーなど技術的に難しい項目は、文書の後半にオプション扱いで記載する
+- 技術選定の項目では、Webアプリ開発が初めての人でも迷わないよう、実績のある選択肢を既定値にする
+- フォントの既定値は IBM Plex Sans JP にする</pre>
+</div></p>
+<blockquote>
+<p>💡 <strong><code>/ask</code> コマンドとは</strong>: BobのAskモードに切り替えるコマンドです。コードは書かず、調査やドキュメントの作成を頼むときに使います。詳しくは <a href="https://bob.ibm.com/docs/ide">IBM Bob IDEドキュメント</a> を参照してください。</p>
+</blockquote>
+<ol>
+<li>ファイル一覧に <code>mockup-req-template.md</code> が出てくる。クリックして開く</li>
+<li>中身をざっと見て、以下の構成になっているか確認する：</li>
+<p>   - <strong>前半</strong>: アプリの目的、画面構成、機能一覧など — ITに詳しくない人が読み書きしやすい項目</p>
+<p>   - <strong>後半</strong>: ストレージ、セキュリティーなど — オプション扱いの技術項目</p>
+<p>   - <strong>技術選定</strong>: 初心者でも迷わない既定値が入っている</p>
+<p>   - <strong>フォント</strong>: IBM Plex Sans JP が既定値になっている</p>
+</ol>
+<blockquote>
+<p>📝 <strong>ここがポイント</strong>: このテンプレートを、次のLabで履修・講義管理アプリの要件を書くときの「型」として使います。もし項目に過不足を感じたら、Bobに「〇〇の項目を追加して」と頼めば修正できます。このテンプレートは以降のLabでも参照するので、開いたままにしておいてください。</p>
+</blockquote>
+<hr>
+<h3>Lab 3: 課題を読み解いて、要件をまとめる（10分）</h3>
+<p>Lab 2でテンプレート（要件の「型」）を作りました。このLabでは、実際の課題をもとに、その型に沿って要件をまとめます。</p>
+<blockquote>
+<p>🔬 <strong>ギーク思考: サイエンス</strong> — 課題カードの情報をもとに、根拠のある要件を整理する。「なんとなく」ではなく「こういう理由でこう決めた」が言えるようにする。</p>
+</blockquote>
+<h4>IBM Bobでマークダウン・ファイルを新しく作る方法 (ここは、説明のみなので、実行しないでください）</h4>
+<p>このLabと以降のLabでは、マークダウン・ファイル（<code>.md</code>）を新しく作る場面がある。方法は2つある。</p>
+<ol>
+<li>ファイル一覧（エクスプローラー）の上部にある <strong>「新しいファイル」アイコン</strong>（紙に＋マーク）をクリックする</li>
+<li>ファイル名を入力する（例: <code>course_req.md</code>）</li>
+<li>Enterキーを押すと、空のファイルが作られてエディタに表示される</li>
+</ol>
+<p>チャット欄で、ファイル名を指定して作成を頼む。例:</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code course_req.md という空のマークダウン・ファイルを作って</pre>
+</div></p>
+<blockquote>
+<p>💡 このハンズオンでは、Bobへの依頼の中でファイル名を指定するので、多くの場合Bobが自動的にファイルを作ってくれます。ファイルを自分で先に作っておきたい場合は、方法1を使うと確実です。</p>
+</blockquote>
+<h4>手順</h4>
+<ol>
+<li>IBM Bobのメニューから <strong>「ファイル」→「新しいウィンドウ」</strong> を選ぶ</li>
+<li>新しいウィンドウで <strong>「ファイル」→「フォルダーを開く」</strong> を選ぶ</li>
+<li>事前に展開した配布フォルダ <strong><code>lab-scenario</code></strong> を選んで開く</li>
+</ol>
+<ul>
+<li>これ以降の作業は、このlab-scenarioフォルダー内で実行してください。</li>
+</ul>
+<blockquote>
+<p>💡 <code>bob-lab</code> のウィンドウはそのまま残しておいてください。Lab 2のテンプレートを見比べたいときに便利です。</p>
+</blockquote>
+<p>配布フォルダには以下のファイルが入っている（<a href="#-付録a-配布フォルダの内容">付録A</a>も参照）。</p>
+<table>
+<thead><tr>
+<th>ファイル名</th>
+<th>内容</th>
+<th>使うタイミング</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>team-lab/</code></td>
+<td>チーム演習用の課題別フォルダ（<code>theme1</code>〜<code>theme5</code>）</td>
+<td>チーム演習で使う（今は使わない）</td>
+</tr>
+<tr>
+<td><code>course_challenge.md</code></td>
+<td>学生の履修管理に関する課題カード</td>
+<td><strong>この練習ラボで使う</strong></td>
+</tr>
+<tr>
+<td><code>mockup-req-template-sample.md</code></td>
+<td>要件テンプレートのサンプル</td>
+<td>Lab 2で作ったものの参考例</td>
+</tr>
+</tbody></table>
+<p><code>course_challenge.md</code> を開いて、中身をひと通り読む。ポイントは以下の3点：</p>
+<ul>
+<li><strong>誰が使うか</strong>（ペルソナ）: 大学生・佐藤さん（20歳、情報系学部 2年生、履修8〜12科目）</li>
+<li><strong>何に困っているか</strong>: 科目情報の確認に手間取る／興味に合った選択科目が選びづらい／履歴がまとまらない</li>
+<li><strong>最低限必要な機能</strong>: 講義リスト・講義詳細・おすすめ科目</li>
+</ul>
+<p>課題カードの内容を踏まえて、履修・講義管理アプリの要件ファイルを作る。チャット欄に以下を入力して送信：</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">@course_challenge.md の学生の履修管理に関する課題と、@mockup-req-template-sample.md のテンプレート形式を参考にして、履修・講義管理モックアップの要件を course_req.md にまとめて。以下の前提で書いて。
+- ブラウザーでHTMLファイルを開くだけで動くモックアップとして作る（Webサーバーは使わない）
+- 画面はPC・スマホ両対応のレスポンシブ・デザインにする
+- フォントは IBM Plex Sans JP を使う
+- サンプルの講義データを5件以上含める</pre>
+</div></p>
+<blockquote>
+<p>💡 <strong><code>@ファイル名</code> とは</strong>: チャット欄で <code>@</code> を入力すると、メニューが表示されます。その中の <strong>[Add File]</strong> を選んでファイルを指定すると、そのファイルの内容をBobに読ませることができます（コンテキスト・メンション）。Bobがファイルの中身を理解したうえで回答してくれるので、的確な結果が得やすくなります。</p>
+</blockquote>
+<p><code>course_req.md</code> が作られる。開いて以下をチェック：</p>
+<ul>
+<li>課題カードの3つの必須機能（講義リスト、詳細画面、おすすめ科目）が入っているか</li>
+<li>画面構成やデザインの方針が書かれているか</li>
+<li>足りないと感じる項目があれば、Bobに「〇〇の項目を追加して」と頼んで修正する</li>
+</ul>
+<hr>
+<h3>Lab 4: 要件からモックアップを作る（10分）</h3>
+<p>Lab 3で要件がまとまりました。いよいよ、その要件をBobに渡してモックアップを作ってもらいます。</p>
+<ul>
+<li>Lab 4の作業は、Lab 3と同じく、lab-scenarioフォルダー内で実行してください。</li>
+</ul>
+<blockquote>
+<p>🏃 <strong>ギーク思考: スピード</strong> — 要件がまとまったら、すぐ形にする。完璧でなくていい、まず動くものを出す。</p>
+</blockquote>
+<h4>手順</h4>
+<p>チャット欄に以下を入力して送信する。</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code @course_req.md の要件に従って、履修・講義管理モックアップを実装して。HTML・CSS・JavaScriptで構成し、最初に開くファイルは index.html にして。</pre>
+</div></p>
+<blockquote>
+<p>💡 <strong><code>/code</code> コマンドとは</strong>: BobのCodeモードに切り替えるコマンドです。ファイルの作成や修正など、実装作業を頼むときに使います。</p>
+</blockquote>
+<p>Bobがモックアップを作る。しばらく待つ。</p>
+<ol>
+<li>生成された <code>index.html</code> を右クリックする</li>
+<li><strong>「エクスプローラーで表示する」</strong>（macOSは <strong>「Finderで表示する」</strong>）を選ぶ</li>
+<li>開いたフォルダの中の <code>index.html</code> をダブルクリックして、ブラウザーで表示する</li>
+<li>以下を見てみる：</li>
+<p>   - 講義リストは表示されているか</p>
+<p>   - 講義をクリックして詳細が見られるか</p>
+<p>   - おすすめ科目は表示されているか</p>
+</ol>
+<blockquote>
+<p>📝 <strong>Lab 1と比べてみてください</strong>: 要件を整理してから頼んだ今回と、ざっくり頼んだLab 1で、出来上がりにどんな違いがありますか？ やりたいことに必要な機能が入っているか、画面の構成は意図どおりか、比べてみましょう。</p>
+</blockquote>
+<hr>
+<h3>Lab 5: 追加の要望でモックアップを磨く（7分）</h3>
+<p>Lab 4でモックアップの形ができました。ここからは、デザインや機能を追加しながら仕上げていきます。</p>
+<ul>
+<li>Lab 5の作業は、Lab 3, Lab 4と同じく、lab-scenarioフォルダー内で実行してください。</li>
+<blockquote>
+<p>🏃 <strong>ギーク思考: スピード</strong> — 上手くいったらさらに良くする。小さな改善を素早く繰り返す。</p>
+<p>🔬 <strong>ギーク思考: サイエンス</strong> — 変えた内容を要件定義に記録しておく。モックアップと仕様がズレないようにする。</p>
+</blockquote>
+</ul>
+<h4>手順</h4>
+<p>チャット欄に以下を入力して送信する。</p>
+<blockquote>
+<p>💡 <code>#1a1a2e</code> のような表記は「色コード」と呼ばれ、色を指定するための記法です。Bobはこの色コードを読み取って、指定した色をモックアップに反映してくれます。</p>
+</blockquote>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code 全体のデザインをダーク・テーマ（背景色: #1a1a2e、文字色: #e0e0e0、アクセント・カラー: #0f3460）に変更して。変更内容を course_req.md のデザイン要件セクションにも反映して。</pre>
+</div></p>
+<ol>
+<li>ブラウザーに戻り、ページを再読み込み（F5キーまたは更新ボタン）する。ダーク・テーマに変わったか確認する</li>
+<li>IBM Bobで <code>course_req.md</code> を開き、デザインの記述がダーク・テーマに書き換わっていることを確認する</li>
+</ol>
+<blockquote>
+<p>📝 <strong>ここがポイント</strong>: 「course_req.mdにも反映して」と付けるだけで、モックアップの見た目を変えると同時に、要件定義の記述も更新されます。こうしておけば、要件書とモックアップが食い違うことがありません。</p>
+</blockquote>
+<p>同じやり方で、好みに合わせてどんどん改善する。</p>
+<p>例:</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code 画面左側に縦型のサイドバー・ナビゲーション（幅250px）を追加して、「講義一覧」「時間割」「設定」のメニューを置いて。course_req.md の画面構成セクションも更新して。</pre>
+</div></p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code 講義リストの各行に、ステータスに応じた色付きバッジ（履修予定: 青、履修中: 黄、単位取得: 緑、履修中止: 赤）を表示して。course_req.md の機能要件セクションも更新して。</pre>
+</div></p>
+<blockquote>
+<p>💡 毎回「course_req.mdも更新して」と付けるのを忘れずに。これが仕様駆動のリズムです。</p>
+</blockquote>
+<hr>
+<h3>Lab 6: 設計書と使い方説明書を作る（5分）</h3>
+<p>モックアップが仕上がったら、最後にドキュメントを揃えます。</p>
+<ul>
+<li>Lab 6の作業は、Lab 3, Lab 4, Lab 5と同じく、lab-scenarioフォルダー内で実行してください。</li>
+</ul>
+<blockquote>
+<p>🌐 <strong>ギーク思考: オープンネス</strong> — 自分が作ったものを、他の人にも理解・利用してもらえる形にする。</p>
+</blockquote>
+<h4>手順</h4>
+<p>チャット欄に以下を入力して送信する。</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code 以下の2つのマークダウン・ファイルを作って。
+1. course_design.md（設計書）: モックアップの画面構成、ファイル構成、使用技術、各画面の役割と遷移を記載
+2. course_readme.md（使い方説明書）: モックアップの開き方、各画面の操作方法、サンプル・データの説明を、初めて触る人向けに記載</pre>
+</div></p>
+<p>2つのファイルが作られる。それぞれ開いて、中身を見てみる。</p>
+<table>
+<thead><tr>
+<th>ファイル</th>
+<th>内容</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>course_design.md</code></td>
+<td>設計書 — 画面構成、ファイル構成、使っている技術、画面遷移などの設計情報</td>
+</tr>
+<tr>
+<td><code>course_readme.md</code></td>
+<td>使い方説明書 — ブラウザーでの開き方、画面ごとの操作手順、サンプル・データの見方</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>練習ラボのまとめ: 成果物を確認する（5分）</h3>
+<h4>今回作った成果物</h4>
+<table>
+<thead><tr>
+<th>成果物</th>
+<th>ファイル名</th>
+<th>説明</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>履修・講義管理モックアップ</td>
+<td><code>index.html</code> など</td>
+<td>ブラウザーで動く履修・講義管理のモックアップ</td>
+</tr>
+<tr>
+<td>要件定義</td>
+<td><code>course_req.md</code></td>
+<td>履修・講義管理アプリの要件をまとめたファイル。追加の変更も反映済み</td>
+</tr>
+<tr>
+<td>設計書</td>
+<td><code>course_design.md</code></td>
+<td>モックアップの設計情報</td>
+</tr>
+<tr>
+<td>使い方説明書</td>
+<td><code>course_readme.md</code></td>
+<td>モックアップの操作方法</td>
+</tr>
+</tbody></table>
+<h4>振り返り</h4>
+<ol>
+<li><strong>🏃 まずやってみた</strong>（Lab 1）: ざっくり頼んでも動くものは出てくる。でも、業務の要件は反映されにくかった</li>
+<li><strong>🔬 要件を整理する「型」を作った</strong>（Lab 2）: Bobの <code>/ask</code>（Askモード）で要件テンプレートを作り、整理の仕組みを用意した</li>
+<li><strong>🔬 課題から要件を導いた</strong>（Lab 3）: 学生の履修管理の課題カードを読み解き、テンプレートに沿って要件をまとめた</li>
+<li><strong>🏃 要件からすぐ形にした</strong>（Lab 4）: <code>/code</code>（Codeモード）で要件を渡して実装し、Lab 1との違いを確かめた</li>
+<li><strong>🏃🔬 改善しながら仕様も更新した</strong>（Lab 5）: 変更のたびに要件定義も一緒に直し、モックアップと仕様のズレを防いだ</li>
+<li><strong>🌐 ドキュメントを揃えた</strong>（Lab 6）: 設計書と説明書を作り、他の人にも渡せる状態にした</li>
+</ol>
+<blockquote>
+<p>📝 <strong>やってみてどうでしたか？</strong> 「ざっくり頼む」だけでもAIは何か作ってくれます。でも、学業や日常で使うなら、要件をまとめてから渡す方が結果がよくなり、あとから振り返ることもできます。今日やったプロセスは、そのまま研究やバイト先などにもそのまま応用できます。</p>
+</blockquote>
+<hr>
+<h2>🚀 チーム演習: 仕様駆動を自分たちの課題で実践する</h2>
+<p>練習ラボで身につけたプロセスを、今度は自分たちで決めた題材で実践する。</p>
+<p>チーム演習は <strong>5つの課題（シナリオ）から1つを選ぶ</strong>。</p>
+<h3>ステップ1: 課題を選び、チームを決める（5分）</h3>
+<blockquote>
+<p>🙋 <strong>ギーク思考: オーナーシップ</strong> — 自分たちのゴールを自分たちで決める。課題を自分たちで選び、主人公・対象団体も自分たちで決める。</p>
+</blockquote>
+<p>まず、自分が最も共感できる課題を選ぶ。  </p>
+<p>選んだ課題が同じ人同士で、その場で <strong>チームに分かれる</strong>（1チーム2-3名）。  </p>
+<p>各チームが1つの課題を担当する。担当する課題と課題カードは以下のとおり。</p>
+<table>
+<thead><tr>
+<th>課題</th>
+<th>テーマ</th>
+<th>課題カード</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>課題1</td>
+<td>学業管理（履修・課題・成績）</td>
+<td><code>team-lab/theme1/study_challenge.md</code></td>
+</tr>
+<tr>
+<td>課題2</td>
+<td>進路・就活（インターン、自己分析、業界研究）</td>
+<td><code>team-lab/theme2/career_challenge.md</code></td>
+</tr>
+<tr>
+<td>課題3</td>
+<td>生活・健康（スケジュール、家計簿、ウェルネス）</td>
+<td><code>team-lab/theme3/life_challenge.md</code></td>
+</tr>
+<tr>
+<td>課題4</td>
+<td>サークル運営（イベント中心） — 出欠管理・活動アーカイブ</td>
+<td><code>team-lab/theme4/club_event_challenge.md</code></td>
+</tr>
+<tr>
+<td>課題5</td>
+<td>サークル運営（メンバー中心） — 名簿・会費・連絡網</td>
+<td><code>team-lab/theme5/club_member_challenge.md</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 各課題の概要は、本セクション末尾の「<a href="#-各課題のまとめ">各課題のまとめ</a>」も参照。</p>
+</blockquote>
+<h3>ステップ2: プロフィールを完成させる（15分）</h3>
+<p>選んだシナリオの共通プロフィールをチームで埋める。</p>
+<p>自分のチームが担当する <code>team-lab/themeN/</code> フォルダ内の <code>student_profile.md</code>（課題1〜3）または <code>club_profile.md</code>（課題4・5）を開き、「主人公」となる学生1人 もしくは 対象となるサークル・団体 を決め、詳細の設定を記載する。</p>
+<blockquote>
+<p>⚠️ ここで決めた 主人公 ／ 団体設定 は、各 challenge カードの「ペルソナ」節（例示）に<strong>優先</strong>します。challenge カード内の固有名詞や属性は「困りごとや必須機能を考えるためのヒント」として参考にし、自分たちの主人公・団体に合うように読み替えてください。</p>
+</blockquote>
+<blockquote>
+<p>💡 迷ったらBobに聞く。</p>
+<p>- 例: 「文系学部3年生で就活中の学生のプロフィールを埋めるのを手伝って」</p>
+<p>- 例: 「50人規模の音楽系サークルのプロフィールを埋めるのを手伝って」</p>
+</blockquote>
+<h3>ステップ3: モックアップを作る（40分）</h3>
+<p>進め方は練習ラボと同じ。以下のプロンプト・テンプレートを参考にする。<code>[ ]</code> の部分を自分たちの課題に合わせて書き換える。</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">@[課題カードのファイル名（例: study_challenge.md）] の課題と @[プロフィール（student_profile.md または club_profile.md）] を踏まえて、@mockup-req-template-sample.md のテンプレート形式を参考に、[アプリ名（例: マイ学生ノート）]モックアップの要件を [要件ファイル名（例: study_req.md）] にまとめて。以下の前提で書いて。
+- ブラウザーでHTMLファイルを開くだけで動くモックアップとして作る（Webサーバーは使わない）
+- 画面はPC・スマホ両対応のレスポンシブ・デザインにする
+- フォントは IBM Plex Sans JP を使う
+- プロフィールのブランド・カラーをデザインに反映する
+- サンプル・データを5件以上含める</pre>
+</div></p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code @[要件ファイル名] の要件に従って、モックアップを実装して。HTML・CSS・JavaScriptで構成し、最初に開くファイルは index.html にして。</pre>
+</div></p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code [変更したい内容]。[要件ファイル名] も更新して。</pre>
+</div></p>
+<p>出来上がったモックアップを他のチームにも見せて、フィードバックをもらいましょう。  </p>
+<p>遠慮なく意見を伝えましょう、シナリオが違うチーム同士でも、ユーザー視点での感想は十分参考になります。  </p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code 以下の2つのマークダウン・ファイルを作って。
+1. [設計書ファイル名]（設計書）: モックアップの画面構成、ファイル構成、使用技術、各画面の役割と遷移を記載
+2. [説明書ファイル名]（使い方説明書）: モックアップの開き方、各画面の操作方法、サンプル・データの説明を、初めて触る人向けに記載</pre>
+</div></p>
+<hr>
+<h3>各課題のまとめ</h3>
+<p>各課題の主人公・作るもの・必須機能の概要を一覧で示します。詳しい課題カード（背景・困っていること・UX観点・適用例・デモ・シナリオ例）は、選んだ案のフォルダーにある challenge カードを参照してください。</p>
+<hr>
+<h4>【課題1】学業管理 — 履修・課題</h4>
+<ul>
+<li><strong>主人公（例）</strong>: 佐藤さん（20歳、情報系学部 2年生、課題の締め切りを忘れがち）</li>
+<li><strong>作るもの</strong>: 履修中の科目・課題・試験を整理し、興味に合った選択科目も探せる個人ツール</li>
+<li><strong>必須機能（例）</strong>:</li>
+<p>  1. 講義リスト表示（科目名、教員、曜日・時限、ステータス）</p>
+<p>  2. 講義詳細画面（シラバス概要、評価方法、課題の締め切り）</p>
+<p>  3. おすすめ科目の表示（興味や履修傾向に合った選択科目を提案）</p>
+<li><strong>詳細</strong>: <a href="team-lab/theme1/study_challenge.md"><code>team-lab/theme1/study_challenge.md</code></a></li>
+<li><strong>作成するファイル</strong>: <code>study_req.md</code>（要件定義）、<code>study_design.md</code>（設計書）、<code>study_readme.md</code>（使い方説明書）</li>
+<li><strong>デモ・シナリオ例</strong>: 「佐藤さんが次学期の履修登録前に、自分の履修済み科目を見直し、興味に合った選択科目を選ぶ」</li>
+</ul>
+<hr>
+<h4>【課題2】進路・就活 — インターン・自己分析・業界研究</h4>
+<ul>
+<li><strong>主人公（例）</strong>: 田中さん（21歳、文系学部 3年生、就活開始）</li>
+<li><strong>作るもの</strong>: 興味のある企業・インターンの応募状況や自己分析を一元管理する個人ツール</li>
+<li><strong>必須機能（例）</strong>:</li>
+<p>  1. 企業・インターン一覧（企業名、業界、応募期限、ステータス）</p>
+<p>  2. 企業詳細画面（事業内容、選考フロー、メモ）</p>
+<p>  3. 自己分析カード（強み・興味・価値観の可視化）</p>
+<li><strong>詳細</strong>: <a href="team-lab/theme2/career_challenge.md"><code>team-lab/theme2/career_challenge.md</code></a></li>
+<li><strong>作成するファイル</strong>: <code>career_req.md</code>（要件定義）、<code>career_design.md</code>（設計書）、<code>career_readme.md</code>（使い方説明書）</li>
+<li><strong>デモ・シナリオ例</strong>: 「田中さんが3年生の夏休み前に、興味のある5社を比較し、夏季インターンの応募スケジュールを整理する」</li>
+</ul>
+<hr>
+<h4>【課題3】生活・健康 — スケジュール・家計簿・ウェルネス</h4>
+<ul>
+<li><strong>主人公（例）</strong>: 鈴木さん（19歳、医療系学部 1年生、一人暮らし1年目）</li>
+<li><strong>作るもの</strong>: 家計と食事・睡眠などの生活リズムを整え、健康的な学生生活を送るための個人ツール</li>
+<li><strong>必須機能（例）</strong>:</li>
+<p>  1. 収支サマリー（今月の収入・支出・残高）</p>
+<p>  2. 支出詳細画面（カテゴリー別の内訳）</p>
+<p>  3. 生活ログ（睡眠時間、食事、運動の簡易記録）</p>
+<li><strong>詳細</strong>: <a href="team-lab/theme3/life_challenge.md"><code>team-lab/theme3/life_challenge.md</code></a></li>
+<li><strong>作成するファイル</strong>: <code>life_req.md</code>（要件定義）、<code>life_design.md</code>（設計書）、<code>life_readme.md</code>（使い方説明書）</li>
+<li><strong>デモ・シナリオ例</strong>: 「鈴木さんが月初に先月の支出を振り返り、今月の予算配分と食事・睡眠の目標を立てる」</li>
+</ul>
+<hr>
+<h4>【課題4】サークル運営（イベント中心）— 出欠管理・活動アーカイブ</h4>
+<ul>
+<li><strong>主人公（例）</strong>: 鈴木さん（21歳、大学3年生、50人規模のサークル代表・企画担当）</li>
+<li><strong>作るもの</strong>: 定例練習・イベント・新歓などの活動を計画・運営し、出欠や写真をスマホで管理できるツール</li>
+<li><strong>必須機能（例）</strong>:</li>
+<p>  1. イベント一覧（開催予定・実施済みを期日順に表示）</p>
+<p>  2. イベント詳細・出欠管理（参加メンバー、出欠状況をリアルタイム表示）</p>
+<p>  3. 活動アーカイブ（過去イベントの写真・参加実績・メモ）</p>
+<li><strong>詳細</strong>: <a href="team-lab/theme4/club_event_challenge.md"><code>team-lab/theme4/club_event_challenge.md</code></a></li>
+<li><strong>作成するファイル</strong>: <code>event_req.md</code>（要件定義）、<code>event_design.md</code>（設計書）、<code>event_readme.md</code>（使い方説明書）</li>
+<li><strong>デモ・シナリオ例</strong>: 「鈴木さんが週末のライブイベント前に、出欠を一覧で確認し、当日の役割分担を決めてメンバーに告知する」</li>
+</ul>
+<hr>
+<h4>【課題5】サークル運営（メンバー中心）— 名簿・会費・連絡網</h4>
+<ul>
+<li><strong>主人公（例）</strong>: 高橋さん（20歳、文系学部 2年生、サークル会計・庶務担当）</li>
+<li><strong>作るもの</strong>: 50人規模のメンバー名簿・会費・連絡網を一元管理し、新歓から引退までの動きを把握できるツール</li>
+<li><strong>必須機能（例）</strong>:</li>
+<p>  1. メンバー一覧（名前、学年、役職、連絡先、ステータス）</p>
+<p>  2. メンバー詳細画面（基本情報、会費支払い履歴、参加履歴）</p>
+<p>  3. 会費管理一覧（メンバー別・期別の支払いステータス集計）</p>
+<li><strong>詳細</strong>: <a href="team-lab/theme5/club_member_challenge.md"><code>team-lab/theme5/club_member_challenge.md</code></a></li>
+<li><strong>作成するファイル</strong>: <code>member_req.md</code>（要件定義）、<code>member_design.md</code>（設計書）、<code>member_readme.md</code>（使い方説明書）</li>
+<li><strong>デモ・シナリオ例</strong>: 「高橋さんが月初に会費未払いメンバーを一覧で確認し、対象メンバーに一斉リマインドを送って入金状況を更新する」</li>
+</ul>
+<hr>
+<h2>🧩 オプション課題: <code>/plan</code> を使った計画駆動の開発</h2>
+<blockquote>
+<p>🔬 <strong>ギーク思考: サイエンス</strong> — 実装の前にBobと方針をすり合わせる。事前の計画で手戻りを防ぐ。</p>
+</blockquote>
+<p>時間に余裕がある方や、もう少し本格的な進め方を試したい方は、Bobの <code>/plan</code> コマンドに挑戦してみましょう。</p>
+<blockquote>
+<p>💡 <strong><code>/plan</code> コマンドとは</strong>: BobのPlanモードに切り替えるコマンドです。いきなりコードを書くのではなく、Bobと対話しながら計画を立ててから開発に入ります。</p>
+</blockquote>
+<h4>手順</h4>
+<p>新しいフォルダを作って開くか、既存のフォルダで作業する。チャット欄に以下を入力して送信する。</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/plan 顧客関係管理（CRM）システムのWebモックアップを作りたいので、計画を立てたい。以下の条件で進めたい。
+- Webサーバーは使わず、HTMLファイルをブラウザーで開くだけで動くようにする
+- 計画や要件などの途中経過はマークダウン・ファイルに記録する
+- 要件は私と一緒に決めたい</pre>
+</div></p>
+<p>Bobが質問や提案をしてくる。以下のような点を相談しながら決めていく：</p>
+<ul>
+<li>どんな画面が必要か（画面構成）</li>
+<li>何から作るか（優先順位）</li>
+<li>色やレイアウトの方針（デザイン）</li>
+<li>どんなデータを表示するか</li>
+</ul>
+<p>要件が固まったら、以下を入力して実装を始める。</p>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">/code この計画を実装して</pre>
+</div></p>
+<blockquote>
+<p>📝 <strong>Planモード → Codeモードの流れ</strong>: Planモードで方針をすり合わせてからCodeモードで実装する。チーム開発でも使えるやり方です。「何を作るか」を先に合意しておくことで、手戻りを減らせます。</p>
+</blockquote>
+<hr>
+<h2>🛠️ 付録: IBM Bob 使い方ガイドライン</h2>
+<h3>Bobの主なコマンド</h3>
+<p>IBM Bobには、用途に応じたコマンド（モード）がある。</p>
+<table>
+<thead><tr>
+<th>コマンド</th>
+<th>モード名</th>
+<th>いつ使う</th>
+<th>例</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>（コマンドなし）</td>
+<td>—</td>
+<td>ちょっとした相談や質問</td>
+<td>「CRMの画面構成を考えて」</td>
+</tr>
+<tr>
+<td><code>/ask</code></td>
+<td>Askモード</td>
+<td>調査やドキュメント作成</td>
+<td>「/ask 要件テンプレートを作って」</td>
+</tr>
+<tr>
+<td><code>/code</code></td>
+<td>Codeモード</td>
+<td>コードの作成・修正</td>
+<td>「/code crm_req.mdを実装して」</td>
+</tr>
+<tr>
+<td><code>/plan</code></td>
+<td>Planモード</td>
+<td>計画を立てて方針を合意</td>
+<td>「/plan CRMの開発計画を立てたい」</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 詳しくは <a href="https://bob.ibm.com/docs/ide">IBM Bob IDEドキュメント</a> を参照してください。</p>
+</blockquote>
+<h3>Bobへの頼み方のコツ</h3>
+<h4>うまくいく頼み方</h4>
+<ul>
+<li>「営業担当者向けの顧客リスト画面を作って。名前・属性・ステータスをカード形式で並べて。」 → 誰向けか、何を表示するか、レイアウトが明確</li>
+<li>「検索ボックスを上部に追加して、名前の部分一致で顧客リストを絞り込めるようにして。」 → 場所と動作が具体的</li>
+<li>「ヘッダーの左に会社ロゴ、右にナビゲーション・メニュー（顧客一覧・設定）を追加して。」 → 配置と内容が明確</li>
+</ul>
+<h4>避けた方がいい頼み方</h4>
+<ul>
+<li>「いい感じの画面を作って」 → 「いい感じ」はBobにはわからない</li>
+<li>「データベースと連携して」 → モックアップの範囲を超えている</li>
+<li>「完璧なシステムを作って」 → 範囲が広すぎて、何から手をつけるかBobが判断しにくい</li>
+</ul>
+<h3>段階的に作るのがコツ</h3>
+<ol>
+<li><strong>まず1画面</strong>: シンプルな画面を1つ作る</li>
+<li><strong>機能を足す</strong>: 動くものをベースに、ひとつずつ機能を追加する</li>
+<li><strong>見た目を整える</strong>: 動作を確かめながら、デザインを調整する</li>
+<li><strong>操作を追加</strong>: クリックやフィルターなどのインタラクションを入れる</li>
+</ol>
+<h3>困ったときは</h3>
+<table>
+<thead><tr>
+<th>困りごと</th>
+<th>やってみること</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>思った通りに動かない</td>
+<td>何が違うかを具体的に伝える。例: 「検索ボックスに文字を入れてもリストが変わらない。入力した文字で顧客名を絞り込めるようにして。」</td>
+</tr>
+<tr>
+<td>デザインが好みと違う</td>
+<td>具体的にどう変えたいか伝える。例: 「ボタンをもっと大きくして、色を青(#1A73E8)にして。」</td>
+</tr>
+<tr>
+<td>機能を追加したい</td>
+<td>一度にたくさん頼まず、ひとつずつ。まず基本を完成させてから次へ</td>
+</tr>
+<tr>
+<td>ファイルが見当たらない</td>
+<td>エクスプローラー（ファイル一覧）を確認。見つからなければ、Bobに「今あるファイルの一覧を教えて」と聞く</td>
+</tr>
+<tr>
+<td>HTMLがブラウザーで開けない</td>
+<td>HTMLファイルを右クリック →「エクスプローラーで表示する」→ ファイルをダブルクリック</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>📦 付録A: 配布フォルダの内容</h2>
+<p>講師が事前に用意し、ZIPファイルとして受講者に配布するフォルダです。</p>
+<h3>フォルダ構成</h3>
+<p><div class="code-block-container">
+<button class="copy-button" onclick="copyCode(this)">コピー</button>
+<pre class="code-block">bob-a-thon-lob-web.md                  このドキュメント
+team-lab/                              チーム演習用の課題別フォルダ
+├── theme1/                            課題1: 学業管理
+│   ├── student_profile.md             個人プロフィール（空欄テンプレート）
+│   ├── study_challenge.md             学業管理の課題カード
+│   └── mockup-req-template-sample.md  要件テンプレートのサンプル（学生個人視点）
+├── theme2/                            課題2: 進路・就活
+│   ├── student_profile.md
+│   ├── career_challenge.md
+│   └── mockup-req-template-sample.md
+├── theme3/                            課題3: 生活・健康
+│   ├── student_profile.md
+│   ├── life_challenge.md
+│   └── mockup-req-template-sample.md
+├── theme4/                            課題4: サークル運営・イベント中心
+│   ├── club_profile.md                団体プロフィール（空欄テンプレート）
+│   ├── club_event_challenge.md
+│   └── mockup-req-template-sample.md  要件テンプレートのサンプル（団体運営視点）
+└── theme5/                            課題5: サークル運営・メンバー中心
+    ├── club_profile.md
+    ├── club_member_challenge.md
+    └── mockup-req-template-sample.md</pre>
+</div></p>
+<h3>各ファイルの役割</h3>
+<table>
+<thead><tr>
+<th>ファイル</th>
+<th>役割</th>
+<th>使うタイミング</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>team-lab/theme1/student_profile.md</code></td>
+<td>個人プロフィール（主人公の学部・興味・価値観）</td>
+<td>課題1 のステップ2で記入</td>
+</tr>
+<tr>
+<td><code>team-lab/theme1/study_challenge.md</code></td>
+<td>学業管理の課題カード</td>
+<td>課題1で使用</td>
+</tr>
+<tr>
+<td><code>team-lab/theme2/student_profile.md</code></td>
+<td>個人プロフィール（同上、theme2 用）</td>
+<td>課題2 のステップ2で記入</td>
+</tr>
+<tr>
+<td><code>team-lab/theme2/career_challenge.md</code></td>
+<td>進路・就活の課題カード</td>
+<td>課題2で使用</td>
+</tr>
+<tr>
+<td><code>team-lab/theme3/student_profile.md</code></td>
+<td>個人プロフィール（同上、theme3 用）</td>
+<td>課題3 のステップ2で記入</td>
+</tr>
+<tr>
+<td><code>team-lab/theme3/life_challenge.md</code></td>
+<td>生活・健康の課題カード</td>
+<td>課題3で使用</td>
+</tr>
+<tr>
+<td><code>team-lab/theme4/club_profile.md</code></td>
+<td>団体プロフィール（活動方針・規模・カラー）</td>
+<td>課題4 のステップ2で記入</td>
+</tr>
+<tr>
+<td><code>team-lab/theme4/club_event_challenge.md</code></td>
+<td>サークル運営（イベント中心）の課題カード</td>
+<td>課題4で使用</td>
+</tr>
+<tr>
+<td><code>team-lab/theme5/club_profile.md</code></td>
+<td>団体プロフィール（同上、theme5 用）</td>
+<td>課題5 のステップ2で記入</td>
+</tr>
+<tr>
+<td><code>team-lab/theme5/club_member_challenge.md</code></td>
+<td>サークル運営（メンバー中心）の課題カード</td>
+<td>課題5で使用</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 <strong>講師向け</strong>: これらのサンプル・ファイルは、本ガイドと同じフォルダ内の <code>team-lab/theme1</code> 〜 <code>team-lab/theme5</code> に課題別に用意してあります。ワークショップの参加者層に合わせて、学生生活ベース（theme1〜3）／サークル・団体運営ベース（theme4・5）のどちらか一方だけを配布しても、両方を配布してチームごとに選ばせてもかまいません。</p>
+</blockquote>
+<hr>
+<h2>📋 付録B: 各課題の成果物ファイル名一覧</h2>
+<p>チーム演習で作成するファイルの命名規則です。</p>
+<table>
+<thead><tr>
+<th>課題</th>
+<th>案</th>
+<th>テーマ</th>
+<th>要件定義</th>
+<th>設計書</th>
+<th>使い方説明書</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>課題1</td>
+<td>A</td>
+<td>学業管理</td>
+<td><code>study_req.md</code></td>
+<td><code>study_design.md</code></td>
+<td><code>study_readme.md</code></td>
+</tr>
+<tr>
+<td>課題2</td>
+<td>A</td>
+<td>進路・就活</td>
+<td><code>career_req.md</code></td>
+<td><code>career_design.md</code></td>
+<td><code>career_readme.md</code></td>
+</tr>
+<tr>
+<td>課題3</td>
+<td>A</td>
+<td>生活・健康</td>
+<td><code>life_req.md</code></td>
+<td><code>life_design.md</code></td>
+<td><code>life_readme.md</code></td>
+</tr>
+<tr>
+<td>課題4</td>
+<td>B</td>
+<td>サークル運営（イベント中心）</td>
+<td><code>event_req.md</code></td>
+<td><code>event_design.md</code></td>
+<td><code>event_readme.md</code></td>
+</tr>
+<tr>
+<td>課題5</td>
+<td>B</td>
+<td>サークル運営（メンバー中心）</td>
+<td><code>member_req.md</code></td>
+<td><code>member_design.md</code></td>
+<td><code>member_readme.md</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 練習ラボで作成する履修・講義管理のファイルは <code>course_req.md</code>、<code>course_design.md</code>、<code>course_readme.md</code> です。</p>
+</blockquote>
+<hr>
+<h2>📖 参考情報</h2>
+<ul>
+<li><a href="https://bob.ibm.com/docs/ide">IBM Bob IDE ドキュメント</a></li>
+<li>参考書籍: <a href="https://bookplus.nikkei.com/atcl/catalog/25/03/25/01931/">ギーク思考 — 圧倒的な結果を出す型破りな思考法</a></li>
+</ul>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'コピーしました！';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('コピーに失敗しました:', err);
+                alert('コピーに失敗しました');
+            });
+        }
+    </script>
+</body>
+</html>

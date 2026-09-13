@@ -1,0 +1,324 @@
+<dw-document xmlns:dw="http://www.ibm.com/developerWorks/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" local-site="worldwide" version="v18" xsi:noNamespaceSchemaLocation="../../schema/dw-document-8.0.xsd"><dw-article auto-number="yes" layout="ArticleStandard18" skill-level="3" toc="auto"><id cma-id="1045386" original="yes"/><keywords content="IoT, devices, sensors"/><meta-last-updated day="03" initials="corbinm@us.ibm.com" month="01" year="2018"/><content-area-primary name="iot"/><title>Choosing the best hardware for your next IoT project</title><subtitle>Use this hardware guide to determine which hardware to use when
+            prototyping and developing IoT projects</subtitle><pdf pages="11" paperSize="common" size="1861 KB" url="iot-lp101-best-hardware-devices-iot-project-pdf.pdf"/><author email="anna.m.gerber@gmail.com" email-cc="" jobtitle="Senior Software Developer" publish-email="no"><author-level>none</author-level><bio>Anna Gerber is a full-stack developer with 15 years experience in the
+                university sector, formerly a Technical Project Manager at The University
+                of Queensland ITEE eResearch specialising in Digital Humanities, and a
+                Research Scientist at the Distributed System Technology Centre (DSTC).
+                Anna is a JavaScript robotics enthusiast and maker and enjoys tinkering
+                with soft circuits and 3D printers.</bio><img align="left" alt="Anna Gerber" height="60" src="https://www.ibm.com/developerworks/i/p-agerber60.jpg" valign="top" width="60"/><author-name><GivenName>Anna</GivenName><FamilyName>Gerber</FamilyName></author-name><company-name/><social-networks><social-network><social-network-name>dW author profile</social-network-name><social-network-url>https://developer.ibm.com/author/anna.m.gerber/</social-network-url></social-network></social-networks></author><!-- EDITOR: Update missing author information.--><date-published day="05" month="05" year="2017"/><date-updated day="03" month="01" year="2018"/><!--<date-translated month="05" year="2017"/>--><abstract>This article provides a balanced overview of different types of hardware
+            that are commonly adopted for IoT, including micro controllers (for example,
+            Arduino), single board computers (for example, Raspberry Pi), and embedded
+            devices. The article describes the high-level building blocks and key
+            characteristics of hardware, including an overview of needed security features
+            and firmware capabilities, in the context of IoT. The article also provides
+            guidance for when, where and why a developer might choose one type of hardware
+            over another for an IoT project, and examples of use across a range of
+            industries.</abstract><docbody><sidebar><heading>IoT 101: Getting started with IoT development</heading><p>This article is part of the <a href="https://www.ibm.com/developerworks/library/iot-lp101-quick-start-guide-iot-developers/index.html" target="_blank">IoT 101 learning path</a>, a quick-start guide
+                    for IoT developers.</p><ul><li><a href="https://developer.ibm.com/dwblog/2017/just-getting-started-iot-consider-7-key-iot-concepts-skills/" target="_blank">IoT concepts and skills</a></li><li>IoT hardware guide (this article)</li><li><a href="https://www.ibm.com/developerworks/library/iot-lp101-connectivity-network-protocols/index.html" target="_blank">IoT networking guide</a></li><li><a href="https://www.ibm.com/developerworks/library/iot-lp101-why-use-iot-platform/index.html" target="_blank">IoT platforms</a></li><li><a href="https://www.ibm.com/developerworks/library/iot-lp101-get-started-develop-iot-home-automation/index.html" target="_blank">Tutorial: Build a simple home automation system</a></li></ul></sidebar><p>Connected hardware devices are at the heart of IoT. IoT devices monitor and
+                instrument "things," or real-world objects, including industrial
+                equipment, home appliances, buildings, cars, warehouse inventory items,
+                and people (in the case of wearable devices). </p><p>When you develop new IoT solutions, hardware and software components are
+                designed, prototyped, and refined through an iterative process of feedback
+                and evaluation. Hobbyist hardware platforms like Arduino and Raspberry Pi
+                can help jump start this process of rapid prototyping and refinement,
+                because they are readily available and require less investment than
+                designing and fabricating custom <em>printed circuit boards</em> (PCBs) at
+                each iteration of the design. As part of this process, you'll need to
+                consider the hardware requirements for your own IoT application, and
+                evaluate and refine the prototype IoT devices that you build against these
+                requirements and adapt them, adopting off-the-shelf components or custom
+                components as appropriate.</p><p>In the context of IoT, <em>device</em> is an overloaded term that describes
+                hardware that has been designed or adapted for a particular purpose. It is
+                used to refer to individual hardware components including sensors and
+                actuators, as well as to off-the-shelf boards like Raspberry Pi, and also
+                to custom prototype and production units that are built from a number of
+                constituent devices. In this article, I'll review some of the widely
+                available off-the-shelf hardware options and discuss why you might choose
+                one device over another when prototyping and developing your next IoT
+                project.</p><heading alttoc="" inline-commenting-id="cmt_2" refname="2IoTDeviceCharacteristicsoutline" type="h2">IoT device characteristics</heading><p>New devices and device platforms are continually being released as the IoT
+                landscape matures. You need to understand the key characteristics that are
+                common across most IoT devices to compare and evaluate new devices as they
+                become available. </p><p>We can characterize IoT devices in terms of these high-level capabilities: </p><ul><li>Data acquisition and control </li><li>Data processing and storage </li><li>Connectivity </li><li>Power management</li></ul><heading alttoc="" inline-commenting-id="cmt_3" refname="21Dataacquisitionandcontroloutline" type="h3">Data acquisition and control</heading><p><em>Data acquisition</em> (<a href="https://en.wikipedia.org/wiki/Data_acquisition">DAQ</a>) is the
+                process of measuring real-world conditions and converting these
+                measurements into digital readings at fixed-time intervals (the data
+                sample rate). DAQ also involves signal conditioning, which is used to
+                manipulate and scale raw sensor readings, and analog-to-digital
+                converters, which are used to convert the analog sensor readings into
+                digital values so that they can be processed and analyzed. </p><p><em>Sensors</em> are the input components that measure physical variables
+                and convert them to electrical signals (voltages). You can choose from
+                thousands of types of off-the-shelf sensors to measure a range of
+                variables, including temperature, humidity, pressure, smoke, gas, light,
+                sound, vibration, air-flow, water-flow, speed, acceleration, proximity,
+                GPS position, altitude, or force, and the list goes on. But sensors don't
+                just measure ambient conditions; proprioceptive sensors monitor the
+                internal state of the device, and sensors like buttons, sliders, or a
+                touchscreen can be used for interacting directly with the device,
+                providing a Human-Machine Interface. For each individual type of sensor,
+                like a temperature sensor, you'll have dozens of alternative component
+                choices from a range of manufacturers, each with slightly different
+                specifications in terms of accuracy and precision, and each designed for
+                specific applications and operating conditions, such as for use underwater
+                or to withstand extremes of heat and cold. </p><p>An important characteristic of sensor components is their resolution. The
+                resolution of a sensor represents the smallest amount of change that the
+                sensor can reliably read and is related to the size of the numeric value
+                that is used to represent raw sensor readings. For example, an analog
+                temperature sensor with 10 bits of resolution represents a temperature
+                reading using a numeric value between 0 and 1023. Bits are binary, so 10
+                bits provides two to the power of 10, or 1024 possible values in total.
+                However, in practice, sensors are affected by electrical noise which
+                reduces the actual resolution.</p><p>While sensors convert a physical variable like temperature to an electrical
+                signal, output devices are the inverse: they convert an electrical signal
+                to a physical outcome. Output devices include LEDs, speakers and screens,
+                and <em>actuators</em> like motors or solenoids that move or control
+                things in the physical world. Actuators are commonly deployed within
+                industrial IoT applications; for example, pneumatic linear actuators are
+                widely adopted in manufacturing to move and grip products during the
+                assembly process. </p><heading alttoc="" inline-commenting-id="cmt_4" refname="22Dataprocessingandstorageoutline" type="h3">Data processing and storage</heading><p>IoT devices require data processing and storage capabilities to perform
+                basic handling, transformation, and analysis of the data that they
+                capture. IoT devices can process data directly, or they can transmit this
+                data to other devices, gateway devices, or cloud services or apps for
+                aggregation and analysis. </p><p>Edge analytics involves performing data analysis at the edges of a network
+                rather than in a centralized location. Data can be analyzed in near
+                real-time on the devices themselves, or on a nearby gateway device (like a
+                router) that the IoT devices are immediately connected to, rather than
+                devices transmitting large volumes of data upstream to a cloud server or
+                data center for further analysis. Processing data at the edge provides an
+                opportunity to aggregate and filter the data as it is collected, with only
+                the most salient data selected to be sent upstream. Ultimately, edge
+                analytics reduces the upstream processing and storage requirements as well
+                as relieves the load on the network.</p><p>The processing power and storage that is used by an IoT application will
+                depend on how much processing occurs on the device itself as opposed to
+                how much processing is performed by the services or apps that consume the
+                data. The amount of memory that is available and the specifications of the
+                processor, including the clock speed and number of cores, determine the
+                rate at which data can be processed by the device. The capacity of the
+                non-volatile flash memory, which is used to persist data until it can be
+                transmitted upstream, determines how much data can be stored on the
+                device. Devices performing edge analytics will require substantially more
+                processing capabilities than devices that perform only basic data
+                processing like validating, normalizing, scaling, or converting readings,
+                such as converting raw temperature readings into Celsius.</p><heading alttoc="" inline-commenting-id="cmt_5" refname="23Connectivityoutline" type="h3">Connectivity</heading><p>Network connectivity is one of the defining characteristics of any IoT
+                device. Devices communicate with other devices locally, and publish data
+                to services and apps in the cloud. Some devices communicate wirelessly, by
+                using 802.11 (wifi), Bluetooth, RFID, cellular networks, or Low Power wide
+                area network (LPWAN) technologies like LoRa, SigFox or NB-IoT. Wired
+                communication is suited to stationary devices, which are installed in
+                smart buildings, home automation, and industrial control applications,
+                where they can be connected with Ethernet or retrofitted with Ethernet
+                over power. Serial communication is also a form of wired connectivity
+                between devices, using standard protocols like <em>Universal Asynchronous
+                    Receiver Transmitter</em> (UART), or the <em>Controller Area
+                    Network</em> (CAN) protocol, which has its origins in the automotive
+                industry. </p><heading alttoc="" inline-commenting-id="cmt_6" refname="24Powermanagementoutline" type="h3">Power management</heading><p>Power management is of particular concern for portable and wearable IoT
+                devices that rely on batteries or other non-wired power sources like
+                solar. Depending on the usage patterns and the power requirements of the
+                attached sensors, actuators, or <em>Integrated Circuits</em> (ICs) that
+                provide data acquisition and control, storage, processing and networking
+                capabilities, a device might need to be put into sleep mode or into
+                low-power mode periodically to conserve power or extend battery life. For
+                example, a single-board computer like the Raspberry Pi 3 requires around
+                700 - 1000mA of current to operate under typical usage. If you were
+                transmitting data constantly over the wifi network, or if you were placing
+                the device under heavy load by performing a lot of data processing on the
+                device, the power usage would be at the upper end of that scale and would
+                drop whenever the device was idle. If you connect a camera module, the
+                current required increases by around 250mA whenever the camera is in use.
+                Sensors usually require power to operate, and the GPIO pins on the
+                Raspberry Pi supply 3.3V or 5V, up to a total of 50mA current across all
+                of the pins, so the power consumption of the device as a whole also
+                increases as you increase the number of components that are attached to
+                the pins.</p><heading alttoc="" inline-commenting-id="cmt_7" refname="3Off-the-shelfhardwareoutline" type="h2">Types of off-the-shelf hardware for
+                prototyping your IoT project</heading><p>Developing IoT applications is more accessible than ever, thanks to the
+                growing range of low-cost, commercially available off-the-shelf hardware
+                development boards, platforms, and prototyping kits. Modular hardware
+                designs provide a great deal of flexibility. You can substitute
+                alternative components and try out sensors with slightly different
+                specifications, or you can independently upgrade the networking, data
+                processing, or storage modules of a device to cater for evolving
+                requirements. </p><p>Many commercial off-the-shelf hardware devices, including micro controllers
+                and single board computers, are designed around <em>System-on-a-Chip</em>
+                (SoC) ICs. SoCs bundle a number of capabilities including data processing,
+                storage, and networking, onto a single chip. This configuration means that
+                you sacrifice some flexibility for the sake of convenience, but,
+                fortunately, there are a huge number of commodity devices available with a
+                range of configurations to choose from. For example, <xref href="#table-microcontrollers"/> lists the technical specifications
+                for a selection of microcontrollers that can be used for prototyping IoT
+                projects, while <xref href="#table-sbcs"/> provides a comparison of three
+                popular <em>Single-Board-Computers</em> (SBCs).</p><heading alttoc="" inline-commenting-id="cmt_8" refname="31Microcontrollerdevelopmentboardsoutline" type="h3">Microcontroller development
+                boards</heading><p>A <em>microcontroller</em> is a SoC that provides data processing and
+                storage capabilities. Microcontrollers contain a processor core (or
+                cores), memory (RAM), and <em>erasable programmable read-only memory</em>
+                (EPROM) for storing the custom programs that run on the microcontroller.
+                    <em>Microcontroller development boards</em> are PCBs with additional
+                circuitry to support the microcontroller to make it more convenient to
+                prototype with and program the chip. </p><p>Sensors and actuators connect to the microcontroller through digital or
+                analog <em>General Purpose Input/Output</em> (GPIO) pins or through a
+                hardware bus. Standard communication protocols like <a href="https://en.wikipedia.org/wiki/I%C2%B2C">I2C</a> and <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus">SPI</a> are used for intra-device communication with the components
+                that are connected with the bus. Adopting standards makes it easier to add
+                or swap out components that are connected with the bus.</p><p>Arduino (<a href="http://arduino.cc/en/Main/">http://arduino.cc/en/Main/</a>) is an open source device platform,
+                with an active community who are creating compatible development boards
+                and tooling. Device capabilities vary across the official Arduino models
+                    (<a href="https://www.arduino.cc/en/Products/Compare)">https://www.arduino.cc/en/Products/Compare)</a>, and also between the
+                dozens of third-party compatible boards. All of the devices in <xref href="#table-microcontrollers"/> are Arduino-compatible
+                microcontrollers, including the ubiquitous Arduino Uno, Particle's
+                Electron, which includes an integrated cellular modem, and Espressif
+                Systems' (<a href="https://espressif.com/en/products/hardware/esp8266ex/overview">https://espressif.com/en/products/hardware/esp8266ex/overview</a>)
+                ESP8266-01, a low cost, low-power microcontroller with integrated
+                wifi.</p><figure><heading>Arduino micro-controller development board</heading><img alt="" height="505" src="picture1.png" width="758"/></figure><p>Like Arduino, the ESP8266, has an active community of adopters. Notable
+                development boards that are based around the ESP8266, include NodeMCU (<a href="http://nodemcu.com/index_en.html">http://nodemcu.com/index_en.html</a>), WeMos D1 (<a href="https://www.wemos.cc/">https://www.wemos.cc/</a>) and AdaFruit's
+                Feather Huzzah (<a href="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview">https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/overview</a>).
+                A number of alternative firmware options for ESP8266-based boards have
+                been developed by the open source and maker community, enabling IoT
+                developers to program for these boards using Lua, Python, and JavaScript,
+                and to support over-the-air (OTA) updates.</p><table-complex border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="Technical specifications for Arduino Uno,                 Electron, and ESP82566 microcontrollers"><heading refname="table-microcontrollers">Technical specifications for
+                    Uno, Electron and ESP82566-01 microcontrollers</heading><thead><tr><th> Characteristic </th><th> Feature </th><th> Arduino Uno </th><th> Particle Electron </th><th> Espressif Systems ESP8266-01 </th></tr></thead><tbody><tr><th colspan="5"><strong><em>Data acquisition and control</em></strong></th></tr><tr><td/><th><strong>GPIO pins</strong></th><td> 6 Analog in<br/> 14 Digital - 6 PWM </td><td> 12 Analog in<br/> 2 Analog out <br/> 30 Digital - 15 PWM<br/></td><td> 2 Digital<br/> 1 Analog </td></tr><tr><td/><th><strong>Logic level voltage</strong></th><td> 5V </td><td> 3.3V </td><td> 3.3V </td></tr><tr><th colspan="5"><strong><em>Data processing and storage</em></strong></th></tr><tr><td/><th><strong>Processor</strong></th><td> ATMega328PU </td><td> 32-bit STM32F205 </td><td> 32-bit Tensilica L106 </td></tr><tr><td/><th><strong>Processor speed</strong></th><td> 16 KHz </td><td> 120 MHz </td><td> 80 MHz </td></tr><tr><td/><th><strong>Memory</strong></th><td> 32 kB flash, <br/> 1 kB EEPROM </td><td> 1 Mb flash, <br/> 128 kB RAM </td><td> 1 Mb </td></tr><tr><th colspan="5"><strong><em>Connectivity</em></strong></th></tr><tr><td/><th><strong>Network Interfaces</strong></th><td> None by default. Can be added with shields. </td><td> Integrated cellular modem (2G / 3G) </td><td> Integrated wifi </td></tr><tr><th colspan="5"><strong><em>Power</em></strong></th></tr><tr><td/><th><strong>Recommended Power Supply</strong></th><td> 9-12V DC 0.5 - 2A barrel, or 5V 500mA USB or 9 - 12 V on VIN
+                            pin </td><td> 5V micro USB or 3.9V-12VDC on VIN pin </td><td> Regulated 3.3V 300mA supply on VCC pin </td></tr><tr><th colspan="5"><strong><em>Other</em></strong></th></tr><tr><td/><th><strong>Dimensions</strong></th><td> 2.7 in X 2.1 in </td><td> 2.0 in x 0.8 in </td><td> 1.4 in x 1 in </td></tr><tr><td/><th><strong>Typical cost</strong></th><td> $25 </td><td> $39 - $59 </td><td> $10 </td></tr></tbody></table-complex><p>The standard approach for developing the software to run on
+                Arduino-compatible microcontrollers is to use C or C++ and the Arduino
+                IDE, however community-developed language bindings and visual programming
+                tools also exist. Arduino-compatible boards that share common pin layouts
+                are able to be expanded by using optional third-party shields, for
+                example, to add an Ethernet port or Bluetooth to an Arduino Uno. Arduino
+                is the most widely adopted hobbyist microcontroller development
+                environment, but others like Tessel (<a href="https://tessel.io/">https://tessel.io/</a>) and Particle.io (<a href="http://particle.io">http://particle.io</a>) natively support JavaScript, while Python is
+                supported for boards like MicroPython's PyBoard (<a href="http://micropython.org">http://micropython.org</a>) and by WeIO
+                    (<a href="http://we-io.net/hardware/">http://we-io.net/hardware/</a>).</p><p>Selecting an Arduino-compatible microcontroller makes it easier to port
+                programs that are developed using the cross-platform Arduino libraries and
+                Arduino IDE to run on other Arduino-compatible devices. You will still
+                have differences to work around, for example, the Arduino Uno uses 5V
+                logic on digital I/O pins (where 0 volts equals LOW or OFF and 5 volts
+                equals HIGH or ON), but the ESP8266 and Particle boards use 3.3V logic
+                (HIGH is 3.3V). This might affect your choice of sensor or actuator
+                components, as some components only work with one or the other. Swapping
+                sensors that are designed for 5V to 3.3V logic might result in
+                unpredictable results and possibly damage the pins that are intolerant to
+                higher voltages, and so you'd need to add a logic-level converter to make
+                this work. When you get down to implementing low-level hardware features
+                like enabling deep sleep mode or reading from connected sensors by using
+                specific protocols, you'll likely need to rely on device or
+                component-specific libraries that will make your code less portable.</p><heading alttoc="" inline-commenting-id="cmt_9" refname="32Singleboardcomputersoutline" type="h3">Single board computers</heading><p><em>Single board computers</em> (SBCs) are a step up from microcontrollers,
+                because they allow you to attach peripheral devices like keyboards, mice,
+                and screens, as well as offering more memory and processing power (for
+                example, a 1.2 GHz 32-bit ARM microprocessor from <xref href="table-sbcs"/> compared to an 8-bit 16KHz microcontroller from <xref href="#table-microcontrollers"/>). <xref href="table-sbcs"/> lists
+                technical specifications for three SBCs, the Raspberry Pi 3 Model B (<a href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a>),
+                BeagleBone Black (<a href="http://beagleboard.org/black">http://beagleboard.org/black</a>) and DragonBoard 410c (<a href="https://developer.qualcomm.com/hardware/dragonboard-410c">https://developer.qualcomm.com/hardware/dragonboard-410c</a>).</p><figure><heading>Raspberry Pi single-board-computer</heading><img alt="" height="488" src="picture2.png" width="732"/></figure><p>The distinction between microcontrollers and single-board-computers is
+                somewhat arbitrary. Some devices, like the Onion Omega 2 (<a href="https://docs.onion.io/omega2-docs/omega2.html#omega2">https://docs.onion.io/omega2-docs/omega2.html#omega2</a>), fall
+                somewhere in between, with almost as much on-board memory and processing
+                capability as a low-end SBC. There are also a number of hybrid devices,
+                like the UDOO Quad (<a href="http://www.udoo.org/docs/Introduction/Introduction.html">http://www.udoo.org/docs/Introduction/Introduction.html</a>) that
+                integrate an ARM-based Linux system with an Arduino-compatible
+                micro-controller.</p><table-complex border="0" cellpadding="0" cellspacing="0" class="ibm-data-table" summary="Technical specifications for Raspberry Pi 3,                 BeagleBone Black, and DragonBoard SBCs"><heading refname="table-sbcs">Technical specifications for Raspberry Pi 3,
+                    BeagleBone Black and DragonBoard SBCs</heading><thead><tr><th> Characteristic </th><th> Feature </th><th> Raspberry Pi 3 Model B </th><th> BeagleBone Black </th><th> Qualcomm DragonBoard 410c </th></tr></thead><tbody><tr><th colspan="5"><strong><em>Data acquisition and control</em></strong></th></tr><tr><td/><th><strong>GPIO pins</strong></th><td> 40 I/O pins, including 29 Digital </td><td> 65 Digital - 8 PWM<br/> 7 Analog in </td><td> 12 Digital </td></tr><tr><td/><th><strong>Logic level voltage</strong></th><td> 3.3V </td><td> 5V </td><td> 1.8V </td></tr><tr><th colspan="5"><strong><em>Data processing and storage</em></strong></th></tr><tr><td/><th><strong>Processor</strong></th><td> ARM Cortex A53 </td><td> AM335X ARM Cortex A8 </td><td> ARM Cortex A53 </td></tr><tr><td/><th><strong>Processor speed</strong></th><td> 1.2GHz </td><td> 1 GHz </td><td> 1.2 GHz </td></tr><tr><td/><th><strong>Memory</strong></th><td> 1 Gb </td><td> 4 Gb </td><td> 1Gb, 8Gb Flash </td></tr><tr><th colspan="5"><strong><em>Connectivity</em></strong></th></tr><tr><td/><th><strong>Network Interfaces</strong></th><td> Wifi, Ethernet, Bluetooth </td><td> Ethernet,<br/> USB ports allow external wifi / Bluetooth
+                            adaptors </td><td> Wifi, Bluetooth, GPS </td></tr><tr><th colspan="5"><strong><em>Power</em></strong></th></tr><tr><td/><th><strong>Recommended Power Supply</strong></th><td> 5V 2.5A micro USB port </td><td> 5V 1.2A - 2A barrel </td><td> 6.5 to 18V 2A barrel </td></tr><tr><th colspan="5"><strong><em>Other</em></strong></th></tr><tr><td/><th><strong>Dimensions</strong></th><td> 3.4 x 2.2 in </td><td> 3.4 x 2.1 in </td><td> 3.3 in x 2.1 in </td></tr><tr><td/><th><strong>Typical cost</strong></th><td> $35 </td><td> $55 </td><td> $75 </td></tr></tbody></table-complex><p>As with microcontrollers, SBC device capabilities can be expanded through
+                the addition of stackable expansion boards known as <em>hats</em> on
+                Raspberry Pi and <em>capes</em> on BeagleBone Black, and through the
+                addition of external modules, such as motor controllers or
+                analog-to-digital converters, to mitigate limitations with the built-in
+                device capabilities.</p><p>Many SBC devices are more like a mini-PC, and run an embedded operating
+                system, typically a streamlined Linux distribution. As a result, there are
+                many more development tools and language choices that are available for
+                developing embedded applications that work with the attached sensors and
+                actuators on these devices than on microcontroller boards. However, SBCs
+                are more complex to set up, larger, more power hungry, and more prone to
+                problems like corruption of the SD card or flash memory where applications
+                are stored.</p><heading alttoc="" inline-commenting-id="cmt_10" refname="choosing-microcontrollers-sbcs" type="h3">Choosing between microcontroller development
+                boards and single-board computers</heading><p>Although off-the-shelf microcontroller development boards and single-board
+                computers might only get you part of the way towards a fully realized IoT
+                solution, they are great for bootstrapping its development. </p><p>One way to get started is to consider the key IoT device characteristics in
+                light of your application's requirements, and then work through the
+                following design decisions:</p><ul><li>Determine the type and number of peripheral sensors and output
+                    components that you need, and, if necessary, any design circuits for
+                    these components</li><li>Select a microcontroller or single-board device to co-ordinate reading
+                    from and controlling the peripheral components</li><li>Decide on the data communication protocols that you need to use for
+                    intra-device communication (for example, using I2C for communication
+                    between the microcontroller and any attached sensors)</li><li>Select the networking hardware and protocols that you need to use to
+                    communicate with cloud services and apps</li></ul><p>For example, for setting up a home automation system on a budget, I'd
+                choose the Raspberry Pi Zero W, because it is a small and very low-cost
+                SBC device (around $10), with ample processing power and memory (1GHz ARM6
+                processor and 512 MB RAM) for performing data processing and analytics on
+                the device. It supports microSD card flash memory expansion up to 64GB for
+                storing programs and data. And, it is equipped with a full 40-pin GPIO
+                header, just like the Raspberry Pi 3, which allows connecting multiple
+                sensors and supports both SPI and I2C protocols. It has on-board wifi for
+                connecting with a home network, and it can be powered with micro-USB off a
+                portable power pack or wall power supply.</p><p>As you progress further with prototyping your IoT devices and embedded
+                software, as well as the upstream services and apps, you can periodically
+                assess your prototypes against your functional and non-functional
+                requirements including performance, reliability, and security, and revisit
+                these choices as necessary.</p><heading alttoc="" inline-commenting-id="cmt_11" refname="4IoTHardwareRequirementsoutline" type="h2">IoT hardware requirements for deploying your
+                IoT project</heading><p>IoT devices are highly specialized and are designed to operate within very
+                specific contexts and environments, so the hardware requirements for IoT
+                projects vary widely. While you might start by prototyping using generic
+                off-the-shelf hardware, as you progress through this iterative design and
+                requirements validation process, eventually you can move toward designing
+                and developing custom PCBs and components that are tailored to your
+                requirements, which you deploy in your production IoT solutions. As part
+                of this process, you will need to consider these kinds of hardware
+                requirements:</p><ul><li>Security requirements </li><li>Ease of development </li><li>Data acquisition, processing and storage requirements</li><li>Connectivity requirements </li><li>Power requirements</li><li>Physical device design </li><li>Cost requirements</li></ul><heading alttoc="" inline-commenting-id="cmt_12" refname="41Securityrequirementsoutline" type="h3">Security requirements</heading><p>Security is a critical element within IoT and must be considered at all
+                stages of design and development. The integrity and security of the data
+                that is captured by the device must remain intact, even during
+                prototyping. Security requirements relate to the security of the IoT
+                devices themselves, hardening of the network, and the security of related
+                cloud services and mobile and web applications. </p><p>Related security requirements include: </p><ul><li>Ensuring that each device has enough processing power and memory to be
+                    able to encrypt and decrypt data and messages at the rate that they
+                    are sent and received </li><li>Ensuring that the embedded software development libraries support
+                    whatever authorization and access control mechanisms are used to
+                    authenticate with upstream services and apps </li><li>Choosing to adopt off-the-shelf devices that implement device
+                    management protocols for securely registering new devices as they are
+                    added to a network to avoid spoofing, and those that include firmware
+                    capabilities to support secure over the air updates for security
+                    patches</li></ul><heading alttoc="" inline-commenting-id="cmt_13" refname="42Easeofdevelopmentoutline" type="h3">Ease of development</heading><p>While prototyping, ease of development is another high priority requirement
+                so that you can quickly and easily get your IoT device up and running,
+                capturing data, and communicating with other devices and the cloud. </p><p>Consider the accessibility, availability, and quality of API documentation,
+                development tools, and support offered by the hardware manufacturer or by
+                the development community. Select devices that are quick and easy to
+                program and re-flash, as well as being low touch to deploy, with zero or
+                minimal per-device configuration required, to cut down on frustration and
+                save time while you are developing your IoT solution.</p><heading alttoc="" inline-commenting-id="cmt_14" refname="43Dataacquisitionprocessingandstoragerequirementsoutline" type="h3">Data acquisition, processing, and
+                storage requirements</heading><p>The number of sensors that are connected, the resolution of the data that
+                is captured, and the rate at which the data is sampled all determine the
+                volume of data to be processed, which impacts on data processing and
+                storage requirements. </p><p>The amount of data that needs to be retained on a device is dependent on
+                how frequently the device connects to transmit data upstream. A wired,
+                always-connected device that is installed in a smart building, one that
+                streams low volumes of raw data directly to a highly available server,
+                will require less data processing power and storage compared to a device
+                that needs to process large volumes of data in bursts. A device that only
+                connects every few hours to conserve power will require more storage to
+                log data locally in the interim. </p><heading alttoc="" inline-commenting-id="cmt_15" refname="44Connectivityrequirementsoutline" type="h3">Connectivity requirements</heading><p>Connectivity requirements for wireless networking include operating range,
+                or how far the signal will need to be transmitted, as well as the
+                anticipated volume and rate of data to be transmitted. Consider
+                fault-tolerance and the ability for a device to reconnect and retry
+                sending data after it was disconnected. </p><p>Your hardware might have integrated network connectivity like Bluetooth or
+                wifi, or this capability might need to be added with an expansion board or
+                module. An external module that can be upgraded can provide more
+                flexibility, as you have the option to try different modules to evaluate
+                their range and power consumption.</p><heading alttoc="" inline-commenting-id="cmt_16" refname="45Powerrequirementsoutline" type="h3">Power requirements</heading><p>Many of the other requirements, including the number of sensors that you
+                need and the rate of network transmission, will have an impact on the
+                device's power requirements. Consider whether your device will be wired,
+                or whether it will require a portable power source like a battery or
+                supercapacitor. If it requires a battery, you need to know the size,
+                weight, and capacity requirements for the battery, as well as whether the
+                battry should be rechargeable, replaceable, or whether the device should
+                be discarded after the battery dies. If the device is rechargeable, how
+                often should be charged, and by what means?</p><heading alttoc="" inline-commenting-id="cmt_17" refname="46Physicaldevicedesignrequirementsoutline" type="h3">Physical device design
+                requirements</heading><p>The physical device design requirements include the appearance and size of
+                the device. </p><p>The environmental conditions in which the device will be installed also
+                need to be considered, for example, will it need a waterproof or
+                ruggedized enclosure? For example, a device that is installed on the
+                underside of a truck as part of a fleet monitoring application would need
+                to be shielded to ensure it continued to operate under harsh conditions;
+                it would need to be waterproof and resistant to dirt, shock, and
+                vibration.</p><heading alttoc="" inline-commenting-id="cmt_18" refname="47Costrequirementsoutline" type="h3">Cost requirements</heading><p>The cost of the hardware includes the initial outlay for the hardware and
+                associated components (such as any sensors) as well as their on-going
+                operating costs, such as power and maintenance costs in the form of
+                replacing worn parts or defective components. You might also need to pay
+                ongoing licensing fees for some components or device drivers. Purchasing a
+                handful of commercially available off-the-shelf development boards or SBCs
+                might be more affordable than producing tiny runs of custom boards in the
+                early stages of development; however, as you begin to scale up into dozens
+                or hundreds of devices, dedicated hardware devices might become a better
+                value proposition.</p><heading alttoc="" inline-commenting-id="cmt_19" refname="5Conclusionoutline" type="h2">Conclusion</heading><p>There is no one-size-fits all approach to selecting hardware for IoT
+                projects. Adopting standards-based, commodity hardware like
+                microcontrollers or single-board-computers can save time and expense in
+                the early stages of development, without sacrificing flexibility. What you
+                learn in the prototyping phase can help you use critical hardware design
+                decisions when you move into deploying your IoT solution.</p></docbody></dw-article><!-- PUB_TO_MAV --></dw-document>
