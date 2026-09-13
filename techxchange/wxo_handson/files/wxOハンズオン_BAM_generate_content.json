@@ -1,0 +1,427 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "YourName-IBM BAM",
+        "description": "An internal preview of watsonx.ai from IBM Research",
+        "version": "1.0.0",
+        "x-ibm-application-icon": "<svg width=\"19\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xml:space=\"preserve\" overflow=\"hidden\"><defs><clipPath id=\"clip0\"><rect x=\"7\" y=\"370\" width=\"19\" height=\"20\"/></clipPath><image width=\"41\" height=\"42\" xlink:href=\"data:image/jpeg;base64,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\" preserveAspectRatio=\"none\" id=\"img1\"></image><clipPath id=\"clip2\"><path d=\"M7 380C7 374.477 11.2533 370 16.5 370 21.7467 370 26 374.477 26 380 26 385.523 21.7467 390 16.5 390 11.2533 390 7 385.523 7 380Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></clipPath></defs><g clip-path=\"url(#clip0)\" transform=\"translate(-7 -370)\"><g clip-path=\"url(#clip2)\"><use width=\"100%\" height=\"100%\" xlink:href=\"#img1\" opacity=\"1\" transform=\"matrix(0.463415 0 0 0.47619 7 370)\"></use></g></g></svg>",
+        "x-ibm-application-name": "YourName-generate content skill for wxO Handson"
+    },
+    "servers": [
+        {
+            "url": "https://b25yxaezee.execute-api.us-east-2.amazonaws.com/watsonx/async/bam-api.res.ibm.com"
+        }
+    ],
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "paths": {
+        "/v1/generate": {
+            "post": {
+                "summary": "YourName-generate content",
+                "description": "A wastonx.ai skill for generating content",
+                "operationId": "content-generation.greedy.post",
+                "parameters": [
+                    {
+                        "name": "callbackurl",
+                        "in": "header",
+                        "description": "The URL to send the result of the operation to",
+                        "schema": {
+                            "type": "string",
+                            "format": "uri",
+                            "x-ibm-show": false
+                        },
+                        "x-ibm-order": 1,
+                        "x-ibm-multiline": "false"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Send summary request",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "model_id": {
+                                        "type": "string",
+                                        "default": "ibm/granite-8b-japanese-lab-rc",
+                                        "x-ibm-order": 1,
+                                        "x-ibm-multiline": "false"
+                                    },
+                                    "inputs": {
+                                        "type": "string",
+                                        "x-ibm-multiline": "true",
+                                        "x-ibm-order": 2,
+                                        "x-ibm-label": "文章を生成するプロンプトを指定してください。"
+                                    },
+                                    "parameters": {
+                                        "type": "object",
+                                        "properties": {
+                                            "decoding_method": {
+                                                "type": "string",
+                                                "default": "greedy",
+                                                "x-ibm-order": 3,
+                                                "x-ibm-multiline": "false",
+                                                "x-ibm-label": "Decoding method"
+                                            },
+                                            "min_new_tokens": {
+                                                "type": "integer",
+                                                "default": 50,
+                                                "x-ibm-order": 4,
+                                                "x-ibm-multiline": "false",
+                                                "x-ibm-label": "Min new tokens"
+                                            },
+                                            "max_new_tokens": {
+                                                "type": "integer",
+                                                "default": 200,
+                                                "x-ibm-order": 5,
+                                                "x-ibm-multiline": "false",
+                                                "x-ibm-label": "Max new tokens"
+                                            },
+                                            "moderations": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "hap": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "input": {
+                                                                "type": "boolean",
+                                                                "default": true,
+                                                                "x-ibm-order": 6,
+                                                                "x-ibm-multiline": "false",
+                                                                "x-ibm-label": "Moderate for hateful, abusive, and profane (HAP) language in input"
+                                                            },
+                                                            "threshold": {
+                                                                "type": "number",
+                                                                "default": 0.75,
+                                                                "x-ibm-order": 7,
+                                                                "x-ibm-multiline": "false",
+                                                                "x-ibm-label": "Confidence level for flagging hateful, abusive, and profane language"
+                                                            },
+                                                            "output": {
+                                                                "type": "boolean",
+                                                                "default": true,
+                                                                "x-ibm-order": 8,
+                                                                "x-ibm-multiline": "false",
+                                                                "x-ibm-label": "Moderate for hateful, abusive, and profane (HAP) language in output"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "inputs"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Request accepted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Output received successfully."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "callbacks": {
+                    "postResponse": {
+                        "{$request.header.callbackUrl}": {
+                            "post": {
+                                "requestBody": {
+                                    "content": {
+                                        "application/json": {
+                                            "schema": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "text": {
+                                                        "type": "string",
+                                                        "title": "Generated content"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "responses": {
+                                    "202": {
+                                        "description": "Request accepted"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ibm-nl-intent-examples": [
+                    "A wastonx.ai skill for generating content"
+                ],
+                "x-ibm-next-actions": [],
+                "x-ibm-conversational-skill": true,
+                "x-ibm-nl-entities": {
+                    "entities": []
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "request": {
+                "type": "object",
+                "required": [
+                    "inputs"
+                ],
+                "properties": {
+                    "model_id": {
+                        "type": "string",
+                        "default": "ibm/granite-8b-japanese-lab-rc",
+                        "enum": [
+                            "sentence-transformers/all-minilm-l6-v2",
+                            "baai/bge-large-en-v1.5",
+                            "codellama/codellama-34b-instruct",
+                            "codellama/codellama-70b-instruct",
+                            "deepseek-ai/deepseek-coder-33b-instruct",
+                            "tiiuae/falcon-180b",
+                            "tiiuae/falcon-40b",
+                            "ibm/falcon-40b-8lang-instruct",
+                            "google/flan-t5-xl",
+                            "google/flan-t5-xxl",
+                            "google/flan-ul2",
+                            "ibm/granite-13b-base-v2",
+                            "ibm/granite-13b-chat-v2",
+                            "ibm/granite-13b-instruct-v2",
+                            "ibm/granite-13b-lab-incubation",
+                            "ibm/granite-20b-code-instruct-v1",
+                            "ibm/granite-20b-code-instruct-v1-gptq",
+                            "ibm/granite-20b-multilang-lab-rc",
+                            "ibm/granite-20b-multilingual",
+                            "ibm/granite-3b-code-plus-v1",
+                            "ibm/granite-8b-japanese",
+                            "ibm/granite-8b-japanese-lab-rc",
+                            "core42/jais-13b-chat",
+                            "meta-llama/llama-2-13b",
+                            "meta-llama/llama-2-13b-chat",
+                            "meta-llama/llama-2-13b-chat-sd",
+                            "meta-llama/llama-2-70b",
+                            "meta-llama/llama-2-70b-chat",
+                            "ibm-meta/llama-2-70b-chat-q",
+                            "meta-llama/llama-2-7b",
+                            "meta-llama/llama-2-7b-chat",
+                            "mncai/llama2-13b-korean",
+                            "mistralai/mistral-7b-instruct-v0-2",
+                            "mistralai/mixtral-8x7b-instruct-v0-1",
+                            "ibm-mistralai/mixtral-8x7b-instruct-v01-q",
+                            "thebloke/mixtral-8x7b-v0-1-gptq",
+                            "intfloat/multilingual-e5-large",
+                            "sarvamai/openhathi-7b-hi-v0-1-base",
+                            "kaist-ai/prometheus-13b-v1",
+                            "ibm/slate.125m.english.rtrvr",
+                            "ibm/slate.30m.english.rtrvr",
+                            "ibm/slate.30m.english.rtrvr.02.28.2024"
+                        ]
+                    },
+                    "inputs": {
+                        "type": "string",
+                        "x-ibm-multiline": "true"
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "decoding_method": {
+                                "type": "string",
+                                "default": "greedy"
+                            },
+                            "min_new_tokens": {
+                                "type": "integer",
+                                "default": 50
+                            },
+                            "max_new_tokens": {
+                                "type": "integer",
+                                "default": 200
+                            },
+                            "moderations": {
+                                "type": "object",
+                                "properties": {
+                                    "hap": {
+                                        "type": "object",
+                                        "properties": {
+                                            "input": {
+                                                "type": "boolean",
+                                                "default": true
+                                            },
+                                            "threshold": {
+                                                "type": "number",
+                                                "default": 0.75
+                                            },
+                                            "output": {
+                                                "type": "boolean",
+                                                "default": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "response": {
+                "type": "object",
+                "properties": {
+                    "model_id": {
+                        "type": "string",
+                        "x-ibm-show": false
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "x-ibm-show": false
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "generated_text": {
+                                    "type": "string"
+                                },
+                                "generated_token_count": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "x-ibm-show": false
+                                },
+                                "input_token_count": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "x-ibm-show": false
+                                },
+                                "stop_reason": {
+                                    "type": "string",
+                                    "x-ibm-show": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters_greedy": {
+                "type": "object",
+                "properties": {
+                    "decoding_method": {
+                        "type": "string",
+                        "default": "greedy"
+                    },
+                    "min_new_tokens": {
+                        "type": "integer",
+                        "default": 50
+                    },
+                    "max_new_tokens": {
+                        "type": "integer",
+                        "default": 200
+                    },
+                    "moderations": {
+                        "type": "object",
+                        "properties": {
+                            "hap": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "boolean",
+                                        "default": true
+                                    },
+                                    "threshold": {
+                                        "type": "number",
+                                        "default": 0.75
+                                    },
+                                    "output": {
+                                        "type": "boolean",
+                                        "default": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "parameters_sample": {
+                "type": "object",
+                "properties": {
+                    "decoding_method": {
+                        "type": "string",
+                        "default": "sample"
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "default": 0.8
+                    },
+                    "top_p": {
+                        "type": "integer",
+                        "default": 1
+                    },
+                    "top_k": {
+                        "type": "integer",
+                        "default": 50
+                    },
+                    "random_seed": {
+                        "type": "integer",
+                        "default": 111
+                    },
+                    "repetition_penalty": {
+                        "type": "number",
+                        "default": 1.2
+                    },
+                    "min_new_tokens": {
+                        "type": "integer",
+                        "default": 50
+                    },
+                    "max_new_tokens": {
+                        "type": "integer",
+                        "default": 200
+                    },
+                    "beam_width": {
+                        "type": "integer",
+                        "default": 1
+                    }
+                }
+            },
+            "acknowledge_asynch_request": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "example": "Output received successfully."
+                    }
+                }
+            },
+            "async_response": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "title": "Generated content"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization"
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "namespace": "io.confluent.examples.datacontract.pojo.avro",
+    "name": "Sale",
+    "type": "record",
+    "fields": [
+        {
+            "name": "order_id",
+            "type": "int"
+        },
+        {
+            "name": "product_id",
+            "type": "int"
+        },
+        {
+            "name": "customer_id",
+            "type": "int"
+        },
+        {
+            "name": "confirmation_code",
+            "type": "string"
+        },
+        {
+            "name": "cc_number",
+            "type": "string"
+        },
+        {
+            "name": "expiration",
+            "type": "string"
+        },
+        {
+            "name": "amount",
+            "type": "double"
+        },
+        {
+            "name": "ts",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}

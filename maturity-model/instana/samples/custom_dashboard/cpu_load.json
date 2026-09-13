@@ -1,0 +1,140 @@
+{
+  "rbacTags": [],
+  "accessRules": [
+    {
+      "accessType": "READ_WRITE",
+      "relationType": "USER",
+      "relatedId": "63d894bbd328ec0001795091"
+    }
+  ],
+  "id": "jm4W12IFRWuNFwN_rNcNGQ",
+  "title": "Sample Update",
+  "widgets": [
+    {
+      "width": 7,
+      "x": 0,
+      "y": 0,
+      "id": "L11bkTV7PNe_ZKVw",
+      "title": "仮想マシンごとのCPU負荷（先週比）",
+      "type": "chart",
+      "config": {
+        "shareMaxAxisDomain": false,
+        "y1": {
+          "formatter": "number.detailed",
+          "renderer": "line",
+          "min": 0,
+          "max": 1,
+          "metrics": [
+            {
+              "lastValue": false,
+              "color": "",
+              "compareToTimeShifted": true,
+              "threshold": {
+                "critical": "",
+                "warning": "",
+                "thresholdEnabled": false,
+                "operator": ">="
+              },
+              "aggregation": "MAX",
+              "label": "CPU負荷",
+              "source": "INFRASTRUCTURE_METRICS",
+              "type": "host",
+              "metricPath": [
+                "Others",
+                "Host"
+              ],
+              "grouping": [
+                {
+                  "maxResults": 5,
+                  "by": {
+                    "tagDefinition": {
+                      "path": [
+                        {
+                          "label": "Host"
+                        },
+                        {
+                          "label": "name"
+                        }
+                      ],
+                      "name": "host.name",
+                      "availability": [],
+                      "type": "STRING"
+                    },
+                    "groupbyTag": "host.name",
+                    "groupbyTagEntity": "NOT_APPLICABLE",
+                    "groupbyTagSecondLevelKey": ""
+                  },
+                  "includeOthers": false,
+                  "direction": "DESC"
+                }
+              ],
+              "formatter": "number.compact",
+              "unit": "number",
+              "metric": "load.1min",
+              "timeShift": -604800000,
+              "tagFilterExpression": {
+                "logicalOperator": "OR",
+                "elements": [
+                  {
+                    "tagDefinition": {
+                      "path": [
+                        {
+                          "label": "Other"
+                        },
+                        {
+                          "label": "zone"
+                        }
+                      ],
+                      "name": "zone",
+                      "availability": [],
+                      "type": "STRING"
+                    },
+                    "name": "zone",
+                    "type": "TAG_FILTER",
+                    "value": "alex",
+                    "entity": "NOT_APPLICABLE",
+                    "operator": "EQUALS"
+                  },
+                  {
+                    "tagDefinition": {
+                      "path": [
+                        {
+                          "label": "Other"
+                        },
+                        {
+                          "label": "zone"
+                        }
+                      ],
+                      "name": "zone",
+                      "availability": [],
+                      "type": "STRING"
+                    },
+                    "name": "zone",
+                    "type": "TAG_FILTER",
+                    "value": "japan-demo",
+                    "entity": "NOT_APPLICABLE",
+                    "operator": "EQUALS"
+                  }
+                ],
+                "type": "EXPRESSION"
+              },
+              "allowedCrossSeriesAggregations": [],
+              "metricLabel": "Load",
+              "crossSeriesAggregation": "MAX"
+            }
+          ],
+          "formatterSelected": false
+        },
+        "y2": {
+          "formatter": "number.detailed",
+          "renderer": "line",
+          "metrics": []
+        },
+        "type": "TIME_SERIES"
+      },
+      "height": 20
+    }
+  ],
+  "ownerId": "63d894bbd328ec0001795091",
+  "writable": true
+}

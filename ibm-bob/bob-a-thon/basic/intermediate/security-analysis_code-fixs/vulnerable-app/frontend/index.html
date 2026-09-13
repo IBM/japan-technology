@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Vulnerable Version</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Todo Application</h1>
+            <p class="subtitle">⚠️ Vulnerable Version - For Security Testing</p>
+        </header>
+
+        <main>
+            <!-- Add Todo Form -->
+            <section class="add-todo-section">
+                <h2>Add New Todo</h2>
+                <form id="todo-form">
+                    <div class="form-group">
+                        <label for="todo-title">Title *</label>
+                        <input 
+                            type="text" 
+                            id="todo-title" 
+                            placeholder="Enter todo title" 
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="todo-description">Description</label>
+                        <textarea 
+                            id="todo-description" 
+                            placeholder="Enter todo description (optional)"
+                            rows="3"
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon">➕</span>
+                        Add Todo
+                    </button>
+                </form>
+            </section>
+
+            <!-- Todos List -->
+            <section class="todos-section">
+                <div class="todos-header">
+                    <h2>My Todos</h2>
+                    <span id="todo-count" class="todo-count">0 todos</span>
+                </div>
+                
+                <!-- Loading State -->
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading todos...</p>
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📭</div>
+                    <h3>No todos yet</h3>
+                    <p>Add your first todo to get started!</p>
+                </div>
+
+                <!-- Error State -->
+                <div id="error-state" class="error-state" style="display: none;">
+                    <div class="error-icon">⚠️</div>
+                    <h3>Oops! Something went wrong</h3>
+                    <p id="error-message"></p>
+                    <button onclick="location.reload()" class="btn btn-secondary">
+                        Retry
+                    </button>
+                </div>
+
+                <!-- Todos List -->
+                <div id="todos-list" class="todos-list"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>⚠️ This is a vulnerable version for educational purposes</p>
+            <p class="footer-links">
+                <a href="../../README.md">Back to Labs</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab5_AIAssistant/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>(オプション)OpenAPI Builder - wxoHandson</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+JP:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans JP";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openapi-builder" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="wxoHandson" class="md-header__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            wxoHandson
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              (オプション)OpenAPI Builder
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="wxoHandson" class="md-nav__button md-logo" aria-label="wxoHandson" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    wxoHandson
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1 Hello world
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2_GenAI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2 Generative AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3 Skill flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4 Decision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab5_AIAssistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5 AI Assistant Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    (オプション)OpenAPI Builder
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-openapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      資料の Web ページから OpenAPI 仕様書を生成してみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      既存のOpenAPI 仕様書を開いてみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openapi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一から OpenAPI 仕様書を作ってみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openapi-builder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI builderのエディターを使ってみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openapi-openapi-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI仕様書を OpenAPI builder からダウンロードしてみよう
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      お疲れさまでした！
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="openapi-builder">(オプション) OpenAPI builder</h1>
+<p>watsonx Orchestrate でカスタムスキルを使う際には、OpenAPIの仕様書が必要です。ただ、時には仕様書がない場合もあります。その際に、仕様書を作成できるのが OpenAPI Builder です。</p>
+<p>このLabでは、OpenAPI builder を用いて Open API の仕様書（OAS）の作成、編集、生成を行う方法を練習します。</p>
+<h2 id="web-openapi">資料の Web ページから OpenAPI 仕様書を生成してみよう</h2>
+<p>AIを使用して、資料の Web ページから OpenAPI の仕様書を生成できます。手順は以下のようになります。</p>
+<ol>
+<li>
+<p>メニュー(≣)から <strong>Skill studio</strong> を選択します。<br />
+<a class="glightbox" href="../OpenAPI_images/image-0.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-0.png" /></a> </p>
+</li>
+<li>
+<p>右上にある <strong>Create</strong> ボタンをクリック、<strong>Import API</strong> をクリックします。<br />
+<a class="glightbox" href="../OpenAPI_images/image-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-1.png" /></a></p>
+</li>
+<li>
+<p><strong>OpenAPI builder (experimental)</strong> を選択し、<strong>OpenAPI builder</strong> のタイルをクリックします。
+ <a class="glightbox" href="../OpenAPI_images/image-2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-2.png" /></a></p>
+</li>
+<li>
+<p><strong>AI generate a new OpenAPI spec</strong> を選択します。</p>
+<ol>
+<li><strong>Import URL</strong> の欄にAPI仕様書を作成したい文書のURLを入力します。<ul>
+<li>例えば、Github の REST API からOpenAPIの仕様書を作りたい場合は次のURLを入力します。<br /> https://docs.github.com/en/enterprise-server@3.5/rest/orgs/orgs</li>
+<li>空のボックスをクリックすると、チュートリアル用のURLが候補として表示されます。</li>
+</ul>
+</li>
+<li><strong>Generate</strong> をクリックします。
+ <a class="glightbox" href="../OpenAPI_images/image-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-3.png" /></a>  </li>
+</ol>
+</li>
+<li>
+<p>OpenAPI の仕様書に入れたいエンドポイントを選択し、<strong>Generate Selected</strong> をクリックします。
+ <a class="glightbox" href="../OpenAPI_images/image-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-4.png" /></a></p>
+</li>
+<li>
+<p>OpenAPI の仕様書が生成され、選択したエンドポイントが含まれていることが確認できます。
+ <a class="glightbox" href="../OpenAPI_images/image-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-5.png" /></a></p>
+</li>
+</ol>
+<p>以上で、OpenAPI 仕様書を生成し、編集を始められるようになりました。</p>
+<h2 id="openapi">既存のOpenAPI 仕様書を開いてみよう</h2>
+<p>watsonx Orchestrate では、既存のOpenAPI 仕様書を開いて編集することも可能です。</p>
+<ol>
+<li>
+<p>先ほどの手順 1~3 を行い、<strong>Open an existing spec</strong> を選択します。
+ <a class="glightbox" href="../OpenAPI_images/image-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-6.png" /></a></p>
+</li>
+<li>
+<p>以下のいずれかの手順で、既存のOpenAPI 仕様書を開くことができます。</p>
+<ol>
+<li>
+<p><strong>Import URL</strong> に仕様書のURLを入力し、<strong>Download from URL</strong> をクリックします。（空のボックスをクリックすると、チュートリアル用のURLが候補として表示されます）<br />
+<a class="glightbox" href="../OpenAPI_images/image-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-7.png" /></a></p>
+</li>
+<li>
+<p>ご自身のローカルシステムから仕様書を開きたい時は、</p>
+<ol>
+<li><strong>ファイルを選択</strong> をクリックします。</li>
+<li>必要なファイルを選択し、<strong>開く</strong> をクリックします。</li>
+<li><strong>Open Local</strong> をクリックします。
+ <a class="glightbox" href="../OpenAPI_images/image-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-8.png" /></a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>これで、OpenAPI builder上でOpenAPI 仕様書を開くことができました。</p>
+<h2 id="openapi_1">一から OpenAPI 仕様書を作ってみよう</h2>
+<p>OpenAPI builder を使用すると、scratch からも OpenAPI 仕様書を作成することができます。</p>
+<ol>
+<li>
+<p>先ほどの手順 1~3 を行い、<strong>Create a spec</strong> を選択します。
+ <a class="glightbox" href="../OpenAPI_images/image-9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-9.png" /></a></p>
+</li>
+<li>
+<p>書き始めのテンプレートが表示されるので、仕様を自由に追加します。仕様書の作成方法については、
+ <a href="https://www.ibm.com/docs/ja/watson-orchestrate?topic=skills-creating-openapi-specifications" target="_blank" rel="noopener noreferrer">こちら</a>
+ もご覧ください。<br />
+<a class="glightbox" href="../OpenAPI_images/image-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-10.png" /></a></p>
+</li>
+<li>
+<p>ファイルの変更を保存するには、<strong>Apply changes</strong> をクリックします。<br />
+ ファイルをダウンロードする際は、<strong>Download spec</strong> をクリックします。
+ <a class="glightbox" href="../OpenAPI_images/image-11.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-11.jpeg" /></a></p>
+</li>
+</ol>
+<p>ここで作成したOpenAPI 仕様書をインポートし、watsonx Orchestrate にスキルとして追加することも可能です。</p>
+<h2 id="openapi-builder_1">OpenAPI builderのエディターを使ってみよう</h2>
+<p>OpenAPI builderでは、AIを用いて文書からOpenAPI 仕様書を作成したり、AIの提案をもとに仕様書を編集することが可能です。</p>
+<p>以下のフォーマットから、仕様書を確認、編集することができます。</p>
+<ul>
+<li>
+<p><strong>Visual+AI view</strong><br /> 
+ Visual+AI view では、視覚的な表示で API 仕様書を作成することができます。AI による提案を使用することもできます。このエディターで編集する方法については
+ <a href="https://www.ibm.com/docs/ja/watson-orchestrate?topic=builder-using-visual-editor-in-openapi" target="_blank" rel="noopener noreferrer">こちら</a>
+ をご参照ください。
+ <a class="glightbox" href="../OpenAPI_images/image-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-20.png" /></a></p>
+</li>
+<li>
+<p><strong>JSON view</strong><br /> 
+ JSON View では、テキスト形式で API 仕様書を作成できます。
+ <a class="glightbox" href="../OpenAPI_images/image-21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-21.png" /></a></p>
+</li>
+<li>
+<p><strong>OpenAPI view</strong><br /> 
+ OpenAPI view では、標準のAPI仕様書の形式に従って表示されます。
+ <a class="glightbox" href="../OpenAPI_images/image-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-22.png" /></a></p>
+</li>
+</ul>
+<p>デフォルトでは、JSON view と OpenAPI view が表示されています。Visual+AI view を表示するには、上部の <strong>Visual+AI view</strong> ボタンをオンにします。<br />
+<a class="glightbox" href="../OpenAPI_images/image-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-23.png" /></a></p>
+<p><strong>注釈:</strong> 家のアイコンをクリックすると、OpenAPI builder のホームページが表示されます。</p>
+<h2 id="openapi-openapi-builder">OpenAPI仕様書を OpenAPI builder からダウンロードしてみよう</h2>
+<p>OpenAPI builder から、OpenAPI 仕様書を JSON ファイルでローカルにダウンロードし、watsonx Orchestrate や他のツールにインポートすることができます。もちろん、OpenAPI builder に再インポートして編集することも可能です。</p>
+<p>ダウンロードするには、エディターの画面で <strong>Download spec</strong> をクリックします。
+<a class="glightbox" href="../OpenAPI_images/image-24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../OpenAPI_images/image-24.png" /></a></p>
+<h2 id="_1">お疲れさまでした！</h2>
+<p>このLabでは、OpenAPI builder を用いて、OpenAPI の仕様書を作成、編集、生成する方法を確認しました。</p>
+<ul>
+<li>仕様書はWebページからAIで自動生成できるほか、既存ファイルの編集や、新規作成も可能です。</li>
+<li>作成時のビューは、Visual+AI view、JSON view、OpenAPI view の3つを使用でき、AIによる提案も活用できます。</li>
+<li>仕様書の作成後は、watsonx Orchestrate にインポートしてスキルとして利用できます。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.sections", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

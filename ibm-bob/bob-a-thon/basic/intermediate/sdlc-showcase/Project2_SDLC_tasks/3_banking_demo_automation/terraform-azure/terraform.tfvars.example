@@ -1,0 +1,35 @@
+# ============================================================================
+# Azure Banking Demo - Terraform Variables Example
+# ============================================================================
+# Copy this file to terraform.tfvars and customize the values
+# cp terraform.tfvars.example terraform.tfvars
+# ============================================================================
+
+# Resource Group Configuration
+resource_group_name = "banking-demo-rg"
+location            = "eastus"  # Options: eastus, westus2, centralus, etc.
+environment         = "dev"
+
+# Naming Prefix (must be globally unique)
+# This will be used to create unique names for resources
+prefix = "bankdemo123"  # Change this to something unique!
+
+# Azure Container Registry (must be globally unique)
+acr_name = "bankdemo123acr"  # Change this to something unique!
+
+# Storage Account (must be globally unique)
+storage_account_name = "bankdemo123storage"  # Change this to something unique!
+
+# Container Resources
+bank1_cpu    = 1.0
+bank1_memory = 1.5
+
+bank2_cpu    = 1.0
+bank2_memory = 1.5
+
+# Additional Tags
+tags = {
+  Owner       = "YourName"
+  Department  = "Engineering"
+  CostCenter  = "Demo"
+}
