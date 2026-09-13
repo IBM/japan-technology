@@ -1,7 +1,9 @@
 # Project 8: Create a custom mode
 
 モードはエージェントに似ており、特化した指示を提供し、ツールを呼び出すことができます。  
-モード仕様のガイドラインは[ドキュメント](https://internal.bob.ibm.com/docs/ide/features/custom-modes) として公開されています。
+モード仕様のガイドラインは[ドキュメント](https://bob.ibm.com/ja/docs/ide/getting-started/best-practices) として公開されています。
+その他の参考リンク：
+[カスタム・モード ドキュメント](https://bob.ibm.com/ja/docs/ide/configuration/custom-modes) 
 
 このプロジェクトでは、標準で用意されているモードの定義を確認し、新しいユースケース向けに 1〜3 個のモードを作成します。
 
