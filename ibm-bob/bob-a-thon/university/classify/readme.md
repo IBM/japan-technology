@@ -5,4 +5,4 @@
 * 最終更新日: 2026/9/11
 * Author: Akira Onishi (Principal BDE, AI Lab Japan Office, IBM Japan)
 
-コンテンツのダウンロードは [こちら](courses.zip)
+コンテンツのダウンロードは [こちら](https://github.com/IBM/japan-technology/blob/main/ibm-bob/bob-a-thon/university/classify/course.zip)
