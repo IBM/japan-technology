@@ -67,13 +67,14 @@ Java 21 / Spring Boot 3.2.5 / PostgreSQL 15 / Flyway / Hibernate / HikariCP / Pr
 |---|---|---|
 | Java 21 | `java -version` | `openjdk version "21.x.x"` |
 | Maven 3.8 以上 | `mvn -version` | `Apache Maven 3.8.x` 以上 |
-| Docker Desktop または Rancher Desktop | `docker --version` / `docker info` | エラーにならない（Rancher Desktop は Kubernetes を無効に） |
+| Docker Desktop または Rancher Desktop | `docker --version` / `docker info` / `docker compose version` | エラーにならず、`docker compose`（v2 サブコマンド）が使える。Rancher Desktop は Kubernetes を無効にする |
 | Node.js 20 LTS 以上 | `node -v` | `v20.x.x` 以上（22 / 24 LTS でも可） |
 | git | `git --version` | バージョンが表示される |
 | IBM Bob IDE | 起動できる | Ask / Plan / Agent モードのある版 |
 | **Mac/Linux のみ** curl と jq | `jq --version` | バージョンが表示される（`brew install jq`） |
 
 - OS: macOS または Windows 10/11（PowerShell 5.1 以上）。Windows は追加ツール不要です
+- コンテナ環境: PostgreSQL / Prometheus / AlertManager / Grafana / Backend API はすべて `docker compose` でコンテナとして起動します（起動スクリプト `db_start` / `be_start` が内部で `docker compose up` を実行）。Docker Desktop または Rancher Desktop（Windows は WSL 2 バックエンド）で `docker compose version` が通ることを確認してください
 - メモリ: ハンズオン一式（Docker の VM + Bob IDE + Maven + Node）で約 6 GB を使います。16 GB 機を想定しています
 - ネットワーク: 初回の Maven ビルドで Maven Central に接続します。`frontend/node_modules` は zip に同梱済みのため `npm install` は不要です（Mac Apple シリコン / Intel、Windows x64）
 
