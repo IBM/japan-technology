@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="ja" data-audience="student">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBM Bob で学ぶ Backend API ハンズオン（2 時間版）</title>
+<meta name="description" content="生命保険契約管理システム — 配属 1 週目のエンジニアになる">
+<meta name="generator" content="build_guide.py">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans+JP:wght@300;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-ui:#f4f4f4; --bg-ui-hover:#e8e8e8; --border:#e0e0e0; --border-strong:#8d8d8d;
+  --text:#161616; --text-2:#525252; --text-3:#6f6f6f; --text-inverse:#f4f4f4;
+  --interactive:#0f62fe; --interactive-hover:#0353e9; --focus:#0f62fe;
+  --support-success:#24a148; --support-warning:#f1c21b; --support-error:#da1e28; --support-info:#0043ce;
+  --success-bg:#defbe6; --warning-bg:#fcf4d6; --info-bg:#edf5ff; --error-bg:#fff1f1;
+  --code-bg:#262626; --code-bg-bar:#393939; --code-text:#f4f4f4; --code-comment:#a8a8a8;
+  --tag-ask-bg:#d0e2ff; --tag-ask-text:#0043ce;
+  --tag-plan-bg:#e8daff; --tag-plan-text:#6929c4;
+  --tag-agent-bg:#a7f0ba; --tag-agent-text:#0e6027;
+  --nav-w:256px; --content-w:1056px; --header-h:48px;
+  --font:"IBM Plex Sans JP","IBM Plex Sans",system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-weight:300;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+strong,b{font-weight:500}
+h1,h2,h3{font-weight:500;margin:0;letter-spacing:0}
+a{color:var(--interactive);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+button{font-family:inherit}
+
+/* header (UI Shell) */
+.hdr{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--text);color:var(--text-inverse);display:flex;align-items:center;padding:0 16px;gap:16px;z-index:30;border-bottom:1px solid #393939}
+.hdr .brand{font-weight:500;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr .brand span{font-weight:300;color:#c6c6c6;margin-right:8px}
+.hdr .spacer{flex:1}
+.hdr .audience{font-size:12px;color:#c6c6c6;border:1px solid #6f6f6f;padding:2px 8px;white-space:nowrap}
+.hdr .audience.instructor{color:#ffb3b8;border-color:#ffb3b8}
+.hdr .menu-btn{display:none;background:none;border:0;color:#fff;width:40px;height:40px;cursor:pointer;margin-left:-8px}
+.hdr .menu-btn svg{width:20px;height:20px;fill:currentColor}
+.os-switch{display:flex;border:1px solid #6f6f6f}
+.os-switch button{background:transparent;color:#c6c6c6;border:0;height:30px;padding:0 12px;font-size:13px;cursor:pointer;white-space:nowrap}
+.os-switch button[aria-pressed="true"]{background:#fff;color:var(--text);font-weight:500}
+.hdr .ghost{background:transparent;color:#c6c6c6;border:1px solid #6f6f6f;height:32px;padding:0 12px;font-size:13px;cursor:pointer;white-space:nowrap}
+.hdr .ghost:hover{background:#393939;color:#fff}
+
+/* side nav */
+.side{position:fixed;top:var(--header-h);left:0;bottom:0;width:var(--nav-w);background:var(--bg-ui);border-right:1px solid var(--border);overflow-y:auto;z-index:20;padding:16px 0}
+.side .progress{padding:0 16px 12px;font-size:12px;color:var(--text-2);border-bottom:1px solid var(--border);margin-bottom:8px}
+.side .progress .bar{height:4px;background:var(--border);margin-top:6px}
+.side .progress .bar i{display:block;height:100%;width:0;background:var(--interactive);transition:width .3s}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;align-items:center;gap:8px;padding:8px 16px;color:var(--text-2);font-size:14px;line-height:1.3;border-left:3px solid transparent}
+.side li a:hover{background:var(--bg-ui-hover);text-decoration:none;color:var(--text)}
+.side li.active > a{border-left-color:var(--interactive);color:var(--text);font-weight:500;background:#e5e5e5}
+.side li.done > a .mark{background:var(--support-success);border-color:var(--support-success);color:#fff}
+.side .mark{flex:none;width:18px;height:18px;border:1px solid var(--border-strong);border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;background:#fff;color:transparent}
+.side .mark.nomark{border:0;background:transparent}
+.side ul ul{display:none;padding:2px 0 6px}
+.side li.active > ul{display:block}
+.side ul ul li a{padding:5px 16px 5px 40px;font-size:13px;border-left:0;color:var(--text-3)}
+.side ul ul li.active > a{color:var(--text);font-weight:500;background:transparent;border-left:0}
+.side ul ul li.active > a::before{content:"";position:absolute;margin-left:-14px;margin-top:6px;width:6px;height:6px;background:var(--interactive);border-radius:50%}
+.side ul ul li a{position:relative}
+.side-backdrop{display:none}
+
+/* content */
+.content{margin-left:var(--nav-w);padding:calc(var(--header-h) + 32px) 32px 96px}
+.content .inner{max-width:var(--content-w);margin:0 auto;min-width:0}
+.content{min-width:0;overflow-x:clip}
+.hero{padding:16px 0 32px;border-bottom:1px solid var(--border);margin-bottom:40px}
+.hero .eyebrow{font-size:14px;color:var(--text-2);margin-bottom:8px}
+.hero h1{font-size:32px;line-height:40px;font-weight:300}
+.hero h1 b{font-weight:500}
+.hero .sub{font-size:20px;line-height:28px;color:var(--text-2);margin-top:8px;font-weight:300}
+.hero .ver{font-size:12px;color:var(--text-3);margin-top:16px;font-family:var(--mono)}
+h2{font-size:28px;line-height:36px;margin:72px 0 16px;padding-top:24px;border-top:1px solid var(--border)}
+h2:first-of-type{margin-top:0;border-top:0;padding-top:0}
+h3{font-size:20px;line-height:28px;margin:40px 0 12px}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 16px;padding-left:24px}
+li{margin:4px 0}
+li p{margin:0}
+hr{border:0;border-top:1px solid var(--border);margin:40px 0}
+code{font-family:var(--mono);font-size:.875em;background:var(--bg-ui);padding:1px 5px;border-radius:2px;color:var(--text);overflow-wrap:anywhere}
+pre code{background:transparent;padding:0;border-radius:0;font-size:13px;color:inherit}
+blockquote{margin:0 0 16px;padding:12px 16px;border-left:3px solid var(--border-strong);background:var(--bg-ui);color:var(--text)}
+blockquote p:last-child{margin:0}
+table{border-collapse:collapse;width:100%;margin:0 0 24px;font-size:14px}
+th,td{border-bottom:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--bg-ui);font-weight:500;color:var(--text)}
+tbody tr:hover{background:#fafafa}
+td code{overflow-wrap:normal}
+
+/* part meta */
+.part-meta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin:-4px 0 24px;font-size:14px}
+.badge-time,.badge-mode{display:inline-flex;align-items:center;gap:6px;color:var(--text-2)}
+.badge-label{color:var(--text-3);margin-right:4px}
+.ico{width:16px;height:16px;fill:currentColor;flex:none}
+.arrow{color:var(--text-3);margin:0 6px;font-size:12px}
+.tag{display:inline-block;font-size:12px;line-height:18px;padding:0 8px;border-radius:12px;background:var(--bg-ui-hover);color:var(--text-2);font-weight:500;white-space:nowrap}
+.tag-ask{background:var(--tag-ask-bg);color:var(--tag-ask-text)}
+.tag-plan{background:var(--tag-plan-bg);color:var(--tag-plan-text)}
+.tag-agent{background:var(--tag-agent-bg);color:var(--tag-agent-text)}
+.tag-none{background:transparent;border:1px solid var(--border);color:var(--text-3)}
+
+/* code */
+.code-block,.os-tabs{margin:0 0 20px;background:var(--code-bg);color:var(--code-text);overflow:hidden}
+.code-bar{display:flex;align-items:center;justify-content:space-between;background:var(--code-bg-bar);height:36px;padding:0 0 0 16px}
+.code-lang{font-family:var(--mono);font-size:12px;color:#c6c6c6}
+.tab-list{display:flex;height:100%}
+.tab{background:transparent;color:#c6c6c6;border:0;border-bottom:2px solid transparent;padding:0 16px;font-size:13px;cursor:pointer;height:100%}
+.tab:hover{color:#fff;background:#4c4c4c}
+.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--interactive);font-weight:500}
+.copy-btn{background:transparent;color:#c6c6c6;border:0;height:100%;padding:0 16px;font-size:13px;cursor:pointer;border-left:1px solid #4c4c4c}
+.copy-btn:hover{background:#4c4c4c;color:#fff}
+.copy-btn.ok{color:#42be65}
+pre{margin:0;padding:16px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.55;tab-size:2}
+pre .c{color:var(--code-comment)}
+.os-tabs pre{display:none}
+body[data-os="mac"] .os-tabs pre[data-os="mac"]{display:block}
+body[data-os="win"] .os-tabs pre[data-os="win"]{display:block}
+.os-print-label{display:none}
+
+/* bob tile */
+.bob{margin:0 0 20px;border:1px solid var(--border);border-left:4px solid var(--interactive);background:var(--bg-ui)}
+.bob-head{display:flex;align-items:center;gap:12px;padding:8px 0 8px 16px;border-bottom:1px solid var(--border);height:40px}
+.bob-title{font-weight:500;font-size:14px}
+.bob-head .copy-btn{margin-left:auto;color:var(--interactive);border-left:1px solid var(--border);height:100%}
+.bob-head .copy-btn:hover{background:var(--bg-ui-hover);color:var(--interactive-hover)}
+.bob-prompt{background:transparent;color:var(--text);font-family:var(--font);font-size:15px;line-height:1.6;white-space:pre-wrap;word-break:break-word;padding:16px}
+.bob-ask{border-left-color:var(--tag-ask-text)}
+.bob-plan{border-left-color:#8a3ffc}
+.bob-agent{border-left-color:var(--support-success)}
+
+/* notifications */
+.notif{display:flex;gap:12px;padding:14px 16px;margin:0 0 20px;border:1px solid;border-left-width:3px}
+.notif .ico{width:20px;height:20px;margin-top:2px}
+.notif-title{font-weight:500;font-size:14px;margin-bottom:4px}
+.notif-body{flex:1;min-width:0}
+.notif-body p:last-child,.notif-body ul:last-child{margin-bottom:0}
+.notif-body ul{padding-left:20px}
+.notif-check{background:var(--success-bg);border-color:var(--support-success)}
+.notif-check .ico{fill:var(--support-success)}
+.notif-note{background:var(--warning-bg);border-color:var(--support-warning)}
+.notif-note .ico{fill:#8e6a00}
+
+/* instructor */
+details.instructor{margin:0 0 20px;border:1px solid var(--border);border-left:3px solid var(--support-error);background:var(--error-bg)}
+details.instructor summary{cursor:pointer;padding:10px 16px;font-weight:500;font-size:14px;display:flex;align-items:center;gap:8px;list-style:none}
+details.instructor summary::-webkit-details-marker{display:none}
+details.instructor summary::after{content:"開く";margin-left:auto;font-weight:300;font-size:12px;color:var(--text-2)}
+details.instructor[open] summary::after{content:"閉じる"}
+details.instructor .ico{fill:var(--support-error)}
+.instructor-body{padding:0 16px 12px;font-size:15px}
+.instructor-body p:last-child{margin-bottom:0}
+
+/* tasks */
+li.task{list-style:none;margin-left:-24px;display:flex;align-items:flex-start;gap:10px;padding:2px 0}
+li.task input{margin:5px 0 0;width:16px;height:16px;accent-color:var(--interactive);flex:none}
+li.task input:checked + label{color:var(--text-3);text-decoration:line-through}
+.part-done{margin:32px 0 0;padding:12px 16px;background:var(--bg-ui);border:1px solid var(--border);display:flex;align-items:center;font-size:14px}
+.part-done label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.part-done input{width:18px;height:18px;accent-color:var(--support-success)}
+
+footer.foot{margin-top:64px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--text-3)}
+
+/* responsive */
+@media (max-width:1311px){
+  .content{padding-left:24px;padding-right:24px}
+}
+@media (max-width:1055px){
+  .hdr .menu-btn{display:block}
+  .side{transform:translateX(-100%);transition:transform .2s;box-shadow:none}
+  body.nav-open .side{transform:none;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .side-backdrop{display:none;position:fixed;inset:var(--header-h) 0 0 0;background:rgba(22,22,22,.5);z-index:15}
+  body.nav-open .side-backdrop{display:block}
+  .content{margin-left:0;padding:calc(var(--header-h) + 24px) 16px 64px}
+  .hero h1{font-size:28px;line-height:36px}
+  h2{font-size:24px;line-height:32px;margin-top:56px}
+  h3{font-size:18px;line-height:26px}
+  .hdr .brand{font-size:13px}
+  .hdr .brand span{display:none}
+  .hdr .ghost{display:none}
+  table{display:block;overflow-x:auto}
+}
+@media (max-width:480px){
+  .hdr .audience{display:none}
+  .os-switch button{padding:0 8px;font-size:12px}
+}
+
+/* print */
+@media print{
+  .hdr,.side,.side-backdrop,.copy-btn,.tab-list,.part-done{display:none !important}
+  .content{margin:0;padding:0}
+  body{font-size:11pt;color:#000}
+  h2{break-before:page;margin-top:0;border-top:0}
+  h2:first-of-type{break-before:auto}
+  h3{break-after:avoid}
+  .os-tabs pre{display:block !important;border-top:1px solid #8d8d8d}
+  .os-tabs pre::before{content:attr(data-os);display:block;font-family:var(--font);font-size:10px;color:#a8a8a8;margin-bottom:6px;text-transform:uppercase}
+  .os-tabs pre[data-os="mac"]::before{content:"Mac / Linux (bash)"}
+  .os-tabs pre[data-os="win"]::before{content:"Windows (PowerShell)"}
+  .code-block,.os-tabs,.bob,.notif,details.instructor,table,blockquote{break-inside:avoid}
+  .os-tabs .code-bar{display:none}
+  .code-block .code-bar{height:auto;padding:4px 16px;background:#e0e0e0;color:#161616}
+  .code-block .code-lang{color:#525252}
+  pre{white-space:pre-wrap;word-break:break-all}
+  details.instructor{border-left-width:3px}
+  details.instructor summary::after,details.instructor[open] summary::after{content:""}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#525252}
+}
+</style>
+</head>
+<body data-os="mac">
+<header class="hdr">
+  <button type="button" class="menu-btn" aria-label="目次を開く"><svg viewBox="0 0 32 32"><path d="M4 6h24v2H4zm0 9h24v2H4zm0 9h24v2H4z"/></svg></button>
+  <div class="brand"><span>IBM Bob ハンズオン</span>IBM Bob で学ぶ Backend API ハンズオン（2 時間版）</div>
+  <div class="spacer"></div>
+  
+  
+  <button type="button" class="ghost reset-btn" title="進捗とチェックの記録を消す">進捗をリセット</button>
+  <div class="os-switch" role="group" aria-label="OS の選択">
+    <button type="button" data-os="mac" aria-pressed="true">Mac / Linux</button>
+    <button type="button" data-os="win" aria-pressed="false">Windows</button>
+  </div>
+</header>
+<nav class="side" aria-label="目次">
+  <div class="progress">完了したパート <span class="num">0 / 8</span><div class="bar"><i></i></div></div>
+  <ul><li data-id="intro"><a href="#intro"><span class="mark nomark"></span><span>このハンズオンについて</span></a><ul><li data-id="intro-1"><a href="#intro-1">対象者</a></li><li data-id="intro-2"><a href="#intro-2">使用技術</a></li><li data-id="intro-3"><a href="#intro-3">本書の読み方</a></li></ul></li><li data-id="part-0"><a href="#part-0"><span class="mark">✓</span><span><b>Part 0</b> 準備・イントロ</span></a><ul><li data-id="part-0-1"><a href="#part-0-1">学習目標</a></li><li data-id="part-0-2"><a href="#part-0-2">0.1 事前準備（ハンズオン開始前に済ませておくこと）</a></li><li data-id="part-0-3"><a href="#part-0-3">0.2 開始状態に切り替える</a></li><li data-id="part-0-4"><a href="#part-0-4">0.3 データベースと監視サービスを起動する</a></li><li data-id="part-0-5"><a href="#part-0-5">0.4 Backend API を起動する</a></li><li data-id="part-0-6"><a href="#part-0-6">0.5 IBM Bob でフォルダを開く</a></li></ul></li><li data-id="part-1"><a href="#part-1"><span class="mark">✓</span><span><b>Part 1</b> リバースエンジニアリング: コードから設計書を復元する</span></a><ul><li data-id="part-1-1"><a href="#part-1-1">学習目標</a></li><li data-id="part-1-2"><a href="#part-1-2">シナリオ</a></li><li data-id="part-1-3"><a href="#part-1-3">進め方（パイプライン方式）</a></li><li data-id="part-1-4"><a href="#part-1-4">プロンプトを書くときの 3 つの約束</a></li><li data-id="part-1-5"><a href="#part-1-5">1.1 API 仕様書（docs/api-spec.md）</a></li><li data-id="part-1-6"><a href="#part-1-6">1.2 アーキテクチャ概要書（docs/architecture.md）</a></li><li data-id="part-1-7"><a href="#part-1-7">1.3 基本設計書（docs/basic-design.md）</a></li><li data-id="part-1-8"><a href="#part-1-8">1.4 オンボーディングガイド（docs/onboarding.md）</a></li><li data-id="part-1-9"><a href="#part-1-9">1.5 生成物の妥当性を確かめる</a></li><li data-id="part-1-10"><a href="#part-1-10">1.6 振り返り（3 分）</a></li></ul></li><li data-id="part-2"><a href="#part-2"><span class="mark">✓</span><span><b>Part 2</b> 運用: SlowResponseTime アラート対応</span></a><ul><li data-id="part-2-1"><a href="#part-2-1">学習目標</a></li><li data-id="part-2-2"><a href="#part-2-2">シナリオ</a></li><li data-id="part-2-3"><a href="#part-2-3">2.0 アラートを発火させる（開始時に全員で）</a></li><li data-id="part-2-4"><a href="#part-2-4">2.1 アラートの確認（2 分）</a></li><li data-id="part-2-5"><a href="#part-2-5">2.2 メトリクスの確認（2 分）</a></li><li data-id="part-2-6"><a href="#part-2-6">2.3 ログの分析（3 分）</a></li><li data-id="part-2-7"><a href="#part-2-7">2.4 原因の特定（3 分）</a></li></ul></li><li data-id="part-3"><a href="#part-3"><span class="mark">✓</span><span><b>Part 3</b> 保守 A: 遅延除去とコネクションプール枯渇</span></a><ul><li data-id="part-3-1"><a href="#part-3-1">学習目標</a></li><li data-id="part-3-2"><a href="#part-3-2">シナリオ</a></li><li data-id="part-3-3"><a href="#part-3-3">3.1 修正前の並列負荷（Before）（3 分）</a></li><li data-id="part-3-4"><a href="#part-3-4">3.2 遅延コードの除去（3 分）</a></li><li data-id="part-3-5"><a href="#part-3-5">3.3 修正後の並列負荷（After）（2 分）</a></li><li data-id="part-3-6"><a href="#part-3-6">3.4 なぜ「トランザクションの中で待ってはいけない」のか（2 分）</a></li><li data-id="part-3-7"><a href="#part-3-7">3.5 回帰テスト（2 分）</a></li></ul></li><li data-id="part-4"><a href="#part-4"><span class="mark">✓</span><span><b>Part 4</b> 保守 B: N+1 問題の検出と修正</span></a><ul><li data-id="part-4-1"><a href="#part-4-1">学習目標</a></li><li data-id="part-4-2"><a href="#part-4-2">シナリオ</a></li><li data-id="part-4-3"><a href="#part-4-3">4.1 現象の確認: SQL は何本出ているか（3 分）</a></li><li data-id="part-4-4"><a href="#part-4-4">4.2 修正方針の相談（3 分）</a></li><li data-id="part-4-5"><a href="#part-4-5">4.3 修正の実装と確認（5 分）</a></li><li data-id="part-4-6"><a href="#part-4-6">4.4 回帰テスト（2 分）</a></li><li data-id="part-4-7"><a href="#part-4-7">4.5 もう 1 つの性能問題: ページサイズの上限（5 分）</a></li></ul></li><li data-id="part-5"><a href="#part-5"><span class="mark">✓</span><span><b>Part 5</b> 開発: 契約キャンセル API</span></a><ul><li data-id="part-5-1"><a href="#part-5-1">学習目標</a></li><li data-id="part-5-2"><a href="#part-5-2">シナリオ</a></li><li data-id="part-5-3"><a href="#part-5-3">5.1 API 設計（3 分）</a></li><li data-id="part-5-4"><a href="#part-5-4">5.2 DTO・マイグレーション・エンティティ（5 分）</a></li><li data-id="part-5-5"><a href="#part-5-5">5.3 例外ハンドラ（2 分）</a></li><li data-id="part-5-6"><a href="#part-5-6">5.4 Service と Controller（4 分）</a></li><li data-id="part-5-7"><a href="#part-5-7">5.5 テストと E2E（6 分）</a></li></ul></li><li data-id="part-6"><a href="#part-6"><span class="mark">✓</span><span><b>Part 6</b> Vue.js フロントエンド: ログインと契約ダッシュボード</span></a><ul><li data-id="part-6-1"><a href="#part-6-1">学習目標</a></li><li data-id="part-6-2"><a href="#part-6-2">シナリオ</a></li><li data-id="part-6-3"><a href="#part-6-3">6.1 骨組みの把握（3 分）</a></li><li data-id="part-6-4"><a href="#part-6-4">6.2 ログイン画面（5 分）</a></li><li data-id="part-6-5"><a href="#part-6-5">6.3 ダッシュボード（10 分）</a></li><li data-id="part-6-6"><a href="#part-6-6">6.4 仕上げ（4 分）</a></li></ul></li><li data-id="part-7"><a href="#part-7"><span class="mark">✓</span><span><b>Part 7</b> まとめ</span></a><ul><li data-id="part-7-1"><a href="#part-7-1">2 時間で体験したこと</a></li><li data-id="part-7-2"><a href="#part-7-2">Bob の使いどころ</a></li><li data-id="part-7-3"><a href="#part-7-3">次のステップ</a></li><li data-id="part-7-4"><a href="#part-7-4">環境の片付け</a></li></ul></li><li data-id="appendix"><a href="#appendix"><span class="mark nomark"></span><span>付録</span></a><ul><li data-id="appendix-1"><a href="#appendix-1">付録 A — 前提条件と推奨環境</a></li><li data-id="appendix-2"><a href="#appendix-2">付録 B — ポートと URL 一覧</a></li><li data-id="appendix-3"><a href="#appendix-3">付録 C — プロンプト集（再利用テンプレート）</a></li><li data-id="appendix-4"><a href="#appendix-4">付録 D — Part 1 生成物の「必ず含まれるべき項目」チェックリスト</a></li><li data-id="appendix-5"><a href="#appendix-5">付録 E — トラブルシューティング</a></li><li data-id="appendix-6"><a href="#appendix-6">付録 F — 発展課題</a></li></ul></li></ul>
+</nav>
+<div class="side-backdrop"></div>
+<main class="content"><div class="inner">
+<div class="hero">
+  <div class="eyebrow">IBM Bob ハンズオン</div>
+  <h1>IBM Bob で学ぶ Backend API ハンズオン <b>（2 時間版）</b></h1>
+  <div class="sub">生命保険契約管理システム — 配属 1 週目のエンジニアになる</div>
+  <div class="ver">2026-09-30 版</div>
+</div>
+<h2 id="intro">このハンズオンについて</h2>
+
+<p>あなたは今日、生命保険契約管理システムの Backend API チームに配属されました。設計書は残っていません。運用チームからはアラートが上がり、保守案件と新機能の要望が積まれ、フロントエンドは骨組みのまま止まっています。</p>
+<p>この 2 時間で、IBM Bob と一緒に「配属 1 週目のエンジニア」がやることを一通り体験します。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>パート</th>
+<th>時間</th>
+<th>Bob のモード</th>
+<th>ここでできるようになること</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>準備・イントロ</td>
+<td>8 分</td>
+<td>—</td>
+<td>環境を起動し、Bob の 3 つのモードを使い分ける</td>
+</tr>
+<tr>
+<td>1</td>
+<td>リバースエンジニアリング</td>
+<td>25 分</td>
+<td>Ask → Agent</td>
+<td>設計書のないコードから 4 つの設計文書を復元し、生成物をレビューする</td>
+</tr>
+<tr>
+<td>2</td>
+<td>運用: SlowResponseTime アラート対応</td>
+<td>10 分</td>
+<td>Ask</td>
+<td>アラート → メトリクス → ログ → コードの順に原因を絞り込む</td>
+</tr>
+<tr>
+<td>3</td>
+<td>保守 A: 遅延除去とコネクションプール</td>
+<td>12 分</td>
+<td>Agent → Ask</td>
+<td>遅延コードを除き、並列負荷で HikariCP の挙動を Before / After で比べる</td>
+</tr>
+<tr>
+<td>4</td>
+<td>保守 B: N+1 問題の検出と修正</td>
+<td>18 分</td>
+<td>Ask → Plan → Agent</td>
+<td>SQL の「本数」で性能問題を測り、一括取得に直す</td>
+</tr>
+<tr>
+<td>5</td>
+<td>開発: 契約キャンセル API</td>
+<td>20 分</td>
+<td>Plan → Agent</td>
+<td>DTO / Flyway / Service / Controller / テスト / E2E を Bob と進める</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Vue.js フロントエンド</td>
+<td>22 分</td>
+<td>Ask → Plan → Agent</td>
+<td>ログイン → 顧客情報と契約一覧の 1 画面ダッシュボードを実装する</td>
+</tr>
+<tr>
+<td>7</td>
+<td>まとめ</td>
+<td>5 分</td>
+<td>—</td>
+<td>Bob の使いどころと、人間が確認すべきことを整理する</td>
+</tr>
+<tr>
+<td></td>
+<td>合計</td>
+<td>120 分</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="intro-1">対象者</h3>
+
+<ul>
+<li>IT エンジニア（Java 経験の有無は問いません。Spring Boot / REST API / データベースの基礎知識があると理解が早くなります）</li>
+<li>IBM Bob IDE の基本操作（フォルダを開く、チャットに入力する）ができる方</li>
+</ul>
+<h3 id="intro-2">使用技術</h3>
+
+<p>Java 21 / Spring Boot 3.2.5 / PostgreSQL 15 / Flyway / Hibernate / HikariCP / Prometheus + AlertManager + Grafana / Vite + Vue 3 + vue-router / IBM Bob</p>
+<h3 id="intro-3">本書の読み方</h3>
+
+<ul>
+<li>コードブロックは <strong>Mac/Linux（bash）</strong> と <strong>Windows（PowerShell）</strong> の 2 つを必ず対で載せています。HTML 版では上部のタブで OS を選ぶと、ページ全体の表示が切り替わります</li>
+<li>「Bob に依頼」の枠には、使うモード（Ask / Plan / Agent）とプロンプトの全文を載せています。そのままコピーして Bob のチャットに貼り付けてください</li>
+<li><strong>チェックポイント</strong>（緑の枠）には、次の手順へ進む前に満たしておく状態を箇条書きにしています。1 つでも満たしていなければ、その節の手順に戻ってください。<strong>注意</strong>（黄の枠）は、環境やコマンドでつまずきやすい点の補足です</li>
+</ul>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p><strong>Windows の注意</strong>: PowerShell の <code>curl</code> は <code>Invoke-WebRequest</code> のエイリアスで、<code>-H</code> や <code>-d</code> などの curl オプションは使えません。<code>jq</code> も標準では入っていません。本書の <code>powershell</code> ブロックは <code>Invoke-WebRequest</code> / <code>Invoke-RestMethod</code> / <code>ConvertFrom-Json</code> だけで書いてあります。<code>bash</code> ブロックを Windows で実行しないでください。</p></div></div>
+<h2 id="part-0">Part 0 — 準備・イントロ</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 8 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-none">Bob は使わない</span></span></div>
+<h3 id="part-0-1">学習目標</h3>
+
+<ul>
+<li>ハンズオン環境（PostgreSQL / Prometheus / AlertManager / Grafana / Backend API）を起動できる</li>
+<li>IBM Bob でフォルダを開き、Ask / Plan / Agent の 3 つのモードを切り替えられる</li>
+</ul>
+<h3 id="part-0-2">0.1 事前準備（ハンズオン開始前に済ませておくこと）</h3>
+
+<p>次のソフトウェアが導入済みであることを確認してください。導入されていない場合は講師に連絡してください。</p>
+<table>
+<thead>
+<tr>
+<th>ソフトウェア</th>
+<th>確認コマンド</th>
+<th>期待する結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java 21</td>
+<td><code>java -version</code></td>
+<td><code>openjdk version "21.x.x"</code></td>
+</tr>
+<tr>
+<td>Maven 3.8 以上</td>
+<td><code>mvn -version</code></td>
+<td><code>Apache Maven 3.8.x</code> 以上</td>
+</tr>
+<tr>
+<td>Docker Desktop または Rancher Desktop</td>
+<td><code>docker --version</code> / <code>docker info</code></td>
+<td>バージョンが表示され、<code>docker info</code> がエラーにならない</td>
+</tr>
+<tr>
+<td>Node.js 20 LTS 以上</td>
+<td><code>node -v</code></td>
+<td><code>v20.x.x</code> 以上（22 / 24 LTS でも可）</td>
+</tr>
+<tr>
+<td>git</td>
+<td><code>git --version</code></td>
+<td>バージョンが表示される</td>
+</tr>
+<tr>
+<td>IBM Bob IDE</td>
+<td>起動できる</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Mac/Linux のみ</strong> curl と jq</td>
+<td><code>jq --version</code></td>
+<td>バージョンが表示される（<code>brew install jq</code>）</td>
+</tr>
+</tbody>
+</table>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">java -version
+mvn -version
+docker --version
+node -v
+git --version
+jq --version</code></pre><pre data-os="win"><code class="lang-powershell">java -version
+mvn -version
+docker --version
+node -v
+git --version</code></pre></div>
+<p>フロントエンド（Part 6）の依存パッケージ <code>frontend/node_modules</code> は、会場のネットワークに左右されないよう <strong>配布物に同梱してあります</strong>（Mac Apple シリコン / Intel、Windows x64 用）。次のコマンドで Vite が動くことだけ確認してください。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">cd frontend
+npx vite --version   # 例: vite/6.x.x（`npm install` は不要）
+cd ..</code></pre><pre data-os="win"><code class="lang-powershell">cd frontend
+npx vite --version   # 例: vite/6.x.x（`npm install` は不要）
+cd ..</code></pre></div>
+<p>バージョンが表示されない（<code>Cannot find module</code> や <code>esbuild</code> のエラーが出る）ときだけ、<code>frontend/</code> で <code>npm install</code> を実行します。npm のバージョンによっては <code>frontend/package-lock.json</code> が書き換わり <code>git status</code> に出ますが、問題ありません（0.2 で <code>git checkout -- frontend/package-lock.json</code> として戻しても構いません）。</p>
+<h3 id="part-0-3">0.2 開始状態に切り替える</h3>
+
+<p>このリポジトリは git のブランチで「開始状態」を持っています。受講者は開始状態 <code>handson-start</code> から作業を始め、やり直すときも同じブランチに戻します。</p>
+<table>
+<thead>
+<tr>
+<th>ブランチ</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>handson-start</code></td>
+<td>受講者の開始状態。設計書なし（<code>docs/</code> は空）、契約キャンセル API 未実装、<code>frontend/</code> は骨組みのみ</td>
+</tr>
+</tbody>
+</table>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">cd /path/to/JavaBackend101
+git checkout -B work handson-start
+rm -rf backend-api/target      # 古い jar が残っていると be_start がそれを使ってしまう
+git status --short   # 何も表示されなければ OK</code></pre><pre data-os="win"><code class="lang-powershell">cd C:\path\to\JavaBackend101
+git checkout -B work handson-start
+Remove-Item backend-api\target -Recurse -Force -ErrorAction SilentlyContinue   # 古い jar が残っていると be_start がそれを使ってしまう
+git status --short   # 何も表示されなければ OK</code></pre></div>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>やり直したくなったら、まず <code>git checkout -- .</code> と <code>git clean -fd docs backend-api frontend</code> で作業ツリーの変更を捨ててから <code>git checkout -B work handson-start</code> を実行します（<code>git checkout -B</code> だけでは編集中のファイルや生成した設計書は残ります）。続けて <code>backend-api/target</code> を削除し、0.3 で必ず <code>--reset</code> / <code>-Reset</code> を付けて DB を作り直してください（古い jar と Flyway の適用履歴が残るため）。</p></div></div>
+<h3 id="part-0-4">0.3 データベースと監視サービスを起動する</h3>
+
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./db_start.sh --reset</code></pre><pre data-os="win"><code class="lang-powershell">.\db_start.ps1 -Reset</code></pre></div>
+<p>このスクリプトは、Docker の起動確認 → PostgreSQL のデータボリューム削除（<code>--reset</code> 時）→ PostgreSQL / Prometheus / AlertManager の起動 → ヘルスチェック待ち、を行います。</p>
+<h3 id="part-0-5">0.4 Backend API を起動する</h3>
+
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./be_start.sh</code></pre><pre data-os="win"><code class="lang-powershell">.\be_start.ps1</code></pre></div>
+<p>このスクリプトは Grafana も含めて依存関係順にコンテナを起動し、Backend API の jar がなければ Maven でビルドしてから <code>insurance-backend-api</code> コンテナを起動します（初回はビルドに数分かかります）。最後に「起動成功！」と URL 一覧が表示されれば完了です。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">curl -s http://localhost:52080/actuator/health
+<span class="c"># 期待: {"status":"UP", ...}</span></code></pre><pre data-os="win"><code class="lang-powershell">Invoke-RestMethod -Uri http://localhost:52080/actuator/health
+<span class="c"># 期待: status 列が UP（status と components の 2 列の表で表示される）</span></code></pre></div>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li><code>docker ps</code> に insurance-postgres / insurance-prometheus / insurance-alertmanager / insurance-grafana / insurance-backend-api の 5 つが表示される</li>
+<li><code>http://localhost:52080/actuator/health</code> が <code>UP</code> を返す</li>
+<li><code>docs/</code> フォルダが空である（<code>.gitkeep</code> のみ）</li>
+</ul></div></div>
+<h3 id="part-0-6">0.5 IBM Bob でフォルダを開く</h3>
+
+<ol>
+<li>IBM Bob IDE で <code>JavaBackend101</code> フォルダを開きます。初めて開くフォルダは <strong>制限モード</strong> で開き、Bob を含む拡張機能が無効のままです。上部の帯の「管理」を押して <strong>「信頼する」</strong> を選んでください（右側に Bob のパネルが現れれば OK）</li>
+<li>Bob のチャットパネルを開きます</li>
+<li>チャット入力欄の <strong>モード切り替え</strong>（ドロップダウン）を確認します</li>
+</ol>
+<p>IBM Bob には 3 つのモードがあります。本書ではパートごとに使うモードを指定します。</p>
+<table>
+<thead>
+<tr>
+<th>モード</th>
+<th>何をするか</th>
+<th>本書での使いどころ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ask</strong></td>
+<td>質問に答え、コードを説明する。ファイルは変更しない</td>
+<td>調査・分析・レビュー（Part 1, 2, 3, 4）</td>
+</tr>
+<tr>
+<td><strong>Plan</strong></td>
+<td>要件を分析し、調査して実装手順を設計する</td>
+<td>実装前の方針決め（Part 4, 5, 6）</td>
+</tr>
+<tr>
+<td><strong>Agent</strong></td>
+<td>計画を実装に落とす。ファイルの編集とコマンド実行ができる</td>
+<td>ファイル生成・コード修正・テスト（Part 1, 3, 4, 5, 6）</td>
+</tr>
+</tbody>
+</table>
+<p>切り替えはチャット欄のドロップダウン、またはキーボードショートカット（macOS <code>⌘ + .</code> / Windows <code>Ctrl + .</code>、押すたびに順に切り替わる）で行います。Bob 自身がタスクの進み具合に応じてモードの切り替えを提案することもあります。</p>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>Web 上の古い資料には <code>/ask</code> <code>/plan</code> <code>/code</code> というスラッシュ表記が出てきますが、これは旧表記で、旧 Code モードは Agent モードに置き換わっています。本書ではモード名で指定します。</p></div></div>
+<p>本書を進めるうえで、Bob の画面で知っておくことが 4 つあります。</p>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><ul>
+<li><strong>各 Part の冒頭で新しいタスクを開始する</strong>（Bob パネル上部の「＋」、macOS <code>⌘N</code> / Windows <code>Ctrl+N</code>）。1 つのタスクで続けるとコンテキストが上限（270k トークン）に近づき、応答が遅く不正確になります（実測: Part 0〜2 を続けると 219k）</li>
+<li>複数行のプロンプトを貼り付けると、入力欄では「貼り付けテキスト #1 - N 行」というチップに畳まれます。そのまま送信して構いません</li>
+<li>Agent モードがコマンドを実行するとき「承認待ちのツール」と表示されることがあります。内容を確認して <strong>承認</strong>（一度だけ承認 / このタスクで承認）を押すと続行します。ファイルを書いた後は入力欄の上に「N 個のファイルが変更されました（すべて元に戻す / すべて表示）」が出ますが、ファイルは保存済みなのでそのまま次へ進めます</li>
+<li>Plan モードは計画を <code>docs/</code> のファイルに書き出し、途中で選択肢つきの確認質問をすることがあります。本書のプロンプトでは <strong>1 つ目の選択肢</strong>（本書の方針と同じもの）を選んでください</li>
+</ul></div></div>
+<p>最初の一言として、Bob にこのリポジトリを説明させてみましょう。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">このリポジトリの構成を教えてください。README.md と AGENTS.md、docker-compose.yml を読んで、
+どんなサービスが定義されていて、実際にソースコードがあるのはどれか、
+起動に使うスクリプトは何か、を箇条書きで説明してください。</pre></div>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li>Bob が <code>backend-api/</code> と <code>frontend/</code> の存在、<code>docker-compose.yml</code> のサービス一覧、<code>db_start</code> / <code>be_start</code> などのスクリプトに触れた回答を返す</li>
+<li>Ask モードではファイルが変更されない（<code>git status --short</code> が空のまま）</li>
+</ul></div></div>
+<div class="part-done" data-part="part-0"><label><input type="checkbox" class="part-done-box" data-part="part-0"><span>「Part 0」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-1">Part 1 — リバースエンジニアリング: コードから設計書を復元する</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 25 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-ask">Ask</span><span class="arrow">→</span><span class="tag tag-agent">Agent</span></span></div>
+<h3 id="part-1-1">学習目標</h3>
+
+<ul>
+<li>設計書がないシステムを、Bob を使ってコードから理解できる</li>
+<li>API 仕様書・アーキテクチャ概要書・基本設計書・オンボーディングガイドの 4 文書を <code>docs/</code> に生成できる</li>
+<li><strong>生成物をレビューして、誤りや根拠のない記述を見つけられる</strong>（このハンズオン全体で最も大切な姿勢です）</li>
+</ul>
+<h3 id="part-1-2">シナリオ</h3>
+
+<blockquote>
+<p>前任者はこのシステムの設計書を残さずに異動しました。あなたが最初にやるべきことは、コードを読んで設計書を復元し、チームが同じ理解に立てるようにすることです。ただし、Bob が書いたものを鵜呑みにしてはいけません。</p>
+</blockquote>
+<h3 id="part-1-3">進め方（パイプライン方式）</h3>
+
+<p>4 文書を 1 つずつ順番に「依頼 → 待つ → レビュー」すると 25 分に収まりません。<strong>Bob が次の文書を生成している間に、前の文書をレビューする</strong>流れで進めます。</p>
+<table>
+<thead>
+<tr>
+<th>時間</th>
+<th>Bob</th>
+<th>あなた</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0〜3 分</td>
+<td>—</td>
+<td>講師の状況説明を聞く。<code>docs/</code> が空であることを確認</td>
+</tr>
+<tr>
+<td>3〜8 分</td>
+<td>API 仕様書を生成</td>
+<td>生成を待つ間に、<code>controller/</code> のファイル名とエンドポイントをざっと眺める</td>
+</tr>
+<tr>
+<td>8〜13 分</td>
+<td>アーキテクチャ概要書を生成</td>
+<td><strong>API 仕様書をレビュー</strong></td>
+</tr>
+<tr>
+<td>13〜18 分</td>
+<td>基本設計書を生成</td>
+<td><strong>アーキテクチャ概要書をレビュー</strong></td>
+</tr>
+<tr>
+<td>18〜21 分</td>
+<td>オンボーディングガイドを生成</td>
+<td><strong>基本設計書をレビュー</strong></td>
+</tr>
+<tr>
+<td>21〜25 分</td>
+<td>妥当性確認の質問に回答</td>
+<td>オンボーディングガイドをレビュー、振り返り</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-1-4">プロンプトを書くときの 3 つの約束</h3>
+
+<p>本パートのプロンプトはすべて次の方針で書いてあります。自分でプロンプトを書くときも守ってください。</p>
+<ol>
+<li><strong>入力ファイルのパスを明示する</strong> — Bob に「何を読むか」を任せない</li>
+<li><strong>出力の見出し構成を固定する</strong> — 生成物の粒度が受講者ごとにばらつかないようにする</li>
+<li><strong>「コードに書かれていないことは推測せず『不明』と書く」を必ず入れる</strong> — 根拠のない記述を防ぐ</li>
+</ol>
+<h3 id="part-1-5">1.1 API 仕様書（<code>docs/api-spec.md</code>）</h3>
+
+<p>Ask モードで分析させてから、Agent モードに切り替えてファイルに書き出させます。Agent モードは Edit / Execute のツールを持つので、慣れてきたら分析からファイル生成まで 1 つのプロンプトで任せても構いません。</p>
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">次のファイルを読んで、この Backend API の API 仕様書を docs/api-spec.md に Markdown で作成してください。
+
+入力:
+- backend-api/src/main/java/com/insurance/controller/*.java
+- backend-api/src/main/java/com/insurance/dto/*.java
+- backend-api/src/main/java/com/insurance/config/SecurityConfig.java
+- backend-api/src/main/java/com/insurance/exception/GlobalExceptionHandler.java
+
+出力の見出し構成（この順で）:
+1. 概要（ベース URL、ポート、認証方式）
+2. 認証（ログイン API と JWT の使い方、認証不要のパス）
+3. エンドポイント一覧（表: メソッド / パス / 認証要否 / 概要）
+4. 各エンドポイントの詳細（リクエストパラメータ、ページング、レスポンス JSON の構造、ステータスコード）
+5. エラーレスポンスの形式（GlobalExceptionHandler が返す JSON と対応する例外）
+6. 不明点・要確認事項
+
+ルール:
+- コードに書かれていないことは推測せず「不明」と書くこと
+- レスポンス JSON の項目名は DTO のフィールド名をそのまま使うこと
+- 存在しないエンドポイントを書かないこと</pre></div>
+<p><strong>レビュー観点</strong>（生成を待つ間に次の文書を依頼し、戻ってきてから確認します）</p>
+<ul>
+<li class="task"><input type="checkbox" id="task-1" data-task="1"><label for="task-1">エンドポイント一覧が <code>controller/</code> の <code>@GetMapping</code> / <code>@PostMapping</code> / <code>@PutMapping</code> と 1 対 1 で一致している</label></li>
+<li class="task"><input type="checkbox" id="task-2" data-task="2"><label for="task-2"><code>POST /api/policies/{id}/cancel</code> が <strong>書かれていない</strong>（開始状態では未実装。書かれていたら Bob の推測です）</label></li>
+<li class="task"><input type="checkbox" id="task-3" data-task="3"><label for="task-3">契約一覧のレスポンスが <code>content</code> と <code>pageInfo</code>（<code>page</code> / <code>size</code> / <code>totalElements</code> / <code>totalPages</code>）で説明されている</label></li>
+<li class="task"><input type="checkbox" id="task-4" data-task="4"><label for="task-4"><code>size</code> パラメータに上限が <strong>ない</strong> ことが読み取れる（Part 4 で扱います）</label></li>
+<li class="task"><input type="checkbox" id="task-5" data-task="5"><label for="task-5">認証不要のパスが <code>SecurityConfig</code> の設定と一致している</label></li>
+</ul>
+<h3 id="part-1-6">1.2 アーキテクチャ概要書（<code>docs/architecture.md</code>）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">次のファイルを読んで、このシステムのアーキテクチャ概要書を docs/architecture.md に Markdown で作成してください。
+
+入力:
+- backend-api/pom.xml
+- backend-api/src/main/resources/application.yml
+- backend-api/src/main/resources/logback-spring.xml
+- docker-compose.yml
+- monitoring/prometheus.yml, monitoring/prometheus-alerts.yml, monitoring/alertmanager.yml
+- monitoring/grafana/dashboards/insurance-system.json（パネル名だけで良い）
+- backend-api/src/main/java/com/insurance/security/*.java
+- backend-api/src/main/java/com/insurance/filter/*.java
+- backend-api/src/main/java/com/insurance/config/*.java
+
+出力の見出し構成（この順で）:
+1. システム構成（docker-compose.yml のサービス一覧と、それぞれの実体がこのリポジトリにあるかどうか）
+2. レイヤ構成（Controller / Service / Repository / Entity の責務。Mermaid の図を 1 つ）
+3. 認証と認可の流れ（JWT の発行と検証。Mermaid のシーケンス図を 1 つ）
+4. 監視スタック（メトリクスの公開経路、定義されているアラートの一覧と閾値、Grafana のパネル）
+5. ログ（形式、出力先、リクエストログに含まれる項目）
+6. 設定値の一覧（ポート、コネクションプール、JPA の設定と、その設定が意味すること）
+7. 不明点・要確認事項
+
+ルール:
+- コードや設定に書かれていないことは推測せず「不明」と書くこと
+- docker-compose.yml に定義があってもソースコードのディレクトリが存在しないサービスは、その旨を明記すること</pre></div>
+<p><strong>レビュー観点</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-6" data-task="6"><label for="task-6"><code>docker-compose.yml</code> の <code>bff</code> / <code>frontend</code> サービスに <strong>実体（ソースディレクトリ）がない</strong> ことを指摘できているか（<code>frontend/</code> は Vue の骨組みで、compose の <code>frontend</code> サービス定義とは別物です）</label></li>
+<li class="task"><input type="checkbox" id="task-7" data-task="7"><label for="task-7">HikariCP <code>maximum-pool-size: 10</code>、<code>open-in-view: false</code>、<code>ddl-auto: validate</code> に触れているか</label></li>
+<li class="task"><input type="checkbox" id="task-8" data-task="8"><label for="task-8"><code>SlowResponseTime</code>（3 秒 / 30 秒継続）や <code>DatabaseConnectionPoolHigh</code>（70%）などのアラートが閾値付きで書かれているか</label></li>
+<li class="task"><input type="checkbox" id="task-9" data-task="9"><label for="task-9"><code>org.hibernate.SQL: DEBUG</code> / <code>BasicBinder: TRACE</code> というログ設定が「本番では過剰」と気づけるか（Bob が指摘していなければ、あなたが追記してください）</label></li>
+</ul>
+<h3 id="part-1-7">1.3 基本設計書（<code>docs/basic-design.md</code>）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">次のファイルを読んで、この Backend API の基本設計書を docs/basic-design.md に Markdown で作成してください。
+
+入力:
+- backend-api/src/main/java/com/insurance/entity/*.java
+- backend-api/src/main/java/com/insurance/enums/*.java
+- backend-api/src/main/resources/db/migration/*.sql
+- backend-api/src/main/java/com/insurance/repository/*.java
+- backend-api/src/main/java/com/insurance/service/*.java
+
+出力の見出し構成（この順で）:
+1. データモデル（ER 図を Mermaid で 1 つ。テーブル間の参照関係は外部キー列から読み取る）
+2. テーブル定義（テーブルごとに列名 / 型 / 制約 / 説明。マイグレーションの版と対応づける）
+3. 契約（policy）のステータスと遷移（status 列に入り得る値と、それを変更するコードの有無）
+4. 保険料（premium）の払込状況の導出ルール（PolicyService を読んで、lastPaidDate / nextDueDate / paymentStatus がどう決まるか）
+5. サービス層の処理概要（メソッドごとに、読み取り専用か更新か、トランザクション境界）
+6. マイグレーション運用上の制約（ddl-auto: validate と Flyway の関係、版番号の付け方）
+7. 不明点・要確認事項
+
+ルール:
+- コードに書かれていないことは推測せず「不明」と書くこと
+- エンティティが JPA の関連（@OneToMany など）を持つかどうかを事実として書くこと</pre></div>
+<p><strong>レビュー観点</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-10" data-task="10"><label for="task-10">エンティティが JPA の関連を持たず、<code>customerId</code> / <code>policyId</code> を <code>Long</code> で保持していることが書かれているか</label></li>
+<li class="task"><input type="checkbox" id="task-11" data-task="11"><label for="task-11"><code>Policy.status</code> が enum ではなく <code>String</code> であることが書かれているか</label></li>
+<li class="task"><input type="checkbox" id="task-12" data-task="12"><label for="task-12">マイグレーションの版に V12 が <strong>ない</strong>（V11 の次が V13）ことに気づけているか</label></li>
+<li class="task"><input type="checkbox" id="task-13" data-task="13"><label for="task-13">払込状況のルール（未払いがあれば <code>DUE</code>、なければ <code>PAID_UP</code>、保険料レコードがなければ <code>NO_PREMIUM</code>）が <code>PolicyService.applyPaymentStatus</code> のとおりに書かれているか</label></li>
+</ul>
+<h3 id="part-1-8">1.4 オンボーディングガイド（<code>docs/onboarding.md</code>）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">次のファイルと、docs/ にある 3 つの文書を読んで、新しくチームに加わったエンジニア向けのオンボーディングガイドを docs/onboarding.md に Markdown で作成してください。
+
+入力:
+- README.md, AGENTS.md, LOGIN_INFO.md, frontend/README.md
+- *.sh と *.ps1（スクリプトの目的と使い方）
+- .env（値は書かず、キー名と役割だけ）
+- docs/api-spec.md, docs/architecture.md, docs/basic-design.md
+
+出力の見出し構成（この順で）:
+1. 初日にやること（環境構築から Backend API の起動確認まで、順番どおり）
+2. ポート一覧
+3. スクリプト一覧（名前 / 目的 / Mac と Windows の実行方法）
+4. テストアカウント
+5. 開発の流れ（コードを直したあと反映するまでの手順、テストの実行方法、マイグレーションの追加方法）
+6. よくあるハマりどころ（README の トラブルシューティングから）
+7. 参考文書（docs/ の 3 文書へのリンク）
+
+ルール:
+- ファイルに書かれていないことは推測せず「不明」と書くこと
+- .env の値（パスワードや秘密鍵）を本文に書かないこと</pre></div>
+<p><strong>レビュー観点</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-14" data-task="14"><label for="task-14">「コードを直したら <code>be_build</code> で反映する」「<code>be_start</code> は起動済みコンテナを触らない」が書かれているか</label></li>
+<li class="task"><input type="checkbox" id="task-15" data-task="15"><label for="task-15">「ポート 52080 を握るプロセスを kill しない」という注意が引き継がれているか</label></li>
+<li class="task"><input type="checkbox" id="task-16" data-task="16"><label for="task-16"><code>.env</code> の秘密鍵などの <strong>値が本文に漏れていない</strong> か</label></li>
+</ul>
+<h3 id="part-1-9">1.5 生成物の妥当性を確かめる</h3>
+
+<p>Bob に、自分の生成物を疑わせる質問を投げます。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">docker-compose.yml に定義されているサービスのうち、このリポジトリにソースコードの実体がないものはどれですか。
+また、docs/architecture.md にその点が正しく書かれているか確認して、
+書かれていなければ修正案を示してください（ファイルは変更しないでください）。</pre></div>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">docs/api-spec.md に書かれているエンドポイントを 1 つずつ backend-api/src/main/java/com/insurance/controller/ の実装と突き合わせて、
+実装に存在しないエンドポイント、または実装にあるのに仕様書にないエンドポイントを挙げてください。</pre></div>
+<p>指摘があれば、生成物を <strong>自分の手で</strong> 修正します（Agent モードに任せても構いませんが、差分は必ず自分で読んでください）。</p>
+<h3 id="part-1-10">1.6 振り返り（3 分）</h3>
+
+<p>隣の人と、Bob の生成物で「正しかった点」と「間違っていた・根拠がなかった点」を 1 つずつ共有してください。</p>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li><code>docs/</code> に <code>api-spec.md</code> / <code>architecture.md</code> / <code>basic-design.md</code> / <code>onboarding.md</code> の 4 ファイルがある</li>
+<li>4 文書のいずれかに、あなたが自分で直した箇所が少なくとも 1 つある</li>
+<li><code>git status --short</code> で <code>docs/</code> の 4 ファイルが追加されている（他のファイルは変更されていない）</li>
+</ul></div></div>
+<div class="part-done" data-part="part-1"><label><input type="checkbox" class="part-done-box" data-part="part-1"><span>「Part 1」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-2">Part 2 — 運用: SlowResponseTime アラート対応</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 10 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-ask">Ask</span></span></div>
+<h3 id="part-2-1">学習目標</h3>
+
+<ul>
+<li>Prometheus のアラートを確認し、Actuator メトリクス → JSON ログ → コードの順に原因を絞り込める</li>
+<li>Part 1 で自分が書いた <code>docs/onboarding.md</code> / <code>docs/architecture.md</code> を運用ドキュメントとして使える</li>
+</ul>
+<h3 id="part-2-2">シナリオ</h3>
+
+<blockquote>
+<p>運用チームから連絡が来ました。「契約一覧が遅いとお客様から苦情が来ている。Prometheus でも <code>SlowResponseTime</code> が鳴っている」。あなたは原因を特定して、保守チーム（次のパートのあなた）に引き継ぎます。</p>
+</blockquote>
+<h3 id="part-2-3">2.0 アラートを発火させる（開始時に全員で）</h3>
+
+<p><code>SlowResponseTime</code> は「<code>/api/</code> 配下の平均レスポンスタイムが 3 秒を超える状態が 30 秒続く」と発火します（<code>monitoring/prometheus-alerts.yml</code>）。負荷生成スクリプトを <strong>新しいターミナル</strong> で起動し、そのまま動かしておきます。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash"><span class="c"># 新しいターミナルを開いて実行（Ctrl+C で停止）</span>
+./continuous_load.sh</code></pre><pre data-os="win"><code class="lang-powershell"><span class="c"># 新しい PowerShell ウィンドウを開いて実行（Ctrl+C で停止）</span>
+.\continuous_load.ps1</code></pre></div>
+<p>このスクリプトは yamada@example.com でログインし、15 秒ごとに契約一覧 API（<code>GET /api/customers/1/policies</code>）を 10 回呼びます。各リクエストのレスポンスタイムが表示されるので、<strong>約 3.5 秒</strong> かかっていることを確認してください。</p>
+<h3 id="part-2-4">2.1 アラートの確認（2 分）</h3>
+
+<p>負荷生成の開始から 1〜2 分後（実測 77 秒）に、アラートが <code>firing</code> になります。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">curl -s http://localhost:52090/api/v1/alerts | jq '.data.alerts[] | select(.labels.alertname=="SlowResponseTime") | {state, value, uri: .labels.uri}'</code></pre><pre data-os="win"><code class="lang-powershell">$alerts = (Invoke-RestMethod -Uri http://localhost:52090/api/v1/alerts).data.alerts
+$alerts | Where-Object { $_.labels.alertname -eq "SlowResponseTime" } | Select-Object state, value, @{n="uri"; e={$_.labels.uri}} | Format-List</code></pre></div>
+<p>期待する出力（値は環境によって前後します。<code>value</code> は Prometheus が返す指数表記で、Mac / Windows とも <code>3.51...e+00</code> のように表示されます）:</p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">json</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-json">{
+  "state": "firing",
+  "value": "3.5103389421428566e+00",
+  "uri": "/api/customers/{customerId}/policies"
+}</code></pre></div>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p><code>state</code> が <code>pending</code> のときは、まだ 30 秒経過していません。<code>firing</code> になるまで待ってください（1〜2 分）。何も表示されない場合は、負荷生成スクリプトが動いているか、Backend API が起動しているかを確認してください。</p></div></div>
+<p>Bob にアラート定義を読ませます。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">monitoring/prometheus-alerts.yml の SlowResponseTime アラートについて、
+発火条件（式・閾値・継続時間）と、どのラベルでエンドポイントを識別しているかを説明してください。
+また、同じファイルに定義されている他のレスポンスタイム系アラートとの違いも教えてください。</pre></div>
+<h3 id="part-2-5">2.2 メトリクスの確認（2 分）</h3>
+
+<p>Actuator から、対象エンドポイントのメトリクスを直接読みます。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">curl -s 'http://localhost:52080/actuator/metrics/http.server.requests?tag=uri:/api/customers/%7BcustomerId%7D/policies' | jq '.measurements'</code></pre><pre data-os="win"><code class="lang-powershell">(Invoke-RestMethod -Uri "http://localhost:52080/actuator/metrics/http.server.requests?tag=uri:/api/customers/%7BcustomerId%7D/policies").measurements
+<span class="c"># Actuator の JSON（Content-Type が vnd.spring-boot.actuator.v3+json）は Invoke-WebRequest だと Byte[] で返るため Invoke-RestMethod を使う</span></code></pre></div>
+<p><code>COUNT</code>（回数）と <code>TOTAL_TIME</code>（合計秒）から、1 回あたりの平均が 3.5 秒前後であることを確認します。<code>MAX</code> も見てください。</p>
+<p>Grafana でも確認します。ブラウザで <code>http://localhost:52091</code> を開き（初回は admin / admin、パスワード変更はスキップ可）、ダッシュボード <strong>Insurance System Monitoring</strong> の「HTTP Request Duration (95th percentile)」パネルを見ます。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/main/resources/application.yml の management 設定を確認して、
+どのメトリクスが Prometheus に公開されているか教えてください。
+レスポンスタイムの問題を調査するとき、http.server.requests 以外に見るべきメトリクスは何ですか。</pre></div>
+<h3 id="part-2-6">2.3 ログの分析（3 分）</h3>
+
+<p>Backend API のログは JSON 形式で <code>backend-api/logs/backend-api.log</code> に出ています（コンテナからホストにバインドマウント）。リクエストごとに <code>Request completed: method=..., uri=..., status=..., duration=...ms</code> という行があります。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash"><span class="c"># 直近のログ</span>
+tail -20 backend-api/logs/backend-api.log
+
+<span class="c"># 3 秒以上かかったリクエストを抽出</span>
+grep "Request completed" backend-api/logs/backend-api.log | \
+  jq -r 'select(.message | test("duration=[0-9]+ms")) | select((.message | capture("duration=(?&lt;d&gt;[0-9]+)ms").d | tonumber) &gt; 3000) | [."@timestamp", (.message | capture("uri=(?&lt;u&gt;[^,]+)").u), (.message | capture("duration=(?&lt;d&gt;[0-9]+)ms").d)] | @tsv' | tail -10</code></pre><pre data-os="win"><code class="lang-powershell"><span class="c"># 直近のログ</span>
+Get-Content backend-api/logs/backend-api.log -Tail 20
+
+<span class="c"># 3 秒以上かかったリクエストを抽出</span>
+Get-Content backend-api/logs/backend-api.log |
+  Where-Object { $_ -match "Request completed" } |
+  ConvertFrom-Json |
+  Where-Object { $_.message -match "duration=(\d+)ms" -and [int]$Matches[1] -gt 3000 } |
+  ForEach-Object {
+    $null = $_.message -match "uri=([^,]+)"; $uri = $Matches[1]
+    $null = $_.message -match "duration=(\d+)ms"; $duration = $Matches[1]
+    [PSCustomObject]@{ Timestamp = $_.'@timestamp'; Uri = $uri; DurationMs = $duration }
+  } | Select-Object -Last 10</code></pre></div>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/logs/backend-api.log を分析して、レスポンスタイムが遅いエンドポイントを特定してください。
+「Request completed」の行の duration に注目し、3 秒以上かかっているリクエストの URI と件数をまとめてください。</pre></div>
+<h3 id="part-2-7">2.4 原因の特定（3 分）</h3>
+
+<p>ここまでで「<code>GET /api/customers/{customerId}/policies</code> が毎回 3.5 秒前後かかる」ところまで絞れました。コードを読ませます。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/main/java/com/insurance/service/PolicyService.java の getPoliciesByCustomerId メソッドを読んで、
+レスポンスタイムが 3 秒を超える直接の原因を特定してください。
+また、それ以外にも性能上の懸念があれば挙げてください（この時点では修正しないでください）。</pre></div>
+<p>期待される発見:</p>
+<ul>
+<li><code>Thread.sleep(3500)</code> が <code>@Transactional(readOnly = true)</code> のメソッドの中にある（直接の原因）</li>
+<li>契約ごとに <code>premiumRepository.findByPolicyIdOrderByDueDateDesc</code> を呼んでいる（Part 4 で扱う N+1）</li>
+<li><code>size</code> パラメータに上限がない（Part 4 の後半で扱う）</li>
+</ul>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li><code>SlowResponseTime</code> が <code>firing</code> であることを Prometheus API で確認した</li>
+<li>ログから、遅いのは <code>/api/customers/{customerId}/policies</code> だけであることを確認した</li>
+<li>原因が <code>PolicyService.getPoliciesByCustomerId</code> の <code>Thread.sleep(3500)</code> であることを Bob の回答とコードの両方で確認した</li>
+</ul></div></div>
+<p>負荷生成スクリプトは <strong>動かしたまま</strong> 次のパートへ進みます（修正後の変化を見るため）。</p>
+<div class="part-done" data-part="part-2"><label><input type="checkbox" class="part-done-box" data-part="part-2"><span>「Part 2」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-3">Part 3 — 保守 A: 遅延除去とコネクションプール枯渇</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 12 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-agent">Agent</span><span class="arrow">→</span><span class="tag tag-ask">Ask</span></span></div>
+<h3 id="part-3-1">学習目標</h3>
+
+<ul>
+<li>Bob の Agent モードで問題コードを修正し、<code>be_build</code> で反映して回帰テストまで通せる</li>
+<li>「トランザクションの中で時間のかかる処理をすると、DB 接続を握り続ける」ことを HikariCP のメトリクスで Before / After 比較できる</li>
+</ul>
+<h3 id="part-3-2">シナリオ</h3>
+
+<blockquote>
+<p>原因は <code>Thread.sleep(3500)</code> でした。ただ、運用チームはもう 1 つ気になることを言っています。「遅いだけでなく、アクセスが重なると <code>DatabaseConnectionPoolHigh</code> も鳴ることがある」。遅延を取り除く前に、その現象も再現しておきましょう。</p>
+</blockquote>
+<h3 id="part-3-3">3.1 修正前の並列負荷（Before）（3 分）</h3>
+
+<p>Part 2 の <code>continuous_load</code> を <strong>Ctrl+C で停止</strong> してから、並列負荷スクリプトを実行します。同時 20 リクエストを送り、送信前・送信 1 秒後・送信後の HikariCP の状態（active / pending / idle）を表示します。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./parallel_load.sh</code></pre><pre data-os="win"><code class="lang-powershell">.\parallel_load.ps1</code></pre></div>
+<p>講師環境での実測（Mac）では次のようになりました。</p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">HikariCP: active=0 pending=0 idle=... (送信前)
+HikariCP: active=10 pending=10 idle=0 (送信 1 秒後)
+Request  1: HTTP 200 (35xx ms)
+...
+Request 20: HTTP 200 (70xx ms)
+HikariCP: active=0 pending=0 (送信後)
+所要時間（全 20 件完了まで）: 7 秒</code></pre></div>
+<p>読み方:</p>
+<ul>
+<li><code>maximum-pool-size: 10</code> なので、同時 20 件のうち 10 件が接続を取り、残り 10 件は <strong>接続待ち（pending=10）</strong> になる</li>
+<li>待たされた 10 件は先行 10 件の sleep（3.5 秒）が終わってから処理されるため、全体で 3.5 秒 × 2 波 ≈ 7 秒かかる</li>
+<li>つまり <code>@Transactional</code> の中の sleep は、<strong>その間ずっと DB 接続を握っている</strong></li>
+</ul>
+<p>Prometheus でも同じことが見えます。<code>http://localhost:52090/graph?g0.expr=hikaricp_connections_pending</code> を開き、直近の山を確認してください。Grafana の「Database Connection Pool」パネルでも構いません。</p>
+<h3 id="part-3-4">3.2 遅延コードの除去（3 分）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/main/java/com/insurance/service/PolicyService.java の getPoliciesByCustomerId メソッドにある
+意図的な遅延（Thread.sleep(3500) を含む try/catch ブロック）をコメントアウトしてください。
+ブロックを削除せず、コメントアウトで残してください（差分を読みやすくするため）。
+それ以外のロジックは変更せず、コンパイルが通ることを確認してください。</pre></div>
+<p>Bob の差分を確認してから、ビルドしてコンテナに反映します。</p>
+<ul>
+<li class="task"><input type="checkbox" id="task-17" data-task="17"><label for="task-17"><code>Thread.sleep(3500)</code> を含む try/catch がコメントアウトされている（削除されていない）</label></li>
+<li class="task"><input type="checkbox" id="task-18" data-task="18"><label for="task-18">他の行が変更されていない（<code>git diff</code> で確認）</label></li>
+</ul>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">git diff backend-api/src/main/java/com/insurance/service/PolicyService.java
+./be_build.sh</code></pre><pre data-os="win"><code class="lang-powershell">git diff backend-api/src/main/java/com/insurance/service/PolicyService.java
+.\be_build.ps1</code></pre></div>
+<p><code>be_build</code> は <code>mvn clean package -DskipTests</code> → Docker イメージ更新 → <code>insurance-backend-api</code> コンテナの再作成 → ヘルスチェック待ち、まで行います。</p>
+<h3 id="part-3-5">3.3 修正後の並列負荷（After）（2 分）</h3>
+
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./parallel_load.sh</code></pre><pre data-os="win"><code class="lang-powershell">.\parallel_load.ps1</code></pre></div>
+<p>講師環境での実測では、送信 1 秒後に <code>active=0 pending=0</code>、20 件すべてが 1 秒未満で完了しました（Windows: 各 232〜421 ms、全件 0.4 秒）。</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>Before（sleep あり）</th>
+<th>After（sleep なし）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>送信 1 秒後の HikariCP</td>
+<td>active 10 / pending 10</td>
+<td>active 0 / pending 0</td>
+</tr>
+<tr>
+<td>20 件完了までの時間</td>
+<td>7 秒（3.5 秒の波が 2 回）</td>
+<td>1 秒未満（Windows 実測 0.4 秒）</td>
+</tr>
+<tr>
+<td>1 リクエストのレスポンスタイム</td>
+<td>3.5 秒以上（11 件目以降は 7 秒台）</td>
+<td>数百 ms（同時 20 件なので単発の数十 ms より長い。Windows 実測 232〜421 ms）</td>
+</tr>
+</tbody>
+</table>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>Windows の <code>parallel_load.ps1</code> は 20 ms 刻みで完了を確認するため、表示される時間は実際より最大 20 ms ほど大きく出ます。見るのは <strong>pending が 0</strong> と <strong>20 件が 1 秒未満</strong> の 2 点です。Before では 1〜10 件目が約 3.8 秒、11〜20 件目が約 7.3 秒と、プール上限 10 で 2 波に分かれるのが読み取れます。</p></div></div>
+<p><code>SlowResponseTime</code> は 1 分間の平均で評価されるため、修正後に負荷をかけ続けても数分以内に解消します。確認したい場合は <code>continuous_load</code> を再度起動し、Prometheus の Alerts 画面で <code>SlowResponseTime</code> が消えるのを見てください。</p>
+<h3 id="part-3-6">3.4 なぜ「トランザクションの中で待ってはいけない」のか（2 分）</h3>
+
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">Spring の @Transactional(readOnly = true) が付いたメソッドの中で Thread.sleep や外部 API 呼び出しのような時間のかかる処理を行うと、
+HikariCP のコネクションプールに何が起きますか。今回の parallel_load の結果（同時 20 件で active=10 / pending=10）と結びつけて説明してください。
+また、application.yml の spring.jpa.open-in-view: false は、この問題とどう関係しますか。</pre></div>
+<p>期待される回答のポイント:</p>
+<ul>
+<li>トランザクション開始時に接続を取得し、メソッドを抜けるまで返さない。sleep 中も接続は占有される</li>
+<li>プールが埋まると後続のリクエストは <code>connection-timeout</code>（30 秒）まで待たされる。待ちが積み上がると <code>DatabaseConnectionTimeout</code> アラートに至る</li>
+<li><code>open-in-view: false</code> は「HTTP リクエスト全体ではなく、サービス層のトランザクション境界でだけ接続を持つ」設定。<code>true</code> だとビューの描画中まで接続を握るため、この問題がさらに広がる</li>
+</ul>
+<h3 id="part-3-7">3.5 回帰テスト（2 分）</h3>
+
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./be_test.sh</code></pre><pre data-os="win"><code class="lang-powershell">.\be_test.ps1</code></pre></div>
+<p><code>PolicyServiceTest</code> の 9 件が通ることを確認します。</p>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li>修正前の <code>parallel_load</code> で <code>pending</code> が 0 より大きくなり、修正後は 0 になった</li>
+<li><code>PolicyService.java</code> の sleep ブロックがコメントアウトされ、<code>be_build</code> が成功した</li>
+<li><code>be_test</code> で <code>PolicyServiceTest</code> が全件成功した</li>
+</ul></div></div>
+<div class="part-done" data-part="part-3"><label><input type="checkbox" class="part-done-box" data-part="part-3"><span>「Part 3」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-4">Part 4 — 保守 B: N+1 問題の検出と修正</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 18 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-ask">Ask</span><span class="arrow">→</span><span class="tag tag-plan">Plan</span><span class="arrow">→</span><span class="tag tag-agent">Agent</span></span></div>
+<h3 id="part-4-1">学習目標</h3>
+
+<ul>
+<li>「1 リクエストで SQL が何本発行されたか」を Hibernate の Session Metrics で測れる</li>
+<li>アプリ層の N+1（契約ごとに保険料を取りに行く実装）を、一括取得に直せる</li>
+<li>ページサイズの上限がない API の危うさを体験し、クランプを入れられる</li>
+</ul>
+<h3 id="part-4-2">シナリオ</h3>
+
+<blockquote>
+<p>Part 2 で Bob が「契約ごとに保険料を取っている」と指摘していました。契約が 5 件の山田さんでは気になりませんが、契約を 300 件持つお客様（デモ 四郎 / demo@example.com）の一覧は、遅いだけでなく DB にも負荷をかけています。今回は「体感」ではなく「SQL の本数」で問題を測ります。</p>
+</blockquote>
+<h3 id="part-4-3">4.1 現象の確認: SQL は何本出ているか（3 分）</h3>
+
+<p>デモ顧客でログインし、契約一覧を <code>size=200</code> で取得します。<code>customerId</code> はログイン応答から取ります。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">DEMO=$(curl -s -X POST http://localhost:52080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"demo@example.com","password":"Password1"}')
+TOKEN=$(echo "$DEMO" | jq -r '.token')
+CID=$(echo "$DEMO" | jq -r '.customerId')
+echo "customerId=$CID"
+
+curl -s -o /dev/null -w 'HTTP %{http_code}  %{time_total}s  %{size_download} bytes\n' \
+  -H "Authorization: Bearer $TOKEN" \
+  "http://localhost:52080/api/customers/$CID/policies?size=200"</code></pre><pre data-os="win"><code class="lang-powershell">$demo = Invoke-RestMethod -Uri http://localhost:52080/api/auth/login -Method POST `
+  -ContentType "application/json" -Body '{"email":"demo@example.com","password":"Password1"}'
+$token = $demo.token
+$cid = $demo.customerId
+"customerId=$cid"
+
+$sw = [System.Diagnostics.Stopwatch]::StartNew()
+$response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:52080/api/customers/$cid/policies?size=200" -Headers @{ Authorization = "Bearer $token" }
+$sw.Stop()
+"HTTP $($response.StatusCode)  $($sw.Elapsed.TotalSeconds)s  $($response.RawContentLength) bytes"</code></pre></div>
+<p>次に、このリクエストで発行された SQL の本数を確認します。Backend API は Hibernate の統計を有効にしており（<code>hibernate.generate_statistics: true</code>）、トランザクションが終わるたびに <strong>Session Metrics</strong> をログに出します。Prometheus のスクレイプ（15 秒ごと）も SQL 1 本のセッションを大量に書くため、<strong>最後の 1 行ではなく直近 30 セッションの最大値</strong> を取ります。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">grep '"logger_name":"org.hibernate.engine.internal.StatisticalLoggingSessionEventListener"' backend-api/logs/backend-api.log \
+  | tail -30 | jq -r '.message' | grep -oE 'executing [0-9]+ JDBC statements' | sort -k2 -n | tail -1</code></pre><pre data-os="win"><code class="lang-powershell">Get-Content backend-api/logs/backend-api.log |
+  Where-Object { $_ -match 'StatisticalLoggingSessionEventListener' } |
+  Select-Object -Last 30 | ConvertFrom-Json |
+  ForEach-Object { $_.message -split "`n" } |
+  Where-Object { $_ -match 'executing (\d+) JDBC statements' } |
+  Sort-Object { [int]([regex]::Match($_, 'executing (\d+) JDBC').Groups[1].Value) } |
+  Select-Object -Last 1</code></pre></div>
+<p>講師環境での実測（Mac / Windows とも、修正前）:</p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">executing 202 JDBC statements</code></pre></div>
+<p><strong>契約 200 件の一覧を返すために SQL が 202 本</strong> 発行されています（一覧 1 本 + 件数 1 本 + 契約ごとに保険料 1 本 × 200）。</p>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>ローカルの Docker では DB がすぐ隣にいるため、202 本でも SQL の合計実行時間は数十 ms（講師環境での実測で 24〜37 ms）で、レスポンスタイムだけを見ていると気づきません。本番のようにアプリと DB がネットワーク越しにある環境では、この本数がそのまま遅延になります。だから <strong>本数で測ります</strong>。</p></div></div>
+<p>Prometheus にも <code>hibernate_statements_total{status="prepared"}</code> などの <code>hibernate_*</code> メトリクスが出ています。<code>http://localhost:52090/graph?g0.expr=rate(hibernate_statements_total[1m])</code> で、リクエストのたびに跳ねることを確認できます。</p>
+<p>Bob に原因を分析させます。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/main/java/com/insurance/service/PolicyService.java の getPoliciesByCustomerId は、
+契約 200 件を返すときに SQL を 202 本発行しています。
+どのコードが原因で、なぜ契約の件数に比例して SQL が増えるのかを説明してください。
+backend-api/src/main/java/com/insurance/repository/PremiumRepository.java も読んで、
+既存のメソッドで修正に使えそうなものがあれば挙げてください（この時点では修正しないでください）。</pre></div>
+<h3 id="part-4-4">4.2 修正方針の相談（3 分）</h3>
+
+<p>Plan モードに切り替えて、直し方を相談します。</p>
+<div class="bob bob-plan"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-plan">Plan</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">PolicyService.getPoliciesByCustomerId の N+1 問題を修正する計画を立ててください。
+
+制約:
+- レスポンス（PolicySummary の lastPaidDate / nextDueDate / paymentStatus）の値は変えないこと。導出ロジック applyPaymentStatus はそのまま使うこと
+- PolicyServiceTest（backend-api/src/test/java/com/insurance/service/PolicyServiceTest.java）が修正後も通ること
+- エンティティに JPA の関連を追加しないこと
+
+検討してほしい案:
+(a) 一覧に含まれる契約 ID をまとめて PremiumRepository.findByPolicyIdIn で取得し、メモリ上で契約 ID ごとにグループ化する
+(b) 契約 ID ごとの最新保険料を GROUP BY で集計するクエリを Repository に追加する
+
+それぞれの SQL 本数、実装量、既存テストへの影響を比較して、どちらを採るか提案してください。</pre></div>
+<p>期待される比較:</p>
+<table>
+<thead>
+<tr>
+<th>案</th>
+<th>SQL 本数（契約 200 件）</th>
+<th>実装量</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(a) <code>findByPolicyIdIn</code> + メモリ上でグループ化</td>
+<td>3 本（一覧 + count + 保険料 1 本）</td>
+<td>小。既存メソッドを使うだけ</td>
+<td>保険料 12 件 × 200 = 2,400 行を読むが、ローカルでは十分速い</td>
+</tr>
+<tr>
+<td>(b) <code>GROUP BY policy_id</code> の集計クエリ</td>
+<td>3 本</td>
+<td>中。Repository に JPQL/ネイティブクエリを追加</td>
+<td>読む行数は減るが、<code>applyPaymentStatus</code> に渡す形に詰め直す必要がある</td>
+</tr>
+<tr>
+<td>Fetch Join / <code>@BatchSize</code></td>
+<td>—</td>
+<td>—</td>
+<td>エンティティに関連がないので <strong>今回は使えない</strong></td>
+</tr>
+</tbody>
+</table>
+<p>本書では <strong>(a)</strong> を採ります（Bob が (b) を提案した場合、理由を確認したうえで (a) を選び直して構いません）。Plan モードは計画を <code>docs/</code>（例: <code>docs/n1-fix-plan.md</code>）に書き出し、「案 (a) で呼び出し側のみ修正でよいか」のような確認をすることがあります。1 つ目の選択肢を選んで進めてください。</p>
+<h3 id="part-4-5">4.3 修正の実装と確認（5 分）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">先ほどの計画の (a) 案で PolicyService.getPoliciesByCustomerId の N+1 問題を修正してください。
+
+- 一覧に含まれる契約の ID を集め、PremiumRepository.findByPolicyIdIn で保険料をまとめて取得する
+- 取得した保険料を契約 ID ごとに Map にグループ化し、既存の applyPaymentStatus に渡す
+- 契約が 0 件のときは Repository を呼ばない
+- 契約ごとに findByPolicyIdOrderByDueDateDesc を呼ぶコードは削除する
+- レスポンスの内容は変えない
+- 変更後、mvn -q test -Dtest=PolicyServiceTest を実行して全件成功することを確認する</pre></div>
+<p>差分を確認してから反映します。</p>
+<ul>
+<li class="task"><input type="checkbox" id="task-19" data-task="19"><label for="task-19">ループの中で Repository を呼んでいない</label></li>
+<li class="task"><input type="checkbox" id="task-20" data-task="20"><label for="task-20"><code>findByPolicyIdIn</code> の結果を <code>policyId</code> でグループ化している</label></li>
+<li class="task"><input type="checkbox" id="task-21" data-task="21"><label for="task-21"><code>applyPaymentStatus</code> は変更されていない</label></li>
+</ul>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">git diff backend-api/src/main/java/com/insurance/service/PolicyService.java
+./be_build.sh</code></pre><pre data-os="win"><code class="lang-powershell">git diff backend-api/src/main/java/com/insurance/service/PolicyService.java
+.\be_build.ps1</code></pre></div>
+<p>4.1 と同じリクエストを送り、Session Metrics を再確認します。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">curl -s -o /dev/null -w 'HTTP %{http_code}  %{time_total}s\n' \
+  -H "Authorization: Bearer $TOKEN" \
+  "http://localhost:52080/api/customers/$CID/policies?size=200"
+
+grep '"logger_name":"org.hibernate.engine.internal.StatisticalLoggingSessionEventListener"' backend-api/logs/backend-api.log \
+  | tail -30 | jq -r '.message' | grep -oE 'executing [0-9]+ JDBC statements' | sort -k2 -n | tail -1</code></pre><pre data-os="win"><code class="lang-powershell">$response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:52080/api/customers/$cid/policies?size=200" -Headers @{ Authorization = "Bearer $token" }
+"HTTP $($response.StatusCode)"
+
+Get-Content backend-api/logs/backend-api.log |
+  Where-Object { $_ -match 'StatisticalLoggingSessionEventListener' } |
+  Select-Object -Last 30 | ConvertFrom-Json |
+  ForEach-Object { $_.message -split "`n" } |
+  Where-Object { $_ -match 'executing (\d+) JDBC statements' } |
+  Sort-Object { [int]([regex]::Match($_, 'executing (\d+) JDBC').Groups[1].Value) } |
+  Select-Object -Last 1</code></pre></div>
+<p>講師環境での実測（Mac、修正後）: <strong>3 JDBC statements</strong>。202 本 → 3 本です。</p>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>上のコマンドは直近 30 セッションの最大値を取ります。<code>be_build</code> でコンテナを再作成した直後は、修正前の 202 本のセッションがまだ 30 件の中に残っていることがあります。その場合は 15〜30 秒待つか、リクエストをもう 1 回送ってから再実行してください（修正後は最大値が 3 になります）。</p></div></div>
+<h3 id="part-4-6">4.4 回帰テスト（2 分）</h3>
+
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./be_test.sh</code></pre><pre data-os="win"><code class="lang-powershell">.\be_test.ps1</code></pre></div>
+<p><code>PolicyServiceTest</code> には払込状況のテストが 4 件含まれています（<code>getPoliciesByCustomerId_PaymentStatus_PaidUp</code> / <code>_Due</code> / <code>_Overdue_IsDue</code> / <code>_NoPremium</code>）。修正前後のどちらの実装でも通るように書かれているので、<strong>レスポンスの内容を変えずに</strong> 直せたことの証明になります。</p>
+<h3 id="part-4-7">4.5 もう 1 つの性能問題: ページサイズの上限（5 分）</h3>
+
+<p>契約一覧の <code>size</code> に上限がありません。極端な値を投げてみます。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">curl -s -o /dev/null -w 'HTTP %{http_code}  %{time_total}s  %{size_download} bytes\n' \
+  -H "Authorization: Bearer $TOKEN" \
+  "http://localhost:52080/api/customers/$CID/policies?size=100000"</code></pre><pre data-os="win"><code class="lang-powershell">$sw = [System.Diagnostics.Stopwatch]::StartNew()
+$response = Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:52080/api/customers/$cid/policies?size=100000" -Headers @{ Authorization = "Bearer $token" }
+$sw.Stop()
+"HTTP $($response.StatusCode)  $($sw.Elapsed.TotalSeconds)s  $($response.RawContentLength) bytes"</code></pre></div>
+<p>契約 300 件がそのまま返ります（この顧客は 300 件しかないため実害はありませんが、数万件の顧客がいれば 1 リクエストでメモリと帯域を食いつぶします）。</p>
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">PolicyService.getPoliciesByCustomerId で、size パラメータを 1 以上 100 以下にクランプしてください
+（100 を超える指定は 100 として扱い、0 以下は 1 として扱う）。
+上限値は定数 MAX_PAGE_SIZE として定義してください。
+PolicyController は変更しないでください。
+変更後、mvn -q test -Dtest=PolicyServiceTest を実行して全件成功することを確認してください。</pre></div>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./be_build.sh
+curl -s -H "Authorization: Bearer $TOKEN" \
+  "http://localhost:52080/api/customers/$CID/policies?size=100000" | jq '{size: .pageInfo.size, count: (.content | length), totalElements: .pageInfo.totalElements}'
+<span class="c"># 期待: {"size": 100, "count": 100, "totalElements": 300}</span></code></pre><pre data-os="win"><code class="lang-powershell">.\be_build.ps1
+$r = Invoke-RestMethod -Uri "http://localhost:52080/api/customers/$cid/policies?size=100000" -Headers @{ Authorization = "Bearer $token" }
+[PSCustomObject]@{ size = $r.pageInfo.size; count = $r.content.Count; totalElements = $r.pageInfo.totalElements }
+<span class="c"># 期待: size 100, count 100, totalElements 300</span></code></pre></div>
+<p>最後に、ログ設定を Bob にレビューさせます（修正はしません。座学です）。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/main/resources/application.yml の logging.level にある
+org.hibernate.SQL: DEBUG と org.hibernate.type.descriptor.sql.BasicBinder: TRACE は、本番環境で有効にしても良い設定ですか。
+性能とセキュリティ（ログに残る情報）の両面から評価し、本番向けの推奨設定を提案してください。</pre></div>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li>契約 200 件の一覧で Session Metrics の JDBC statements が 202 → 3 になった</li>
+<li><code>PolicyServiceTest</code> が全件成功した</li>
+<li><code>size=100000</code> を指定しても 100 件に丸められる</li>
+</ul></div></div>
+<div class="part-done" data-part="part-4"><label><input type="checkbox" class="part-done-box" data-part="part-4"><span>「Part 4」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-5">Part 5 — 開発: 契約キャンセル API</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 20 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-plan">Plan</span><span class="arrow">→</span><span class="tag tag-agent">Agent</span></span></div>
+<h3 id="part-5-1">学習目標</h3>
+
+<ul>
+<li>新しい REST エンドポイントを、設計 → DTO / マイグレーション / エンティティ → 例外処理 → Service / Controller → テスト → E2E の順に Bob と実装できる</li>
+<li><code>ddl-auto: validate</code> の環境では <strong>エンティティ変更に Flyway マイグレーションが必須</strong> であることを体験する</li>
+</ul>
+<h3 id="part-5-2">シナリオ</h3>
+
+<blockquote>
+<p>企画部門から新機能の要望です。「お客様がマイページから契約を解約できるようにしたい」。まずは Backend API に契約キャンセルのエンドポイントを追加します。</p>
+</blockquote>
+<p><strong>業務ルール</strong></p>
+<ol>
+<li><code>ACTIVE</code> な契約だけキャンセルできる</li>
+<li>キャンセル時に契約のステータスを <code>CANCELLED</code> にする</li>
+<li>キャンセル日時とキャンセル理由を記録する</li>
+</ol>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p><strong>マイグレーションの版番号は V14 です。</strong> このリポジトリの Flyway 履歴は V1〜V11 と V13（デモデータ）で、V12 は欠番です。欠番を埋めるように V12 を作ると、Flyway の <code>validate</code> が「適用済みの V13 より古い未適用マイグレーションがある」と判断して起動に失敗します。必ず <strong>V14</strong> を使ってください。</p></div></div>
+<h3 id="part-5-3">5.1 API 設計（3 分）</h3>
+
+<div class="bob bob-plan"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-plan">Plan</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">契約キャンセル API を実装したいです。以下の要件を満たす RESTful API を設計してください。
+
+要件:
+- エンドポイント: POST /api/policies/{id}/cancel
+- リクエストボディ: { "reason": "キャンセル理由" }（必須、最大 500 文字）
+- レスポンス: 更新後の契約情報（既存の PolicyDetailResponse）
+- 業務ルール: ACTIVE な契約のみキャンセル可。CANCELLED に変更し、cancelled_at と cancelled_reason を記録する
+- エラー: 契約が見つからない → 404、ACTIVE でない → 400
+
+制約:
+- 既存のコード構造（Controller / Service / Repository / DTO / GlobalExceptionHandler）に従うこと
+- ddl-auto: validate のため、Policy エンティティに列を追加するなら Flyway マイグレーション V14__add_policy_cancellation_fields.sql が必要
+- 変更するファイルの一覧と、各ファイルで何をするかを示してください。まだ実装はしないでください</pre></div>
+<p>期待される設計:</p>
+<table>
+<thead>
+<tr>
+<th>ファイル</th>
+<th>変更内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dto/CancelPolicyRequest.java</code>（新規）</td>
+<td><code>reason</code>（<code>@NotBlank</code>、<code>@Size(max = 500)</code>）</td>
+</tr>
+<tr>
+<td><code>db/migration/V14__add_policy_cancellation_fields.sql</code>（新規）</td>
+<td><code>policy</code> に <code>cancelled_at TIMESTAMP</code>、<code>cancelled_reason VARCHAR(500)</code></td>
+</tr>
+<tr>
+<td><code>entity/Policy.java</code></td>
+<td><code>cancelledAt</code> / <code>cancelledReason</code> を追加</td>
+</tr>
+<tr>
+<td><code>exception/GlobalExceptionHandler.java</code></td>
+<td><code>IllegalStateException</code> → 400</td>
+</tr>
+<tr>
+<td><code>service/PolicyService.java</code></td>
+<td><code>cancelPolicy(Long id, String reason)</code></td>
+</tr>
+<tr>
+<td><code>controller/PolicyController.java</code></td>
+<td><code>POST /api/policies/{id}/cancel</code></td>
+</tr>
+<tr>
+<td><code>test/.../PolicyServiceTest.java</code></td>
+<td>正常系 1 件 + 異常系 3 件</td>
+</tr>
+</tbody>
+</table>
+<p>Bob の計画はこの表と多少ずれます（実測では <code>GlobalExceptionHandler</code> とテストを含まない 5 ファイルで、400 は既存の <code>IllegalArgumentException</code> ハンドラの再利用を提案しました）。例外ハンドラは 5.3 で、テストは 5.5 で個別に依頼するので、ここでは差を気にせず先へ進みます。Plan モードの確認質問は実行のたびに変わります（実測: Windows「<code>PolicyDetailResponse</code> に <code>cancelledAt</code> を含めるか」、Mac「400 用に新しい例外クラスを作るか、既存の <code>IllegalArgumentException</code> を再利用するか」）。5.2〜5.4 のプロンプトが具体的なので、<strong>どちらを選んでも先に進めます</strong>（迷ったら 1 つ目）。</p>
+<h3 id="part-5-4">5.2 DTO・マイグレーション・エンティティ（5 分）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">契約キャンセル API の下準備として、次の 3 つを作成・修正してください。
+
+1. backend-api/src/main/java/com/insurance/dto/CancelPolicyRequest.java を新規作成
+   - reason フィールド（String、@NotBlank、@Size(max = 500)）
+   - 既存の DTO（LoginRequest など）と同じ Lombok の使い方に合わせる
+
+2. backend-api/src/main/resources/db/migration/V14__add_policy_cancellation_fields.sql を新規作成
+   - ALTER TABLE policy ADD COLUMN cancelled_at TIMESTAMP;
+   - ALTER TABLE policy ADD COLUMN cancelled_reason VARCHAR(500);
+   - 版番号は必ず V14（V12 は使わない）
+
+3. backend-api/src/main/java/com/insurance/entity/Policy.java に次のフィールドを追加
+   - cancelledAt（LocalDateTime、nullable、@Column(name = "cancelled_at")）
+   - cancelledReason（String、nullable、length = 500、@Column(name = "cancelled_reason")）
+   - 既存フィールドのアノテーションの書き方に合わせる</pre></div>
+<ul>
+<li class="task"><input type="checkbox" id="task-22" data-task="22"><label for="task-22"><code>CancelPolicyRequest</code> に <code>@NotBlank</code> と <code>@Size(max = 500)</code> がある</label></li>
+<li class="task"><input type="checkbox" id="task-23" data-task="23"><label for="task-23">マイグレーションのファイル名が <code>V14__</code> で始まっている</label></li>
+<li class="task"><input type="checkbox" id="task-24" data-task="24"><label for="task-24"><code>Policy</code> の新フィールドに <code>@Column(name = ...)</code> がある</label></li>
+</ul>
+<p>ビルドしてマイグレーションを適用します。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./be_build.sh
+docker compose logs backend-api | grep -i 'flyway\|migrat' | tail -5</code></pre><pre data-os="win"><code class="lang-powershell">.\be_build.ps1
+docker compose logs backend-api | Select-String -Pattern 'flyway|migrat' | Select-Object -Last 5</code></pre></div>
+<p>ログに <code>Successfully applied 1 migration to schema "public", now at version v14</code> が出ていれば成功です。</p>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p><code>be_build</code> 後にコンテナが起動しない（ヘルスチェックがタイムアウトする）場合は、<code>docker compose logs --tail=100 backend-api</code> を見てください。<code>Schema-validation: missing column</code> はエンティティにあってマイグレーションにない列がある、<code>Detected resolved migration not applied to database</code> は版番号の問題（V12 を作ってしまった）です。</p></div></div>
+<h3 id="part-5-5">5.3 例外ハンドラ（2 分）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/main/java/com/insurance/exception/GlobalExceptionHandler.java に
+IllegalStateException のハンドラを追加してください。
+
+- メソッド名: handleIllegalStateException
+- @ExceptionHandler(IllegalStateException.class)
+- HTTP ステータス: 400 Bad Request
+- レスポンス: 既存のハンドラと同じ ErrorResponse（message には例外メッセージをそのまま入れる）
+- ログレベル: WARN
+- 既存のハンドラ（ResourceNotFoundException など）と同じ書き方に合わせる</pre></div>
+<h3 id="part-5-6">5.4 Service と Controller（4 分）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">契約キャンセル API の本体を実装してください。
+
+1. backend-api/src/main/java/com/insurance/service/PolicyService.java に cancelPolicy(Long id, String reason) を追加
+   - 契約を ID で取得。なければ ResourceNotFoundException("Policy not found with id: " + id)
+   - status が "ACTIVE" でなければ IllegalStateException（メッセージに現在のステータスを含める）
+   - status を "CANCELLED" に変更し、cancelledAt に現在日時、cancelledReason に reason を設定して保存
+   - @Transactional（読み取り専用ではない）
+   - 保存後の Policy を返す
+
+2. backend-api/src/main/java/com/insurance/controller/PolicyController.java に POST /api/policies/{id}/cancel を追加
+   - リクエストボディ: @Valid @RequestBody CancelPolicyRequest
+   - レスポンス: 200 OK と PolicyDetailResponse（既存の getPolicyById を使って組み立ててよい）
+   - 既存のエンドポイントと同様に @Timed を付ける
+
+既存のコードスタイル（Lombok、ResponseEntity の返し方、ログ）に合わせてください。</pre></div>
+<ul>
+<li class="task"><input type="checkbox" id="task-25" data-task="25"><label for="task-25"><code>cancelPolicy</code> に <code>@Transactional</code> が付いている（<code>readOnly = true</code> ではない）</label></li>
+<li class="task"><input type="checkbox" id="task-26" data-task="26"><label for="task-26"><code>ACTIVE</code> 以外で <code>IllegalStateException</code> を投げている</label></li>
+<li class="task"><input type="checkbox" id="task-27" data-task="27"><label for="task-27">Controller が <code>@Valid</code> で <code>CancelPolicyRequest</code> を検証している</label></li>
+</ul>
+<h3 id="part-5-7">5.5 テストと E2E（6 分）</h3>
+
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">backend-api/src/test/java/com/insurance/service/PolicyServiceTest.java に cancelPolicy のテストを追加してください。
+既存のテストと同じ Mockito のスタイルに合わせてください。
+
+テストケース（メソッド名はこのとおりに）:
+1. cancelPolicy_ActivePolicy_Success — ACTIVE な契約をキャンセルすると status が CANCELLED になり、cancelledAt と cancelledReason が設定される
+2. cancelPolicy_PolicyNotFound_ThrowsException — 存在しない ID で ResourceNotFoundException
+3. cancelPolicy_AlreadyCancelled_ThrowsException — CANCELLED の契約で IllegalStateException
+4. cancelPolicy_ExpiredPolicy_ThrowsException — EXPIRED の契約で IllegalStateException
+
+追加後、mvn -q test -Dtest=PolicyServiceTest を実行して全件成功することを確認してください。</pre></div>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">./be_build.sh
+./be_test.sh</code></pre><pre data-os="win"><code class="lang-powershell">.\be_build.ps1
+.\be_test.ps1</code></pre></div>
+<p><code>PolicyServiceTest</code> が 13 件（既存 9 件 + 追加 4 件）成功することを確認します。</p>
+<p><strong>E2E（実際に API を呼ぶ）</strong> — Part 4 のデモ顧客（契約 300 件）で <code>ACTIVE</code> な契約を探してキャンセルします。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">DEMO=$(curl -s -X POST http://localhost:52080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"demo@example.com","password":"Password1"}')
+TOKEN=$(echo "$DEMO" | jq -r '.token')
+CID=$(echo "$DEMO" | jq -r '.customerId')
+
+<span class="c"># ACTIVE な契約を 1 件探す</span>
+ACTIVE_POLICY=$(curl -s -H "Authorization: Bearer $TOKEN" \
+  "http://localhost:52080/api/customers/$CID/policies?status=ACTIVE&amp;size=1" | jq -r '.content[0].id')
+echo "キャンセルする契約 ID: $ACTIVE_POLICY"
+
+<span class="c"># キャンセル</span>
+curl -s -X POST "http://localhost:52080/api/policies/$ACTIVE_POLICY/cancel" \
+  -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" \
+  -d '{"reason":"顧客都合によるキャンセル"}' | jq '{id, policyNumber, status}'
+<span class="c"># 期待: "status": "CANCELLED"</span>
+
+<span class="c"># 2 回目は 400</span>
+curl -s -w '\nHTTP %{http_code}\n' -X POST "http://localhost:52080/api/policies/$ACTIVE_POLICY/cancel" \
+  -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" \
+  -d '{"reason":"再キャンセル"}'
+<span class="c"># 期待: HTTP 400（message に現在のステータス CANCELLED）</span>
+
+<span class="c"># 存在しない ID は 404</span>
+curl -s -w '\nHTTP %{http_code}\n' -X POST "http://localhost:52080/api/policies/99999/cancel" \
+  -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" \
+  -d '{"reason":"テスト"}'
+<span class="c"># 期待: HTTP 404</span></code></pre><pre data-os="win"><code class="lang-powershell">$demo = Invoke-RestMethod -Uri http://localhost:52080/api/auth/login -Method POST `
+  -ContentType "application/json" -Body '{"email":"demo@example.com","password":"Password1"}'
+$token = $demo.token
+$cid = $demo.customerId
+$headers = @{ Authorization = "Bearer $token" }
+<span class="c"># エラー応答の本文を取る。PowerShell 7 は $_.ErrorDetails.Message に入るが、5.1 では空になるためストリームから読む</span>
+function Read-ErrorBody($e) {
+  if ($e.ErrorDetails -and $e.ErrorDetails.Message) { return $e.ErrorDetails.Message }
+  $s = $e.Exception.Response.GetResponseStream(); (New-Object IO.StreamReader($s, [Text.Encoding]::UTF8)).ReadToEnd()
+}
+<span class="c"># 日本語を含む JSON は UTF-8 のバイト列で渡す（5.1 は文字列ボディを UTF-8 で送らないことがある）</span>
+
+<span class="c"># ACTIVE な契約を 1 件探す</span>
+$activePolicy = (Invoke-RestMethod -Uri "http://localhost:52080/api/customers/$cid/policies?status=ACTIVE&amp;size=1" -Headers $headers).content[0].id
+"キャンセルする契約 ID: $activePolicy"
+
+<span class="c"># キャンセル</span>
+Invoke-RestMethod -Uri "http://localhost:52080/api/policies/$activePolicy/cancel" -Method POST `
+  -ContentType "application/json" -Headers $headers -Body ([Text.Encoding]::UTF8.GetBytes('{"reason":"顧客都合によるキャンセル"}')) |
+  Select-Object id, policyNumber, status
+<span class="c"># 期待: status CANCELLED</span>
+
+<span class="c"># 2 回目は 400</span>
+try {
+  Invoke-RestMethod -Uri "http://localhost:52080/api/policies/$activePolicy/cancel" -Method POST `
+    -ContentType "application/json" -Headers $headers -Body ([Text.Encoding]::UTF8.GetBytes('{"reason":"再キャンセル"}'))
+} catch { "HTTP $($_.Exception.Response.StatusCode.value__)"; Read-ErrorBody $_ }
+<span class="c"># 期待: HTTP 400（message に現在のステータス CANCELLED）</span>
+
+<span class="c"># 存在しない ID は 404</span>
+try {
+  Invoke-RestMethod -Uri "http://localhost:52080/api/policies/99999/cancel" -Method POST `
+    -ContentType "application/json" -Headers $headers -Body ([Text.Encoding]::UTF8.GetBytes('{"reason":"テスト"}'))
+} catch { "HTTP $($_.Exception.Response.StatusCode.value__)"; Read-ErrorBody $_ }
+<span class="c"># 期待: HTTP 404</span></code></pre></div>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li>Flyway が V14 を適用し、Backend API が起動した</li>
+<li><code>PolicyServiceTest</code> が 13 件成功した</li>
+<li>E2E で 200（CANCELLED）→ 400 → 404 の 3 パターンを確認した</li>
+</ul></div></div>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>PowerShell 5.1 の <code>Invoke-RestMethod</code> は JSON の日本語（<code>productName</code> など）を文字化けさせます（ISO-8859-1 で復号するため）。判定に使う <code>id</code> / <code>status</code> は影響を受けません。PowerShell 7 では化けません。</p></div></div>
+<div class="part-done" data-part="part-5"><label><input type="checkbox" class="part-done-box" data-part="part-5"><span>「Part 5」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-6">Part 6 — Vue.js フロントエンド: ログインと契約ダッシュボード</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 22 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-ask">Ask</span><span class="arrow">→</span><span class="tag tag-plan">Plan</span><span class="arrow">→</span><span class="tag tag-agent">Agent</span></span></div>
+<h3 id="part-6-1">学習目標</h3>
+
+<ul>
+<li>事前配布された Vue 3 の骨組み（API クライアント・ルーター実装済み）の構造を Bob に説明させ、把握できる</li>
+<li>ログイン画面と、顧客情報 + 契約一覧を 1 画面で見せるダッシュボードを Bob と実装できる</li>
+<li>Part 4 で追加した払込状況（<code>paymentStatus</code>）を画面に活かせる</li>
+</ul>
+<h3 id="part-6-2">シナリオ</h3>
+
+<blockquote>
+<p>営業担当から「お客様の契約状況を 1 画面で素早く確認したい。特に未払いがある契約がすぐ分かるように」と言われています。<code>frontend/</code> にはログイン → ダッシュボードの骨組みだけがあります。画面は参照のみで、更新機能は不要です。</p>
+</blockquote>
+<h3 id="part-6-3">6.1 骨組みの把握（3 分）</h3>
+
+<p><code>frontend/</code> は Vite + Vue 3（<code>&lt;script setup&gt;</code>、JavaScript）+ vue-router だけで構成しています。TypeScript も CSS ライブラリも使いません。</p>
+<table>
+<thead>
+<tr>
+<th>パス</th>
+<th>状態</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/api/client.js</code></td>
+<td>実装済み</td>
+<td>fetch のラッパー。JWT を自動付与し、401 ならログインへ戻す。<code>login</code> / <code>getCustomer</code> / <code>getPolicies</code></td>
+</tr>
+<tr>
+<td><code>src/router/index.js</code></td>
+<td>実装済み</td>
+<td><code>/login</code> と <code>/dashboard</code>（認証ガード付き）</td>
+</tr>
+<tr>
+<td><code>src/assets/base.css</code></td>
+<td>実装済み</td>
+<td>Carbon 風の最小スタイル（<code>.card</code> <code>.field</code> <code>.btn</code> <code>.table</code> <code>.tag</code> <code>.notification</code> <code>.row--warning</code> など）</td>
+</tr>
+<tr>
+<td><code>src/views/LoginView.vue</code></td>
+<td><strong>TODO</strong></td>
+<td>ログイン画面</td>
+</tr>
+<tr>
+<td><code>src/views/DashboardView.vue</code></td>
+<td><strong>TODO</strong></td>
+<td>顧客情報 + 契約一覧の 1 画面ダッシュボード</td>
+</tr>
+<tr>
+<td><code>src/components/CustomerCard.vue</code></td>
+<td><strong>TODO</strong></td>
+<td>顧客情報カード</td>
+</tr>
+<tr>
+<td><code>src/components/PolicyTable.vue</code></td>
+<td><strong>TODO</strong></td>
+<td>契約一覧テーブル（払込状況の表示を含む）</td>
+</tr>
+</tbody>
+</table>
+<p>開発サーバーはポート 5173（Vite の既定）で起動し、<code>/api</code> を Backend API（52080）にプロキシします（<code>http://localhost:5173</code> は Backend API の CORS 許可オリジンにも含まれているため、直接呼び出しに切り替えても動きます。プロキシ経由でもブラウザの <code>Origin</code> ヘッダーはそのまま転送されるため、許可されていないポートで起動すると 403 になります）。</p>
+<p><strong>新しいターミナル</strong> で開発サーバーを起動しておきます。</p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">cd frontend
+npm run dev
+<span class="c"># → http://localhost:5173</span></code></pre><pre data-os="win"><code class="lang-powershell">cd frontend
+npm run dev
+<span class="c"># → http://localhost:5173</span></code></pre></div>
+<p>ブラウザで <code>http://localhost:5173</code> を開くと、ログイン画面に「LoginView.vue は未実装です」と表示されます。これが開始状態です。</p>
+<div class="bob bob-ask"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-ask">Ask</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">frontend/ ディレクトリを読んで、このプロジェクトの構成を説明してください。
+特に src/api/client.js が提供する関数と、それぞれがどの Backend API を呼ぶか、
+src/router/index.js の認証ガードの動き、
+src/views と src/components の各ファイルに書かれた TODO の内容をまとめてください。</pre></div>
+<h3 id="part-6-4">6.2 ログイン画面（5 分）</h3>
+
+<p><code>LoginView.vue</code> の冒頭には TODO として要件が書いてあります。Bob にそれを読ませて実装させます。</p>
+<div class="bob bob-plan"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-plan">Plan</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">frontend/src/views/LoginView.vue の TODO コメントに書かれた要件に従って、ログイン画面を実装する計画を立ててください。
+既に import されている login / ApiError / router / route と、定義済みの ref（email, password, error, submitting）を使ってください。
+スタイルは frontend/src/assets/base.css の既存クラスだけを使い、新しい CSS は追加しないでください。
+テンプレートとスクリプトのどこを、どう書き換えるかを示してください。</pre></div>
+<p>計画に問題がなければ Agent モードで実装します。</p>
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">先ほどの計画どおりに frontend/src/views/LoginView.vue を実装してください。
+- メールアドレスとパスワードの入力欄、ログインボタンを持つフォーム
+- 送信時に login(email, password) を呼び、成功したら router.push（route.query.redirect があればそこへ、なければ dashboard）
+- 失敗したら ApiError.message を .notification--error で表示（401 のときは「メールアドレスまたはパスワードが違います」）
+- 送信中はボタンを無効化
+- 「未実装です」の案内は削除</pre></div>
+<p>ブラウザで <code>http://localhost:5173/login</code> を開き（開発サーバーは保存のたびに自動で再読み込みします）、次を確認します。</p>
+<ul>
+<li class="task"><input type="checkbox" id="task-28" data-task="28"><label for="task-28"><code>yamada@example.com</code> / <code>Password1</code> でログインするとダッシュボード（未実装の案内）に遷移する</label></li>
+<li class="task"><input type="checkbox" id="task-29" data-task="29"><label for="task-29">間違ったパスワードでエラーメッセージが表示される</label></li>
+<li class="task"><input type="checkbox" id="task-30" data-task="30"><label for="task-30">ブラウザの開発者ツール（Network）で <code>POST /api/auth/login</code> が 200 を返している</label></li>
+</ul>
+<h3 id="part-6-5">6.3 ダッシュボード（10 分）</h3>
+
+<p>3 つのファイル（<code>DashboardView.vue</code> と 2 つのコンポーネント）を Agent モードでまとめて実装させます。それぞれの TODO コメントに要件が書いてあります。</p>
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">frontend/src/views/DashboardView.vue、frontend/src/components/CustomerCard.vue、frontend/src/components/PolicyTable.vue の
+各ファイル冒頭の TODO コメントに書かれた要件に従って、ダッシュボードを実装してください。
+
+DashboardView.vue:
+- getSession() の customerId で getCustomer と getPolicies({ page, size: 20 }) を Promise.all で並列に取得する
+- 上段に CustomerCard、下段に PolicyTable
+- pageInfo.totalPages &gt; 1 のとき「前へ / 次へ」ボタンでページを切り替える
+- 読み込み中の表示と、ApiError.message の .notification--error 表示
+- ヘッダーにログインユーザー名（session.name）とログアウトボタン
+
+CustomerCard.vue:
+- 顧客番号 / 氏名 / メールアドレス / 電話番号 / 郵便番号・住所 / 生年月日 を .dl で表示。customer が null なら描画しない
+
+PolicyTable.vue:
+- 列: 契約番号 / 商品名 / 保障額 / ステータス / 最終払込日 / 次回払込期日 / 払込状況
+- paymentStatus は PAID_UP →「払込済」、DUE →「未払いあり」（その行に .row--warning）、NO_PREMIUM →「—」
+- 金額は toLocaleString('ja-JP') で桁区切り、日付が null なら「—」
+- 0 件なら「契約がありません」
+
+スタイルは base.css の既存クラスだけを使い、新しい CSS は追加しないでください。「未実装です」の案内は削除してください。</pre></div>
+<p>確認します。</p>
+<ul>
+<li class="task"><input type="checkbox" id="task-31" data-task="31"><label for="task-31"><code>yamada@example.com</code> でログインすると、顧客情報カードと契約 5 件のテーブルが 1 画面に表示される</label></li>
+<li class="task"><input type="checkbox" id="task-32" data-task="32"><label for="task-32"><code>demo@example.com</code>（契約 300 件）でログインすると 20 件ずつ 15 ページになり、「次へ」でページが進む</label></li>
+<li class="task"><input type="checkbox" id="task-33" data-task="33"><label for="task-33">「未払いあり」の行が黄色くハイライトされる（demo 顧客では 5 契約に 1 件）</label></li>
+<li class="task"><input type="checkbox" id="task-34" data-task="34"><label for="task-34">開発者ツールの Network で <code>GET /api/customers/{id}</code> と <code>GET /api/customers/{id}/policies?page=0&amp;size=20</code> が <strong>同時に</strong> 発行されている（<code>Promise.all</code> の効果）</label></li>
+<li class="task"><input type="checkbox" id="task-35" data-task="35"><label for="task-35">ログアウトするとログイン画面に戻り、<code>/dashboard</code> を直接開いてもログイン画面へリダイレクトされる</label></li>
+</ul>
+<div class="notif notif-note" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 23a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 16 23Zm-1-11h2v9h-2Z"/><path d="M29 30H3a1 1 0 0 1-.89-1.46l13-25a1 1 0 0 1 1.78 0l13 25A1 1 0 0 1 29 30ZM4.65 28h22.7L16 6.17Z"/></svg><div class="notif-body"><div class="notif-title">注意</div><p>画面が真っ白になったときは、ブラウザの開発者ツール（Console）のエラーを Bob に貼り付けて聞くのが最短です。<code>500 Internal Server Error</code>（プロキシ経由）または <code>Backend API に接続できません</code> と出る場合は <code>be_start</code> で Backend API が起動しているか確認してください。</p></div></div>
+<h3 id="part-6-6">6.4 仕上げ（4 分）</h3>
+
+<p>時間があれば、次のいずれかを Bob に依頼します。</p>
+<div class="bob bob-agent"><div class="bob-head"><span class="bob-title">Bob に依頼</span><span class="tag tag-agent">Agent</span><button type="button" class="copy-btn" data-copy-target="bob">プロンプトをコピー</button></div><pre class="bob-prompt">frontend/src/views/DashboardView.vue と frontend/src/components/PolicyTable.vue のアクセシビリティを改善してください。
+- テーブルに caption と適切な th の scope を付ける
+- 読み込み中・エラーの通知に aria-live を付ける
+- ページングボタンの無効状態（先頭ページで「前へ」、末尾で「次へ」）を disabled にする
+既存の見た目を変えず、新しい CSS は追加しないでください。</pre></div>
+<p>または、Backend API を止めた状態（<code>docker compose stop backend-api</code>）でダッシュボードを再読み込みし、エラー表示（プロキシ経由では「500 Internal Server Error」）が期待どおりか確認してから <code>docker compose start backend-api</code> で戻します。</p>
+<div class="notif notif-check" role="note"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2Zm-2 19.59-5-5L10.59 15 14 18.41 21.41 11 23 12.59Z"/></svg><div class="notif-body"><div class="notif-title">チェックポイント</div><ul>
+<li>ログイン → ダッシュボードの遷移が動く</li>
+<li>顧客情報と契約一覧（払込状況つき）が 1 画面に表示される</li>
+<li>demo 顧客でページングが動く</li>
+</ul></div></div>
+<div class="part-done" data-part="part-6"><label><input type="checkbox" class="part-done-box" data-part="part-6"><span>「Part 6」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="part-7">Part 7 — まとめ</h2>
+
+<div class="part-meta"><span class="badge-time"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30a14 14 0 1 1 14-14 14 14 0 0 1-14 14Zm0-26a12 12 0 1 0 12 12A12 12 0 0 0 16 4Z"/><path d="M20.59 22 15 16.41V7h2v8.58l5 5.01L20.59 22z"/></svg>所要時間 5 分</span><span class="badge-mode"><span class="badge-label">モード</span><span class="tag tag-none">Bob は使わない</span></span></div>
+<h3 id="part-7-1">2 時間で体験したこと</h3>
+
+<table>
+<thead>
+<tr>
+<th>パート</th>
+<th>やったこと</th>
+<th>持ち帰る学び</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 リバースエンジニアリング</td>
+<td>コードから 4 つの設計文書を復元</td>
+<td>Bob の生成物は <strong>必ずレビューする</strong>。「コードにないことは『不明』と書け」がプロンプトの基本</td>
+</tr>
+<tr>
+<td>2 運用</td>
+<td>アラート → メトリクス → ログ → コード</td>
+<td>調査は上流から下流へ。ドキュメントは自分で書いたものが一番役に立つ</td>
+</tr>
+<tr>
+<td>3 保守 A</td>
+<td>遅延除去、HikariCP の Before / After</td>
+<td>トランザクションの中で待つと <strong>接続を握る</strong>。メトリクスで確かめる</td>
+</tr>
+<tr>
+<td>4 保守 B</td>
+<td>N+1 を 202 本 → 3 本に、size のクランプ</td>
+<td>性能は体感ではなく <strong>本数で測る</strong>。修正の受け皿は既存コードにあることが多い</td>
+</tr>
+<tr>
+<td>5 開発</td>
+<td>契約キャンセル API を設計から E2E まで</td>
+<td><code>validate</code> 環境ではマイグレーションが先。版番号の欠番に注意</td>
+</tr>
+<tr>
+<td>6 フロントエンド</td>
+<td>ログイン → 1 画面ダッシュボード</td>
+<td>骨組みと TODO を渡せば、Bob は画面をまとめて実装できる。動作確認は人間の仕事</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-7-2">Bob の使いどころ</h3>
+
+<p><strong>モードの使い分け</strong></p>
+<ul>
+<li><strong>Ask</strong> — 「なぜ」「どこ」を聞く。ファイルを変えないので、調査とレビューに安心して使える</li>
+<li><strong>Plan</strong> — 変更が 3 ファイル以上にまたがるとき、あるいは選択肢（(a) か (b) か）があるときに先に相談する</li>
+<li><strong>Agent</strong> — 計画が固まってから。差分は必ず <code>git diff</code> で読む</li>
+</ul>
+<p><strong>効果的なプロンプトの共通点</strong></p>
+<ol>
+<li>入力ファイルのパスを明示する</li>
+<li>出力の形（見出し構成、メソッド名、テスト名）を固定する</li>
+<li>「推測せず『不明』と書く」「既存のコードスタイルに合わせる」「変更しないもの」を明記する</li>
+<li>完了条件（テストが通る、コンパイルが通る）を入れる</li>
+</ol>
+<p><strong>Bob が得意なこと</strong>: コード分析と説明、ボイラープレートの生成、既存パターンに沿った実装、テストケースの追加、設計文書の下書き</p>
+<p><strong>人間が確認すべきこと</strong>: 生成物が <strong>事実</strong> に基づいているか（Part 1）、業務ルールの正しさ（Part 5）、性能の測り方と改善の証明（Part 3, 4）、セキュリティ（<code>.env</code> の値、ログに残る情報）、実際に動くかどうか（Part 6）</p>
+<h3 id="part-7-3">次のステップ</h3>
+
+<ul>
+<li>付録 F の発展課題（Page → Slice、ログイン時の CPU 負荷、Grafana ダッシュボードの追加、契約更新 API）</li>
+<li>自分のプロジェクトで、まず <strong>Ask モードで設計文書を復元</strong> してみる。今日のプロンプト（付録 C）はそのまま使えます</li>
+</ul>
+<h3 id="part-7-4">環境の片付け</h3>
+
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">docker compose down          # コンテナ停止（データは残る）
+docker compose down -v       # データボリュームも削除</code></pre><pre data-os="win"><code class="lang-powershell">docker compose down          # コンテナ停止（データは残る）
+docker compose down -v       # データボリュームも削除</code></pre></div>
+<p>もう一度最初からやり直すときは <code>git checkout -- .</code> と <code>git clean -fd docs backend-api frontend</code> で変更を捨ててから <code>git checkout -B work handson-start</code> → <code>backend-api/target</code> を削除 → <code>db_start --reset</code> → <code>be_start</code> です（0.2 参照）。</p>
+<div class="part-done" data-part="part-7"><label><input type="checkbox" class="part-done-box" data-part="part-7"><span>「Part 7」を完了にする（左のナビに反映されます）</span></label></div>
+<h2 id="appendix">付録</h2>
+
+<h3 id="appendix-1">付録 A — 前提条件と推奨環境</h3>
+
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td>
+<td>macOS または Windows 10/11（PowerShell 5.1 以上）</td>
+</tr>
+<tr>
+<td>メモリ</td>
+<td>Mac（Rancher Desktop）での実測: 常駐コンテナ合計 約 0.9 GiB（backend-api 約 360〜390 MiB、Grafana 約 320 MiB、Prometheus 約 125 MiB、PostgreSQL 約 50 MiB、AlertManager 約 40 MiB）。これに Docker の VM、IBM Bob IDE、Maven ビルド、Vite 開発サーバーが加わります。Windows（Rancher Desktop）の実測: 常駐コンテナ合計 約 0.84 GiB、ハンズオン一式（WSL VM + Bob + Maven + Node）で約 6 GB</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>21（OpenJDK 推奨）</td>
+</tr>
+<tr>
+<td>Maven</td>
+<td>3.8 以上</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>Docker Desktop または Rancher Desktop（<code>docker compose</code> v2）。Rancher Desktop は <strong>Kubernetes を無効</strong> にする（有効だと <code>docker ps</code> に k8s のコンテナが 11 個混ざり、VM のメモリも増える）</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>20 LTS 以上（Windows は 24 LTS で検証済み）</td>
+</tr>
+<tr>
+<td>git</td>
+<td>任意のバージョン</td>
+</tr>
+<tr>
+<td>Mac/Linux のみ</td>
+<td>curl、jq</td>
+</tr>
+<tr>
+<td>IBM Bob</td>
+<td>Bob IDE（Ask / Plan / Agent モードのある版）</td>
+</tr>
+<tr>
+<td>ネットワーク</td>
+<td>初回のみ Maven Central と npm registry。HTML 版ガイドのフォントは Google Fonts（オフラインではシステムフォントに代替）</td>
+</tr>
+</tbody>
+</table>
+<p>Backend API コンテナには <code>JAVA_TOOL_OPTIONS=-Xmx512m -XX:+UseSerialGC</code> と <code>mem_limit: 1g</code>、Prometheus / Grafana には <code>mem_limit: 512m</code> を設定しています（<code>docker-compose.yml</code>）。Redis / BFF / Toxiproxy は起動しません。</p>
+<h3 id="appendix-2">付録 B — ポートと URL 一覧</h3>
+
+<table>
+<thead>
+<tr>
+<th>サービス</th>
+<th>ポート</th>
+<th>URL / 用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend API</td>
+<td>52080</td>
+<td><code>http://localhost:52080</code>（Health: <code>/actuator/health</code>、Metrics: <code>/actuator/metrics</code>、Prometheus 形式: <code>/actuator/prometheus</code>）</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>52432</td>
+<td><code>insurance_db</code> / <code>insurance_user</code></td>
+</tr>
+<tr>
+<td>Prometheus</td>
+<td>52090</td>
+<td><code>http://localhost:52090</code>（<code>/alerts</code>、<code>/graph</code>、<code>/targets</code>）</td>
+</tr>
+<tr>
+<td>AlertManager</td>
+<td>9093</td>
+<td><code>http://localhost:9093</code></td>
+</tr>
+<tr>
+<td>Grafana</td>
+<td>52091</td>
+<td><code>http://localhost:52091</code>（admin / admin）</td>
+</tr>
+<tr>
+<td>Frontend（Vite dev）</td>
+<td>5173</td>
+<td><code>http://localhost:5173</code></td>
+</tr>
+<tr>
+<td>Toxiproxy API（任意。付録 G）</td>
+<td>8474</td>
+<td><code>http://localhost:8474</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Backend API のエンドポイント（開始状態）</strong></p>
+<table>
+<thead>
+<tr>
+<th>メソッド</th>
+<th>パス</th>
+<th>認証</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/auth/login</code></td>
+<td>不要</td>
+<td>ログイン（<code>{ email, password }</code> → <code>{ token, customerId, username, name }</code>）</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/customers/me</code></td>
+<td>要</td>
+<td>ログイン中の顧客情報</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/customers/{id}</code></td>
+<td>要</td>
+<td>顧客情報</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/api/customers/{id}</code></td>
+<td>要</td>
+<td>顧客情報更新</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/customers/{customerId}/policies</code></td>
+<td>要</td>
+<td>契約一覧（<code>page</code> / <code>size</code> / <code>status</code>。戻り値 <code>{ content, pageInfo }</code>）</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/policies?customerId=</code></td>
+<td>要</td>
+<td>契約一覧（同上）</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/policies/{id}</code></td>
+<td>要</td>
+<td>契約詳細</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/policies/{policyId}/premiums</code>、<code>/api/customers/{customerId}/premiums</code></td>
+<td>要</td>
+<td>保険料一覧（ページング）</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/policies/{id}/cancel</code></td>
+<td>要</td>
+<td><strong>Part 5 で追加</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>テストアカウント</strong>（パスワードはすべて <code>Password1</code>）</p>
+<table>
+<thead>
+<tr>
+<th>メールアドレス</th>
+<th>顧客番号</th>
+<th>契約数</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yamada@example.com</td>
+<td>CUST-001</td>
+<td>5</td>
+<td>Part 2, 3, 6</td>
+</tr>
+<tr>
+<td>tanaka@example.com</td>
+<td>CUST-002</td>
+<td>1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>suzuki@example.com</td>
+<td>CUST-003</td>
+<td>3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>demo@example.com</td>
+<td>CUST-004</td>
+<td>300（保険料 3,600 件）</td>
+<td>Part 4, 5, 6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>スクリプト一覧</strong></p>
+<table>
+<thead>
+<tr>
+<th>スクリプト</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>db_start.sh</code> / <code>.ps1</code>（<code>--reset</code> / <code>-Reset</code>）</td>
+<td>PostgreSQL / Prometheus / AlertManager を起動。<code>--reset</code> でデータボリュームを作り直す</td>
+</tr>
+<tr>
+<td><code>be_start.sh</code> / <code>.ps1</code></td>
+<td>Grafana を含む全コンテナを依存順に起動。jar がなければビルド</td>
+</tr>
+<tr>
+<td><code>be_build.sh</code> / <code>.ps1</code></td>
+<td>ビルド → イメージ更新 → backend-api コンテナ再作成（<strong>コードを直したらこれ</strong>）</td>
+</tr>
+<tr>
+<td><code>be_test.sh</code> / <code>.ps1</code></td>
+<td><code>PolicyServiceTest</code> を実行</td>
+</tr>
+<tr>
+<td><code>load_test.sh</code> / <code>.ps1</code></td>
+<td>直列 10 リクエスト</td>
+</tr>
+<tr>
+<td><code>parallel_load.sh</code> / <code>.ps1</code></td>
+<td>同時 20 リクエスト + HikariCP 表示（引数で同時数・ラウンド数）</td>
+</tr>
+<tr>
+<td><code>continuous_load.sh</code> / <code>.ps1</code></td>
+<td>15 秒ごとに 10 リクエスト（無限ループ。Ctrl+C で停止）</td>
+</tr>
+<tr>
+<td><code>get_token.sh</code> / <code>.ps1</code></td>
+<td>yamada の JWT を環境変数 <code>TOKEN</code> に設定（Mac は <code>source get_token.sh</code>、Windows は <code>.\get_token.ps1</code> をそのまま実行）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="appendix-3">付録 C — プロンプト集（再利用テンプレート）</h3>
+
+<p>本文のプロンプトはこの付録の型で書いています。<code>[ ]</code> を置き換えて使ってください。</p>
+<p><strong>設計文書の復元（Ask → Agent）</strong></p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">次のファイルを読んで、[文書名] を docs/[ファイル名].md に Markdown で作成してください。
+入力: [ファイルパスの列挙]
+出力の見出し構成（この順で）: 1. ... 2. ... n. 不明点・要確認事項
+ルール: コードに書かれていないことは推測せず「不明」と書くこと。[書いてはいけないもの]</code></pre></div>
+<p><strong>生成物のレビュー（Ask）</strong></p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">docs/[文書].md に書かれている [項目] を [実装ファイル] と 1 つずつ突き合わせて、
+実装に存在しない記述、または実装にあるのに文書にない項目を挙げてください（ファイルは変更しないでください）。</code></pre></div>
+<p><strong>原因調査（Ask）</strong></p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">[ファイルパス] の [メソッド名] を読んで、[現象] の直接の原因を特定してください。
+それ以外にも [観点] の懸念があれば挙げてください（この時点では修正しないでください）。</code></pre></div>
+<p><strong>修正方針の相談（Plan）</strong></p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">[問題] を修正する計画を立ててください。
+制約: [変えてはいけないもの] / [通すべきテスト] / [使ってはいけない手法]
+検討してほしい案: (a) ... (b) ...
+それぞれの [比較軸] を比較して、どちらを採るか提案してください。</code></pre></div>
+<p><strong>実装（Agent）</strong></p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">[計画 or 要件] のとおりに [ファイルパス] を実装してください。
+- [やること]
+- [やらないこと・変えないもの]
+- 既存のコードスタイルに合わせること
+変更後、[検証コマンド] を実行して成功することを確認してください。</code></pre></div>
+<p><strong>テスト追加（Agent）</strong></p>
+<div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button type="button" class="copy-btn" data-copy-target="code">コピー</button></div><pre><code class="lang-">[テストファイル] に [対象メソッド] のテストを追加してください。既存のテストと同じスタイルに合わせてください。
+テストケース（メソッド名はこのとおりに）: 1. [名前] — [内容] 2. ...
+追加後、[検証コマンド] を実行して全件成功することを確認してください。</code></pre></div>
+<h3 id="appendix-4">付録 D — Part 1 生成物の「必ず含まれるべき項目」チェックリスト</h3>
+
+<p>模範解答は用意していません（生成物は受講者ごとに異なります）。次の項目が <strong>事実として</strong> 書かれているかを確認してください。</p>
+<p><strong>API 仕様書</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-36" data-task="36"><label for="task-36"><code>POST /api/auth/login</code> が認証不要で、JWT を返す</label></li>
+<li class="task"><input type="checkbox" id="task-37" data-task="37"><label for="task-37">契約一覧が <code>content</code> + <code>pageInfo</code>（<code>page</code> / <code>size</code> / <code>totalElements</code> / <code>totalPages</code>）を返す</label></li>
+<li class="task"><input type="checkbox" id="task-38" data-task="38"><label for="task-38"><code>size</code> に上限がない（または「不明」）</label></li>
+<li class="task"><input type="checkbox" id="task-39" data-task="39"><label for="task-39">エラーレスポンスが <code>timestamp</code> / <code>status</code> / <code>error</code> / <code>message</code> を持つ</label></li>
+<li class="task"><input type="checkbox" id="task-40" data-task="40"><label for="task-40"><code>POST /api/policies/{id}/cancel</code> が <strong>書かれていない</strong></label></li>
+</ul>
+<p><strong>アーキテクチャ概要書</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-41" data-task="41"><label for="task-41"><code>docker-compose.yml</code> の <code>bff</code> / <code>frontend</code> サービスに実体がない</label></li>
+<li class="task"><input type="checkbox" id="task-42" data-task="42"><label for="task-42">Controller → Service → Repository → Entity のレイヤ構成</label></li>
+<li class="task"><input type="checkbox" id="task-43" data-task="43"><label for="task-43">JWT フィルタによる認証の流れ</label></li>
+<li class="task"><input type="checkbox" id="task-44" data-task="44"><label for="task-44">HikariCP <code>maximum-pool-size: 10</code>、<code>open-in-view: false</code>、<code>ddl-auto: validate</code></label></li>
+<li class="task"><input type="checkbox" id="task-45" data-task="45"><label for="task-45"><code>SlowResponseTime</code>（3 秒 / 30 秒）、<code>DatabaseConnectionPoolHigh</code>（70%）、<code>DatabaseConnectionPoolExhausted</code>（90%）</label></li>
+<li class="task"><input type="checkbox" id="task-46" data-task="46"><label for="task-46">ログが JSON 形式で <code>backend-api/logs/backend-api.log</code> に出る</label></li>
+</ul>
+<p><strong>基本設計書</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-47" data-task="47"><label for="task-47"><code>customer</code> / <code>policy</code> / <code>premium</code> / <code>audit_log</code> のテーブルと外部キー列</label></li>
+<li class="task"><input type="checkbox" id="task-48" data-task="48"><label for="task-48">エンティティは JPA の関連を持たず、ID を <code>Long</code> で保持する</label></li>
+<li class="task"><input type="checkbox" id="task-49" data-task="49"><label for="task-49"><code>Policy.status</code> は <code>String</code>（<code>ACTIVE</code> / <code>EXPIRED</code> / <code>CANCELLED</code>）</label></li>
+<li class="task"><input type="checkbox" id="task-50" data-task="50"><label for="task-50">払込状況の導出（<code>DUE</code> / <code>PAID_UP</code> / <code>NO_PREMIUM</code>）</label></li>
+<li class="task"><input type="checkbox" id="task-51" data-task="51"><label for="task-51">Flyway の版は V1〜V11、V13（V12 は欠番）</label></li>
+</ul>
+<p><strong>オンボーディングガイド</strong></p>
+<ul>
+<li class="task"><input type="checkbox" id="task-52" data-task="52"><label for="task-52"><code>db_start</code> → <code>be_start</code> の起動順と <code>be_build</code> の役割</label></li>
+<li class="task"><input type="checkbox" id="task-53" data-task="53"><label for="task-53">ポート一覧（52080 / 52432 / 52090 / 52091 / 9093 / 5173）</label></li>
+<li class="task"><input type="checkbox" id="task-54" data-task="54"><label for="task-54">テストアカウント</label></li>
+<li class="task"><input type="checkbox" id="task-55" data-task="55"><label for="task-55">「ポート 52080 を握るプロセスを kill しない」</label></li>
+<li class="task"><input type="checkbox" id="task-56" data-task="56"><label for="task-56"><code>.env</code> の値が書かれていない</label></li>
+</ul>
+<h3 id="appendix-5">付録 E — トラブルシューティング</h3>
+
+<p><strong>Backend API が起動しない（<code>be_start</code> / <code>be_build</code> がタイムアウトする）</strong></p>
+<div class="os-tabs"><div class="code-bar"><div class="tab-list" role="tablist"><button type="button" role="tab" class="tab" data-os="mac">Mac / Linux</button><button type="button" role="tab" class="tab" data-os="win">Windows</button></div><button type="button" class="copy-btn" data-copy-target="os">コピー</button></div><pre data-os="mac"><code class="lang-bash">docker compose logs --tail=100 backend-api
+docker ps | grep postgres
+lsof -nP -iTCP:52080 -sTCP:LISTEN</code></pre><pre data-os="win"><code class="lang-powershell">docker compose logs --tail=100 backend-api
+docker ps | Select-String postgres
+netstat -ano | findstr :52080</code></pre></div>
+<ul>
+<li><code>Schema-validation: missing column ...</code> → エンティティに列を足したのにマイグレーションがない（Part 5）</li>
+<li><code>Detected resolved migration not applied to database: 12</code> → V12 を作ってしまった。V14 に改名して <code>db_start --reset</code> からやり直す</li>
+<li><code>Detected applied migration not resolved locally</code> → 古い jar（別ブランチや前回のビルド）で DB を作ってしまった。<code>backend-api/target</code> を削除 → <code>db_start --reset</code> → <code>be_start</code>（自動でビルド）</li>
+<li><code>Schema "public" has a version (14) that is newer than the latest available migration (13)</code> は WARN で起動は成功する（やり直し後に古い jar を使った痕跡）。Part 5 で V14 を作る前に <code>db_start --reset</code> しておく</li>
+<li><code>Connection refused</code> → PostgreSQL が起動していない。<code>db_start</code> を実行</li>
+<li>ポート 52080 が使用中 → ホストで <code>mvn spring-boot:run</code> を動かしていないか確認。<strong>ポートを握るプロセスを <code>kill -9</code> / <code>Stop-Process</code> しない</strong>（Rancher Desktop / Docker Desktop のポートフォワーダを殺すと Docker ごと落ちます）。古いコンテナなら <code>docker rm -f &lt;コンテナ名&gt;</code></li>
+</ul>
+<p><strong>0.2 の <code>git status --short</code> が空にならない（全ファイルが modified）</strong></p>
+<p>改行コードや実行ビットの設定が変わった直後は index の情報が古いだけのことがあります。<code>git rm --cached -r -q . ; git reset -q</code> で index を作り直してから <code>git status --short</code> を再確認してください（作業ツリーは変わりません）。</p>
+<p><strong><code>./db_start.sh</code> が <code>permission denied</code>（Mac / Linux）</strong></p>
+<p><code>chmod +x *.sh</code> で実行ビットを付けてください。</p>
+<p><strong>ブランチを切り替えたら起動しなくなった</strong></p>
+<p>Flyway の履歴が DB に残っているためです。<code>./db_start.sh --reset</code> / <code>.\db_start.ps1 -Reset</code> で作り直してください。</p>
+<p><strong>アラートが発火しない（Part 2）</strong></p>
+<ul>
+<li><code>continuous_load</code> が動いているか、レスポンスタイムが 3.5 秒前後か</li>
+<li><code>http://localhost:52090/targets</code> で <code>backend-api</code> が <code>UP</code> か</li>
+<li>30 秒の継続が必要。<code>pending</code> → <code>firing</code> まで 1〜2 分待つ（実測 77 秒）</li>
+</ul>
+<p><strong>Session Metrics の行が見つからない（Part 4）</strong></p>
+<ul>
+<li>最後の 1 行だけを見ていないか。Prometheus のスクレイプが SQL 1 本のセッションを 15 秒ごとに書くため、<code>tail -1</code> / <code>Select-Object -Last 1</code> では外れる。本書のコマンド（直近 30 件の最大値）を使う</li>
+<li><code>be_build</code> 直後は修正前のセッションが 30 件の中に残ることがある。15〜30 秒待つか、リクエストをもう 1 回送る</li>
+<li><code>application.yml</code> の <code>logging.level</code> に <code>org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: INFO</code> があるか（<code>logback-spring.xml</code> の <code>org.hibernate=WARN</code> を上書きする設定）</li>
+</ul>
+<p><strong><code>parallel_load</code> で pending が 0 のまま（Part 3 Before）</strong></p>
+<ul>
+<li>sleep がすでにコメントアウトされていないか（<code>git diff</code> で確認。戻すなら <code>git checkout -- backend-api/src/main/java/com/insurance/service/PolicyService.java</code> → <code>be_build</code>）</li>
+<li><code>continuous_load</code> を止めてから実行しているか</li>
+</ul>
+<p><strong>Vite の開発サーバーが起動しない / 画面が白い（Part 6）</strong></p>
+<ul>
+<li><code>node -v</code> が 20 以上か、<code>frontend/</code> で <code>npx vite --version</code> が通るか（配布物の <code>node_modules</code> は Mac arm64 / x64・Windows x64 用。それ以外の OS / CPU では <code>npm install</code> する）</li>
+<li>ポート 5173 が空いているか（<code>strictPort: true</code> なので他のポートには逃げません）</li>
+<li>Windows で <code>listen EACCES: permission denied ::1:5173</code> → Hyper-V が予約したポート範囲に入っている。<code>netsh interface ipv4 show excludedportrange protocol=tcp</code> で範囲を確認し、範囲外の番号で <code>npm run dev -- --port 5174</code> のように起動する。ただし CORS の許可オリジン（<code>SecurityConfig.java</code>）にその番号を追加して <code>be_build</code> しないと <code>/api</code> が 403 になる</li>
+<li>画面が白いときはブラウザの開発者ツール（Console）のエラーを Bob に貼って聞く。<code>git checkout -- frontend/src</code> で骨組みに戻せる</li>
+</ul>
+<p><strong><code>git diff</code> に <code>warning: LF will be replaced by CRLF</code> が出る（Windows）</strong></p>
+<p><code>core.autocrlf</code> の通知で無害です。配布物は <code>autocrlf false</code> で作ってあるので通常は出ません。</p>
+<p><strong>Bob の回答が期待とずれる</strong></p>
+<ul>
+<li>ファイルパスを明示する、出力の形を固定する、「変えないもの」を書く（付録 C）</li>
+<li>Agent モードの差分は <code>git diff</code> で読み、意図しない変更は <code>git checkout -- &lt;ファイル&gt;</code> で戻す（このリポジトリは <code>core.autocrlf false</code> に設定済みなので、Windows でも戻したファイルの改行は変わりません）</li>
+</ul>
+<p><strong>Windows で <code>curl</code> / <code>jq</code> が動かない</strong></p>
+<p>本書の <code>bash</code> ブロックを実行しています。<code>powershell</code> ブロックを使ってください。</p>
+<h3 id="appendix-6">付録 F — 発展課題</h3>
+
+<p>本編から外した性能・機能の題材です。Bob と一緒に取り組んでみてください。</p>
+<table>
+<thead>
+<tr>
+<th>課題</th>
+<th>ヒント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page → Slice</td>
+<td>契約一覧の <code>count</code> クエリは本当に必要か。<code>Slice</code> に変えると SQL は何本減るか</td>
+</tr>
+<tr>
+<td>ログイン時の BCrypt 負荷</td>
+<td><code>parallel_load</code> を <code>/api/auth/login</code> に向けると CPU はどうなるか。対策はコードの外（レート制限）に及ぶ</td>
+</tr>
+<tr>
+<td>インデックスの効果</td>
+<td><code>EXPLAIN ANALYZE</code> で <code>premium.policy_id</code> の索引の有無による差を見る（<code>V7__create_indexes.sql</code>）</td>
+</tr>
+<tr>
+<td>Grafana ダッシュボード</td>
+<td><code>hibernate_statements_total</code> と <code>hikaricp_connections_pending</code> のパネルを <code>insurance-system.json</code> に追加</td>
+</tr>
+<tr>
+<td>契約更新 API</td>
+<td><code>PUT /api/policies/{id}</code>。Part 5 と同じ手順で、今度は自分でプロンプトを書く</td>
+</tr>
+<tr>
+<td>E2E テスト</td>
+<td><code>AuthControllerIntegrationTest</code> を参考に、キャンセル API の統合テストを追加</td>
+</tr>
+<tr>
+<td>Toxiproxy で遅延を体感</td>
+<td><code>monitoring/toxiproxy/README.md</code>。N+1 の 202 本が 10 ms の遅延でどう見えるか</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<footer class="foot">IBM Bob で学ぶ Backend API ハンズオン（2 時間版） · 2026-09-30 版</footer>
+</div></main>
+<script>
+(function(){
+  var KEY_OS='handson.os', KEY_DONE='handson.done', KEY_TASK='handson.tasks';
+  function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+  function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+  // ---- OS switch (synced page-wide) ----
+  var os=load(KEY_OS,null);
+  if(!os){os=/Windows/i.test(navigator.userAgent)?'win':'mac'}
+  function applyOs(v){
+    os=v; document.body.setAttribute('data-os',v); save(KEY_OS,v);
+    document.querySelectorAll('.os-switch button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.os===v?'true':'false')});
+    document.querySelectorAll('.os-tabs .tab').forEach(function(b){b.setAttribute('aria-selected',b.dataset.os===v?'true':'false')});
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-os]');
+    if(t && (t.matches('.tab')||t.closest('.os-switch'))){
+      var box=t.closest('.os-tabs'); var top=box?box.getBoundingClientRect().top:null;
+      applyOs(t.dataset.os);
+      if(box){var d=box.getBoundingClientRect().top-top; if(d) window.scrollBy(0,d)}
+    }
+  });
+  applyOs(os);
+
+  // ---- copy ----
+  function copyText(txt,btn){
+    var done=function(){btn.classList.add('ok');var o=btn.textContent;btn.textContent='コピーしました';setTimeout(function(){btn.classList.remove('ok');btn.textContent=o},1600)};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done,function(){fallback()})}else{fallback()}
+    function fallback(){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(ta)}
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy-btn'); if(!b) return;
+    var kind=b.dataset.copyTarget, root=b.closest('.code-block,.os-tabs,.bob'), txt='';
+    if(kind==='os'){var p=root.querySelector('pre[data-os="'+os+'"]'); txt=p?p.textContent:''}
+    else if(kind==='bob'){txt=root.querySelector('.bob-prompt').textContent}
+    else {txt=root.querySelector('pre').textContent}
+    copyText(txt.replace(/\n$/,''),b);
+  });
+
+  // ---- side nav toggle (narrow) ----
+  var menu=document.querySelector('.menu-btn');
+  if(menu){menu.addEventListener('click',function(){document.body.classList.toggle('nav-open')});
+    document.querySelector('.side-backdrop').addEventListener('click',function(){document.body.classList.remove('nav-open')});
+    document.querySelectorAll('.side a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('nav-open')})});
+  }
+
+  // ---- progress (part done) ----
+  var done=load(KEY_DONE,{});
+  var parts=Array.prototype.slice.call(document.querySelectorAll('.part-done-box'));
+  function renderDone(){
+    var n=0;
+    parts.forEach(function(cb){var id=cb.dataset.part; cb.checked=!!done[id]; if(done[id]) n++;
+      var li=document.querySelector('.side li[data-id="'+id+'"]'); if(li) li.classList.toggle('done',!!done[id]);});
+    var bar=document.querySelector('.progress .bar i'), lab=document.querySelector('.progress .num');
+    if(bar){bar.style.width=(parts.length?Math.round(n*100/parts.length):0)+'%'}
+    if(lab){lab.textContent=n+' / '+parts.length}
+  }
+  parts.forEach(function(cb){cb.addEventListener('change',function(){done[cb.dataset.part]=cb.checked; save(KEY_DONE,done); renderDone()})});
+  renderDone();
+
+  // ---- task checkboxes ----
+  var tasks=load(KEY_TASK,{});
+  document.querySelectorAll('input[data-task]').forEach(function(cb){
+    cb.checked=!!tasks[cb.dataset.task];
+    cb.addEventListener('change',function(){tasks[cb.dataset.task]=cb.checked; save(KEY_TASK,tasks)});
+  });
+  var reset=document.querySelector('.reset-btn');
+  if(reset){reset.addEventListener('click',function(){done={};tasks={};save(KEY_DONE,done);save(KEY_TASK,tasks);renderDone();document.querySelectorAll('input[data-task]').forEach(function(cb){cb.checked=false})})}
+
+  // ---- instructor: open all ----
+  var openAll=document.querySelector('.open-all-btn');
+  if(openAll){openAll.addEventListener('click',function(){var all=document.querySelectorAll('details.instructor');var anyClosed=Array.prototype.some.call(all,function(d){return !d.open});all.forEach(function(d){d.open=anyClosed});openAll.textContent=anyClosed?'講師メモをすべて閉じる':'講師メモをすべて開く'})}
+
+  // ---- scroll spy ----
+  var heads=Array.prototype.slice.call(document.querySelectorAll('.content h2[id], .content h3[id]'));
+  var navItems={}; document.querySelectorAll('.side li[data-id]').forEach(function(li){navItems[li.dataset.id]=li});
+  var current=null;
+  function setActive(id){
+    if(id===current) return; current=id;
+    Object.keys(navItems).forEach(function(k){navItems[k].classList.remove('active')});
+    var li=navItems[id]; if(!li) return; li.classList.add('active');
+    var parent=li.parentElement.closest('li[data-id]'); if(parent) parent.classList.add('active');
+    var side=document.querySelector('.side'); var r=li.getBoundingClientRect(), sr=side.getBoundingClientRect();
+    if(r.top<sr.top+60||r.bottom>sr.bottom-60){li.scrollIntoView({block:'center'})}
+  }
+  function onScroll(){
+    var y=window.scrollY+parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'))+24, pick=heads[0];
+    for(var i=0;i<heads.length;i++){if(heads[i].offsetTop<=y) pick=heads[i]; else break}
+    if(pick) setActive(pick.id);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); onScroll();
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('details.instructor').forEach(function(d){d.open=true})});
+})();
+</script>
+</body>
+</html>
