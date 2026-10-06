@@ -29,6 +29,7 @@
     <properties>
         <confluent.version>7.9.1</confluent.version>
         <kafka.version>3.9.2</kafka.version>
+        <log4j.version>2.24.3</log4j.version>
         <jsonschema2pojo-maven-plugin>1.0.2</jsonschema2pojo-maven-plugin>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -105,11 +106,21 @@
             <version>1.0.2</version>
         </dependency>
 
-        <!-- Libraries for Log4J -->
+        <!-- Libraries for Log4J 2.x -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!-- Library for Schema Rules -->

@@ -7,7 +7,8 @@ import io.confluent.examples.datacontract.utils.ClientsUtils;
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Properties;
 import java.util.Random;
@@ -17,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ProducerApp implements Runnable {
 
-    private static final Logger logger = Logger.getLogger(ProducerApp.class);
+    private static final Logger logger = LogManager.getLogger(ProducerApp.class);
 
     private Properties props;
     private String topic, dlq;
