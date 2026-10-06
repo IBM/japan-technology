@@ -1,3 +1,9 @@
+:warning: SECURITY TRAINING MATERIAL :warning:
+
+This repository contains intentionally vulnerable code for educational purposes.
+DO NOT use in production. DO NOT report vulnerabilities to security programs.
+
+
 # Banking Demo - モダンバンキングアプリケーション
 
 ## 🏦 概要
