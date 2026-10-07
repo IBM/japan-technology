@@ -1,13 +1,10 @@
-// Special Thanks Jason McGee 
+// Special Thanks Jason McGee
 console.log(process.version)
 const express = require('express');
-const AWS = require('aws-sdk');
+const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-
-// fetch to use in Node.js
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 // Use .env or environment variable
 const PORT = process.env.PORT || 3001;
@@ -24,14 +21,16 @@ console.log('USER_AGENT:', USER_AGENT);
 //console.log('COS_HMAC_ACCESS_KEY_ID:', COS_HMAC_ACCESS_KEY_ID);
 //console.log('COS_HMAC_SECRET_ACCESS_KEY:', COS_HMAC_SECRET_ACCESS_KEY);
 
-// Configure AWS SDK for IBM COS
-const cos = new AWS.S3({
+// Configure AWS SDK v3 client for IBM COS
+const cosClient = new S3Client({
   endpoint: `https://s3.${COS_REGION}.cloud-object-storage.appdomain.cloud`,
-  accessKeyId: COS_HMAC_ACCESS_KEY_ID,
-  secretAccessKey: COS_HMAC_SECRET_ACCESS_KEY,
+  forcePathStyle: true,
+  credentials: {
+    accessKeyId: COS_HMAC_ACCESS_KEY_ID,
+    secretAccessKey: COS_HMAC_SECRET_ACCESS_KEY,
+  },
   region: COS_REGION,
-  signatureVersion: 'v4',
-  customUserAgent: USER_AGENT
+  customUserAgent: USER_AGENT,
 });
 
 // Cache variables
@@ -100,22 +99,17 @@ app.get('/status/cos', async (req, res) => {
       Bucket: COS_BUCKET,
       Key: FILE_KEY,
     };
-    cos.getObject(params, (err, data) => {
-      let result;
-      if (err) {
-        result = { status: 'error', message: `Object Storage error: ${err.message}` };
-      } else {
-        // result = { status: 'ok', message: 'Object Storage is working', fileContent: data.Body.toString() };
-        result = { status: 'ok', message: 'Object Storage is working' };
-      }
-      cosCache = result;
-      cosCacheTime = Date.now();
-      return res.json(result);
-    });
+    // NOTE: v3 では result.Body は Readable ストリーム（v2 は Buffer）
+    // 将来 Body を文字列化する場合は Body をバッファに変換する処理が必要
+    await cosClient.send(new GetObjectCommand(params));
+    const result = { status: 'ok', message: 'Object Storage is working' };
+    cosCache = result;
+    cosCacheTime = now;
+    return res.json(result);
   } catch (err) {
-    const errorResult = { status: 'error', message: 'Object Storage check failed: ' + err };
+    const errorResult = { status: 'error', message: `Object Storage error: ${err.message}` };
     cosCache = errorResult;
-    cosCacheTime = Date.now();
+    cosCacheTime = now;
     return res.json(errorResult);
   }
 });

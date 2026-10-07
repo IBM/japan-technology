@@ -33,19 +33,19 @@ mkdir cloudtool
 cd cloudtool
 ```
 
-* Download [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip).  And, Unzip the zip file.
+* Download [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20261007.zip).  And, Unzip the zip file.
 
 macOS/Linux
 
 ```
-wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip
-unzip IamCOS20250607.zip
+wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20261007.zip
+unzip IamCOS20261007.zip
 ```
     
 if you work with Windows (PowerShell)
 
 ```
-wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip -outfile t.zip
+wget https://github.com/IBM/japan-technology/raw/refs/heads/main/ibm-cloud/monitoring/IamCOS/IamCOS20261007.zip -outfile t.zip
 Expand-Archive t.zip .
 ```
 
@@ -76,11 +76,11 @@ again.
 * Create a new Web App with Linux OS
 * Set required environment variables as "Application Settings" in the portal instead of using a `.env` file.
 (Deployment option 1)
-* Deploy [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
+* Deploy [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20261007.zip)
    
 or
-(Deploymenet option 2)
-* Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20250607.zip)
+(Deployment option 2)
+* Unzip [this file](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/IamCOS20261007.zip)
 * Open the extracted folder with Visual Studio Code
 * Install "Azure App Service" VS Code extension
 * Deploy the folder with the extension
@@ -89,7 +89,7 @@ or
 
 * [server.js](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/server.js): API server to check the IAM/COS health.
 * [public/default.html](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/public/default.html): Web page to invoke 2 APIs throught status.js
-* [public/status.js](https://github.com/IBM/japan-technology/tree/main/ibm-cloud/monitoring/IamCOS/public/js): JavaScript to connect/invoke API on server.js
+* [public/js/status.js](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/public/js/status.js): JavaScript to connect/invoke API on server.js
 * [package.json](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/package.json): Node.js project settings. You can run "npm install" to required package into your environment.
 * [package-lock.json](https://github.com/IBM/japan-technology/blob/main/ibm-cloud/monitoring/IamCOS/package-lock.json): packages list for npm (Node Package Manager)
 
@@ -140,7 +140,7 @@ COS_HMAC_SECRET_ACCESS_KEY=<your_cos_hmac_secret_access_key>
 ```json
 {
   "status": "ok",
-  "message": "COS is working"
+  "message": "Object Storage is working"
 }
 ```
 
@@ -151,5 +151,9 @@ Updated on 7 June 2025: Co-worked with Jason McGee, implemented 2 key items.
 * Added caching for API result for safeguarding to invoke IAM/COS services.
 Updated on 8 June 2025:
 * Modified some topics in this document.
+Updated on 7 October 2026:
+* Migrated from aws-sdk v2 (EOL) to @aws-sdk/client-s3 v3.
+* Removed node-fetch dependency (Node.js 18+ built-in fetch is used instead).
+* Rewrote COS access from callback style to async/await.
 
 
