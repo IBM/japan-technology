@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToDo</title>
+  <!-- フォント: IBM Plex Sans JP(Light 300 / Medium 500)。オンライン時のみ読み込まれ、オフラインでは OS の日本語フォントで表示される -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap">
+  <style>
+    /* IBM Design Language (Carbon) の配色・余白・タイポグラフィ */
+    :root {
+      --bg: #ffffff;
+      --layer: #f4f4f4;
+      --border: #e0e0e0;
+      --border-strong: #8d8d8d;
+      --text: #161616;
+      --text-secondary: #525252;
+      --text-placeholder: #6f6f6f;
+      --blue: #0f62fe;
+      --blue-hover: #0353e9;
+      --red: #da1e28;
+      --masthead: #161616;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    button, input { font: inherit; }
+
+    header {
+      background: var(--masthead);
+      color: #ffffff;
+      height: 48px;
+      border-bottom: 1px solid #393939;
+    }
+    header h1 {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 16px;
+      line-height: 48px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    main { max-width: 640px; margin: 0 auto; padding: 48px 16px; }
+    h2 { margin: 0 0 24px; font-size: 28px; font-weight: 300; line-height: 1.3; }
+
+    .add-row { display: flex; }
+    #title {
+      flex: 1;
+      min-width: 0;
+      height: 48px;
+      padding: 0 16px;
+      background: var(--layer);
+      color: var(--text);
+      border: 0;
+      border-bottom: 1px solid var(--border-strong);
+      border-radius: 0;
+      font-weight: 300;
+    }
+    #title::placeholder { color: var(--text-placeholder); }
+    #title:focus { outline: 2px solid var(--blue); outline-offset: -2px; }
+
+    #add {
+      height: 48px;
+      padding: 0 32px;
+      background: var(--blue);
+      color: #ffffff;
+      border: 0;
+      border-radius: 0;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    #add:hover { background: var(--blue-hover); }
+    #add:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; box-shadow: inset 0 0 0 1px #ffffff; }
+
+    #list { list-style: none; margin: 32px 0 0; padding: 0; border-top: 1px solid var(--border); }
+    #list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 48px;
+      padding: 0 0 0 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    #list li:hover { background: #f9f9f9; }
+    #list input[type="checkbox"] { width: 16px; height: 16px; margin: 0; accent-color: var(--blue); cursor: pointer; }
+    #list input[type="checkbox"]:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    #list li span { flex: 1; overflow-wrap: anywhere; }
+    #list li button {
+      height: 48px;
+      padding: 0 16px;
+      background: transparent;
+      color: var(--red);
+      border: 0;
+      border-radius: 0;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    #list li button:hover { background: var(--red); color: #ffffff; }
+    #list li button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+    .done { text-decoration: line-through; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <header><h1>IBM Bob ハンズオン</h1></header>
+  <main>
+    <h2>ToDo</h2>
+    <div class="add-row">
+      <input id="title" type="text" placeholder="タスクを入力">
+      <button id="add">追加</button>
+    </div>
+    <ul id="list"></ul>
+  </main>
+
+  <script src="todo-logic.js"></script>
+  <script>
+    let todos = [];
+
+    const titleInput = document.getElementById('title');
+    const listEl = document.getElementById('list');
+
+    function render() {
+      listEl.innerHTML = '';
+      for (const todo of todos) {
+        const li = document.createElement('li');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = todo.done;
+        checkbox.dataset.id = todo.id;
+        checkbox.addEventListener('change', () => {
+          todos = toggleTodo(todos, Number(checkbox.dataset.id));
+          render();
+        });
+
+        const span = document.createElement('span');
+        span.textContent = todo.title;
+        if (todo.done) span.className = 'done';
+
+        const del = document.createElement('button');
+        del.textContent = '削除';
+        del.dataset.id = todo.id;
+        del.addEventListener('click', () => {
+          todos = removeTodo(todos, Number(del.dataset.id));
+          render();
+        });
+
+        li.append(checkbox, span, del);
+        listEl.appendChild(li);
+      }
+    }
+
+    function addTask() {
+      todos = addTodo(todos, titleInput.value);
+      titleInput.value = '';
+      render();
+    }
+
+    document.getElementById('add').addEventListener('click', addTask);
+
+    titleInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.isComposing) addTask();
+    });
+
+    render();
+  </script>
+</body>
+</html>
