@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>共通準備(Bob の準備と作業フォルダ)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;500&display=swap">
+<style>
+/* IBM Design Language(Carbon)の配色・余白・タイポグラフィに準拠。
+   フォント:IBM Plex Sans JP の Light(300)と Medium(500)のみ。 */
+:root {
+  --bg: #ffffff;
+  --layer: #f4f4f4;
+  --border: #e0e0e0;
+  --border-strong: #8d8d8d;
+  --text: #161616;
+  --text-secondary: #525252;
+  --blue: #0f62fe;
+  --blue-hover: #0353e9;
+  --yellow: #f1c21b;
+  --masthead: #161616;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", "IBM Plex Sans JP", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+/* マストヘッド */
+.masthead {
+  background: var(--masthead);
+  color: #ffffff;
+  height: 48px;
+  border-bottom: 1px solid #393939;
+}
+.masthead-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.masthead-product { font-weight: 500; font-size: 14px; letter-spacing: 0.02em; }
+
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* 見出し:Light は大きく、小さい見出しは Medium */
+h1, h2, h3, h4 { color: var(--text); margin: 0; }
+h1 {
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.25;
+  margin-bottom: 32px;
+  letter-spacing: 0;
+}
+h2 {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.3;
+  margin: 64px 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-strong);
+}
+h3 { font-weight: 500; font-size: 20px; line-height: 1.4; margin: 40px 0 12px; }
+h4 { font-weight: 500; font-size: 16px; line-height: 1.5; margin: 24px 0 8px; }
+
+p { margin: 0 0 16px; max-width: 70ch; }
+strong { font-weight: 500; }
+
+a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--blue-hover); }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* リスト */
+ul, ol { margin: 0 0 16px; padding-left: 24px; }
+li { margin: 4px 0; }
+li > p { margin-bottom: 8px; }
+li > ul, li > ol, li > pre, li > .table-wrap, li > blockquote { margin-top: 8px; }
+li.task { list-style: none; margin-left: -24px; }
+li.task input { margin-right: 8px; accent-color: var(--blue); }
+
+/* インラインコード */
+code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  background: var(--layer);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-weight: 400;
+}
+
+/* コードブロック(プロンプト例):本文と枠・背景で区別し、長い行は折り返す */
+pre {
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  background: var(--layer);
+  border-left: 4px solid var(--blue);
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 300;
+  color: var(--text);
+}
+
+/* 引用(注意書き) */
+blockquote {
+  margin: 0 0 24px;
+  padding: 12px 20px;
+  background: var(--layer);
+  border-left: 4px solid var(--yellow);
+}
+blockquote p { margin: 0; max-width: none; }
+blockquote p + p { margin-top: 8px; }
+
+/* 表 */
+.table-wrap { margin: 0 0 24px; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.6; }
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--layer);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+tbody tr:hover { background: #f9f9f9; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  .content { padding: 32px 16px 64px; }
+}
+
+@media print {
+  .masthead { display: none; }
+  .content { max-width: none; padding: 0; }
+  pre { break-inside: avoid; }
+  a { color: var(--text); }
+}
+</style>
+</head>
+<body>
+<!-- 生成物です。直接編集しないでください。原本: common-setup.md(python3 scripts/build_html.py で再生成) -->
+<header class="masthead"><div class="masthead-inner"><span class="masthead-product">IBM Bob ハンズオン</span></div></header>
+<main class="content">
+<h1>共通準備(Bob の準備と作業フォルダ)</h1>
+<p>シナリオ1(ブラウザ)・シナリオ2(Node.js)のどちらでも、最初にここを済ませます。</p>
+<h2>1. Bob のインストールとサインイン</h2>
+<ol><li><a href="https://bob.ibm.com/docs/ide/getting-started/install">Bob の公式インストール手順</a>に従って、Bob をインストールします。</li><li>Bob を起動し、ブラウザで表示される画面から <strong>IBMid</strong> でサインインします。IBMid がない場合の作成方法は、上記の手順書にリンクがあります。</li><li>サインインが終わったら Bob に戻ります。</li></ol>
+<h2>2. ネットワークに制限がある場合</h2>
+<p>会社のネットワークなどで Bob に接続できない場合は、<a href="https://bob.ibm.com/docs/ide/troubleshooting/ts-firewall-rules">Bob の公式ドキュメント(ファイアウォール設定)</a>を確認して、ネットワーク管理者または IT 担当者に相談してください。</p>
+<h2>3. 作業フォルダを作って Bob で開く</h2>
+<p>作業フォルダは、この演習のファイルをすべて入れる、空のフォルダです。場所と名前は自由です(例:デスクトップの <code>bob-todo</code>)。</p>
+<div class="table-wrap"><table><thead><tr><th>OS</th><th>操作</th></tr></thead><tbody><tr><td>Windows</td><td>エクスプローラーで場所を開き、右クリック → 新規作成 → フォルダー。名前を <code>bob-todo</code> にする</td></tr><tr><td>macOS</td><td>Finder で場所を開き、右クリック → 新規フォルダ。名前を <code>bob-todo</code> にする</td></tr></tbody></table></div>
+<p>次に、作ったフォルダを Bob で開きます。</p>
+<ul><li>Bob のメニューから <strong>[ファイル] &gt; [フォルダーを開く...]</strong> を選び、<code>bob-todo</code> を選びます。</li><li>「フォルダ内のファイルの作成者を信頼しますか」のような確認が出たら、自分で作った空のフォルダなので、信頼する側を選びます。</li></ul>
+<h2>4. Bob のチャットを開いて Agent モードにする</h2>
+<ol><li>チャットが見えていない場合は、次のショートカットで開きます。<div class="table-wrap"><table><thead><tr><th>OS</th><th>操作</th></tr></thead><tbody><tr><td>Windows</td><td><code>Ctrl + Alt + B</code></td></tr><tr><td>macOS</td><td><code>Option + Command + B</code></td></tr></tbody></table></div></li></ol>
+<ol><li>チャット入力欄の左にあるモード選択のドロップダウンを開き、<strong>Agent</strong> を選びます。チャットに <code>/agent</code> と入力しても切り替えられます。</li><li>画面右下の <code>Permissions</code> で、自動承認が <strong>Read のみ</strong>になっていることを確認します。コマンドの実行やファイルの変更は、そのつど Bob が確認を求めます。</li></ol>
+<blockquote><p>Bob が確認を求めてきたときは、内容を読んでから承認してください。この演習では、Execute(コマンド実行)の自動承認は使いません。</p></blockquote>
+<h2>5. バグ入りファイルの差し替え</h2>
+<p>演習の途中（手順書の指示があったタイミング）で、zip を展開した <code>bobathon-todo</code> フォルダの中にあるバグ入りのファイルを、作業フォルダに上書きコピーします。</p>
+<h3>zip の入手</h3>
+<p>下の URL をブラウザで開き、<code>bobathon-todo.zip</code> をダウンロードして展開(解凍)してください。展開すると <code>bobathon-todo</code> フォルダができます。演習の前に済ませておくと安心です。</p>
+<p><a href="https://github.com/IBM/japan-technology/blob/main/ibm-bob/bobathon-support/js101/bobathon-todo.zip">https://github.com/IBM/japan-technology/blob/main/ibm-bob/bobathon-support/js101/bobathon-todo.zip</a></p>
+<div class="table-wrap"><table><thead><tr><th>OS</th><th>展開の操作</th></tr></thead><tbody><tr><td>Windows</td><td>zip ファイルを右クリック → 「すべて展開」</td></tr><tr><td>macOS</td><td>zip ファイルをダブルクリック</td></tr></tbody></table></div>
+<h3>差し替えるファイル</h3>
+<div class="table-wrap"><table><thead><tr><th>シナリオ</th><th>コピー元</th><th>コピー先(作業フォルダ)</th></tr></thead><tbody><tr><td>シナリオ1</td><td><code>bobathon-todo/scenario1-browser/bug/todo-logic.js</code></td><td><code>todo-logic.js</code></td></tr><tr><td>シナリオ2</td><td><code>bobathon-todo/scenario2-nodejs/bug/todo.js</code></td><td><code>todo.js</code></td></tr></tbody></table></div>
+<h3>コピーの手順</h3>
+<div class="table-wrap"><table><thead><tr><th>OS</th><th>操作</th></tr></thead><tbody><tr><td>Windows</td><td>エクスプローラーでコピー元のファイルを選択 → コピー → 作業フォルダに貼り付け(上書き)</td></tr><tr><td>macOS</td><td>Finder でコピー元のファイルを選択 → コピー → 作業フォルダに貼り付け(上書き確認が出たら「置き換える」)</td></tr></tbody></table></div>
+<h3>確認</h3>
+<ul><li>コピー後、作業フォルダのファイル名が <code>todo-logic.js</code>（または <code>todo.js</code>）のままであることを確認します。</li><li>迷ったら、講師に声をかけてください。</li></ul>
+</main>
+</body>
+</html>
