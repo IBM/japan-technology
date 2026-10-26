@@ -23,7 +23,7 @@
 ## 事前準備
 
 1. **パターン1:** [事前課題](../pre-assignment.md)の 1〜5 が済んでいることを確認します。`agent-browser --version` が 0.39 以上を表示し、`agent-browser open https://example.com; agent-browser get title; agent-browser close` が `Example Domain` を返し、Bob設定 > スキル に `agent-browser`(スコープ: グローバル)があれば OK です(版が古いと、ステップ3 の `open` が `Auto-launch failed` で失敗します。その場合は事前課題の 4 をやり直します)。
-2. **パターン2:** [共通準備](../common-setup.md)の 1〜4 と、[シナリオ2(Node.js コマンドライン版)の事前準備 2〜3](../scenario2-nodejs/guide2.md)(Node.js の版)を終わらせたうえで、[事前課題](../pre-assignment.md)の **4〜5**(agent-browser の導入とスキル登録)を、いまここで行います(10〜15 分)。
+2. **パターン2:** [共通準備](../common-setup.md)の 1〜4 と、[Node.js の準備](../node-setup.md)(Node.js の版)を終わらせたうえで、[事前課題](../pre-assignment.md)の **4〜5**(agent-browser の導入とスキル登録)を、いまここで行います(10〜15 分)。
 3. シナリオ1の作業フォルダ(`index.html` と `todo-logic.js` がある状態)を Bob で開きます。ファイルがない人は講師に声をかけてください(講師が正しい 2 ファイルを示します)。
 4. Bob の中でターミナルを開きます(メニューバーの **[ターミナル] > [新しいターミナル]**。ウィンドウが狭いときは `...` の中にあります)。この手順ではターミナルを **2 本**使うので、1 本目を「ターミナル A」、あとで開く 2 本目を「ターミナル B」と呼びます。
 
