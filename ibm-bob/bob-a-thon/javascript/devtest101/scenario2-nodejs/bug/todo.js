@@ -1,4 +1,4 @@
-// Bugあり、ToDo のロジック。画面や入出力には依存しない。引数の配列は変更しない。
+// ToDo のロジック。画面や入出力には依存しない。引数の配列は変更しない。
 
 function addTodo(list, title) {
   const trimmed = String(title).trim();
