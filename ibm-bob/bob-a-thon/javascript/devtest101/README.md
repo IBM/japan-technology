@@ -6,7 +6,7 @@ IBM Bob(AI コーディングアシスタント)を使って、**「実装する
 
 | | シナリオ1:ブラウザ完結 | Node.js コマンドライン | E2E テスト入門 |
 |---|---|---|---|
-| 必要なもの | Bob、Chrome または Edge 推奨(Safari/Firefox も可) | Bob、Node.js(脆弱性修正済みの版) | Bob、Node.js、agent-browser(CLI + スキル)、シナリオ1の成果物 |
+| 必要なもの | Bob、Chrome または Edge 推奨(Safari/Firefox も可) | Bob、Node.js(脆弱性修正済みの版。[node-setup.md](node-setup.md)) | Bob、Node.js([node-setup.md](node-setup.md))、agent-browser(CLI + スキル)、シナリオ1の成果物 |
 | アプリの形 | HTML + JavaScript の画面 | 対話型コマンドライン(CLI) | シナリオ1の画面を Node.js でホスト |
 | テストの方法 | `tests.html` をブラウザで開く(ユニットテスト) | `node --test` を **Bob が実行**(ユニットテスト) | **Bob がブラウザを操作**して確認(E2E テスト) |
 | 手順書 | [scenario1-browser/guide1.md](scenario1-browser/guide1.md) | [scenario2-nodejs/guide2.md](scenario2-nodejs/guide2.md) | [e2e/guide-e2e.md](e2e/guide-e2e.md) |
@@ -18,7 +18,7 @@ IBM Bob(AI コーディングアシスタント)を使って、**「実装する
 | **パターン1:1 時間コース** | [事前課題](pre-assignment.md)(当日前)→ シナリオ1(ステップ3 省略)→ E2E テスト入門(PASS と画像の確認まで。バグ差し替えは講師デモ)。Node.js コマンドライン版はオプション | 60 分 + 事前課題 20〜30 分 | [README-pattern1.md](README-pattern1.md) |
 | **パターン2:標準コース** | 共通準備 → シナリオ1 → Node.js コマンドライン版 → オプションで E2E テスト入門(インストールも差し替えも各自) | 2〜2.5 時間 + オプション 30〜45 分 | [README-pattern2.md](README-pattern2.md) |
 
-> 準備(Bob のインストール、作業フォルダ、Agent モード、承認の考え方、統合ブラウザー)は [common-setup.md](common-setup.md) に、パターン1 の当日前の準備は [pre-assignment.md](pre-assignment.md) にまとめています。所要時間は作成者の実機確認からの見込みで、受講者での計測はまだ行っていません。
+> 準備(Bob のインストール、作業フォルダ、Agent モード、承認の考え方、統合ブラウザー)は [common-setup.md](common-setup.md) に、Node.js の版の確認と更新は [node-setup.md](node-setup.md) に、パターン1 の当日前の準備は [pre-assignment.md](pre-assignment.md) にまとめています。所要時間は作成者の実機確認からの見込みで、受講者での計測はまだ行っていません。
 
 ---
 
@@ -365,7 +365,7 @@ flowchart LR
 - **OS**:Windows / macOS(手順書は両対応。E2E テスト入門は Windows 11 / Bob GA と macOS / Bob Insiders 2.3.0 の両方で実機確認済み。受講者は GA 版を使う前提。IBM 社員が使う Insiders 版との画面の違いは [common-setup.md](common-setup.md) の 4 に注記)
 - **ブラウザ(シナリオ1)**:Google Chrome または Microsoft Edge 推奨(Safari や Firefox でも動作確認済み)。Bob の統合ブラウザーでも確認できます
 - **Bob のモード**:Agent モード。自動承認は Bob設定(チャット > ツール)の既定値で **読み取り(Read)のみ**をオンにし、編集(Edit)・実行(Execute)・MCP の自動承認はオフにします(手順は common-setup.md)
-- **Node.js(Node.js コマンドライン版、E2E テスト入門)**:脆弱性が修正された版が必須です。最低ラインは [Node.js コマンドライン版の手順書](scenario2-nodejs/guide2.md#2-バージョン要件)の表を参照してください(満たせない場合は、ペア作業またはシナリオ1に切り替え)
+- **Node.js(Node.js コマンドライン版、E2E テスト入門)**:脆弱性が修正された版が必須です。最低ラインは [Node.js の準備(node-setup.md)](node-setup.md)の表を参照してください(満たせない場合は、ペア作業またはシナリオ1に切り替え)
 - **MCP / Skills**:MCP は使いません。Skills は E2E テスト入門で agent-browser のスキルを使います(登録は [事前課題](pre-assignment.md)の 5。グローバル登録は Bob を起動し直すまで一覧に出ません)
 
 ### 受講の流れ
@@ -401,7 +401,8 @@ README-pattern1.md         パターン1(1 時間コース)の進め方・時間
 README-pattern2.md         パターン2(標準コース)の進め方
 pre-assignment.md          パターン1 の事前課題(Bob、Node.js、agent-browser、スキルの登録)
 common-setup.md            受講者向け共通準備
-bobathon-todo.zip          受講者配布用(bug/ の 2 ファイル + 各手順書の .md・.html)
+node-setup.md              Node.js の準備(版の確認・インストール・更新。Node.js コマンドライン版、E2E、事前課題から参照)
+bobathon-todo.zip          受講者配布用(bug/ の 2 ファイル + 各手順書の .md・.html。24 ファイル)
 images/                    README 用スクリーンショット
 scenario1-browser/
   guide1.md                受講者向け手順書(ステップ3 冒頭にパターン1 向けの注記)
