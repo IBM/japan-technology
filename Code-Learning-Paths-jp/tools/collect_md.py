@@ -13,7 +13,7 @@ import deepl
 import hashlib
 
 # deepl auth key
-auth_key = "put deepl auth key here""
+auth_key = "put deepl auth key here"
 target_language ="ja"
 
 search_query = "get-started-watson-discovery"
