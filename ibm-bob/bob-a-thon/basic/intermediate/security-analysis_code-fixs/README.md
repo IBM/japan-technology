@@ -1,3 +1,8 @@
+:warning: SECURITY TRAINING MATERIAL :warning:
+
+This repository contains intentionally vulnerable code for educational purposes.
+DO NOT use in production. DO NOT report vulnerabilities to security programs.
+
 # lab2: セキュリティ分析とコード修正
 ## Security & Code Analysis - Identify and fix security vulnerabilities
 
