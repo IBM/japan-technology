@@ -398,13 +398,14 @@ flowchart LR
 
 ```text
 README.md                  本ページ
+README.html                本ページ(HTML)
 README-pattern1.md         パターン1(1 時間コース)の進め方・時間配分・講師の準備
 README-pattern2.md         パターン2(標準コース)の進め方
 pre-assignment.md          パターン1 の事前課題(Bob、Node.js、agent-browser、スキルの登録)
 common-setup.md            受講者向け共通準備
 node-setup.md              Node.js の準備(版の確認・インストール・更新。Node.js コマンドライン版、E2E、事前課題から参照)
-bobathon-todo.zip          受講者配布用(bug/ の 2 ファイル + 各手順書の .md・.html。24 ファイル)
-images/                    README 用スクリーンショット
+bobathon-todo.zip          受講者配布用(bug/ の 2 ファイル + README と各手順書の .md・.html + images/。30 ファイル)
+images/                    README 用スクリーンショット(zip にも同梱)
 scenario1-browser/
   guide1.md                受講者向け手順書(ステップ3 冒頭にパターン1 向けの注記)
   guide1.html              受講者向け手順書(HTML)
@@ -421,4 +422,4 @@ scripts/
   make-zip.sh              配布用 zip の作成
 ```
 
-各 .md はいずれも受講者向けの原本で、.html は `scripts/build_html.py` で生成します(太字の中にインラインコードを入れる書き方は未対応)。
+各 .md はいずれも受講者向けの原本で、.html は `scripts/build_html.py` で生成します。
