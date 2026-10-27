@@ -3,6 +3,7 @@ console.log(process.version)
 const express = require('express');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 const app = express();
 
@@ -41,6 +42,15 @@ let cosCacheTime = 0;
 const CACHE_DURATION = 10 * 1000; // 10 seconds
 
 app.use(cors());
+
+// Rate limit: 100 requests per 15 minutes per IP (CodeQL js/missing-rate-limiting).
+// NOTE: 'trust proxy' is not set. If deployed behind a reverse proxy, configure it, otherwise all clients share one IP.
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+}));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'default.html'));
