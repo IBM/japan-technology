@@ -3,6 +3,8 @@
 This repository contains intentionally vulnerable code for educational purposes.
 DO NOT use in production. DO NOT report vulnerabilities to security programs.
 
+ご注意：ハンズオン教材の中には、セキュリティー対策の演習があり、意図的に脆弱性を含んだコードが含まれている場合があります。
+
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5799/badge)](https://bestpractices.coreinfrastructure.org/projects/5799)
 
 # japan-technology
@@ -13,7 +15,7 @@ Please open new issue/pull requests in either English or Japanese if you would h
 IBM Developerの最新情報は https://developer.ibm.com/ にアクセスし、英語のコンテンツを参照してください。
 
 このリポジトリは、IBM Developer Japan Webサイトで公開していた日本語のコンテンツの中から、特に人気の
-高いコンテンツをオープンソースとして公開していきます。またwatsonx.ai Dojo, watsonx Orchestrate Dojoなど、日本独自のコンテンツについても公開しています。
+高いコンテンツをオープンソースとして公開していきます。またIBM Bobのハンズオン, watsonx.ai Dojo, watsonx Orchestrate Dojoなど、日本独自のコンテンツについても公開しています。
 
 公開しているドキュメント内のリンク切れが生じていたり、リポジトリ内のファイルを予告なく変更・削除したりと、不完全な状態が含まれております。ご理解をお願いします。
 
