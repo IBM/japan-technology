@@ -1,3 +1,5 @@
+# WARNING: This code contains intentional security vulnerabilities for training purposes. This is NOT production code.
+
 from flask import Flask, jsonify, request, render_template_string, send_from_directory
 import sqlite3
 import json

@@ -1,3 +1,5 @@
+# WARNING: This code contains intentional security vulnerabilities for training purposes. This is NOT production code.
+
 """
 Todo Application - VULNERABLE VERSION
 This code contains intentional security vulnerabilities for educational purposes.

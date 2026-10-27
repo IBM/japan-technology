@@ -1,3 +1,8 @@
+:warning: SECURITY TRAINING MATERIAL :warning:
+
+This repository contains intentionally vulnerable code for educational purposes.
+DO NOT use in production. DO NOT report vulnerabilities to security programs.
+
 # Project 2: SDLCタスク
 - 対象者: 開発者向け
 

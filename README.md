@@ -1,3 +1,8 @@
+:warning: SECURITY TRAINING MATERIAL :warning:
+
+This repository contains intentionally vulnerable code for educational purposes.
+DO NOT use in production. DO NOT report vulnerabilities to security programs.
+
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5799/badge)](https://bestpractices.coreinfrastructure.org/projects/5799)
 
 # japan-technology
