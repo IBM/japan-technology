@@ -2,7 +2,7 @@
 
 IBM Bob(AI コーディングアシスタント)を使って、**「実装する → テストする → 失敗を直す → 完成を確認する」** という開発の基本サイクルを、**ToDo アプリ**を題材に体験するハンズオンです。
 
-HTML版の教材は [こちら](bobathon-todo.zip)をダウンロードして、展開したフォルダー内の README.html を開いて下さい。
+HTML版の教材は [こちら](https://github.com/IBM/japan-technology/blob/main/ibm-bob/bob-a-thon/javascript/devtest101/bobathon-todo.zip)をダウンロードして、展開したフォルダー内の README.html を開いて下さい。
 
 教材は 3 つの演習からできています。すべて同じ題材・同じ関数仕様(API 契約)を使い、違うのは**実行環境とテストの形**だけなので、その違いに集中して学べます。
 
