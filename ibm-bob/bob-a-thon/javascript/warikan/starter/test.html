@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>割り勘 テスト結果</title>
+<!-- このファイルは主催者提供です。編集しないでください。テストは tests.js に書きます。 -->
+<style>
+  :root { --ok: #198038; --ng: #da1e28; --gray: #8d8d8d; --bg: #f4f4f4; --ink: #161616; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic UI", Meiryo, system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+  header { background: #161616; color: #fff; padding: 14px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { font-size: 18px; margin: 0; font-weight: 500; }
+  header .sp { flex: 1; }
+  button { font: inherit; padding: 8px 14px; border: 1px solid #0f62fe; background: #0f62fe; color: #fff; cursor: pointer; border-radius: 0; }
+  button.secondary { background: transparent; color: #fff; border-color: #fff; }
+  main { max-width: 860px; margin: 0 auto; padding: 20px; }
+  .banner { padding: 18px 20px; color: #fff; margin-bottom: 16px; }
+  .banner.pass { background: var(--ok); }
+  .banner.fail { background: var(--ng); }
+  .banner.empty { background: var(--gray); }
+  .banner .big { font-size: 26px; font-weight: 500; }
+  .banner .small { opacity: .9; margin-top: 4px; }
+  .hint { background: #fff; padding: 14px 16px; border-left: 4px solid #0f62fe; }
+  .loaderr { background: #fff1f1; border-left: 4px solid var(--ng); padding: 12px 16px; margin-bottom: 16px; }
+  .loaderr li { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+  h2 { font-size: 15px; font-weight: 500; margin: 20px 0 8px; color: #525252; }
+  .case { display: flex; gap: 12px; background: #fff; padding: 10px 14px; margin-bottom: 6px; border-left: 4px solid var(--ok); }
+  .case.ng { border-left-color: var(--ng); }
+  .mark { font-size: 20px; width: 24px; text-align: center; color: var(--ok); }
+  .case.ng .mark { color: var(--ng); }
+  .body { flex: 1; }
+  .name { font-size: 15px; }
+  table.diff { margin-top: 6px; border-collapse: collapse; font-size: 13px; }
+  table.diff th { text-align: left; padding: 2px 10px 2px 0; color: #525252; font-weight: 500; width: 3em; }
+  table.diff td { font-family: ui-monospace, Menlo, Consolas, monospace; word-break: break-all; }
+  section.copy { margin-top: 28px; background: #fff; padding: 14px 16px; }
+  section.copy p { margin: 0 0 8px; }
+  textarea { width: 100%; height: 160px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; border: 1px solid #c6c6c6; padding: 8px; }
+  #copymsg { font-size: 13px; min-height: 1.2em; margin-top: 6px; }
+  #copymsg.copied { color: var(--ok); }
+  #copymsg.copyfail { color: var(--ng); }
+  footer { color: #6f6f6f; font-size: 12px; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>割り勘アプリ — 自動テスト</h1>
+  <span class="sp"></span>
+  <button id="reload" class="secondary">もう一度実行（再読み込み）</button>
+  <button id="copy">結果をコピー（Bob に貼る用）</button>
+</header>
+<main>
+  <div id="results"></div>
+  <section class="copy">
+    <p>▼ Bob に貼り付ける用のテキスト（「結果をコピー」ボタンで同じ内容がコピーされます）</p>
+    <textarea id="summary" readonly></textarea>
+    <div id="copymsg"></div>
+  </section>
+</main>
+<footer>logic.js や tests.js を変更したら、このページを再読み込みしてください（結果は自動では更新されません）。</footer>
+
+<!-- 読み込み順を変えないでください: エラー捕捉 → アプリの計算 → ランナー → テスト -->
+<script>
+  // logic.js の文法ミスなども画面に出せるよう、最初にエラーを拾っておく。
+  // file:// で開くと Chrome はエラーの詳細を隠して "Script error." とだけ伝えるので、
+  // 「どのファイルの読み込み中か」を __phase で覚えておき、それを表示に使う。
+  window.__loadErrors = [];
+  window.__loadErrorsHooked = true;
+  window.__phase = 'logic.js';
+  window.addEventListener('error', function (e) {
+    var msg = e.message || String(e.error || '');
+    // calcSplit が無いときの tests.js のエラーは原因が同じなので重ねて出さない
+    if (window.__phase === 'tests.js' && typeof window.calcSplit !== 'function') return;
+    var where = e.filename ? e.filename.split('/').pop() + (e.lineno ? ':' + e.lineno : '') : '';
+    var text;
+    if (!msg || /^Script error\.?$/.test(msg)) {
+      text = window.__phase + ' の読み込み中にエラーが起きました（文法ミス、存在しない関数の呼び出しなど。ブラウザーの制限で詳細は表示できません）';
+    } else {
+      text = (where || window.__phase) + ' — ' + msg;
+    }
+    if (window.__loadErrors.indexOf(text) < 0) window.__loadErrors.push(text);
+  });
+</script>
+<script src="logic.js"></script>
+<script>window.__phase = 'harness.js';</script>
+<script src="harness.js"></script>
+<script>window.__phase = 'tests.js';</script>
+<script src="tests.js"></script>
+<script>window.__phase = '（読み込み完了後）';</script>
+</body>
+</html>

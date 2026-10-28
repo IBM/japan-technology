@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>テストケース記入表 — 割り勘アプリ</title>
+<!-- cases.md を手で編集しなくて済むように、入力欄に書き込むと「Bob に送る文」ができる記入表。外部通信なし。 -->
+<style>
+  :root { --blue: #0f62fe; --ink: #161616; --g70: #525252; --g30: #c6c6c6; --g10: #f4f4f4; --cyan10: #e5f6ff; --yellow10: #fcf4d6; --green: #198038; --red: #da1e28; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "IBM Plex Sans JP", "Hiragino Sans", "Yu Gothic UI", Meiryo, system-ui, sans-serif; font-weight: 300; color: var(--ink); background: #fff; line-height: 1.6; }
+  header { background: var(--ink); color: #fff; padding: 22px 24px; }
+  header .in { max-width: 1040px; margin: 0 auto; }
+  header h1 { font-size: 20px; font-weight: 500; margin: 0 0 6px; }
+  header p { margin: 0; color: #e0e0e0; font-size: 14px; }
+  main { max-width: 1040px; margin: 0 auto; padding: 16px 24px 80px; }
+  section { margin: 28px 0; padding: 18px 20px; background: var(--g10); }
+  section.locked { opacity: .55; }
+  section h2 { font-size: 18px; font-weight: 500; margin: 0 0 6px; }
+  section p { margin: 6px 0; font-size: 14px; }
+  .rule { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 10px 0; font-size: 14px; }
+  .rule select, .rule input[type=text] { font: inherit; font-size: 14px; padding: 4px 6px; border: 1px solid var(--g30); background: #fff; }
+  .tw { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 900px; background: #fff; font-size: 14px; }
+  td:nth-child(2) { min-width: 13em; }
+  td select { min-width: 7.5em; }
+  td input.num { min-width: 5em; }
+  th, td { border: 1px solid var(--g30); padding: 4px 6px; text-align: left; vertical-align: middle; }
+  th { background: var(--cyan10); font-weight: 500; white-space: nowrap; }
+  th small { display: block; font-weight: 300; color: var(--g70); }
+  td.no { text-align: center; color: var(--g70); width: 2.5em; }
+  td input, td select { width: 100%; font: inherit; font-size: 14px; padding: 5px 6px; border: 1px solid transparent; background: transparent; }
+  td input:focus, td select:focus { outline: 2px solid var(--blue); background: #fff; }
+  td input.num { text-align: right; }
+  td input::placeholder { color: #a8a8a8; }
+  tr.hint td { background: var(--yellow10); color: var(--g70); font-size: 12px; }
+  .actions { margin-top: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  button { font: inherit; font-size: 14px; padding: 9px 16px; border: 0; background: var(--blue); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  button.secondary { background: #fff; color: var(--ink); border: 1px solid var(--g30); }
+  button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .out { margin-top: 12px; display: none; }
+  .out.show { display: block; }
+  .out textarea { width: 100%; height: 190px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; border: 1px solid var(--g30); padding: 8px; background: #fff; }
+  .out .label { font-size: 12px; color: var(--g70); margin-bottom: 4px; }
+  .warn { color: var(--red); font-size: 13px; }
+  .toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); background: var(--green); color: #fff; padding: 10px 18px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  .toast.fail { background: var(--red); }
+  .howto { background: var(--cyan10); padding: 14px 18px; margin-top: 12px; font-size: 14px; }
+  .howto ol { margin: 6px 0 0; padding-left: 1.4em; }
+  footer { color: var(--g70); font-size: 12px; text-align: center; padding: 20px; }
+</style>
+</head>
+<body>
+<header><div class="in">
+  <h1>テストケース記入表 — 「こう入力したら、こう表示されてほしい」を先に決める</h1>
+  <p>空欄に数字を入れて「Bob に送る文を作る」を押すと、そのまま Bob のチャット欄に貼れる文ができます。期待する結果は <b>自分の電卓で</b>。</p>
+</div></header>
+<main>
+
+<div class="howto">
+  使い方
+  <ol>
+    <li>表の空欄を埋める（数字だけ。カンマは不要）。入れた内容はこのブラウザーに自動で保存されます。</li>
+    <li>「Bob に送る文を作る」→ 文ができたら「コピー」→ Bob のチャット欄に貼り付けて送信。</li>
+    <li>表B・表C は講師の合図があってから。</li>
+  </ol>
+</div>
+
+<!-- ============ 表A ============ -->
+<section id="secA">
+  <h2>表A: 基本の割り勘（ステップ2で使う）</h2>
+  <p>普通の値を 1〜2 行、割り切れない値を 1〜2 行、ありえない入力（0人・マイナス）を 1 行。</p>
+  <div class="rule">
+    <span>端数のルール: 1円未満は</span>
+    <select id="ruleRound"><option value="切り上げ">切り上げる</option><option value="切り捨て">切り捨てる</option><option value="四捨五入">四捨五入する</option></select>
+    <span>。余りは</span>
+    <select id="ruleChange"><option value="画面に表示する">画面に表示する</option><option value="表示しない">表示しない</option></select>
+  </div>
+  <div class="tw"><table id="tblA">
+    <thead><tr><th>No</th><th>説明<small>日本語で自由に</small></th><th>合計金額<small>円</small></th><th>人数</th><th>期待する結果</th><th>1人あたり<small>円</small></th><th>余り<small>円</small></th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="actions">
+    <button type="button" data-gen="A">Bob に送る文を作る（テストだけ追加）</button>
+    <button type="button" class="secondary" data-reset="A">例に戻す</button>
+  </div>
+  <div class="out" id="outA"><div class="label">▼ これを Bob のチャット欄に貼り付けて送ります</div><textarea readonly></textarea><div class="actions"><button type="button" data-copy="A">コピー</button><span class="warn" id="warnA"></span></div></div>
+</section>
+
+<!-- ============ 表B ============ -->
+<section id="secB" class="locked">
+  <h2>表B: 幹事ルール（ステップ3で使う。講師の合図まで空けておく）</h2>
+  <p>幹事以外は選んだ単位で切り捨て、端数は幹事が引き受ける（spec-change.md）。</p>
+  <div class="tw"><table id="tblB">
+    <thead><tr><th>No</th><th>説明</th><th>合計金額<small>円</small></th><th>人数</th><th>単位<small>円</small></th><th>期待する結果</th><th>幹事以外の1人<small>円</small></th><th>幹事<small>円</small></th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="actions">
+    <button type="button" data-gen="B">Bob に送る文を作る（テストだけ追加）</button>
+    <button type="button" class="secondary" data-reset="B">例に戻す</button>
+  </div>
+  <div class="out" id="outB"><div class="label">▼ これを Bob のチャット欄に貼り付けて送ります</div><textarea readonly></textarea><div class="actions"><button type="button" data-copy="B">コピー</button><span class="warn" id="warnB"></span></div></div>
+</section>
+
+<!-- ============ 表C ============ -->
+<section id="secC" class="locked">
+  <h2>表C: 自分のルール（ステップ4で使う。講師の合図まで空けておく）</h2>
+  <div class="rule">
+    <span>選んだ候補:</span>
+    <select id="cand">
+      <option value="A">A クーポン値引き</option>
+      <option value="B">B 最低支払額</option>
+      <option value="C">C 学生は半額</option>
+    </select>
+    <span>「決めること」で決めたこと:</span>
+    <input type="text" id="decided" size="40" placeholder="例: クーポンが合計より大きいときはエラーにする">
+  </div>
+  <p>「追加の入力」は、候補 A ならクーポンの金額、B なら最低支払額、C なら学生の人数です。幹事ありの前提で書きます。</p>
+  <div class="tw"><table id="tblC">
+    <thead><tr><th>No</th><th>説明</th><th>合計金額<small>円</small></th><th>人数</th><th>単位<small>円</small></th><th id="thExtra">追加の入力</th><th>期待する結果</th><th>幹事以外の1人<small>円</small></th><th>幹事<small>円</small></th><th>学生1人<small>円（候補Cのみ）</small></th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="actions">
+    <button type="button" data-gen="C">Bob に送る文を作る（テストだけ追加）</button>
+    <button type="button" class="secondary" data-reset="C">例に戻す</button>
+  </div>
+  <div class="out" id="outC"><div class="label">▼ これを Bob のチャット欄に貼り付けて送ります</div><textarea readonly></textarea><div class="actions"><button type="button" data-copy="C">コピー</button><span class="warn" id="warnC"></span></div></div>
+</section>
+
+</main>
+<div class="toast" id="toast"></div>
+<footer>入力内容はこのブラウザーの中だけに保存されます（別の PC やブラウザーには引き継がれません）。</footer>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'warikan-cases:' + location.pathname;
+  var ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M15 9V5.5A1.5 1.5 0 0 0 13.5 4h-8A1.5 1.5 0 0 0 4 5.5v8A1.5 1.5 0 0 0 5.5 15H9"/></svg>';
+
+  // 列定義: key, 種類(text/num/kind), 候補
+  var COLS = {
+    A: [['desc','text'],['total','num'],['people','num'],['kind','kind'],['each','num'],['change','num']],
+    B: [['desc','text'],['total','num'],['people','num'],['unit','unit'],['kind','kind'],['each','num'],['organizer','num']],
+    C: [['desc','text'],['total','num'],['people','num'],['unit','unit'],['extra','num'],['kind','kind'],['each','num'],['organizer','num'],['student','num']]
+  };
+  var DEFAULTS = {
+    A: [
+      { desc: '割り切れる例', total: '12345', people: '5', kind: '金額', each: '2469', change: '0' },
+      { desc: '割り切れない例', total: '10000', people: '3', kind: '金額', each: '', change: '' },
+      { desc: '', total: '', people: '', kind: '金額', each: '', change: '' },
+      { desc: '人数が 0', total: '1000', people: '0', kind: 'エラー', each: '', change: '' },
+      { desc: '', total: '', people: '', kind: '金額', each: '', change: '' }
+    ],
+    B: [
+      { desc: '仕様書の例', total: '12345', people: '5', unit: '100', kind: '金額', each: '2400', organizer: '2745' },
+      { desc: '', total: '10000', people: '3', unit: '1', kind: '金額', each: '', organizer: '' },
+      { desc: '', total: '10000', people: '3', unit: '500', kind: '金額', each: '', organizer: '' },
+      { desc: '1人だけ（幹事が全額）', total: '1000', people: '1', unit: '100', kind: '金額', each: '', organizer: '' },
+      { desc: '少額（幹事以外が 0 円になる？）', total: '300', people: '4', unit: '100', kind: '金額', each: '', organizer: '' }
+    ],
+    C: [
+      { desc: '仕様変更票の例', total: '', people: '', unit: '100', extra: '', kind: '金額', each: '', organizer: '', student: '' },
+      { desc: '普通の値', total: '', people: '', unit: '100', extra: '', kind: '金額', each: '', organizer: '', student: '' },
+      { desc: '「決めたこと」が効く値', total: '', people: '', unit: '100', extra: '', kind: 'エラー', each: '', organizer: '', student: '' },
+      { desc: '追加の入力が 0（今までと同じになる）', total: '12345', people: '5', unit: '100', extra: '0', kind: '金額', each: '2400', organizer: '2745', student: '' },
+      { desc: '', total: '', people: '', unit: '100', extra: '', kind: '金額', each: '', organizer: '', student: '' }
+    ]
+  };
+  var EXTRA_LABEL = { A: 'クーポン値引き', B: '最低支払額', C: '学生の人数' };
+
+  var state = load();
+
+  function load() {
+    try { var s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.rows) return s; } catch (e) {}
+    return { rows: { A: clone(DEFAULTS.A), B: clone(DEFAULTS.B), C: clone(DEFAULTS.C) }, ruleRound: '切り上げ', ruleChange: '画面に表示する', cand: 'A', decided: '' };
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function clone(v) { return JSON.parse(JSON.stringify(v)); }
+
+  function cell(t, key, kind, val) {
+    var td = document.createElement('td');
+    var el;
+    if (kind === 'kind') {
+      el = document.createElement('select');
+      ['金額', 'エラー'].forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = k === '金額' ? '金額が出る' : 'エラーになる'; el.appendChild(o); });
+      el.value = val || '金額';
+    } else if (kind === 'unit') {
+      el = document.createElement('select');
+      ['1', '10', '100', '500', '1000'].forEach(function (u) { var o = document.createElement('option'); o.value = u; o.textContent = u + '円'; el.appendChild(o); });
+      el.value = val || '1';
+    } else {
+      el = document.createElement('input');
+      el.type = 'text';
+      el.value = val || '';
+      if (kind === 'num') { el.className = 'num'; el.inputMode = 'numeric'; el.placeholder = '数字'; }
+      else el.placeholder = '説明';
+    }
+    el.dataset.key = key;
+    td.appendChild(el);
+    return td;
+  }
+
+  function render(t) {
+    var tb = document.querySelector('#tbl' + t + ' tbody');
+    tb.innerHTML = '';
+    state.rows[t].forEach(function (row, i) {
+      var tr = document.createElement('tr');
+      var no = document.createElement('td'); no.className = 'no'; no.textContent = i + 1; tr.appendChild(no);
+      COLS[t].forEach(function (c) { tr.appendChild(cell(t, c[0], c[1], row[c[0]])); });
+      tr.addEventListener('input', function (e) { var el = e.target; if (el.dataset.key) { row[el.dataset.key] = el.value; save(); } });
+      tr.addEventListener('change', function (e) { var el = e.target; if (el.dataset.key) { row[el.dataset.key] = el.value; save(); toggleRow(tr, row); } });
+      toggleRow(tr, row);
+      tb.appendChild(tr);
+    });
+  }
+  // 「エラーになる」の行は金額欄を薄くする
+  function toggleRow(tr, row) {
+    var err = row.kind === 'エラー';
+    tr.querySelectorAll('input.num').forEach(function (inp) {
+      var k = inp.dataset.key;
+      if (['each', 'change', 'organizer', 'student'].indexOf(k) >= 0) { inp.disabled = err; inp.style.opacity = err ? '.35' : '1'; }
+    });
+  }
+
+  function n(v) { return String(v || '').replace(/[,，\s円]/g, ''); }
+  function filled(row, keys) { return keys.some(function (k) { return n(row[k]) !== ''; }); }
+
+  function gen(t) {
+    var lines = [], warn = [];
+    var rows = state.rows[t];
+    if (t === 'A') {
+      lines.push('次の表A を tests.js にテストとして追加してください。まだ logic.js は直さないでください。');
+      lines.push('');
+      lines.push('## 表A: 基本の割り勘');
+      lines.push('端数のルール: 1円未満は ' + state.ruleRound + '。余りは ' + state.ruleChange + '。');
+      lines.push('幹事なし・単位 1円（calcSplit({ total, people }) で呼ぶ）。');
+      lines.push('');
+      lines.push('| No | 説明 | 合計金額 | 人数 | 期待する結果 |');
+      lines.push('|---|---|---|---|---|');
+      rows.forEach(function (r, i) {
+        if (!filled(r, ['total', 'people'])) return;
+        var exp = r.kind === 'エラー' ? 'エラーになる（error に日本語メッセージ）' : '1人あたり ' + n(r.each) + ' 円、余り ' + n(r.change) + ' 円';
+        if (r.kind !== 'エラー' && (n(r.each) === '' || n(r.change) === '')) warn.push('No.' + (i + 1) + ' の期待する金額が空です');
+        lines.push('| ' + (i + 1) + ' | ' + (r.desc || '') + ' | ' + n(r.total) + ' | ' + n(r.people) + ' | ' + exp + ' |');
+      });
+    } else if (t === 'B') {
+      lines.push('spec-change.md を読んでください。まず次の表B を tests.js に追加するだけにして、logic.js はまだ直さないでください。');
+      lines.push('');
+      lines.push('## 表B: 幹事ルール');
+      lines.push('幹事あり（organizer: true）。幹事以外は単位で切り捨て、端数は幹事が引き受ける。');
+      lines.push('');
+      lines.push('| No | 説明 | 合計金額 | 人数 | 単位 | 期待する結果 |');
+      lines.push('|---|---|---|---|---|---|');
+      rows.forEach(function (r, i) {
+        if (!filled(r, ['total', 'people'])) return;
+        var exp;
+        if (r.kind === 'エラー') exp = 'エラーになる';
+        else if (n(r.each) === '' && n(r.organizer) !== '') exp = '幹事 ' + n(r.organizer) + ' 円（幹事以外はいない）';
+        else exp = '幹事以外の1人 ' + n(r.each) + ' 円、幹事 ' + n(r.organizer) + ' 円';
+        if (r.kind !== 'エラー' && n(r.organizer) === '') warn.push('No.' + (i + 1) + ' の幹事の金額が空です');
+        lines.push('| ' + (i + 1) + ' | ' + (r.desc || '') + ' | ' + n(r.total) + ' | ' + n(r.people) + ' | ' + n(r.unit) + ' | ' + exp + ' |');
+      });
+    } else {
+      var cand = state.cand, label = EXTRA_LABEL[cand];
+      var key = { A: 'coupon', B: 'minEach', C: 'students' }[cand];
+      lines.push('spec-change-2.md の候補' + cand + '（' + { A: 'クーポン値引き', B: '最低支払額', C: '学生は半額' }[cand] + '）を採用します。');
+      lines.push('「決めること」は次のように決めました: ' + (state.decided || '（未記入）'));
+      lines.push('まず次の表C を tests.js に追加するだけにして、logic.js はまだ直さないでください。');
+      lines.push('');
+      lines.push('## 表C: 自分のルール（候補' + cand + '）');
+      lines.push('幹事あり（organizer: true）。「' + label + '」は calcSplit の ' + key + ' で渡す。');
+      lines.push('');
+      lines.push('| No | 説明 | 合計金額 | 人数 | 単位 | ' + label + ' | 期待する結果 |');
+      lines.push('|---|---|---|---|---|---|---|');
+      if (!state.decided) warn.push('「決めたこと」が空です');
+      rows.forEach(function (r, i) {
+        if (!filled(r, ['total', 'people'])) return;
+        var exp;
+        if (r.kind === 'エラー') exp = 'エラーになる';
+        else {
+          exp = '幹事以外の1人 ' + n(r.each) + ' 円、幹事 ' + n(r.organizer) + ' 円';
+          if (cand === 'C' && n(r.student) !== '') exp += '、学生1人 ' + n(r.student) + ' 円';
+          if (n(r.organizer) === '') warn.push('No.' + (i + 1) + ' の幹事の金額が空です');
+        }
+        lines.push('| ' + (i + 1) + ' | ' + (r.desc || '') + ' | ' + n(r.total) + ' | ' + n(r.people) + ' | ' + n(r.unit) + ' | ' + n(r.extra) + ' | ' + exp + ' |');
+      });
+    }
+    var out = document.getElementById('out' + t);
+    out.querySelector('textarea').value = lines.join('\n');
+    document.getElementById('warn' + t).textContent = warn.length ? '確認: ' + warn.join('／') : '';
+    out.classList.add('show');
+    out.querySelector('textarea').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  var toast = document.getElementById('toast'), timer;
+  function show(msg, fail) {
+    toast.textContent = msg; toast.className = 'toast show' + (fail ? ' fail' : '');
+    clearTimeout(timer); timer = setTimeout(function () { toast.className = 'toast'; }, 1800);
+  }
+  function copy(t) {
+    var ta = document.querySelector('#out' + t + ' textarea');
+    function ok() { show('コピーしました。Bob のチャット欄に貼り付けてください。'); }
+    function fb() { try { ta.focus(); ta.select(); if (document.execCommand('copy')) { ok(); return; } } catch (e) {} ta.focus(); ta.select(); show('コピーできませんでした。選択された文を手動でコピーしてください。', true); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(ok, fb); else fb();
+  }
+
+  // 初期化
+  ['A', 'B', 'C'].forEach(render);
+  document.getElementById('ruleRound').value = state.ruleRound;
+  document.getElementById('ruleChange').value = state.ruleChange;
+  document.getElementById('cand').value = state.cand;
+  document.getElementById('decided').value = state.decided;
+  document.getElementById('thExtra').textContent = '追加の入力（' + EXTRA_LABEL[state.cand] + '）';
+  document.getElementById('ruleRound').addEventListener('change', function (e) { state.ruleRound = e.target.value; save(); });
+  document.getElementById('ruleChange').addEventListener('change', function (e) { state.ruleChange = e.target.value; save(); });
+  document.getElementById('cand').addEventListener('change', function (e) { state.cand = e.target.value; document.getElementById('thExtra').textContent = '追加の入力（' + EXTRA_LABEL[state.cand] + '）'; save(); });
+  document.getElementById('decided').addEventListener('input', function (e) { state.decided = e.target.value; save(); });
+  document.querySelectorAll('[data-gen]').forEach(function (b) { b.addEventListener('click', function () { gen(b.dataset.gen); }); });
+  document.querySelectorAll('[data-copy]').forEach(function (b) { b.innerHTML = ICON + 'コピー'; b.addEventListener('click', function () { copy(b.dataset.copy); }); });
+  document.querySelectorAll('[data-reset]').forEach(function (b) { b.addEventListener('click', function () { var t = b.dataset.reset; state.rows[t] = clone(DEFAULTS[t]); save(); render(t); }); });
+  // 講師の合図で開く: 見出しクリックで薄さを解除
+  document.querySelectorAll('section.locked h2').forEach(function (h) { h.style.cursor = 'pointer'; h.title = 'クリックで開く'; h.addEventListener('click', function () { h.parentNode.classList.remove('locked'); }); });
+  window.__cases = { state: state, gen: gen };
+})();
+</script>
+</body>
+</html>
