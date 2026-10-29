@@ -1,1 +1,0 @@
-import{c as o}from"./DGCcdjvC.js";import{r as e,c as i}from"./Cb_rj9a_.js";const[n]=o("ConfigProvider");function s(r){const t=n({dir:e("ltr")});return i(()=>r?.value||t.dir?.value||"ltr")}export{n as i,s as u};
