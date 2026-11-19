@@ -10,7 +10,7 @@
 ## アプリのアーキテクチャーを分析する体験
 
 * 手順1: [ClassicJava201-handson.zip](ClassicJava201-handson.zip)をダウンロードし、ローカル・コンピューター上に展開する（任意のフォルダー）
-* 手順2: IBM Bob IDEを開き、展開済みのフォルダーを開き、そのフォルダーを「信頼」に設定する
+* 手順2: IBM Bob IDEを開き、展開済みのフォルダーを開き、そのフォルダーを「信頼する」に設定する
 * 手順3: Bobのチャットで、Agentモードにする
 * 手順4: 次のプロンプトを実行する
 
@@ -28,7 +28,7 @@
 
 ## アプリのリバース・エンジニアリングを体験
 
-* 手順1: docs/handson/handson-reverse-engineering.html をブラウザーで開く
+* 手順1: Bob IDEのエクスプローラーで展開済みのフォルダー内にある docs/handson/handson-reverse-engineering.html を右クリックして、統合ブラウザーで開く
 * 手順2: 開いたページの目次を確認する
 * 手順3: Step 1からStep 9まで順に実行する
 
